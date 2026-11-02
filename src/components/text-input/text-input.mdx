@@ -180,10 +180,10 @@ export const ModifierTable = ({ modifiers }) => (
 <Canvas of={TextInputStories.Password} />
 
 ```html
-<div class="ds-form-content btn-ico-wrap" data-delete="true">
+<div class="ds-form-content ds-form-content--with-btn" data-delete="true">
   <input type="password" class="ds-input" placeholder="비밀번호 입력">
-  <div class="btn-group">
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input">
+  <div class="ds-form-content__actions">
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn">
       <span class="sr-only">내용 삭제</span>
       <i class="ds-icon ds-ico-delete-fill"></i>
     </button>
@@ -203,10 +203,10 @@ export const ModifierTable = ({ modifiers }) => (
 <Canvas of={TextInputStories.Search} />
 
 ```html
-<div class="ds-form-content btn-ico-wrap" data-delete="true">
+<div class="ds-form-content ds-form-content--with-btn" data-delete="true">
   <input type="search" class="ds-input" placeholder="검색어를 입력하세요">
-  <div class="btn-group">
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input">
+  <div class="ds-form-content__actions">
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn">
       <span class="sr-only">내용 삭제</span>
       <i class="ds-icon ds-ico-delete-fill"></i>
     </button>

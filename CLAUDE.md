@@ -55,7 +55,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 이 디자인 시스템은 BEM 방식의 네이밍을 사용한다.
 
 - **블록**: `ds-{컴포넌트}` (예: `ds-btn`, `ds-input`, `ds-pagination`)
-- **요소**: `ds-{컴포넌트}__{요소}` (예: `ds-btn__text`, `ds-tag__del-btn`)
+- **요소**: `ds-{컴포넌트}__{요소}` (예: `ds-btn__text`, `ds-tag__delete-btn`)
 - **변형(modifier)**: `ds-{컴포넌트}--{modifier}` (예: `ds-btn--primary`, `ds-btn--small`)
 - **아이콘 루트**: `ds-icon` (기존 `svg-icon` 대체)
 - **아이콘 종류**: `ds-ico-{이름}` (기존 `ico-*` 대체, 예: `ds-ico-sch`, `ds-ico-go`)
@@ -88,6 +88,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - **요소 이름은 모양이 아니라 역할로 짓는다.** 예: `__underline`(모양) → `__text`(역할). 디자인이 바뀌어도 이름이 낡아지지 않도록 한다.
 - **한 요소에는 스타일용·JS용 클래스를 따로 두지 않는다.** BEM 클래스 하나로 스타일과 JS 이벤트 선택을 모두 처리한다.
 - **modifier는 항상 기본 클래스와 함께 쓴다.** 예: `ds-calendar__cell--today`만 단독으로 쓰지 않고, `ds-calendar__cell ds-calendar__cell--today`로 쓴다.
+- **버튼 묶음 요소는 `__actions`로 쓴다.** 버튼 여러 개를 감싸는 컨테이너 요소의 이름은 `{블록}__actions`으로 통일한다. 예: `ds-form-content__actions`, `ds-calendar__actions`.
 - 모든 클래스는 KRDS 원본에 대응하는 클래스가 있어야 한다. 대응하는 원본이 없거나 추측한 경우 "확인 필요"로 표시한다.
 - naming-data.js에는 ds- 클래스명과 함께 "KRDS 원본 클래스명"을 기록해 대응 관계를 유지한다.
 - 네이밍 데이터는 src/docs/naming-data.js 한 곳에서 관리한다.

@@ -106,7 +106,7 @@ function formGroup({ id, label, required, size, state, placeholder, options, hin
 }
 
 const wrap = (content) =>
-  `<div class="fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ───────────────────────────── */
 export const Playground = {

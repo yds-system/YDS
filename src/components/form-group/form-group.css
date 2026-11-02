@@ -18,8 +18,8 @@
   --ds-form-group--message-error-text-color: var(--krds-light-color-text-danger);
 }
 
-/* ----- fieldset ----- */
-.fieldset {
+/* ----- 폼 그룹 세로 묶음 ----- */
+.ds-fieldset {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -27,19 +27,19 @@
   gap: var(--krds-gap-7);
 }
 
-/* ----- 가로 배치 그룹 ----- */
-.form-col-group {
+/* ----- 폼 그룹 가로 배치 ----- */
+.ds-form-row {
   display: flex;
   gap: var(--krds-gap-5);
 }
-.form-col-group .ds-form-group {
+.ds-form-row .ds-form-group {
   width: fit-content;
 }
 @media (max-width: 767px) {
-  .form-col-group {
+  .ds-form-row {
     flex-direction: column;
   }
-  .form-col-group .ds-form-group {
+  .ds-form-row .ds-form-group {
     width: 100%;
   }
 }
@@ -55,26 +55,22 @@
 }
 
 /* ----- 레이블 영역 ----- */
-.ds-form-group .ds-form-label,
-.ds-form-group .form-label {
+.ds-form-group .ds-form-label {
   width: 100%;
   color: var(--krds-light-color-text-subtle);
 }
-.ds-form-group .ds-form-label label,
-.ds-form-group .form-label label {
+.ds-form-group .ds-form-label label {
   font-size: var(--ds-form-group--label-pc-font-size);
   font-weight: var(--krds-font-weight-regular);
 }
 @media (max-width: 767px) {
-  .ds-form-group .ds-form-label label,
-  .ds-form-group .form-label label {
+  .ds-form-group .ds-form-label label {
     font-size: var(--ds-form-group--label-mobile-font-size);
   }
 }
 
 /* 필수 표시 */
-.ds-form-label .ds-form-label__required,
-.form-label .ds-form-label__required {
+.ds-form-label .ds-form-label__required {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,41 +96,41 @@
 }
 
 /* 아이콘 버튼 포함 (password, search, delete 등) */
-.ds-form-group .ds-form-content.btn-ico-wrap {
+.ds-form-group .ds-form-content--with-btn {
   position: relative;
   flex-direction: row;
   align-items: center;
 }
-.ds-form-group .ds-form-content.btn-ico-wrap .ds-input {
+.ds-form-group .ds-form-content--with-btn .ds-input {
   padding-right: var(--ds-form-group--icon-padding-right);
 }
-.ds-form-group .ds-form-content.btn-ico-wrap .btn-group,
-.ds-form-group .ds-form-content.btn-ico-wrap .ds-btn {
+.ds-form-group .ds-form-content--with-btn .ds-form-content__actions,
+.ds-form-group .ds-form-content--with-btn .ds-btn {
   position: absolute;
   top: 50%;
   right: var(--krds-padding-7);
   transform: translateY(-50%);
 }
-.ds-form-group .ds-form-content.btn-ico-wrap .btn-group {
+.ds-form-group .ds-form-content--with-btn .ds-form-content__actions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   gap: var(--krds-gap-3);
 }
-.ds-form-group .ds-form-content.btn-ico-wrap .btn-group .ds-btn {
+.ds-form-group .ds-form-content--with-btn .ds-form-content__actions .ds-btn {
   position: static;
   transform: translateY(0);
 }
 
 /* 삭제 버튼: 값이 없으면 숨김 */
-.ds-form-group .ds-form-content.btn-ico-wrap .btn-delete-input {
+.ds-form-group .ds-form-content--with-btn .ds-input__clear-btn {
   display: none;
 }
-.ds-form-content[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .btn-delete-input {
+.ds-form-content--with-btn[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .ds-input__clear-btn {
   display: flex;
 }
-.ds-form-content[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .btn-group .btn-delete-input {
+.ds-form-content--with-btn[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .ds-form-content__actions .ds-input__clear-btn {
   display: flex;
 }
 
@@ -219,37 +215,3 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-/* ----- 입력 그룹 (범위 등) ----- */
-.input-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: var(--krds-gap-5);
-  width: 100%;
-}
-.input-group.range {
-  align-items: flex-end;
-  position: relative;
-}
-.input-group.range > li:not(.mark) {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  flex: 1 1 0px;
-  min-width: 0;
-  gap: var(--ds-form-group--gap);
-  position: relative;
-}
-.input-group.range > li.mark {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  height: var(--krds-size-height-8);
-}
-.input-group.range > li.mark.large { height: var(--krds-size-height-8); }
-.input-group.range > li.mark.medium { height: var(--krds-size-height-7); }
-.input-group.range > li.mark.small { height: var(--krds-size-height-6); }

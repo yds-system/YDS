@@ -157,11 +157,11 @@ export const Password = {
         <div class="ds-form-label">
           <label for="${id}">비밀번호</label>
         </div>
-        <div class="ds-form-content btn-ico-wrap" data-delete="true">
+        <div class="ds-form-content ds-form-content--with-btn" data-delete="true">
           <input type="password" id="${id}" class="ds-input${sizeClass}"
             placeholder="8~12자의 영문자, 숫자, 특수문자 조합" value="password123" ${disabledAttr}>
-          <div class="btn-group">
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input"
+          <div class="ds-form-content__actions">
+            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn"
               aria-label="내용 삭제"
               onclick="(function(btn){var inp=btn.closest('.ds-form-content').querySelector('.ds-input');inp.value='';inp.focus();})(this)">
               <span class="sr-only">내용 삭제</span>
@@ -193,11 +193,11 @@ export const Search = {
         <div class="ds-form-label">
           <label for="${id}">검색어</label>
         </div>
-        <div class="ds-form-content btn-ico-wrap" data-delete="true">
+        <div class="ds-form-content ds-form-content--with-btn" data-delete="true">
           <input type="search" id="${id}" class="ds-input${sizeClass}"
             placeholder="${placeholder}">
-          <div class="btn-group">
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input"
+          <div class="ds-form-content__actions">
+            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn"
               onclick="(function(btn){var inp=btn.closest('.ds-form-content').querySelector('.ds-input');inp.value='';inp.focus();})(this)">
               <span class="sr-only">내용 삭제</span>
               <i class="ds-icon ds-ico-delete-fill"></i>

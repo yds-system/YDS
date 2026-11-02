@@ -83,7 +83,7 @@ function checkGroup({ legend, required = false, layout = 'row', hint = '', state
 }
 
 const wrap = (content) =>
-  `<div class="fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ───────────────────────────── */
 export const Playground = {

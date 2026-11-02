@@ -47,6 +47,37 @@
   display: none;
 }
 
+/* ----- 기간 선택 레이아웃 ----- */
+.ds-date-input__range-list {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: var(--krds-gap-5);
+  width: 100%;
+  position: relative;
+}
+.ds-date-input__range-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1 1 0px;
+  min-width: 0;
+  gap: var(--ds-form-group--gap);
+  position: relative;
+}
+.ds-date-input__separator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  height: var(--krds-size-height-8);
+}
+.ds-date-input__separator--large  { height: var(--krds-size-height-8); }
+.ds-date-input__separator--medium { height: var(--krds-size-height-7); }
+.ds-date-input__separator--small  { height: var(--krds-size-height-6); }
+
 /* =============================================
    달력 팝업 (.ds-calendar)
    ============================================= */
@@ -426,7 +457,7 @@
 .ds-calendar__footer {
   margin-top: var(--ds-calendar--table-wrap-padding);
 }
-.ds-calendar__action {
+.ds-calendar__actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -435,7 +466,7 @@
   border-top: 1px solid var(--ds-calendar--action-btn-wrap-color-border);
   background-color: var(--ds-calendar--action-btn-wrap-color-surface);
 }
-.ds-calendar__action .ds-btn:first-child {
+.ds-calendar__actions .ds-btn:first-child {
   margin-right: auto;
 }
 

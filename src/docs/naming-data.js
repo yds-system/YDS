@@ -67,10 +67,6 @@ button.ds-btn.ds-btn--icon [ds-btn--크기] [ds-btn--border]
     { category: '종류', class: 'ds-btn--tertiary',  krdsClass: 'tertiary',  description: '낮은 우선순위 액션 버튼 (취소·닫기 등)', confirmed: true },
     { category: '종류', class: 'ds-btn--text',      krdsClass: 'text',      description: '테두리 없이 텍스트만 표시하는 버튼', confirmed: true },
     { category: '종류', class: 'ds-btn--icon',      krdsClass: 'icon',      description: '텍스트 없이 아이콘만 표시하는 버튼 (sr-only 필수)', confirmed: true },
-    // 링크 변형 — <a> 태그에 ds-btn과 함께 사용
-    { category: '종류 (링크)', class: 'ds-btn--link',  krdsClass: 'link',  description: '<a> 태그에 사용. 페이지 이동 링크 버튼 스타일', confirmed: true },
-    { category: '종류 (링크)', class: 'ds-btn--pure',  krdsClass: 'pure',  description: 'link와 함께 사용. 가상클래스 상태에서도 색상 고정', confirmed: true },
-    { category: '종류 (링크)', class: 'ds-btn--basic', krdsClass: 'basic', description: 'link와 함께 사용. 본문 텍스트 색상 링크', confirmed: true },
     // 크기
     { category: '크기', class: 'ds-btn--xsmall', krdsClass: 'xsmall', description: 'X-Small (가장 작은 크기)', confirmed: true },
     { category: '크기', class: 'ds-btn--small',  krdsClass: 'small',  description: 'Small', confirmed: true },
@@ -122,21 +118,148 @@ button.ds-btn.ds-btn--icon [ds-btn--크기] [ds-btn--border]
 <!-- 텍스트 버튼 -->
 <button type="button" class="ds-btn ds-btn--text ds-btn--medium">텍스트</button>
 
-<!-- 링크 버튼 — <a> 태그 사용 -->
-<a href="https://example.com" class="ds-btn ds-btn--small ds-btn--link" target="_blank" title="새 창 열림">
-  <span class="ds-btn__text">기본 링크</span>
-  <i class="ds-icon ds-ico-go" aria-hidden="true"></i>
-</a>
-<a href="/path" class="ds-btn ds-btn--large ds-btn--link ds-btn--basic">
-  <span class="ds-btn__text">본문 색상 링크</span>
-</a>
+<!-- 버튼 외형 링크 — <a> 태그에 ds-btn 위계 modifier 적용 -->
+<a href="https://example.com" class="ds-btn ds-btn--primary ds-btn--small">이동하기</a>
+<a href="/path" class="ds-btn ds-btn--secondary ds-btn--medium">자세히 보기</a>
+<!-- 텍스트 링크는 ds-link 컴포넌트를 사용한다 -->
 
 <!-- 비활성화 -->
 <!-- button: disabled 속성 사용 -->
 <button type="button" class="ds-btn ds-btn--primary" disabled>비활성화</button>
 
-<!-- a 태그 링크: .ds-btn--disabled 클래스 + aria-disabled + tabindex -->
-<a href="#" class="ds-btn ds-btn--small ds-btn--link ds-btn--disabled" aria-disabled="true" tabindex="-1">비활성 링크</a>`,
+<!-- a 태그 버튼 외형 링크: .ds-btn--disabled 클래스 + aria-disabled + tabindex -->
+<a href="#" class="ds-btn ds-btn--secondary ds-btn--small ds-btn--disabled" aria-disabled="true" tabindex="-1">비활성 링크 버튼</a>`,
+};
+
+// ─── 링크 텍스트 (Link Text) ────────────────────────────────────────────────
+
+export const linkNaming = {
+  name: '링크 텍스트',
+  englishName: 'Link Text',
+  sbPath: '컴포넌트/액션/링크 텍스트',
+  baseClass: 'ds-link',
+  krdsBaseClass: 'krds-btn link',
+  description: '인라인 또는 독립형 텍스트 링크. 페이지 이동이 목적인 <a> 요소에 사용. 버튼(ds-btn)과 독립된 별도 블록',
+
+  structure: `a.ds-link [ds-link--크기] [ds-link--basic] [ds-link--pure]
+├── span.ds-link__text                            ← 밑줄 항상
+│   또는
+│   span.ds-link__text.ds-link__text--underline-hover  ← 밑줄 hover (같은 span에 클래스 2개)
+│   (자식 span 없음 → 밑줄 없음)
+└── i.ds-icon.ds-ico-*                            ← 아이콘 (선택)`,
+
+  elements: [
+    { element: '링크', class: 'ds-link', krdsClass: 'krds-btn link', description: '링크 텍스트 루트 (<a> 태그). 크기·색상·pure modifier를 공백으로 이어 붙인다. 기본 크기는 large.', confirmed: true },
+    { element: '밑줄 텍스트', class: 'ds-link__text', krdsClass: 'underline', description: '텍스트에 밑줄 항상 표시', confirmed: true },
+    { element: '아이콘', class: 'ds-icon ds-ico-*', krdsClass: 'svg-icon ico-*', description: 'CSS mask-image 기반 SVG 아이콘. 외부 링크 시 ds-ico-go 사용', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '크기', class: 'ds-link--xsmall', krdsClass: 'xsmall', description: 'X-Small', confirmed: true },
+    { category: '크기', class: 'ds-link--small',  krdsClass: 'small',  description: 'Small', confirmed: true },
+    { category: '크기', class: 'ds-link--medium', krdsClass: 'medium', description: 'Medium', confirmed: true },
+    { category: '크기', class: 'ds-link--large',  krdsClass: 'large',  description: 'Large — 크기 클래스를 생략하면 이 크기가 기본 적용된다.', confirmed: true },
+    { category: '크기', class: 'ds-link--xlarge', krdsClass: 'xlarge', description: 'X-Large', confirmed: true },
+    { category: '색상', class: 'ds-link--basic', krdsClass: 'basic', description: '본문 텍스트 색상(--krds-light-color-text-basic). 기본은 링크 색상', confirmed: true },
+    { category: '색상', class: 'ds-link--pure',  krdsClass: 'pure',  description: '가상클래스 상태에서도 기본 색상 유지. ds-link--basic과 함께 쓸 수 있다.', confirmed: true },
+    { category: '밑줄', class: 'ds-link__text--underline-hover', krdsClass: 'hidden-underline', description: '기본 투명 밑줄, 상호작용 시 표시. ds-link__text와 같은 span에 함께 사용', confirmed: true },
+    { category: '상태', class: 'ds-link--disabled', krdsClass: 'disabled', description: '비활성화. <a> 태그는 disabled 속성이 없으므로 이 클래스 + aria-disabled="true" + tabindex="-1" 사용', confirmed: true },
+  ],
+
+  codeExample: `<!-- 기본 (밑줄 항상) -->
+<a href="/path" class="ds-link">
+  <span class="ds-link__text">링크 텍스트</span>
+</a>
+
+<!-- 새 창 + 아이콘 -->
+<a href="https://example.com" class="ds-link" target="_blank" title="새 창 열림">
+  <span class="ds-link__text">외부 링크</span>
+  <i class="ds-icon ds-ico-go" aria-hidden="true"></i>
+</a>
+
+<!-- 본문 텍스트 색상 -->
+<a href="/path" class="ds-link ds-link--basic">
+  <span class="ds-link__text">본문 색상 링크</span>
+</a>
+
+<!-- 밑줄 hover — ds-link__text와 ds-link__text--underline-hover를 같은 span에 사용 -->
+<a href="/path" class="ds-link">
+  <span class="ds-link__text ds-link__text--underline-hover">hover 시 밑줄</span>
+</a>
+
+<!-- 밑줄 없음 -->
+<a href="/path" class="ds-link">
+  <span>밑줄 없음</span>
+</a>
+
+<!-- 순수 — 상호작용 시 색상 유지 -->
+<a href="/path" class="ds-link ds-link--pure">
+  <span class="ds-link__text">색상 고정 링크</span>
+</a>
+
+<!-- 크기 (medium) -->
+<a href="/path" class="ds-link ds-link--medium">
+  <span class="ds-link__text">Medium 링크</span>
+</a>
+
+<!-- 비활성화 -->
+<a href="#" class="ds-link ds-link--disabled" aria-disabled="true" tabindex="-1">
+  <span class="ds-link__text">비활성 링크</span>
+</a>`,
+};
+
+// ─── 태그 (Tag) ─────────────────────────────────────────────────────────────
+
+export const tagNaming = {
+  name: '태그',
+  englishName: 'Tag',
+  sbPath: '컴포넌트/선택/태그',
+  baseClass: 'ds-tag-group',
+  krdsBaseClass: 'krds-tag-wrap',
+  description: '선택된 필터·키워드를 칩 형태로 표시하고 삭제할 수 있는 요소. 링크 태그(ds-tag--link) 포함',
+
+  structure: `div.ds-tag-group  [ds-tag-group--크기]
+└── span.ds-tag  또는  a.ds-tag.ds-tag--link
+    ├── [텍스트]
+    └── button.ds-tag__delete-btn        ← 삭제 버튼 (선택)
+        └── span.sr-only`,
+
+  elements: [
+    { element: '태그 그룹', class: 'ds-tag-group', krdsClass: 'krds-tag-wrap', description: '태그 목록 컨테이너. 크기 modifier를 함께 사용한다.', confirmed: true },
+    { element: '태그 항목', class: 'ds-tag', krdsClass: 'krds-btn-tag', description: '개별 태그. span(삭제 가능) 또는 a(링크) 태그에 적용', confirmed: true },
+    { element: '삭제 버튼', class: 'ds-tag__delete-btn', krdsClass: 'btn-delete', description: '태그 내 삭제 버튼. sr-only로 텍스트 필수', confirmed: true },
+    { element: '숨김 텍스트', class: 'sr-only', krdsClass: 'sr-only', description: '삭제 버튼의 스크린 리더 전용 텍스트', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '크기', class: 'ds-tag-group--small',  krdsClass: 'small',  description: 'Small 크기 태그 그룹', confirmed: true },
+    { category: '크기', class: 'ds-tag-group--medium', krdsClass: 'medium', description: 'Medium 크기 태그 그룹 (기본)', confirmed: true },
+    { category: '크기', class: 'ds-tag-group--large',  krdsClass: 'large',  description: 'Large 크기 태그 그룹', confirmed: true },
+    { category: '링크', class: 'ds-tag--link', krdsClass: 'link', description: '링크 스타일 태그. hover·active 시 밑줄. ds-tag와 함께 사용', confirmed: true },
+  ],
+
+  codeExample: `<!-- 삭제 가능한 태그 -->
+<div class="ds-tag-group ds-tag-group--medium">
+  <span class="ds-tag">
+    공지사항
+    <button type="button" class="ds-tag__delete-btn">
+      <span class="sr-only">공지사항 삭제</span>
+    </button>
+  </span>
+  <span class="ds-tag">
+    이벤트
+    <button type="button" class="ds-tag__delete-btn">
+      <span class="sr-only">이벤트 삭제</span>
+    </button>
+  </span>
+</div>
+
+<!-- 링크 태그 -->
+<div class="ds-tag-group ds-tag-group--medium">
+  <a href="#" class="ds-tag ds-tag--link">디자인 시스템</a>
+  <a href="#" class="ds-tag ds-tag--link">접근성</a>
+  <a href="#" class="ds-tag ds-tag--link">KRDS</a>
+</div>`,
 };
 
 // ─── 글자 수 (Character Count) — 공통 블록 ─────────────────────────────────
@@ -177,10 +300,10 @@ export const textInputNaming = {
 └── p.ds-form-hint  [ds-form-hint--error|--success|--info]
 
 아이콘 버튼 포함 (password / search):
-div.ds-form-content.btn-ico-wrap  [data-delete="true"]
+div.ds-form-content.ds-form-content--with-btn  [data-delete="true"]
 ├── input.ds-input
-└── div.btn-group
-    ├── button.ds-btn.btn-delete-input   ← 삭제 버튼
+└── div.ds-form-content__actions
+    ├── button.ds-btn.ds-input__clear-btn ← 입력값 지우기 버튼
     └── button.ds-btn                   ← 보기/검색 버튼
 
 글자 수 표시:
@@ -203,9 +326,9 @@ div.ds-form-content  [ds-form-content--error]
     { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '입력창을 감싸는 영역. 상태 modifier를 이 요소에 적용한다', confirmed: true },
     { element: '입력창', class: 'ds-input', krdsClass: 'krds-input', description: '텍스트 입력창 (input 또는 textarea에 적용)', confirmed: true },
     { element: '도움말', class: 'ds-form-hint', krdsClass: 'form-hint', description: '입력 안내·에러·성공 메시지 (p 태그)', confirmed: true },
-    { element: '버튼 래퍼', class: 'btn-ico-wrap', krdsClass: 'btn-ico-wrap', description: '입력창 오른쪽 아이콘 버튼을 포함할 때 ds-form-content에 추가', confirmed: true },
-    { element: '버튼 그룹', class: 'btn-group', krdsClass: 'btn-group', description: '삭제·보기 등 버튼 묶음', confirmed: true },
-    { element: '삭제 버튼', class: 'btn-delete-input', krdsClass: 'btn-delete-input', description: '입력 내용 삭제 버튼. data-delete="true" 시 CSS로 자동 표시', confirmed: true },
+    { element: '버튼 포함 영역', class: 'ds-form-content--with-btn', krdsClass: 'btn-ico-wrap', description: 'ds-form-content에 추가하는 modifier. 아이콘 버튼을 포함하는 입력창에 사용', confirmed: true },
+    { element: '버튼 묶음', class: 'ds-form-content__actions', krdsClass: 'btn-group', description: '삭제·보기 등 버튼을 묶는 컨테이너', confirmed: true },
+    { element: '입력값 지우기 버튼', class: 'ds-input__clear-btn', krdsClass: 'btn-delete-input', description: '입력 내용 삭제 버튼. data-delete="true" 시 CSS로 자동 표시', confirmed: true },
     // ds-count 3종은 공통 블록으로 분리 → countNaming 참고
     { element: 'Textarea 블록', class: 'ds-textarea', krdsClass: 'textarea-wrap', description: 'textarea + 글자 수를 묶는 블록', confirmed: true },
     { element: 'Textarea 하단', class: 'ds-textarea__bottom', krdsClass: 'textarea-bottom', description: '에러 메시지와 글자 수를 가로로 배치하는 컨테이너', confirmed: true },
@@ -497,6 +620,7 @@ export const dateInputNaming = {
     { element: '입력 래퍼', class: 'ds-date-input__input-wrap', krdsClass: 'calendar-input', description: 'input + 달력 열기 버튼을 묶는 래퍼', confirmed: true },
     { element: '달력 열기 버튼', class: 'ds-date-input__open-btn', krdsClass: 'form-btn-datepicker', description: '입력창 우측 달력 아이콘 버튼', confirmed: true },
     { element: '기간 입력 목록', class: 'ds-date-input__range-list', krdsClass: 'input-group range set', description: '기간 선택 시 시작·종료 input을 담는 ul', confirmed: true },
+    { element: '기간 입력 항목', class: 'ds-date-input__range-item', krdsClass: '(없음)', description: '기간 선택 시 시작·종료 input을 담는 li. :not() 선택 대신 직접 클래스로 지정', confirmed: true },
     { element: '구분자', class: 'ds-date-input__separator', krdsClass: 'mark', description: '기간 선택 시 – 구분 li', confirmed: true },
     { element: '날짜 input', class: 'ds-date-input__input', krdsClass: 'datepicker', description: '날짜 표시용 읽기 전용 input (JS 훅 클래스)', confirmed: true },
   ],
@@ -532,7 +656,7 @@ export const calendarNaming = {
     { element: '날짜 셀', class: 'ds-calendar__cell', krdsClass: '(td 직접)', description: '날짜 테이블의 모든 td에 기본 클래스로 적용', confirmed: true },
     { element: '날짜 버튼', class: 'ds-calendar__date-btn', krdsClass: 'btn-set-date', description: '', confirmed: true },
     { element: '푸터', class: 'ds-calendar__footer', krdsClass: 'calendar-footer', description: '', confirmed: true },
-    { element: '액션 버튼 행', class: 'ds-calendar__action', krdsClass: 'calendar-btn-wrap', description: '', confirmed: true },
+    { element: '액션 버튼 행', class: 'ds-calendar__actions', krdsClass: 'calendar-btn-wrap', description: '', confirmed: true },
     { element: '오늘 버튼', class: 'ds-calendar__today-btn', krdsClass: 'btn-today', description: '', confirmed: true },
     { element: '취소 버튼', class: 'ds-calendar__cancel-btn', krdsClass: 'btn-cancel', description: '', confirmed: true },
     { element: '확인 버튼', class: 'ds-calendar__confirm-btn', krdsClass: 'btn-confirm', description: '', confirmed: true },
@@ -606,10 +730,12 @@ export const fileUploadNaming = {
 
 export const allComponents = [
   buttonNaming,
+  linkNaming,
   textInputNaming,
   selectNaming,
   checkboxNaming,
   radioNaming,
+  tagNaming,
   dateInputNaming,
   fileUploadNaming,
 ];

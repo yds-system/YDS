@@ -89,12 +89,12 @@ function renderRange({ label, hint, required }) {
       <div class="ds-form-content ds-date-input">
         <div class="ds-date-input__input-wrap">
           <ul class="ds-date-input__range-list">
-            <li>
+            <li class="ds-date-input__range-item">
               <input type="text" id="${id}-start" class="ds-input ds-date-input__input"
                      placeholder="시작날짜" title="시작날짜 입력" readonly aria-expanded="false">
             </li>
             <li class="ds-date-input__separator">–</li>
-            <li>
+            <li class="ds-date-input__range-item">
               <input type="text" id="${id}-end" class="ds-input ds-date-input__input"
                      placeholder="종료날짜" title="종료날짜 입력" readonly aria-expanded="false">
             </li>
@@ -256,7 +256,7 @@ class DatePicker {
   _buildFooter() {
     return `
       <div class="ds-calendar__footer">
-        <div class="ds-calendar__action">
+        <div class="ds-calendar__actions">
           <button type="button" class="ds-btn ds-btn--small ds-btn--text ds-calendar__today-btn">오늘</button>
           <button type="button" class="ds-btn ds-btn--small ds-btn--tertiary ds-calendar__cancel-btn">취소</button>
           <button type="button" class="ds-btn ds-btn--small ds-btn--primary ds-calendar__confirm-btn">확인</button>
