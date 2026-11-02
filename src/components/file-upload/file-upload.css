@@ -46,31 +46,31 @@
 }
 
 /* 테두리 변형 */
-.ds-file-upload.line {
+.ds-file-upload--line {
   padding: var(--ds-file-upload--line-pc-padding);
   border: var(--ds-file-upload--border-width) solid var(--ds-file-upload--line-color-border);
   border-radius: var(--ds-file-upload--line-radius);
 }
 @media (max-width: 767px) {
-  .ds-file-upload.line {
+  .ds-file-upload--line {
     padding: var(--ds-file-upload--line-mobile-padding);
   }
 }
 
 /* ----- 헤드 영역 ----- */
-.ds-file-upload .file-head .tit {
+.ds-file-upload__head .ds-file-upload__title {
   margin-bottom: var(--ds-file-upload--head-pc-margin-bottom);
   font-size: var(--ds-file-upload--head-pc-font-size);
 }
 @media (max-width: 767px) {
-  .ds-file-upload .file-head .tit {
+  .ds-file-upload__head .ds-file-upload__title {
     margin-bottom: var(--ds-file-upload--head-mobile-margin-bottom);
     font-size: var(--ds-file-upload--head-mobile-font-size);
   }
 }
 
 /* ----- 드래그 앤 드롭 영역 ----- */
-.ds-file-upload .file-upload {
+.ds-file-upload__dropzone {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,18 +83,18 @@
   background-color: var(--ds-file-upload--file-color-surface);
   transition: border-color var(--krds-transition-base);
 }
-.ds-file-upload .file-upload .txt {
+.ds-file-upload__desc {
   font-size: var(--ds-file-upload--file-pc-font-size);
   text-align: center;
 }
 @media (max-width: 767px) {
-  .ds-file-upload .file-upload .txt {
+  .ds-file-upload__desc {
     font-size: var(--ds-file-upload--file-mobile-font-size);
   }
 }
 
 /* 파일 input: screen reader only */
-.ds-file-upload .file-upload [type=file] {
+.ds-file-upload__dropzone [type=file] {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -107,12 +107,12 @@
 }
 
 /* 드래그 중 상태 */
-.ds-file-upload .file-upload.active {
+.ds-file-upload__dropzone--dragover {
   border-color: var(--ds-file-upload--file-color-border-active) !important;
 }
 
 /* ----- 파일 목록 영역 ----- */
-.ds-file-upload .file-list {
+.ds-file-upload__files {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -122,16 +122,16 @@
   width: 100%;
 }
 
-.ds-file-upload .file-list .total {
+.ds-file-upload__total {
   padding: var(--ds-file-upload--file-total-y) 0;
   font-weight: var(--krds-font-weight-bold);
 }
-.ds-file-upload .file-list .total .current {
+.ds-file-upload__total-current {
   color: var(--krds-light-color-text-primary);
 }
 
 /* 목록 ul */
-.ds-file-upload .file-list .upload-list {
+.ds-file-upload__list {
   display: flex;
   align-items: normal;
   justify-content: flex-start;
@@ -141,42 +141,42 @@
 }
 
 /* 개별 파일 항목 */
-.ds-file-upload .file-list .upload-list > li {
+.ds-file-upload__item {
   padding: var(--ds-file-upload--list-padding);
   border-radius: var(--ds-file-upload--list-radius);
   border: var(--ds-file-upload--border-width) solid var(--ds-file-upload--list-color-border);
   color: var(--ds-file-upload--list-color-text);
 }
 @media (max-width: 767px) {
-  .ds-file-upload .file-list .upload-list > li {
+  .ds-file-upload__item {
     padding-top: var(--ds-file-upload--mobile-list-padding-y);
     padding-bottom: var(--ds-file-upload--mobile-list-padding-y);
   }
 }
 
 /* 오류 상태 */
-.ds-file-upload .file-list .upload-list > li.ds-file-upload__item--error {
+.ds-file-upload__item--error {
   border: var(--ds-file-upload--border-medium) solid var(--ds-file-upload--list-color-border-error);
   background-color: var(--ds-file-upload--list-color-surface);
 }
-.ds-file-upload .file-list .upload-list > li.ds-file-upload__item--error .file-hint {
+.ds-file-upload__item--error .ds-file-upload__item-hint {
   color: var(--ds-file-upload--list-color-text-error);
 }
 
 /* 파일 정보 행 */
-.ds-file-upload .file-list .upload-list .file-info {
+.ds-file-upload__item-info {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   gap: var(--krds-gap-5);
 }
-.ds-file-upload .file-list .upload-list .file-info > div {
+.ds-file-upload__item-info > div {
   display: inline-flex;
 }
 
 /* 파일명 (말줄임) */
-.ds-file-upload .file-list .upload-list .file-info .file-name {
+.ds-file-upload__item-name {
   flex: 1;
   display: -webkit-box;
   overflow: hidden;
@@ -185,32 +185,32 @@
   -webkit-line-clamp: 1;
 }
 @media (max-width: 767px) {
-  .ds-file-upload .file-list .upload-list .file-info .file-name {
+  .ds-file-upload__item-name {
     display: flex;
   }
 }
 
 /* 버튼 영역 */
-.ds-file-upload .file-list .upload-list .file-info .btn-wrap {
+.ds-file-upload__item-actions {
   align-items: center;
   gap: var(--krds-gap-5);
   width: auto;
 }
 
 /* 상태 아이콘 (완료 / 오류) */
-.ds-file-upload .file-list .upload-list .file-info .ico-invalid {
+.ds-file-upload__item-icon {
   display: inline-flex;
   width: var(--krds-icon--size-medium);
   height: var(--krds-icon--size-medium);
   forced-color-adjust: none;
 }
-.ds-file-upload .file-list .upload-list .file-info .ico-invalid.error {
+.ds-file-upload__item-icon--error {
   background-image: url(/img/component/icon/ico_error_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.ds-file-upload .file-list .upload-list .file-info .ico-invalid.complete {
+.ds-file-upload__item-icon--completed {
   background-image: url(/img/component/icon/ico_complete_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -219,11 +219,11 @@
 
 /* 모바일 열 레이아웃 (다운로드/바로보기 등) */
 @media (max-width: 767px) {
-  .ds-file-upload .file-list .upload-list .file-info.m-column {
+  .ds-file-upload__item-info--column {
     flex-direction: column;
     gap: var(--krds-gap-3);
   }
-  .ds-file-upload .file-list .upload-list .file-info.m-column .btn-wrap {
+  .ds-file-upload__item-info--column .ds-file-upload__item-actions {
     gap: var(--krds-gap-5);
     justify-content: flex-end;
     width: 100%;
@@ -231,7 +231,7 @@
 }
 
 /* 오류 메시지 (파일 항목 하단) */
-.ds-file-upload .file-list .upload-list .file-hint-invalid {
+.ds-file-upload__item-hint {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -243,7 +243,7 @@
   border-top: var(--ds-file-upload--border-width) solid var(--krds-light-color-divider-gray);
   color: var(--ds-file-upload--list-color-text-error);
 }
-.ds-file-upload .file-list .upload-list .file-hint-invalid::before {
+.ds-file-upload__item-hint::before {
   content: "";
   flex-shrink: 0;
   margin-top: var(--krds-padding-1);
@@ -257,7 +257,7 @@
 }
 
 /* 전체 파일 삭제 버튼 */
-.ds-file-upload .file-list .upload-delete-btn {
+.ds-file-upload__delete-all-btn {
   position: absolute;
   top: 0;
   right: 0;

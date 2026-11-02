@@ -79,12 +79,15 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 | 선택 완료 | 블록 modifier: `--completed` | `ds-select--completed` |
 | 항목 오류 (리스트) | 항목 modifier: `--error` | `ds-file-upload__item--error` |
 
+- **허용 상태 이름 목록**: `--open`, `--current`, `--selected`, `--completed`, `--error`, `--disabled`, `--dragover`. 이 목록에 없는 상태 이름을 새로 만들 때는 먼저 협의한다.
 - `is-error`, `is-success`, `is-information` 등 `is-` 접두사 클래스는 사용하지 않는다.
 - 힌트/에러 메시지는 BEM base+modifier 분리: `ds-form-hint ds-form-hint--error` (단일 클래스 `ds-form-hint-error` 사용 금지).
 - 필수 표시는 `ds-form-label__required` (요소 클래스). `ds-required` 단독 클래스 사용 금지.
 
 ### 일반 규칙
 - **요소 이름은 모양이 아니라 역할로 짓는다.** 예: `__underline`(모양) → `__text`(역할). 디자인이 바뀌어도 이름이 낡아지지 않도록 한다.
+- **한 요소에는 스타일용·JS용 클래스를 따로 두지 않는다.** BEM 클래스 하나로 스타일과 JS 이벤트 선택을 모두 처리한다.
+- **modifier는 항상 기본 클래스와 함께 쓴다.** 예: `ds-calendar__cell--today`만 단독으로 쓰지 않고, `ds-calendar__cell ds-calendar__cell--today`로 쓴다.
 - 모든 클래스는 KRDS 원본에 대응하는 클래스가 있어야 한다. 대응하는 원본이 없거나 추측한 경우 "확인 필요"로 표시한다.
 - naming-data.js에는 ds- 클래스명과 함께 "KRDS 원본 클래스명"을 기록해 대응 관계를 유지한다.
 - 네이밍 데이터는 src/docs/naming-data.js 한 곳에서 관리한다.

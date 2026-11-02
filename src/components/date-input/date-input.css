@@ -5,12 +5,12 @@
    ============================================= */
 
 /* ----- 날짜 입력 폼 컨테이너 ----- */
-.ds-form-content.calendar-conts {
+.ds-form-content.ds-date-input {
   gap: 0;
 }
 
 /* ----- 날짜 입력 필드 래퍼 ----- */
-.calendar-input {
+.ds-date-input__input-wrap {
   --ds-input--color-surface: var(--krds-light-color-input-surface);
   position: relative;
   z-index: 1;
@@ -18,40 +18,40 @@
 }
 
 /* 아이콘 버튼이 겹치도록 오른쪽 패딩 */
-.calendar-input .ds-input {
+.ds-date-input__input-wrap .ds-input {
   padding-right: var(--ds-form-group--icon-padding-right);
 }
 
 /* readonly datepicker는 일반 입력처럼 보이게 */
-.calendar-input .ds-input[readonly] {
+.ds-date-input__input-wrap .ds-input[readonly] {
   background-color: var(--ds-input--color-surface);
   border-color: var(--ds-input--color-border);
   color: var(--ds-input--color-text);
   cursor: pointer;
 }
-.calendar-input .ds-input[readonly]:focus {
+.ds-date-input__input-wrap .ds-input[readonly]:focus {
   border-color: var(--ds-input--color-border-active);
   border-width: 2px;
 }
 
 /* 달력 열기 버튼 위치 */
-.calendar-input .form-btn-datepicker {
+.ds-date-input__input-wrap .ds-date-input__open-btn {
   position: absolute;
   top: 50%;
   right: var(--krds-padding-7);
   transform: translateY(-50%);
 }
 
-/* 기간 선택용 range::after 제거 */
-.calendar-input .range::after {
+/* 기간 선택용 range list::after 제거 */
+.ds-date-input__input-wrap .ds-date-input__range-list::after {
   display: none;
 }
 
 /* =============================================
-   달력 팝업 (.ds-calendar-area)
+   달력 팝업 (.ds-calendar)
    ============================================= */
 
-.ds-calendar-area {
+.ds-calendar {
   --ds-calendar--radius: var(--krds-radius-xlarge2);
   --ds-calendar--head-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
   --ds-calendar--head-btn-cal-switch-pc-font-size: var(--krds-pc-font-size-label-medium);
@@ -87,12 +87,12 @@
   z-index: 1000;
   width: 100%;
 }
-.ds-calendar-area.active {
+.ds-calendar--open {
   display: block;
 }
 
-/* ----- 팝업 래퍼 ----- */
-.ds-calendar-area .calendar-wrap {
+/* ----- 팝업 패널 ----- */
+.ds-calendar__panel {
   position: absolute;
   top: 0.8rem;
   left: 0;
@@ -103,13 +103,13 @@
   overflow: hidden;
   z-index: 10;
 }
-.ds-calendar-area .calendar-wrap.bottom {
+.ds-calendar__panel--bottom {
   top: auto;
   bottom: 6.4rem;
 }
 
 /* ----- 달력 헤더 ----- */
-.ds-calendar-area .calendar-wrap .calendar-head {
+.ds-calendar__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -120,7 +120,7 @@
 }
 
 /* 이전/다음 달 버튼 */
-.ds-calendar-area .calendar-wrap .calendar-head .btn-cal-move {
+.ds-calendar__move-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,11 +132,11 @@
   flex-shrink: 0;
   transition: var(--krds-transition-base);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .btn-cal-move:hover {
+.ds-calendar__move-btn:hover {
   border-color: var(--ds-calendar--head-btn-cal-move-color-border-active);
   color: var(--ds-calendar--head-btn-cal-move-color-text-active);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .btn-cal-move::before {
+.ds-calendar__move-btn::before {
   content: "";
   display: inline-flex;
   width: var(--krds-size-height-3);
@@ -152,18 +152,18 @@
   mask-size: contain;
   transform: rotate(90deg);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .btn-cal-move.next::before {
+.ds-calendar__move-btn--next::before {
   transform: rotate(-90deg);
 }
 
 /* 연도/월 스위치 */
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap {
+.ds-calendar__switch-group {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--krds-gap-2);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch {
+.ds-calendar__switch-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,7 +175,7 @@
   font-weight: var(--krds-font-weight-bold);
   transition: var(--krds-transition-base);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch::after {
+.ds-calendar__switch-btn::after {
   content: "";
   display: inline-flex;
   width: var(--krds-icon--size-small);
@@ -190,20 +190,20 @@
   -webkit-mask-size: contain;
   mask-size: contain;
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:hover {
+.ds-calendar__switch-btn:hover {
   background-color: var(--ds-calendar--head-btn-cal-switch-color-action-hover);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:focus,
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:active,
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch.active {
+.ds-calendar__switch-btn:focus,
+.ds-calendar__switch-btn:active,
+.ds-calendar__switch-btn--open {
   background-color: var(--ds-calendar--head-btn-cal-switch-color-action-active);
 }
 
 /* 연도/월 드롭다운 */
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down {
+.ds-calendar__dropdown {
   position: relative;
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select {
+.ds-calendar__dropdown-panel {
   visibility: hidden;
   z-index: -1;
   opacity: 0;
@@ -222,20 +222,20 @@
   transition: var(--krds-transition-base);
   box-shadow: var(--ds-calendar--head-drop-down-shadow);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select.active {
+.ds-calendar__dropdown-panel--open {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel {
+.ds-calendar__dropdown-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel li {
+.ds-calendar__dropdown-list li {
   width: 100%;
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button {
+.ds-calendar__dropdown-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,28 +245,28 @@
   font-size: var(--ds-calendar--head-btn-cal-switch-pc-font-size);
   font-weight: var(--krds-font-weight-regular);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:hover {
+.ds-calendar__dropdown-item:hover {
   background-color: var(--ds-calendar--head-btn-cal-switch-color-action-hover);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:focus,
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:active {
+.ds-calendar__dropdown-item:focus,
+.ds-calendar__dropdown-item:active {
   background-color: var(--ds-calendar--head-btn-cal-switch-color-action-active);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button.active {
+.ds-calendar__dropdown-item--current {
   color: var(--ds-calendar--head-btn-cal-move-color-text-active);
   border: 1px solid var(--ds-calendar--head-btn-cal-move-color-border-active);
   background-color: var(--ds-calendar--action-btn-wrap-color-surface);
 }
-.ds-calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .calendar-drop-down .calendar-select .sel button:disabled {
+.ds-calendar__dropdown-item:disabled {
   cursor: default;
   color: var(--ds-calendar--head-btn-cal-switch-color-text-disabled);
 }
 
 /* ----- 달력 본문 (날짜 그리드) ----- */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap {
+.ds-calendar__table-wrap {
   padding: 0 var(--ds-calendar--table-wrap-padding);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl caption {
+.ds-calendar__table caption {
   position: static !important;
   width: auto !important;
   height: auto !important;
@@ -279,22 +279,22 @@
   font-size: var(--krds-pc-font-size-heading-xxsmall);
   padding-bottom: var(--krds-padding-3);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl th,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
+.ds-calendar__table th,
+.ds-calendar__table td {
   width: 14.2857%;
   text-align: center;
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl th {
+.ds-calendar__table th {
   padding-bottom: var(--krds-padding-3);
   font-weight: var(--krds-font-weight-regular);
   font-size: var(--ds-calendar--table-head-pc-font-size);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td {
+.ds-calendar__table .ds-calendar__cell {
   padding: var(--krds-padding-1) 0;
 }
 
 /* 날짜 버튼 */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button {
+.ds-calendar__cell > .ds-calendar__date-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,11 +303,11 @@
   height: 4.4rem;
   margin-inline: auto;
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button span {
+.ds-calendar__cell > .ds-calendar__date-btn span {
   z-index: 1;
   position: relative;
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap .calendar-tbl td > button::after {
+.ds-calendar__cell > .ds-calendar__date-btn::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -319,20 +319,25 @@
 }
 
 /* hover / focus */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td:not(.period, .old, .new, .disabled) .btn-set-date:hover::after {
+.ds-calendar__cell:not(.ds-calendar__cell--period,
+                        .ds-calendar__cell--prev,
+                        .ds-calendar__cell--next,
+                        .ds-calendar__cell--disabled) .ds-calendar__date-btn:hover::after {
   background-color: var(--ds-calendar--date-set-color-action-period);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td:not(.period, .old, .new, .disabled) .btn-set-date:focus::after,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td:not(.period, .old, .new, .disabled) .btn-set-date:active::after {
+.ds-calendar__cell:not(.ds-calendar__cell--period,
+                        .ds-calendar__cell--prev,
+                        .ds-calendar__cell--next,
+                        .ds-calendar__cell--disabled) .ds-calendar__date-btn:focus::after,
+.ds-calendar__cell:not(.ds-calendar__cell--period,
+                        .ds-calendar__cell--prev,
+                        .ds-calendar__cell--next,
+                        .ds-calendar__cell--disabled) .ds-calendar__date-btn:active::after {
   background-color: var(--ds-calendar--date-set-color-action-pressed);
 }
 
 /* 오늘 */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.today .btn-set-date span::before {
+.ds-calendar__cell--today .ds-calendar__date-btn span::before {
   content: "";
   width: 0.4rem;
   height: 0.4rem;
@@ -345,59 +350,47 @@
 }
 
 /* 휴일 / 이전·다음달 / 비활성 */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.day-off {
+.ds-calendar__cell--holiday {
   color: var(--ds-calendar--date-set-color-text-day-off);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.old,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.new,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.disabled {
+.ds-calendar__cell--prev,
+.ds-calendar__cell--next,
+.ds-calendar__cell--disabled {
   color: var(--ds-calendar--date-set-color-text-disabled);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.old button,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.new button,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.disabled button {
+.ds-calendar__cell--prev .ds-calendar__date-btn,
+.ds-calendar__cell--next .ds-calendar__date-btn,
+.ds-calendar__cell--disabled .ds-calendar__date-btn {
   cursor: default;
   pointer-events: none;
 }
 
 /* 선택 기간 */
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.period .btn-set-date {
+.ds-calendar__cell--period .ds-calendar__date-btn {
   background-color: var(--ds-calendar--date-set-color-action-period);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.period.start > .btn-set-date,
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.period.end > .btn-set-date {
+.ds-calendar__cell--period.ds-calendar__cell--start > .ds-calendar__date-btn,
+.ds-calendar__cell--period.ds-calendar__cell--end > .ds-calendar__date-btn {
   background-color: var(--ds-calendar--date-set-color-action);
   color: var(--ds-calendar--date-set-color-text);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.period.start > .btn-set-date {
+.ds-calendar__cell--period.ds-calendar__cell--start > .ds-calendar__date-btn {
   border-top-left-radius: var(--ds-calendar--set-date-radius);
   border-bottom-left-radius: var(--ds-calendar--set-date-radius);
 }
-.ds-calendar-area .calendar-wrap .calendar-body .calendar-table-wrap
-  .calendar-tbl td.period.end > .btn-set-date {
+.ds-calendar__cell--period.ds-calendar__cell--end > .ds-calendar__date-btn {
   border-top-right-radius: var(--ds-calendar--set-date-radius);
   border-bottom-right-radius: var(--ds-calendar--set-date-radius);
 }
 
 /* 기간 선택(range)에서 td::after로 날짜 사이 밴드 표시 */
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__table {
   --ds-calendar--after-size: calc(100% - var(--krds-padding-1) * 2);
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell {
   position: relative;
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td::after {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell::after {
   position: absolute;
   top: 50%;
   left: 0;
@@ -406,10 +399,10 @@
   height: var(--ds-calendar--after-size);
   transform: translateY(-50%);
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.period::after {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell--period::after {
   background-color: var(--ds-calendar--date-set-color-action-period);
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.start::after {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell--start::after {
   background-color: var(--ds-calendar--date-set-color-action);
   border-top-left-radius: var(--ds-calendar--set-date-radius);
   border-bottom-left-radius: var(--ds-calendar--set-date-radius);
@@ -418,22 +411,22 @@
   right: 0;
   left: unset;
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.end::after {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell--end::after {
   background-color: var(--ds-calendar--date-set-color-action);
   border-top-right-radius: var(--ds-calendar--set-date-radius);
   border-bottom-right-radius: var(--ds-calendar--set-date-radius);
   width: var(--ds-calendar--after-size);
   height: var(--ds-calendar--after-size);
 }
-.ds-calendar-area .calendar-wrap:not(.single) .calendar-body .calendar-table-wrap .calendar-tbl td.period.start.end::after {
+.ds-calendar__panel:not(.ds-calendar__panel--single) .ds-calendar__cell--period.ds-calendar__cell--start.ds-calendar__cell--end::after {
   display: none;
 }
 
 /* ----- 달력 푸터 ----- */
-.ds-calendar-area .calendar-wrap .calendar-footer {
+.ds-calendar__footer {
   margin-top: var(--ds-calendar--table-wrap-padding);
 }
-.ds-calendar-area .calendar-wrap .calendar-footer .calendar-btn-wrap {
+.ds-calendar__action {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -442,19 +435,19 @@
   border-top: 1px solid var(--ds-calendar--action-btn-wrap-color-border);
   background-color: var(--ds-calendar--action-btn-wrap-color-surface);
 }
-.ds-calendar-area .calendar-wrap .calendar-footer .calendar-btn-wrap .ds-btn:first-child {
+.ds-calendar__action .ds-btn:first-child {
   margin-right: auto;
 }
 
 /* 모바일 */
 @media (max-width: 440px) {
-  .ds-calendar-area .calendar-wrap {
+  .ds-calendar__panel {
     left: 0;
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  .ds-calendar-area .calendar-wrap .calendar-head {
+  .ds-calendar__head {
     padding: var(--krds-padding-6);
   }
 }

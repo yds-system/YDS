@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming } from '../docs/naming-data.js';
+import { buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -226,30 +226,9 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
       <td><code>large</code> <code>medium</code> <code>small</code></td>
       <td>목록 정렬 기준 선택에 특화된 셀렉트</td>
     </tr>
-    <tr>
-      <td>날짜 입력</td>
-      <td>Date Input</td>
-      <td><code>ds-form-group</code></td>
-      <td><code>ds-form-label</code> <code>ds-form-content</code> <code>calendar-conts</code> <code>calendar-input</code> <code>ds-input</code></td>
-      <td><code>ds-form-content--error</code></td>
-      <td>날짜를 직접 입력하거나 캘린더로 선택</td>
-    </tr>
-    <tr>
-      <td>파일 업로드</td>
-      <td>File Upload</td>
-      <td><code>ds-file-upload</code></td>
-      <td><code>file-head</code> <code>file-upload</code> <code>file-upload-btn-wrap</code> <code>file-list</code> <code>upload-list</code> <code>file-info</code> <code>file-name</code> <code>btn-wrap</code> <code>file-hint-invalid</code> <code>ico-invalid</code> <code>upload-delete-btn</code></td>
-      <td><code>line</code> <code>ds-file-upload__item--error</code></td>
-      <td>파일 첨부 입력</td>
-    </tr>
-    <tr>
-      <td>캘린더</td>
-      <td>Calendar</td>
-      <td><code>krds-calendar-area</code></td>
-      <td><code>calendar-wrap</code> <code>calendar-head</code> <code>btn-cal-move</code> <code>calendar-switch-wrap</code> <code>calendar-drop-down</code> <code>btn-cal-switch</code> <code>calendar-select</code> <code>calendar-year-wrap</code> <code>calendar-mon-wrap</code> <code>calendar-body</code> <code>calendar-table-wrap</code> <code>calendar-tbl</code> <code>calendar-footer</code> <code>calendar-btn-wrap</code></td>
-      <td><code>bottom</code> <code>single</code> <code>old</code> <code>day-off</code> <code>period</code> <code>start</code> <code>end</code> <code>day-event</code> <code>today</code> <code>disabled</code> <code>new</code> <code>active</code></td>
-      <td>날짜 선택을 위한 달력 UI</td>
-    </tr>
+    <CompRow comp={dateInputNaming} />
+    <CompRow comp={fileUploadNaming} />
+    <CompRow comp={calendarNaming} />
   </tbody>
 </table>
 

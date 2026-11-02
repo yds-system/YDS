@@ -482,7 +482,134 @@ export const radioNaming = {
 </fieldset>`,
 };
 
+// ─── 날짜 입력 (Date Input) ─────────────────────────────────────────────────
+
+export const dateInputNaming = {
+  name: '날짜 입력',
+  englishName: 'Date Input',
+  sbPath: '컴포넌트/입력/날짜 입력',
+  baseClass: 'ds-date-input',
+  krdsBaseClass: 'calendar-conts',
+  description: '달력 팝업을 통해 날짜 또는 기간을 선택하는 입력 필드',
+
+  elements: [
+    { element: '컨테이너', class: 'ds-date-input', krdsClass: 'calendar-conts', description: 'ds-form-content에 병기하는 블록 클래스. gap: 0 적용', confirmed: true },
+    { element: '입력 래퍼', class: 'ds-date-input__input-wrap', krdsClass: 'calendar-input', description: 'input + 달력 열기 버튼을 묶는 래퍼', confirmed: true },
+    { element: '달력 열기 버튼', class: 'ds-date-input__open-btn', krdsClass: 'form-btn-datepicker', description: '입력창 우측 달력 아이콘 버튼', confirmed: true },
+    { element: '기간 입력 목록', class: 'ds-date-input__range-list', krdsClass: 'input-group range set', description: '기간 선택 시 시작·종료 input을 담는 ul', confirmed: true },
+    { element: '구분자', class: 'ds-date-input__separator', krdsClass: 'mark', description: '기간 선택 시 – 구분 li', confirmed: true },
+    { element: '날짜 input', class: 'ds-date-input__input', krdsClass: 'datepicker', description: '날짜 표시용 읽기 전용 input (JS 훅 클래스)', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '단일 날짜 input', class: 'ds-date-input__input--single', krdsClass: 'cal', description: '단일 날짜 모드 input 식별자. ds-date-input__input과 함께 사용', confirmed: true },
+  ],
+};
+
+// ─── 달력 팝업 (Calendar) — ds-date-input의 하위 블록 ────────────────────────
+// allComponents에 포함하지 않음 (date-input 전용 서브 블록)
+
+export const calendarNaming = {
+  name: '달력',
+  englishName: 'Calendar',
+  description: '날짜 입력 컴포넌트의 달력 팝업 블록',
+  baseClass: 'ds-calendar',
+  krdsBaseClass: 'ds-calendar-area',
+
+  elements: [
+    { element: '팝업 패널', class: 'ds-calendar__panel', krdsClass: 'calendar-wrap', description: '달력 팝업 컨테이너', confirmed: true },
+    { element: '헤더', class: 'ds-calendar__head', krdsClass: 'calendar-head', description: '', confirmed: true },
+    { element: '이전/다음 달 버튼', class: 'ds-calendar__move-btn', krdsClass: 'btn-cal-move', description: '방향 modifier(--prev/--next)와 함께 사용', confirmed: true },
+    { element: '연월 스위치 그룹', class: 'ds-calendar__switch-group', krdsClass: 'calendar-switch-wrap', description: '', confirmed: true },
+    { element: '드롭다운 컨테이너', class: 'ds-calendar__dropdown', krdsClass: 'calendar-drop-down', description: '', confirmed: true },
+    { element: '연/월 스위치 버튼', class: 'ds-calendar__switch-btn', krdsClass: 'btn-cal-switch', description: '', confirmed: true },
+    { element: '드롭다운 패널', class: 'ds-calendar__dropdown-panel', krdsClass: 'calendar-select', description: '연도 패널은 --year, 월 패널은 --month modifier 추가', confirmed: true },
+    { element: '드롭다운 목록', class: 'ds-calendar__dropdown-list', krdsClass: 'sel', description: '', confirmed: true },
+    { element: '드롭다운 항목', class: 'ds-calendar__dropdown-item', krdsClass: '(없음)', description: '연/월 선택 버튼 (기존 클래스 없음 → 새로 추가)', confirmed: true },
+    { element: '달력 본문', class: 'ds-calendar__body', krdsClass: 'calendar-body', description: '', confirmed: true },
+    { element: '테이블 래퍼', class: 'ds-calendar__table-wrap', krdsClass: 'calendar-table-wrap', description: '', confirmed: true },
+    { element: '날짜 테이블', class: 'ds-calendar__table', krdsClass: 'calendar-tbl', description: '', confirmed: true },
+    { element: '날짜 셀', class: 'ds-calendar__cell', krdsClass: '(td 직접)', description: '날짜 테이블의 모든 td에 기본 클래스로 적용', confirmed: true },
+    { element: '날짜 버튼', class: 'ds-calendar__date-btn', krdsClass: 'btn-set-date', description: '', confirmed: true },
+    { element: '푸터', class: 'ds-calendar__footer', krdsClass: 'calendar-footer', description: '', confirmed: true },
+    { element: '액션 버튼 행', class: 'ds-calendar__action', krdsClass: 'calendar-btn-wrap', description: '', confirmed: true },
+    { element: '오늘 버튼', class: 'ds-calendar__today-btn', krdsClass: 'btn-today', description: '', confirmed: true },
+    { element: '취소 버튼', class: 'ds-calendar__cancel-btn', krdsClass: 'btn-cancel', description: '', confirmed: true },
+    { element: '확인 버튼', class: 'ds-calendar__confirm-btn', krdsClass: 'btn-confirm', description: '', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '팝업 열림', class: 'ds-calendar--open', krdsClass: 'ds-calendar-area active', description: 'ds-calendar 블록에 적용', confirmed: true },
+    { category: '하단 배치', class: 'ds-calendar__panel--bottom', krdsClass: 'calendar-wrap bottom', description: '', confirmed: true },
+    { category: '단일 날짜 모드', class: 'ds-calendar__panel--single', krdsClass: 'calendar-wrap single', description: '기간 밴드(::after) 비표시', confirmed: true },
+    { category: '이전 달 버튼', class: 'ds-calendar__move-btn--prev', krdsClass: 'btn-cal-move prev', description: 'ds-calendar__move-btn과 함께 사용', confirmed: true },
+    { category: '다음 달 버튼', class: 'ds-calendar__move-btn--next', krdsClass: 'btn-cal-move next', description: 'ds-calendar__move-btn과 함께 사용', confirmed: true },
+    { category: '스위치 버튼 열림', class: 'ds-calendar__switch-btn--open', krdsClass: 'btn-cal-switch active', description: 'ds-calendar__switch-btn과 함께 사용', confirmed: true },
+    { category: '드롭다운 열림', class: 'ds-calendar__dropdown-panel--open', krdsClass: 'calendar-select active', description: 'ds-calendar__dropdown-panel과 함께 사용', confirmed: true },
+    { category: '연도 패널', class: 'ds-calendar__dropdown-panel--year', krdsClass: 'calendar-year-wrap', description: 'ds-calendar__dropdown-panel과 함께 사용', confirmed: true },
+    { category: '월 패널', class: 'ds-calendar__dropdown-panel--month', krdsClass: 'calendar-mon-wrap', description: 'ds-calendar__dropdown-panel과 함께 사용', confirmed: true },
+    { category: '선택된 연/월 항목', class: 'ds-calendar__dropdown-item--current', krdsClass: 'button.active', description: 'ds-calendar__dropdown-item과 함께 사용', confirmed: true },
+    { category: '이전 달 날짜', class: 'ds-calendar__cell--prev', krdsClass: 'old', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '다음 달 날짜', class: 'ds-calendar__cell--next', krdsClass: 'new', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '비활성 날짜', class: 'ds-calendar__cell--disabled', krdsClass: 'disabled', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '오늘', class: 'ds-calendar__cell--today', krdsClass: 'today', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '휴일/일요일', class: 'ds-calendar__cell--holiday', krdsClass: 'day-off', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '선택 기간', class: 'ds-calendar__cell--period', krdsClass: 'period', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '기간 시작일', class: 'ds-calendar__cell--start', krdsClass: 'start', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+    { category: '기간 종료일', class: 'ds-calendar__cell--end', krdsClass: 'end', description: 'ds-calendar__cell과 함께 사용', confirmed: true },
+  ],
+};
+
+// ─── 파일 업로드 (File Upload) ──────────────────────────────────────────────
+
+export const fileUploadNaming = {
+  name: '파일 업로드',
+  englishName: 'File Upload',
+  sbPath: '컴포넌트/입력/파일 업로드',
+  baseClass: 'ds-file-upload',
+  krdsBaseClass: 'ds-file-upload',
+  description: '드래그 앤 드롭 또는 파일 선택으로 첨부 파일을 올리는 컴포넌트',
+
+  elements: [
+    { element: '파일 업로드', class: 'ds-file-upload', krdsClass: 'ds-file-upload', description: '최상위 컨테이너', confirmed: true },
+    { element: '헤드', class: 'ds-file-upload__head', krdsClass: 'file-head', description: '제목·설명 영역 (선택)', confirmed: true },
+    { element: '제목', class: 'ds-file-upload__title', krdsClass: 'tit', description: '', confirmed: true },
+    { element: '드롭존', class: 'ds-file-upload__dropzone', krdsClass: 'file-upload', description: '드래그 앤 드롭 영역', confirmed: true },
+    { element: '설명 문구', class: 'ds-file-upload__desc', krdsClass: 'txt', description: '', confirmed: true },
+    { element: '버튼 래퍼', class: 'ds-file-upload__btn-wrap', krdsClass: 'file-upload-btn-wrap', description: '파일 선택 버튼·input 묶음', confirmed: true },
+    { element: '파일 목록 영역', class: 'ds-file-upload__files', krdsClass: 'file-list', description: '목록 바깥 컨테이너', confirmed: true },
+    { element: '파일 수 표시', class: 'ds-file-upload__total', krdsClass: 'total', description: '현재 / 최대 첨부 수', confirmed: true },
+    { element: '현재 파일 수', class: 'ds-file-upload__total-current', krdsClass: 'current', description: 'primary 컬러로 표시', confirmed: true },
+    { element: '파일 목록', class: 'ds-file-upload__list', krdsClass: 'upload-list', description: '실제 파일 항목 ul', confirmed: true },
+    { element: '파일 항목', class: 'ds-file-upload__item', krdsClass: '(li 직접)', description: '목록의 개별 li', confirmed: true },
+    { element: '파일 정보 행', class: 'ds-file-upload__item-info', krdsClass: 'file-info', description: '파일명 + 버튼 가로 배치', confirmed: true },
+    { element: '파일명', class: 'ds-file-upload__item-name', krdsClass: 'file-name', description: '한 줄 말줄임', confirmed: true },
+    { element: '버튼 영역', class: 'ds-file-upload__item-actions', krdsClass: 'btn-wrap', description: '상태 아이콘 또는 삭제 버튼', confirmed: true },
+    { element: '상태 아이콘', class: 'ds-file-upload__item-icon', krdsClass: 'ico-invalid', description: '완료·오류 아이콘. 상태 modifier와 함께 사용', confirmed: true },
+    { element: '오류 메시지', class: 'ds-file-upload__item-hint', krdsClass: 'file-hint-invalid', description: '파일 항목 하단 오류 문구', confirmed: true },
+    { element: '개별 삭제 버튼', class: 'ds-file-upload__item-delete-btn', krdsClass: 'btn-file-delete', description: '', confirmed: true },
+    { element: '전체 삭제 버튼', class: 'ds-file-upload__delete-all-btn', krdsClass: 'btn-delete-all', description: '목록 우상단 절대 위치. 래퍼 div 없이 button에 직접 적용', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '테두리 변형', class: 'ds-file-upload--line', krdsClass: 'ds-file-upload line', description: 'ds-file-upload 블록에 적용', confirmed: true },
+    { category: '드래그 중', class: 'ds-file-upload__dropzone--dragover', krdsClass: 'file-upload active', description: 'ds-file-upload__dropzone과 함께 사용', confirmed: true },
+    { category: '오류 항목', class: 'ds-file-upload__item--error', krdsClass: 'ds-file-upload__item--error', description: 'ds-file-upload__item과 함께 사용', confirmed: true },
+    { category: '완료 아이콘', class: 'ds-file-upload__item-icon--completed', krdsClass: 'ico-invalid complete', description: 'ds-file-upload__item-icon과 함께 사용', confirmed: true },
+    { category: '오류 아이콘', class: 'ds-file-upload__item-icon--error', krdsClass: 'ico-invalid error', description: 'ds-file-upload__item-icon과 함께 사용', confirmed: true },
+    { category: '모바일 세로 배치', class: 'ds-file-upload__item-info--column', krdsClass: 'file-info m-column', description: 'ds-file-upload__item-info와 함께 사용', confirmed: true },
+  ],
+};
+
 // ─── 전체 목록 (components-naming.mdx 용) ──────────────────────────────────
 // 새 컴포넌트를 추가하면 이 배열에도 추가한다.
 
-export const allComponents = [buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming];
+export const allComponents = [
+  buttonNaming,
+  textInputNaming,
+  selectNaming,
+  checkboxNaming,
+  radioNaming,
+  dateInputNaming,
+  fileUploadNaming,
+];

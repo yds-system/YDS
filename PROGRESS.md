@@ -8,9 +8,11 @@
 - 텍스트 입력·선택 상자 (입력)
 - form-group 공통 (ds-form-group, ds-form-label, ds-form-content, ds-form-hint)
 - 글자 수 공통 블록 (ds-count, ds-count__current, ds-count__max)
+- 날짜 입력 + 달력 팝업 (ds-date-input, ds-calendar)
+- 파일 업로드 (ds-file-upload)
 
 ### 남은 순서 (사이드바 카테고리 기준)
-1. **입력**: 날짜 입력, 파일 업로드
+1. ~~**입력**: 날짜 입력, 파일 업로드~~ ✓
 2. **액션 + 선택**: 링크 텍스트, 태그
 3. **탐색**: 브레드크럼, 탭, 페이지네이션
 4. **피드백**: 배지, 툴팁
