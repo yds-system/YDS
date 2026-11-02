@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming } from '../docs/naming-data.js';
+import { buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -18,15 +18,18 @@ export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
 };
 
 export const TextareaRow = () => {
-  const els = textInputNaming.elements.filter(e =>
-    ['ds-input', 'ds-textarea', 'ds-textarea__bottom', 'ds-count', 'ds-count__current', 'ds-count__max'].includes(e.class)
+  const textareaEls = textInputNaming.elements.filter(e =>
+    ['ds-input', 'ds-textarea', 'ds-textarea__bottom'].includes(e.class)
   );
   return (
     <tr>
       <td>텍스트 영역</td>
       <td>Textarea</td>
       <td><code>ds-form-group</code></td>
-      <td>{els.map((e, i) => <span key={i}><code>{e.class}</code>{' '}</span>)}</td>
+      <td>
+        {textareaEls.map((e, i) => <span key={i}><code>{e.class}</code>{' '}</span>)}
+        {countNaming.elements.map((e, i) => <span key={'c'+i}><code>{e.class}</code>{' '}</span>)}
+      </td>
       <td>—</td>
       <td>다중 행 텍스트 입력 필드</td>
     </tr>
@@ -211,7 +214,7 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
   <tbody>
     <CompRow
       comp={textInputNaming}
-      elementFilter={e => !['ds-textarea', 'ds-textarea__bottom', 'ds-count', 'ds-count__current', 'ds-count__max'].includes(e.class)}
+      elementFilter={e => !['ds-textarea', 'ds-textarea__bottom'].includes(e.class)}
     />
     <TextareaRow />
     <CompRow comp={selectNaming} />

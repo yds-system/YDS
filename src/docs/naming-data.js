@@ -139,6 +139,26 @@ button.ds-btn.ds-btn--icon [ds-btn--크기] [ds-btn--border]
 <a href="#" class="ds-btn ds-btn--small ds-btn--link ds-btn--disabled" aria-disabled="true" tabindex="-1">비활성 링크</a>`,
 };
 
+// ─── 글자 수 (Character Count) — 공통 블록 ─────────────────────────────────
+// input·textarea 양쪽에서 재사용하는 공통 블록.
+// naming-data.js 컴포넌트 항목이지만 allComponents에는 포함하지 않는다.
+
+export const countNaming = {
+  name: '글자 수',
+  englishName: 'Character Count',
+  description: 'input·textarea에 공통으로 사용하는 글자 수 표시 블록',
+  baseClass: 'ds-count',
+  krdsBaseClass: 'textarea-count',
+
+  elements: [
+    { element: '글자 수', class: 'ds-count', krdsClass: 'textarea-count', description: '글자 수 표시 컨테이너 (input·textarea 공통)', confirmed: true },
+    { element: '현재 글자 수', class: 'ds-count__current', krdsClass: 'count-now', description: '현재 입력된 글자 수 (primary 컬러). 에러 상태에서 danger 컬러로 전환됨', confirmed: true },
+    { element: '최대 글자 수', class: 'ds-count__max', krdsClass: 'count-total', description: '최대 글자 수 표시', confirmed: true },
+  ],
+
+  modifiers: [],
+};
+
 // ─── 텍스트 입력 (Text Input) ───────────────────────────────────────────────
 
 export const textInputNaming = {
@@ -186,9 +206,7 @@ div.ds-form-content  [ds-form-content--error]
     { element: '버튼 래퍼', class: 'btn-ico-wrap', krdsClass: 'btn-ico-wrap', description: '입력창 오른쪽 아이콘 버튼을 포함할 때 ds-form-content에 추가', confirmed: true },
     { element: '버튼 그룹', class: 'btn-group', krdsClass: 'btn-group', description: '삭제·보기 등 버튼 묶음', confirmed: true },
     { element: '삭제 버튼', class: 'btn-delete-input', krdsClass: 'btn-delete-input', description: '입력 내용 삭제 버튼. data-delete="true" 시 CSS로 자동 표시', confirmed: true },
-    { element: '글자 수', class: 'ds-count', krdsClass: 'textarea-count', description: '글자 수 표시 컨테이너 (input·textarea 공통)', confirmed: true },
-    { element: '현재 글자 수', class: 'ds-count__current', krdsClass: 'count-now', description: '현재 입력된 글자 수 (primary 컬러)', confirmed: true },
-    { element: '최대 글자 수', class: 'ds-count__max', krdsClass: 'count-total', description: '최대 글자 수 표시', confirmed: true },
+    // ds-count 3종은 공통 블록으로 분리 → countNaming 참고
     { element: 'Textarea 블록', class: 'ds-textarea', krdsClass: 'textarea-wrap', description: 'textarea + 글자 수를 묶는 블록', confirmed: true },
     { element: 'Textarea 하단', class: 'ds-textarea__bottom', krdsClass: 'textarea-bottom', description: '에러 메시지와 글자 수를 가로로 배치하는 컨테이너', confirmed: true },
   ],
