@@ -1450,7 +1450,7 @@ export const headerNaming = {
   sbPath: '패턴/기본 레이아웃',
   baseClass: 'ds-header',
   krdsClass: 'header-container',
-  description: '사이트 최상단 글로벌 헤더 (유틸리티 바 + 브랜딩)',
+  description: '사이트 최상단 글로벌 헤더 (유틸리티 바 + 브랜딩). ds-utility-list는 헤더·모바일 메뉴 공통 블록',
 
   structure: `#ds-header
 └── .ds-header__inner
