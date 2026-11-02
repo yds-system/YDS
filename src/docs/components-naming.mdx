@@ -30,12 +30,17 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 디자인 시스템의 기초 요소. 색상·타이포그래피·간격·아이콘 등 모든 컴포넌트가 공유하는 리소스입니다.
 
-| 항목 | Storybook 경로 | 설명 |
-|---|---|---|
-| 아이콘 | `기반/아이콘` | CSS `mask-image` 기반 SVG 아이콘 (~65종). `ds-icon` + `ds-ico-*` 클래스 |
-| 색상 토큰 | `기반/색상` (예정) | KRDS 색상 토큰 (`--krds-light-color-*`) |
-| 타이포그래피 | `기반/타이포그래피` (예정) | 서체·크기·행간 토큰 |
-| 간격 | `기반/간격` (예정) | 여백·패딩 토큰 (`--krds-spacing-*`) |
+<table>
+  <thead>
+    <tr><th>항목</th><th>Storybook 경로</th><th>설명</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>아이콘</td><td><code>기반/아이콘</code></td><td>CSS mask-image 기반 SVG 아이콘 (~65종). <code>ds-icon</code> + <code>ds-ico-&#42;</code> 클래스</td></tr>
+    <tr><td>색상 토큰</td><td><code>기반/색상</code> (예정)</td><td>KRDS 색상 토큰 (<code>--krds-light-color-&#42;</code>)</td></tr>
+    <tr><td>타이포그래피</td><td><code>기반/타이포그래피</code> (예정)</td><td>서체·크기·행간 토큰</td></tr>
+    <tr><td>간격</td><td><code>기반/간격</code> (예정)</td><td>여백·패딩 토큰 (<code>--krds-spacing-&#42;</code>)</td></tr>
+  </tbody>
+</table>
 
 ---
 
@@ -204,9 +209,19 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 여러 컴포넌트를 조합한 페이지 레벨 구조. KRDS에 정의된 조합 규칙을 따릅니다.
 
-| 컴포넌트명(한글) | 영문명 | 구성 요소 | 설명 |
-|---|---|---|---|
-| 기본 레이아웃 | Basic Layout | 헤더(`ds-header`) + GNB(`ds-main-menu`) + 푸터(`ds-footer`) | 서비스 기본 페이지 레이아웃 조합 |
+<table>
+  <thead>
+    <tr><th>컴포넌트명(한글)</th><th>영문명</th><th>구성 요소</th><th>설명</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기본 레이아웃</td>
+      <td>Basic Layout</td>
+      <td>헤더(ds-header) + GNB(ds-main-menu) + 푸터(ds-footer)</td>
+      <td>서비스 기본 페이지 레이아웃 조합</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -214,25 +229,38 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 아직 Storybook에 구현되지 않은 KRDS 컴포넌트 목록입니다.
 
-| 컴포넌트명(한글) | 영문명 | 기본 클래스명 |
-|---|---|---|
-| 마스트헤드 | Masthead | `krds-masthead` |
-| 사이드 네비게이션 | Side Navigation | `krds-side-navigation` |
-| 페이지 내 네비게이션 | In-Page Navigation | `krds-in-page-navigation-type` |
-| 건너뛰기 링크 | Skip Link | `ds-skip-link` |
-| 식별자 | Identifier | `krds-identifier` |
-| TTS | TTS | `krds-tts` |
-| 언어 전환 | Language Switcher | `krds-drop-wrap` |
-| 화면 크기 조절 | Resize | `krds-drop-wrap` |
-| 토글 스위치 | Toggle Switch | `krds-form-toggle-switch` |
-| 모달 | Modal | `krds-modal` |
-| 로딩 스피너 | Spinner | `form-spinner` |
-| 중요 공지 | Critical Alerts | `krds-critical-alerts` |
-| 코치 마크 | Coach Mark | `krds-coach-mark` |
-| 맥락적 도움말 | Contextual Help | `krds-contextual-help` |
-| 공개/비공개 | Disclosure | `krds-disclosure` |
-| 구조화된 목록 | Structured List | `krds-structured-list-type-full` |
-| 텍스트 목록 | Text List | `krds-info-list` |
-| 단계 표시 | Step Indicator | `krds-step-wrap` |
-| 도움말 패널 | Help Panel | `krds-help-panel` |
-| 튜토리얼 패널 | Tutorial Panel | `krds-help-panel` |
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>KRDS 분류</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>파비콘</td><td>Favicon</td><td>기반</td></tr>
+    <tr><td>이미지</td><td>Image</td><td>기반</td></tr>
+    <tr><td>마스트헤드</td><td>Masthead</td><td>아이덴티티</td></tr>
+    <tr><td>공식 배너</td><td>Banner</td><td>아이덴티티</td></tr>
+    <tr><td>운영기관 식별자</td><td>Identifier</td><td>아이덴티티</td></tr>
+    <tr><td>건너뛰기 링크</td><td>Skip Link</td><td>탐색</td></tr>
+    <tr><td>사이드 메뉴</td><td>Side Navigation</td><td>탐색</td></tr>
+    <tr><td>콘텐츠 내 탐색</td><td>In-Page Navigation</td><td>탐색</td></tr>
+    <tr><td>단계 표시기</td><td>Step Indicator</td><td>탐색</td></tr>
+    <tr><td>언어 변경</td><td>Language Switcher</td><td>탐색</td></tr>
+    <tr><td>화면 크기 조정</td><td>Resize</td><td>탐색</td></tr>
+    <tr><td>접근 가능한 미디어</td><td>Accessible Media</td><td>레이아웃 및 표현</td></tr>
+    <tr><td>구조화 목록</td><td>Structured List</td><td>레이아웃 및 표현</td></tr>
+    <tr><td>텍스트 목록</td><td>Text List</td><td>레이아웃 및 표현</td></tr>
+    <tr><td>플로팅 버튼</td><td>Floating Button</td><td>액션</td></tr>
+    <tr><td>토글 스위치</td><td>Toggle Switch</td><td>선택</td></tr>
+    <tr><td>스피너</td><td>Spinner</td><td>도움</td></tr>
+    <tr><td>긴급 공지</td><td>Critical Alert</td><td>도움</td></tr>
+    <tr><td>도움 패널</td><td>Help Panel</td><td>도움</td></tr>
+    <tr><td>따라하기 패널</td><td>Tutorial Panel</td><td>도움</td></tr>
+    <tr><td>디스클로저</td><td>Disclosure</td><td>도움</td></tr>
+    <tr><td>숨긴 콘텐츠</td><td>Hidden Content</td><td>도움</td></tr>
+    <tr><td>모달</td><td>Modal</td><td>도움</td></tr>
+    <tr><td>달력</td><td>Calendar</td><td>입력</td></tr>
+  </tbody>
+</table>

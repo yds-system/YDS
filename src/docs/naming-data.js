@@ -395,6 +395,9 @@ export const textareaNaming = {
     { element: 'Textarea 블록', class: 'ds-textarea', krdsClass: 'textarea-wrap', description: 'textarea + 글자 수를 묶는 블록', confirmed: true },
     { element: '텍스트 입력창', class: 'ds-input', krdsClass: 'krds-input', description: 'textarea 요소에 적용하는 입력창 클래스', confirmed: true },
     { element: 'Textarea 하단', class: 'ds-textarea__bottom', krdsClass: 'textarea-bottom', description: '에러 메시지와 글자 수를 가로로 배치하는 컨테이너', confirmed: true },
+    { element: '글자 수', class: 'ds-count', krdsClass: 'textarea-count', description: '글자 수 표시 컨테이너 (input·textarea 공통 블록)', confirmed: true },
+    { element: '현재 글자 수', class: 'ds-count__current', krdsClass: 'count-now', description: '현재 입력된 글자 수 (에러 상태에서 danger 컬러로 전환)', confirmed: true },
+    { element: '최대 글자 수', class: 'ds-count__max', krdsClass: 'count-total', description: '최대 글자 수 표시', confirmed: true },
     { element: '도움말', class: 'ds-form-hint', krdsClass: 'form-hint', description: '입력 안내·에러 메시지 (p 태그)', confirmed: true },
   ],
 
@@ -1296,7 +1299,7 @@ export const carouselNaming = {
   name: '캐러셀 컨트롤',
   englishName: 'Carousel Controls',
   sbPath: '컴포넌트/레이아웃 및 표현/캐러셀 컨트롤',
-  baseClass: 'ds-carousel__indicator',
+  baseClass: 'ds-carousel',
   krdsClass: 'swiper-indicator',
   description: '슬라이드 탐색·제어를 위한 버튼 및 인디케이터 UI. Swiper.js 등 외부 슬라이더 라이브러리와 조합 사용.',
 
@@ -1459,7 +1462,7 @@ export const headerNaming = {
                 └── button.ds-header__action-btn [--search/--login/--join/--mypage/--all-menu]`,
 
   elements: [
-    { element: '유틸리티 목록',  class: 'ds-utility-list',         krdsClass: 'utility-list',     description: '헤더/모바일 GNB 공용 링크 목록 (기본: 우측 정렬)', confirmed: true },
+    { element: '유틸리티 목록',  class: 'ds-utility-list',         krdsClass: 'utility-list',     description: '헤더·모바일 메뉴 공통 블록 (기본: 우측 정렬)', confirmed: true },
     { element: '헤더 내부',      class: 'ds-header__inner',         krdsClass: 'header-in',        description: '헤더 전체 래퍼', confirmed: true },
     { element: '헤더 컨테이너',  class: 'ds-header__container',     krdsClass: 'header-container', description: '유틸리티 바 + 브랜딩 영역', confirmed: true },
     { element: '유틸리티 영역',  class: 'ds-header__utility',       krdsClass: 'header-utility',   description: '상단 유틸리티 링크 영역 (PC 전용)', confirmed: true },
@@ -1470,12 +1473,12 @@ export const headerNaming = {
   ],
 
   modifiers: [
-    { category: '정렬',           class: 'ds-utility-list ds-utility-list--start',               krdsClass: '(자체 추가)',   description: '좌측 정렬 (모바일 GNB 내부)', confirmed: true },
-    { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--search',  krdsClass: 'btn-navi sch', description: '검색 버튼', confirmed: true },
-    { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--login',   krdsClass: 'btn-navi login', description: '로그인 버튼/링크', confirmed: true },
-    { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--join',    krdsClass: 'btn-navi join', description: '회원가입 버튼 (PC 전용)', confirmed: true },
-    { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--mypage',  krdsClass: 'btn-navi my', description: '나의GOV 버튼 (로그인 후, PC 전용)', confirmed: true },
-    { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--all-menu', krdsClass: 'btn-navi all', description: '전체메뉴 버튼 (모바일 전용)', confirmed: true },
+    { category: '정렬',           class: 'ds-utility-list--start',         krdsClass: '(자체 추가)',   description: '좌측 정렬 (모바일 메뉴 내부)', confirmed: true },
+    { category: '액션 버튼 종류', class: 'ds-header__action-btn--search',  krdsClass: 'btn-navi sch', description: '검색 버튼', confirmed: true },
+    { category: '액션 버튼 종류', class: 'ds-header__action-btn--login',   krdsClass: 'btn-navi login', description: '로그인 버튼/링크', confirmed: true },
+    { category: '액션 버튼 종류', class: 'ds-header__action-btn--join',    krdsClass: 'btn-navi join', description: '회원가입 버튼 (PC 전용)', confirmed: true },
+    { category: '액션 버튼 종류', class: 'ds-header__action-btn--mypage',  krdsClass: 'btn-navi my', description: '나의GOV 버튼 (로그인 후, PC 전용)', confirmed: true },
+    { category: '액션 버튼 종류', class: 'ds-header__action-btn--all-menu', krdsClass: 'btn-navi all', description: '전체메뉴 버튼 (모바일 전용)', confirmed: true },
   ],
 
   codeExample: `<!-- 헤더 액션 버튼 -->
@@ -1500,7 +1503,7 @@ export const headerNaming = {
 // ─── PC GNB (Main Menu PC) ─────────────────────────────────────────────────────
 
 export const pcGnbNaming = {
-  name: '메인메뉴 (PC)',
+  name: '메인 메뉴 (PC)',
   englishName: 'Main Menu PC',
   sbPath: '패턴/기본 레이아웃',
   baseClass: 'ds-main-menu',
@@ -1535,15 +1538,15 @@ export const pcGnbNaming = {
   ],
 
   modifiers: [
-    { category: 'PC GNB 1depth',   class: 'ds-main-menu__trigger ds-main-menu__trigger--link',           krdsClass: 'gnb-main-trigger is-link',  description: '링크 직접 이동 (화살표 없음)', confirmed: true },
-    { category: 'PC GNB 1depth',   class: 'ds-main-menu__trigger ds-main-menu__trigger--open',           krdsClass: 'gnb-main-trigger active',   description: '1depth 메뉴 열림 상태', confirmed: true },
-    { category: 'PC GNB 드롭다운', class: 'ds-main-menu__dropdown ds-main-menu__dropdown--open',         krdsClass: 'gnb-toggle-wrap is-open',   description: '드롭다운 패널 열림', confirmed: true },
-    { category: 'PC GNB 2depth',   class: 'ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link',   krdsClass: 'gnb-sub-trigger is-link',   description: '2depth 직접 링크 (more 아이콘)', confirmed: true },
-    { category: 'PC GNB 2depth',   class: 'ds-main-menu__sub-trigger ds-main-menu__sub-trigger--open',   krdsClass: 'gnb-sub-trigger active',    description: '2depth 선택 상태', confirmed: true },
-    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-list ds-main-menu__sub-list--open',         krdsClass: 'gnb-sub-list active',       description: '3depth 패널 표시 상태', confirmed: true },
-    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-list ds-main-menu__sub-list--single',       krdsClass: 'gnb-sub-list single-list',  description: '2depth 없이 3depth 바로 표시', confirmed: true },
-    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-link ds-main-menu__sub-link--current',      krdsClass: 'selected',                  description: '현재 페이지 링크 (aria-current="page" 필수)', confirmed: true },
-    { category: '백드롭',          class: 'ds-main-menu__backdrop ds-main-menu__backdrop--open',         krdsClass: 'gnb-backdrop active',       description: '딤 레이어 표시 상태', confirmed: true },
+    { category: 'PC GNB 1depth',   class: 'ds-main-menu__trigger--link',        krdsClass: 'gnb-main-trigger is-link',  description: '링크 직접 이동 (화살표 없음)', confirmed: true },
+    { category: 'PC GNB 1depth',   class: 'ds-main-menu__trigger--open',        krdsClass: 'gnb-main-trigger active',   description: '1depth 메뉴 열림 상태', confirmed: true },
+    { category: 'PC GNB 드롭다운', class: 'ds-main-menu__dropdown--open',       krdsClass: 'gnb-toggle-wrap is-open',   description: '드롭다운 패널 열림', confirmed: true },
+    { category: 'PC GNB 2depth',   class: 'ds-main-menu__sub-trigger--link',    krdsClass: 'gnb-sub-trigger is-link',   description: '2depth 직접 링크 (more 아이콘)', confirmed: true },
+    { category: 'PC GNB 2depth',   class: 'ds-main-menu__sub-trigger--open',    krdsClass: 'gnb-sub-trigger active',    description: '2depth 선택 상태', confirmed: true },
+    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-list--open',       krdsClass: 'gnb-sub-list active',       description: '3depth 패널 표시 상태', confirmed: true },
+    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-list--single',     krdsClass: 'gnb-sub-list single-list',  description: '2depth 없이 3depth 바로 표시', confirmed: true },
+    { category: 'PC GNB 3depth',   class: 'ds-main-menu__sub-link--current',    krdsClass: 'selected',                  description: '현재 페이지 링크 (aria-current="page" 필수)', confirmed: true },
+    { category: '백드롭',          class: 'ds-main-menu__backdrop--open',        krdsClass: 'gnb-backdrop active',       description: '딤 레이어 표시 상태', confirmed: true },
   ],
 
   codeExample: `<!-- PC GNB 3depth 현재 페이지 -->
@@ -1553,7 +1556,7 @@ export const pcGnbNaming = {
 // ─── 모바일 GNB (Main Menu Mobile) ────────────────────────────────────────────
 
 export const mobileGnbNaming = {
-  name: '메인메뉴 (모바일)',
+  name: '메인 메뉴 (모바일)',
   englishName: 'Main Menu Mobile',
   sbPath: '패턴/기본 레이아웃',
   baseClass: 'ds-main-menu-mobile',
@@ -1596,11 +1599,11 @@ export const mobileGnbNaming = {
   ],
 
   modifiers: [
-    { category: '모바일 GNB',    class: 'ds-main-menu-mobile ds-main-menu-mobile--open',                               krdsClass: 'ds-main-menu-mobile is-open',      description: '패널 슬라이드 인 (right: 0)', confirmed: true },
-    { category: '모바일 GNB',    class: 'ds-main-menu-mobile ds-main-menu-mobile--backdrop',                           krdsClass: 'ds-main-menu-mobile is-backdrop',  description: '딤 오버레이 표시', confirmed: true },
-    { category: '모바일 1depth', class: 'ds-main-menu-mobile__trigger ds-main-menu-mobile__trigger--open',             krdsClass: 'gnb-main-trigger active',          description: '1depth 탭 선택 상태', confirmed: true },
-    { category: '모바일 2depth', class: 'ds-main-menu-mobile__sub-list ds-main-menu-mobile__sub-list--open',           krdsClass: 'gnb-sub-list active',              description: '2depth 목록 표시 상태', confirmed: true },
-    { category: '모바일 2depth', class: 'ds-main-menu-mobile__sub-trigger ds-main-menu-mobile__sub-trigger--current',  krdsClass: 'gnb-sub-trigger selected',         description: '현재 페이지 링크 (aria-current="page" 필수)', confirmed: true },
+    { category: '모바일 GNB',    class: 'ds-main-menu-mobile--open',                krdsClass: 'ds-main-menu-mobile is-open',      description: '패널 슬라이드 인 (right: 0)', confirmed: true },
+    { category: '모바일 GNB',    class: 'ds-main-menu-mobile--backdrop',            krdsClass: 'ds-main-menu-mobile is-backdrop',  description: '딤 오버레이 표시', confirmed: true },
+    { category: '모바일 1depth', class: 'ds-main-menu-mobile__trigger--open',       krdsClass: 'gnb-main-trigger active',          description: '1depth 탭 선택 상태', confirmed: true },
+    { category: '모바일 2depth', class: 'ds-main-menu-mobile__sub-list--open',      krdsClass: 'gnb-sub-list active',              description: '2depth 목록 표시 상태', confirmed: true },
+    { category: '모바일 2depth', class: 'ds-main-menu-mobile__sub-trigger--current',krdsClass: 'gnb-sub-trigger selected',         description: '현재 페이지 링크 (aria-current="page" 필수)', confirmed: true },
   ],
 
   codeExample: `<div id="mobile-nav" class="ds-main-menu-mobile" aria-hidden="true">
@@ -1664,12 +1667,12 @@ export const footerNaming = {
   ],
 
   modifiers: [
-    { category: 'SNS 종류',  class: 'ds-footer__sns-item ds-footer__sns-item--instagram', krdsClass: 'instagram', description: '인스타그램', confirmed: true },
-    { category: 'SNS 종류',  class: 'ds-footer__sns-item ds-footer__sns-item--youtube',   krdsClass: 'youtube',   description: '유튜브', confirmed: true },
-    { category: 'SNS 종류',  class: 'ds-footer__sns-item ds-footer__sns-item--x',         krdsClass: 'x',         description: 'X (트위터)', confirmed: true },
-    { category: 'SNS 종류',  class: 'ds-footer__sns-item ds-footer__sns-item--facebook',  krdsClass: 'facebook',  description: '페이스북', confirmed: true },
-    { category: 'SNS 종류',  class: 'ds-footer__sns-item ds-footer__sns-item--blog',      krdsClass: 'blog',      description: '블로그', confirmed: true },
-    { category: '하단 링크', class: 'ds-footer__menu-link ds-footer__menu-link--emphasis', krdsClass: 'point',    description: '강조 링크 (굵게)', confirmed: true },
+    { category: 'SNS 종류',  class: 'ds-footer__sns-item--instagram', krdsClass: 'instagram', description: '인스타그램', confirmed: true },
+    { category: 'SNS 종류',  class: 'ds-footer__sns-item--youtube',   krdsClass: 'youtube',   description: '유튜브', confirmed: true },
+    { category: 'SNS 종류',  class: 'ds-footer__sns-item--x',         krdsClass: 'x',         description: 'X (트위터)', confirmed: true },
+    { category: 'SNS 종류',  class: 'ds-footer__sns-item--facebook',  krdsClass: 'facebook',  description: '페이스북', confirmed: true },
+    { category: 'SNS 종류',  class: 'ds-footer__sns-item--blog',      krdsClass: 'blog',      description: '블로그', confirmed: true },
+    { category: '하단 링크', class: 'ds-footer__menu-link--emphasis', krdsClass: 'point',     description: '강조 링크 (굵게)', confirmed: true },
   ],
 
   codeExample: `<!-- 푸터 하단 강조 링크 -->

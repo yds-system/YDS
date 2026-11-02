@@ -1,4 +1,4 @@
-
+import remarkGfm from 'remark-gfm';
 
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 const config = {
@@ -10,7 +10,16 @@ const config = {
     "@chromatic-com/storybook",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs"
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   "framework": "@storybook/html-vite",
   "staticDirs": ["../reference/krds/resources"],

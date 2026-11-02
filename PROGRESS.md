@@ -147,6 +147,20 @@
 
 ---
 
+## 2026-11-02 작업 내역 (네이밍 정의서 점검 반영)
+
+- **remark-gfm 추가**: `.storybook/main.js` addon-docs 설정에 remarkPlugins 추가 → 마크다운 GFM 표 렌더링 활성화
+- **기반/패턴 섹션 HTML 표 전환**: components-naming.mdx의 GFM 표 → `<table>` JSX 마크업으로 교체
+- **Modifier 클래스 정리**: headerNaming·pcGnbNaming·mobileGnbNaming·footerNaming modifier에서 반복되는 기본 클래스 제거 (modifier만 표시)
+- **캐러셀 baseClass 수정**: `ds-carousel__indicator` → `ds-carousel` (BEM 블록명으로 바로잡음, KRDS 원본 `swiper-indicator` 기록 유지)
+- **추후 추가 예정 섹션 재작성**: 클래스명 칸 제거 + KRDS 분류 칸 추가, KRDS 공식 이름으로 변경, 신규 항목 추가 (달력/이미지/파비콘/플로팅 버튼/접근 가능한 미디어/숨긴 콘텐츠), 분류별 정렬, HTML 표로 전환
+- **naming-data.js 수정**:
+  - `ds-utility-list` description: "헤더·모바일 메뉴 공통 블록"으로 변경
+  - `textareaNaming.elements`: ds-count / ds-count__current / ds-count__max 3종 추가
+  - `pcGnbNaming.name`, `mobileGnbNaming.name`: "메인메뉴" → "메인 메뉴"
+
+---
+
 ## 2026-11-02 작업 내역 (KRDS 분류 적용 및 문서 정리)
 
 - **Storybook 사이드바 카테고리 전면 재편** (KRDS 공식 분류 적용):
