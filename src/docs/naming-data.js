@@ -910,6 +910,173 @@ export const paginationNaming = {
 </nav>`,
 };
 
+// ─── 배지 (Badge) ────────────────────────────────────────────────────────────
+
+export const badgeNaming = {
+  name: '배지',
+  englishName: 'Badge',
+  sbPath: '컴포넌트/피드백/배지',
+  baseClass: 'ds-badge',
+  krdsBaseClass: 'krds-badge',
+  description: '상태·카테고리·숫자 등 짧은 정보를 강조해 표시하는 레이블 요소',
+
+  structure: `span.ds-badge [ds-badge--스타일-색상] [ds-badge--large] [ds-badge--number|--dot]
+
+묶음:
+div.ds-badge-group`,
+
+  elements: [
+    {
+      element: '배지',
+      class: 'ds-badge',
+      krdsClass: 'krds-badge',
+      description: '배지 루트 요소. 스타일·크기·유형 modifier를 공백으로 이어 붙인다.',
+      confirmed: true,
+    },
+    {
+      element: '배지 그룹',
+      class: 'ds-badge-group',
+      krdsClass: 'krds-badge-wrap',
+      description: '배지를 가로로 나열하는 flex 컨테이너',
+      confirmed: true,
+    },
+  ],
+
+  modifiers: [
+    // 색상 — outline
+    { category: '색상 (테두리)', class: 'ds-badge--outline-primary',     krdsClass: 'outline-primary',     description: '테두리 — 기본', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-secondary',   krdsClass: 'outline-secondary',   description: '테두리 — 보조', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-gray',        krdsClass: 'outline-gray',        description: '테두리 — 일반', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-point',       krdsClass: 'outline-point',       description: '테두리 — 포인트', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-danger',      krdsClass: 'outline-danger',      description: '테두리 — 오류', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-warning',     krdsClass: 'outline-warning',     description: '테두리 — 주의', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-success',     krdsClass: 'outline-success',     description: '테두리 — 완료', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-information', krdsClass: 'outline-information', description: '테두리 — 정보', confirmed: true },
+    { category: '색상 (테두리)', class: 'ds-badge--outline-disabled',    krdsClass: 'outline-disabled',    description: '테두리 — 비활성', confirmed: true },
+    // 색상 — bg
+    { category: '색상 (채우기)', class: 'ds-badge--bg-primary',     krdsClass: 'bg-primary',     description: '채우기 — 기본', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-secondary',   krdsClass: 'bg-secondary',   description: '채우기 — 보조', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-gray',        krdsClass: 'bg-gray',        description: '채우기 — 일반', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-point',       krdsClass: 'bg-point',       description: '채우기 — 포인트', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-danger',      krdsClass: 'bg-danger',      description: '채우기 — 오류', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-warning',     krdsClass: 'bg-warning',     description: '채우기 — 주의 (어두운 텍스트 적용)', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-success',     krdsClass: 'bg-success',     description: '채우기 — 완료', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-information', krdsClass: 'bg-information', description: '채우기 — 정보', confirmed: true },
+    { category: '색상 (채우기)', class: 'ds-badge--bg-disabled',    krdsClass: 'bg-disabled',    description: '채우기 — 비활성', confirmed: true },
+    // 색상 — bg-light
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-primary',     krdsClass: 'bg-light-primary',     description: '밝은 배경 — 기본 (상태 표시 권장)', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-secondary',   krdsClass: 'bg-light-secondary',   description: '밝은 배경 — 보조', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-gray',        krdsClass: 'bg-light-gray',        description: '밝은 배경 — 일반', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-point',       krdsClass: 'bg-light-point',       description: '밝은 배경 — 포인트', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-danger',      krdsClass: 'bg-light-danger',      description: '밝은 배경 — 오류', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-warning',     krdsClass: 'bg-light-warning',     description: '밝은 배경 — 주의', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-success',     krdsClass: 'bg-light-success',     description: '밝은 배경 — 완료', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-information', krdsClass: 'bg-light-information', description: '밝은 배경 — 정보', confirmed: true },
+    { category: '색상 (밝은 배경)', class: 'ds-badge--bg-light-disabled',    krdsClass: 'bg-light-disabled',    description: '밝은 배경 — 비활성', confirmed: true },
+    // 크기
+    { category: '크기', class: 'ds-badge--large', krdsClass: 'large', description: '큰 크기 배지. 크기 클래스를 생략하면 기본 크기가 적용된다.', confirmed: true },
+    // 유형
+    { category: '유형', class: 'ds-badge--number', krdsClass: 'number', description: '숫자 배지 — pill 형태, 최소 너비 보장', confirmed: true },
+    { category: '유형', class: 'ds-badge--dot', krdsClass: '(자체 추가)', description: '점 배지 — 텍스트 없음, aria-label 필수. KRDS 원본에 없음', confirmed: true },
+  ],
+
+  codeExample: `<!-- 기본 배지 -->
+<span class="ds-badge ds-badge--bg-light-primary">진행 중</span>
+
+<!-- 채우기 -->
+<span class="ds-badge ds-badge--bg-success">완료</span>
+
+<!-- 테두리 -->
+<span class="ds-badge ds-badge--outline-danger">오류</span>
+
+<!-- Large 크기 -->
+<span class="ds-badge ds-badge--large ds-badge--bg-light-information">정보</span>
+
+<!-- 숫자 배지 -->
+<span class="ds-badge ds-badge--bg-danger ds-badge--number">5</span>
+<span class="ds-badge ds-badge--bg-primary ds-badge--number">999+</span>
+
+<!-- 점 배지 -->
+<span class="ds-badge ds-badge--bg-danger ds-badge--dot" aria-label="알림 있음"></span>
+
+<!-- 묶음 표시 -->
+<div class="ds-badge-group">
+  <span class="ds-badge ds-badge--bg-light-primary">기본</span>
+  <span class="ds-badge ds-badge--bg-light-success">완료</span>
+  <span class="ds-badge ds-badge--bg-light-danger">오류</span>
+</div>`,
+};
+
+// ─── 툴팁 (Tooltip) ──────────────────────────────────────────────────────────
+
+export const tooltipNaming = {
+  name: '툴팁',
+  englishName: 'Tooltip',
+  sbPath: '컴포넌트/피드백/툴팁',
+  baseClass: 'ds-tooltip',
+  krdsBaseClass: 'krds-tooltip',
+  description: '요소에 마우스를 올리거나 포커스 시 짧은 안내 텍스트를 팝오버로 표시하는 컴포넌트',
+
+  structure: `[button|span].ds-tooltip
+  data-tooltip="텍스트"
+  data-position="top|bottom|left|right"
+  data-style="inline|box"
+
+팝오버 (JS 동적 생성, 트리거 바깥 canvasElement에 부착):
+div.ds-tooltip-popover [ds-tooltip-popover--open] [ds-tooltip-popover--box]
+  [ds-tooltip-popover--top|--bottom|--left|--right]`,
+
+  elements: [
+    {
+      element: '트리거',
+      class: 'ds-tooltip',
+      krdsClass: 'krds-tooltip',
+      description: '트리거 요소에 부여하는 마커 클래스. data-tooltip / data-position / data-style 속성으로 동작 설정',
+      confirmed: true,
+    },
+    {
+      element: '팝오버',
+      class: 'ds-tooltip-popover',
+      krdsClass: '(자체 구현)',
+      description: '팝오버 컨테이너 (JS가 생성, position: fixed). role="tooltip" 부여. 트리거 바깥에 단독 배치',
+      confirmed: true,
+    },
+  ],
+
+  modifiers: [
+    { category: '팝오버 표시', class: 'ds-tooltip-popover--open',   krdsClass: 'active',       description: '팝오버 표시 상태. ds-tooltip-popover에 적용', confirmed: true },
+    { category: '박스형',     class: 'ds-tooltip-popover--box',    krdsClass: 'tooltip-box',  description: '흰 배경·테두리 박스형 팝오버. ds-tooltip-popover에 적용', confirmed: true },
+    { category: '위치',       class: 'ds-tooltip-popover--top',    krdsClass: 'pos-top',      description: '트리거 위에 표시. ds-tooltip-popover에 적용', confirmed: true },
+    { category: '위치',       class: 'ds-tooltip-popover--bottom', krdsClass: 'pos-bottom',   description: '트리거 아래에 표시. ds-tooltip-popover에 적용', confirmed: true },
+    { category: '위치',       class: 'ds-tooltip-popover--left',   krdsClass: 'pos-left',     description: '트리거 왼쪽에 표시. ds-tooltip-popover에 적용', confirmed: true },
+    { category: '위치',       class: 'ds-tooltip-popover--right',  krdsClass: 'pos-right',    description: '트리거 오른쪽에 표시. ds-tooltip-popover에 적용', confirmed: true },
+  ],
+
+  codeExample: `<!-- 버튼 트리거 -->
+<button type="button" class="ds-btn ds-btn--medium ds-tooltip"
+        data-tooltip="툴팁 안내 텍스트입니다."
+        data-position="top"
+        data-style="inline">
+  버튼 레이블
+</button>
+
+<!-- 텍스트 요소 트리거 -->
+<span class="ds-tooltip"
+      tabindex="0"
+      data-tooltip="span 요소의 툴팁입니다."
+      data-position="right"
+      data-style="inline">
+  텍스트 요소
+</span>
+
+<!-- JS가 자동 생성하는 팝오버 -->
+<div id="tooltip-trigger-xxxxx-popover"
+     class="ds-tooltip-popover ds-tooltip-popover--top ds-tooltip-popover--open"
+     role="tooltip">
+  툴팁 안내 텍스트입니다.
+</div>`,
+};
+
 // ─── 전체 목록 (components-naming.mdx 용) ──────────────────────────────────
 // 새 컴포넌트를 추가하면 이 배열에도 추가한다.
 
@@ -926,4 +1093,6 @@ export const allComponents = [
   breadcrumbNaming,
   tabNaming,
   paginationNaming,
+  badgeNaming,
+  tooltipNaming,
 ];

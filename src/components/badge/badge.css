@@ -70,18 +70,18 @@
 }
 
 /* ----- 크기 ----- */
-.ds-badge.large {
+.ds-badge.ds-badge--large {
   height: var(--ds-badge--size-height-large);
   font-size: var(--ds-badge--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-badge.large {
+  .ds-badge.ds-badge--large {
     font-size: var(--ds-badge--mobile-font-size-large);
   }
 }
 
 /* 숫자 배지 */
-.ds-badge.number {
+.ds-badge.ds-badge--number {
   height: var(--ds-badge--number-size-height);
   border-radius: var(--ds-badge--radius-max);
   min-width: var(--ds-badge--number-size-height);
@@ -89,7 +89,7 @@
 }
 
 /* 점 배지 */
-.ds-badge.dot {
+.ds-badge.ds-badge--dot {
   width: var(--ds-badge--dot-size);
   height: var(--ds-badge--dot-size);
   padding: var(--ds-badge--dot-padding);
@@ -97,121 +97,121 @@
 }
 
 /* ----- 색상 variant — outline ----- */
-.ds-badge.outline-primary {
+.ds-badge.ds-badge--outline-primary {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-primary-element);
   color: var(--ds-badge--color-primary-text);
 }
-.ds-badge.outline-secondary {
+.ds-badge.ds-badge--outline-secondary {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-secondary-element);
   color: var(--ds-badge--color-secondary-text);
 }
-.ds-badge.outline-gray {
+.ds-badge.ds-badge--outline-gray {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-gray-element);
   color: var(--ds-badge--color-gray-text);
 }
-.ds-badge.outline-point {
+.ds-badge.ds-badge--outline-point {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-point-element);
   color: var(--ds-badge--color-point-text);
 }
-.ds-badge.outline-danger {
+.ds-badge.ds-badge--outline-danger {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-danger-element);
   color: var(--ds-badge--color-danger-text);
 }
-.ds-badge.outline-warning {
+.ds-badge.ds-badge--outline-warning {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-warning-element);
   color: var(--ds-badge--color-warning-text);
 }
-.ds-badge.outline-success {
+.ds-badge.ds-badge--outline-success {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-success-element);
   color: var(--ds-badge--color-success-text);
 }
-.ds-badge.outline-information {
+.ds-badge.ds-badge--outline-information {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-information-element);
   color: var(--ds-badge--color-information-text);
 }
-.ds-badge.outline-disabled {
+.ds-badge.ds-badge--outline-disabled {
   border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-disabled-element);
   color: var(--ds-badge--color-disabled-text);
 }
 
 /* ----- 색상 variant — bg (채우기) ----- */
-.ds-badge.bg-primary {
+.ds-badge.ds-badge--bg-primary {
   background-color: var(--ds-badge--color-primary-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-secondary {
+.ds-badge.ds-badge--bg-secondary {
   background-color: var(--ds-badge--color-secondary-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-gray {
+.ds-badge.ds-badge--bg-gray {
   background-color: var(--ds-badge--color-gray-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-point {
+.ds-badge.ds-badge--bg-point {
   background-color: var(--ds-badge--color-point-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-danger {
+.ds-badge.ds-badge--bg-danger {
   background-color: var(--ds-badge--color-danger-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-warning {
+.ds-badge.ds-badge--bg-warning {
   background-color: var(--ds-badge--color-warning-element);
   color: var(--ds-badge--color-text-warning); /* warning은 어두운 텍스트 */
 }
-.ds-badge.bg-success {
+.ds-badge.ds-badge--bg-success {
   background-color: var(--ds-badge--color-success-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-information {
+.ds-badge.ds-badge--bg-information {
   background-color: var(--ds-badge--color-information-element);
   color: var(--ds-badge--color-text-basic);
 }
-.ds-badge.bg-disabled {
+.ds-badge.ds-badge--bg-disabled {
   background-color: var(--ds-badge--color-disabled-element);
   color: var(--ds-badge--color-text-basic);
 }
 
 /* ----- 색상 variant — bg-light (밝은 배경) ----- */
-.ds-badge.bg-light-primary {
+.ds-badge.ds-badge--bg-light-primary {
   background-color: var(--ds-badge--color-primary-element-lighter);
   color: var(--ds-badge--color-primary-text);
 }
-.ds-badge.bg-light-secondary {
+.ds-badge.ds-badge--bg-light-secondary {
   background-color: var(--ds-badge--color-secondary-element-lighter);
   color: var(--ds-badge--color-secondary-text);
 }
-.ds-badge.bg-light-gray {
+.ds-badge.ds-badge--bg-light-gray {
   background-color: var(--ds-badge--color-gray-element-lighter);
   color: var(--ds-badge--color-gray-text);
 }
-.ds-badge.bg-light-point {
+.ds-badge.ds-badge--bg-light-point {
   background-color: var(--ds-badge--color-point-element-lighter);
   color: var(--ds-badge--color-point-text);
 }
-.ds-badge.bg-light-danger {
+.ds-badge.ds-badge--bg-light-danger {
   background-color: var(--ds-badge--color-danger-element-lighter);
   color: var(--ds-badge--color-danger-text);
 }
-.ds-badge.bg-light-warning {
+.ds-badge.ds-badge--bg-light-warning {
   background-color: var(--ds-badge--color-warning-element-lighter);
   color: var(--ds-badge--color-warning-text);
 }
-.ds-badge.bg-light-success {
+.ds-badge.ds-badge--bg-light-success {
   background-color: var(--ds-badge--color-success-element-lighter);
   color: var(--ds-badge--color-success-text);
 }
-.ds-badge.bg-light-information {
+.ds-badge.ds-badge--bg-light-information {
   background-color: var(--ds-badge--color-information-element-lighter);
   color: var(--ds-badge--color-information-text);
 }
-.ds-badge.bg-light-disabled {
+.ds-badge.ds-badge--bg-light-disabled {
   background-color: var(--ds-badge--color-disabled-element-lighter);
   color: var(--ds-badge--color-disabled-text);
 }
 
-/* ----- Wrap ----- */
-.ds-badge-wrap {
+/* ----- Group ----- */
+.ds-badge-group {
   --ds-badge--wrap-gap: var(--krds-gap-3);
   display: flex;
   flex-wrap: wrap;

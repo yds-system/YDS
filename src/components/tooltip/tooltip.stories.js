@@ -37,22 +37,11 @@ export default {
 /* ─── 트리거 HTML ──────────────────────────── */
 
 function trigger({ label, tooltip, position, style }) {
-  const boxClass = style === 'box' ? ' tooltip-box' : '';
   return `<button type="button" class="ds-btn ds-btn--medium ds-tooltip"
             data-tooltip="${tooltip}"
             data-position="${position}"
             data-style="${style}">
     ${label}
-  </button>`;
-}
-
-function iconTrigger({ tooltip, position, style }) {
-  return `<button type="button" class="ds-btn ds-btn--icon ds-btn--medium ds-tooltip"
-            aria-label="도움말"
-            data-tooltip="${tooltip}"
-            data-position="${position}"
-            data-style="${style}">
-    <span class="ico-help" aria-hidden="true"></span>
   </button>`;
 }
 
@@ -84,8 +73,8 @@ function initTooltip(canvasElement) {
     /* 내용 & 클래스 갱신 */
     popover.textContent = text;
     popover.className = 'ds-tooltip-popover';
-    if (style === 'box')   popover.classList.add('tooltip-box');
-    popover.classList.add(`pos-${position}`);
+    if (style === 'box')   popover.classList.add('ds-tooltip-popover--box');
+    popover.classList.add(`ds-tooltip-popover--${position}`);
 
     /* aria 연결 */
     if (!trigger.id) {
@@ -96,7 +85,7 @@ function initTooltip(canvasElement) {
     trigger.setAttribute('aria-describedby', popId);
 
     /* 먼저 보여야 크기를 잴 수 있음 */
-    popover.classList.add('active');
+    popover.classList.add('ds-tooltip-popover--open');
 
     /* 위치 계산 */
     const gap = 12;
@@ -130,7 +119,7 @@ function initTooltip(canvasElement) {
 
   function hideTooltip(trigger) {
     hideTimer = setTimeout(() => {
-      popover.classList.remove('active');
+      popover.classList.remove('ds-tooltip-popover--open');
       if (trigger) trigger.removeAttribute('aria-describedby');
     }, 100);
   }
@@ -138,7 +127,7 @@ function initTooltip(canvasElement) {
   /* Escape 키 닫기 */
   function onKeydown(e) {
     if (e.key === 'Escape') {
-      popover.classList.remove('active');
+      popover.classList.remove('ds-tooltip-popover--open');
       document.removeEventListener('keydown', onKeydown);
     }
   }

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming } from '../docs/naming-data.js';
+import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -289,15 +289,62 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
 
 ## 피드백 (Feedback)
 
-| 컴포넌트명(한글) | 영문명 | 기본 클래스명 | 하위 요소 클래스명 | modifier (종류·크기·상태) | 설명 |
-|---|---|---|---|---|---|
-| 모달 | Modal | `krds-modal` | `modal-dialog` `modal-content` `modal-header` `modal-title` `modal-conts` `conts-area` `modal-btn` `btn-wrap` `btn-close` `modal-back` | `fade` | 사용자 확인·입력을 받는 오버레이 레이어 |
-| 툴팁 | Tooltip | `ds-btn` | `ds-icon` `sr-only` `ds-tooltip` `tooltip-box` `tooltip-vertical` | `small` `text` `icon` | 추가 정보를 말풍선으로 표시 |
-| 로딩 스피너 | Spinner | `form-spinner` | `krds-spinner` | — | 로딩 상태를 표시하는 회전 아이콘 |
-| 뱃지 | Badge | `ds-badge` | `ds-badge-wrap` | `outline-primary` `outline-secondary` `outline-gray` `outline-point` `outline-danger` `outline-warning` `outline-success` `outline-information` `outline-disabled` `bg-primary` `bg-secondary` `bg-gray` `bg-point` `bg-danger` `bg-warning` `bg-success` `bg-information` `bg-disabled` `bg-light-primary` `bg-light-secondary` `bg-light-gray` `bg-light-point` `bg-light-danger` `bg-light-warning` `bg-light-success` `bg-light-information` `bg-light-disabled` `number` `large` `medium` `small` | 상태나 숫자를 표시하는 레이블 |
-| 중요 공지 | Critical Alerts | `krds-critical-alerts` | `critical-ban` `critical-badge` `critical-txt` | `danger` `ok` `info` | 긴급하거나 중요한 시스템 공지 배너 |
-| 코치 마크 | Coach Mark | `krds-coach-mark` | `txt-box` `coach-balloon` `coach-tit` `desc` `coach-controls` `num` `btn-wrap` | `bg-white` | 신규 기능·UI를 안내하는 가이드 말풍선 |
-| 맥락적 도움말 | Contextual Help | `krds-contextual-help` | `tooltip-txt` `tooltip-action` `tooltip-popover` `tooltip-title` `tooltip-contents` `btn-wrap` `tooltip-close` | `top` `bottom` `left` `center` `right` | 컴포넌트 주변에 도움말 팝오버를 표시 |
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>모달</td>
+      <td>Modal</td>
+      <td><code>krds-modal</code></td>
+      <td><code>modal-dialog</code> <code>modal-content</code> <code>modal-header</code> <code>modal-title</code> <code>modal-conts</code> <code>conts-area</code> <code>modal-btn</code> <code>btn-wrap</code> <code>btn-close</code> <code>modal-back</code></td>
+      <td><code>fade</code></td>
+      <td>사용자 확인·입력을 받는 오버레이 레이어</td>
+    </tr>
+    <CompRow comp={tooltipNaming} />
+    <tr>
+      <td>로딩 스피너</td>
+      <td>Spinner</td>
+      <td><code>form-spinner</code></td>
+      <td><code>krds-spinner</code></td>
+      <td>—</td>
+      <td>로딩 상태를 표시하는 회전 아이콘</td>
+    </tr>
+    <CompRow comp={badgeNaming} />
+    <tr>
+      <td>중요 공지</td>
+      <td>Critical Alerts</td>
+      <td><code>krds-critical-alerts</code></td>
+      <td><code>critical-ban</code> <code>critical-badge</code> <code>critical-txt</code></td>
+      <td><code>danger</code> <code>ok</code> <code>info</code></td>
+      <td>긴급하거나 중요한 시스템 공지 배너</td>
+    </tr>
+    <tr>
+      <td>코치 마크</td>
+      <td>Coach Mark</td>
+      <td><code>krds-coach-mark</code></td>
+      <td><code>txt-box</code> <code>coach-balloon</code> <code>coach-tit</code> <code>desc</code> <code>coach-controls</code> <code>num</code> <code>btn-wrap</code></td>
+      <td><code>bg-white</code></td>
+      <td>신규 기능·UI를 안내하는 가이드 말풍선</td>
+    </tr>
+    <tr>
+      <td>맥락적 도움말</td>
+      <td>Contextual Help</td>
+      <td><code>krds-contextual-help</code></td>
+      <td><code>tooltip-txt</code> <code>tooltip-action</code> <code>tooltip-popover</code> <code>tooltip-title</code> <code>tooltip-contents</code> <code>btn-wrap</code> <code>tooltip-close</code></td>
+      <td><code>top</code> <code>bottom</code> <code>left</code> <code>center</code> <code>right</code></td>
+      <td>컴포넌트 주변에 도움말 팝오버를 표시</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 

@@ -32,7 +32,7 @@
   left: 0;
   pointer-events: none; /* 마우스 이벤트 통과 */
 }
-.ds-tooltip-popover.active {
+.ds-tooltip-popover.ds-tooltip-popover--open {
   display: block;
 }
 @media (max-width: 767px) {
@@ -42,7 +42,7 @@
 }
 
 /* ----- 박스형 ----- */
-.ds-tooltip-popover.tooltip-box {
+.ds-tooltip-popover.ds-tooltip-popover--box {
   white-space: normal;
   max-width: 36rem;
   border: 0.1rem solid var(--ds-tooltip--popover-color-border);
@@ -63,7 +63,7 @@
   position: absolute;
   background-color: var(--ds-tooltip--popover-color-surface);
 }
-.ds-tooltip-popover.tooltip-box::before {
+.ds-tooltip-popover.ds-tooltip-popover--box::before {
   --tooltip-arrow-size: 1.2rem;
   border: 0.1rem solid var(--ds-tooltip--popover-color-border);
   border-top-color: transparent;
@@ -72,43 +72,43 @@
 }
 
 /* ----- 위치별 화살표 -----
-   pos-right : 툴팁이 트리거 오른쪽 → 화살표가 팝오버 왼쪽 (← 트리거 방향)
-   pos-left  : 툴팁이 트리거 왼쪽  → 화살표가 팝오버 오른쪽
-   pos-top   : 툴팁이 트리거 위쪽  → 화살표가 팝오버 아래쪽
-   pos-bottom: 툴팁이 트리거 아래쪽 → 화살표가 팝오버 위쪽
+   --right : 툴팁이 트리거 오른쪽 → 화살표가 팝오버 왼쪽 (← 트리거 방향)
+   --left  : 툴팁이 트리거 왼쪽  → 화살표가 팝오버 오른쪽
+   --top   : 툴팁이 트리거 위쪽  → 화살표가 팝오버 아래쪽
+   --bottom: 툴팁이 트리거 아래쪽 → 화살표가 팝오버 위쪽
 ----- */
 
-/* pos-right (기본): 화살표 왼쪽 */
-.ds-tooltip-popover.pos-right::before {
+/* --right (기본): 화살표 왼쪽 */
+.ds-tooltip-popover.ds-tooltip-popover--right::before {
   left: var(--tooltip-arrow-gap);
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* pos-left: 화살표 오른쪽 */
-.ds-tooltip-popover.pos-left::before {
+/* --left: 화살표 오른쪽 */
+.ds-tooltip-popover.ds-tooltip-popover--left::before {
   left: calc(100% + var(--tooltip-arrow-gap));
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* pos-top: 화살표 아래쪽 */
-.ds-tooltip-popover.pos-top::before {
+/* --top: 화살표 아래쪽 */
+.ds-tooltip-popover.ds-tooltip-popover--top::before {
   top: calc(100% + var(--tooltip-arrow-gap));
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
-.ds-tooltip-popover.pos-top.tooltip-box::before {
+.ds-tooltip-popover.ds-tooltip-popover--top.ds-tooltip-popover--box::before {
   transform: translateX(-50%) rotate(135deg);
 }
 
-/* pos-bottom: 화살표 위쪽 */
-.ds-tooltip-popover.pos-bottom::before {
+/* --bottom: 화살표 위쪽 */
+.ds-tooltip-popover.ds-tooltip-popover--bottom::before {
   top: var(--tooltip-arrow-gap);
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
-.ds-tooltip-popover.pos-bottom.tooltip-box::before {
+.ds-tooltip-popover.ds-tooltip-popover--bottom.ds-tooltip-popover--box::before {
   transform: translateX(-50%) rotate(-135deg);
 }
 

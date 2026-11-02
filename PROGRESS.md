@@ -12,18 +12,19 @@
 - 파일 업로드 (ds-file-upload)
 - 링크 텍스트 (ds-link — button.css 의존 제거, 독립 블록으로 분리)
 - 태그 (ds-tag-group, ds-tag--link, ds-tag__delete-btn)
+- 배지 (ds-badge-group, ds-badge--{스타일}-{색상}, ds-badge--large/--number/--dot)
+- 툴팁 (ds-tooltip-popover--open/--box/--top/--bottom/--left/--right)
 
 ### 남은 순서 (사이드바 카테고리 기준)
 1. ~~**입력**: 날짜 입력, 파일 업로드~~ ✓
 2. ~~**액션 + 선택**: 링크 텍스트, 태그~~ ✓
 3. ~~**form-group 공통 클래스 BEM 정리**~~ ✓
 4. ~~**탐색**: 브레드크럼, 탭, 페이지네이션~~ ✓
-5. **피드백**: 배지, 툴팁
+5. ~~**피드백**: 배지, 툴팁~~ ✓
 6. **콘텐츠**: 아코디언, 표, 캐러셀 컨트롤
 7. **기반 + 패턴**: 아이콘, 기본 레이아웃
 
 ### 남은 정리 항목 (해당 카테고리 작업 시 처리)
-- badge.css `.large` → `ds-badge--large` (피드백)
 - icon CSS `.small` / `.medium` → `ds-icon--small` / `ds-icon--medium` (기반)
 - layout CSS `.btn-navi` 및 그 modifier (기반 + 패턴)
 
@@ -42,6 +43,13 @@
 | 글자 수 블록 | 공통 블록으로 분리 — `ds-count`, `ds-count__current`, `ds-count__max` |
 | 링크 텍스트 | `ds-link` 독립 블록. `ds-btn--link` modifier 제거. 버튼 외형 링크는 `<a class="ds-btn ds-btn--primary">` 사용 |
 | 태그 그룹 | `ds-tag-wrap` → `ds-tag-group` (ds-check-group과 통일) |
+| 배지 래퍼 | `ds-badge-wrap` → `ds-badge-group` (ds-tag-group, ds-check-group 패턴 통일) |
+| 배지 modifier | `large/number/dot/outline-*/bg-*` → `ds-badge--large/--number/--dot/--outline-*/--bg-*` (BEM) |
+| 배지 dot | `--dot`은 KRDS 원본 없음 → naming-data.js에 `krdsClass: '(자체 추가)'`로 표시 |
+| 툴팁 active | `active` → `ds-tooltip-popover--open` (`--open` 허용 상태 목록) |
+| 툴팁 박스형 | `tooltip-box` → `ds-tooltip-popover--box` (BEM modifier) |
+| 툴팁 위치 | `pos-top/bottom/left/right` → `ds-tooltip-popover--top/bottom/left/right` (pos 제거) |
+| 툴팁 팝오버 | `ds-tooltip-popover` 별도 블록 유지 (JS로 트리거 바깥 canvasElement에 부착) |
 | 태그 삭제 버튼 | `btn-delete` → `ds-tag__delete-btn` (줄임말 사용 안 함) |
 | 밑줄 hover | `ds-link__text--hidden` → `ds-link__text--underline-hover` (역할 기반 이름) |
 | 폼 그룹 세로 묶음 | `fieldset` → `ds-fieldset` 블록 |
