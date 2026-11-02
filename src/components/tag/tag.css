@@ -4,7 +4,7 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-tag-wrap {
+.ds-tag-group {
   --ds-tag--color-text: var(--krds-light-color-text-basic);
   --ds-tag--color-action: var(--krds-light-color-action-white);
   --ds-tag--color-action-hover: var(--krds-light-color-action-secondary-hover);
@@ -40,7 +40,7 @@
 }
 
 /* ----- Wrap (기본: medium) ----- */
-.ds-tag-wrap {
+.ds-tag-group {
   display: flex;
   flex-wrap: wrap;
   gap: var(--ds-tag--wrapper-gap-y-medium) var(--ds-tag--wrapper-gap-x-medium);
@@ -49,67 +49,67 @@
 /* ----- 크기별 Wrap + 태그 ----- */
 
 /* small */
-.ds-tag-wrap.small {
+.ds-tag-group.ds-tag-group--small {
   gap: var(--ds-tag--wrapper-gap-y-small) var(--ds-tag--wrapper-gap-x-small);
 }
-.ds-tag-wrap.small .ds-tag {
+.ds-tag-group.ds-tag-group--small .ds-tag {
   height: var(--ds-tag--size-height-small);
   padding: 0 var(--ds-tag--padding-x-small);
   border-radius: var(--ds-tag--size-height-small);
   font-size: var(--ds-tag--pc-font-size-small);
 }
 @media (max-width: 767px) {
-  .ds-tag-wrap.small .ds-tag {
+  .ds-tag-group.ds-tag-group--small .ds-tag {
     font-size: var(--ds-tag--mobile-font-size-small);
   }
 }
-.ds-tag-wrap.small .ds-tag .btn-delete {
+.ds-tag-group.ds-tag-group--small .ds-tag .ds-tag__delete-btn {
   width: var(--ds-tag--button-size-small);
   height: var(--ds-tag--button-size-small);
 }
 
 /* medium (기본) */
-.ds-tag-wrap.medium {
+.ds-tag-group.ds-tag-group--medium {
   gap: var(--ds-tag--wrapper-gap-y-medium) var(--ds-tag--wrapper-gap-x-medium);
 }
-.ds-tag-wrap.medium .ds-tag {
+.ds-tag-group.ds-tag-group--medium .ds-tag {
   height: var(--ds-tag--size-height-medium);
   padding: 0 var(--ds-tag--padding-x-medium);
   border-radius: var(--ds-tag--size-height-medium);
   font-size: var(--ds-tag--pc-font-size-medium);
 }
 @media (max-width: 767px) {
-  .ds-tag-wrap.medium .ds-tag {
+  .ds-tag-group.ds-tag-group--medium .ds-tag {
     font-size: var(--ds-tag--mobile-font-size-medium);
   }
 }
-.ds-tag-wrap.medium .ds-tag .btn-delete {
+.ds-tag-group.ds-tag-group--medium .ds-tag .ds-tag__delete-btn {
   width: var(--ds-tag--button-size-medium);
   height: var(--ds-tag--button-size-medium);
 }
 
 /* large */
-.ds-tag-wrap.large {
+.ds-tag-group.ds-tag-group--large {
   gap: var(--ds-tag--wrapper-gap-y-large) var(--ds-tag--wrapper-gap-x-large);
 }
-.ds-tag-wrap.large .ds-tag {
+.ds-tag-group.ds-tag-group--large .ds-tag {
   height: var(--ds-tag--size-height-large);
   padding: 0 var(--ds-tag--padding-x-large);
   border-radius: var(--ds-tag--size-height-large);
   font-size: var(--ds-tag--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-tag-wrap.large .ds-tag {
+  .ds-tag-group.ds-tag-group--large .ds-tag {
     font-size: var(--ds-tag--mobile-font-size-large);
   }
 }
-.ds-tag-wrap.large .ds-tag .btn-delete {
+.ds-tag-group.ds-tag-group--large .ds-tag .ds-tag__delete-btn {
   width: var(--ds-tag--button-size-large);
   height: var(--ds-tag--button-size-large);
 }
 
 /* ----- 태그 기본 스타일 ----- */
-.ds-tag-wrap .ds-tag {
+.ds-tag-group .ds-tag {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
@@ -127,28 +127,28 @@
   white-space: nowrap;
 }
 @media (max-width: 767px) {
-  .ds-tag-wrap .ds-tag {
+  .ds-tag-group .ds-tag {
     font-size: var(--ds-tag--mobile-font-size-medium);
   }
 }
 
 /* 상태 */
-.ds-tag-wrap .ds-tag:hover {
+.ds-tag-group .ds-tag:hover {
   background-color: var(--ds-tag--color-action-hover);
 }
-.ds-tag-wrap .ds-tag:active {
+.ds-tag-group .ds-tag:active {
   background-color: var(--ds-tag--color-action-pressed);
 }
 
 /* 링크 variant */
-.ds-tag-wrap .ds-tag.link:hover,
-.ds-tag-wrap .ds-tag.link:active {
+.ds-tag-group .ds-tag.ds-tag--link:hover,
+.ds-tag-group .ds-tag.ds-tag--link:active {
   text-decoration: underline;
   text-underline-offset: var(--krds-font-underline-offset);
 }
 
 /* ----- 삭제 버튼 ----- */
-.ds-tag-wrap .ds-tag .btn-delete {
+.ds-tag-group .ds-tag .ds-tag__delete-btn {
   display: inline-flex;
   flex-shrink: 0;
   width: var(--ds-tag--button-size-medium);

@@ -78,6 +78,8 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 | 읽기 전용 | HTML `readonly` 속성 | `<input readonly>` |
 | 선택 완료 | 블록 modifier: `--completed` | `ds-select--completed` |
 | 항목 오류 (리스트) | 항목 modifier: `--error` | `ds-file-upload__item--error` |
+| 선택됨 (여러 개 중) | 요소 modifier: `--selected` | `ds-tab__item--selected` — `aria-selected="true"` 사용 |
+| 현재 위치 | 요소 modifier: `--current` | `ds-breadcrumb__link--current`, `ds-pagination__link--current` — `aria-current` 사용 |
 
 - **허용 상태 이름 목록**: `--open`, `--current`, `--selected`, `--completed`, `--error`, `--disabled`, `--dragover`. 이 목록에 없는 상태 이름을 새로 만들 때는 먼저 협의한다.
 - `is-error`, `is-success`, `is-information` 등 `is-` 접두사 클래스는 사용하지 않는다.
@@ -89,6 +91,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - **한 요소에는 스타일용·JS용 클래스를 따로 두지 않는다.** BEM 클래스 하나로 스타일과 JS 이벤트 선택을 모두 처리한다.
 - **modifier는 항상 기본 클래스와 함께 쓴다.** 예: `ds-calendar__cell--today`만 단독으로 쓰지 않고, `ds-calendar__cell ds-calendar__cell--today`로 쓴다.
 - **버튼 묶음 요소는 `__actions`로 쓴다.** 버튼 여러 개를 감싸는 컨테이너 요소의 이름은 `{블록}__actions`으로 통일한다. 예: `ds-form-content__actions`, `ds-calendar__actions`.
+- **이전/다음/처음/마지막 이동 버튼 요소 이름은 `__move-btn`으로 쓴다.** 방향 modifier: `--prev`, `--next`, `--first`, `--last`. 예: `ds-pagination__move-btn--prev`, `ds-pagination__move-btn--last`, `ds-calendar__move-btn--next`.
 - 모든 클래스는 KRDS 원본에 대응하는 클래스가 있어야 한다. 대응하는 원본이 없거나 추측한 경우 "확인 필요"로 표시한다.
 - naming-data.js에는 ds- 클래스명과 함께 "KRDS 원본 클래스명"을 기록해 대응 관계를 유지한다.
 - 네이밍 데이터는 src/docs/naming-data.js 한 곳에서 관리한다.
@@ -100,6 +103,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
   - 변형(modifier) 표: 종류·크기·상태별 클래스명 | 설명
   - 코드 예시: 클래스명이 들어간 실제 HTML (복사 가능)
 - 새 컴포넌트를 만들 때 naming-data.js에도 함께 추가한다.
+- **옛 클래스 검색은 항상 src 전체의 css, js, mdx를 대상으로 한다. (CSS를 빼지 않는다)**
 
 ## Storybook 10 기준 규칙
 - 문서 블록(Meta, Canvas, Story 등)은 '@storybook/addon-docs/blocks'에서 import한다.

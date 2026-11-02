@@ -1,7 +1,7 @@
 /* =============================================
    KRDS Link Text Component
    출처: reference/krds/resources/css/component/component.css
-   의존성: ../button/button.css (반드시 먼저 import)
+   (버튼 컴포넌트와 독립된 별도 블록 — button.css 의존 없음)
    ============================================= */
 
 /* ----- ds-ico-go 아이콘 ----- */
@@ -17,222 +17,216 @@
   forced-color-adjust: none;
 }
 
-/* ----- 링크 버튼 기본 색상 (button.css의 primary 기본값 덮어쓰기) ----- */
-.ds-btn.ds-btn--link {
-  background-color: var(--ds-btn--color-link-fill);
-  border-color: var(--ds-btn--color-link-border);
-  color: var(--ds-btn--color-link-text);
-}
-.ds-btn.ds-btn--link:not(.ds-btn--icon) .ds-icon {
-  background-color: var(--ds-btn--color-link-text);
-}
-.ds-btn.ds-btn--link:hover {
-  background-color: var(--ds-btn--color-link-fill-hover);
-}
-.ds-btn.ds-btn--link:active,
-.ds-btn.ds-btn--link:focus {
-  background-color: var(--ds-btn--color-link-fill-pressed);
-}
-.ds-btn.ds-btn--link[disabled],
-.ds-btn.ds-btn--link.ds-btn--disabled {
-  background-color: var(--ds-btn--color-link-fill-disabled);
-  border-color: var(--ds-btn--color-link-border-disabled);
-  color: var(--ds-btn--color-link-text-disabled);
-  cursor: default;
-  pointer-events: none;
-}
-.ds-btn.ds-btn--link[disabled]:not(.ds-btn--icon) .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--disabled:not(.ds-btn--icon) .ds-icon {
-  background-color: var(--ds-btn--color-link-text-disabled);
-}
-.ds-btn.ds-btn--link[disabled]:hover,
-.ds-btn.ds-btn--link.ds-btn--disabled:hover {
-  background-color: var(--ds-btn--color-link-fill-disabled);
-  border-color: var(--ds-btn--color-link-border-disabled);
-  color: var(--ds-btn--color-link-text-disabled);
+/* ----- CSS 변수 ----- */
+.ds-link {
+  /* 색상 */
+  --ds-link--color-text:          var(--krds-light-color-link-default);
+  --ds-link--color-text-hover:    var(--krds-light-color-link-hover);
+  --ds-link--color-text-pressed:  var(--krds-light-color-link-pressed);
+  --ds-link--color-text-visited:  var(--krds-light-color-link-visited);
+  --ds-link--color-text-disabled: var(--krds-light-color-text-disabled);
+
+  /* 폰트 크기 · 패딩 */
+  --ds-link--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
+  --ds-link--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
+  --ds-link--padding-x-xsmall:        var(--krds-padding-1);
+  --ds-link--pc-font-size-small:      var(--krds-pc-font-size-label-small);
+  --ds-link--mobile-font-size-small:  var(--krds-mobile-font-size-label-small);
+  --ds-link--padding-x-small:         var(--krds-padding-1);
+  --ds-link--pc-font-size-medium:     var(--krds-pc-font-size-label-medium);
+  --ds-link--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --ds-link--padding-x-medium:        var(--krds-padding-1);
+  --ds-link--pc-font-size-large:      var(--krds-pc-font-size-label-large);
+  --ds-link--mobile-font-size-large:  var(--krds-mobile-font-size-label-large);
+  --ds-link--padding-x-large:         var(--krds-padding-1);
+  --ds-link--pc-font-size-xlarge:     var(--krds-pc-font-size-label-large);
+  --ds-link--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
+  --ds-link--padding-x-xlarge:        var(--krds-padding-1);
 }
 
-/* ----- 링크 버튼 레이아웃·타이포 (font size, padding 재정의) ----- */
-.ds-btn.ds-btn--link {
-  /* btn-link-variable(): font size와 좌우 padding 재정의 */
-  --ds-btn--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
-  --ds-btn--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
-  --ds-btn--padding-x-xsmall:        var(--krds-padding-1);
-  --ds-btn--pc-font-size-small:      var(--krds-pc-font-size-label-small);
-  --ds-btn--mobile-font-size-small:  var(--krds-mobile-font-size-label-small);
-  --ds-btn--padding-x-small:         var(--krds-padding-1);
-  --ds-btn--pc-font-size-medium:     var(--krds-pc-font-size-label-medium);
-  --ds-btn--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
-  --ds-btn--padding-x-medium:        var(--krds-padding-1);
-  --ds-btn--pc-font-size-large:      var(--krds-pc-font-size-label-large);
-  --ds-btn--mobile-font-size-large:  var(--krds-mobile-font-size-label-large);
-  --ds-btn--padding-x-large:         var(--krds-padding-1);
-  --ds-btn--pc-font-size-xlarge:     var(--krds-pc-font-size-label-large);
-  --ds-btn--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
-  --ds-btn--padding-x-xlarge:        var(--krds-padding-1);
-
-  /* large 기준 기본값 */
+/* ----- 기본 스타일 (large 기본값) ----- */
+.ds-link {
   display: inline-block;
-  height: auto !important;
-  padding: 0 var(--ds-btn--padding-x-large);
-  font-size: var(--ds-btn--pc-font-size-large);
+  padding: 0 var(--ds-link--padding-x-large);
+  font-size: var(--ds-link--pc-font-size-large);
+  color: var(--ds-link--color-text);
   text-align: left;
   white-space: normal;
+  cursor: pointer;
+  transition: var(--krds-transition-base);
 }
-
-/* ----- 모바일 기본 (large) ----- */
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link {
-    font-size: var(--ds-btn--mobile-font-size-large);
+  .ds-link {
+    font-size: var(--ds-link--mobile-font-size-large);
   }
 }
 
 /* ----- 크기 변형 ----- */
-.ds-btn.ds-btn--link.ds-btn--xsmall {
-  padding: 0 var(--ds-btn--padding-x-xsmall);
-  font-size: var(--ds-btn--pc-font-size-xsmall);
+.ds-link.ds-link--xsmall {
+  padding: 0 var(--ds-link--padding-x-xsmall);
+  font-size: var(--ds-link--pc-font-size-xsmall);
 }
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link.ds-btn--xsmall {
-    font-size: var(--ds-btn--mobile-font-size-xsmall);
+  .ds-link.ds-link--xsmall {
+    font-size: var(--ds-link--mobile-font-size-xsmall);
   }
 }
-.ds-btn.ds-btn--link.ds-btn--xsmall .ds-icon {
-  margin-bottom: -0.3rem;
-}
+.ds-link.ds-link--xsmall .ds-icon { margin-bottom: -0.3rem; }
 
-.ds-btn.ds-btn--link.ds-btn--small {
-  padding: 0 var(--ds-btn--padding-x-small);
-  font-size: var(--ds-btn--pc-font-size-small);
+.ds-link.ds-link--small {
+  padding: 0 var(--ds-link--padding-x-small);
+  font-size: var(--ds-link--pc-font-size-small);
 }
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link.ds-btn--small {
-    font-size: var(--ds-btn--mobile-font-size-small);
+  .ds-link.ds-link--small {
+    font-size: var(--ds-link--mobile-font-size-small);
   }
 }
-.ds-btn.ds-btn--link.ds-btn--small .ds-icon {
-  margin-bottom: -0.3rem;
-}
+.ds-link.ds-link--small .ds-icon { margin-bottom: -0.3rem; }
 
-.ds-btn.ds-btn--link.ds-btn--medium {
-  padding: 0 var(--ds-btn--padding-x-medium);
-  font-size: var(--ds-btn--pc-font-size-medium);
+.ds-link.ds-link--medium {
+  padding: 0 var(--ds-link--padding-x-medium);
+  font-size: var(--ds-link--pc-font-size-medium);
 }
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link.ds-btn--medium {
-    font-size: var(--ds-btn--mobile-font-size-medium);
+  .ds-link.ds-link--medium {
+    font-size: var(--ds-link--mobile-font-size-medium);
   }
 }
-.ds-btn.ds-btn--link.ds-btn--medium .ds-icon {
-  margin-bottom: -0.4rem;
-}
+.ds-link.ds-link--medium .ds-icon { margin-bottom: -0.4rem; }
 
-.ds-btn.ds-btn--link.ds-btn--large {
-  padding: 0 var(--ds-btn--padding-x-large);
-  font-size: var(--ds-btn--pc-font-size-large);
+.ds-link.ds-link--large {
+  padding: 0 var(--ds-link--padding-x-large);
+  font-size: var(--ds-link--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link.ds-btn--large {
-    font-size: var(--ds-btn--mobile-font-size-large);
+  .ds-link.ds-link--large {
+    font-size: var(--ds-link--mobile-font-size-large);
   }
 }
-.ds-btn.ds-btn--link.ds-btn--large .ds-icon {
-  margin-bottom: -0.5rem;
-}
+.ds-link.ds-link--large .ds-icon { margin-bottom: -0.5rem; }
 
-.ds-btn.ds-btn--link.ds-btn--xlarge {
-  padding: 0 var(--ds-btn--padding-x-xlarge);
-  font-size: var(--ds-btn--pc-font-size-xlarge);
+.ds-link.ds-link--xlarge {
+  padding: 0 var(--ds-link--padding-x-xlarge);
+  font-size: var(--ds-link--pc-font-size-xlarge);
 }
 @media (max-width: 767px) {
-  .ds-btn.ds-btn--link.ds-btn--xlarge {
-    font-size: var(--ds-btn--mobile-font-size-xlarge);
+  .ds-link.ds-link--xlarge {
+    font-size: var(--ds-link--mobile-font-size-xlarge);
   }
 }
-.ds-btn.ds-btn--link.ds-btn--xlarge .ds-icon {
-  margin-bottom: -0.6rem;
-}
+.ds-link.ds-link--xlarge .ds-icon { margin-bottom: -0.6rem; }
 
-/* ----- .ds-btn--basic (본문 텍스트 색상) ----- */
-.ds-btn.ds-btn--link.ds-btn--basic {
+/* ----- .ds-link--basic (본문 텍스트 색상) ----- */
+.ds-link.ds-link--basic {
   color: var(--krds-light-color-text-basic);
 }
-.ds-btn.ds-btn--link.ds-btn--basic .ds-icon {
-  background-color: var(--krds-light-color-text-basic);
-}
-
-/* .ds-btn--basic.ds-btn--pure: 상호작용 시 텍스트 기본 색상 유지 */
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:hover,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:active,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:focus,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:visited {
-  color: var(--krds-light-color-text-basic);
-}
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:hover .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:active .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:focus .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--basic.ds-btn--pure:visited .ds-icon {
+.ds-link.ds-link--basic .ds-icon {
   background-color: var(--krds-light-color-text-basic);
 }
 
 /* ----- 상호작용 상태 색상 ----- */
-.ds-btn.ds-btn--link:hover {
-  color: var(--krds-light-color-link-hover);
+.ds-link:hover {
+  color: var(--ds-link--color-text-hover);
 }
-.ds-btn.ds-btn--link:hover .ds-icon {
-  background-color: var(--krds-light-color-link-hover);
-}
-
-.ds-btn.ds-btn--link:active,
-.ds-btn.ds-btn--link:focus {
-  color: var(--krds-light-color-link-pressed);
-}
-.ds-btn.ds-btn--link:active .ds-icon,
-.ds-btn.ds-btn--link:focus .ds-icon {
-  background-color: var(--krds-light-color-link-pressed);
+.ds-link:hover .ds-icon {
+  background-color: var(--ds-link--color-text-hover);
 }
 
-.ds-btn.ds-btn--link:visited {
-  color: var(--krds-light-color-link-visited);
+.ds-link:active,
+.ds-link:focus {
+  color: var(--ds-link--color-text-pressed);
+}
+.ds-link:active .ds-icon,
+.ds-link:focus .ds-icon {
+  background-color: var(--ds-link--color-text-pressed);
+}
+
+.ds-link:visited {
+  color: var(--ds-link--color-text-visited);
   text-decoration: none;
 }
-.ds-btn.ds-btn--link:visited .ds-icon {
-  background-color: var(--krds-light-color-link-visited);
+.ds-link:visited .ds-icon {
+  background-color: var(--ds-link--color-text-visited);
 }
 
-/* ----- .ds-btn--pure: 상호작용 시 기본 링크 색상 유지 ----- */
-.ds-btn.ds-btn--link.ds-btn--pure:hover,
-.ds-btn.ds-btn--link.ds-btn--pure:active,
-.ds-btn.ds-btn--link.ds-btn--pure:focus,
-.ds-btn.ds-btn--link.ds-btn--pure:visited {
-  color: var(--ds-btn--color-link-text);
+/* basic 상호작용 */
+.ds-link.ds-link--basic:hover,
+.ds-link.ds-link--basic:active,
+.ds-link.ds-link--basic:focus {
+  color: var(--ds-link--color-text-hover);
 }
-.ds-btn.ds-btn--link.ds-btn--pure:hover .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--pure:active .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--pure:focus .ds-icon,
-.ds-btn.ds-btn--link.ds-btn--pure:visited .ds-icon {
-  background-color: var(--ds-btn--color-link-text);
+.ds-link.ds-link--basic:hover .ds-icon,
+.ds-link.ds-link--basic:active .ds-icon,
+.ds-link.ds-link--basic:focus .ds-icon {
+  background-color: var(--ds-link--color-text-hover);
+}
+
+/* ----- .ds-link--pure: 상호작용 시 기본 링크 색상 유지 ----- */
+.ds-link.ds-link--pure:hover,
+.ds-link.ds-link--pure:active,
+.ds-link.ds-link--pure:focus,
+.ds-link.ds-link--pure:visited {
+  color: var(--ds-link--color-text);
+}
+.ds-link.ds-link--pure:hover .ds-icon,
+.ds-link.ds-link--pure:active .ds-icon,
+.ds-link.ds-link--pure:focus .ds-icon,
+.ds-link.ds-link--pure:visited .ds-icon {
+  background-color: var(--ds-link--color-text);
+}
+
+/* .ds-link--basic.ds-link--pure: 상호작용 시 본문 텍스트 색상 유지 */
+.ds-link.ds-link--basic.ds-link--pure:hover,
+.ds-link.ds-link--basic.ds-link--pure:active,
+.ds-link.ds-link--basic.ds-link--pure:focus,
+.ds-link.ds-link--basic.ds-link--pure:visited {
+  color: var(--krds-light-color-text-basic);
+}
+.ds-link.ds-link--basic.ds-link--pure:hover .ds-icon,
+.ds-link.ds-link--basic.ds-link--pure:active .ds-icon,
+.ds-link.ds-link--basic.ds-link--pure:focus .ds-icon,
+.ds-link.ds-link--basic.ds-link--pure:visited .ds-icon {
+  background-color: var(--krds-light-color-text-basic);
+}
+
+/* ----- 비활성화 ----- */
+.ds-link.ds-link--disabled {
+  color: var(--ds-link--color-text-disabled);
+  cursor: default;
+  pointer-events: none;
+}
+.ds-link.ds-link--disabled .ds-icon {
+  background-color: var(--ds-link--color-text-disabled);
+}
+.ds-link.ds-link--disabled:hover {
+  color: var(--ds-link--color-text-disabled);
+}
+.ds-link.ds-link--disabled:hover .ds-icon {
+  background-color: var(--ds-link--color-text-disabled);
 }
 
 /* ----- 밑줄 ----- */
-.ds-btn.ds-btn--link .ds-btn__text {
+.ds-link .ds-link__text {
   text-decoration: underline;
 }
 
-/* .ds-btn__text--hidden: 기본은 투명, 상호작용 시 표시 */
-.ds-btn.ds-btn--link .ds-btn__text.ds-btn__text--hidden {
+/* ds-link__text--underline-hover: 기본은 투명, 상호작용 시 표시 */
+.ds-link .ds-link__text.ds-link__text--underline-hover {
   text-decoration-color: var(--krds-light-color-border-transparency);
   transition: var(--krds-transition-base);
 }
-.ds-btn.ds-btn--link:hover .ds-btn__text.ds-btn__text--hidden,
-.ds-btn.ds-btn--link:active .ds-btn__text.ds-btn__text--hidden,
-.ds-btn.ds-btn--link:focus .ds-btn__text.ds-btn__text--hidden,
-.ds-btn.ds-btn--link:visited .ds-btn__text.ds-btn__text--hidden {
+.ds-link:hover .ds-link__text.ds-link__text--underline-hover,
+.ds-link:active .ds-link__text.ds-link__text--underline-hover,
+.ds-link:focus .ds-link__text.ds-link__text--underline-hover,
+.ds-link:visited .ds-link__text.ds-link__text--underline-hover {
   text-decoration-color: inherit;
 }
 
 /* ----- ds-icon (공통) ----- */
-.ds-btn.ds-btn--link .ds-icon {
+.ds-link .ds-icon {
   display: inline-block;
+  background-color: var(--ds-link--color-text);
   margin-bottom: -0.5rem;
+  transition: var(--krds-transition-base);
 }

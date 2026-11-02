@@ -40,34 +40,34 @@ KRDS 기본 클래스: `ds-pagination`
   <div class="ds-pagination">
 
     <!-- 처음 버튼 (비활성: span, 활성: a) -->
-    <a class="page-navi first" href="#">처음</a>
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--first" href="#">처음</a>
 
     <!-- 이전 버튼 (아이콘만) -->
-    <a class="page-navi prev" href="#">
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--prev" href="#">
       <span class="sr-only">이전 페이지</span>
     </a>
 
     <!-- 페이지 번호 목록 -->
-    <div class="page-links">
-      <a class="page-link" href="#" data-page="1">1</a>
-      <span class="page-link link-dot" aria-hidden="true"></span>
-      <a class="page-link" href="#" data-page="3">3</a>
+    <div class="ds-pagination__list">
+      <a class="ds-pagination__link" href="#" data-page="1">1</a>
+      <span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>
+      <a class="ds-pagination__link" href="#" data-page="3">3</a>
       <!-- 현재 페이지 -->
-      <span class="page-link active" aria-current="page">
+      <span class="ds-pagination__link ds-pagination__link--current" aria-current="page">
         <span class="sr-only">현재페이지 </span>4
       </span>
-      <a class="page-link" href="#" data-page="5">5</a>
-      <span class="page-link link-dot" aria-hidden="true"></span>
-      <a class="page-link" href="#" data-page="10">10</a>
+      <a class="ds-pagination__link" href="#" data-page="5">5</a>
+      <span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>
+      <a class="ds-pagination__link" href="#" data-page="10">10</a>
     </div>
 
     <!-- 다음 버튼 (아이콘만) -->
-    <a class="page-navi next" href="#">
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--next" href="#">
       <span class="sr-only">다음 페이지</span>
     </a>
 
     <!-- 마지막 버튼 -->
-    <a class="page-navi last" href="#">마지막</a>
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--last" href="#">마지막</a>
 
   </div>
 </nav>
@@ -77,31 +77,13 @@ KRDS 기본 클래스: `ds-pagination`
 
 ```html
 <!-- 비활성: <a> 대신 <span> + aria-disabled -->
-<span class="page-navi first disabled" aria-disabled="true">처음</span>
-<span class="page-navi prev  disabled" aria-disabled="true">
+<span class="ds-pagination__move-btn ds-pagination__move-btn--first ds-pagination__move-btn--disabled" aria-disabled="true">처음</span>
+<span class="ds-pagination__move-btn ds-pagination__move-btn--prev ds-pagination__move-btn--disabled" aria-disabled="true">
   <span class="sr-only">이전 페이지</span>
 </span>
 ```
 
----
-
-## 클래스 / 속성 정리
-
-| 요소 | 클래스 / 속성 | 설명 |
-|---|---|---|
-| `<nav>` | `aria-label="페이지 탐색"` | 랜드마크 레이블 |
-| `.ds-pagination` | — | 전체 래퍼 |
-| `.page-navi.first` | — | 처음 버튼 (확장) |
-| `.page-navi.prev` | — | 이전 버튼 (왼쪽 화살표 아이콘) |
-| `.page-navi.next` | — | 다음 버튼 (오른쪽 화살표 아이콘) |
-| `.page-navi.last` | — | 마지막 버튼 (확장) |
-| `.page-navi.disabled` | `aria-disabled="true"` | 비활성 상태 (`<span>`으로 변경) |
-| `.page-links` | — | 페이지 번호 그룹 |
-| `.page-link` | — | 개별 페이지 번호 |
-| `.page-link.active` | `aria-current="page"` | 현재 페이지 |
-| `.page-link.link-dot` | `aria-hidden="true"` | 말줄임(...) 구분자 |
-
-> `page-navi.first` / `page-navi.last`는 KRDS 기본 패턴에 없는 **디자인 시스템 확장 클래스**입니다.
+> `ds-pagination__move-btn--first` / `ds-pagination__move-btn--last`는 KRDS 기본 패턴에 없는 **디자인 시스템 확장 클래스**입니다.
 
 ---
 
@@ -171,4 +153,4 @@ KRDS 기본 클래스: `ds-pagination`
 
 ### 말줄임 구분자
 
-- `.link-dot` 요소는 장식용이므로 `aria-hidden="true"`를 적용한다.
+- `ds-pagination__link--ellipsis` 요소는 장식용 `<span>`이므로 `aria-hidden="true"`를 적용한다.

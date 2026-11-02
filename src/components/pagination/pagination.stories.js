@@ -78,41 +78,41 @@ function renderPagination({ totalPages, currentPage, pageGroupSize = 5, showFirs
 
   const pageLinksHtml = items.map(item => {
     if (item.type === 'dot') {
-      return '<span class="page-link link-dot" aria-hidden="true"></span>';
+      return '<span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>';
     }
     const isActive = item.page === cp;
     if (isActive) {
-      return `<span class="page-link active" aria-current="page"><span class="sr-only">현재페이지 </span>${item.page}</span>`;
+      return `<span class="ds-pagination__link ds-pagination__link--current" aria-current="page"><span class="sr-only">현재페이지 </span>${item.page}</span>`;
     }
-    return `<a class="page-link" href="#" data-page="${item.page}">${item.page}</a>`;
+    return `<a class="ds-pagination__link" href="#" data-page="${item.page}">${item.page}</a>`;
   }).join('');
 
   const naviFirst = showFirstLast
     ? (isFirst
-      ? '<span class="page-navi first disabled" aria-disabled="true">처음</span>'
-      : '<a class="page-navi first" href="#" data-navi="first">처음</a>')
+      ? '<span class="ds-pagination__move-btn ds-pagination__move-btn--first ds-pagination__move-btn--disabled" aria-disabled="true">처음</span>'
+      : '<a class="ds-pagination__move-btn ds-pagination__move-btn--first" href="#" data-navi="first">처음</a>')
     : '';
 
   const naviLast = showFirstLast
     ? (isLast
-      ? '<span class="page-navi last disabled" aria-disabled="true">마지막</span>'
-      : '<a class="page-navi last" href="#" data-navi="last">마지막</a>')
+      ? '<span class="ds-pagination__move-btn ds-pagination__move-btn--last ds-pagination__move-btn--disabled" aria-disabled="true">마지막</span>'
+      : '<a class="ds-pagination__move-btn ds-pagination__move-btn--last" href="#" data-navi="last">마지막</a>')
     : '';
 
   const naviPrev = isFirst
-    ? '<span class="page-navi prev disabled" aria-disabled="true"><span class="sr-only">이전 페이지</span></span>'
-    : '<a class="page-navi prev" href="#" data-navi="prev"><span class="sr-only">이전 페이지</span></a>';
+    ? '<span class="ds-pagination__move-btn ds-pagination__move-btn--prev ds-pagination__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전 페이지</span></span>'
+    : '<a class="ds-pagination__move-btn ds-pagination__move-btn--prev" href="#" data-navi="prev"><span class="sr-only">이전 페이지</span></a>';
 
   const naviNext = isLast
-    ? '<span class="page-navi next disabled" aria-disabled="true"><span class="sr-only">다음 페이지</span></span>'
-    : '<a class="page-navi next" href="#" data-navi="next"><span class="sr-only">다음 페이지</span></a>';
+    ? '<span class="ds-pagination__move-btn ds-pagination__move-btn--next ds-pagination__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음 페이지</span></span>'
+    : '<a class="ds-pagination__move-btn ds-pagination__move-btn--next" href="#" data-navi="next"><span class="sr-only">다음 페이지</span></a>';
 
   return `
     <nav aria-label="페이지 탐색">
       <div class="ds-pagination">
         ${naviFirst}
         ${naviPrev}
-        <div class="page-links">${pageLinksHtml}</div>
+        <div class="ds-pagination__list">${pageLinksHtml}</div>
         ${naviNext}
         ${naviLast}
       </div>
@@ -130,7 +130,7 @@ function initPaginationRoot(root, initState) {
   }
 
   function bind() {
-    root.querySelectorAll('.page-link[data-page]').forEach(el => {
+    root.querySelectorAll('.ds-pagination__link[data-page]').forEach(el => {
       el.addEventListener('click', e => {
         e.preventDefault();
         state.currentPage = +el.dataset.page;

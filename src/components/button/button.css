@@ -89,14 +89,6 @@
   --ds-btn--color-text-text: var(--krds-light-color-text-basic);
   --ds-btn--color-text-text-disabled: var(--krds-light-color-text-disabled);
 
-  --ds-btn--color-link-fill: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-link-fill-hover: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-link-fill-pressed: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-link-fill-disabled: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-link-border: var(--krds-light-color-button-text-border);
-  --ds-btn--color-link-border-disabled: var(--krds-light-color-border-transparency);
-  --ds-btn--color-link-text: var(--krds-light-color-link-default);
-  --ds-btn--color-link-text-disabled: var(--krds-light-color-text-disabled);
 }
 
 /* ----- 기본 스타일 (Large, Primary 기본값) ----- */

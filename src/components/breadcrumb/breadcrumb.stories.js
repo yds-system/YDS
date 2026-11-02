@@ -43,19 +43,21 @@ function renderBreadcrumb({ items, mobile = false }) {
   const liHtml = items.map((item, i) => {
     const isHome    = i === 0;
     const isCurrent = !item.href;
-    const homeAttr  = isHome ? ' class="home"' : '';
+    const itemClass = isHome
+      ? 'ds-breadcrumb__item ds-breadcrumb__item--home'
+      : 'ds-breadcrumb__item';
 
-    /* 현재 페이지: <span aria-current="page">, 그 외: <a href> */
+    /* 현재 페이지: span + aria-current, 그 외: <a> */
     const content = isCurrent
-      ? `<span class="txt" aria-current="page">${item.label}</span>`
-      : `<a href="${item.href}" class="txt">${item.label}</a>`;
+      ? `<span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">${item.label}</span>`
+      : `<a href="${item.href}" class="ds-breadcrumb__link">${item.label}</a>`;
 
-    return `<li${homeAttr}>${content}</li>`;
+    return `<li class="${itemClass}">${content}</li>`;
   }).join('\n      ');
 
-  const mobileClass = mobile ? ' is-mobile' : '';
-  return `<nav class="ds-breadcrumb-wrap${mobileClass}" aria-label="현재 경로">
-  <ol class="breadcrumb">
+  const mobileClass = mobile ? ' ds-breadcrumb--mobile' : '';
+  return `<nav class="ds-breadcrumb${mobileClass}" aria-label="현재 경로">
+  <ol class="ds-breadcrumb__list">
       ${liHtml}
   </ol>
 </nav>`;

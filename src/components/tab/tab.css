@@ -3,17 +3,7 @@
    출처: reference/krds/resources/css/component/component.css
    ============================================= */
 
-/* ----- 탭 영역 래퍼 ----- */
-.ds-tab-wrap {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: var(--krds-gap-8);
-  width: 100%;
-}
-
-/* ----- CSS 변수 ----- */
+/* ----- 탭 블록: 외부 래퍼 + CSS 변수 ----- */
 .ds-tab {
   --ds-tab--button-size-height: var(--krds-size-height-7);
   --ds-tab--button-size-min-width: 6.4rem;
@@ -40,10 +30,22 @@
   --ds-tab--line-button-color-border: var(--krds-light-color-border-gray);
   --ds-tab--line-button-color-line-active: var(--krds-light-color-action-secondary-active);
   --ds-tab--line-button-color-text-active: var(--krds-light-color-text-secondary);
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-gap-8);
+  width: 100%;
 }
 
-/* ----- 탭 리스트 ----- */
-.ds-tab > ul {
+/* ----- 탭 내비게이션 영역 ----- */
+.ds-tab__nav {
+  width: 100%;
+}
+
+/* ----- 탭 목록 ----- */
+.ds-tab__list {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -53,8 +55,9 @@
   width: 100%;
 }
 
-.ds-tab li,
-.ds-tab .ds-tab-btn {
+/* ----- 탭 항목·버튼 공통 ----- */
+.ds-tab__item,
+.ds-tab__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +67,7 @@
 }
 
 /* ----- 탭 버튼 기본 ----- */
-.ds-tab .ds-tab-btn {
+.ds-tab__btn {
   width: 100%;
   height: var(--ds-tab--button-size-height);
   background-color: var(--ds-tab--button-color-action);
@@ -75,29 +78,28 @@
   transition: var(--krds-transition-base);
 }
 @media (max-width: 767px) {
-  .ds-tab .ds-tab-btn { font-size: var(--ds-tab--button-mobile-font-size); }
+  .ds-tab__btn { font-size: var(--ds-tab--button-mobile-font-size); }
 }
-.ds-tab .ds-tab-btn:not(:disabled):hover {
+.ds-tab__btn:not(:disabled):hover {
   background-color: var(--ds-tab--button-color-action-hover);
 }
-.ds-tab .ds-tab-btn:not(:disabled):active {
+.ds-tab__btn:not(:disabled):active {
   background-color: var(--ds-tab--button-color-action-pressed);
 }
-.ds-tab .ds-tab-btn:focus-visible {
+.ds-tab__btn:focus-visible {
   box-shadow: var(--krds-box-shadow-outline-inset);
   outline-offset: -0.4rem;
   outline: none;
 }
-.ds-tab .ds-tab-btn[disabled] {
+.ds-tab__btn[disabled] {
   color: var(--ds-tab--button-color-text-disabled);
   cursor: default;
 }
 
-.ds-tab li { flex-grow: 0; }
+.ds-tab__item { flex-grow: 0; }
 
-/* ----- 전체 너비 (full) ----- */
-.ds-tab.full { width: 100%; }
-.ds-tab.full > ul {
+/* ----- 전체 너비 (--full) ----- */
+.ds-tab--full .ds-tab__list {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -105,29 +107,29 @@
   width: 100%;
   gap: 0;
 }
-.ds-tab.full > ul > li {
+.ds-tab--full .ds-tab__list .ds-tab__item {
   flex: 1 1 0px;
   min-width: 0;
 }
-.ds-tab.full .ds-tab-btn {
+.ds-tab--full .ds-tab__btn {
   height: var(--ds-tab--full-button-size-height);
   padding: 0;
   font-size: var(--ds-tab--full-button-pc-font-size);
 }
 @media (max-width: 767px) {
-  .ds-tab.full .ds-tab-btn { font-size: var(--ds-tab--full-button-mobile-font-size); }
+  .ds-tab--full .ds-tab__btn { font-size: var(--ds-tab--full-button-mobile-font-size); }
 }
 
 /* ─────────────────────────────────────────────
-   라인형 (line)
+   라인형 (--line)
    ───────────────────────────────────────────── */
-.ds-tab.line .ds-tab-btn {
+.ds-tab--line .ds-tab__btn {
   min-width: var(--ds-tab--button-size-min-width);
   padding: 0 var(--ds-tab--line-button-padding);
 }
 
 /* 활성 인디케이터: ::before 가로 막대 */
-.ds-tab.line .ds-tab-btn::before {
+.ds-tab--line .ds-tab__btn::before {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -137,68 +139,68 @@
   background-color: var(--ds-tab--line-button-color-line-active);
   transition: var(--krds-transition-base);
 }
-.ds-tab.line .active .ds-tab-btn {
+.ds-tab--line .ds-tab__item--selected .ds-tab__btn {
   color: var(--ds-tab--line-button-color-text-active);
 }
-.ds-tab.line .active .ds-tab-btn::before {
+.ds-tab--line .ds-tab__item--selected .ds-tab__btn::before {
   left: 0;
   width: 100%;
 }
 
 /* 라인형 전체 너비 */
-.ds-tab.line.full .ds-tab-btn {
+.ds-tab--line.ds-tab--full .ds-tab__btn {
   border: 0;
   border-bottom: 2px solid var(--ds-tab--line-button-color-border);
 }
-.ds-tab.line.full .ds-tab-btn::before {
+.ds-tab--line.ds-tab--full .ds-tab__btn::before {
   bottom: -0.2rem;
 }
 
 /* ─────────────────────────────────────────────
-   박스형 (fill)
+   박스형 (--fill)
    ───────────────────────────────────────────── */
-.ds-tab.fill .ds-tab-btn {
+.ds-tab--fill .ds-tab__btn {
   padding: 0 var(--ds-tab--fill-button-padding);
   border-radius: var(--ds-tab--fill-button-radius);
 }
-.ds-tab.fill .ds-tab-btn:focus-visible {
+.ds-tab--fill .ds-tab__btn:focus-visible {
   box-shadow: inset 0 0 0 0.6rem var(--krds-light-color-border-primary);
   outline-offset: -0.4rem;
 }
-.ds-tab.fill .active .ds-tab-btn {
+.ds-tab--fill .ds-tab__item--selected .ds-tab__btn {
   background-color: var(--ds-tab--fill-button-color-action-active);
   border-color: var(--ds-tab--fill-button-color-border-active) !important;
   color: var(--ds-tab--fill-button-color-text);
 }
 
 /* 박스형 전체 너비 */
-.ds-tab.fill.full .ds-tab-btn {
+.ds-tab--fill.ds-tab--full .ds-tab__btn {
   border-color: var(--ds-tab--fill-button-color-border);
   border-radius: 0;
 }
-.ds-tab.fill.full > ul > li + li .ds-tab-btn {
+.ds-tab--fill.ds-tab--full .ds-tab__list .ds-tab__item + .ds-tab__item .ds-tab__btn {
   border-left: none;
 }
-.ds-tab.fill.full > ul > li:first-of-type .ds-tab-btn {
+.ds-tab--fill.ds-tab--full .ds-tab__list .ds-tab__item:first-of-type .ds-tab__btn {
   border-top-left-radius: var(--ds-tab--fill-button-radius);
   border-bottom-left-radius: var(--ds-tab--fill-button-radius);
 }
-.ds-tab.fill.full > ul > li:last-of-type .ds-tab-btn {
+.ds-tab--fill.ds-tab--full .ds-tab__list .ds-tab__item:last-of-type .ds-tab__btn {
   border-top-right-radius: var(--ds-tab--fill-button-radius);
   border-bottom-right-radius: var(--ds-tab--fill-button-radius);
 }
 
 /* 박스형 전체 너비 — 모바일에서 스크롤 pill 그룹으로 변환 */
 @media (max-width: 767px) {
-  .ds-tab.fill.full > ul {
+  .ds-tab--fill.ds-tab--full .ds-tab__list {
     gap: var(--krds-gap-3);
     flex-wrap: nowrap;
   }
-  .ds-tab.fill.full > ul > li {
+  .ds-tab--fill.ds-tab--full .ds-tab__list .ds-tab__item {
     width: fit-content;
     flex: none;
   }
-  .ds-tab.fill.full > ul > li .ds-tab-btn {
+  .ds-tab--fill.ds-tab--full .ds-tab__list .ds-tab__item .ds-tab__btn {
     border-radius: var(--ds-tab--fill-button-radius);
     border-width: 0;
     padding: 0 var(--krds-padding-5);
@@ -208,18 +210,18 @@
 /* ─────────────────────────────────────────────
    탭 패널
    ───────────────────────────────────────────── */
-.ds-tab-panel-wrap { width: 100%; }
+.ds-tab__panels { width: 100%; }
 
-.ds-tab-panel {
+.ds-tab__panel {
   display: none;
   margin-top: var(--ds-tab--conts-padding-top);
 }
-.ds-tab-panel.active {
+.ds-tab__panel--selected {
   display: flex;
   align-items: normal;
   justify-content: flex-start;
   flex-direction: column;
 }
 @media (max-width: 767px) {
-  .ds-tab-panel.active { gap: var(--krds-padding-8); }
+  .ds-tab__panel--selected { gap: var(--krds-padding-8); }
 }

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming } from '../docs/naming-data.js';
+import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -62,20 +62,95 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
 
 ## 탐색 (Navigation)
 
-| 컴포넌트명(한글) | 영문명 | 기본 클래스명 | 하위 요소 클래스명 | modifier (종류·크기·상태) | 설명 |
-|---|---|---|---|---|---|
-| 헤더 | Header | `ds-header` | `header-in` `header-container` `header-utility` `header-branding` `header-actions` `btn-navi` | `active` `is-open` `is-link` `external-link` `sm` `md` `lg` `xlg` `xxlg` `between` `type-description` | 사이트 최상단 글로벌 헤더 |
-| 마스트헤드 | Masthead | `krds-masthead` | `toggle-wrap` `toggle-head` `inner` `nuri-txt` | — | 헤더 상단 공공 사이트 공통 띠 영역 |
-| 푸터 | Footer | `ds-footer` | `foot-quick` `f-logo` `f-cnt` `f-info` `info-addr` `info-cs` `f-link` `link-go` `link-sns` `f-btm` `f-btm-text` `f-menu` `f-copy` | — | 사이트 최하단 글로벌 푸터 |
-| 메인메뉴 (PC) | Main Menu PC | `ds-main-menu` | `gnb-menu` `gnb-main-trigger` `gnb-toggle-wrap` `gnb-main-list` `gnb-sub-trigger` `gnb-sub-list` `gnb-sub-content` `sub-title` `gnb-sub-banner` | `active` `is-open` `is-link` `external-link` `between` `type-description` | PC용 글로벌 내비게이션 메뉴 |
-| 메인메뉴 (모바일) | Main Menu Mobile | `ds-main-menu-mobile` | `gnb-wrap` `gnb-header` `gnb-utils` `gnb-login` `gnb-service-menu` `gnb-body` `gnb-menu` `menu-wrap` `submenu-wrap` `gnb-sub-list` `depth3-wrap` `depth4-wrap` `depth4-head` `depth4-body` `gnb-bottom` | — | 모바일용 글로벌 내비게이션 메뉴 |
-| 사이드 네비게이션 | Side Navigation | `krds-side-navigation` | `lnb-tit` `lnb-list` `lnb-item` `lnb-btn` `lnb-toggle` `lnb-submenu` `lnb-subitem` `lnb-toggle-popup` `lnb-submenu-lv2` `lnb-btn-tit` `lnb-link` | `active` | 페이지 좌측 로컬 네비게이션 |
-| 페이지 내 네비게이션 | In-Page Navigation | `krds-in-page-navigation-type` | `krds-in-page-navigation-area` `in-page-navigation-header` `quick-caption` `quick-title` `in-page-navigation-list` `in-page-navigation-action` | `active` | 페이지 내 섹션 이동 목차 |
-| 브레드크럼 | Breadcrumb | `ds-breadcrumb-wrap` | `breadcrumb` `home` `txt` | — | 현재 위치를 계층 구조로 표시 |
-| 페이지네이션 | Pagination | `ds-pagination` | `page-navi` `page-links` `page-link` `link-dot` | `prev` `next` `disabled` `active` | 목록 페이지 이동 컨트롤 |
-| 건너뛰기 링크 | Skip Link | `ds-skip-link` | — | — | 키보드 사용자를 위한 본문 건너뛰기 |
-| 탭 | Tab | `ds-tab-wrap` | `tab` `ds-tab-btn` `ds-tab-panel-wrap` `ds-tab-panel` | `line` `full` `layer` `active` | 콘텐츠를 탭으로 전환하는 네비게이션 |
-| 식별자 | Identifier | `krds-identifier` | `logo` `ban-txt` | — | 공공 기관 표준 로고·식별자 영역 |
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>헤더</td>
+      <td>Header</td>
+      <td><code>ds-header</code></td>
+      <td><code>header-in</code> <code>header-container</code> <code>header-utility</code> <code>header-branding</code> <code>header-actions</code> <code>btn-navi</code></td>
+      <td><code>active</code> <code>is-open</code> <code>is-link</code> <code>external-link</code> <code>sm</code> <code>md</code> <code>lg</code> <code>xlg</code> <code>xxlg</code> <code>between</code> <code>type-description</code></td>
+      <td>사이트 최상단 글로벌 헤더</td>
+    </tr>
+    <tr>
+      <td>마스트헤드</td>
+      <td>Masthead</td>
+      <td><code>krds-masthead</code></td>
+      <td><code>toggle-wrap</code> <code>toggle-head</code> <code>inner</code> <code>nuri-txt</code></td>
+      <td>—</td>
+      <td>헤더 상단 공공 사이트 공통 띠 영역</td>
+    </tr>
+    <tr>
+      <td>푸터</td>
+      <td>Footer</td>
+      <td><code>ds-footer</code></td>
+      <td><code>foot-quick</code> <code>f-logo</code> <code>f-cnt</code> <code>f-info</code> <code>info-addr</code> <code>info-cs</code> <code>f-link</code> <code>link-go</code> <code>link-sns</code> <code>f-btm</code> <code>f-btm-text</code> <code>f-menu</code> <code>f-copy</code></td>
+      <td>—</td>
+      <td>사이트 최하단 글로벌 푸터</td>
+    </tr>
+    <tr>
+      <td>메인메뉴 (PC)</td>
+      <td>Main Menu PC</td>
+      <td><code>ds-main-menu</code></td>
+      <td><code>gnb-menu</code> <code>gnb-main-trigger</code> <code>gnb-toggle-wrap</code> <code>gnb-main-list</code> <code>gnb-sub-trigger</code> <code>gnb-sub-list</code> <code>gnb-sub-content</code> <code>sub-title</code> <code>gnb-sub-banner</code></td>
+      <td><code>active</code> <code>is-open</code> <code>is-link</code> <code>external-link</code> <code>between</code> <code>type-description</code></td>
+      <td>PC용 글로벌 내비게이션 메뉴</td>
+    </tr>
+    <tr>
+      <td>메인메뉴 (모바일)</td>
+      <td>Main Menu Mobile</td>
+      <td><code>ds-main-menu-mobile</code></td>
+      <td><code>gnb-wrap</code> <code>gnb-header</code> <code>gnb-utils</code> <code>gnb-login</code> <code>gnb-service-menu</code> <code>gnb-body</code> <code>gnb-menu</code> <code>menu-wrap</code> <code>submenu-wrap</code> <code>gnb-sub-list</code> <code>depth3-wrap</code> <code>depth4-wrap</code> <code>depth4-head</code> <code>depth4-body</code> <code>gnb-bottom</code></td>
+      <td>—</td>
+      <td>모바일용 글로벌 내비게이션 메뉴</td>
+    </tr>
+    <tr>
+      <td>사이드 네비게이션</td>
+      <td>Side Navigation</td>
+      <td><code>krds-side-navigation</code></td>
+      <td><code>lnb-tit</code> <code>lnb-list</code> <code>lnb-item</code> <code>lnb-btn</code> <code>lnb-toggle</code> <code>lnb-submenu</code> <code>lnb-subitem</code> <code>lnb-toggle-popup</code> <code>lnb-submenu-lv2</code> <code>lnb-btn-tit</code> <code>lnb-link</code></td>
+      <td><code>active</code></td>
+      <td>페이지 좌측 로컬 네비게이션</td>
+    </tr>
+    <tr>
+      <td>페이지 내 네비게이션</td>
+      <td>In-Page Navigation</td>
+      <td><code>krds-in-page-navigation-type</code></td>
+      <td><code>krds-in-page-navigation-area</code> <code>in-page-navigation-header</code> <code>quick-caption</code> <code>quick-title</code> <code>in-page-navigation-list</code> <code>in-page-navigation-action</code></td>
+      <td><code>active</code></td>
+      <td>페이지 내 섹션 이동 목차</td>
+    </tr>
+    <CompRow comp={breadcrumbNaming} />
+    <CompRow comp={tabNaming} />
+    <CompRow comp={paginationNaming} />
+    <tr>
+      <td>건너뛰기 링크</td>
+      <td>Skip Link</td>
+      <td><code>ds-skip-link</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>키보드 사용자를 위한 본문 건너뛰기</td>
+    </tr>
+    <tr>
+      <td>식별자</td>
+      <td>Identifier</td>
+      <td><code>krds-identifier</code></td>
+      <td><code>logo</code> <code>ban-txt</code></td>
+      <td>—</td>
+      <td>공공 기관 표준 로고·식별자 영역</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -94,14 +169,7 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
   </thead>
   <tbody>
     <CompRow comp={buttonNaming} />
-    <tr>
-      <td>링크</td>
-      <td>Link</td>
-      <td><code>ds-btn</code></td>
-      <td><code>ds-icon</code></td>
-      <td><code>ds-btn--link</code> <code>ds-btn--pure</code> <code>ds-btn--basic</code> <code>ds-btn--small</code> <code>ds-btn--medium</code> <code>ds-btn--large</code></td>
-      <td>다른 페이지·콘텐츠로 이동하는 텍스트 링크</td>
-    </tr>
+    <CompRow comp={linkNaming} />
     <tr>
       <td>TTS</td>
       <td>TTS</td>
@@ -177,22 +245,7 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
       <td><code>large</code> <code>medium</code> <code>checked</code> <code>disabled</code></td>
       <td>ON/OFF 전환 스위치</td>
     </tr>
-    <tr>
-      <td>태그</td>
-      <td>Tag</td>
-      <td><code>ds-tag-wrap</code></td>
-      <td><code>ds-tag</code> <code>btn-delete</code></td>
-      <td><code>large</code> <code>medium</code> <code>small</code></td>
-      <td>선택·삭제 가능한 태그</td>
-    </tr>
-    <tr>
-      <td>태그 (링크)</td>
-      <td>Tag Link</td>
-      <td><code>ds-tag-wrap</code></td>
-      <td><code>ds-tag</code> <code>link</code></td>
-      <td><code>large</code> <code>medium</code> <code>small</code></td>
-      <td>링크 형태의 태그</td>
-    </tr>
+    <CompRow comp={tagNaming} />
   </tbody>
 </table>
 

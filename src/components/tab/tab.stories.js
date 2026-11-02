@@ -34,24 +34,25 @@ export default {
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function renderTab({ prefix, variant, full, tabs }) {
-  const cls = `ds-tab ${variant}${full ? ' full' : ''}`;
+  const cls = `ds-tab ds-tab--${variant}${full ? ' ds-tab--full' : ''}`;
 
   const liItems = tabs.map((tab, i) => {
-    const isActive = i === 0;
+    const isActive = i === 0 && !tab.disabled;
     const tabId = `${prefix}-tab-${i}`;
     const panelId = `${prefix}-panel-${i}`;
     const disabledAttr = tab.disabled ? 'aria-disabled="true"' : '';
+    const itemClass = isActive ? 'ds-tab__item ds-tab__item--selected' : 'ds-tab__item';
     return `
       <li
+        class="${itemClass}"
         id="${tabId}"
         role="tab"
-        aria-selected="${isActive && !tab.disabled ? 'true' : 'false'}"
+        aria-selected="${isActive ? 'true' : 'false'}"
         aria-controls="${panelId}"
-        ${isActive && !tab.disabled ? 'class="active"' : ''}
         ${disabledAttr}
       >
-        <button type="button" class="ds-tab-btn" ${tab.disabled ? 'disabled' : ''}>
-          ${tab.label}${isActive && !tab.disabled ? '<i class="sr-only created"> 선택됨</i>' : ''}
+        <button type="button" class="ds-tab__btn" ${tab.disabled ? 'disabled' : ''}>
+          ${tab.label}${isActive ? '<i class="sr-only created"> 선택됨</i>' : ''}
         </button>
       </li>`;
   }).join('');
@@ -65,7 +66,7 @@ function renderTab({ prefix, variant, full, tabs }) {
         id="${panelId}"
         role="tabpanel"
         aria-labelledby="${tabId}"
-        class="ds-tab-panel${isActive ? ' active' : ''}"
+        class="ds-tab__panel${isActive ? ' ds-tab__panel--selected' : ''}"
         tabindex="0"
       >
         <h3 class="sr-only">${tab.label} 영역</h3>
@@ -74,13 +75,13 @@ function renderTab({ prefix, variant, full, tabs }) {
   }).join('');
 
   return `
-    <div class="ds-tab-wrap">
-      <div class="${cls}">
-        <ul role="tablist" aria-label="${prefix} 탭">
+    <div class="${cls}">
+      <div class="ds-tab__nav">
+        <ul class="ds-tab__list" role="tablist" aria-label="${prefix} 탭">
           ${liItems}
         </ul>
       </div>
-      <div class="ds-tab-panel-wrap">
+      <div class="ds-tab__panels">
         ${panels}
       </div>
     </div>`;
@@ -94,9 +95,9 @@ function activateTab(tabList, targetLi) {
   allTabs.forEach(li => {
     const isActive = li === targetLi;
     li.setAttribute('aria-selected', String(isActive));
-    li.classList.toggle('active', isActive);
+    li.classList.toggle('ds-tab__item--selected', isActive);
 
-    const btn = li.querySelector('.ds-tab-btn');
+    const btn = li.querySelector('.ds-tab__btn');
     const srOnly = btn?.querySelector('.sr-only.created');
     if (isActive) {
       if (btn && !srOnly) {
@@ -112,7 +113,7 @@ function activateTab(tabList, targetLi) {
     const panelId = li.getAttribute('aria-controls');
     if (panelId) {
       const panel = li.ownerDocument.getElementById(panelId);
-      if (panel) panel.classList.toggle('active', isActive);
+      if (panel) panel.classList.toggle('ds-tab__panel--selected', isActive);
     }
   });
 }
@@ -120,7 +121,7 @@ function activateTab(tabList, targetLi) {
 function initTabs(canvasElement) {
   canvasElement.querySelectorAll('[role="tablist"]').forEach(tabList => {
     /* 클릭으로 탭 전환 */
-    tabList.querySelectorAll('[role="tab"] .ds-tab-btn').forEach(btn => {
+    tabList.querySelectorAll('[role="tab"] .ds-tab__btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.disabled) return;
         activateTab(tabList, btn.closest('[role="tab"]'));
@@ -144,15 +145,15 @@ function initTabs(canvasElement) {
         e.preventDefault();
         idx = (idx + moves[e.key] + enabled.length) % enabled.length;
         activateTab(tabList, enabled[idx]);
-        enabled[idx].querySelector('.ds-tab-btn')?.focus();
+        enabled[idx].querySelector('.ds-tab__btn')?.focus();
       } else if (e.key === 'Home') {
         e.preventDefault();
         activateTab(tabList, enabled[0]);
-        enabled[0].querySelector('.ds-tab-btn')?.focus();
+        enabled[0].querySelector('.ds-tab__btn')?.focus();
       } else if (e.key === 'End') {
         e.preventDefault();
         activateTab(tabList, enabled[enabled.length - 1]);
-        enabled[enabled.length - 1].querySelector('.ds-tab-btn')?.focus();
+        enabled[enabled.length - 1].querySelector('.ds-tab__btn')?.focus();
       }
     });
   });

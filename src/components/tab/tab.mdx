@@ -30,45 +30,51 @@ import * as TabStories from './tab.stories.js';
 
 | 클래스 조합 | 이름 | 설명 |
 |---|---|---|
-| `ds-tab line` | 라인형 | 활성 탭에 하단 밑줄 인디케이터 표시 |
-| `ds-tab line full` | 라인형 전체 너비 | 탭이 가로를 균등하게 채움 |
-| `ds-tab fill` | 박스형 | 활성 탭을 채워진 박스로 표현 |
-| `ds-tab fill full` | 박스형 전체 너비 | 탭이 가로를 채우는 분절 그룹 형태 |
+| `ds-tab ds-tab--line` | 라인형 | 활성 탭에 하단 밑줄 인디케이터 표시 |
+| `ds-tab ds-tab--line ds-tab--full` | 라인형 전체 너비 | 탭이 가로를 균등하게 채움 |
+| `ds-tab ds-tab--fill` | 박스형 | 활성 탭을 채워진 박스로 표현 |
+| `ds-tab ds-tab--fill ds-tab--full` | 박스형 전체 너비 | 탭이 가로를 채우는 분절 그룹 형태 |
 
 ---
 
 ## HTML 구조
 
 ```html
-<div class="ds-tab-wrap">
+<div class="ds-tab ds-tab--line">
 
   <!-- 탭 리스트 -->
-  <div class="ds-tab [line|fill] [full]">
-    <ul role="tablist" aria-label="탭 이름">
-      <li id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1" class="active">
-        <button type="button" class="ds-tab-btn">
+  <div class="ds-tab__nav">
+    <ul class="ds-tab__list" role="tablist" aria-label="탭 이름">
+      <li class="ds-tab__item ds-tab__item--selected"
+          id="tab-1" role="tab"
+          aria-selected="true" aria-controls="panel-1">
+        <button type="button" class="ds-tab__btn">
           탭 1 <i class="sr-only created"> 선택됨</i>
         </button>
       </li>
-      <li id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2">
-        <button type="button" class="ds-tab-btn">탭 2</button>
+      <li class="ds-tab__item"
+          id="tab-2" role="tab"
+          aria-selected="false" aria-controls="panel-2">
+        <button type="button" class="ds-tab__btn">탭 2</button>
       </li>
       <!-- 비활성화 탭 -->
-      <li id="tab-3" role="tab" aria-selected="false" aria-controls="panel-3" aria-disabled="true">
-        <button type="button" class="ds-tab-btn" disabled>탭 3</button>
+      <li class="ds-tab__item"
+          id="tab-3" role="tab"
+          aria-selected="false" aria-controls="panel-3" aria-disabled="true">
+        <button type="button" class="ds-tab__btn" disabled>탭 3</button>
       </li>
     </ul>
   </div>
 
   <!-- 탭 패널 -->
-  <div class="ds-tab-panel-wrap">
+  <div class="ds-tab__panels">
     <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
-             class="ds-tab-panel active" tabindex="0">
+             class="ds-tab__panel ds-tab__panel--selected" tabindex="0">
       <h3 class="sr-only">탭 1 영역</h3>
       탭 1 콘텐츠
     </section>
     <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
-             class="ds-tab-panel" tabindex="0">
+             class="ds-tab__panel" tabindex="0">
       <h3 class="sr-only">탭 2 영역</h3>
       탭 2 콘텐츠
     </section>
@@ -76,20 +82,6 @@ import * as TabStories from './tab.stories.js';
 
 </div>
 ```
-
-| 클래스 / 속성 | 설명 |
-|---|---|
-| `ds-tab-wrap` | 탭 전체 래퍼 |
-| `ds-tab line` | 라인형 |
-| `ds-tab fill` | 박스형 |
-| `ds-tab full` | 전체 너비 변형 (`line`, `fill`과 조합) |
-| `li.active` | 현재 선택된 탭 (`<li>`에 부여) |
-| `ds-tab-panel.active` | 보이는 탭 패널 |
-| `aria-selected="true"` | 활성 탭 표시 (JS로 갱신) |
-| `aria-controls` | `<li>`와 `<section>` ID 연결 |
-| `aria-labelledby` | `<section>`과 `<li>` ID 역방향 연결 |
-| `aria-disabled="true"` + `[disabled]` | 비활성화 탭 |
-| `.sr-only.created` | "선택됨" 스크린리더 텍스트 (활성 탭에만) |
 
 ---
 
@@ -122,9 +114,10 @@ import * as TabStories from './tab.stories.js';
 <Canvas of={TabStories.비활성화탭} />
 
 ```html
-<li id="tab-2" role="tab" aria-selected="false"
-    aria-controls="panel-2" aria-disabled="true">
-  <button type="button" class="ds-tab-btn" disabled>비활성화</button>
+<li class="ds-tab__item"
+    id="tab-2" role="tab"
+    aria-selected="false" aria-controls="panel-2" aria-disabled="true">
+  <button type="button" class="ds-tab__btn" disabled>비활성화</button>
 </li>
 ```
 
@@ -160,8 +153,9 @@ import * as TabStories from './tab.stories.js';
 ### 구현 원칙
 
 - 활성 탭 `<li>`에 `aria-selected="true"`, 나머지는 `"false"`.
+- 활성 탭 항목에 `ds-tab__item--selected` 클래스를 추가한다.
 - 활성 탭 버튼 내부에 `<i class="sr-only created"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
 - `<ul role="tablist">`에 `aria-label`로 탭 그룹의 목적을 설명한다.
 - `<section role="tabpanel">`에 `tabindex="0"`을 부여해 패널 자체가 포커스를 받을 수 있게 한다.
 - 비활성화 탭은 방향키 탐색에서 제외하고, `aria-disabled="true"` + `disabled` 속성을 함께 적용한다.
-- 탭 전환 시 `aria-selected`, `.active` 클래스, 패널 표시를 JS로 동기화한다.
+- 탭 전환 시 `aria-selected`, `ds-tab__item--selected` 클래스, `ds-tab__panel--selected` 클래스를 JS로 동기화한다.

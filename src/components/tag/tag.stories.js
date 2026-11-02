@@ -36,15 +36,15 @@ export default {
 /* ─── 헬퍼 ──────────────────────────────────── */
 
 function tag({ label, deletable = false, link = false }) {
-  const linkClass = link ? ' link' : '';
+  const linkClass = link ? ' ds-tag--link' : '';
   const deleteBtn = deletable
-    ? `<button type="button" class="btn-delete"><span class="sr-only">${label} 삭제</span></button>`
+    ? `<button type="button" class="ds-tag__delete-btn"><span class="sr-only">${label} 삭제</span></button>`
     : '';
   return `<span class="ds-tag${linkClass}">${label}${deleteBtn}</span>`;
 }
 
-function tagWrap(size, tags) {
-  return `<div class="ds-tag-wrap ${size}">${tags}</div>`;
+function tagGroup(size, tags) {
+  return `<div class="ds-tag-group ds-tag-group--${size}">${tags}</div>`;
 }
 
 const wrap = (html) =>
@@ -60,7 +60,7 @@ const section = (label, html) => `
 
 function initTags(canvasElement) {
   canvasElement.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn-delete');
+    const btn = e.target.closest('.ds-tag__delete-btn');
     if (btn) {
       btn.closest('.ds-tag')?.remove();
     }
@@ -73,7 +73,7 @@ const play = async ({ canvasElement }) => initTags(canvasElement);
 
 export const Playground = {
   name: 'Playground',
-  render: (args) => wrap(tagWrap(args.size, tag(args))),
+  render: (args) => wrap(tagGroup(args.size, tag(args))),
   play,
 };
 
@@ -87,9 +87,9 @@ export const 크기 = {
       tag({ label: l, deletable: true })
     ).join('');
     return wrap(`
-      ${section('Small', tagWrap('small', tags))}
-      ${section('Medium', tagWrap('medium', tags))}
-      ${section('Large', tagWrap('large', tags))}
+      ${section('Small', tagGroup('small', tags))}
+      ${section('Medium', tagGroup('medium', tags))}
+      ${section('Large', tagGroup('large', tags))}
     `);
   },
   play,
@@ -105,7 +105,7 @@ export const 필터태그 = {
     return wrap(`
       <div style="margin-bottom:0.8rem; font-size:1.4rem; font-weight:bold;
                   color:var(--krds-light-color-text-bolder);">선택된 필터</div>
-      <div class="ds-tag-wrap medium">
+      <div class="ds-tag-group ds-tag-group--medium">
         ${filters.map(l => tag({ label: l, deletable: true })).join('')}
       </div>
       <p style="margin-top:1.2rem; font-size:1.2rem; color:var(--krds-light-color-text-subtle);">
@@ -124,12 +124,12 @@ export const 링크태그 = {
   render: () => {
     const labels = ['디자인 시스템', '접근성', 'KRDS', 'UI 컴포넌트', '퍼블리싱'];
     const linkTags = labels.map(l =>
-      `<a href="#" class="ds-tag link">${l}</a>`
+      `<a href="#" class="ds-tag ds-tag--link">${l}</a>`
     ).join('');
     return wrap(`
-      ${section('Small', `<div class="ds-tag-wrap small">${linkTags}</div>`)}
-      ${section('Medium', `<div class="ds-tag-wrap medium">${linkTags}</div>`)}
-      ${section('Large', `<div class="ds-tag-wrap large">${linkTags}</div>`)}
+      ${section('Small', `<div class="ds-tag-group ds-tag-group--small">${linkTags}</div>`)}
+      ${section('Medium', `<div class="ds-tag-group ds-tag-group--medium">${linkTags}</div>`)}
+      ${section('Large', `<div class="ds-tag-group ds-tag-group--large">${linkTags}</div>`)}
     `);
   },
 };
@@ -149,15 +149,15 @@ export const 전체변형 = {
     return wrap(`
       <section style="margin-bottom:3.2rem;">
         ${hd('삭제 가능한 태그')}
-        ${section('Small',  tagWrap('small',  sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
-        ${section('Medium', tagWrap('medium', sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
-        ${section('Large',  tagWrap('large',  sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
+        ${section('Small',  tagGroup('small',  sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
+        ${section('Medium', tagGroup('medium', sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
+        ${section('Large',  tagGroup('large',  sampleLabels.map(l => tag({ label: l, deletable: true })).join('')))}
       </section>
       <section>
         ${hd('링크 태그')}
-        ${section('Small',  `<div class="ds-tag-wrap small">${sampleLabels.map(l => `<a href="#" class="ds-tag link">${l}</a>`).join('')}</div>`)}
-        ${section('Medium', `<div class="ds-tag-wrap medium">${sampleLabels.map(l => `<a href="#" class="ds-tag link">${l}</a>`).join('')}</div>`)}
-        ${section('Large',  `<div class="ds-tag-wrap large">${sampleLabels.map(l => `<a href="#" class="ds-tag link">${l}</a>`).join('')}</div>`)}
+        ${section('Small',  `<div class="ds-tag-group ds-tag-group--small">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
+        ${section('Medium', `<div class="ds-tag-group ds-tag-group--medium">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
+        ${section('Large',  `<div class="ds-tag-group ds-tag-group--large">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
       </section>
     `);
   },

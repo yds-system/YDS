@@ -725,6 +725,191 @@ export const fileUploadNaming = {
   ],
 };
 
+// ─── 브레드크럼 (Breadcrumb) ─────────────────────────────────────────────────
+
+export const breadcrumbNaming = {
+  name: '브레드크럼',
+  englishName: 'Breadcrumb',
+  sbPath: '컴포넌트/탐색/브레드크럼',
+  baseClass: 'ds-breadcrumb',
+  krdsBaseClass: 'ds-breadcrumb-wrap',
+  description: '현재 페이지의 위치를 계층 구조로 표시하는 내비게이션 보조 컴포넌트',
+
+  structure: `nav.ds-breadcrumb  [ds-breadcrumb--mobile]
+└── ol.ds-breadcrumb__list
+    └── li.ds-breadcrumb__item  [ds-breadcrumb__item--home]
+        ├── a.ds-breadcrumb__link              ← 링크 항목
+        └── span.ds-breadcrumb__link.ds-breadcrumb__link--current  ← 현재 페이지`,
+
+  elements: [
+    { element: '브레드크럼 컨테이너', class: 'ds-breadcrumb', krdsClass: 'ds-breadcrumb-wrap', description: '최상위 nav 요소. CSS 변수 정의 및 레이아웃 컨테이너', confirmed: true },
+    { element: '항목 목록', class: 'ds-breadcrumb__list', krdsClass: 'breadcrumb', description: '브레드크럼 항목 ol 리스트', confirmed: true },
+    { element: '항목', class: 'ds-breadcrumb__item', krdsClass: '(li 직접)', description: '개별 브레드크럼 항목 li', confirmed: true },
+    { element: '링크·현재 페이지', class: 'ds-breadcrumb__link', krdsClass: 'txt', description: '링크(a) 또는 현재 페이지(span)에 공통으로 적용', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '홈 항목', class: 'ds-breadcrumb__item--home', krdsClass: 'home', description: '첫 번째 홈 항목 li. 홈 아이콘이 ::before로 자동 표시됨. ds-breadcrumb__item과 함께 사용', confirmed: true },
+    { category: '현재 페이지', class: 'ds-breadcrumb__link--current', krdsClass: '(span aria-current="page")', description: '현재 페이지 span. aria-current="page"와 함께 사용. ds-breadcrumb__link와 함께 사용', confirmed: true },
+    { category: '비활성화', class: 'ds-breadcrumb__link--disabled', krdsClass: 'disabled', description: '비활성화 링크. pointer-events: none. ds-breadcrumb__link와 함께 사용', confirmed: true },
+    { category: '모바일 강제', class: 'ds-breadcrumb--mobile', krdsClass: 'is-mobile', description: '뷰포트 무관하게 모바일 축약 뷰 강제. 데모·테스트용. ds-breadcrumb에 적용', confirmed: true },
+  ],
+
+  codeExample: `<!-- 2단계 (홈 > 현재) -->
+<nav class="ds-breadcrumb" aria-label="현재 경로">
+  <ol class="ds-breadcrumb__list">
+    <li class="ds-breadcrumb__item ds-breadcrumb__item--home">
+      <a href="/home" class="ds-breadcrumb__link">홈</a>
+    </li>
+    <li class="ds-breadcrumb__item">
+      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">서비스 신청</span>
+    </li>
+  </ol>
+</nav>
+
+<!-- 3단계 (홈 > 중간 > 현재) -->
+<nav class="ds-breadcrumb" aria-label="현재 경로">
+  <ol class="ds-breadcrumb__list">
+    <li class="ds-breadcrumb__item ds-breadcrumb__item--home">
+      <a href="/home" class="ds-breadcrumb__link">홈</a>
+    </li>
+    <li class="ds-breadcrumb__item">
+      <a href="/service" class="ds-breadcrumb__link">서비스 신청</a>
+    </li>
+    <li class="ds-breadcrumb__item">
+      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">세부 항목</span>
+    </li>
+  </ol>
+</nav>`,
+};
+
+// ─── 탭 (Tab) ────────────────────────────────────────────────────────────────
+
+export const tabNaming = {
+  name: '탭',
+  englishName: 'Tab',
+  sbPath: '컴포넌트/탐색/탭',
+  baseClass: 'ds-tab',
+  krdsBaseClass: 'ds-tab-wrap',
+  description: '하나의 화면 안에서 콘텐츠를 전환하는 탐색 컴포넌트. 라인형·박스형, 전체 너비 변형 지원',
+
+  structure: `div.ds-tab  [ds-tab--line|--fill]  [ds-tab--full]
+├── div.ds-tab__nav
+│   └── ul.ds-tab__list  [role="tablist"]
+│       └── li.ds-tab__item  [ds-tab__item--selected]  [role="tab"]
+│           └── button.ds-tab__btn  [disabled]
+└── div.ds-tab__panels
+    └── section.ds-tab__panel  [ds-tab__panel--selected]  [role="tabpanel"]`,
+
+  elements: [
+    { element: '탭 블록', class: 'ds-tab', krdsClass: 'ds-tab-wrap', description: '탭 전체 래퍼. 종류(--line/--fill)·너비(--full) modifier를 이 요소에 적용', confirmed: true },
+    { element: '탭 내비게이션', class: 'ds-tab__nav', krdsClass: 'ds-tab', description: '탭 리스트를 감싸는 내비게이션 영역. width: 100%', confirmed: true },
+    { element: '탭 목록', class: 'ds-tab__list', krdsClass: '(ul 직접)', description: 'role="tablist" ul 요소. 가로 스크롤 허용', confirmed: true },
+    { element: '탭 항목', class: 'ds-tab__item', krdsClass: '(li 직접)', description: 'role="tab" li 요소. 선택 시 --selected modifier 추가', confirmed: true },
+    { element: '탭 버튼', class: 'ds-tab__btn', krdsClass: 'ds-tab-btn', description: '탭 클릭 버튼 (button 요소)', confirmed: true },
+    { element: '탭 패널 묶음', class: 'ds-tab__panels', krdsClass: 'ds-tab-panel-wrap', description: '탭 패널 전체를 감싸는 컨테이너', confirmed: true },
+    { element: '탭 패널', class: 'ds-tab__panel', krdsClass: 'ds-tab-panel', description: 'role="tabpanel" section 요소. 기본 display: none', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '종류', class: 'ds-tab--line', krdsClass: 'ds-tab line', description: '라인형. 활성 탭에 하단 밑줄 인디케이터 표시. ds-tab에 적용', confirmed: true },
+    { category: '종류', class: 'ds-tab--fill', krdsClass: 'ds-tab fill', description: '박스형. 활성 탭을 채워진 박스로 표현. ds-tab에 적용', confirmed: true },
+    { category: '너비', class: 'ds-tab--full', krdsClass: 'ds-tab full', description: '전체 너비. 탭이 가로를 균등하게 채움. ds-tab에 적용 (--line/--fill과 조합)', confirmed: true },
+    { category: '선택된 탭 항목', class: 'ds-tab__item--selected', krdsClass: 'active', description: '현재 선택된 탭 li. aria-selected="true"와 함께 사용. ds-tab__item과 함께 사용', confirmed: true },
+    { category: '활성 패널', class: 'ds-tab__panel--selected', krdsClass: 'ds-tab-panel active', description: '표시되는 탭 패널. display: flex로 전환. ds-tab__panel과 함께 사용', confirmed: true },
+  ],
+
+  codeExample: `<div class="ds-tab ds-tab--line">
+  <div class="ds-tab__nav">
+    <ul class="ds-tab__list" role="tablist" aria-label="탭 이름">
+      <li class="ds-tab__item ds-tab__item--selected"
+          id="tab-1" role="tab"
+          aria-selected="true" aria-controls="panel-1">
+        <button type="button" class="ds-tab__btn">
+          탭 1 <i class="sr-only created"> 선택됨</i>
+        </button>
+      </li>
+      <li class="ds-tab__item"
+          id="tab-2" role="tab"
+          aria-selected="false" aria-controls="panel-2">
+        <button type="button" class="ds-tab__btn">탭 2</button>
+      </li>
+    </ul>
+  </div>
+  <div class="ds-tab__panels">
+    <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
+             class="ds-tab__panel ds-tab__panel--selected" tabindex="0">
+      <h3 class="sr-only">탭 1 영역</h3>
+      탭 1 콘텐츠
+    </section>
+    <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
+             class="ds-tab__panel" tabindex="0">
+      <h3 class="sr-only">탭 2 영역</h3>
+      탭 2 콘텐츠
+    </section>
+  </div>
+</div>`,
+};
+
+// ─── 페이지네이션 (Pagination) ───────────────────────────────────────────────
+
+export const paginationNaming = {
+  name: '페이지네이션',
+  englishName: 'Pagination',
+  sbPath: '컴포넌트/탐색/페이지네이션',
+  baseClass: 'ds-pagination',
+  krdsBaseClass: 'ds-pagination',
+  description: '여러 페이지로 나뉜 콘텐츠를 탐색하는 컴포넌트',
+
+  structure: `nav[aria-label]
+└── div.ds-pagination
+    ├── [span|a].ds-pagination__move-btn  [--first|--prev|--next|--last]  [--disabled]
+    ├── div.ds-pagination__list
+    │   ├── a.ds-pagination__link  [data-page]
+    │   ├── span.ds-pagination__link.ds-pagination__link--current  [aria-current="page"]
+    │   └── span.ds-pagination__link.ds-pagination__link--ellipsis  [aria-hidden="true"]
+    └── [span|a].ds-pagination__move-btn  [--first|--prev|--next|--last]  [--disabled]`,
+
+  elements: [
+    { element: '페이지네이션', class: 'ds-pagination', krdsClass: 'ds-pagination', description: '전체 래퍼 div. CSS 변수 및 레이아웃 정의', confirmed: true },
+    { element: '이동 버튼', class: 'ds-pagination__move-btn', krdsClass: 'page-navi', description: '처음·이전·다음·마지막 이동 버튼. 방향 modifier(--first/--prev/--next/--last)와 함께 사용. 활성: a, 비활성: span', confirmed: true },
+    { element: '페이지 번호 그룹', class: 'ds-pagination__list', krdsClass: 'page-links', description: '페이지 번호 링크를 담는 컨테이너', confirmed: true },
+    { element: '페이지 번호', class: 'ds-pagination__link', krdsClass: 'page-link', description: '개별 페이지 번호. 이동 가능: a, 현재/말줄임: span', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '이전 버튼', class: 'ds-pagination__move-btn--prev', krdsClass: 'page-navi prev', description: '이전 페이지 버튼 (화살표 아이콘). ds-pagination__move-btn과 함께 사용', confirmed: true },
+    { category: '다음 버튼', class: 'ds-pagination__move-btn--next', krdsClass: 'page-navi next', description: '다음 페이지 버튼 (화살표 아이콘). ds-pagination__move-btn과 함께 사용', confirmed: true },
+    { category: '처음 버튼', class: 'ds-pagination__move-btn--first', krdsClass: 'page-navi first', description: '첫 페이지 버튼 (텍스트). ds-pagination__move-btn과 함께 사용', confirmed: true },
+    { category: '마지막 버튼', class: 'ds-pagination__move-btn--last', krdsClass: 'page-navi last', description: '마지막 페이지 버튼 (텍스트). ds-pagination__move-btn과 함께 사용', confirmed: true },
+    { category: '비활성 이동 버튼', class: 'ds-pagination__move-btn--disabled', krdsClass: 'page-navi disabled', description: '비활성 이동 버튼. span 태그 + aria-disabled="true"와 함께 사용. 방향 modifier와 함께 사용', confirmed: true },
+    { category: '현재 페이지', class: 'ds-pagination__link--current', krdsClass: 'page-link active', description: '현재 페이지 번호. span 태그 + aria-current="page". ds-pagination__link와 함께 사용', confirmed: true },
+    { category: '말줄임', class: 'ds-pagination__link--ellipsis', krdsClass: 'page-link link-dot', description: '말줄임(...) 구분자. span 태그 + aria-hidden="true". 클릭 불가. ds-pagination__link와 함께 사용', confirmed: true },
+  ],
+
+  codeExample: `<nav aria-label="페이지 탐색">
+  <div class="ds-pagination">
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--first" href="#" data-navi="first">처음</a>
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--prev" href="#" data-navi="prev">
+      <span class="sr-only">이전 페이지</span>
+    </a>
+    <div class="ds-pagination__list">
+      <a class="ds-pagination__link" href="#" data-page="1">1</a>
+      <span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>
+      <a class="ds-pagination__link" href="#" data-page="3">3</a>
+      <span class="ds-pagination__link ds-pagination__link--current" aria-current="page">
+        <span class="sr-only">현재페이지 </span>4
+      </span>
+      <a class="ds-pagination__link" href="#" data-page="5">5</a>
+    </div>
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--next" href="#" data-navi="next">
+      <span class="sr-only">다음 페이지</span>
+    </a>
+    <a class="ds-pagination__move-btn ds-pagination__move-btn--last" href="#" data-navi="last">마지막</a>
+  </div>
+</nav>`,
+};
+
 // ─── 전체 목록 (components-naming.mdx 용) ──────────────────────────────────
 // 새 컴포넌트를 추가하면 이 배열에도 추가한다.
 
@@ -738,4 +923,7 @@ export const allComponents = [
   tagNaming,
   dateInputNaming,
   fileUploadNaming,
+  breadcrumbNaming,
+  tabNaming,
+  paginationNaming,
 ];

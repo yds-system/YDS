@@ -1,4 +1,3 @@
-import '../button/button.css';
 import './link.css';
 
 export default {
@@ -63,15 +62,15 @@ export default {
 /* ─── 헬퍼 ─────────────────────────────────── */
 
 function renderLink({ label, size, color, pure, underline, showIcon, newTab, disabled }) {
-  const classes = ['ds-btn', 'ds-btn--link'];
-  if (size !== 'large') classes.push(`ds-btn--${size}`);   // large가 기본값
-  if (color === 'basic') classes.push('ds-btn--basic');
-  if (pure) classes.push('ds-btn--pure');
-  if (disabled) classes.push('ds-btn--disabled');
+  const classes = ['ds-link'];
+  if (size !== 'large') classes.push(`ds-link--${size}`);   // large가 기본값
+  if (color === 'basic') classes.push('ds-link--basic');
+  if (pure) classes.push('ds-link--pure');
+  if (disabled) classes.push('ds-link--disabled');
 
   let spanClass = '';
-  if (underline === 'always') spanClass = 'ds-btn__text';
-  else if (underline === 'hover') spanClass = 'ds-btn__text ds-btn__text--hidden';
+  if (underline === 'always') spanClass = 'ds-link__text';
+  else if (underline === 'hover') spanClass = 'ds-link__text ds-link__text--underline-hover';
 
   const spanHtml = spanClass
     ? `<span class="${spanClass}">${label}</span>`
