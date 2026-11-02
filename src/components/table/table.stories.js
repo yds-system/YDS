@@ -59,11 +59,14 @@ const checkboxRows = [
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function wrapClass(mobileType) {
-  return `ds-table-wrap${mobileType === 'card' ? ' mob-card' : ''}`;
+  return `ds-table-wrap${mobileType === 'card' ? ' ds-table-wrap--mobile-card' : ''}`;
 }
 
 function captionEl(text, visible) {
-  return `<caption${visible ? ' class="visible"' : ''}>${text}</caption>`;
+  const cls = visible
+    ? ' class="ds-table__caption ds-table__caption--visible"'
+    : ' class="ds-table__caption"';
+  return `<caption${cls}>${text}</caption>`;
 }
 
 /* 목록형 (thead + tbody) */
@@ -78,7 +81,7 @@ function renderListTable({ caption, showCaption, mobileType, headers = listHeade
 
   return `
     <div class="${wrapClass(mobileType)}">
-      <table class="tbl data">
+      <table class="ds-table ds-table--data">
         ${captionEl(caption, showCaption)}
         <colgroup>${colgroup}</colgroup>
         <thead><tr>${headCells}</tr></thead>
@@ -98,7 +101,7 @@ function renderColTable({ caption, showCaption, mobileType, colHeaders = ['항�
 
   return `
     <div class="${wrapClass(mobileType)}">
-      <table class="tbl col data">
+      <table class="ds-table ds-table--data ds-table--row-header">
         ${captionEl(caption, showCaption)}
         <colgroup>
           <col style="width:25%;">
@@ -117,7 +120,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
 
   const headRow = `<tr>
     <th scope="col" style="width:4rem;">
-      <div class="ds-check-item medium" style="justify-content:center;">
+      <div class="ds-check-item ds-check-item--medium" style="justify-content:center;">
         <input type="checkbox" id="${allId}">
         <label for="${allId}"><span class="sr-only">전체 선택</span></label>
       </div>
@@ -129,7 +132,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
     const chkId = `${prefix}-row-${i}`;
     return `<tr>
       <th scope="row" style="text-align:center;">
-        <div class="ds-check-item medium" style="justify-content:center;">
+        <div class="ds-check-item ds-check-item--medium" style="justify-content:center;">
           <input type="checkbox" id="${chkId}" data-row>
           <label for="${chkId}"><span class="sr-only">${row.title} 선택</span></label>
         </div>
@@ -143,7 +146,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
 
   return `
     <div class="ds-table-wrap">
-      <table class="tbl col data">
+      <table class="ds-table ds-table--data ds-table--row-header">
         ${captionEl(caption, showCaption)}
         <colgroup>
           <col style="width:5%;">
@@ -218,7 +221,7 @@ export const 체크박스선택형 = {
 
 /* ─── 반응형: 카드형 ────────────────────────── */
 export const 반응형카드 = {
-  name: '반응형 — 카드형 (mob-card)',
+  name: '반응형 — 카드형 (mobile-card)',
   parameters: { controls: { disable: true } },
   render: () => `
     <p style="font-size:1.3rem; color:var(--krds-light-color-text-subtle);

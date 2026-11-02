@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming } from '../docs/naming-data.js';
+import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming, accordionNaming, tableNaming, carouselNaming, iconNaming, layoutNaming, headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -74,14 +74,7 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>헤더</td>
-      <td>Header</td>
-      <td><code>ds-header</code></td>
-      <td><code>header-in</code> <code>header-container</code> <code>header-utility</code> <code>header-branding</code> <code>header-actions</code> <code>btn-navi</code></td>
-      <td><code>active</code> <code>is-open</code> <code>is-link</code> <code>external-link</code> <code>sm</code> <code>md</code> <code>lg</code> <code>xlg</code> <code>xxlg</code> <code>between</code> <code>type-description</code></td>
-      <td>사이트 최상단 글로벌 헤더</td>
-    </tr>
+    <CompRow comp={headerNaming} />
     <tr>
       <td>마스트헤드</td>
       <td>Masthead</td>
@@ -90,30 +83,9 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
       <td>—</td>
       <td>헤더 상단 공공 사이트 공통 띠 영역</td>
     </tr>
-    <tr>
-      <td>푸터</td>
-      <td>Footer</td>
-      <td><code>ds-footer</code></td>
-      <td><code>foot-quick</code> <code>f-logo</code> <code>f-cnt</code> <code>f-info</code> <code>info-addr</code> <code>info-cs</code> <code>f-link</code> <code>link-go</code> <code>link-sns</code> <code>f-btm</code> <code>f-btm-text</code> <code>f-menu</code> <code>f-copy</code></td>
-      <td>—</td>
-      <td>사이트 최하단 글로벌 푸터</td>
-    </tr>
-    <tr>
-      <td>메인메뉴 (PC)</td>
-      <td>Main Menu PC</td>
-      <td><code>ds-main-menu</code></td>
-      <td><code>gnb-menu</code> <code>gnb-main-trigger</code> <code>gnb-toggle-wrap</code> <code>gnb-main-list</code> <code>gnb-sub-trigger</code> <code>gnb-sub-list</code> <code>gnb-sub-content</code> <code>sub-title</code> <code>gnb-sub-banner</code></td>
-      <td><code>active</code> <code>is-open</code> <code>is-link</code> <code>external-link</code> <code>between</code> <code>type-description</code></td>
-      <td>PC용 글로벌 내비게이션 메뉴</td>
-    </tr>
-    <tr>
-      <td>메인메뉴 (모바일)</td>
-      <td>Main Menu Mobile</td>
-      <td><code>ds-main-menu-mobile</code></td>
-      <td><code>gnb-wrap</code> <code>gnb-header</code> <code>gnb-utils</code> <code>gnb-login</code> <code>gnb-service-menu</code> <code>gnb-body</code> <code>gnb-menu</code> <code>menu-wrap</code> <code>submenu-wrap</code> <code>gnb-sub-list</code> <code>depth3-wrap</code> <code>depth4-wrap</code> <code>depth4-head</code> <code>depth4-body</code> <code>gnb-bottom</code></td>
-      <td>—</td>
-      <td>모바일용 글로벌 내비게이션 메뉴</td>
-    </tr>
+    <CompRow comp={footerNaming} />
+    <CompRow comp={pcGnbNaming} />
+    <CompRow comp={mobileGnbNaming} />
     <tr>
       <td>사이드 네비게이션</td>
       <td>Side Navigation</td>
@@ -350,18 +322,79 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
 
 ## 콘텐츠 (Content)
 
-| 컴포넌트명(한글) | 영문명 | 기본 클래스명 | 하위 요소 클래스명 | modifier (종류·크기·상태) | 설명 |
-|---|---|---|---|---|---|
-| 아코디언 | Accordion | `ds-accordion` | `accordion-item` `accordion-header` `btn-accordion` `accordion-collapse` `collapse` `accordion-body` | `type-line` | 콘텐츠를 접었다 펼치는 패널 |
-| 공개/비공개 | Disclosure | `krds-disclosure` | `btn-conts-expand` `expand-wrap` `expand-in` | `conts-expand-area` | 더보기/접기 형태의 콘텐츠 토글 |
-| 표 | Table | `ds-table-wrap` | `tbl` `col` `data` `caption` `thead` `tbody` | — | 데이터를 행·열로 정리한 테이블 |
-| 구조화된 목록 | Structured List | `krds-structured-list-type-full` | `structured-item` `card-top` `card-body` `c-tit` `c-txt` `c-date` `key` `value` `card-btm` `card-btn` | `type-full` | 카드형 데이터 목록 |
-| 구조화된 목록 (테이블형) | Structured List Table | `krds-structured-list-table` | `search-list-top` `sch-left` `sch-sort` `sort-label` `w-sort-btn` `m-sort-btn` | — | 검색 결과 등 표 형식의 구조화 목록 |
-| 텍스트 목록 | Text List | `krds-info-list` | `num` | `decimal` `dash` `hollow` `ordered` | 순서 있는/없는 텍스트 목록 |
-| 캐러셀 | Carousel | `main-vban-wrap` `vb-swiper` | `swiper` `swiper-wrapper` `swiper-slide` `swiper-button-prev` `swiper-button-next` `swiper-indicator` `swiper-pagination` `swiper-button-more` `swiper-controller` `swiper-button-play` `swiper-button-stop` `swiper-navigation` | `type-wrap` | 슬라이드 형태의 이미지·콘텐츠 전환 |
-| 단계 표시 | Step Indicator | `krds-step-wrap` | `step` `step-tit` | `done` `active` | 프로세스 진행 단계를 시각화 |
-| 도움말 패널 | Help Panel | `krds-help-panel` | `help-panel-wrap` `help-conts-area` `conts-area` `help-title` `link-list` `help-panel-action` | `layer` `line` `active` | 화면 옆에 슬라이드로 열리는 도움말 패널 |
-| 튜토리얼 패널 | Tutorial Panel | `krds-help-panel` | `help-panel-wrap` `help-conts-area` `coach-help-process` `conts-wrap` `help-title` | `layer` `line` `active` | 기능 사용법을 단계별로 안내하는 패널 |
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <CompRow comp={accordionNaming} />
+    <tr>
+      <td>공개/비공개</td>
+      <td>Disclosure</td>
+      <td><code>krds-disclosure</code></td>
+      <td><code>btn-conts-expand</code> <code>expand-wrap</code> <code>expand-in</code></td>
+      <td><code>conts-expand-area</code></td>
+      <td>더보기/접기 형태의 콘텐츠 토글</td>
+    </tr>
+    <CompRow comp={tableNaming} />
+    <tr>
+      <td>구조화된 목록</td>
+      <td>Structured List</td>
+      <td><code>krds-structured-list-type-full</code></td>
+      <td><code>structured-item</code> <code>card-top</code> <code>card-body</code> <code>c-tit</code> <code>c-txt</code> <code>c-date</code> <code>key</code> <code>value</code> <code>card-btm</code> <code>card-btn</code></td>
+      <td><code>type-full</code></td>
+      <td>카드형 데이터 목록</td>
+    </tr>
+    <tr>
+      <td>구조화된 목록 (테이블형)</td>
+      <td>Structured List Table</td>
+      <td><code>krds-structured-list-table</code></td>
+      <td><code>search-list-top</code> <code>sch-left</code> <code>sch-sort</code> <code>sort-label</code> <code>w-sort-btn</code> <code>m-sort-btn</code></td>
+      <td>—</td>
+      <td>검색 결과 등 표 형식의 구조화 목록</td>
+    </tr>
+    <tr>
+      <td>텍스트 목록</td>
+      <td>Text List</td>
+      <td><code>krds-info-list</code></td>
+      <td><code>num</code></td>
+      <td><code>decimal</code> <code>dash</code> <code>hollow</code> <code>ordered</code></td>
+      <td>순서 있는/없는 텍스트 목록</td>
+    </tr>
+    <CompRow comp={carouselNaming} />
+    <tr>
+      <td>단계 표시</td>
+      <td>Step Indicator</td>
+      <td><code>krds-step-wrap</code></td>
+      <td><code>step</code> <code>step-tit</code></td>
+      <td><code>done</code> <code>active</code></td>
+      <td>프로세스 진행 단계를 시각화</td>
+    </tr>
+    <tr>
+      <td>도움말 패널</td>
+      <td>Help Panel</td>
+      <td><code>krds-help-panel</code></td>
+      <td><code>help-panel-wrap</code> <code>help-conts-area</code> <code>conts-area</code> <code>help-title</code> <code>link-list</code> <code>help-panel-action</code></td>
+      <td><code>layer</code> <code>line</code> <code>active</code></td>
+      <td>화면 옆에 슬라이드로 열리는 도움말 패널</td>
+    </tr>
+    <tr>
+      <td>튜토리얼 패널</td>
+      <td>Tutorial Panel</td>
+      <td><code>krds-help-panel</code></td>
+      <td><code>help-panel-wrap</code> <code>help-conts-area</code> <code>coach-help-process</code> <code>conts-wrap</code> <code>help-title</code></td>
+      <td><code>layer</code> <code>line</code> <code>active</code></td>
+      <td>기능 사용법을 단계별로 안내하는 패널</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 

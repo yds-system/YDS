@@ -75,26 +75,26 @@ function renderPcGnb() {
   const items = MENU.map((m, mi) => {
     if (m.link) {
       return `<li>
-        <a href="#" class="gnb-main-trigger is-link" data-trigger="gnb">${m.label}</a>
+        <a href="#" class="ds-main-menu__trigger ds-main-menu__trigger--link" data-trigger="gnb">${m.label}</a>
       </li>`;
     }
 
     const subList = m.items.map((sub, si) => {
       if (sub.link) {
         return `<li>
-          <a href="#" class="gnb-sub-trigger is-link" data-trigger="gnb">${sub.label}</a>
+          <a href="#" class="ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link" data-trigger="gnb">${sub.label}</a>
         </li>`;
       }
       return `<li>
-        <button type="button" class="gnb-sub-trigger" data-trigger="gnb"
-                aria-expanded="false" aria-controls="gnb-sub-${mi}-${si}">
+        <button type="button" class="ds-main-menu__sub-trigger" data-trigger="gnb"
+                aria-expanded="false" aria-controls="ds-gnb-sub-${mi}-${si}">
           ${sub.label}
         </button>
-        <div class="gnb-sub-list" id="gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
-          <div class="gnb-sub-content">
-            <h2 class="sub-title">${sub.label}</h2>
+        <div class="ds-main-menu__sub-list" id="ds-gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
+          <div class="ds-main-menu__sub-content">
+            <h2 class="ds-main-menu__sub-title">${sub.label}</h2>
             <ul>
-              ${sub.sub.map(s => `<li><a href="#">${s}</a></li>`).join('')}
+              ${sub.sub.map(s => `<li><a href="#" class="ds-main-menu__sub-link">${s}</a></li>`).join('')}
             </ul>
           </div>
         </div>
@@ -102,13 +102,13 @@ function renderPcGnb() {
     }).join('');
 
     return `<li>
-      <button type="button" class="gnb-main-trigger" data-trigger="gnb"
+      <button type="button" class="ds-main-menu__trigger" data-trigger="gnb"
               aria-expanded="false" aria-haspopup="true"
-              aria-controls="gnb-panel-${mi}">
+              aria-controls="ds-gnb-panel-${mi}">
         ${m.label}
       </button>
-      <div class="gnb-toggle-wrap" id="gnb-panel-${mi}" role="group" aria-label="${m.label}">
-        <div class="gnb-main-list" data-has-submenu="true">
+      <div class="ds-main-menu__dropdown" id="ds-gnb-panel-${mi}" role="group" aria-label="${m.label}">
+        <div class="ds-main-menu__panel" data-has-submenu="true">
           <ul>${subList}</ul>
         </div>
       </div>
@@ -117,65 +117,65 @@ function renderPcGnb() {
 
   return `<nav class="ds-main-menu" aria-label="주요 메뉴">
   <div class="inner">
-    <ul class="gnb-menu" role="menubar">${items}</ul>
+    <ul class="ds-main-menu__list" role="menubar">${items}</ul>
   </div>
 </nav>
-<div class="gnb-backdrop" aria-hidden="true"></div>`;
+<div class="ds-main-menu__backdrop" aria-hidden="true"></div>`;
 }
 
 function renderMobileGnb() {
   const mainItems = MENU.map((m, mi) =>
     `<li>
-      <a href="#mGnb-anchor${mi}" class="gnb-main-trigger"
+      <a href="#mGnb-anchor${mi}" class="ds-main-menu-mobile__trigger"
          data-index="${mi}">${m.label}</a>
     </li>`
   ).join('');
 
   const subItems = MENU.map((m, mi) => {
     const links = m.link
-      ? `<li><a href="#" class="gnb-sub-trigger">${m.label}</a></li>`
+      ? `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${m.label}</a></li>`
       : m.items.map(sub =>
-          `<li><a href="#" class="gnb-sub-trigger">${sub.label}</a></li>`
+          `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${sub.label}</a></li>`
         ).join('');
 
-    return `<div class="gnb-sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
-      <h2 class="sub-title" id="mGnb-hd${mi}">${m.label}</h2>
+    return `<div class="ds-main-menu-mobile__sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
+      <h2 class="ds-main-menu-mobile__sub-title" id="mGnb-hd${mi}">${m.label}</h2>
       <ul>${links}</ul>
     </div>`;
   }).join('');
 
   return `<div id="mobile-nav" class="ds-main-menu-mobile"
      aria-modal="true" role="dialog" aria-label="전체 메뉴">
-  <div class="gnb-wrap">
-    <div class="gnb-header">
-      <div class="gnb-utils">
-        <ul class="utility-list">
+  <div class="ds-main-menu-mobile__panel">
+    <div class="ds-main-menu-mobile__header">
+      <div class="ds-main-menu-mobile__utils">
+        <ul class="ds-utility-list ds-utility-list--start">
           <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">로그인</button></li>
           <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">회원가입</button></li>
         </ul>
       </div>
-      <div class="gnb-login">
+      <div class="ds-main-menu-mobile__login">
         <button type="button" class="ds-btn ds-btn--large ds-btn--text">로그인을 해주세요</button>
       </div>
-      <div class="gnb-service-menu">
-        <a href="#" class="link">나의GOV</a>
-        <a href="#" class="link">공지사항</a>
-        <a href="#" class="link">자료실</a>
-        <a href="#" class="link">검색</a>
+      <div class="ds-main-menu-mobile__service-menu">
+        <a href="#" class="ds-main-menu-mobile__service-link">나의GOV</a>
+        <a href="#" class="ds-main-menu-mobile__service-link">공지사항</a>
+        <a href="#" class="ds-main-menu-mobile__service-link">자료실</a>
+        <a href="#" class="ds-main-menu-mobile__service-link">검색</a>
       </div>
       <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
               aria-label="전체 메뉴 닫기">
         <span class="ico-close" aria-hidden="true"></span>
       </button>
     </div>
-    <div class="gnb-body">
-      <div class="gnb-menu">
-        <div class="menu-wrap">
+    <div class="ds-main-menu-mobile__body">
+      <div class="ds-main-menu-mobile__menu">
+        <div class="ds-main-menu-mobile__nav-list">
           <ul role="tablist" aria-label="대메뉴">${mainItems}</ul>
         </div>
-        <div class="submenu-wrap" aria-live="polite">${subItems}</div>
+        <div class="ds-main-menu-mobile__sub-panel" aria-live="polite">${subItems}</div>
       </div>
-      <div class="gnb-bottom">
+      <div class="ds-main-menu-mobile__bottom">
         <a href="#" class="ds-btn ds-btn--medium ds-btn--text">사이트맵</a>
       </div>
     </div>
@@ -185,31 +185,31 @@ function renderMobileGnb() {
 
 function renderHeader({ siteName = 'KRDS', showLogin = true }) {
   const loginBtn = showLogin
-    ? `<a href="#" class="btn-navi login">로그인</a>`
-    : `<button type="button" class="btn-navi my">나의GOV</button>`;
+    ? `<a href="#" class="ds-header__action-btn ds-header__action-btn--login">로그인</a>`
+    : `<button type="button" class="ds-header__action-btn ds-header__action-btn--mypage">나의GOV</button>`;
 
   return `<header id="ds-header">
-  <div class="header-in">
-    <div class="header-container">
+  <div class="ds-header__inner">
+    <div class="ds-header__container">
       <div class="inner">
-        <div class="header-utility" aria-label="부가 메뉴">
-          <ul class="utility-list">
+        <div class="ds-header__utility" aria-label="부가 메뉴">
+          <ul class="ds-utility-list">
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">자료실</a></li>
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">사이트맵</a></li>
           </ul>
         </div>
-        <div class="header-branding">
-          <h1 class="logo">
+        <div class="ds-header__branding">
+          <h1 class="ds-header__logo">
             <a href="#">
               <span class="sr-only">${siteName}</span>
             </a>
           </h1>
-          <div class="header-actions">
-            <button type="button" class="btn-navi sch" title="통합검색">통합검색</button>
+          <div class="ds-header__actions">
+            <button type="button" class="ds-header__action-btn ds-header__action-btn--search" title="통합검색">통합검색</button>
             ${loginBtn}
-            <button type="button" class="btn-navi join">회원가입</button>
-            <button type="button" class="btn-navi all"
+            <button type="button" class="ds-header__action-btn ds-header__action-btn--join">회원가입</button>
+            <button type="button" class="ds-header__action-btn ds-header__action-btn--all-menu"
                     aria-controls="mobile-nav"
                     aria-expanded="false"
                     aria-label="전체 메뉴 열기">전체메뉴</button>
@@ -225,34 +225,34 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
 
 function renderFooter() {
   return `<footer id="ds-footer">
-  <div class="foot-quick">
+  <div class="ds-footer__quick">
     <div class="inner">
-      <button type="button" class="link">관련 사이트 1</button>
-      <button type="button" class="link">관련 사이트 2</button>
-      <button type="button" class="link">관련 사이트 3</button>
-      <button type="button" class="link">관련 사이트 4</button>
+      <button type="button" class="ds-footer__quick-link">관련 사이트 1</button>
+      <button type="button" class="ds-footer__quick-link">관련 사이트 2</button>
+      <button type="button" class="ds-footer__quick-link">관련 사이트 3</button>
+      <button type="button" class="ds-footer__quick-link">관련 사이트 4</button>
     </div>
   </div>
   <div class="inner">
-    <div class="f-logo">
+    <div class="ds-footer__logo">
       <span class="sr-only">KRDS - Korea Design System</span>
     </div>
-    <div class="f-cnt">
-      <div class="f-info">
-        <p class="info-addr">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
-        <ul class="info-cs">
+    <div class="ds-footer__content">
+      <div class="ds-footer__info">
+        <p class="ds-footer__address">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
+        <ul class="ds-footer__contact">
           <li>
             <strong class="strong">대표전화 1234-5678</strong>
             <span class="span">(평일 09:00 ~ 18:00)</span>
           </li>
         </ul>
       </div>
-      <div class="f-link">
-        <div class="link-go">
+      <div class="ds-footer__links">
+        <div class="ds-footer__shortcuts">
           <a href="#" class="ds-btn ds-btn--medium ds-btn--text">찾아오시는 길</a>
           <a href="#" class="ds-btn ds-btn--medium ds-btn--text">이용안내</a>
         </div>
-        <div class="link-sns">
+        <div class="ds-footer__sns">
           <a href="#" class="ds-btn ds-btn--xlarge ds-btn--icon ds-btn--border" target="_blank" title="새 창 열기">
             <span class="sr-only">인스타그램</span>
           </a>
@@ -265,14 +265,14 @@ function renderFooter() {
         </div>
       </div>
     </div>
-    <div class="f-btm">
-      <div class="f-btm-text">
-        <div class="f-menu">
-          <a href="#" class="point">개인정보처리방침</a>
-          <a href="#">저작권 정책</a>
-          <a href="#">웹 접근성 안내</a>
+    <div class="ds-footer__bottom">
+      <div class="ds-footer__bottom-text">
+        <div class="ds-footer__menu">
+          <a href="#" class="ds-footer__menu-link ds-footer__menu-link--emphasis">개인정보처리방침</a>
+          <a href="#" class="ds-footer__menu-link">저작권 정책</a>
+          <a href="#" class="ds-footer__menu-link">웹 접근성 안내</a>
         </div>
-        <p class="f-copy">© 2025 KRDS. All rights reserved.</p>
+        <p class="ds-footer__copyright">© 2025 KRDS. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -290,9 +290,9 @@ function initLayout(canvasElement) {
 
 /* PC GNB */
 function initPcGnb(root) {
-  const triggers   = Array.from(root.querySelectorAll('.ds-main-menu .gnb-main-trigger:not(.is-link)'));
-  const backdrop   = root.querySelector('.gnb-backdrop');
-  let currentOpen  = null;
+  const triggers  = Array.from(root.querySelectorAll('.ds-main-menu .ds-main-menu__trigger:not(.ds-main-menu__trigger--link)'));
+  const backdrop  = root.querySelector('.ds-main-menu__backdrop');
+  let currentOpen = null;
 
   function openMenu(trigger) {
     if (currentOpen && currentOpen !== trigger) closeMenu(currentOpen);
@@ -300,13 +300,13 @@ function initPcGnb(root) {
     const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
     if (!panel) return;
 
-    trigger.classList.add('active');
+    trigger.classList.add('ds-main-menu__trigger--open');
     trigger.setAttribute('aria-expanded', 'true');
-    panel.classList.add('is-open');
-    if (backdrop) backdrop.classList.add('active');
+    panel.classList.add('ds-main-menu__dropdown--open');
+    if (backdrop) backdrop.classList.add('ds-main-menu__backdrop--open');
 
     /* 첫 번째 sub-trigger 활성화 */
-    const firstSub = panel.querySelector('.gnb-sub-trigger');
+    const firstSub = panel.querySelector('.ds-main-menu__sub-trigger');
     if (firstSub) activateSub(panel, firstSub);
     currentOpen = trigger;
   }
@@ -315,42 +315,42 @@ function initPcGnb(root) {
     if (!trigger) return;
     const panelId = trigger.getAttribute('aria-controls');
     const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
-    trigger.classList.remove('active');
+    trigger.classList.remove('ds-main-menu__trigger--open');
     trigger.setAttribute('aria-expanded', 'false');
     if (panel) {
-      panel.classList.remove('is-open');
-      panel.querySelectorAll('.gnb-sub-trigger').forEach(s => deactivateSub(s));
-      panel.querySelectorAll('.gnb-sub-list').forEach(l => l.classList.remove('active'));
+      panel.classList.remove('ds-main-menu__dropdown--open');
+      panel.querySelectorAll('.ds-main-menu__sub-trigger').forEach(s => deactivateSub(s));
+      panel.querySelectorAll('.ds-main-menu__sub-list').forEach(l => l.classList.remove('ds-main-menu__sub-list--open'));
     }
-    if (backdrop) backdrop.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('ds-main-menu__backdrop--open');
     currentOpen = null;
   }
 
   function activateSub(panel, subTrigger) {
-    panel.querySelectorAll('.gnb-sub-trigger').forEach(s => {
-      s.classList.remove('active');
+    panel.querySelectorAll('.ds-main-menu__sub-trigger').forEach(s => {
+      s.classList.remove('ds-main-menu__sub-trigger--open');
       s.setAttribute('aria-expanded', 'false');
     });
-    panel.querySelectorAll('.gnb-sub-list').forEach(l => l.classList.remove('active'));
+    panel.querySelectorAll('.ds-main-menu__sub-list').forEach(l => l.classList.remove('ds-main-menu__sub-list--open'));
 
-    subTrigger.classList.add('active');
+    subTrigger.classList.add('ds-main-menu__sub-trigger--open');
     const subPanelId = subTrigger.getAttribute('aria-controls');
     const subPanel   = subPanelId ? root.querySelector(`#${subPanelId}`) : null;
     if (subPanel) {
-      subPanel.classList.add('active');
+      subPanel.classList.add('ds-main-menu__sub-list--open');
       subTrigger.setAttribute('aria-expanded', 'true');
     }
   }
 
   function deactivateSub(subTrigger) {
-    subTrigger.classList.remove('active');
+    subTrigger.classList.remove('ds-main-menu__sub-trigger--open');
     subTrigger.setAttribute('aria-expanded', 'false');
   }
 
   /* 클릭 이벤트 */
   triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-      if (trigger.classList.contains('active')) {
+      if (trigger.classList.contains('ds-main-menu__trigger--open')) {
         closeMenu(trigger);
       } else {
         openMenu(trigger);
@@ -376,7 +376,7 @@ function initPcGnb(root) {
         const panelId = trigger.getAttribute('aria-controls');
         const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
         if (panel) {
-          const firstSub = panel.querySelector('.gnb-sub-trigger');
+          const firstSub = panel.querySelector('.ds-main-menu__sub-trigger');
           if (firstSub) firstSub.focus();
         }
       } else if (e.key === 'Escape') {
@@ -387,15 +387,15 @@ function initPcGnb(root) {
   });
 
   /* 서브 트리거 키보드 */
-  root.querySelectorAll('.ds-main-menu .gnb-sub-trigger:not(.is-link)').forEach(sub => {
+  root.querySelectorAll('.ds-main-menu .ds-main-menu__sub-trigger:not(.ds-main-menu__sub-trigger--link)').forEach(sub => {
     sub.addEventListener('mouseenter', () => {
-      const panel = sub.closest('.gnb-toggle-wrap');
-      if (panel && panel.classList.contains('is-open')) activateSub(panel, sub);
+      const panel = sub.closest('.ds-main-menu__dropdown');
+      if (panel && panel.classList.contains('ds-main-menu__dropdown--open')) activateSub(panel, sub);
     });
 
     sub.addEventListener('keydown', (e) => {
-      const panel    = sub.closest('.gnb-toggle-wrap');
-      const allSubs  = panel ? Array.from(panel.querySelectorAll('.gnb-sub-trigger')) : [];
+      const panel    = sub.closest('.ds-main-menu__dropdown');
+      const allSubs  = panel ? Array.from(panel.querySelectorAll('.ds-main-menu__sub-trigger')) : [];
       const idx      = allSubs.indexOf(sub);
       const mainTrig = panel ? triggers.find(t => t.getAttribute('aria-controls') === panel.id) : null;
 
@@ -428,20 +428,20 @@ function initPcGnb(root) {
 
 /* 모바일 GNB */
 function initMobileGnb(root) {
-  const allBtn    = root.querySelector('.btn-navi.all');
+  const allBtn    = root.querySelector('.ds-header__action-btn.ds-header__action-btn--all-menu');
   const closeBtn  = root.querySelector('#close-nav');
   const mobileNav = root.querySelector('#mobile-nav');
   if (!mobileNav) return;
 
   function openNav() {
-    mobileNav.classList.add('is-open', 'is-backdrop');
+    mobileNav.classList.add('ds-main-menu-mobile--open', 'ds-main-menu-mobile--backdrop');
     if (allBtn) allBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     closeBtn?.focus();
   }
 
   function closeNav() {
-    mobileNav.classList.remove('is-open', 'is-backdrop');
+    mobileNav.classList.remove('ds-main-menu-mobile--open', 'ds-main-menu-mobile--backdrop');
     if (allBtn) allBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     allBtn?.focus();
@@ -455,27 +455,27 @@ function initMobileGnb(root) {
     if (e.key === 'Escape') closeNav();
   });
 
-  /* dim(::after) 클릭 닫기 – 실제 모바일 GNB 패널 밖 클릭 감지 */
+  /* dim(::after) 클릭 닫기 */
   mobileNav.addEventListener('click', (e) => {
     if (e.target === mobileNav) closeNav();
   });
 
   /* 1depth 탭 클릭 → 해당 submenu 스크롤 */
-  const mainTriggers = Array.from(mobileNav.querySelectorAll('.menu-wrap .gnb-main-trigger'));
-  const submenuWrap  = mobileNav.querySelector('.submenu-wrap');
+  const mainTriggers = Array.from(mobileNav.querySelectorAll('.ds-main-menu-mobile__nav-list .ds-main-menu-mobile__trigger'));
+  const submenuWrap  = mobileNav.querySelector('.ds-main-menu-mobile__sub-panel');
 
   mainTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const idx     = trigger.dataset.index;
-      const target  = mobileNav.querySelector(`#mGnb-anchor${idx}`);
+      const idx    = trigger.dataset.index;
+      const target = mobileNav.querySelector(`#mGnb-anchor${idx}`);
       if (!target || !submenuWrap) return;
 
       /* active 클래스 갱신 */
-      mainTriggers.forEach(t => t.classList.remove('active'));
-      trigger.classList.add('active');
+      mainTriggers.forEach(t => t.classList.remove('ds-main-menu-mobile__trigger--open'));
+      trigger.classList.add('ds-main-menu-mobile__trigger--open');
 
-      /* submenu-wrap 기준 스크롤 */
+      /* ds-main-menu-mobile__sub-panel 기준 스크롤 */
       submenuWrap.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
     });
 
@@ -493,7 +493,7 @@ function initMobileGnb(root) {
   });
 
   /* 첫 번째 탭 자동 활성화 */
-  if (mainTriggers.length) mainTriggers[0].classList.add('active');
+  if (mainTriggers.length) mainTriggers[0].classList.add('ds-main-menu-mobile__trigger--open');
 }
 
 const play = async ({ canvasElement }) => initLayout(canvasElement);

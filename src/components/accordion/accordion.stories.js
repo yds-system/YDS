@@ -59,21 +59,22 @@ const ITEMS = [
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function renderAccordion({ type, mode, initialOpen, items = ITEMS }) {
-  const typeClass = type === 'line' ? ' type-line' : '';
+  const typeClass = type === 'line' ? ' ds-accordion--line' : '';
   const dataType  = mode === 'multi' ? ' data-type="multiOpen"' : '';
 
   const itemsHtml = items.map((item, i) => {
-    const isOpen = initialOpen === i;
-    const activeClass = isOpen ? ' active' : '';
+    const isOpen       = initialOpen === i;
+    const itemOpenClass = isOpen ? ' ds-accordion__item--open' : '';
+    const btnOpenClass  = isOpen ? ' ds-accordion__btn--open' : '';
     return `
-      <div class="accordion-item${activeClass}">
-        <h2 class="accordion-header">
-          <button type="button" class="btn-accordion${activeClass}">
+      <div class="ds-accordion__item${itemOpenClass}">
+        <h2 class="ds-accordion__header">
+          <button type="button" class="ds-accordion__btn${btnOpenClass}">
             ${item.title}
           </button>
         </h2>
-        <div class="accordion-collapse">
-          <div class="accordion-body">
+        <div class="ds-accordion__collapse">
+          <div class="ds-accordion__body">
             ${item.content}
           </div>
         </div>
@@ -91,11 +92,11 @@ const wrap = (html) =>
 function initAccordion(canvasElement) {
   canvasElement.querySelectorAll('.ds-accordion').forEach(container => {
     const mode  = container.dataset.type || 'singleOpen';
-    const items = Array.from(container.querySelectorAll('.accordion-item'));
+    const items = Array.from(container.querySelectorAll('.ds-accordion__item'));
 
     items.forEach((item, idx) => {
-      const btn   = item.querySelector('.btn-accordion');
-      const panel = item.querySelector('.accordion-collapse');
+      const btn   = item.querySelector('.ds-accordion__btn');
+      const panel = item.querySelector('.ds-accordion__collapse');
       if (!btn || !panel) return;
 
       /* aria 속성 설정 */
@@ -105,7 +106,7 @@ function initAccordion(canvasElement) {
 
       btn.id = headId;
       btn.setAttribute('aria-controls', panelId);
-      btn.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', item.classList.contains('ds-accordion__item--open') ? 'true' : 'false');
 
       panel.id = panelId;
       panel.setAttribute('role', 'region');
@@ -119,18 +120,18 @@ function initAccordion(canvasElement) {
         if (mode !== 'multiOpen' && !isExpanded) {
           items.forEach(otherItem => {
             if (otherItem === item) return;
-            const otherBtn = otherItem.querySelector('.btn-accordion');
+            const otherBtn = otherItem.querySelector('.ds-accordion__btn');
             otherBtn?.setAttribute('aria-expanded', 'false');
-            otherBtn?.classList.remove('active');
-            otherItem.classList.remove('active');
+            otherBtn?.classList.remove('ds-accordion__btn--open');
+            otherItem.classList.remove('ds-accordion__item--open');
           });
         }
 
         /* 현재 항목 토글 */
         const next = !isExpanded;
         btn.setAttribute('aria-expanded', String(next));
-        btn.classList.toggle('active', next);
-        item.classList.toggle('active', next);
+        btn.classList.toggle('ds-accordion__btn--open', next);
+        item.classList.toggle('ds-accordion__item--open', next);
       });
     });
   });

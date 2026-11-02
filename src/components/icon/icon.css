@@ -22,11 +22,11 @@
 }
 
 /* ----- 크기 modifier (독립 사용 시) ----- */
-.ds-icon.xsmall { width: var(--krds-icon--size-xsmall); height: var(--krds-icon--size-xsmall); }
-.ds-icon.small  { width: var(--krds-icon--size-small);  height: var(--krds-icon--size-small);  }
-.ds-icon.medium { width: var(--krds-icon--size-medium); height: var(--krds-icon--size-medium); }
+.ds-icon.ds-icon--xsmall { width: var(--krds-icon--size-xsmall); height: var(--krds-icon--size-xsmall); }
+.ds-icon.ds-icon--small  { width: var(--krds-icon--size-small);  height: var(--krds-icon--size-small);  }
+.ds-icon.ds-icon--medium { width: var(--krds-icon--size-medium); height: var(--krds-icon--size-medium); }
 /* large = 기본값 */
-.ds-icon.xlarge { width: var(--krds-icon--size-xlarge); height: var(--krds-icon--size-xlarge); }
+.ds-icon.ds-icon--xlarge { width: var(--krds-icon--size-xlarge); height: var(--krds-icon--size-xlarge); }
 
 /* ----- mask 공통 속성 (mask 방식 아이콘 공통) ----- */
 .ds-icon[class*=" ds-ico-"]:not(.ds-ico-delete-fill):not(.ds-ico-help):not(.ds-ico-success-fill):not(.ds-ico-information-fill):not(.ds-ico-error-fill):not(.ds-ico-complete-fill):not(.ds-ico-flag) {
@@ -47,7 +47,7 @@
   -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
   mask-image: url(/img/component/icon/ico_angle.svg);
 }
-.ds-icon.ds-ico-angle.disabled {
+.ds-icon.ds-ico-angle.ds-icon--disabled {
   -webkit-mask-image: url(/img/component/icon/ico_angle_disabled.svg);
   mask-image: url(/img/component/icon/ico_angle_disabled.svg);
   -webkit-mask-image: none;
@@ -59,9 +59,9 @@
   -webkit-mask: none;
   mask: none;
 }
-.ds-icon.ds-ico-angle.up    { transform: rotate(180deg); }
-.ds-icon.ds-ico-angle.left  { transform: rotate(90deg); }
-.ds-icon.ds-ico-angle.right { transform: rotate(-90deg); }
+.ds-icon.ds-ico-angle.ds-icon--up    { transform: rotate(180deg); }
+.ds-icon.ds-ico-angle.ds-icon--left  { transform: rotate(90deg); }
+.ds-icon.ds-ico-angle.ds-icon--right { transform: rotate(-90deg); }
 
 /* ds-ico-go: 이동 화살표 */
 .ds-icon.ds-ico-go {
@@ -111,14 +111,14 @@
   -webkit-mask-image: url(/img/component/icon/ico_expand.svg);
   mask-image: url(/img/component/icon/ico_expand.svg);
 }
-.ds-icon.ds-ico-func.up { transform: rotate(-90deg); }
+.ds-icon.ds-ico-func.ds-icon--up { transform: rotate(-90deg); }
 
 /* ds-ico-fold: 접기/펼치기 */
 .ds-icon.ds-ico-fold {
   -webkit-mask-image: url(/img/component/icon/ico_foldable.svg);
   mask-image: url(/img/component/icon/ico_foldable.svg);
 }
-.ds-icon.ds-ico-fold.right { transform: rotate(-180deg); }
+.ds-icon.ds-ico-fold.ds-icon--right { transform: rotate(-180deg); }
 
 /* ds-ico-toggle: 토글 (angle 아이콘 재사용) */
 .ds-icon.ds-ico-toggle {

@@ -135,7 +135,7 @@ const ICONS = [
 /* ─── 렌더 헬퍼 ─────────────────────────────── */
 
 function renderIcon({ name, size = 'large', decorative = true, label = '' }) {
-  const sizeClass = size !== 'large' ? ` ${size}` : '';
+  const sizeClass = size !== 'large' ? ` ds-icon--${size}` : '';
   const a11y = decorative
     ? 'aria-hidden="true"'
     : `role="img" aria-label="${label}"`;
@@ -355,13 +355,13 @@ export const 크기 = {
       <tr>
         <td style="padding:1rem 1.6rem;font-size:1.2rem;color:var(--krds-light-color-text-subtle);">${size}</td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-sch ${size}" aria-hidden="true"></i>
+          <i class="ds-icon ds-ico-sch${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-go ${size}" aria-hidden="true"></i>
+          <i class="ds-icon ds-ico-go${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-success-fill ${size}" aria-hidden="true"></i>
+          <i class="ds-icon ds-ico-success-fill${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;font-family:monospace;font-size:1.1rem;color:var(--krds-light-color-text-subtle);">
           var(--krds-icon--size-${size})

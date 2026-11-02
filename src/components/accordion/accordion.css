@@ -35,13 +35,13 @@
 }
 
 /* ----- 항목 ----- */
-.ds-accordion .accordion-item {
+.ds-accordion .ds-accordion__item {
   padding: var(--ds-accordion--list-margin-y) 0;
   transition: var(--krds-transition-base);
 }
 
 /* ----- 헤더 버튼 ----- */
-.ds-accordion .accordion-item .btn-accordion {
+.ds-accordion .ds-accordion__item .ds-accordion__btn {
   position: relative;
   width: 100%;
   padding: var(--ds-accordion--padding)
@@ -56,20 +56,20 @@
   text-align: left;
 }
 @media (max-width: 767px) {
-  .ds-accordion .accordion-item .btn-accordion {
+  .ds-accordion .ds-accordion__item .ds-accordion__btn {
     font-size: var(--ds-accordion--button-mobile-font-size);
   }
 }
 
-.ds-accordion .accordion-item .btn-accordion:hover {
+.ds-accordion .ds-accordion__item .ds-accordion__btn:hover {
   background-color: var(--ds-accordion--button-color-action-hover);
 }
-.ds-accordion .accordion-item .btn-accordion:active {
+.ds-accordion .ds-accordion__item .ds-accordion__btn:active {
   background-color: var(--ds-accordion--button-color-action-pressed);
 }
 
 /* 화살표 아이콘 (::after) */
-.ds-accordion .accordion-item .btn-accordion::after {
+.ds-accordion .ds-accordion__item .ds-accordion__btn::after {
   position: absolute;
   top: var(--ds-accordion--padding);
   right: var(--ds-accordion--padding);
@@ -92,21 +92,21 @@
 }
 
 /* 열린 상태 — 버튼 */
-.ds-accordion .accordion-item .btn-accordion.active {
+.ds-accordion .ds-accordion__item .ds-accordion__btn.ds-accordion__btn--open {
   background-color: var(--ds-accordion--color-action-open);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   color: var(--ds-accordion--button-color-text-open);
 }
-.ds-accordion .accordion-item .btn-accordion.active:focus {
+.ds-accordion .ds-accordion__item .ds-accordion__btn.ds-accordion__btn--open:focus {
   border-radius: var(--ds-accordion--radius);
 }
-.ds-accordion .accordion-item .btn-accordion.active::after {
+.ds-accordion .ds-accordion__item .ds-accordion__btn.ds-accordion__btn--open::after {
   transform: rotate(180deg);
 }
 
 /* ----- 패널 (닫힘 기본값) ----- */
-.ds-accordion .accordion-item .accordion-collapse {
+.ds-accordion .ds-accordion__item .ds-accordion__collapse {
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
@@ -114,7 +114,7 @@
 }
 
 /* ----- 패널 본문 ----- */
-.ds-accordion .accordion-item .accordion-body {
+.ds-accordion .ds-accordion__item .ds-accordion__body {
   padding: 0 var(--ds-accordion--padding) var(--ds-accordion--padding);
   background-color: var(--ds-accordion--color-action);
   border-bottom-left-radius: var(--ds-accordion--radius);
@@ -122,27 +122,27 @@
 }
 
 /* ----- 열린 상태 — 항목 ----- */
-.ds-accordion .accordion-item.active .accordion-collapse {
+.ds-accordion .ds-accordion__item.ds-accordion__item--open .ds-accordion__collapse {
   height: auto;
   max-height: 100vh;
   transition: all 1.5s ease-in-out;
   visibility: visible;
 }
-.ds-accordion .accordion-item.active .accordion-body {
+.ds-accordion .ds-accordion__item.ds-accordion__item--open .ds-accordion__body {
   background-color: var(--ds-accordion--color-action-open);
 }
 
-/* ----- 라인형 (type-line) ----- */
-.ds-accordion.type-line {
+/* ----- 라인형 (ds-accordion--line) ----- */
+.ds-accordion.ds-accordion--line {
   padding: 0;
   border-top: none;
 }
-.ds-accordion.type-line .accordion-item {
+.ds-accordion.ds-accordion--line .ds-accordion__item {
   padding: 0;
   border-top: 0.1rem solid var(--ds-accordion--color-divider);
   border-radius: 0;
 }
-.ds-accordion.type-line .accordion-item .btn-accordion {
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__btn {
   padding: var(--ds-accordion--line-padding)
            var(--ds-accordion--line-button-padding-right)
            var(--ds-accordion--line-padding)
@@ -150,27 +150,27 @@
   background: none;
   border-radius: 0;
 }
-.ds-accordion.type-line .accordion-item .btn-accordion:hover,
-.ds-accordion.type-line .accordion-item .btn-accordion:active {
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__btn:hover,
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__btn:active {
   background: none;
 }
-.ds-accordion.type-line .accordion-item .btn-accordion::after {
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__btn::after {
   top: var(--ds-accordion--line-padding);
   right: 0;
 }
-.ds-accordion.type-line .accordion-item .btn-accordion.active {
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__btn.ds-accordion__btn--open {
   background: none;
 }
-.ds-accordion.type-line .accordion-item .accordion-body {
+.ds-accordion.ds-accordion--line .ds-accordion__item .ds-accordion__body {
   padding: 0 0 var(--ds-accordion--padding);
   background: none;
   border-radius: 0;
 }
-.ds-accordion.type-line .accordion-item.active {
+.ds-accordion.ds-accordion--line .ds-accordion__item.ds-accordion__item--open {
   background: none;
   border-top-color: var(--ds-accordion--color-divider-open);
 }
-.ds-accordion.type-line .accordion-item.active .accordion-body {
+.ds-accordion.ds-accordion--line .ds-accordion__item.ds-accordion__item--open .ds-accordion__body {
   background: none;
 }
 

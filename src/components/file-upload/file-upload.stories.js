@@ -141,7 +141,7 @@ function renderFileUpload({
       </ul>
       ${showDeleteAll ? `
       <button type="button" class="ds-btn ds-btn--xsmall ds-btn--tertiary ds-file-upload__delete-all-btn">
-        전체 파일 삭제<i class="ds-icon ds-ico-angle right"></i>
+        전체 파일 삭제<i class="ds-icon ds-ico-angle ds-icon--right"></i>
       </button>` : ''}
     </div>` : '';
 

@@ -25,7 +25,7 @@
 }
 
 /* ----- caption 시각 표시 (기본은 common.css 에서 sr-only 처리) ----- */
-.ds-table-wrap .tbl caption.visible {
+.ds-table-wrap .ds-table caption.ds-table__caption.ds-table__caption--visible {
   position: static !important;
   width: auto !important;
   height: auto !important;
@@ -41,13 +41,13 @@
 }
 
 /* ----- 공통 셀 ----- */
-.ds-table-wrap .tbl.data th,
-.ds-table-wrap .tbl.data td {
+.ds-table-wrap .ds-table.ds-table--data th,
+.ds-table-wrap .ds-table.ds-table--data td {
   vertical-align: middle;
 }
 
 /* ----- 열 헤더 (thead) ----- */
-.ds-table-wrap .tbl.data thead th {
+.ds-table-wrap .ds-table.ds-table--data thead th {
   padding: var(--ds-table--data-thead-th-padding) var(--ds-table--data-thead-th-padding-sides);
   background-color: var(--ds-table--data-thead-surface);
   border-bottom: var(--ds-table--data-border-width) solid var(--ds-table--data-thead-border);
@@ -57,14 +57,14 @@
   text-align: left;
 }
 @media (max-width: 767px) {
-  .ds-table-wrap .tbl.data thead th {
+  .ds-table-wrap .ds-table.ds-table--data thead th {
     font-size: var(--ds-table--data-thead-mobile-font-size);
   }
 }
 
 /* ----- 데이터 셀 (tbody) ----- */
-.ds-table-wrap .tbl.data tbody th,
-.ds-table-wrap .tbl.data tbody td {
+.ds-table-wrap .ds-table.ds-table--data tbody th,
+.ds-table-wrap .ds-table.ds-table--data tbody td {
   padding: var(--ds-table--data-tbody-padding) var(--ds-table--data-tbody-padding-sides);
   background-color: var(--ds-table--data-tbody-color-surface);
   border-bottom: var(--ds-table--data-border-width) solid var(--ds-table--data-tbody-color-divider);
@@ -74,14 +74,14 @@
   text-align: left;
 }
 @media (max-width: 767px) {
-  .ds-table-wrap .tbl.data tbody th,
-  .ds-table-wrap .tbl.data tbody td {
+  .ds-table-wrap .ds-table.ds-table--data tbody th,
+  .ds-table-wrap .ds-table.ds-table--data tbody td {
     font-size: var(--ds-table--data-tbody-mobile-font-size);
   }
 }
 
-/* ----- 가로 헤더형 (col): tbody th 구분 강조 ----- */
-.ds-table-wrap .tbl.col.data tbody th {
+/* ----- 가로 헤더형 (ds-table--row-header): tbody th 구분 강조 ----- */
+.ds-table-wrap .ds-table.ds-table--row-header.ds-table--data tbody th {
   font-weight: var(--krds-font-weight-bold);
   color: var(--ds-table--data-thead-color-text);
   background-color: var(--ds-table--data-thead-surface);
@@ -89,11 +89,11 @@
 }
 
 /* ----- 스크롤 래퍼 (PC에서 강제 스크롤) ----- */
-.ds-table-wrap.scroll {
+.ds-table-wrap.ds-table-wrap--scroll {
   overflow-x: auto;
   overflow-y: hidden;
 }
-.ds-table-wrap.scroll .tbl { width: 100%; }
+.ds-table-wrap.ds-table-wrap--scroll .ds-table { width: 100%; }
 
 /* ----- 모바일 기본: 가로 스크롤 ----- */
 @media (max-width: 767px) {
@@ -101,43 +101,43 @@
     overflow-x: auto;
     width: 100%;
   }
-  .ds-table-wrap .tbl {
+  .ds-table-wrap .ds-table {
     min-width: 50rem;
   }
-  .ds-table-wrap.mob-scroll th,
-  .ds-table-wrap.mob-scroll td {
+  .ds-table-wrap.ds-table-wrap--mobile-scroll th,
+  .ds-table-wrap.ds-table-wrap--mobile-scroll td {
     white-space: nowrap;
   }
 }
 
 /* ─────────────────────────────────────────────
-   모바일 카드형 (mob-card)
+   모바일 카드형 (ds-table-wrap--mobile-card)
    thead를 숨기고 data-label 속성으로 라벨 표시
    ───────────────────────────────────────────── */
 @media (max-width: 767px) {
-  .ds-table-wrap.mob-card {
+  .ds-table-wrap.ds-table-wrap--mobile-card {
     overflow-x: visible;
     width: 100%;
   }
-  .ds-table-wrap.mob-card .tbl {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table {
     min-width: 0;
     width: 100%;
   }
 
   /* thead 숨김 */
-  .ds-table-wrap.mob-card .tbl.data thead {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data thead {
     display: none;
   }
 
   /* table → block 전환 */
-  .ds-table-wrap.mob-card .tbl.data,
-  .ds-table-wrap.mob-card .tbl.data tbody {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data,
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody {
     display: block;
     width: 100%;
   }
 
   /* 행 → 카드 */
-  .ds-table-wrap.mob-card .tbl.data tbody tr {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody tr {
     display: block;
     border: var(--ds-table--data-border-width) solid var(--ds-table--data-tbody-color-divider);
     border-radius: var(--krds-radius-medium2);
@@ -147,8 +147,8 @@
   }
 
   /* 셀 → 라벨+값 행 */
-  .ds-table-wrap.mob-card .tbl.data tbody td,
-  .ds-table-wrap.mob-card .tbl.data tbody th {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody td,
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody th {
     display: flex;
     align-items: flex-start;
     gap: var(--krds-gap-5);
@@ -156,12 +156,12 @@
     width: 100%;
     box-sizing: border-box;
   }
-  .ds-table-wrap.mob-card .tbl.data tbody tr > *:last-child {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody tr > *:last-child {
     border-bottom: 0;
   }
 
   /* data-label → ::before 라벨 */
-  .ds-table-wrap.mob-card .tbl.data tbody td[data-label]::before {
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--data tbody td[data-label]::before {
     content: attr(data-label);
     flex-shrink: 0;
     min-width: 7rem;
@@ -170,8 +170,8 @@
     font-size: var(--ds-table--data-thead-pc-font-size);
   }
 
-  /* 가로 헤더형(col)은 th[scope=row]가 라벨 역할 → 카드형 불필요 스타일 제거 */
-  .ds-table-wrap.mob-card .tbl.col.data tbody th[scope="row"] {
+  /* 가로 헤더형은 th[scope=row]가 라벨 역할 → 카드형 불필요 스타일 제거 */
+  .ds-table-wrap.ds-table-wrap--mobile-card .ds-table.ds-table--row-header.ds-table--data tbody th[scope="row"] {
     background-color: var(--ds-table--data-thead-surface);
     font-weight: var(--krds-font-weight-bold);
     color: var(--ds-table--data-thead-color-text);
