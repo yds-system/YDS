@@ -28,11 +28,22 @@
 7. ~~**기반 + 패턴**: 아이콘, 기본 레이아웃~~ ✓
 
 ### 남은 정리 항목
-없음 — 모든 항목 완료 (2026-11-02 최종 점검 완료)
+없음 — 모든 항목 완료 (2026-11-02 최종 점검, 확인 필요 항목 전체 정리 완료)
 
 ---
 
-## 2026-11-02 작업 내역
+## 2026-11-02 작업 내역 (확인 필요 항목 정리)
+
+- `naming-data.js`: `confirmed: false` 항목 전체 판단 완료 (18종 → 0개)
+  - **원본 기록으로 전환** (confirmed: true): `ds-input--focus` / `ds-form-content--success` / `ds-form-content--info` / `ds-table-wrap` / `ds-table-wrap--scroll`(`krdsClass: 'scroll'`) / `ds-table-wrap--mobile-scroll`(`krdsClass: 'mob-scroll'`) / 캐러셀 4종(`--bg` / `--center` / `--hide-desktop` ×2)
+  - **자체 추가 확정** (krdsClass 오기재 수정): `ds-form-label__required`(`'required'` → `'(자체 추가)'`, 4개 컴포넌트) / `ds-table__caption`(`'caption'` → `'(HTML 태그)'`) / `ds-table__caption--visible`(`'visible'` → `'(자체 추가)'`)
+  - **자체 추가 유지 + confirmed: true 전환**: `ds-table-wrap--mobile-card` / `ds-utility-list--start` / `ds-main-menu__sub-link` / `ds-footer__sns-item` / `ds-footer__menu-link`
+- `naming-data.js` 주석 수정: `confirmed: false` 정의를 "아직 판단하지 않은 것"으로 명확화
+- `CLAUDE.md`: `confirmed` 필드 기준 규칙 추가 (자체 추가도 confirmed: true)
+
+---
+
+## 이전 작업 (2026-11-02)
 
 - `components-naming.mdx`: import에 `headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming` 추가. 탐색 섹션의 헤더·푸터·메인메뉴(PC)·메인메뉴(모바일) 정적 행을 `<CompRow comp={...} />`로 교체.
 - `CLAUDE.md`: 일반 규칙에 "컴포넌트 mdx에 `## 네이밍` 섹션이 있는지 확인한다." 항목 추가.
@@ -41,7 +52,7 @@
 
 ---
 
-## 최근 작업 (2026-11-02)
+## 이전 작업 2 (2026-11-02)
 - icon.mdx: `iconNaming` import + UNCONFIRMED/ElementTable/ModifierTable export 블록 + 네이밍 섹션 추가
 - layout.mdx: `headerNaming/pcGnbNaming/mobileGnbNaming/footerNaming` import + 동일 export 블록 + 네이밍 섹션 추가 (헤더/PC GNB/모바일 GNB/푸터 4개 서브섹션)
 

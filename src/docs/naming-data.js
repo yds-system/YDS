@@ -7,8 +7,8 @@
  * 모두 이 파일의 데이터를 가져와 표시합니다.
  * 네이밍을 수정할 때는 이 파일만 고치면 양쪽에 반영됩니다.
  *
- * confirmed: true  → KRDS reference 코드에서 확인된 클래스명
- * confirmed: false → 추측 클래스명 ("확인 필요" 표시)
+ * confirmed: true  → KRDS reference 코드에서 확인된 클래스명, 또는 자체 추가로 확정된 클래스명
+ * confirmed: false → 아직 판단하지 않은 클래스명 ("확인 필요" 표시)
  *
  * class    → 디자인 시스템에서 실제로 사용하는 클래스명 (ds- 접두사)
  * krdsClass → KRDS reference 원본 클래스명 (krds- 접두사)
@@ -322,7 +322,7 @@ div.ds-form-content  [ds-form-content--error]
   elements: [
     { element: '폼 그룹', class: 'ds-form-group', krdsClass: 'form-group', description: '레이블·입력·메시지를 묶는 최상위 컨테이너', confirmed: true },
     { element: '레이블 영역', class: 'ds-form-label', krdsClass: 'form-tit', description: '레이블을 감싸는 영역', confirmed: true },
-    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: 'required', description: '필수 입력 표시 (레이블 내 span)', confirmed: false },
+    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: '(자체 추가)', description: '필수 입력 표시 (레이블 내 span). KRDS에 대응 클래스 없음', confirmed: true },
     { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '입력창을 감싸는 영역. 상태 modifier를 이 요소에 적용한다', confirmed: true },
     { element: '입력창', class: 'ds-input', krdsClass: 'krds-input', description: '텍스트 입력창 (input 또는 textarea에 적용)', confirmed: true },
     { element: '도움말', class: 'ds-form-hint', krdsClass: 'form-hint', description: '입력 안내·에러·성공 메시지 (p 태그)', confirmed: true },
@@ -338,10 +338,10 @@ div.ds-form-content  [ds-form-content--error]
     { category: '크기', class: 'ds-input--small',  krdsClass: 'krds-input small',  description: 'Small 크기', confirmed: true },
     { category: '크기', class: 'ds-input--medium', krdsClass: 'krds-input medium', description: 'Medium 크기', confirmed: true },
     { category: '크기', class: 'ds-input--large',  krdsClass: 'krds-input large',  description: 'Large — 크기 클래스를 생략하면 이 크기가 기본 적용된다', confirmed: true },
-    { category: '크기 (Storybook 전용)', class: 'ds-input--focus', krdsClass: 'focus', description: 'Storybook 데모 전용. 실제 포커스 스타일은 CSS :focus 가상 클래스로 처리한다', confirmed: false },
+    { category: '크기 (Storybook 전용)', class: 'ds-input--focus', krdsClass: 'focus', description: 'Storybook 데모 전용. 실제 포커스 스타일은 CSS :focus 가상 클래스로 처리한다', confirmed: true },
     { category: '상태 (부모)', class: 'ds-form-content--error', krdsClass: 'is-error', description: '에러 상태. ds-form-content에 적용', confirmed: true },
-    { category: '상태 (부모)', class: 'ds-form-content--success', krdsClass: 'is-success', description: '성공 상태. ds-form-content에 적용', confirmed: false },
-    { category: '상태 (부모)', class: 'ds-form-content--info', krdsClass: 'is-information', description: '정보 상태. ds-form-content에 적용', confirmed: false },
+    { category: '상태 (부모)', class: 'ds-form-content--success', krdsClass: 'is-success', description: '성공 상태. ds-form-content에 적용', confirmed: true },
+    { category: '상태 (부모)', class: 'ds-form-content--info', krdsClass: 'is-information', description: '정보 상태. ds-form-content에 적용', confirmed: true },
     { category: '힌트 메시지', class: 'ds-form-hint--error', krdsClass: 'form-hint-invalid', description: '에러 메시지. ds-form-hint와 함께 사용', confirmed: true },
     { category: '힌트 메시지', class: 'ds-form-hint--success', krdsClass: 'form-hint-success', description: '성공 메시지. ds-form-hint와 함께 사용', confirmed: true },
     { category: '힌트 메시지', class: 'ds-form-hint--info', krdsClass: 'form-hint-information', description: '정보 메시지. ds-form-hint와 함께 사용', confirmed: true },
@@ -410,7 +410,7 @@ export const selectNaming = {
   elements: [
     { element: '폼 그룹', class: 'ds-form-group', krdsClass: 'form-group', description: '레이블·입력·메시지를 묶는 최상위 컨테이너', confirmed: true },
     { element: '레이블 영역', class: 'ds-form-label', krdsClass: 'form-tit', description: '레이블을 감싸는 영역', confirmed: true },
-    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: 'required', description: '필수 입력 표시 (레이블 내 span)', confirmed: false },
+    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: '(자체 추가)', description: '필수 입력 표시 (레이블 내 span). KRDS에 대응 클래스 없음', confirmed: true },
     { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '셀렉트 영역을 감싸는 컨테이너', confirmed: true },
     { element: '셀렉트', class: 'ds-select', krdsClass: 'krds-form-select', description: 'select 태그에 적용하는 기본 클래스 (기본 large 크기)', confirmed: true },
     { element: '도움말', class: 'ds-form-hint', krdsClass: 'form-hint', description: '입력 안내·에러 메시지 (p 태그)', confirmed: true },
@@ -485,7 +485,7 @@ export const checkboxNaming = {
   elements: [
     { element: '폼 그룹 (fieldset)', class: 'ds-form-group', krdsClass: 'form-group', description: '그룹 최상위 컨테이너. 체크박스 그룹은 접근성을 위해 fieldset 태그에 사용', confirmed: true },
     { element: '그룹 레이블 (legend)', class: 'ds-form-label', krdsClass: 'form-tit', description: 'legend 태그에 적용. float 트릭으로 레이아웃 유지', confirmed: true },
-    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: 'required', description: '필수 입력 표시 (legend 내 span)', confirmed: false },
+    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: '(자체 추가)', description: '필수 입력 표시 (legend 내 span). KRDS에 대응 클래스 없음', confirmed: true },
     { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '체크박스 그룹을 감싸는 컨테이너', confirmed: true },
     { element: '체크 그룹', class: 'ds-check-group', krdsClass: 'krds-check-area', description: '체크박스 항목을 나열하는 컨테이너 (기본: 가로 배치)', confirmed: true },
     { element: '체크 아이템', class: 'ds-check-item', krdsClass: 'krds-form-check', description: '개별 체크박스 래퍼', confirmed: true },
@@ -564,7 +564,7 @@ export const radioNaming = {
   elements: [
     { element: '폼 그룹 (fieldset)', class: 'ds-form-group', krdsClass: 'form-group', description: '그룹 최상위 컨테이너. 라디오 그룹은 접근성을 위해 fieldset 태그에 사용', confirmed: true },
     { element: '그룹 레이블 (legend)', class: 'ds-form-label', krdsClass: 'form-tit', description: 'legend 태그에 적용', confirmed: true },
-    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: 'required', description: '필수 입력 표시 (legend 내 span)', confirmed: false },
+    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: '(자체 추가)', description: '필수 입력 표시 (legend 내 span). KRDS에 대응 클래스 없음', confirmed: true },
     { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '라디오 그룹을 감싸는 컨테이너', confirmed: true },
     { element: '체크 그룹', class: 'ds-check-group', krdsClass: 'krds-check-area', description: '라디오 항목을 나열하는 컨테이너 (기본: 가로 배치)', confirmed: true },
     { element: '체크 아이템', class: 'ds-check-item', krdsClass: 'krds-form-check', description: '개별 라디오 버튼 래퍼', confirmed: true },
@@ -1166,18 +1166,18 @@ export const tableNaming = {
         └── td[data-label]`,
 
   elements: [
-    { element: '래퍼',     class: 'ds-table-wrap',         krdsClass: 'krds-table-wrap', description: '가로 스크롤 컨테이너. 모바일 반응형 modifier를 함께 사용한다.', confirmed: false },
+    { element: '래퍼',     class: 'ds-table-wrap',         krdsClass: 'krds-table-wrap', description: '가로 스크롤 컨테이너. 모바일 반응형 modifier를 함께 사용한다.', confirmed: true },
     { element: '표',       class: 'ds-table',              krdsClass: 'tbl',             description: '데이터 표 루트 요소. ds-table--data modifier 필수', confirmed: true },
-    { element: '설명',     class: 'ds-table__caption',     krdsClass: 'caption',         description: '표 설명 (기본: sr-only 처리, --visible modifier로 시각 표시)', confirmed: false },
+    { element: '설명',     class: 'ds-table__caption',     krdsClass: '(HTML 태그)',     description: '표 설명 (기본: sr-only 처리, --visible modifier로 시각 표시). KRDS는 <caption> 태그 자체를 사용하며 클래스 없음', confirmed: true },
   ],
 
   modifiers: [
     { category: '표 종류',       class: 'ds-table--data',                krdsClass: 'data',          description: '데이터 표 스타일 적용 (thead + tbody 구조)', confirmed: true },
     { category: '표 종류',       class: 'ds-table--row-header',          krdsClass: 'col',           description: 'tbody 행 헤더(th[scope="row"])가 있는 키-값 레이아웃. ds-table--data와 함께 사용', confirmed: true },
-    { category: '설명',          class: 'ds-table__caption--visible',    krdsClass: 'visible',       description: 'caption을 시각적으로 표시 (기본 sr-only 해제)', confirmed: false },
-    { category: '래퍼 — PC',     class: 'ds-table-wrap--scroll',         krdsClass: '(자체 추가)',   description: 'PC에서도 가로 스크롤 강제 적용', confirmed: false },
-    { category: '래퍼 — 모바일', class: 'ds-table-wrap--mobile-card',    krdsClass: '(자체 추가)',   description: '모바일에서 행을 카드 형태로 변환. td에 data-label 속성 필요', confirmed: false },
-    { category: '래퍼 — 모바일', class: 'ds-table-wrap--mobile-scroll',  krdsClass: '(자체 추가)',   description: '모바일에서 셀을 nowrap으로 유지해 가로 스크롤 강제', confirmed: false },
+    { category: '설명',          class: 'ds-table__caption--visible',    krdsClass: '(자체 추가)',   description: 'caption을 시각적으로 표시 (기본 sr-only 해제). KRDS에 대응 클래스 없음', confirmed: true },
+    { category: '래퍼 — PC',     class: 'ds-table-wrap--scroll',         krdsClass: 'scroll',        description: 'PC에서도 가로 스크롤 강제 적용', confirmed: true },
+    { category: '래퍼 — 모바일', class: 'ds-table-wrap--mobile-card',    krdsClass: '(자체 추가)',   description: '모바일에서 행을 카드 형태로 변환. td에 data-label 속성 필요', confirmed: true },
+    { category: '래퍼 — 모바일', class: 'ds-table-wrap--mobile-scroll',  krdsClass: 'mob-scroll',    description: '모바일에서 셀을 nowrap으로 유지해 가로 스크롤 강제', confirmed: true },
   ],
 
   codeExample: `<!-- 목록형 -->
@@ -1268,10 +1268,10 @@ export const carouselNaming = {
     { category: '상태',             class: 'ds-carousel__move-btn--disabled',         krdsClass: 'swiper-button-disabled',          description: '이전/다음 버튼 비활성 상태. aria-disabled="true" 필수', confirmed: true },
     { category: '불릿 상태',        class: 'ds-carousel__bullet--current',            krdsClass: 'swiper-pagination-bullet-active', description: '현재 슬라이드에 해당하는 활성 불릿', confirmed: true },
     { category: '페이지네이션 종류',class: 'ds-carousel__pagination--fraction',       krdsClass: 'swiper-pagination-fraction',      description: '분수형 페이지네이션 (숫자 형태)', confirmed: true },
-    { category: '페이지네이션 종류',class: 'ds-carousel__pagination--bg',             krdsClass: 'swiper-pagination-bg',            description: '인디케이터 내 분수형에 배경 추가', confirmed: false },
-    { category: '인디케이터 정렬',  class: 'ds-carousel__indicator--center',          krdsClass: 'text-center',                     description: '인디케이터 가운데 정렬 (기본: 우측 정렬)', confirmed: false },
-    { category: '반응형',           class: 'ds-carousel__indicator--hide-desktop',    krdsClass: 'w-hide',                          description: 'PC에서 숨겨진 인디케이터를 모바일에서 강제 표시', confirmed: false },
-    { category: '반응형',           class: 'ds-carousel__nav--hide-desktop',          krdsClass: 'w-hide',                          description: 'PC에서 숨겨진 내비게이션을 모바일에서 강제 표시', confirmed: false },
+    { category: '페이지네이션 종류',class: 'ds-carousel__pagination--bg',             krdsClass: 'swiper-pagination-bg',            description: '인디케이터 내 분수형에 배경 추가', confirmed: true },
+    { category: '인디케이터 정렬',  class: 'ds-carousel__indicator--center',          krdsClass: 'text-center',                     description: '인디케이터 가운데 정렬 (기본: 우측 정렬)', confirmed: true },
+    { category: '반응형',           class: 'ds-carousel__indicator--hide-desktop',    krdsClass: 'w-hide',                          description: 'PC에서 숨겨진 인디케이터를 모바일에서 강제 표시', confirmed: true },
+    { category: '반응형',           class: 'ds-carousel__nav--hide-desktop',          krdsClass: 'w-hide',                          description: 'PC에서 숨겨진 내비게이션을 모바일에서 강제 표시', confirmed: true },
   ],
 
   codeExample: `<!-- 개별 버튼 -->
@@ -1405,7 +1405,7 @@ export const headerNaming = {
   ],
 
   modifiers: [
-    { category: '정렬',           class: 'ds-utility-list ds-utility-list--start',               krdsClass: '(자체 추가)',   description: '좌측 정렬 (모바일 GNB 내부)', confirmed: false },
+    { category: '정렬',           class: 'ds-utility-list ds-utility-list--start',               krdsClass: '(자체 추가)',   description: '좌측 정렬 (모바일 GNB 내부)', confirmed: true },
     { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--search',  krdsClass: 'btn-navi sch', description: '검색 버튼', confirmed: true },
     { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--login',   krdsClass: 'btn-navi login', description: '로그인 버튼/링크', confirmed: true },
     { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--join',    krdsClass: 'btn-navi join', description: '회원가입 버튼 (PC 전용)', confirmed: true },
@@ -1464,7 +1464,7 @@ export const pcGnbNaming = {
     { element: '3depth 목록',    class: 'ds-main-menu__sub-list',    krdsClass: 'gnb-sub-list',     description: '3depth 패널', confirmed: true },
     { element: '3depth 제목',    class: 'ds-main-menu__sub-title',   krdsClass: 'sub-title',        description: '3depth 섹션 제목', confirmed: true },
     { element: '3depth 콘텐츠',  class: 'ds-main-menu__sub-content', krdsClass: 'gnb-sub-content',  description: '3depth 링크 그리드 영역', confirmed: true },
-    { element: '3depth 링크',    class: 'ds-main-menu__sub-link',    krdsClass: '(자체 추가)',      description: '3depth 개별 링크/버튼', confirmed: false },
+    { element: '3depth 링크',    class: 'ds-main-menu__sub-link',    krdsClass: '(자체 추가)',      description: '3depth 개별 링크/버튼', confirmed: true },
     { element: 'GNB 배너',       class: 'ds-main-menu__sub-banner',  krdsClass: 'gnb-sub-banner',   description: '3depth 배너 영역 (선택)', confirmed: true },
     { element: '백드롭',         class: 'ds-main-menu__backdrop',    krdsClass: 'gnb-backdrop',     description: 'GNB 열림 시 배경 딤 레이어', confirmed: true },
   ],
@@ -1590,11 +1590,11 @@ export const footerNaming = {
     { element: '관련 링크',      class: 'ds-footer__links',         krdsClass: 'f-link',       description: '바로가기·SNS 링크 영역', confirmed: true },
     { element: '바로가기',       class: 'ds-footer__shortcuts',     krdsClass: 'link-go',      description: '관련 사이트 바로가기 목록', confirmed: true },
     { element: 'SNS 목록',       class: 'ds-footer__sns',           krdsClass: 'link-sns',     description: 'SNS 아이콘 링크 목록', confirmed: true },
-    { element: 'SNS 항목',       class: 'ds-footer__sns-item',      krdsClass: '(자체 추가)',  description: '개별 SNS 항목 li. 플랫폼 modifier 필수', confirmed: false },
+    { element: 'SNS 항목',       class: 'ds-footer__sns-item',      krdsClass: '(자체 추가)',  description: '개별 SNS 항목 li. 플랫폼 modifier 필수', confirmed: true },
     { element: '하단 영역',      class: 'ds-footer__bottom',        krdsClass: 'f-btm',        description: '하단 메뉴·저작권 영역', confirmed: true },
     { element: '하단 텍스트 행', class: 'ds-footer__bottom-text',   krdsClass: 'f-btm-text',   description: '하단 메뉴와 저작권을 가로 배치하는 행', confirmed: true },
     { element: '하단 메뉴',      class: 'ds-footer__menu',          krdsClass: 'f-menu',       description: '개인정보처리방침 등 하단 링크 목록', confirmed: true },
-    { element: '하단 링크',      class: 'ds-footer__menu-link',     krdsClass: '(자체 추가)',  description: '하단 메뉴 개별 링크', confirmed: false },
+    { element: '하단 링크',      class: 'ds-footer__menu-link',     krdsClass: '(자체 추가)',  description: '하단 메뉴 개별 링크', confirmed: true },
     { element: '저작권',         class: 'ds-footer__copyright',     krdsClass: 'f-copy',       description: '저작권 문구', confirmed: true },
   ],
 
@@ -1690,7 +1690,7 @@ export const layoutNaming = {
     { element: '3depth 목록',     class: 'ds-main-menu__sub-list',            krdsClass: 'gnb-sub-list',      description: '3depth 패널', confirmed: true },
     { element: '3depth 제목',     class: 'ds-main-menu__sub-title',           krdsClass: 'sub-title',         description: '3depth 섹션 제목', confirmed: true },
     { element: '3depth 콘텐츠',   class: 'ds-main-menu__sub-content',         krdsClass: 'gnb-sub-content',   description: '3depth 링크 그리드 영역', confirmed: true },
-    { element: '3depth 링크',     class: 'ds-main-menu__sub-link',            krdsClass: '(자체 추가)',       description: '3depth 개별 링크/버튼', confirmed: false },
+    { element: '3depth 링크',     class: 'ds-main-menu__sub-link',            krdsClass: '(자체 추가)',       description: '3depth 개별 링크/버튼', confirmed: true },
     { element: 'GNB 배너',        class: 'ds-main-menu__sub-banner',          krdsClass: 'gnb-sub-banner',    description: '3depth 배너 영역 (선택)', confirmed: true },
     { element: '백드롭',          class: 'ds-main-menu__backdrop',            krdsClass: 'gnb-backdrop',      description: 'GNB 열림 시 배경 딤 레이어', confirmed: true },
     // 모바일 GNB
@@ -1721,17 +1721,17 @@ export const layoutNaming = {
     { element: '관련 링크',       class: 'ds-footer__links',           krdsClass: 'f-link',         description: '바로가기·SNS 링크 영역', confirmed: true },
     { element: '바로가기',        class: 'ds-footer__shortcuts',       krdsClass: 'link-go',        description: '관련 사이트 바로가기 목록', confirmed: true },
     { element: 'SNS 목록',        class: 'ds-footer__sns',             krdsClass: 'link-sns',       description: 'SNS 아이콘 링크 목록', confirmed: true },
-    { element: 'SNS 항목',        class: 'ds-footer__sns-item',        krdsClass: '(자체 추가)',    description: '개별 SNS 항목 li. 플랫폼 modifier 필수', confirmed: false },
+    { element: 'SNS 항목',        class: 'ds-footer__sns-item',        krdsClass: '(자체 추가)',    description: '개별 SNS 항목 li. 플랫폼 modifier 필수', confirmed: true },
     { element: '하단 영역',       class: 'ds-footer__bottom',          krdsClass: 'f-btm',          description: '하단 메뉴·저작권 영역', confirmed: true },
     { element: '하단 텍스트 행',  class: 'ds-footer__bottom-text',     krdsClass: 'f-btm-text',     description: '하단 메뉴와 저작권을 가로 배치하는 행', confirmed: true },
     { element: '하단 메뉴',       class: 'ds-footer__menu',            krdsClass: 'f-menu',         description: '개인정보처리방침 등 하단 링크 목록', confirmed: true },
-    { element: '하단 링크',       class: 'ds-footer__menu-link',       krdsClass: '(자체 추가)',    description: '하단 메뉴 개별 링크', confirmed: false },
+    { element: '하단 링크',       class: 'ds-footer__menu-link',       krdsClass: '(자체 추가)',    description: '하단 메뉴 개별 링크', confirmed: true },
     { element: '저작권',          class: 'ds-footer__copyright',       krdsClass: 'f-copy',         description: '저작권 문구', confirmed: true },
   ],
 
   modifiers: [
     // 유틸리티 목록
-    { category: '정렬',          class: 'ds-utility-list ds-utility-list--start',                      krdsClass: '(자체 추가)',                description: '좌측 정렬 (모바일 GNB 내부)', confirmed: false },
+    { category: '정렬',          class: 'ds-utility-list ds-utility-list--start',                      krdsClass: '(자체 추가)',                description: '좌측 정렬 (모바일 GNB 내부)', confirmed: true },
     // 헤더 액션 버튼
     { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--search',         krdsClass: 'btn-navi sch',               description: '검색 버튼', confirmed: true },
     { category: '액션 버튼 종류', class: 'ds-header__action-btn ds-header__action-btn--login',          krdsClass: 'btn-navi login',             description: '로그인 버튼/링크', confirmed: true },

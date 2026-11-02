@@ -94,6 +94,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - **이전/다음/처음/마지막 이동 버튼 요소 이름은 `__move-btn`으로 쓴다.** 방향 modifier: `--prev`, `--next`, `--first`, `--last`. 예: `ds-pagination__move-btn--prev`, `ds-pagination__move-btn--last`, `ds-calendar__move-btn--next`.
 - 모든 클래스는 KRDS 원본에 대응하는 클래스가 있어야 한다. 대응하는 원본이 없거나 추측한 경우 "확인 필요"로 표시한다.
 - naming-data.js에는 ds- 클래스명과 함께 "KRDS 원본 클래스명"을 기록해 대응 관계를 유지한다.
+- **`confirmed` 필드 기준**: `confirmed: true`는 KRDS reference에서 확인된 클래스명, 또는 자체 추가로 판단이 끝난 클래스명(`krdsClass: '(자체 추가)'` 포함). `confirmed: false`는 아직 판단하지 않은 것만 쓴다. 즉, 자체 추가로 확정한 클래스도 `confirmed: true`로 처리한다.
 - 네이밍 데이터는 src/docs/naming-data.js 한 곳에서 관리한다.
   - components-naming.mdx(전체 정의서)와 각 컴포넌트 mdx는 이 파일을 불러와서 표시한다.
   - 네이밍을 수정할 때는 naming-data.js만 고친다. mdx에 클래스명 표를 직접 작성하지 않는다.
