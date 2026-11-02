@@ -1,0 +1,251 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as CarouselStories from './carousel.stories.js';
+
+<Meta of={CarouselStories} />
+
+# 캐러셀 컨트롤 (Carousel Controls)
+
+슬라이드(캐러셀)의 탐색·제어에 사용하는 버튼 및 인디케이터 UI 컴포넌트입니다.  
+Swiper 라이브러리와 함께 사용하며, 이 컴포넌트는 **컨트롤 UI만** 정의합니다.
+
+---
+
+## 언제 사용하는지
+
+- 이미지 슬라이드·배너·카드 캐러셀 등 **슬라이드 콘텐츠**가 있을 때
+- 사용자가 슬라이드를 **이전/다음으로 탐색**하거나 **재생/멈춤을 제어**해야 할 때
+- 현재 위치를 **불릿(점) 또는 숫자(분수)** 형태로 표시해야 할 때
+
+## 사용하지 말아야 할 때
+
+- 슬라이드가 1개뿐인 경우 컨트롤 버튼은 표시하지 않는다.
+- 무한 루프 슬라이더에서 이전/다음 버튼을 비활성화하는 경우는 없다 (루프 해제 시에만 비활성 처리).
+
+---
+
+## 구성 요소
+
+| 요소 | 클래스 | 설명 |
+|---|---|---|
+| 이전 버튼 | `swiper-button-prev` | 이전 슬라이드로 이동 |
+| 다음 버튼 | `swiper-button-next` | 다음 슬라이드로 이동 |
+| 재생 버튼 | `swiper-button-play` | 자동 재생 시작 |
+| 멈춤 버튼 | `swiper-button-stop` | 자동 재생 일시 정지 |
+| 더보기 버튼 | `swiper-button-more` | 전체 목록 이동 |
+| 불릿 페이지네이션 | `swiper-pagination` | 점(dot) 형태 위치 표시 |
+| 분수 페이지네이션 | `swiper-pagination swiper-pagination-fraction` | 숫자 형태 위치 표시 |
+| 컨트롤러 | `swiper-controller` | 재생/멈춤 버튼 그룹 |
+| 내비게이션 | `swiper-navigation` | 이전/다음/더보기 버튼 그룹 |
+| 인디케이터 | `swiper-indicator` | 페이지네이션 + 컨트롤러 + 내비게이션 전체 래퍼 |
+
+---
+
+## HTML 구조
+
+### 개별 버튼
+
+```html
+<!-- 이전 / 다음 -->
+<button type="button" class="swiper-button-prev">
+  <span class="sr-only">이전</span>
+</button>
+<button type="button" class="swiper-button-next">
+  <span class="sr-only">다음</span>
+</button>
+
+<!-- 재생 / 멈춤 (상태에 따라 하나만 표시) -->
+<button type="button" class="swiper-button-play">
+  <span class="sr-only">슬라이드 재생</span>
+</button>
+<button type="button" class="swiper-button-stop">
+  <span class="sr-only">슬라이드 멈춤</span>
+</button>
+
+<!-- 더보기 -->
+<a href="/list" class="swiper-button-more">
+  <span class="sr-only">더 보기</span>
+</a>
+```
+
+### 비활성 버튼 (이전/다음)
+
+```html
+<button type="button" class="swiper-button-prev swiper-button-disabled"
+        aria-disabled="true">
+  <span class="sr-only">이전</span>
+</button>
+```
+
+### 불릿 페이지네이션
+
+```html
+<div class="swiper-pagination">
+  <span class="swiper-pagination-bullet"></span>
+  <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+  <span class="swiper-pagination-bullet"></span>
+</div>
+```
+
+### 분수 페이지네이션
+
+```html
+<div class="swiper-pagination swiper-pagination-fraction">
+  <span class="swiper-pagination-current">2</span>
+  /
+  <span class="swiper-pagination-total">10</span>
+</div>
+```
+
+### 전체 인디케이터 (페이지네이션 + 컨트롤러 + 내비게이션)
+
+```html
+<div class="swiper-indicator text-center">
+  <!-- 페이지네이션 -->
+  <div class="swiper-pagination">
+    <span class="swiper-pagination-bullet"></span>
+    <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+    <span class="swiper-pagination-bullet"></span>
+  </div>
+  <!-- 재생/멈춤 -->
+  <div class="swiper-controller">
+    <button type="button" class="swiper-button-stop">
+      <span class="sr-only">슬라이드 멈춤</span>
+    </button>
+  </div>
+  <!-- 이전/다음(/더보기) -->
+  <div class="swiper-navigation">
+    <button type="button" class="swiper-button-prev">
+      <span class="sr-only">이전</span>
+    </button>
+    <button type="button" class="swiper-button-next">
+      <span class="sr-only">다음</span>
+    </button>
+  </div>
+</div>
+```
+
+---
+
+## CSS 클래스
+
+### 버튼
+
+| 클래스 | 설명 |
+|---|---|
+| `swiper-button-prev` | 이전 버튼 — `ico_angle` 90° 회전 |
+| `swiper-button-next` | 다음 버튼 — `ico_angle` -90° 회전 |
+| `swiper-button-play` | 재생 버튼 — `ico_swiper_play` |
+| `swiper-button-stop` | 멈춤 버튼 — `ico_swiper_stop` |
+| `swiper-button-more` | 더보기 버튼 — `ico_plus` |
+| `swiper-button-disabled` | 비활성 상태 (이전/다음에만 적용) |
+
+### 페이지네이션
+
+| 클래스 | 설명 |
+|---|---|
+| `swiper-pagination` | 불릿 페이지네이션 래퍼 |
+| `swiper-pagination-bullet` | 개별 점(dot) |
+| `swiper-pagination-bullet-active` | 현재 슬라이드 점 (너비 2rem, 색상 강조) |
+| `swiper-pagination swiper-pagination-fraction` | 분수형 페이지네이션 |
+| `swiper-pagination-current` | 현재 페이지 숫자 (강조 색상) |
+| `swiper-pagination-total` | 전체 페이지 숫자 |
+| `swiper-pagination-bg` | 인디케이터 내 분수형에 배경 추가 (modifier) |
+
+### 레이아웃
+
+| 클래스 | 설명 |
+|---|---|
+| `swiper-indicator` | 인디케이터 전체 래퍼 (기본: 우측 정렬) |
+| `swiper-indicator.text-center` | 인디케이터 가운데 정렬 |
+| `swiper-controller` | 재생/멈춤 버튼 그룹 |
+| `swiper-navigation` | 이전/다음/더보기 버튼 그룹 |
+
+---
+
+## 반응형
+
+| 조건 | 동작 |
+|---|---|
+| 모든 해상도 | 버튼 크기 `--krds-size-height-6` 고정 |
+| `w-hide` 조합 | 숨겨진 인디케이터/내비게이션을 모바일에서 강제 표시 (`display: flex !important`) |
+
+---
+
+## Swiper 연동 예시 (JavaScript)
+
+```js
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  autoplay: { delay: 2500, pauseOnMouseEnter: true },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    // type: 'fraction',  // 분수형 사용 시
+  },
+});
+
+// 재생/멈춤 버튼 토글
+const $play = document.querySelector('.swiper-button-play');
+const $stop = document.querySelector('.swiper-button-stop');
+
+$play.hidden = true; // 초기: 재생 중이므로 재생 버튼 숨김
+
+$stop.addEventListener('click', () => {
+  swiper.autoplay.stop();
+  $stop.hidden = true;
+  $play.hidden = false;
+});
+$play.addEventListener('click', () => {
+  swiper.autoplay.start();
+  $play.hidden = true;
+  $stop.hidden = false;
+});
+```
+
+---
+
+## Playground
+
+<Canvas of={CarouselStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 개별 버튼
+
+<Canvas of={CarouselStories.개별버튼} />
+
+### 페이지네이션
+
+<Canvas of={CarouselStories.페이지네이션} />
+
+### 인디케이터 조합
+
+<Canvas of={CarouselStories.인디케이터} />
+
+### 재생/정지 전환
+
+<Canvas of={CarouselStories.재생정지} />
+
+### 비활성 상태
+
+<Canvas of={CarouselStories.비활성상태} />
+
+### 전체 변형
+
+<Canvas of={CarouselStories.전체변형} />
+
+---
+
+## 접근성
+
+- 모든 버튼은 아이콘만 표시되므로 `<span class="sr-only">` 로 스크린리더용 텍스트를 반드시 제공한다.
+- 비활성 버튼에는 `aria-disabled="true"`를 추가한다. `disabled` 속성은 탭 포커스를 막으므로, 스크린리더 사용자가 버튼 존재를 인식할 수 있도록 `aria-disabled`를 우선 사용한다.
+- 재생/멈춤 버튼은 상태에 따라 하나만 DOM에 표시하거나 `hidden` 속성으로 전환한다.
+- 더보기 버튼은 링크(`<a>`)로 마크업하며 `href`에 목록 페이지 URL을 지정한다.
+- 인디케이터가 슬라이드 영역 밖에 위치할 경우 `aria-label="슬라이드 컨트롤"` 등으로 역할을 명시한다.

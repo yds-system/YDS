@@ -1,0 +1,180 @@
+/* =============================================
+   KRDS Table Component
+   출처: reference/krds/resources/css/component/component.css
+   의존: common.css (table base, caption sr-only)
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-table-wrap {
+  --ds-table--data-thead-th-padding: var(--krds-padding-3);
+  --ds-table--data-thead-th-padding-sides: var(--krds-padding-6);
+  --ds-table--data-thead-pc-font-size: var(--krds-pc-font-size-heading-xxsmall);
+  --ds-table--data-thead-mobile-font-size: var(--krds-mobile-font-size-heading-xxsmall);
+  --ds-table--data-tbody-pc-font-size: var(--krds-pc-font-size-label-medium);
+  --ds-table--data-tbody-mobile-font-size: var(--krds-mobile-font-size-label-medium);
+  --ds-table--data-tbody-padding: var(--krds-padding-5);
+  --ds-table--data-tbody-padding-sides: var(--krds-padding-6);
+  --ds-table--data-border-width: var(--krds-light-border-width-variable-regular);
+  --ds-table--data-thead-border: var(--krds-light-color-border-secondary-light);
+  --ds-table--data-thead-surface: var(--krds-light-color-surface-secondary-subtler);
+  --ds-table--data-thead-color-text: var(--krds-light-color-text-bolder);
+  --ds-table--data-tbody-color-surface: var(--krds-light-color-surface-white-subtle);
+  --ds-table--data-tbody-color-divider: var(--krds-light-color-divider-gray-light);
+  --ds-table--data-tbody-color-text: var(--krds-light-color-text-subtle);
+  width: 100%;
+}
+
+/* ----- caption 시각 표시 (기본은 common.css 에서 sr-only 처리) ----- */
+.ds-table-wrap .tbl caption.visible {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: var(--krds-padding-2) 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  caption-side: top;
+  font-size: var(--krds-pc-font-size-label-small);
+  color: var(--krds-light-color-text-subtle);
+  text-align: left;
+  margin-bottom: var(--krds-gap-3) !important;
+}
+
+/* ----- 공통 셀 ----- */
+.ds-table-wrap .tbl.data th,
+.ds-table-wrap .tbl.data td {
+  vertical-align: middle;
+}
+
+/* ----- 열 헤더 (thead) ----- */
+.ds-table-wrap .tbl.data thead th {
+  padding: var(--ds-table--data-thead-th-padding) var(--ds-table--data-thead-th-padding-sides);
+  background-color: var(--ds-table--data-thead-surface);
+  border-bottom: var(--ds-table--data-border-width) solid var(--ds-table--data-thead-border);
+  font-weight: var(--krds-font-weight-bold);
+  font-size: var(--ds-table--data-thead-pc-font-size);
+  color: var(--ds-table--data-thead-color-text);
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .ds-table-wrap .tbl.data thead th {
+    font-size: var(--ds-table--data-thead-mobile-font-size);
+  }
+}
+
+/* ----- 데이터 셀 (tbody) ----- */
+.ds-table-wrap .tbl.data tbody th,
+.ds-table-wrap .tbl.data tbody td {
+  padding: var(--ds-table--data-tbody-padding) var(--ds-table--data-tbody-padding-sides);
+  background-color: var(--ds-table--data-tbody-color-surface);
+  border-bottom: var(--ds-table--data-border-width) solid var(--ds-table--data-tbody-color-divider);
+  font-size: var(--ds-table--data-tbody-pc-font-size);
+  color: var(--ds-table--data-tbody-color-text);
+  font-weight: var(--krds-font-weight-regular);
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .ds-table-wrap .tbl.data tbody th,
+  .ds-table-wrap .tbl.data tbody td {
+    font-size: var(--ds-table--data-tbody-mobile-font-size);
+  }
+}
+
+/* ----- 가로 헤더형 (col): tbody th 구분 강조 ----- */
+.ds-table-wrap .tbl.col.data tbody th {
+  font-weight: var(--krds-font-weight-bold);
+  color: var(--ds-table--data-thead-color-text);
+  background-color: var(--ds-table--data-thead-surface);
+  white-space: nowrap;
+}
+
+/* ----- 스크롤 래퍼 (PC에서 강제 스크롤) ----- */
+.ds-table-wrap.scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ds-table-wrap.scroll .tbl { width: 100%; }
+
+/* ----- 모바일 기본: 가로 스크롤 ----- */
+@media (max-width: 767px) {
+  .ds-table-wrap {
+    overflow-x: auto;
+    width: 100%;
+  }
+  .ds-table-wrap .tbl {
+    min-width: 50rem;
+  }
+  .ds-table-wrap.mob-scroll th,
+  .ds-table-wrap.mob-scroll td {
+    white-space: nowrap;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   모바일 카드형 (mob-card)
+   thead를 숨기고 data-label 속성으로 라벨 표시
+   ───────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .ds-table-wrap.mob-card {
+    overflow-x: visible;
+    width: 100%;
+  }
+  .ds-table-wrap.mob-card .tbl {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* thead 숨김 */
+  .ds-table-wrap.mob-card .tbl.data thead {
+    display: none;
+  }
+
+  /* table → block 전환 */
+  .ds-table-wrap.mob-card .tbl.data,
+  .ds-table-wrap.mob-card .tbl.data tbody {
+    display: block;
+    width: 100%;
+  }
+
+  /* 행 → 카드 */
+  .ds-table-wrap.mob-card .tbl.data tbody tr {
+    display: block;
+    border: var(--ds-table--data-border-width) solid var(--ds-table--data-tbody-color-divider);
+    border-radius: var(--krds-radius-medium2);
+    margin-bottom: var(--krds-gap-5);
+    overflow: hidden;
+    background-color: var(--ds-table--data-tbody-color-surface);
+  }
+
+  /* 셀 → 라벨+값 행 */
+  .ds-table-wrap.mob-card .tbl.data tbody td,
+  .ds-table-wrap.mob-card .tbl.data tbody th {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--krds-gap-5);
+    border-bottom: var(--ds-table--data-border-width) solid var(--ds-table--data-tbody-color-divider);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ds-table-wrap.mob-card .tbl.data tbody tr > *:last-child {
+    border-bottom: 0;
+  }
+
+  /* data-label → ::before 라벨 */
+  .ds-table-wrap.mob-card .tbl.data tbody td[data-label]::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    min-width: 7rem;
+    font-weight: var(--krds-font-weight-bold);
+    color: var(--ds-table--data-thead-color-text);
+    font-size: var(--ds-table--data-thead-pc-font-size);
+  }
+
+  /* 가로 헤더형(col)은 th[scope=row]가 라벨 역할 → 카드형 불필요 스타일 제거 */
+  .ds-table-wrap.mob-card .tbl.col.data tbody th[scope="row"] {
+    background-color: var(--ds-table--data-thead-surface);
+    font-weight: var(--krds-font-weight-bold);
+    color: var(--ds-table--data-thead-color-text);
+    white-space: normal;
+  }
+}

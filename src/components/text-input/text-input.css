@@ -1,0 +1,195 @@
+/* =============================================
+   KRDS Text Input Component
+   출처: reference/krds/resources/css/component/component.css
+   의존: form-group.css (공유 폼 레이아웃)
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-input {
+  --ds-input--color-surface: var(--krds-light-color-input-surface);
+  --ds-input--color-surface-readonly: var(--krds-light-color-input-surface-disabled);
+  --ds-input--color-surface-disabled: var(--krds-light-color-input-surface-disabled);
+  --ds-input--color-border: var(--krds-light-color-input-border);
+  --ds-input--color-border-active: var(--krds-light-color-input-border-active);
+  --ds-input--color-border-readonly: var(--krds-light-color-input-border-disabled);
+  --ds-input--color-border-disabled: var(--krds-light-color-input-border-disabled);
+  --ds-input--color-border-error: var(--krds-light-color-input-border-error);
+  --ds-input--color-text: var(--krds-light-color-text-subtle);
+  --ds-input--color-text-active: var(--krds-light-color-text-basic);
+  --ds-input--color-text-readonly: var(--krds-light-color-text-subtle);
+  --ds-input--color-text-disabled: var(--krds-light-color-text-disabled-on);
+  --ds-input--color-text-placeholder: var(--krds-light-color-text-disabled);
+  --ds-input--padding-x: var(--krds-padding-6);
+
+  --ds-input--size-height-small: var(--krds-size-height-6);
+  --ds-input--radius-small: var(--krds-radius-medium1);
+  --ds-input--pc-font-size-small: var(--krds-pc-font-size-label-small);
+  --ds-input--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
+
+  --ds-input--size-height-medium: var(--krds-size-height-7);
+  --ds-input--radius-medium: var(--krds-radius-medium2);
+  --ds-input--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
+  --ds-input--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+
+  --ds-input--size-height-large: var(--krds-size-height-8);
+  --ds-input--radius-large: var(--krds-radius-medium3);
+  --ds-input--pc-font-size-large: var(--krds-pc-font-size-label-large);
+  --ds-input--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+}
+
+/* ----- 기본 스타일 (Large 기본값) ----- */
+.ds-input {
+  position: relative;
+  width: 100%;
+  height: var(--ds-input--size-height-large);
+  padding: 0 var(--ds-input--padding-x);
+  border: 0.1rem solid var(--ds-input--color-border);
+  border-radius: var(--ds-input--radius-large);
+  background-color: var(--ds-input--color-surface);
+  font-family: inherit;
+  font-size: var(--ds-input--pc-font-size-large);
+  color: var(--ds-input--color-text);
+  transition: var(--krds-transition-base);
+}
+@media (max-width: 767px) {
+  .ds-input {
+    font-size: var(--ds-input--mobile-font-size-large);
+  }
+}
+
+/* ----- 크기 ----- */
+.ds-input--small {
+  height: var(--ds-input--size-height-small);
+  border-radius: var(--ds-input--radius-small);
+  font-size: var(--ds-input--pc-font-size-small);
+}
+@media (max-width: 767px) {
+  .ds-input--small { font-size: var(--ds-input--mobile-font-size-small); }
+}
+
+.ds-input--medium {
+  height: var(--ds-input--size-height-medium);
+  border-radius: var(--ds-input--radius-medium);
+  font-size: var(--ds-input--pc-font-size-medium);
+}
+@media (max-width: 767px) {
+  .ds-input--medium { font-size: var(--ds-input--mobile-font-size-medium); }
+}
+
+.ds-input--large {
+  height: var(--ds-input--size-height-large);
+  border-radius: var(--ds-input--radius-large);
+  font-size: var(--ds-input--pc-font-size-large);
+}
+@media (max-width: 767px) {
+  .ds-input--large { font-size: var(--ds-input--mobile-font-size-large); }
+}
+
+/* ----- 상태 ----- */
+.ds-input:focus,
+.ds-input--focus {
+  border-color: var(--ds-input--color-border-active);
+  border-width: 2px;
+  outline: none;
+  box-shadow: none;
+  color: var(--ds-input--color-text-active);
+}
+
+.ds-input[readonly] {
+  background-color: var(--ds-input--color-surface-readonly);
+  border-color: var(--ds-input--color-border-readonly);
+  color: var(--ds-input--color-text-readonly);
+}
+.ds-input[readonly]:focus {
+  border-color: var(--ds-input--color-border-active);
+}
+
+.ds-input[disabled] {
+  background-color: var(--ds-input--color-surface-disabled);
+  border-color: var(--ds-input--color-border-disabled);
+  color: var(--ds-input--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* 에러 상태 (.ds-form-content--error 하위) */
+.ds-form-content--error .ds-input {
+  border-color: var(--ds-input--color-border-error);
+  border-width: 2px;
+}
+.ds-form-content--error .ds-input:focus {
+  border-color: var(--ds-input--color-border-active);
+}
+
+/* placeholder */
+.ds-input::placeholder {
+  color: var(--ds-input--color-text-placeholder);
+}
+.ds-input:not(textarea):placeholder-shown {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ----- Textarea ----- */
+textarea.ds-input {
+  --ds-input--textarea-size-height: 14.4rem;
+  height: var(--ds-input--textarea-size-height);
+  padding: var(--krds-padding-3) var(--krds-padding-6);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* textarea 래퍼 블록 */
+.ds-textarea {
+  display: flex;
+  align-items: normal;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-gap-3);
+  width: 100%;
+}
+
+/* ----- 글자 수 표시 (textarea·input 공통) ----- */
+.ds-count {
+  --ds-count--color: var(--krds-light-color-text-subtle);
+  --ds-count--color-active: var(--krds-light-color-text-primary);
+  --ds-count--color-error: var(--krds-light-color-text-danger);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--krds-gap-1);
+  width: 100%;
+  font-size: var(--krds-pc-font-size-label-xsmall);
+  color: var(--ds-count--color);
+}
+@media (max-width: 767px) {
+  .ds-count {
+    font-size: var(--krds-mobile-font-size-body-small);
+  }
+}
+.ds-count__current {
+  color: var(--ds-count--color-active);
+}
+.ds-form-content--error .ds-count__current {
+  color: var(--ds-count--color-error);
+}
+
+/* 에러 메시지 + 글자 수 나란히 (textarea 에러 상태) */
+.ds-textarea__bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--krds-gap-5);
+  width: 100%;
+}
+.ds-textarea__bottom .ds-count {
+  margin-left: auto;
+  flex-shrink: 0;
+  order: 2;
+}
+.ds-textarea__bottom .ds-form-hint--error {
+  align-items: flex-start;
+  order: 1;
+}
+.ds-textarea__bottom .ds-form-hint--error::before {
+  flex: none;
+}

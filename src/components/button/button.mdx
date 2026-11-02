@@ -1,0 +1,228 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.stories.js';
+import { buttonNaming } from '../../docs/naming-data.js';
+
+export const UNCONFIRMED = (
+  <span style={{ color: '#c97a00', fontWeight: 600, fontSize: '0.8em', marginLeft: '0.4em' }}>
+    확인 필요
+  </span>
+);
+
+export const ElementTable = ({ elements }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>요소</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {elements.map((el, i) => (
+        <tr key={i}>
+          <td>{el.element}</td>
+          <td><code>{el.class}</code>{!el.confirmed && UNCONFIRMED}</td>
+          <td>{el.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+export const ModifierTable = ({ modifiers }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>분류</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {modifiers.map((mod, i) => (
+        <tr key={i}>
+          <td>{mod.category}</td>
+          <td><code>{mod.class}</code>{!mod.confirmed && UNCONFIRMED}</td>
+          <td>{mod.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<Meta of={ButtonStories} />
+
+# 버튼 (Button)
+
+사용자의 액션을 트리거하는 인터랙티브 요소입니다.  
+KRDS 기본 클래스: `ds-btn`
+
+---
+
+## 네이밍
+
+> 클래스명은 `reference/krds` 실제 코드를 기준으로 합니다.  
+> 추측 클래스명은 <span style={{ color: '#c97a00', fontWeight: 600 }}>확인 필요</span>로 표시합니다.
+
+### 구조도
+
+<pre><code>{buttonNaming.structure}</code></pre>
+
+### 클래스명 표
+
+<ElementTable elements={buttonNaming.elements} />
+
+### 변형(modifier) 표
+
+<ModifierTable modifiers={buttonNaming.modifiers} />
+
+### 코드 예시
+
+<pre><code>{buttonNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 폼 제출, 저장, 삭제 등 **명확한 사용자 액션**이 필요할 때
+- 다음 단계로 이동하거나 특정 기능을 실행할 때
+- 여러 선택지 중 하나의 행동을 강조해야 할 때
+
+### 위계별 사용 기준
+
+<table>
+  <thead>
+    <tr><th>종류</th><th>클래스</th><th>사용 기준</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Primary</td><td><code>ds-btn ds-btn--primary</code></td><td>페이지에서 가장 중요한 단 하나의 주요 액션</td></tr>
+    <tr><td>Secondary</td><td><code>ds-btn ds-btn--secondary</code></td><td>Primary와 함께 쓰는 보조 액션</td></tr>
+    <tr><td>Tertiary</td><td><code>ds-btn ds-btn--tertiary</code></td><td>낮은 우선순위의 액션, 취소·닫기 등</td></tr>
+    <tr><td>Text</td><td><code>ds-btn ds-btn--text</code></td><td>경계선 없이 텍스트만 표시, 부가적인 액션</td></tr>
+    <tr><td>Icon</td><td><code>ds-btn ds-btn--icon</code></td><td>텍스트 없이 아이콘만으로 기능을 명확히 전달할 때</td></tr>
+    <tr><td>Link</td><td><code>ds-btn ds-btn--link</code></td><td>`&lt;a&gt;` 태그에 사용. 페이지 이동이 목적일 때</td></tr>
+  </tbody>
+</table>
+
+---
+
+## 사용하지 말아야 할 때
+
+- 페이지 이동(링크)이 목적이라면 `<button>` 대신 `<a>` 태그에 `ds-btn ds-btn--link` 클래스를 사용한다.
+- 같은 화면에 **Primary 버튼을 2개 이상** 두지 않는다.
+- 아이콘 전용 버튼(`.ds-btn--icon`)은 `<span class="sr-only">`로 텍스트를 반드시 제공해야 한다. 보조 텍스트 없이 사용하지 않는다.
+- 비활성화(`disabled`) 상태를 기본값으로 두지 않는다. 활성화 조건이 충족되면 자동으로 활성화되어야 한다.
+
+---
+
+## Playground
+
+<Canvas of={ButtonStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 위계
+
+<Canvas of={ButtonStories.위계} />
+
+```html
+<button type="button" class="ds-btn ds-btn--primary">Primary</button>
+<button type="button" class="ds-btn ds-btn--secondary">Secondary</button>
+<button type="button" class="ds-btn ds-btn--tertiary">Tertiary</button>
+```
+
+### 크기
+
+크기 클래스를 생략하면 **large**가 기본 적용됩니다.
+
+<Canvas of={ButtonStories.크기} />
+
+```html
+<!-- 클래스 생략 시 large 적용 -->
+<button type="button" class="ds-btn ds-btn--primary">Large (기본)</button>
+
+<button type="button" class="ds-btn ds-btn--primary ds-btn--xsmall">XSmall</button>
+<button type="button" class="ds-btn ds-btn--primary ds-btn--small">Small</button>
+<button type="button" class="ds-btn ds-btn--primary ds-btn--medium">Medium</button>
+<button type="button" class="ds-btn ds-btn--primary ds-btn--large">Large</button>
+<button type="button" class="ds-btn ds-btn--primary ds-btn--xlarge">XLarge</button>
+```
+
+### 텍스트 버튼
+
+<Canvas of={ButtonStories.텍스트버튼} />
+
+```html
+<button type="button" class="ds-btn ds-btn--text ds-btn--small">Small</button>
+<button type="button" class="ds-btn ds-btn--text ds-btn--medium">Medium</button>
+```
+
+### 아이콘 포함
+
+아이콘은 장식용이므로 `aria-hidden="true"`를 반드시 추가합니다.
+
+<Canvas of={ButtonStories.아이콘포함} />
+
+```html
+<!-- 오른쪽 아이콘 -->
+<button type="button" class="ds-btn ds-btn--primary ds-btn--small">
+  검색 <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+</button>
+
+<!-- 왼쪽 아이콘 -->
+<button type="button" class="ds-btn ds-btn--primary ds-btn--small">
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i> 검색
+</button>
+```
+
+### 아이콘 전용
+
+<Canvas of={ButtonStories.아이콘전용} />
+
+```html
+<!-- sr-only로 텍스트를 반드시 제공 -->
+<button type="button" class="ds-btn ds-btn--icon ds-btn--medium">
+  <span class="sr-only">검색</span>
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+</button>
+
+<!-- 테두리 원형 버튼 -->
+<button type="button" class="ds-btn ds-btn--icon ds-btn--large ds-btn--border">
+  <span class="sr-only">새로고침</span>
+  <i class="ds-icon ds-ico-refresh" aria-hidden="true"></i>
+</button>
+```
+
+### 비활성화
+
+`<button>`과 `<a>` 태그의 비활성화 처리 방식이 다릅니다.
+
+<Canvas of={ButtonStories.비활성화} />
+
+```html
+<!-- button: HTML disabled 속성 사용 (포커스 자동 제거) -->
+<button type="button" class="ds-btn ds-btn--primary" disabled>Primary</button>
+<button type="button" class="ds-btn ds-btn--secondary" disabled>Secondary</button>
+
+<!-- a 태그 링크: .ds-btn--disabled 클래스 + aria-disabled + tabindex -->
+<a href="#" class="ds-btn ds-btn--small ds-btn--link ds-btn--disabled" aria-disabled="true" tabindex="-1">비활성 링크</a>
+```
+
+### 전체 변형
+
+<Canvas of={ButtonStories.전체변형} />
+
+---
+
+## 접근성
+
+- `<button type="button">`을 기본으로 사용한다. 폼 제출이면 `type="submit"`.
+- 아이콘 전용 버튼은 `<span class="sr-only">설명</span>`을 반드시 포함한다.
+- 버튼 안의 장식용 아이콘(`<i class="ds-icon ...">`)에는 `aria-hidden="true"`를 추가해 스크린 리더가 읽지 않게 한다.
+- **비활성화 처리:**
+  - `<button>`: `disabled` HTML 속성 사용 → 포커스·이벤트 자동 차단
+  - `<a>` 태그: `disabled` 속성이 없으므로 `.ds-btn--disabled` 클래스 + `aria-disabled="true"` + `tabindex="-1"` 을 모두 설정한다
+  - 포커스를 유지해야 하는 `<button>`의 경우 `disabled` 대신 `aria-disabled="true"` + CSS로 처리한다
+- focus 스타일은 KRDS 공통 CSS(`:focus`)에 의해 자동 적용된다.

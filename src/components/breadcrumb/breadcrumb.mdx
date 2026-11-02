@@ -1,0 +1,128 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as BreadcrumbStories from './breadcrumb.stories.js';
+
+<Meta of={BreadcrumbStories} />
+
+# 브레드크럼 (Breadcrumb)
+
+현재 페이지의 위치를 계층 구조로 표시하는 내비게이션 보조 컴포넌트입니다.  
+사용자가 사이트 내 어디에 있는지 파악하고, 상위 페이지로 쉽게 이동할 수 있게 합니다.
+
+---
+
+## 언제 사용하는지
+
+- 사이트 구조가 **2단계 이상의 계층**을 가질 때
+- 사용자가 현재 위치를 파악하고 **상위 페이지로 빠르게 이동**해야 할 때
+- 페이지 헤딩 위나 콘텐츠 상단에 **위치 맥락을 제공**할 때
+
+## 사용하지 말아야 할 때
+
+- 페이지 깊이가 **1단계(홈 바로 아래)** 뿐이라면 생략을 검토한다.
+- 단일 페이지 애플리케이션에서 **URL 계층이 없는** 경우 사용하지 않는다.
+
+---
+
+## HTML 구조
+
+### 2단계 (홈 > 현재)
+
+```html
+<nav class="ds-breadcrumb-wrap" aria-label="현재 경로">
+  <ol class="breadcrumb">
+    <li class="home">
+      <a href="/home" class="txt">홈</a>
+    </li>
+    <li>
+      <span class="txt" aria-current="page">서비스 신청</span>
+    </li>
+  </ol>
+</nav>
+```
+
+### 3단계 이상 (홈 > 중간 > 현재)
+
+```html
+<nav class="ds-breadcrumb-wrap" aria-label="현재 경로">
+  <ol class="breadcrumb">
+    <li class="home">
+      <a href="/home" class="txt">홈</a>
+    </li>
+    <li>
+      <a href="/service" class="txt">서비스 신청</a>
+    </li>
+    <li>
+      <span class="txt" aria-current="page">세부 항목</span>
+    </li>
+  </ol>
+</nav>
+```
+
+> **현재 페이지 처리**: 마지막 항목은 `<a>` 대신 `<span>`을 사용하거나,  
+> `<a aria-current="page">` 형태로 작성할 수 있습니다.  
+> 이미 현재 페이지이므로 링크로 탐색할 필요가 없어 `<span>`이 더 적합합니다.
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-breadcrumb-wrap` | 최상위 `<nav>` 컨테이너 |
+| `breadcrumb` | 항목 목록 (`<ol>`) |
+| `home` | 첫 번째 홈 항목 (`<li>`) — 홈 아이콘이 자동으로 표시됨 |
+| `txt` | 링크 또는 현재 페이지 텍스트 (`<a>` 또는 `<span>`) |
+| `txt.disabled` | 비활성화 링크 |
+
+---
+
+## 모바일 축약 동작
+
+`max-width: 767px` 환경에서는 화면 폭을 절약하기 위해 중간 항목을 숨기고 핵심 경로만 표시합니다.
+
+| 단계 | PC | 모바일 |
+|---|---|---|
+| 2단계 | 홈 › 현재 | 홈 › 현재 (동일) |
+| 3단계 | 홈 › 중간 › 현재 | 홈 ··· › 현재 |
+| 4단계 | 홈 › 중간1 › 중간2 › 현재 | 홈 ··· › 현재 |
+| 5단계 | 홈 › 중간1 › 중간2 › 중간3 › 현재 | 홈 ··· › 현재 |
+
+- 중간 항목은 CSS `sr-only`로 **시각적으로만** 숨겨집니다 — 스크린리더는 전체 경로를 읽습니다.
+- 깊이 3 이상이면 현재 항목 앞에 `···` (말줄임) + `›` (화살표) 아이콘이 자동으로 표시됩니다.
+- HTML 마크업은 PC/모바일 동일하며, **JavaScript 없이 CSS만으로** 처리됩니다.
+
+---
+
+## Playground
+
+<Canvas of={BreadcrumbStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 깊이별
+
+<Canvas of={BreadcrumbStories.깊이별} />
+
+### 모바일 축약
+
+> 아래 프리뷰는 모바일 뷰포트(320px)로 고정됩니다. 툴바의 뷰포트 버튼으로 직접 변경해 볼 수도 있습니다.
+
+<Canvas of={BreadcrumbStories.모바일축약} />
+
+### 전체 변형
+
+<Canvas of={BreadcrumbStories.전체변형} />
+
+---
+
+## 접근성
+
+- `<nav aria-label="현재 경로">`로 랜드마크를 지정해 스크린리더가 브레드크럼 영역을 식별할 수 있도록 한다.
+- 목록은 `<ol>`을 사용해 순서가 있는 경로임을 나타낸다.
+- 현재 페이지에는 `aria-current="page"`를 추가해 스크린리더 사용자가 현재 위치를 알 수 있도록 한다.
+- 홈 아이콘은 CSS `::before`로 추가된 장식 요소이며, 링크 텍스트 "홈"이 별도로 제공되므로 추가 `aria-label`은 불필요하다.
+- 구분자 화살표(`::after`)는 CSS로 삽입된 장식 요소로, 스크린리더에 노출되지 않는다.
+- 모바일에서 숨겨진 중간 항목은 `sr-only` 처리되어 스크린리더에는 전체 경로가 읽힌다.
+- 링크에 키보드 포커스 시 `box-shadow` 기반 포커스 링이 표시된다.

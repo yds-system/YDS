@@ -1,0 +1,229 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as FileUploadStories from './file-upload.stories.js';
+
+<Meta of={FileUploadStories} />
+
+# 파일 업로드 (File Upload)
+
+파일을 선택하거나 드래그 앤 드롭으로 첨부하는 폼 요소입니다.  
+첨부 목록에서 업로드 중 / 완료 / 오류 상태를 시각적으로 구분하고, 개별 삭제 및 전체 삭제를 지원합니다.
+
+---
+
+## 언제 사용하는지
+
+- 민원 신청, 게시판, 폼 등에서 **파일을 첨부**해야 할 때
+- 허용 형식·용량 안내와 함께 **가이드 메시지**가 필요할 때
+- 복수 파일 첨부가 필요하거나, 첨부 수 제한이 있을 때
+
+---
+
+## 사용하지 말아야 할 때
+
+- 이미지 한 장만 업로드하는 단순 프로필 사진 입력에는 전용 UI를 검토한다.
+- 파일 선택 없이 단순 버튼 한 개만 필요한 경우 `<input type="file">`을 직접 사용한다.
+
+---
+
+## HTML 구조
+
+### 기본 (드래그 앤 드롭 영역)
+
+```html
+<div class="ds-file-upload line">
+  <!-- 헤드 (선택) -->
+  <div class="file-head">
+    <h3 class="tit">첨부파일</h3>
+    <p>파일 형식: PDF, HWP, DOC, XLS (최대 20MB)</p>
+  </div>
+
+  <!-- 드래그 앤 드롭 영역 -->
+  <div class="file-upload" role="region" aria-label="파일 드래그 앤 드롭 영역">
+    <p class="txt">첨부할 파일을 여기에 끌어다 놓거나,<br>파일 선택 버튼을 눌러 파일을 직접 선택해주세요.</p>
+    <div class="file-upload-btn-wrap">
+      <input type="file" id="fu-id" multiple>
+      <label for="fu-id">
+        <button type="button" class="ds-btn ds-btn--medium" tabindex="-1" aria-hidden="true">
+          <i class="ds-icon ds-ico-upload"></i>파일 선택
+        </button>
+      </label>
+    </div>
+  </div>
+</div>
+```
+
+### 첨부 목록
+
+```html
+<div class="file-list">
+  <div class="total"><span class="current">3개</span> / 10개</div>
+  <ul class="upload-list">
+
+    <!-- 업로드 중 -->
+    <li>
+      <div class="file-info">
+        <div class="file-name">파일명.hwp [HWP, 17KB]</div>
+        <div class="btn-wrap">
+          <span class="ds-spinner" role="status">
+            <span class="sr-only">업로드 중</span>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <!-- 업로드 완료 -->
+    <li>
+      <div class="file-info">
+        <div class="file-name">파일명.pdf [PDF, 1.2MB]</div>
+        <div class="btn-wrap">
+          <span class="ico-invalid complete">
+            <em class="sr-only">업로드 완료</em>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <!-- 삭제 가능 (완료 후) -->
+    <li>
+      <div class="file-info">
+        <div class="file-name">파일명.pdf [PDF, 820KB]</div>
+        <div class="btn-wrap">
+          <button type="button" class="ds-btn ds-btn--medium ds-btn--text" aria-label="파일명.pdf 삭제">
+            삭제 <i class="ds-icon ds-ico-delete-fill"></i>
+          </button>
+        </div>
+      </div>
+    </li>
+
+    <!-- 오류 -->
+    <li class="ds-file-upload__item--error">
+      <div class="file-info">
+        <div class="file-name">용량초과파일.psd [PSD, 45MB]</div>
+        <div class="btn-wrap">
+          <button type="button" class="ds-btn ds-btn--medium ds-btn--text" aria-label="용량초과파일.psd 삭제">
+            삭제 <i class="ds-icon ds-ico-delete-fill"></i>
+          </button>
+        </div>
+      </div>
+      <p class="file-hint-invalid">
+        등록 가능한 파일 용량을 초과하였습니다.<br>
+        20MB 미만의 파일만 등록할 수 있습니다.
+      </p>
+    </li>
+  </ul>
+
+  <!-- 전체 삭제 -->
+  <div class="upload-delete-btn">
+    <button type="button" class="ds-btn ds-btn--xsmall ds-btn--tertiary">
+      전체 파일 삭제<i class="ds-icon ds-ico-angle right"></i>
+    </button>
+  </div>
+</div>
+```
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-file-upload` | 최상위 컨테이너 |
+| `ds-file-upload.line` | 테두리 + 패딩 변형 |
+| `file-head` | 타이틀·설명 영역 (선택) |
+| `file-head .tit` | 타이틀 텍스트 |
+| `file-upload` | 드래그 앤 드롭 영역 |
+| `file-upload.active` | 드래그 중 상태 (테두리 표시) |
+| `file-upload .txt` | 안내 문구 |
+| `file-upload-btn-wrap` | 파일 선택 버튼·input 묶음 |
+| `file-list` | 첨부 목록 전체 영역 |
+| `file-list .total` | 첨부 수 표시 (`현재 / 최대`) |
+| `file-list .total .current` | 현재 첨부 수 (primary 컬러) |
+| `upload-list` | 파일 항목 목록 (`ul`) |
+| `upload-list > li` | 개별 파일 항목 |
+| `ds-file-upload__item--error` | 오류 상태 항목 (danger 배경·테두리) |
+| `file-info` | 파일명 + 버튼을 가로로 묶는 행 |
+| `file-info .file-name` | 파일명 (한 줄 말줄임) |
+| `file-info .btn-wrap` | 상태 아이콘 또는 삭제 버튼 영역 |
+| `file-info .ico-invalid.complete` | 업로드 완료 아이콘 |
+| `file-info .ico-invalid.error` | 오류 아이콘 |
+| `file-info.m-column` | 모바일에서 열 레이아웃으로 전환 |
+| `file-hint-invalid` | 파일 항목 오류 메시지 (항목 하단) |
+| `upload-delete-btn` | 전체 파일 삭제 버튼 (절대 위치, 우상단) |
+| `ds-spinner` | 업로드 중 스피너 |
+
+---
+
+## JavaScript
+
+드래그 앤 드롭과 파일 삭제는 JS로 처리합니다.
+
+```js
+const dropZone = document.querySelector('.file-upload');
+const inputFile = document.querySelector('input[type="file"]');
+
+// 파일 선택 버튼 → input 연결
+dropZone.querySelector('button').addEventListener('click', () => inputFile.click());
+
+// 드래그 오버
+dropZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropZone.classList.add('active');
+});
+
+// 드래그 이탈
+dropZone.addEventListener('dragleave', (e) => {
+  if (!dropZone.contains(e.relatedTarget)) {
+    dropZone.classList.remove('active');
+  }
+});
+
+// 드롭
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropZone.classList.remove('active');
+  const files = e.dataTransfer.files;
+  // 파일 처리 로직 추가
+});
+```
+
+---
+
+## Playground
+
+<Canvas of={FileUploadStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 기본
+
+<Canvas of={FileUploadStories.기본} />
+
+### 테두리 + 타이틀
+
+<Canvas of={FileUploadStories.테두리} />
+
+### 첨부 목록
+
+<Canvas of={FileUploadStories.첨부목록} />
+
+### 상태
+
+<Canvas of={FileUploadStories.상태} />
+
+### 전체 변형
+
+<Canvas of={FileUploadStories.전체변형} />
+
+---
+
+## 접근성
+
+- `<input type="file">`과 `<label>`의 `for`·`id`를 반드시 연결한다.
+- 파일 선택 버튼에 `tabindex="-1"`, `aria-hidden="true"`를 설정하고, 실제 포커스는 `<label>`이 받도록 한다.
+- 드래그 앤 드롭 영역에 `role="region"`, `aria-label`을 부여해 보조기기가 영역을 인식하도록 한다.
+- 업로드 중 스피너에 `role="status"`와 `.sr-only` 텍스트("업로드 중")를 제공한다.
+- 완료 아이콘(`ico-invalid.complete`)은 `<em class="sr-only">업로드 완료</em>`로 상태를 전달한다.
+- 삭제 버튼에 `aria-label="파일명 삭제"` 형식으로 대상 파일을 명시한다.
+- 오류 메시지(`.file-hint-invalid`)는 해당 `<li>` 내부에 위치해 맥락을 유지한다.

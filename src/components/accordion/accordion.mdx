@@ -1,0 +1,194 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './accordion.stories.js';
+
+<Meta of={AccordionStories} />
+
+# 아코디언 (Accordion)
+
+제목을 클릭하면 연관 콘텐츠가 펼쳐지고 닫히는 접이식 패널 컴포넌트입니다.  
+**하나만 열기(단독 모드)** 와 **여러 개 동시 열기(다중 모드)** 를 지원하며, 버튼 접근성과 키보드 조작이 기본으로 제공됩니다.
+
+---
+
+## 언제 사용하는지
+
+- FAQ·도움말처럼 **여러 항목 중 하나씩 열어보는** UI가 필요할 때
+- 긴 콘텐츠를 **카테고리별로 접어 화면을 간결하게** 유지할 때
+- 사이드바 필터, 설정 패널 등 **공간 절약이 필요한 영역**에서
+
+## 사용하지 말아야 할 때
+
+- 콘텐츠가 짧고 항목이 1~2개뿐이라면 탭(Tab)을 검토한다.
+- 순서대로 모두 읽어야 하는 콘텐츠는 펼쳐진 형태로 표시한다.
+
+---
+
+## HTML 구조
+
+### 기본형
+
+```html
+<div class="ds-accordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button type="button" class="btn-accordion"
+              id="accordion-hd-1"
+              aria-controls="accordion-pnl-1"
+              aria-expanded="false">
+        아코디언 타이틀 영역
+      </button>
+    </h2>
+    <div class="accordion-collapse"
+         id="accordion-pnl-1"
+         role="region"
+         aria-labelledby="accordion-hd-1">
+      <div class="accordion-body">
+        아코디언 내용 영역
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### 라인형
+
+```html
+<div class="ds-accordion type-line">
+  <!-- accordion-item 구조 동일 -->
+</div>
+```
+
+### 여러 개 동시 열기
+
+```html
+<div class="ds-accordion" data-type="multiOpen">
+  <!-- accordion-item 구조 동일 -->
+</div>
+```
+
+### 처음부터 열린 상태
+
+```html
+<div class="accordion-item active">
+  <h2 class="accordion-header">
+    <button type="button" class="btn-accordion active" aria-expanded="true" ...>
+      타이틀
+    </button>
+  </h2>
+  <div class="accordion-collapse" ...>
+    <div class="accordion-body">내용</div>
+  </div>
+</div>
+```
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-accordion` | 최상위 컨테이너 (기본형: 박스 스타일) |
+| `ds-accordion.type-line` | 라인형 변형 (테두리 구분선만 표시) |
+| `accordion-item` | 개별 아코디언 항목 |
+| `accordion-item.active` | 열린 상태 항목 |
+| `accordion-header` | 헤딩 요소 래퍼 (시맨틱 제목 계층 적용) |
+| `btn-accordion` | 헤더 버튼 (전체 너비, 좌측 정렬, 화살표 아이콘 포함) |
+| `btn-accordion.active` | 열린 상태 버튼 (배경색 변경, 아이콘 180° 회전) |
+| `accordion-collapse` | 패널 (닫힘 기본값: `max-height:0`) |
+| `accordion-body` | 패널 콘텐츠 영역 |
+
+## data 속성
+
+| 속성 | 값 | 설명 |
+|---|---|---|
+| `data-type` | `"singleOpen"` (기본) | 하나만 열기 — 다른 항목 자동 닫힘 |
+| `data-type` | `"multiOpen"` | 여러 개 동시 열기 |
+
+---
+
+## JavaScript
+
+```js
+function initAccordion(container) {
+  const mode  = container.dataset.type || 'singleOpen';
+  const items = Array.from(container.querySelectorAll('.accordion-item'));
+
+  items.forEach((item, idx) => {
+    const btn   = item.querySelector('.btn-accordion');
+    const panel = item.querySelector('.accordion-collapse');
+
+    // aria 속성 설정
+    const uid = `${idx}-${crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)}`;
+    btn.id = `accordion-hd-${uid}`;
+    btn.setAttribute('aria-controls',  `accordion-pnl-${uid}`);
+    btn.setAttribute('aria-expanded',  item.classList.contains('active') ? 'true' : 'false');
+    panel.id = `accordion-pnl-${uid}`;
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-labelledby', btn.id);
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      // singleOpen: 다른 항목 모두 닫기
+      if (mode !== 'multiOpen' && !isExpanded) {
+        items.forEach(other => {
+          if (other === item) return;
+          const otherBtn = other.querySelector('.btn-accordion');
+          otherBtn?.setAttribute('aria-expanded', 'false');
+          otherBtn?.classList.remove('active');
+          other.classList.remove('active');
+        });
+      }
+
+      // 현재 항목 토글
+      const next = !isExpanded;
+      btn.setAttribute('aria-expanded', String(next));
+      btn.classList.toggle('active', next);
+      item.classList.toggle('active', next);
+    });
+  });
+}
+
+document.querySelectorAll('.ds-accordion').forEach(initAccordion);
+```
+
+---
+
+## Playground
+
+<Canvas of={AccordionStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 기본형
+
+<Canvas of={AccordionStories.기본형} />
+
+### 라인형
+
+<Canvas of={AccordionStories.라인형} />
+
+### 여러 개 열기
+
+<Canvas of={AccordionStories.여러개열기} />
+
+### 처음 열린 상태
+
+<Canvas of={AccordionStories.처음열린상태} />
+
+### 전체 변형
+
+<Canvas of={AccordionStories.전체변형} />
+
+---
+
+## 접근성
+
+- `<button type="button">`을 사용해 기본 키보드 포커스와 `Enter`·`Space` 조작을 제공한다.
+- `aria-expanded="true|false"` 로 스크린리더에 열림/닫힘 상태를 알린다.
+- `aria-controls="패널id"` 로 버튼이 제어하는 패널을 연결한다.
+- 패널에 `role="region"` + `aria-labelledby="버튼id"` 를 설정해 탐색 랜드마크로 인식되게 한다.
+- `accordion-header` 에 적절한 제목 계층(`<h2>`~`<h6>`)을 사용해 페이지 구조를 유지한다.
+- 패널 닫힘 시 `visibility: hidden` 으로 숨겨 포커스 탐색에서 제외한다.

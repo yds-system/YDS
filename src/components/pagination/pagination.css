@@ -1,0 +1,200 @@
+/* =============================================
+   KRDS Pagination Component
+   출처: reference/krds/resources/css/component/component.css
+   의존: common.css
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-pagination {
+  --ds-pagination--color-text: var(--krds-light-color-text-subtle);
+  --ds-pagination--color-text-active: var(--krds-light-color-text-inverse-static);
+  --ds-pagination--color-text-disabled: var(--krds-light-color-text-disabled);
+  --ds-pagination--color-action: var(--krds-light-color-action-secondary);
+  --ds-pagination--color-action-hover: var(--krds-light-color-action-secondary-hover);
+  --ds-pagination--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
+  --ds-pagination--color-action-active: var(--krds-light-color-action-secondary-active);
+  --ds-pagination-gap: var(--krds-gap-3);
+  --ds-pagination-margin-top: var(--krds-pc-gap-layout-h2-h3);
+  --ds-pagination--size-height: var(--krds-size-height-6);
+  --ds-pagination--radius: var(--krds-radius-medium1);
+  --ds-pagination--navi-padding-inner: var(--krds-padding-2);
+  --ds-pagination--navi-padding-outer: var(--krds-padding-3);
+}
+@media (max-width: 767px) {
+  .ds-pagination {
+    --ds-pagination-gap: var(--krds-gap-7) var(--krds-gap-3);
+    --ds-pagination-margin-top: var(--krds-mobile-gap-layout-h2-h3);
+  }
+}
+
+/* ----- 레이아웃 ----- */
+.ds-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-pagination-gap);
+  width: 100%;
+  margin-top: var(--ds-pagination-margin-top);
+  color: var(--ds-pagination--color-text);
+  font-size: var(--krds-pc-font-size-label-medium);
+}
+
+/* ----- 공통: page-navi, page-link ----- */
+.ds-pagination .page-navi,
+.ds-pagination .page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--ds-pagination--size-height);
+  background-color: var(--ds-pagination--color-action);
+  border-radius: var(--ds-pagination--radius);
+  transition: var(--krds-transition-base);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.ds-pagination .page-navi:hover,
+.ds-pagination .page-link:hover {
+  background-color: var(--ds-pagination--color-action-hover);
+}
+.ds-pagination .page-navi:active,
+.ds-pagination .page-link:active {
+  background-color: var(--ds-pagination--color-action-pressed);
+}
+
+/* ----- 이전 버튼 ----- */
+.ds-pagination .page-navi.prev {
+  order: 2;
+  padding: 0 var(--ds-pagination--navi-padding-outer) 0 var(--ds-pagination--navi-padding-inner);
+}
+.ds-pagination .page-navi.prev::before {
+  content: "";
+  display: inline-flex;
+  width: var(--krds-icon--size-medium);
+  height: var(--krds-icon--size-medium);
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background-color: var(--ds-pagination--color-text);
+  transform: rotate(90deg);
+}
+
+/* ----- 다음 버튼 ----- */
+.ds-pagination .page-navi.next {
+  order: 4;
+  padding: 0 var(--ds-pagination--navi-padding-inner) 0 var(--ds-pagination--navi-padding-outer);
+}
+.ds-pagination .page-navi.next::after {
+  content: "";
+  display: inline-flex;
+  width: var(--krds-icon--size-medium);
+  height: var(--krds-icon--size-medium);
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background-color: var(--ds-pagination--color-text);
+  transform: rotate(-90deg);
+}
+
+/* ----- 비활성화 ----- */
+.ds-pagination .page-navi.disabled {
+  color: var(--ds-pagination--color-text-disabled);
+  pointer-events: none;
+}
+.ds-pagination .page-navi.disabled:hover,
+.ds-pagination .page-navi.disabled:active {
+  background-color: var(--ds-pagination--color-action);
+}
+.ds-pagination .page-navi.disabled::before,
+.ds-pagination .page-navi.disabled::after {
+  background-color: var(--ds-pagination--color-text-disabled);
+}
+
+/* ----- 페이지 번호 그룹 ----- */
+.ds-pagination .page-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 3;
+  gap: var(--krds-gap-3);
+}
+.ds-pagination .page-links .page-link {
+  width: var(--ds-pagination--size-height);
+  height: var(--ds-pagination--size-height);
+}
+
+/* ----- 말줄임 (...) ----- */
+.ds-pagination .page-links .page-link.link-dot {
+  width: var(--krds-icon--size-large);
+  height: var(--krds-icon--size-large);
+  background-color: var(--ds-pagination--color-text);
+  -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  cursor: default;
+}
+.ds-pagination .page-links .page-link.link-dot:hover,
+.ds-pagination .page-links .page-link.link-dot:active {
+  background-color: var(--ds-pagination--color-text);
+}
+
+/* ----- 현재 페이지 ----- */
+.ds-pagination .page-links .page-link.active {
+  background-color: var(--ds-pagination--color-action-active);
+  font-weight: var(--krds-font-weight-bold);
+  color: var(--ds-pagination--color-text-active);
+  cursor: default;
+}
+
+/* ─── 처음 / 마지막 (디자인 시스템 확장) ──── */
+.ds-pagination .page-navi.first {
+  order: 1;
+  padding: 0 var(--krds-padding-3);
+  font-size: var(--krds-pc-font-size-label-small);
+}
+.ds-pagination .page-navi.last {
+  order: 5;
+  padding: 0 var(--krds-padding-3);
+  font-size: var(--krds-pc-font-size-label-small);
+}
+.ds-pagination .page-navi.first.disabled,
+.ds-pagination .page-navi.last.disabled {
+  color: var(--ds-pagination--color-text-disabled);
+  pointer-events: none;
+}
+.ds-pagination .page-navi.first.disabled:hover,
+.ds-pagination .page-navi.first.disabled:active,
+.ds-pagination .page-navi.last.disabled:hover,
+.ds-pagination .page-navi.last.disabled:active {
+  background-color: var(--ds-pagination--color-action);
+}
+
+/* ----- 모바일 ----- */
+@media (max-width: 767px) {
+  .ds-pagination {
+    flex-wrap: wrap;
+  }
+  .ds-pagination .page-links {
+    width: 100%;
+    order: 1;
+  }
+  .ds-pagination .page-navi.first { order: 2; }
+  .ds-pagination .page-navi.prev  { order: 2; }
+  .ds-pagination .page-navi.next  { order: 2; }
+  .ds-pagination .page-navi.last  { order: 2; }
+}

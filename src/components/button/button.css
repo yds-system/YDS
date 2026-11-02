@@ -1,0 +1,519 @@
+/* =============================================
+   KRDS Button Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+
+/* ----- CSS 변수 (사이즈) ----- */
+.ds-btn {
+  --ds-btn--size-height-xsmall: var(--krds-size-height-5);
+  --ds-btn--padding-x-xsmall: var(--krds-padding-4);
+  --ds-btn--padding-y-xsmall: 0;
+  --ds-btn--gap-xsmall: var(--krds-gap-1);
+  --ds-btn--radius-xsmall: var(--krds-radius-small3);
+  --ds-btn--pc-font-size-xsmall: var(--krds-pc-font-size-label-small);
+  --ds-btn--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
+  --ds-btn--font-weight-xsmall: var(--krds-font-weight-regular);
+
+  --ds-btn--size-height-small: var(--krds-size-height-6);
+  --ds-btn--padding-x-small: var(--krds-padding-5);
+  --ds-btn--padding-y-small: 0;
+  --ds-btn--gap-small: var(--krds-gap-1);
+  --ds-btn--radius-small: var(--krds-radius-medium1);
+  --ds-btn--pc-font-size-small: var(--krds-pc-font-size-label-small);
+  --ds-btn--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
+  --ds-btn--font-weight-small: var(--krds-font-weight-regular);
+
+  --ds-btn--size-height-medium: var(--krds-size-height-7);
+  --ds-btn--padding-x-medium: var(--krds-padding-6);
+  --ds-btn--padding-y-medium: 0;
+  --ds-btn--gap-medium: var(--krds-gap-2);
+  --ds-btn--radius-medium: var(--krds-radius-medium2);
+  --ds-btn--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
+  --ds-btn--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --ds-btn--font-weight-medium: var(--krds-font-weight-regular);
+
+  --ds-btn--size-height-large: var(--krds-size-height-8);
+  --ds-btn--padding-x-large: var(--krds-padding-7);
+  --ds-btn--padding-y-large: 0;
+  --ds-btn--gap-large: var(--krds-gap-2);
+  --ds-btn--radius-large: var(--krds-radius-medium3);
+  --ds-btn--pc-font-size-large: var(--krds-pc-font-size-label-large);
+  --ds-btn--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+  --ds-btn--font-weight-large: var(--krds-font-weight-regular);
+
+  --ds-btn--size-height-xlarge: var(--krds-size-height-9);
+  --ds-btn--padding-x-xlarge: var(--krds-padding-8);
+  --ds-btn--padding-y-xlarge: 0;
+  --ds-btn--gap-xlarge: var(--krds-gap-2);
+  --ds-btn--radius-xlarge: var(--krds-radius-medium4);
+  --ds-btn--pc-font-size-xlarge: var(--krds-pc-font-size-label-large);
+  --ds-btn--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
+  --ds-btn--font-weight-xlarge: var(--krds-font-weight-regular);
+}
+
+/* ----- CSS 변수 (색상) ----- */
+.ds-btn {
+  --ds-btn--color-primary-fill: var(--krds-light-color-button-primary-fill);
+  --ds-btn--color-primary-fill-hover: var(--krds-light-color-button-primary-fill-hover);
+  --ds-btn--color-primary-fill-pressed: var(--krds-light-color-button-primary-fill-pressed);
+  --ds-btn--color-primary-fill-disabled: var(--krds-light-color-button-disabled-fill);
+  --ds-btn--color-primary-border: var(--krds-light-color-button-primary-fill);
+  --ds-btn--color-primary-border-disabled: var(--krds-light-color-button-disabled-border);
+  --ds-btn--color-primary-text: var(--krds-light-color-text-inverse-static);
+  --ds-btn--color-primary-text-disabled: var(--krds-light-color-text-disabled-on);
+
+  --ds-btn--color-secondary-fill: var(--krds-light-color-button-secondary-fill);
+  --ds-btn--color-secondary-fill-hover: var(--krds-light-color-button-secondary-fill-hover);
+  --ds-btn--color-secondary-fill-pressed: var(--krds-light-color-button-secondary-fill-pressed);
+  --ds-btn--color-secondary-fill-disabled: var(--krds-light-color-button-disabled-fill);
+  --ds-btn--color-secondary-border: var(--krds-light-color-button-secondary-border);
+  --ds-btn--color-secondary-border-disabled: var(--krds-light-color-button-disabled-border);
+  --ds-btn--color-secondary-text: var(--krds-light-color-text-primary);
+  --ds-btn--color-secondary-text-disabled: var(--krds-light-color-text-disabled-on);
+
+  --ds-btn--color-tertiary-fill: var(--krds-light-color-button-tertiary-fill);
+  --ds-btn--color-tertiary-fill-hover: var(--krds-light-color-button-tertiary-fill-hover);
+  --ds-btn--color-tertiary-fill-pressed: var(--krds-light-color-button-tertiary-fill-pressed);
+  --ds-btn--color-tertiary-fill-disabled: var(--krds-light-color-button-disabled-fill);
+  --ds-btn--color-tertiary-border: var(--krds-light-color-button-tertiary-border);
+  --ds-btn--color-tertiary-border-disabled: var(--krds-light-color-button-disabled-border);
+  --ds-btn--color-tertiary-text: var(--krds-light-color-text-basic);
+  --ds-btn--color-tertiary-text-disabled: var(--krds-light-color-text-disabled-on);
+
+  --ds-btn--color-text-fill: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-text-fill-hover: var(--krds-light-color-button-text-fill-hover);
+  --ds-btn--color-text-fill-pressed: var(--krds-light-color-button-text-fill-pressed);
+  --ds-btn--color-text-fill-disabled: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-text-border: var(--krds-light-color-button-text-border);
+  --ds-btn--color-text-border-disabled: var(--krds-light-color-border-transparency);
+  --ds-btn--color-text-text: var(--krds-light-color-text-basic);
+  --ds-btn--color-text-text-disabled: var(--krds-light-color-text-disabled);
+
+  --ds-btn--color-link-fill: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-link-fill-hover: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-link-fill-pressed: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-link-fill-disabled: var(--krds-light-color-button-text-fill);
+  --ds-btn--color-link-border: var(--krds-light-color-button-text-border);
+  --ds-btn--color-link-border-disabled: var(--krds-light-color-border-transparency);
+  --ds-btn--color-link-text: var(--krds-light-color-link-default);
+  --ds-btn--color-link-text-disabled: var(--krds-light-color-text-disabled);
+}
+
+/* ----- 기본 스타일 (Large, Primary 기본값) ----- */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: auto;
+  gap: var(--ds-btn--gap-large);
+  height: var(--ds-btn--size-height-large);
+  padding: var(--ds-btn--padding-y-large) var(--ds-btn--padding-x-large);
+  border-radius: var(--ds-btn--radius-large);
+  border-style: solid;
+  border-width: var(--krds-light-border-width-variable-regular);
+  font-size: var(--ds-btn--pc-font-size-large);
+  font-weight: var(--ds-btn--font-weight-large);
+  background-color: var(--ds-btn--color-primary-fill);
+  border-color: var(--ds-btn--color-primary-border);
+  color: var(--ds-btn--color-primary-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--krds-transition-base);
+}
+@media (max-width: 767px) {
+  .ds-btn {
+    font-size: var(--ds-btn--mobile-font-size-large);
+  }
+}
+.ds-btn .ds-icon {
+  width: var(--krds-icon--size-large);
+  height: var(--krds-icon--size-large);
+  background-color: var(--ds-btn--color-primary-text);
+  transition: var(--krds-transition-base);
+}
+.ds-btn:hover {
+  background-color: var(--ds-btn--color-primary-fill-hover);
+}
+.ds-btn:active,
+.ds-btn:focus {
+  background-color: var(--ds-btn--color-primary-fill-pressed);
+}
+.ds-btn[disabled],
+.ds-btn.ds-btn--disabled {
+  background-color: var(--ds-btn--color-primary-fill-disabled);
+  border-color: var(--ds-btn--color-primary-border-disabled);
+  color: var(--ds-btn--color-primary-text-disabled);
+  cursor: default;
+}
+.ds-btn[disabled]:hover,
+.ds-btn.ds-btn--disabled:hover {
+  background-color: var(--ds-btn--color-primary-fill-disabled);
+  border-color: var(--ds-btn--color-primary-border-disabled);
+  color: var(--ds-btn--color-primary-text-disabled);
+}
+
+/* ----- 크기 ----- */
+.ds-btn.ds-btn--xsmall {
+  gap: var(--ds-btn--gap-xsmall);
+  height: var(--ds-btn--size-height-xsmall);
+  padding: var(--ds-btn--padding-y-xsmall) var(--ds-btn--padding-x-xsmall);
+  border-radius: var(--ds-btn--radius-xsmall);
+  font-size: var(--ds-btn--pc-font-size-xsmall);
+  font-weight: var(--ds-btn--font-weight-xsmall);
+}
+@media (max-width: 767px) {
+  .ds-btn.ds-btn--xsmall {
+    font-size: var(--ds-btn--mobile-font-size-xsmall);
+  }
+}
+.ds-btn.ds-btn--xsmall .ds-icon {
+  width: var(--krds-icon--size-xsmall);
+  height: var(--krds-icon--size-xsmall);
+}
+
+.ds-btn.ds-btn--small {
+  gap: var(--ds-btn--gap-small);
+  height: var(--ds-btn--size-height-small);
+  padding: var(--ds-btn--padding-y-small) var(--ds-btn--padding-x-small);
+  border-radius: var(--ds-btn--radius-small);
+  font-size: var(--ds-btn--pc-font-size-small);
+  font-weight: var(--ds-btn--font-weight-small);
+}
+@media (max-width: 767px) {
+  .ds-btn.ds-btn--small {
+    font-size: var(--ds-btn--mobile-font-size-small);
+  }
+}
+.ds-btn.ds-btn--small .ds-icon {
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+}
+
+.ds-btn.ds-btn--medium {
+  gap: var(--ds-btn--gap-medium);
+  height: var(--ds-btn--size-height-medium);
+  padding: var(--ds-btn--padding-y-medium) var(--ds-btn--padding-x-medium);
+  border-radius: var(--ds-btn--radius-medium);
+  font-size: var(--ds-btn--pc-font-size-medium);
+  font-weight: var(--ds-btn--font-weight-medium);
+}
+@media (max-width: 767px) {
+  .ds-btn.ds-btn--medium {
+    font-size: var(--ds-btn--mobile-font-size-medium);
+  }
+}
+.ds-btn.ds-btn--medium .ds-icon {
+  width: var(--krds-icon--size-medium);
+  height: var(--krds-icon--size-medium);
+}
+
+.ds-btn.ds-btn--large {
+  gap: var(--ds-btn--gap-large);
+  height: var(--ds-btn--size-height-large);
+  padding: var(--ds-btn--padding-y-large) var(--ds-btn--padding-x-large);
+  border-radius: var(--ds-btn--radius-large);
+  font-size: var(--ds-btn--pc-font-size-large);
+  font-weight: var(--ds-btn--font-weight-large);
+}
+@media (max-width: 767px) {
+  .ds-btn.ds-btn--large {
+    font-size: var(--ds-btn--mobile-font-size-large);
+  }
+}
+.ds-btn.ds-btn--large .ds-icon {
+  width: var(--krds-icon--size-large);
+  height: var(--krds-icon--size-large);
+}
+
+.ds-btn.ds-btn--xlarge {
+  gap: var(--ds-btn--gap-xlarge);
+  height: var(--ds-btn--size-height-xlarge);
+  padding: var(--ds-btn--padding-y-xlarge) var(--ds-btn--padding-x-xlarge);
+  border-radius: var(--ds-btn--radius-xlarge);
+  font-size: var(--ds-btn--pc-font-size-xlarge);
+  font-weight: var(--ds-btn--font-weight-xlarge);
+}
+@media (max-width: 767px) {
+  .ds-btn.ds-btn--xlarge {
+    font-size: var(--ds-btn--mobile-font-size-xlarge);
+  }
+}
+.ds-btn.ds-btn--xlarge .ds-icon {
+  width: var(--krds-icon--size-xlarge);
+  height: var(--krds-icon--size-xlarge);
+}
+
+/* ----- 위계: Primary ----- */
+.ds-btn.ds-btn--primary {
+  background-color: var(--ds-btn--color-primary-fill);
+  border-color: var(--ds-btn--color-primary-border);
+  color: var(--ds-btn--color-primary-text);
+}
+.ds-btn.ds-btn--primary:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-primary-text);
+}
+.ds-btn.ds-btn--primary:hover {
+  background-color: var(--ds-btn--color-primary-fill-hover);
+}
+.ds-btn.ds-btn--primary:active,
+.ds-btn.ds-btn--primary:focus {
+  background-color: var(--ds-btn--color-primary-fill-pressed);
+}
+.ds-btn.ds-btn--primary[disabled],
+.ds-btn.ds-btn--primary.ds-btn--disabled {
+  background-color: var(--ds-btn--color-primary-fill-disabled);
+  border-color: var(--ds-btn--color-primary-border-disabled);
+  color: var(--ds-btn--color-primary-text-disabled);
+}
+.ds-btn.ds-btn--primary[disabled]:not(.ds-btn--icon) .ds-icon,
+.ds-btn.ds-btn--primary.ds-btn--disabled:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-primary-text-disabled);
+}
+.ds-btn.ds-btn--primary[disabled]:hover,
+.ds-btn.ds-btn--primary.ds-btn--disabled:hover {
+  background-color: var(--ds-btn--color-primary-fill-disabled);
+  border-color: var(--ds-btn--color-primary-border-disabled);
+  color: var(--ds-btn--color-primary-text-disabled);
+}
+
+/* ----- 위계: Secondary ----- */
+.ds-btn.ds-btn--secondary {
+  background-color: var(--ds-btn--color-secondary-fill);
+  border-color: var(--ds-btn--color-secondary-border);
+  color: var(--ds-btn--color-secondary-text);
+}
+.ds-btn.ds-btn--secondary:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-secondary-text);
+}
+.ds-btn.ds-btn--secondary:hover {
+  background-color: var(--ds-btn--color-secondary-fill-hover);
+}
+.ds-btn.ds-btn--secondary:active,
+.ds-btn.ds-btn--secondary:focus {
+  background-color: var(--ds-btn--color-secondary-fill-pressed);
+}
+.ds-btn.ds-btn--secondary[disabled],
+.ds-btn.ds-btn--secondary.ds-btn--disabled {
+  background-color: var(--ds-btn--color-secondary-fill-disabled);
+  border-color: var(--ds-btn--color-secondary-border-disabled);
+  color: var(--ds-btn--color-secondary-text-disabled);
+}
+.ds-btn.ds-btn--secondary[disabled]:not(.ds-btn--icon) .ds-icon,
+.ds-btn.ds-btn--secondary.ds-btn--disabled:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-secondary-text-disabled);
+}
+.ds-btn.ds-btn--secondary[disabled]:hover,
+.ds-btn.ds-btn--secondary.ds-btn--disabled:hover {
+  background-color: var(--ds-btn--color-secondary-fill-disabled);
+  border-color: var(--ds-btn--color-secondary-border-disabled);
+  color: var(--ds-btn--color-secondary-text-disabled);
+}
+
+/* ----- 위계: Tertiary ----- */
+.ds-btn.ds-btn--tertiary {
+  background-color: var(--ds-btn--color-tertiary-fill);
+  border-color: var(--ds-btn--color-tertiary-border);
+  color: var(--ds-btn--color-tertiary-text);
+}
+.ds-btn.ds-btn--tertiary:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-tertiary-text);
+}
+.ds-btn.ds-btn--tertiary:hover {
+  background-color: var(--ds-btn--color-tertiary-fill-hover);
+}
+.ds-btn.ds-btn--tertiary:active,
+.ds-btn.ds-btn--tertiary:focus {
+  background-color: var(--ds-btn--color-tertiary-fill-pressed);
+}
+.ds-btn.ds-btn--tertiary[disabled],
+.ds-btn.ds-btn--tertiary.ds-btn--disabled {
+  background-color: var(--ds-btn--color-tertiary-fill-disabled);
+  border-color: var(--ds-btn--color-tertiary-border-disabled);
+  color: var(--ds-btn--color-tertiary-text-disabled);
+}
+.ds-btn.ds-btn--tertiary[disabled]:not(.ds-btn--icon) .ds-icon,
+.ds-btn.ds-btn--tertiary.ds-btn--disabled:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-tertiary-text-disabled);
+}
+.ds-btn.ds-btn--tertiary[disabled]:hover,
+.ds-btn.ds-btn--tertiary.ds-btn--disabled:hover {
+  background-color: var(--ds-btn--color-tertiary-fill-disabled);
+  border-color: var(--ds-btn--color-tertiary-border-disabled);
+  color: var(--ds-btn--color-tertiary-text-disabled);
+}
+
+/* ----- Text 버튼 ----- */
+.ds-btn.ds-btn--text {
+  --ds-btn--size-height-xsmall: var(--krds-size-height-3);
+  --ds-btn--padding-x-xsmall: var(--krds-padding-1);
+  --ds-btn--padding-y-xsmall: var(--krds-number-0);
+  --ds-btn--size-height-small: var(--krds-size-height-4);
+  --ds-btn--padding-x-small: var(--krds-padding-1);
+  --ds-btn--padding-y-small: var(--krds-number-0);
+  --ds-btn--size-height-medium: var(--krds-size-height-5);
+  --ds-btn--padding-x-medium: var(--krds-padding-1);
+  --ds-btn--padding-y-medium: var(--krds-number-2);
+  --ds-btn--size-height-large: var(--krds-size-height-6);
+  --ds-btn--padding-x-large: var(--krds-padding-1);
+  --ds-btn--padding-y-large: 0.5rem;
+  --ds-btn--size-height-xlarge: var(--krds-size-height-7);
+  --ds-btn--padding-x-xlarge: var(--krds-padding-1);
+  --ds-btn--padding-y-xlarge: 0.9rem;
+  display: inline-block;
+  height: auto !important;
+  padding: var(--ds-btn--padding-y-large) var(--ds-btn--padding-x-large);
+  background-color: var(--ds-btn--color-text-fill);
+  border-color: var(--ds-btn--color-text-border);
+  color: var(--ds-btn--color-text-text);
+  text-align: left;
+  white-space: normal;
+}
+.ds-btn.ds-btn--text:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-text-text);
+}
+.ds-btn.ds-btn--text:hover {
+  background-color: var(--ds-btn--color-text-fill-hover);
+}
+.ds-btn.ds-btn--text:active,
+.ds-btn.ds-btn--text:focus {
+  background-color: var(--ds-btn--color-text-fill-pressed);
+}
+.ds-btn.ds-btn--text[disabled],
+.ds-btn.ds-btn--text.ds-btn--disabled {
+  background-color: var(--ds-btn--color-text-fill-disabled);
+  border-color: var(--ds-btn--color-text-border-disabled);
+  color: var(--ds-btn--color-text-text-disabled);
+}
+.ds-btn.ds-btn--text[disabled]:not(.ds-btn--icon) .ds-icon,
+.ds-btn.ds-btn--text.ds-btn--disabled:not(.ds-btn--icon) .ds-icon {
+  background-color: var(--ds-btn--color-text-text-disabled);
+}
+.ds-btn.ds-btn--text[disabled]:hover,
+.ds-btn.ds-btn--text.ds-btn--disabled:hover {
+  background-color: var(--ds-btn--color-text-fill-disabled);
+  border-color: var(--ds-btn--color-text-border-disabled);
+  color: var(--ds-btn--color-text-text-disabled);
+}
+.ds-btn.ds-btn--text.ds-btn--xsmall {
+  min-height: var(--ds-btn--size-height-xsmall);
+  padding: var(--ds-btn--padding-y-xsmall) var(--ds-btn--padding-x-xsmall);
+}
+.ds-btn.ds-btn--text.ds-btn--xsmall .ds-icon {
+  margin-bottom: -0.3rem;
+}
+.ds-btn.ds-btn--text.ds-btn--small {
+  padding: var(--ds-btn--padding-y-small) var(--ds-btn--padding-x-small);
+}
+.ds-btn.ds-btn--text.ds-btn--small .ds-icon {
+  margin-bottom: -0.3rem;
+}
+.ds-btn.ds-btn--text.ds-btn--medium {
+  padding: var(--ds-btn--padding-y-medium) var(--ds-btn--padding-x-medium);
+}
+.ds-btn.ds-btn--text.ds-btn--medium .ds-icon {
+  margin-bottom: -0.4rem;
+}
+.ds-btn.ds-btn--text.ds-btn--large {
+  padding: var(--ds-btn--padding-y-large) var(--ds-btn--padding-x-large);
+}
+.ds-btn.ds-btn--text.ds-btn--large .ds-icon {
+  margin-bottom: -0.5rem;
+}
+.ds-btn.ds-btn--text.ds-btn--xlarge {
+  padding: var(--ds-btn--padding-y-xlarge) var(--ds-btn--padding-x-xlarge);
+}
+.ds-btn.ds-btn--text.ds-btn--xlarge .ds-icon {
+  margin-bottom: -0.6rem;
+}
+.ds-btn.ds-btn--text.ds-btn--h-auto {
+  height: auto;
+  padding: var(--krds-padding-1) !important;
+}
+.ds-btn.ds-btn--text .ds-icon {
+  display: inline-block;
+  margin-bottom: -0.5rem;
+}
+
+/* ----- Icon 전용 버튼 ----- */
+.ds-btn.ds-btn--icon {
+  --ds-btn--icon-size-xsmall: var(--krds-size-height-2);
+  --ds-btn--icon-size-small: var(--krds-size-height-3);
+  --ds-btn--icon-size-medium: var(--krds-size-height-4);
+  --ds-btn--icon-size-large: var(--krds-size-height-5);
+  --ds-btn--icon-size-xlarge: var(--krds-size-height-6);
+  width: var(--ds-btn--icon-size-medium);
+  height: var(--ds-btn--icon-size-medium);
+  padding: 0 !important;
+  background-color: transparent;
+  border-color: var(--krds-light-color-border-transparency);
+  color: inherit;
+  border: 0;
+}
+.ds-btn.ds-btn--icon:hover,
+.ds-btn.ds-btn--icon:active {
+  background-color: inherit;
+}
+.ds-btn.ds-btn--icon.ds-btn--xsmall {
+  width: var(--ds-btn--icon-size-xsmall);
+  height: var(--ds-btn--icon-size-xsmall);
+}
+.ds-btn.ds-btn--icon.ds-btn--xsmall .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+.ds-btn.ds-btn--icon.ds-btn--small {
+  width: var(--ds-btn--icon-size-small);
+  height: var(--ds-btn--icon-size-small);
+}
+.ds-btn.ds-btn--icon.ds-btn--small .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+.ds-btn.ds-btn--icon.ds-btn--medium {
+  width: var(--ds-btn--icon-size-medium);
+  height: var(--ds-btn--icon-size-medium);
+}
+.ds-btn.ds-btn--icon.ds-btn--medium .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+.ds-btn.ds-btn--icon.ds-btn--large {
+  width: var(--ds-btn--icon-size-large);
+  height: var(--ds-btn--icon-size-large);
+}
+.ds-btn.ds-btn--icon.ds-btn--large .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+.ds-btn.ds-btn--icon.ds-btn--xlarge {
+  width: var(--ds-btn--icon-size-xlarge);
+  height: var(--ds-btn--icon-size-xlarge);
+}
+.ds-btn.ds-btn--icon.ds-btn--xlarge .ds-icon {
+  width: 100%;
+  height: 100%;
+}
+.ds-btn.ds-btn--icon .ds-icon {
+  background-color: var(--krds-light-color-text-basic);
+}
+.ds-btn.ds-btn--icon.ds-btn--pure .ds-icon {
+  background-color: transparent;
+}
+.ds-btn.ds-btn--icon.ds-btn--border {
+  background-color: var(--krds-light-color-background-white);
+  border: 0.1rem solid var(--krds-light-color-border-gray);
+  border-radius: var(--krds-radius-max);
+}
+.ds-btn.ds-btn--icon.ds-btn--border.ds-btn--large .ds-icon {
+  width: var(--krds-icon--size-xsmall);
+  height: var(--krds-icon--size-xsmall);
+}
+.ds-btn.ds-btn--icon.ds-btn--border.ds-btn--xlarge .ds-icon {
+  width: var(--krds-icon--size-xlarge);
+  height: var(--krds-icon--size-xlarge);
+}
+.ds-btn.ds-btn--icon.ds-btn--border[disabled],
+.ds-btn.ds-btn--icon.ds-btn--border.ds-btn--disabled {
+  background-color: var(--krds-light-color-button-disabled-fill);
+}

@@ -1,0 +1,116 @@
+# 회사 디자인 시스템
+
+Storybook 10(html-vite) 기반 디자인 시스템.
+기획자·디자이너·퍼블리셔·개발자가 모두 사용하며, 프로젝트별 테마를 지원한다.
+KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
+
+## 폴더 구조
+- reference/krds: KRDS 원본 코드 (참고용, 수정 금지)
+- src/global: reset, base 등 전역 스타일
+- src/tokens: 디자인 토큰 (추후 적용)
+- src/components: 컴포넌트 (컴포넌트당 폴더 1개)
+- src/docs: 소개, 네이밍 정의서, 사용 규칙, 변경 이력 (mdx)
+
+## Storybook 사이드바 분류 원칙
+
+사이드바는 **기반 → 컴포넌트 → 패턴** 3단 구조로 구성한다.
+
+- **기반 (Foundation)**: 아이콘·색상·타이포·간격 등 모든 컴포넌트가 공유하는 리소스
+  - title 형식: `기반/항목명` (예: `기반/아이콘`)
+- **컴포넌트 (Component)**: KRDS 컴포넌트를 6개 분류로 구분
+  - title 형식: `컴포넌트/분류명/컴포넌트명` (예: `컴포넌트/액션/버튼`)
+  - 분류: 탐색 / 액션 / 선택 / 입력 / 피드백 / 콘텐츠
+  - 분류 기준은 KRDS(reference/krds)를 우선으로 하고, 애매한 경우 먼저 물어본다.
+- **패턴 (Pattern)**: 여러 컴포넌트를 조합한 페이지 레벨 구조
+  - title 형식: `패턴/패턴명` (예: `패턴/기본 레이아웃`)
+
+새 컴포넌트는 위 분류 원칙에 맞는 title로 만든다.
+
+## 작성 규칙
+- 순수 HTML + CSS로 작성한다. (프레임워크 사용 안 함)
+- 컴포넌트 구성(HTML 구조, 종류·크기·상태)과 네이밍 원칙은 KRDS(reference/krds)를 따르되, 클래스명은 "네이밍 규칙"의 ds- 형식으로 바꿔서 쓴다.
+- KRDS에 없는 컴포넌트를 추가할 때는 KRDS 네이밍 패턴을 따르고, 만들기 전에 먼저 물어본다.
+- 컴포넌트는 [이름].css, [이름].stories.js, [이름].mdx 세트로 만든다.
+- 스토리에는 기본, hover, disabled 등 주요 상태를 모두 포함한다.
+- 접근성: label 연결, focus 스타일, aria 속성을 기본으로 챙긴다.
+
+## 토큰 (추후 적용)
+- 현재는 KRDS CSS 값을 그대로 사용한다.
+- 토큰 적용 시: 색상·간격·폰트·radius는 CSS 변수로 바꾸고, 테마는 data-theme 속성으로 전환한다. (예: data-theme="project-a")
+- 현재 KRDS 토큰(--krds-*)은 reference/krds에서 불러오고 있다. 토큰 작업 시 src/tokens로 옮기고 --ds- 형식으로 바꾼다.
+
+## 문서 규칙
+- 문서는 한국어로 작성한다.
+- 컴포넌트 mdx 문서는 아래 순서로 구성한다.
+  1. 개요
+  2. 네이밍
+  3. 언제 사용하는지 / 사용하지 말아야 할 때
+  4. 코드 예시
+
+## 네이밍 규칙
+
+### 접두사 규칙 (BEM 기반)
+이 디자인 시스템은 BEM 방식의 네이밍을 사용한다.
+
+- **블록**: `ds-{컴포넌트}` (예: `ds-btn`, `ds-input`, `ds-pagination`)
+- **요소**: `ds-{컴포넌트}__{요소}` (예: `ds-btn__text`, `ds-tag__del-btn`)
+- **변형(modifier)**: `ds-{컴포넌트}--{modifier}` (예: `ds-btn--primary`, `ds-btn--small`)
+- **아이콘 루트**: `ds-icon` (기존 `svg-icon` 대체)
+- **아이콘 종류**: `ds-ico-{이름}` (기존 `ico-*` 대체, 예: `ds-ico-sch`, `ds-ico-go`)
+- **예외 — 전역 유틸리티**: `sr-only` 는 접두사 없이 그대로 사용한다.
+- **CSS 컴포넌트 변수**: `--ds-{컴포넌트}--{속성}` (예: `--ds-btn--color-primary-fill`)
+- **KRDS 디자인 토큰** (`var(--krds-light-color-*)`, `var(--krds-size-*)` 등)은 reference/krds에서 전역 로드되므로 그대로 참조한다.
+- `reference/krds`는 원본이므로 절대 수정하지 않는다.
+
+### 상태(State) 네이밍 규칙
+
+상태는 `is-*` 접두사를 쓰지 않는다. BEM modifier 또는 CSS 가상 클래스로 표현한다.
+
+| 상태 | 표현 방법 | 예시 |
+|---|---|---|
+| 에러 | 부모에 modifier: `--error` | `ds-form-content--error`, `ds-select--error` |
+| 성공 | 부모에 modifier: `--success` | `ds-form-content--success` |
+| 정보 | 부모에 modifier: `--info` | `ds-form-content--info` |
+| 포커스 | CSS `:focus` 가상 클래스 | `.ds-input:focus` |
+| 비활성화 | HTML `disabled` 속성 + `[disabled]` 셀렉터 | `<input disabled>` |
+| 읽기 전용 | HTML `readonly` 속성 | `<input readonly>` |
+| 선택 완료 | 블록 modifier: `--completed` | `ds-select--completed` |
+| 항목 오류 (리스트) | 항목 modifier: `--error` | `ds-file-upload__item--error` |
+
+- `is-error`, `is-success`, `is-information` 등 `is-` 접두사 클래스는 사용하지 않는다.
+- 힌트/에러 메시지는 BEM base+modifier 분리: `ds-form-hint ds-form-hint--error` (단일 클래스 `ds-form-hint-error` 사용 금지).
+- 필수 표시는 `ds-form-label__required` (요소 클래스). `ds-required` 단독 클래스 사용 금지.
+
+### 일반 규칙
+- **요소 이름은 모양이 아니라 역할로 짓는다.** 예: `__underline`(모양) → `__text`(역할). 디자인이 바뀌어도 이름이 낡아지지 않도록 한다.
+- 모든 클래스는 KRDS 원본에 대응하는 클래스가 있어야 한다. 대응하는 원본이 없거나 추측한 경우 "확인 필요"로 표시한다.
+- naming-data.js에는 ds- 클래스명과 함께 "KRDS 원본 클래스명"을 기록해 대응 관계를 유지한다.
+- 네이밍 데이터는 src/docs/naming-data.js 한 곳에서 관리한다.
+  - components-naming.mdx(전체 정의서)와 각 컴포넌트 mdx는 이 파일을 불러와서 표시한다.
+  - 네이밍을 수정할 때는 naming-data.js만 고친다. mdx에 클래스명 표를 직접 작성하지 않는다.
+- 컴포넌트 mdx의 "네이밍" 섹션 구성:
+  - 구조도: HTML 구조와 각 요소의 클래스명
+  - 클래스명 표: 요소 | 클래스명 | 설명
+  - 변형(modifier) 표: 종류·크기·상태별 클래스명 | 설명
+  - 코드 예시: 클래스명이 들어간 실제 HTML (복사 가능)
+- 새 컴포넌트를 만들 때 naming-data.js에도 함께 추가한다.
+
+## Storybook 10 기준 규칙
+- 문서 블록(Meta, Canvas, Story 등)은 '@storybook/addon-docs/blocks'에서 import한다.
+  ('@storybook/blocks'는 Storybook 8까지의 경로라 사용 금지)
+- mdx 표 안의 HTML 태그나 중괄호는 백틱(`)으로 감싼다.
+- 모든 스토리는 args/argTypes로 Controls를 제공한다. (HTML은 자동 생성이 안 됨)
+- 각 컴포넌트에 Playground 스토리를 둔다.
+- 여러 상태를 한눈에 비교하는 All Variants 스토리를 둔다.
+
+## Controls 규칙
+- 컴포넌트에서 바꿀 수 있는 모든 항목을 Controls로 제공한다.
+  - 문구·라벨·placeholder·도움말: text
+  - 종류(variant)·크기(size): select 또는 radio (KRDS에 정의된 값만)
+  - 상태(disabled, readonly, checked, error 등): boolean
+  - 아이콘 유무·위치: select
+  - 너비 100% 등 레이아웃 옵션: boolean
+  - 반복 항목(셀렉트 옵션, 라디오 목록 등): object
+- 각 컨트롤에는 description을 한국어로 적는다.
+- 색상은 KRDS에 정의된 종류(variant) select로만 바꾼다.
+- 자유 색상 확인용 컬러 피커(control: 'color')는 "Experimental" 스토리에만 둔다.

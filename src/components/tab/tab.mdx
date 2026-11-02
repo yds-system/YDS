@@ -1,0 +1,167 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TabStories from './tab.stories.js';
+
+<Meta of={TabStories} />
+
+# 탭 (Tab)
+
+하나의 화면 안에서 **콘텐츠를 전환**하는 탐색 컴포넌트입니다.  
+라인형(기본)과 박스형 두 가지 스타일을 제공하며, 각각 전체 너비 변형을 지원합니다.
+
+---
+
+## 언제 사용하는지
+
+- 같은 컨텍스트 안에서 **범주가 다른 콘텐츠를 전환**할 때
+- 설정 화면, 상세 페이지 내 섹션 전환 등 **화면 이동 없이** 내용을 바꿔야 할 때
+- 탭 항목이 **2~7개** 사이일 때 (더 많으면 드롭다운이나 네비게이션을 사용한다)
+
+---
+
+## 사용하지 말아야 할 때
+
+- 탭 클릭이 **페이지 이동(라우팅)**으로 이어진다면 `<a>` 태그 네비게이션을 사용한다.
+- 한 탭의 콘텐츠가 다른 탭과 **종속 관계**가 있으면 별도 컴포넌트를 검토한다.
+- 탭이 **8개 이상**이라면 필터·드롭다운이 더 적합하다.
+
+---
+
+## 종류
+
+| 클래스 조합 | 이름 | 설명 |
+|---|---|---|
+| `ds-tab line` | 라인형 | 활성 탭에 하단 밑줄 인디케이터 표시 |
+| `ds-tab line full` | 라인형 전체 너비 | 탭이 가로를 균등하게 채움 |
+| `ds-tab fill` | 박스형 | 활성 탭을 채워진 박스로 표현 |
+| `ds-tab fill full` | 박스형 전체 너비 | 탭이 가로를 채우는 분절 그룹 형태 |
+
+---
+
+## HTML 구조
+
+```html
+<div class="ds-tab-wrap">
+
+  <!-- 탭 리스트 -->
+  <div class="ds-tab [line|fill] [full]">
+    <ul role="tablist" aria-label="탭 이름">
+      <li id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1" class="active">
+        <button type="button" class="ds-tab-btn">
+          탭 1 <i class="sr-only created"> 선택됨</i>
+        </button>
+      </li>
+      <li id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2">
+        <button type="button" class="ds-tab-btn">탭 2</button>
+      </li>
+      <!-- 비활성화 탭 -->
+      <li id="tab-3" role="tab" aria-selected="false" aria-controls="panel-3" aria-disabled="true">
+        <button type="button" class="ds-tab-btn" disabled>탭 3</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 탭 패널 -->
+  <div class="ds-tab-panel-wrap">
+    <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
+             class="ds-tab-panel active" tabindex="0">
+      <h3 class="sr-only">탭 1 영역</h3>
+      탭 1 콘텐츠
+    </section>
+    <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
+             class="ds-tab-panel" tabindex="0">
+      <h3 class="sr-only">탭 2 영역</h3>
+      탭 2 콘텐츠
+    </section>
+  </div>
+
+</div>
+```
+
+| 클래스 / 속성 | 설명 |
+|---|---|
+| `ds-tab-wrap` | 탭 전체 래퍼 |
+| `ds-tab line` | 라인형 |
+| `ds-tab fill` | 박스형 |
+| `ds-tab full` | 전체 너비 변형 (`line`, `fill`과 조합) |
+| `li.active` | 현재 선택된 탭 (`<li>`에 부여) |
+| `ds-tab-panel.active` | 보이는 탭 패널 |
+| `aria-selected="true"` | 활성 탭 표시 (JS로 갱신) |
+| `aria-controls` | `<li>`와 `<section>` ID 연결 |
+| `aria-labelledby` | `<section>`과 `<li>` ID 역방향 연결 |
+| `aria-disabled="true"` + `[disabled]` | 비활성화 탭 |
+| `.sr-only.created` | "선택됨" 스크린리더 텍스트 (활성 탭에만) |
+
+---
+
+## Playground
+
+<Canvas of={TabStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 라인형
+
+<Canvas of={TabStories.라인형} />
+
+### 라인형 전체 너비
+
+<Canvas of={TabStories.라인형전체너비} />
+
+### 박스형
+
+<Canvas of={TabStories.박스형} />
+
+### 박스형 전체 너비
+
+<Canvas of={TabStories.박스형전체너비} />
+
+### 비활성화 탭
+
+<Canvas of={TabStories.비활성화탭} />
+
+```html
+<li id="tab-2" role="tab" aria-selected="false"
+    aria-controls="panel-2" aria-disabled="true">
+  <button type="button" class="ds-tab-btn" disabled>비활성화</button>
+</li>
+```
+
+> 비활성화 탭은 `aria-disabled="true"` + `[disabled]`를 함께 사용합니다.  
+> 방향키 탐색에서도 자동으로 건너뜁니다.
+
+### 전체 변형
+
+<Canvas of={TabStories.전체변형} />
+
+---
+
+## 접근성
+
+### ARIA 역할
+
+| 요소 | role | 설명 |
+|---|---|---|
+| `<ul>` | `tablist` | 탭 버튼 그룹 |
+| `<li>` | `tab` | 개별 탭 버튼 |
+| `<section>` | `tabpanel` | 탭 패널 |
+
+### 키보드 동작
+
+| 키 | 동작 |
+|---|---|
+| `Tab` | 탭 리스트 진입 / 패널로 이동 |
+| `←` / `↑` | 이전 탭으로 이동 및 활성화 |
+| `→` / `↓` | 다음 탭으로 이동 및 활성화 |
+| `Home` | 첫 번째 탭으로 이동 |
+| `End` | 마지막 탭으로 이동 |
+
+### 구현 원칙
+
+- 활성 탭 `<li>`에 `aria-selected="true"`, 나머지는 `"false"`.
+- 활성 탭 버튼 내부에 `<i class="sr-only created"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
+- `<ul role="tablist">`에 `aria-label`로 탭 그룹의 목적을 설명한다.
+- `<section role="tabpanel">`에 `tabindex="0"`을 부여해 패널 자체가 포커스를 받을 수 있게 한다.
+- 비활성화 탭은 방향키 탐색에서 제외하고, `aria-disabled="true"` + `disabled` 속성을 함께 적용한다.
+- 탭 전환 시 `aria-selected`, `.active` 클래스, 패널 표시를 JS로 동기화한다.

@@ -1,0 +1,220 @@
+/* =============================================
+   KRDS Badge Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-badge {
+  --ds-badge--size-height: var(--krds-size-height-4);
+  --ds-badge--line-height: 2.4rem;
+  --ds-badge--padding: var(--krds-padding-3);
+  --ds-badge--radius: var(--krds-radius-small2);
+  --ds-badge--radius-max: var(--krds-radius-max);
+  --ds-badge--dot-size: .6rem;
+  --ds-badge--dot-padding: 0;
+  --ds-badge--number-size-height: var(--krds-size-height-3);
+  --ds-badge--pc-font-size: var(--krds-pc-font-size-label-small);
+  --ds-badge--mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --ds-badge--pc-font-size-large: var(--krds-pc-font-size-label-medium);
+  --ds-badge--mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
+  --ds-badge--size-height-large: var(--krds-size-height-5);
+
+  --ds-badge--color-primary-element: var(--krds-light-color-element-primary);
+  --ds-badge--color-primary-element-lighter: var(--krds-light-color-element-primary-lighter);
+  --ds-badge--color-primary-text: var(--krds-light-color-text-primary);
+  --ds-badge--color-secondary-element: var(--krds-light-color-element-secondary);
+  --ds-badge--color-secondary-element-lighter: var(--krds-light-color-element-secondary-lighter);
+  --ds-badge--color-secondary-text: var(--krds-light-color-text-secondary);
+  --ds-badge--color-gray-element: var(--krds-light-color-element-gray);
+  --ds-badge--color-gray-element-lighter: var(--krds-light-color-element-gray-light);
+  --ds-badge--color-gray-text: var(--krds-light-color-text-subtle);
+  --ds-badge--color-point-element: var(--krds-light-color-element-point);
+  --ds-badge--color-point-element-lighter: var(--krds-light-color-element-point-lighter);
+  --ds-badge--color-point-text: var(--krds-light-color-text-point);
+  --ds-badge--color-danger-element: var(--krds-light-color-element-danger);
+  --ds-badge--color-danger-element-lighter: var(--krds-light-color-element-danger-lighter);
+  --ds-badge--color-danger-text: var(--krds-light-color-text-danger);
+  --ds-badge--color-warning-element: var(--krds-light-color-element-warning);
+  --ds-badge--color-warning-element-lighter: var(--krds-light-color-element-warning-lighter);
+  --ds-badge--color-warning-text: var(--krds-light-color-text-warning);
+  --ds-badge--color-success-element: var(--krds-light-color-element-success);
+  --ds-badge--color-success-element-lighter: var(--krds-light-color-element-success-lighter);
+  --ds-badge--color-success-text: var(--krds-light-color-text-success);
+  --ds-badge--color-information-element: var(--krds-light-color-element-information);
+  --ds-badge--color-information-element-lighter: var(--krds-light-color-element-information-lighter);
+  --ds-badge--color-information-text: var(--krds-light-color-text-information);
+  --ds-badge--color-disabled-element: var(--krds-light-color-element-disabled-dark);
+  --ds-badge--color-disabled-element-lighter: var(--krds-light-color-element-disabled-light);
+  --ds-badge--color-disabled-text: var(--krds-light-color-text-disabled-on);
+  --ds-badge--color-text-basic: var(--krds-light-color-text-inverse-static);
+  --ds-badge--color-text-warning: var(--krds-light-color-text-static);
+}
+
+/* ----- 기본 스타일 ----- */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--ds-badge--size-height);
+  line-height: var(--ds-badge--line-height);
+  font-size: var(--ds-badge--pc-font-size);
+  font-weight: var(--krds-font-weight-regular);
+  padding: 0 var(--ds-badge--padding);
+  border-radius: var(--ds-badge--radius);
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .ds-badge {
+    font-size: var(--ds-badge--mobile-font-size);
+  }
+}
+
+/* ----- 크기 ----- */
+.ds-badge.large {
+  height: var(--ds-badge--size-height-large);
+  font-size: var(--ds-badge--pc-font-size-large);
+}
+@media (max-width: 767px) {
+  .ds-badge.large {
+    font-size: var(--ds-badge--mobile-font-size-large);
+  }
+}
+
+/* 숫자 배지 */
+.ds-badge.number {
+  height: var(--ds-badge--number-size-height);
+  border-radius: var(--ds-badge--radius-max);
+  min-width: var(--ds-badge--number-size-height);
+  padding: 0 var(--ds-badge--padding);
+}
+
+/* 점 배지 */
+.ds-badge.dot {
+  width: var(--ds-badge--dot-size);
+  height: var(--ds-badge--dot-size);
+  padding: var(--ds-badge--dot-padding);
+  border-radius: var(--ds-badge--radius-max);
+}
+
+/* ----- 색상 variant — outline ----- */
+.ds-badge.outline-primary {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-primary-element);
+  color: var(--ds-badge--color-primary-text);
+}
+.ds-badge.outline-secondary {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-secondary-element);
+  color: var(--ds-badge--color-secondary-text);
+}
+.ds-badge.outline-gray {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-gray-element);
+  color: var(--ds-badge--color-gray-text);
+}
+.ds-badge.outline-point {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-point-element);
+  color: var(--ds-badge--color-point-text);
+}
+.ds-badge.outline-danger {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-danger-element);
+  color: var(--ds-badge--color-danger-text);
+}
+.ds-badge.outline-warning {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-warning-element);
+  color: var(--ds-badge--color-warning-text);
+}
+.ds-badge.outline-success {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-success-element);
+  color: var(--ds-badge--color-success-text);
+}
+.ds-badge.outline-information {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-information-element);
+  color: var(--ds-badge--color-information-text);
+}
+.ds-badge.outline-disabled {
+  border: var(--krds-light-border-width-variable-regular) solid var(--ds-badge--color-disabled-element);
+  color: var(--ds-badge--color-disabled-text);
+}
+
+/* ----- 색상 variant — bg (채우기) ----- */
+.ds-badge.bg-primary {
+  background-color: var(--ds-badge--color-primary-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-secondary {
+  background-color: var(--ds-badge--color-secondary-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-gray {
+  background-color: var(--ds-badge--color-gray-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-point {
+  background-color: var(--ds-badge--color-point-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-danger {
+  background-color: var(--ds-badge--color-danger-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-warning {
+  background-color: var(--ds-badge--color-warning-element);
+  color: var(--ds-badge--color-text-warning); /* warning은 어두운 텍스트 */
+}
+.ds-badge.bg-success {
+  background-color: var(--ds-badge--color-success-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-information {
+  background-color: var(--ds-badge--color-information-element);
+  color: var(--ds-badge--color-text-basic);
+}
+.ds-badge.bg-disabled {
+  background-color: var(--ds-badge--color-disabled-element);
+  color: var(--ds-badge--color-text-basic);
+}
+
+/* ----- 색상 variant — bg-light (밝은 배경) ----- */
+.ds-badge.bg-light-primary {
+  background-color: var(--ds-badge--color-primary-element-lighter);
+  color: var(--ds-badge--color-primary-text);
+}
+.ds-badge.bg-light-secondary {
+  background-color: var(--ds-badge--color-secondary-element-lighter);
+  color: var(--ds-badge--color-secondary-text);
+}
+.ds-badge.bg-light-gray {
+  background-color: var(--ds-badge--color-gray-element-lighter);
+  color: var(--ds-badge--color-gray-text);
+}
+.ds-badge.bg-light-point {
+  background-color: var(--ds-badge--color-point-element-lighter);
+  color: var(--ds-badge--color-point-text);
+}
+.ds-badge.bg-light-danger {
+  background-color: var(--ds-badge--color-danger-element-lighter);
+  color: var(--ds-badge--color-danger-text);
+}
+.ds-badge.bg-light-warning {
+  background-color: var(--ds-badge--color-warning-element-lighter);
+  color: var(--ds-badge--color-warning-text);
+}
+.ds-badge.bg-light-success {
+  background-color: var(--ds-badge--color-success-element-lighter);
+  color: var(--ds-badge--color-success-text);
+}
+.ds-badge.bg-light-information {
+  background-color: var(--ds-badge--color-information-element-lighter);
+  color: var(--ds-badge--color-information-text);
+}
+.ds-badge.bg-light-disabled {
+  background-color: var(--ds-badge--color-disabled-element-lighter);
+  color: var(--ds-badge--color-disabled-text);
+}
+
+/* ----- Wrap ----- */
+.ds-badge-wrap {
+  --ds-badge--wrap-gap: var(--krds-gap-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-badge--wrap-gap);
+}

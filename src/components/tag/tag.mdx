@@ -1,0 +1,112 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TagStories from './tag.stories.js';
+
+<Meta of={TagStories} />
+
+# 태그 (Tag)
+
+선택된 필터·키워드를 칩 형태로 표시하고 삭제할 수 있는 요소입니다.  
+필터 목록, 검색 조건, 선택된 항목 등 **사용자가 선택한 값을 시각적으로 확인하고 제거**할 때 사용합니다.
+
+---
+
+## 언제 사용하는지
+
+- 검색·필터에서 **선택된 조건을 태그로 표시**하고 개별 삭제가 필요할 때
+- 여러 키워드·카테고리를 가로로 나열해 표시할 때
+- 클릭 가능한 분류 링크(링크 태그)를 나열할 때
+
+## 사용하지 말아야 할 때
+
+- 단순 상태·카테고리 표시에는 배지(Badge) 컴포넌트를 사용한다.
+- 체크박스/라디오 형식의 선택 칩에는 Form Chip 컴포넌트를 사용한다.
+
+---
+
+## HTML 구조
+
+### 삭제 가능한 태그
+
+```html
+<div class="ds-tag-wrap medium">
+  <span class="ds-tag">
+    공지사항
+    <button type="button" class="btn-delete">
+      <span class="sr-only">공지사항 삭제</span>
+    </button>
+  </span>
+  <span class="ds-tag">
+    이벤트
+    <button type="button" class="btn-delete">
+      <span class="sr-only">이벤트 삭제</span>
+    </button>
+  </span>
+</div>
+```
+
+### 링크 태그
+
+```html
+<div class="ds-tag-wrap medium">
+  <a href="#" class="ds-tag link">디자인 시스템</a>
+  <a href="#" class="ds-tag link">접근성</a>
+  <a href="#" class="ds-tag link">KRDS</a>
+</div>
+```
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-tag-wrap` | 태그 목록 컨테이너 (기본: medium 간격) |
+| `ds-tag-wrap.small` | Small 크기 태그 그룹 |
+| `ds-tag-wrap.medium` | Medium 크기 태그 그룹 |
+| `ds-tag-wrap.large` | Large 크기 태그 그룹 |
+| `ds-tag` | 태그 항목 |
+| `ds-tag.link` | 링크 스타일 태그 (`hover` 시 밑줄) |
+| `btn-delete` | 태그 내 삭제 버튼 (× 아이콘) |
+
+### 크기 비교
+
+| 크기 | 높이 | 패딩 | 폰트 |
+|---|---|---|---|
+| `small` | `--krds-size-height-4` | `--krds-padding-3` | label-xsmall |
+| `medium` | `--krds-size-height-5` | `--krds-padding-4` | label-small |
+| `large` | `--krds-size-height-6` | `--krds-padding-5` | label-medium |
+
+---
+
+## Playground
+
+<Canvas of={TagStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 크기
+
+<Canvas of={TagStories.크기} />
+
+### 필터 선택 태그
+
+<Canvas of={TagStories.필터태그} />
+
+### 링크 태그
+
+<Canvas of={TagStories.링크태그} />
+
+### 전체 변형
+
+<Canvas of={TagStories.전체변형} />
+
+---
+
+## 접근성
+
+- 삭제 버튼(`.btn-delete`)에는 `<span class="sr-only">태그명 삭제</span>`를 반드시 포함해 스크린리더가 어떤 태그를 삭제하는지 알 수 있도록 한다.
+- 링크 태그(`<a class="ds-tag link">`)는 실제 이동 경로(`href`)를 제공한다.
+- 태그 삭제 후 포커스가 자연스럽게 다음 태그 또는 컨테이너로 이동하도록 JS에서 관리한다.
+- `.ds-tag-wrap`에 `aria-label="선택된 필터"` 등을 추가하면 보조기기 사용자가 맥락을 파악하기 쉽다.

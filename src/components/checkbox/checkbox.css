@@ -1,0 +1,337 @@
+/* =============================================
+   KRDS Check — 체크박스 / 라디오 공통 스타일
+   출처: reference/krds/resources/css/component/component.css
+   의존: form-group.css (공유 폼 레이아웃)
+   라디오 컴포넌트도 이 파일을 함께 사용한다.
+   ============================================= */
+
+/* ----- fieldset 초기화 (form-group으로 사용 시) ----- */
+fieldset.ds-form-group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+fieldset.ds-form-group > legend.ds-form-label {
+  float: left;
+  width: 100%;
+  padding: 0;
+  color: var(--krds-light-color-text-subtle);
+}
+fieldset.ds-form-group > legend.ds-form-label > span {
+  font-size: var(--ds-form-group--label-pc-font-size);
+  font-weight: var(--krds-font-weight-regular);
+}
+@media (max-width: 767px) {
+  fieldset.ds-form-group > legend.ds-form-label > span {
+    font-size: var(--ds-form-group--label-mobile-font-size);
+  }
+}
+fieldset.ds-form-group > legend.ds-form-label + * {
+  clear: left;
+}
+
+/* ----- 실제 input 시각적 숨김 (포커스·키보드는 유지) ----- */
+.ds-check-item input[type=radio],
+.ds-check-item input[type=checkbox] {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ----- Check Area ----- */
+.ds-check-group {
+  display: flex;
+  gap: var(--krds-gap-6);
+}
+.ds-check-group--column {
+  flex-direction: column;
+}
+
+/* ----- CSS 변수 ----- */
+.ds-check-item {
+  --ds-check--color-text: var(--krds-light-color-text-bolder);
+  --ds-check--color-text-disabled: var(--krds-light-color-text-disabled);
+  --ds-check--color-text-sub: var(--krds-light-color-text-subtle);
+  --ds-check--color-text-sub-disabled: var(--krds-light-color-text-disabled);
+  --ds-check--button-color-element: var(--krds-light-color-element-inverse);
+  --ds-check--button-color-element-disabled: var(--krds-light-color-element-disabled-light);
+  --ds-check--button-color-border: var(--krds-light-color-element-gray-dark);
+  --ds-check--button-color-border-checked: var(--krds-light-color-element-primary);
+  --ds-check--button-color-border-disabled: var(--krds-light-color-element-disabled-dark);
+  --ds-check--checkbox-button-color-element-checked: var(--krds-light-color-element-primary);
+  --ds-check--radio-check-color-element: var(--krds-light-alpha-black0);
+  --ds-check--radio-check-color-element-checked: var(--krds-light-color-element-primary);
+  --ds-check--radio-check-color-element-disabled: var(--krds-light-color-element-disabled-dark);
+  --ds-check--checkbox-check-color-element: var(--krds-light-alpha-black0);
+  --ds-check--checkbox-check-color-element-checked: var(--krds-light-color-element-inverse-static);
+  --ds-check--checkbox-check-color-element-disabled: var(--krds-light-color-element-disabled-dark);
+  --ds-check--additional-text-color-text: var(--krds-light-color-text-subtle);
+  --ds-check--button-size-medium: var(--krds-size-height-3);
+  --ds-check--radio-check-size-medium: 1rem;
+  --ds-check--checkbox-check-size-medium: 1.2rem;
+  --ds-check--radio-button-radius-medium: var(--krds-radius-max);
+  --ds-check--checkbox-button-radius-medium: var(--krds-radius-small1);
+  --ds-check--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
+  --ds-check--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --ds-check--additional-text-pc-font-size-medium: var(--krds-pc-font-size-label-small);
+  --ds-check--additional-text-mobile-font-size-medium: var(--krds-mobile-font-size-label-small);
+  --ds-check--button-size-large: var(--krds-size-height-4);
+  --ds-check--radio-check-size-large: 1.2rem;
+  --ds-check--checkbox-check-size-large: var(--krds-size-height-2);
+  --ds-check--radio-button-radius-large: var(--krds-radius-max);
+  --ds-check--checkbox-button-radius-large: var(--krds-radius-small2);
+  --ds-check--pc-font-size-large: var(--krds-pc-font-size-label-large);
+  --ds-check--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+  --ds-check--additional-text-pc-font-size-large: var(--krds-pc-font-size-label-medium);
+  --ds-check--additional-text-mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
+  --ds-check--gap: var(--krds-gap-3);
+  --ds-check--button-margin-top: 0.3rem;
+}
+
+/* ----- Label (기본 = medium 크기) ----- */
+.ds-check-item input[type=radio] ~ label,
+.ds-check-item input[type=checkbox] ~ label {
+  position: relative;
+  display: inline-flex;
+  gap: var(--ds-check--gap);
+  font-size: var(--ds-check--pc-font-size-medium);
+  color: var(--ds-check--color-text);
+  cursor: pointer;
+  align-items: flex-start;
+}
+@media (max-width: 767px) {
+  .ds-check-item input[type=radio] ~ label,
+  .ds-check-item input[type=checkbox] ~ label {
+    font-size: var(--ds-check--mobile-font-size-medium);
+  }
+}
+
+/* :before = 버튼 박스, :after = 체크마크 / 라디오 점 */
+.ds-check-item input[type=radio] ~ label:before,
+.ds-check-item input[type=radio] ~ label:after,
+.ds-check-item input[type=checkbox] ~ label:before,
+.ds-check-item input[type=checkbox] ~ label:after {
+  display: flex;
+  content: "";
+  transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
+}
+
+.ds-check-item input[type=radio] ~ label:before,
+.ds-check-item input[type=checkbox] ~ label:before {
+  flex-shrink: 0;
+  width: var(--ds-check--button-size-medium);
+  height: var(--ds-check--button-size-medium);
+  margin-top: var(--ds-check--button-margin-top);
+  z-index: 3;
+  background-color: var(--ds-check--button-color-element);
+  border: 0.1rem solid var(--ds-check--button-color-border);
+}
+
+.ds-check-item input[type=radio] ~ label:after,
+.ds-check-item input[type=checkbox] ~ label:after {
+  position: absolute;
+  z-index: 4;
+}
+
+/* ----- 비활성화 ----- */
+.ds-check-item input[type=radio]:disabled ~ label,
+.ds-check-item input[type=checkbox]:disabled ~ label {
+  color: var(--ds-check--color-text-sub-disabled);
+  cursor: default;
+}
+.ds-check-item input[type=radio]:disabled ~ label:before,
+.ds-check-item input[type=checkbox]:disabled ~ label:before {
+  background-color: var(--ds-check--button-color-element-disabled) !important;
+  border-color: var(--ds-check--button-color-border-disabled) !important;
+}
+
+/* ----- 포커스 ----- */
+.ds-check-item input[type=radio]:focus-visible ~ label:before,
+.ds-check-item input[type=checkbox]:focus-visible ~ label:before {
+  outline: 2px solid var(--krds-light-color-element-primary);
+  outline-offset: 0.2rem;
+}
+
+/* ----- 에러 상태 (.ds-form-content--error 하위) ----- */
+.ds-form-content--error .ds-check-item input[type=checkbox] ~ label:before,
+.ds-form-content--error .ds-check-item input[type=radio] ~ label:before {
+  border-color: var(--krds-light-color-input-border-error);
+  border-width: 0.2rem;
+}
+
+/* ─────────────────────────────────────────────
+   라디오 버튼
+   ───────────────────────────────────────────── */
+
+.ds-check-item input[type=radio] ~ label:before {
+  border-radius: var(--ds-check--radio-button-radius-medium);
+}
+.ds-check-item input[type=radio] ~ label:after {
+  top: calc((var(--ds-check--button-size-medium) - var(--ds-check--radio-check-size-medium)) / 2 + var(--ds-check--button-margin-top));
+  left: calc((var(--ds-check--button-size-medium) - var(--ds-check--radio-check-size-medium)) / 2);
+  width: var(--ds-check--radio-check-size-medium);
+  height: var(--ds-check--radio-check-size-medium);
+  background-color: var(--ds-check--radio-check-color-element);
+  border-radius: var(--krds-radius-max);
+}
+.ds-check-item input[type=radio]:checked ~ label:before {
+  border-color: var(--ds-check--button-color-border-checked);
+}
+.ds-check-item input[type=radio]:checked ~ label:after {
+  background-color: var(--ds-check--radio-check-color-element-checked);
+}
+.ds-check-item input[type=radio]:checked:disabled ~ label:after {
+  background-color: var(--ds-check--radio-check-color-element-disabled);
+}
+
+/* Large 라디오 */
+.ds-check-item--large > input[type=radio] ~ label:before {
+  border-radius: var(--ds-check--radio-button-radius-large);
+  width: var(--ds-check--button-size-large);
+  height: var(--ds-check--button-size-large);
+}
+.ds-check-item--large > input[type=radio] ~ label:after {
+  top: calc((var(--ds-check--button-size-large) - var(--ds-check--radio-check-size-large)) / 2 + var(--ds-check--button-margin-top));
+  left: calc((var(--ds-check--button-size-large) - var(--ds-check--radio-check-size-large)) / 2);
+  width: var(--ds-check--radio-check-size-large);
+  height: var(--ds-check--radio-check-size-large);
+}
+
+/* ─────────────────────────────────────────────
+   체크박스
+   ───────────────────────────────────────────── */
+
+.ds-check-item input[type=checkbox] ~ label:before {
+  border-radius: var(--ds-check--checkbox-button-radius-medium);
+}
+.ds-check-item input[type=checkbox] ~ label:after {
+  top: calc((var(--ds-check--button-size-medium) - var(--ds-check--checkbox-check-size-medium)) / 2 + var(--ds-check--button-margin-top));
+  left: calc((var(--ds-check--button-size-medium) - var(--ds-check--checkbox-check-size-medium)) / 2);
+  display: inline-flex;
+  width: var(--ds-check--checkbox-check-size-medium);
+  height: var(--ds-check--checkbox-check-size-medium);
+  forced-color-adjust: none;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
+  mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
+  background-color: var(--ds-check--checkbox-check-color-element);
+}
+.ds-check-item input[type=checkbox]:checked ~ label:before {
+  background-color: var(--ds-check--checkbox-button-color-element-checked);
+  border-color: var(--ds-check--button-color-border-checked);
+}
+.ds-check-item input[type=checkbox]:checked ~ label:after {
+  background-color: var(--ds-check--checkbox-check-color-element-checked);
+  transition-delay: 0.1s;
+}
+.ds-check-item input[type=checkbox]:checked:disabled ~ label:after {
+  background-color: var(--ds-check--checkbox-check-color-element-disabled);
+}
+
+/* indeterminate — CSS 가로 막대로 표현 */
+.ds-check-item input[type=checkbox]:indeterminate ~ label:before {
+  background-color: var(--ds-check--checkbox-button-color-element-checked);
+  border-color: var(--ds-check--button-color-border-checked);
+}
+.ds-check-item input[type=checkbox]:indeterminate ~ label:after {
+  -webkit-mask: none;
+  mask: none;
+  background-color: var(--ds-check--checkbox-check-color-element-checked);
+  top: calc(var(--ds-check--button-size-medium) / 2 - 0.1rem + var(--ds-check--button-margin-top));
+  left: calc((var(--ds-check--button-size-medium) - var(--ds-check--checkbox-check-size-medium)) / 2);
+  width: var(--ds-check--checkbox-check-size-medium);
+  height: 0.2rem;
+  border-radius: 0.1rem;
+}
+
+/* Large 체크박스 */
+.ds-check-item--large > input[type=checkbox] ~ label:before {
+  border-radius: var(--ds-check--checkbox-button-radius-large);
+  width: var(--ds-check--button-size-large);
+  height: var(--ds-check--button-size-large);
+}
+.ds-check-item--large > input[type=checkbox] ~ label:after {
+  top: calc((var(--ds-check--button-size-large) - var(--ds-check--checkbox-check-size-large)) / 2 + var(--ds-check--button-margin-top));
+  left: calc((var(--ds-check--button-size-large) - var(--ds-check--checkbox-check-size-large)) / 2);
+  width: var(--ds-check--checkbox-check-size-large);
+  height: var(--ds-check--checkbox-check-size-large);
+}
+.ds-check-item--large > input[type=checkbox]:indeterminate ~ label:after {
+  -webkit-mask: none;
+  mask: none;
+  top: calc(var(--ds-check--button-size-large) / 2 - 0.1rem + var(--ds-check--button-margin-top));
+  width: var(--ds-check--checkbox-check-size-large);
+  height: 0.2rem;
+}
+
+/* ─────────────────────────────────────────────
+   크기 공통 (label 폰트·간격)
+   ───────────────────────────────────────────── */
+
+.ds-check-item--medium > input[type=radio] ~ label,
+.ds-check-item--medium > input[type=checkbox] ~ label {
+  font-size: var(--ds-check--pc-font-size-medium);
+  gap: var(--ds-check--gap);
+}
+@media (max-width: 767px) {
+  .ds-check-item--medium > input[type=radio] ~ label,
+  .ds-check-item--medium > input[type=checkbox] ~ label {
+    font-size: var(--ds-check--mobile-font-size-medium);
+  }
+}
+
+.ds-check-item--large > input[type=radio] ~ label,
+.ds-check-item--large > input[type=checkbox] ~ label {
+  font-size: var(--ds-check--pc-font-size-large);
+  gap: var(--ds-check--gap);
+}
+@media (max-width: 767px) {
+  .ds-check-item--large > input[type=radio] ~ label,
+  .ds-check-item--large > input[type=checkbox] ~ label {
+    font-size: var(--ds-check--mobile-font-size-large);
+  }
+}
+
+/* 크기별 label:before 크기 */
+.ds-check-item--medium > input[type=radio] ~ label:before,
+.ds-check-item--medium > input[type=checkbox] ~ label:before {
+  width: var(--ds-check--button-size-medium);
+  height: var(--ds-check--button-size-medium);
+}
+.ds-check-item--large > input[type=radio] ~ label:before,
+.ds-check-item--large > input[type=checkbox] ~ label:before {
+  width: var(--ds-check--button-size-large);
+  height: var(--ds-check--button-size-large);
+}
+
+/* 크기별 check-item__desc 들여쓰기 */
+.ds-check-item--medium > input ~ label + .ds-check-item__desc {
+  padding-left: calc(var(--ds-check--button-size-medium) + var(--ds-check--gap));
+}
+.ds-check-item--large > input ~ label + .ds-check-item__desc {
+  padding-left: calc(var(--ds-check--button-size-large) + var(--ds-check--gap));
+}
+
+/* ----- 추가 텍스트 ----- */
+.ds-check-item .ds-check-item__desc {
+  margin-top: var(--krds-padding-2);
+}
+.ds-check-item .ds-check-item__desc .ds-check-item__text {
+  color: var(--ds-check--additional-text-color-text);
+  font-size: var(--ds-check--additional-text-pc-font-size-medium);
+}
+.ds-check-item--large .ds-check-item__desc .ds-check-item__text {
+  font-size: var(--ds-check--additional-text-pc-font-size-large);
+}

@@ -1,0 +1,328 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TextInputStories from './text-input.stories.js';
+import { textInputNaming } from '../../docs/naming-data.js';
+
+export const UNCONFIRMED = (
+  <span style={{ color: '#c97a00', fontWeight: 600, fontSize: '0.8em', marginLeft: '0.4em' }}>
+    확인 필요
+  </span>
+);
+
+export const ElementTable = ({ elements }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>요소</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {elements.map((el, i) => (
+        <tr key={i}>
+          <td>{el.element}</td>
+          <td><code>{el.class}</code>{!el.confirmed && UNCONFIRMED}</td>
+          <td>{el.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+export const ModifierTable = ({ modifiers }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>분류</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {modifiers.map((mod, i) => (
+        <tr key={i}>
+          <td>{mod.category}</td>
+          <td><code>{mod.class}</code>{!mod.confirmed && UNCONFIRMED}</td>
+          <td>{mod.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<Meta of={TextInputStories} />
+
+# 텍스트 입력 (Text Input)
+
+사용자가 텍스트를 직접 입력하는 폼 요소입니다.  
+라벨·도움말·에러 메시지를 포함한 `ds-form-group` 구조는 체크박스·라디오·셀렉트 등 **모든 폼 요소에서 공통으로 재사용**합니다.
+
+---
+
+## 네이밍
+
+> 클래스명은 `reference/krds` 실제 코드를 기준으로 합니다.  
+> 추측 클래스명은 <span style={{ color: '#c97a00', fontWeight: 600 }}>확인 필요</span>로 표시합니다.
+
+### 구조도
+
+<pre><code>{textInputNaming.structure}</code></pre>
+
+### 클래스명 표
+
+<ElementTable elements={textInputNaming.elements} />
+
+### 변형(modifier) 표
+
+<ModifierTable modifiers={textInputNaming.modifiers} />
+
+### 코드 예시
+
+<pre><code>{textInputNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 이름, 주소, 이메일 등 **자유 텍스트 입력**이 필요할 때
+- 선택지가 아닌 사용자 고유값을 받아야 할 때
+- 비밀번호, 검색어, 전화번호 등 특정 입력 형식이 필요할 때
+
+---
+
+## 사용하지 말아야 할 때
+
+- 선택지가 명확히 정해져 있다면 셀렉트 또는 라디오 버튼을 사용한다.
+- 긴 서술형 입력에는 Textarea를 사용한다.
+- 날짜 선택에는 Date Input 컴포넌트를 사용한다.
+
+---
+
+## HTML 구조
+
+```html
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="id">레이블 <span class="ds-form-label__required" aria-hidden="true">필수</span></label>
+  </div>
+  <div class="ds-form-content [ds-form-content--error|ds-form-content--success|ds-form-content--info]">
+    <input type="text" id="id" class="ds-input [ds-input--small|ds-input--medium]"
+           placeholder="..." [disabled] [readonly]>
+  </div>
+  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error|ds-form-hint ds-form-hint--success|ds-form-hint ds-form-hint--info]">메시지</p>
+</div>
+```
+
+> 클래스명 목록은 위 **네이밍** 섹션을 참고한다.
+
+---
+
+## Playground
+
+<Canvas of={TextInputStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 기본
+
+<Canvas of={TextInputStories.기본} />
+
+```html
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="name">이름</label>
+  </div>
+  <div class="ds-form-content">
+    <input type="text" id="name" class="ds-input" placeholder="이름을 입력하세요">
+  </div>
+  <p class="ds-form-hint">실명으로 입력해 주세요.</p>
+</div>
+```
+
+### 크기
+
+<Canvas of={TextInputStories.크기} />
+
+```html
+<input type="text" class="ds-input ds-input--small" placeholder="Small">
+<input type="text" class="ds-input ds-input--medium" placeholder="Medium">
+<input type="text" class="ds-input" placeholder="Large (기본)">
+```
+
+### 상태
+
+<Canvas of={TextInputStories.상태} />
+
+```html
+<!-- 비활성화 -->
+<input type="text" class="ds-input" disabled>
+
+<!-- 읽기 전용 -->
+<input type="text" class="ds-input" readonly>
+
+<!-- 에러 -->
+<div class="ds-form-content ds-form-content--error">
+  <input type="text" class="ds-input">
+</div>
+<p class="ds-form-hint ds-form-hint--error">입력값을 확인해 주세요.</p>
+
+<!-- 성공 -->
+<div class="ds-form-content ds-form-content--success">
+  <input type="text" class="ds-input">
+</div>
+<p class="ds-form-hint ds-form-hint--success">사용 가능한 아이디입니다.</p>
+```
+
+### Password (보기/숨기기)
+
+<Canvas of={TextInputStories.Password} />
+
+```html
+<div class="ds-form-content btn-ico-wrap" data-delete="true">
+  <input type="password" class="ds-input" placeholder="비밀번호 입력">
+  <div class="btn-group">
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input">
+      <span class="sr-only">내용 삭제</span>
+      <i class="ds-icon ds-ico-delete-fill"></i>
+    </button>
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon">
+      <span class="sr-only">입력한 비밀번호 보기</span>
+      <i class="ds-icon ds-ico-pw-visible"></i>
+    </button>
+  </div>
+</div>
+```
+
+> `data-delete="true"`를 설정하면 값이 있을 때 삭제 버튼이 CSS만으로 자동 표시됩니다.  
+> 보기/숨기기 전환은 JS로 `input.type`을 `'password'` ↔ `'text'`로 변경합니다.
+
+### 검색
+
+<Canvas of={TextInputStories.Search} />
+
+```html
+<div class="ds-form-content btn-ico-wrap" data-delete="true">
+  <input type="search" class="ds-input" placeholder="검색어를 입력하세요">
+  <div class="btn-group">
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure btn-delete-input">
+      <span class="sr-only">내용 삭제</span>
+      <i class="ds-icon ds-ico-delete-fill"></i>
+    </button>
+    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon">
+      <span class="sr-only">검색</span>
+      <i class="ds-icon ds-ico-sch"></i>
+    </button>
+  </div>
+</div>
+```
+
+### 글자 수 표시
+
+<Canvas of={TextInputStories.글자수표시} />
+
+```html
+<div class="ds-form-content">
+  <input type="text" class="ds-input" maxlength="20"
+         oninput="document.getElementById('count-current').textContent = this.value.length">
+  <p class="ds-count">
+    <span class="ds-count__current" id="count-current">0</span>
+    <span class="ds-count__max">/ 20</span>
+  </p>
+</div>
+```
+
+### 전체 타입
+
+<Canvas of={TextInputStories.전체변형} />
+
+---
+
+## 텍스트에어리어 (Textarea)
+
+여러 줄의 자유 텍스트를 입력하는 폼 요소입니다.  
+`input.ds-input`과 동일한 `ds-form-group` 구조에 `ds-textarea` 블록을 추가해 사용합니다.
+
+### 언제 사용하는지
+
+- 주소, 문의 내용, 메모 등 **여러 줄 입력**이 필요할 때
+- 입력 길이가 한 줄로 예측되지 않을 때
+
+### HTML 구조
+
+```html
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="id">레이블</label>
+  </div>
+  <div class="ds-form-content">
+    <div class="ds-textarea">
+      <textarea id="id" class="ds-input" placeholder="..." maxlength="200"
+                oninput="this.closest('.ds-textarea').querySelector('.ds-count__current').textContent=this.value.length">
+      </textarea>
+      <!-- 글자 수만 있을 때 -->
+      <p class="ds-count">
+        <span class="ds-count__current" aria-live="polite">0</span>
+        <span class="ds-count__max">/ 200</span>
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+에러 상태에서 글자 수와 에러 메시지를 나란히 표시할 때는 `ds-textarea__bottom`을 사용합니다.
+
+```html
+<div class="ds-form-content ds-form-content--error">
+  <div class="ds-textarea">
+    <textarea class="ds-input" ...></textarea>
+    <div class="ds-textarea__bottom">
+      <p class="ds-form-hint ds-form-hint--error">내용을 입력해 주세요.</p>
+      <p class="ds-count">
+        <span class="ds-count__current" aria-live="polite">0</span>
+        <span class="ds-count__max">/ 200</span>
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+> 클래스명 목록은 위 **네이밍** 섹션을 참고한다. `ds-form-content--error` 상태에서 `.ds-count__current`는 danger 컬러로 자동 전환된다.
+
+### Textarea Playground
+
+<Canvas of={TextInputStories.텍스트에어리어Playground} />
+
+### 텍스트에어리어 기본
+
+<Canvas of={TextInputStories.텍스트에어리어기본} />
+
+### 텍스트에어리어 상태
+
+<Canvas of={TextInputStories.텍스트에어리어상태} />
+
+---
+
+## 접근성
+
+- `<label>`의 `for` 속성과 `<input>`의 `id`를 반드시 연결한다.
+- 필수 입력은 `<input required>`와 시각적 표시(`.ds-form-label__required`) 모두 제공한다.
+- 에러 메시지는 `aria-describedby`로 연결하거나 포커스 이동으로 안내한다.
+- `disabled` 입력은 스크린리더에 "비활성화"로 읽히므로 안내 문구를 별도 제공하지 않아도 된다.
+- `readonly`는 `[readonly]` 속성으로, 포커스는 유지된다.
+
+---
+
+## ds-form-group 공유 구조
+
+`ds-form-group.css`는 텍스트 입력 외에도 아래 컴포넌트에서 동일하게 사용한다.
+
+| 컴포넌트 | 비고 |
+|---|---|
+| 체크박스 (Checkbox) | `ds-form-content` 내부 구조만 다름 |
+| 라디오 버튼 (Radio Button) | `ds-form-content` 내부 구조만 다름 |
+| 셀렉트 (Select) | `ds-form-content` 내부 구조만 다름 |
+| 텍스트 영역 (Textarea) | `ds-textarea` 블록 추가 |
+| 날짜 입력 (Date Input) | `calendar-conts` 추가 |
+| 파일 업로드 (File Upload) | 별도 레이아웃 |

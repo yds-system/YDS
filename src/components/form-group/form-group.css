@@ -1,0 +1,255 @@
+/* =============================================
+   KRDS Form Group — 공유 폼 레이아웃
+   체크박스·라디오·셀렉트 등 모든 폼 요소가 공통으로 사용한다.
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-form-group {
+  --ds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
+  --ds-form-group--label-mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --ds-form-group--gap: var(--krds-gap-3);
+  --ds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
+  --ds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
+  --ds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
+  --ds-form-group--message-text-color: var(--krds-light-color-text-subtle);
+  --ds-form-group--message-success-text-color: var(--krds-light-color-text-success);
+  --ds-form-group--message-information-text-color: var(--krds-light-color-text-information);
+  --ds-form-group--message-error-text-color: var(--krds-light-color-text-danger);
+}
+
+/* ----- fieldset ----- */
+.fieldset {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-gap-7);
+}
+
+/* ----- 가로 배치 그룹 ----- */
+.form-col-group {
+  display: flex;
+  gap: var(--krds-gap-5);
+}
+.form-col-group .ds-form-group {
+  width: fit-content;
+}
+@media (max-width: 767px) {
+  .form-col-group {
+    flex-direction: column;
+  }
+  .form-col-group .ds-form-group {
+    width: 100%;
+  }
+}
+
+/* ----- 폼 그룹 ----- */
+.ds-form-group {
+  display: flex;
+  align-items: normal;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--ds-form-group--gap);
+  width: 100%;
+}
+
+/* ----- 레이블 영역 ----- */
+.ds-form-group .ds-form-label,
+.ds-form-group .form-label {
+  width: 100%;
+  color: var(--krds-light-color-text-subtle);
+}
+.ds-form-group .ds-form-label label,
+.ds-form-group .form-label label {
+  font-size: var(--ds-form-group--label-pc-font-size);
+  font-weight: var(--krds-font-weight-regular);
+}
+@media (max-width: 767px) {
+  .ds-form-group .ds-form-label label,
+  .ds-form-group .form-label label {
+    font-size: var(--ds-form-group--label-mobile-font-size);
+  }
+}
+
+/* 필수 표시 */
+.ds-form-label .ds-form-label__required,
+.form-label .ds-form-label__required {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-left: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--krds-light-color-text-danger);
+  vertical-align: middle;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* ----- 입력 콘텐츠 영역 ----- */
+.ds-form-group .ds-form-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--krds-gap-4);
+  width: 100%;
+}
+
+/* 아이콘 버튼 포함 (password, search, delete 등) */
+.ds-form-group .ds-form-content.btn-ico-wrap {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+}
+.ds-form-group .ds-form-content.btn-ico-wrap .ds-input {
+  padding-right: var(--ds-form-group--icon-padding-right);
+}
+.ds-form-group .ds-form-content.btn-ico-wrap .btn-group,
+.ds-form-group .ds-form-content.btn-ico-wrap .ds-btn {
+  position: absolute;
+  top: 50%;
+  right: var(--krds-padding-7);
+  transform: translateY(-50%);
+}
+.ds-form-group .ds-form-content.btn-ico-wrap .btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: var(--krds-gap-3);
+}
+.ds-form-group .ds-form-content.btn-ico-wrap .btn-group .ds-btn {
+  position: static;
+  transform: translateY(0);
+}
+
+/* 삭제 버튼: 값이 없으면 숨김 */
+.ds-form-group .ds-form-content.btn-ico-wrap .btn-delete-input {
+  display: none;
+}
+.ds-form-content[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .btn-delete-input {
+  display: flex;
+}
+.ds-form-content[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .btn-group .btn-delete-input {
+  display: flex;
+}
+
+/* ----- 도움말·에러·성공·정보 메시지 ----- */
+.ds-form-group > p {
+  width: 100%;
+}
+.ds-form-group [class^="ds-form-hint"] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: var(--krds-gap-2);
+  width: 100%;
+  font-size: var(--ds-form-group--message-pc-font-size);
+  color: var(--ds-form-group--message-text-color);
+}
+@media (max-width: 767px) {
+  .ds-form-group [class^="ds-form-hint"] {
+    font-size: var(--ds-form-group--message-mobile-font-size);
+  }
+}
+
+/* 기본 도움말 아이콘 */
+.ds-form-group [class^="ds-form-hint"]::before {
+  content: "";
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-color: var(--krds-light-color-text-subtle);
+  forced-color-adjust: none;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(/img/component/icon/ico_information.svg);
+  mask-image: url(/img/component/icon/ico_information.svg);
+}
+
+/* 상태별(--error, --success, --info) 아이콘은 별도 SVG 사용 */
+.ds-form-group [class*="ds-form-hint--"]::before {
+  background-color: transparent !important;
+  -webkit-mask: none;
+  mask: none;
+}
+
+/* 성공 */
+.ds-form-group .ds-form-hint--success {
+  color: var(--ds-form-group--message-success-text-color);
+}
+.ds-form-group .ds-form-hint--success::before {
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-image: url(/img/component/icon/ico_success_fill.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 정보 */
+.ds-form-group .ds-form-hint--info {
+  color: var(--ds-form-group--message-information-text-color);
+}
+.ds-form-group .ds-form-hint--info::before {
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-image: url(/img/component/icon/ico_information_fill.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 에러 */
+.ds-form-group .ds-form-hint--error {
+  color: var(--ds-form-group--message-error-text-color);
+}
+.ds-form-group .ds-form-hint--error::before {
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-image: url(/img/component/icon/ico_error_fill.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ----- 입력 그룹 (범위 등) ----- */
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: var(--krds-gap-5);
+  width: 100%;
+}
+.input-group.range {
+  align-items: flex-end;
+  position: relative;
+}
+.input-group.range > li:not(.mark) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1 1 0px;
+  min-width: 0;
+  gap: var(--ds-form-group--gap);
+  position: relative;
+}
+.input-group.range > li.mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  height: var(--krds-size-height-8);
+}
+.input-group.range > li.mark.large { height: var(--krds-size-height-8); }
+.input-group.range > li.mark.medium { height: var(--krds-size-height-7); }
+.input-group.range > li.mark.small { height: var(--krds-size-height-6); }

@@ -1,0 +1,235 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as RadioStories from './radio.stories.js';
+import { radioNaming } from '../../docs/naming-data.js';
+
+export const UNCONFIRMED = (
+  <span style={{ color: '#c97a00', fontWeight: 600, fontSize: '0.8em', marginLeft: '0.4em' }}>
+    확인 필요
+  </span>
+);
+
+export const ElementTable = ({ elements }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>요소</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {elements.map((el, i) => (
+        <tr key={i}>
+          <td>{el.element}</td>
+          <td><code>{el.class}</code>{!el.confirmed && UNCONFIRMED}</td>
+          <td>{el.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+export const ModifierTable = ({ modifiers }) => (
+  <table>
+    <thead>
+      <tr>
+        <th>분류</th>
+        <th>클래스명</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {modifiers.map((mod, i) => (
+        <tr key={i}>
+          <td>{mod.category}</td>
+          <td><code>{mod.class}</code>{!mod.confirmed && UNCONFIRMED}</td>
+          <td>{mod.description}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+<Meta of={RadioStories} />
+
+# 라디오 버튼 (Radio Button)
+
+사용자가 여러 항목 중 **반드시 하나만 선택**하는 폼 요소입니다.  
+체크박스와 함께 `ds-check-item` 구조를 공유하며, `ds-form-group` 레이아웃 위에 구성됩니다.
+
+---
+
+## 네이밍
+
+> 클래스명은 `reference/krds` 실제 코드를 기준으로 합니다.  
+> 추측 클래스명은 <span style={{ color: '#c97a00', fontWeight: 600 }}>확인 필요</span>로 표시합니다.
+
+### 구조도
+
+<pre><code>{radioNaming.structure}</code></pre>
+
+### 클래스명 표
+
+<ElementTable elements={radioNaming.elements} />
+
+### 변형(modifier) 표
+
+<ModifierTable modifiers={radioNaming.modifiers} />
+
+### 코드 예시
+
+<pre><code>{radioNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 선택지가 **상호 배타적**이고 반드시 하나만 선택해야 할 때
+- 선택지가 **2~5개**인 경우 (6개 이상이면 Select 검토)
+- 모든 선택지를 화면에 펼쳐 **비교하며 선택**해야 할 때
+- 결제 수단, 성별, 배송 방법 등 고정된 선택지를 제공할 때
+
+### 체크박스 vs 라디오 버튼
+
+| 기준 | 체크박스 | 라디오 버튼 |
+|---|---|---|
+| 선택 수 | 0개 이상 다중 선택 | 반드시 1개 단일 선택 |
+| 선택 취소 | 가능 (클릭으로 해제) | 불가 (다른 항목 선택으로만 변경) |
+| 독립성 | 각 항목이 독립적 | 같은 `name` 그룹 내 연동 |
+| 대표 예시 | 이용약관 동의, 관심사 선택 | 성별, 결제 수단, 정렬 기준 |
+
+---
+
+## 사용하지 말아야 할 때
+
+- **다중 선택**이 필요할 때 → 체크박스를 사용한다.
+- 선택지가 6개 이상이거나 자주 바뀔 때 → Select를 사용한다.
+- "예/아니오" 즉각 토글이라면 Toggle(Switch) 컴포넌트를 검토한다.
+- 선택 없이 넘어갈 수 있는 경우(optional)에 라디오를 사용하지 않는다.  
+  라디오는 선택한 뒤 취소할 수 없으므로, 반드시 필수 항목에 사용한다.
+
+---
+
+## HTML 구조
+
+```html
+<!-- 그룹 (접근성: fieldset + legend) -->
+<fieldset class="ds-form-group">
+  <legend class="ds-form-label">
+    <span>그룹 제목 <span class="ds-form-label__required" aria-hidden="true">필수</span></span>
+  </legend>
+  <div class="ds-form-content [ds-form-content--error]">
+    <div class="ds-check-group [ds-check-group--column]">
+
+      <!-- 단일 라디오 아이템 -->
+      <div class="ds-check-item [ds-check-item--medium|ds-check-item--large]">
+        <input type="radio" id="id" name="group-name" [checked] [disabled]>
+        <label for="id">레이블</label>
+        <!-- 부가 설명 (선택) -->
+        <div class="ds-check-item__desc">
+          <p class="ds-check-item__text">부가 설명 텍스트</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error]">메시지</p>
+</fieldset>
+```
+
+> 클래스명 목록은 위 **네이밍** 섹션을 참고한다. `input[name]` 속성은 같은 값을 공유하는 라디오끼리 그룹을 형성한다.
+
+---
+
+## Playground
+
+<Canvas of={RadioStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 상태
+
+<Canvas of={RadioStories.상태} />
+
+```html
+<!-- 기본 -->
+<div class="ds-check-item ds-check-item--medium">
+  <input type="radio" id="rdo-1" name="rdo-group">
+  <label for="rdo-1">기본</label>
+</div>
+
+<!-- 선택됨 -->
+<div class="ds-check-item ds-check-item--medium">
+  <input type="radio" id="rdo-2" name="rdo-group" checked>
+  <label for="rdo-2">선택됨</label>
+</div>
+
+<!-- 비활성화 -->
+<div class="ds-check-item ds-check-item--medium">
+  <input type="radio" id="rdo-3" name="rdo-group" disabled>
+  <label for="rdo-3">비활성화</label>
+</div>
+
+<!-- 에러 -->
+<div class="ds-form-content ds-form-content--error">
+  <div class="ds-check-group ds-check-group--column">
+    <div class="ds-check-item ds-check-item--medium">
+      <input type="radio" id="rdo-4" name="rdo-err">
+      <label for="rdo-4">항목 1</label>
+    </div>
+  </div>
+</div>
+<p class="ds-form-hint ds-form-hint--error">항목을 선택해 주세요.</p>
+```
+
+### 그룹
+
+<Canvas of={RadioStories.그룹} />
+
+```html
+<!-- 세로 배치 + 부가 설명 -->
+<fieldset class="ds-form-group">
+  <legend class="ds-form-label"><span>배송 방법</span></legend>
+  <div class="ds-form-content">
+    <div class="ds-check-group ds-check-group--column">
+      <div class="ds-check-item ds-check-item--medium">
+        <input type="radio" id="ship-1" name="shipping" checked>
+        <label for="ship-1">일반 배송</label>
+        <div class="ds-check-item__desc">
+          <p class="ds-check-item__text">무료 · 2~3일 소요</p>
+        </div>
+      </div>
+      <div class="ds-check-item ds-check-item--medium">
+        <input type="radio" id="ship-2" name="shipping">
+        <label for="ship-2">빠른 배송</label>
+        <div class="ds-check-item__desc">
+          <p class="ds-check-item__text">3,000원 · 익일 도착</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+```
+
+> 같은 그룹의 라디오 버튼은 반드시 **동일한 `name`** 속성을 가져야 합니다.
+
+### 크기
+
+<Canvas of={RadioStories.크기} />
+
+### 전체 변형
+
+<Canvas of={RadioStories.전체변형} />
+
+---
+
+## 접근성
+
+- 라디오 그룹은 반드시 `<fieldset>` + `<legend>`로 감싸 그룹의 목적을 스크린리더에 전달한다.
+- 각 `<input>`의 `id`와 `<label>`의 `for`를 반드시 연결한다.
+- 같은 그룹의 라디오는 동일한 `name` 속성으로 묶어야 키보드 탐색(화살표 키)이 정상 동작한다.
+- 에러 메시지(`.ds-form-hint--error`)는 `aria-describedby`로 연결하면 더욱 접근성이 높아진다.
+- `disabled` 상태는 스크린리더에 "비활성화"로 읽히므로 별도 안내 문구 불필요.
+- 키보드: 그룹 진입 후 **방향키(↑↓ / ←→)**로 항목 간 이동, `Tab`으로 그룹 이탈.

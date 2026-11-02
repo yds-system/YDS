@@ -1,0 +1,176 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as DateInputStories from './date-input.stories.js';
+
+<Meta of={DateInputStories} />
+
+# 날짜 선택 (Date Input)
+
+달력 팝업을 통해 날짜 또는 기간을 선택하는 폼 요소입니다.  
+텍스트 입력 필드 구조(`ds-form-group`)를 그대로 재사용하고, 달력은 키보드로도 완전하게 조작할 수 있습니다.
+
+---
+
+## 언제 사용하는지
+
+- 특정 날짜 하나를 선택해야 할 때 (예약일, 생년월일, 신청일)
+- 시작일과 종료일로 이루어진 **기간**을 선택해야 할 때
+- 사용자가 직접 날짜를 타이핑하기 어려울 때
+
+---
+
+## 사용하지 말아야 할 때
+
+- 연도·월만 선택하면 충분한 경우 (Select로 대체)
+- 상대적 기간(오늘부터 7일 등)을 선택할 때는 별도 UX를 검토한다.
+
+---
+
+## HTML 구조
+
+### 단일 날짜
+
+```html
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="cal-id">날짜</label>
+  </div>
+  <div class="ds-form-content calendar-conts">
+    <div class="calendar-input">
+      <input type="text" id="cal-id" class="ds-input datepicker cal"
+             placeholder="YYYY.MM.DD" readonly
+             aria-haspopup="dialog" aria-expanded="false">
+      <button type="button" class="ds-btn ds-btn--medium ds-btn--icon form-btn-datepicker"
+              aria-label="달력 열기" aria-expanded="false" aria-controls="cal-id-cal">
+        <span class="sr-only">달력 열기</span>
+        <i class="ds-icon ds-ico-calendar"></i>
+      </button>
+    </div>
+    <div class="ds-calendar-area" id="cal-id-cal">
+      <div class="calendar-wrap single" role="dialog" aria-label="날짜 선택">
+        <!-- JS로 달력 내용 생성 -->
+      </div>
+    </div>
+  </div>
+  <p class="ds-form-hint">날짜를 선택하세요.</p>
+</div>
+```
+
+### 기간 선택
+
+```html
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label>신청 기간</label>
+  </div>
+  <div class="ds-form-content calendar-conts">
+    <div class="calendar-input">
+      <ul class="input-group range set">
+        <li>
+          <input type="text" id="calr-start" class="ds-input datepicker"
+                 placeholder="시작날짜" title="시작날짜 입력" readonly aria-expanded="false">
+        </li>
+        <li class="mark">–</li>
+        <li>
+          <input type="text" id="calr-end" class="ds-input datepicker"
+                 placeholder="종료날짜" title="종료날짜 입력" readonly aria-expanded="false">
+        </li>
+      </ul>
+      <button type="button" class="ds-btn ds-btn--medium ds-btn--icon form-btn-datepicker"
+              aria-label="달력 열기" aria-expanded="false" aria-controls="calr-cal">
+        <span class="sr-only">달력 열기</span>
+        <i class="ds-icon ds-ico-calendar"></i>
+      </button>
+    </div>
+    <div class="ds-calendar-area" id="calr-cal">
+      <div class="calendar-wrap" role="dialog" aria-label="기간 선택">
+        <!-- JS로 달력 내용 생성 -->
+      </div>
+    </div>
+  </div>
+  <p class="ds-form-hint">시작일과 종료일을 선택하세요.</p>
+</div>
+```
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-form-content.calendar-conts` | 날짜 입력 전용 `ds-form-content` (하단 gap 없음) |
+| `calendar-input` | 입력창 + 달력 토글 버튼을 묶는 컨테이너 |
+| `ds-input.datepicker` | 날짜 표시용 읽기 전용 입력창 |
+| `ds-input.datepicker.cal` | 단일 날짜 입력창 (JS 타깃용) |
+| `form-btn-datepicker` | 달력 열기 아이콘 버튼 |
+| `krds-calendar-area` | 달력 팝업 영역 (`display: none` 기본값) |
+| `krds-calendar-area.active` | 달력 팝업 표시 |
+| `calendar-wrap` | 달력 팝업 컨테이너 (기간 선택용) |
+| `calendar-wrap.single` | 단일 날짜 모드 (기간 밴드 비표시) |
+| `calendar-wrap.bottom` | 달력이 입력창 위로 열릴 때 |
+| `input-group.range.set` | 기간 입력 그룹 (`ds-form-group.css`의 공유 클래스) |
+| `btn-cal-move.prev` / `.next` | 이전/다음 달 이동 버튼 |
+| `btn-cal-switch.year` / `.month` | 연도/월 선택 드롭다운 토글 |
+| `calendar-select` | 연도·월 드롭다운 목록 (`display: none` 기본값) |
+| `calendar-select.active` | 드롭다운 목록 표시 |
+| `btn-set-date` | 날짜 셀 버튼 |
+| `old` | 이전 달 날짜 셀 |
+| `new` | 다음 달 날짜 셀 |
+| `today` | 오늘 날짜 셀 (점 인디케이터) |
+| `day-off` | 일요일 셀 (빨간색) |
+| `disabled` | 선택 불가 날짜 셀 |
+| `period` | 선택된 기간 내 날짜 셀 |
+| `period.start` | 선택 기간 시작일 |
+| `period.end` | 선택 기간 종료일 |
+
+---
+
+## 키보드 탐색
+
+| 키 | 동작 |
+|---|---|
+| `Enter` / `Space` | 포커스된 날짜 선택 |
+| `ArrowLeft` / `ArrowRight` | 하루 이전 / 다음으로 이동 |
+| `ArrowUp` / `ArrowDown` | 7일 이전 / 다음으로 이동 |
+| `Home` | 해당 월 첫째 날로 이동 |
+| `End` | 해당 월 마지막 날로 이동 |
+| `PageUp` | 이전 달로 이동 |
+| `PageDown` | 다음 달로 이동 |
+| `Escape` | 달력 닫기 |
+
+---
+
+## Playground
+
+<Canvas of={DateInputStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 단일 날짜
+
+<Canvas of={DateInputStories.단일날짜} />
+
+### 기간 선택
+
+<Canvas of={DateInputStories.기간선택} />
+
+### 상태
+
+<Canvas of={DateInputStories.상태} />
+
+### 전체 변형
+
+<Canvas of={DateInputStories.전체변형} />
+
+---
+
+## 접근성
+
+- 달력 토글 버튼에 `aria-expanded`를 달아 열림/닫힘 상태를 알린다.
+- 입력 필드에 `aria-haspopup="dialog"` 속성으로 팝업이 열림을 예고한다.
+- `calendar-wrap`에 `role="dialog"`, `aria-label="날짜 선택"` 또는 `aria-label="기간 선택"`을 부여한다.
+- 각 날짜 버튼에는 `aria-label`로 전체 날짜(예: `2024년 3월 15일`)와 시작일·종료일 여부를 설명한다.
+- 달력이 열리면 첫 번째 활성 날짜(선택된 날짜 또는 오늘)에 자동 포커스한다.
+- 달력을 닫으면 포커스가 달력 토글 버튼으로 돌아온다.
+- 입력창에 `readonly`를 사용해 직접 타이핑을 막고, 스크린리더가 값을 읽을 수 있도록 한다.

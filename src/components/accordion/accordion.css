@@ -1,0 +1,184 @@
+/* =============================================
+   KRDS Accordion Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-accordion {
+  --ds-accordion--list-margin-y: var(--krds-padding-2);
+  --ds-accordion--padding: var(--krds-padding-8);
+  --ds-accordion--button-icon-size: var(--krds-icon--size-large);
+  --ds-accordion--button-padding-right: calc(var(--ds-accordion--padding) + var(--krds-gap-5) + var(--ds-accordion--button-icon-size));
+  --ds-accordion--line-padding: var(--krds-padding-7);
+  --ds-accordion--line-button-padding-right: calc(var(--krds-gap-5) + var(--ds-accordion--button-icon-size));
+  --ds-accordion--radius: var(--krds-radius-large2);
+  --ds-accordion--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
+  --ds-accordion--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+
+  --ds-accordion--color-action: var(--krds-light-color-action-secondary);
+  --ds-accordion--button-color-action: var(--krds-light-color-action-secondary);
+  --ds-accordion--button-color-action-hover: var(--krds-light-color-action-secondary-hover);
+  --ds-accordion--button-color-action-pressed: var(--krds-light-color-action-secondary-pressed);
+  --ds-accordion--color-action-open: var(--krds-light-color-action-secondary-hover);
+  --ds-accordion--color-divider: var(--krds-light-color-divider-gray-light);
+  --ds-accordion--color-divider-open: var(--krds-light-color-divider-gray-dark);
+  --ds-accordion--button-color-text: var(--krds-light-color-text-basic);
+  --ds-accordion--button-color-text-open: var(--krds-light-color-text-secondary);
+  --ds-accordion--color-icon: var(--krds-light-color-icon-gray);
+}
+
+/* ----- 기본형 컨테이너 ----- */
+.ds-accordion {
+  padding: var(--ds-accordion--list-margin-y) 0;
+  border-top: 0.1rem solid var(--ds-accordion--color-divider);
+  border-bottom: 0.1rem solid var(--ds-accordion--color-divider);
+}
+
+/* ----- 항목 ----- */
+.ds-accordion .accordion-item {
+  padding: var(--ds-accordion--list-margin-y) 0;
+  transition: var(--krds-transition-base);
+}
+
+/* ----- 헤더 버튼 ----- */
+.ds-accordion .accordion-item .btn-accordion {
+  position: relative;
+  width: 100%;
+  padding: var(--ds-accordion--padding)
+           var(--ds-accordion--button-padding-right)
+           var(--ds-accordion--padding)
+           var(--ds-accordion--padding);
+  background-color: var(--ds-accordion--button-color-action);
+  border-radius: var(--ds-accordion--radius);
+  font-size: var(--ds-accordion--button-pc-font-size);
+  color: var(--ds-accordion--button-color-text);
+  font-weight: var(--krds-font-weight-bold);
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .ds-accordion .accordion-item .btn-accordion {
+    font-size: var(--ds-accordion--button-mobile-font-size);
+  }
+}
+
+.ds-accordion .accordion-item .btn-accordion:hover {
+  background-color: var(--ds-accordion--button-color-action-hover);
+}
+.ds-accordion .accordion-item .btn-accordion:active {
+  background-color: var(--ds-accordion--button-color-action-pressed);
+}
+
+/* 화살표 아이콘 (::after) */
+.ds-accordion .accordion-item .btn-accordion::after {
+  position: absolute;
+  top: var(--ds-accordion--padding);
+  right: var(--ds-accordion--padding);
+  content: "";
+  display: inline-flex;
+  width: var(--ds-accordion--button-icon-size);
+  height: var(--ds-accordion--button-icon-size);
+  background-color: var(--ds-accordion--color-icon);
+  forced-color-adjust: none;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  transition: var(--krds-transition-base);
+  transform: rotate(0deg);
+}
+
+/* 열린 상태 — 버튼 */
+.ds-accordion .accordion-item .btn-accordion.active {
+  background-color: var(--ds-accordion--color-action-open);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: var(--ds-accordion--button-color-text-open);
+}
+.ds-accordion .accordion-item .btn-accordion.active:focus {
+  border-radius: var(--ds-accordion--radius);
+}
+.ds-accordion .accordion-item .btn-accordion.active::after {
+  transform: rotate(180deg);
+}
+
+/* ----- 패널 (닫힘 기본값) ----- */
+.ds-accordion .accordion-item .accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  visibility: hidden;
+}
+
+/* ----- 패널 본문 ----- */
+.ds-accordion .accordion-item .accordion-body {
+  padding: 0 var(--ds-accordion--padding) var(--ds-accordion--padding);
+  background-color: var(--ds-accordion--color-action);
+  border-bottom-left-radius: var(--ds-accordion--radius);
+  border-bottom-right-radius: var(--ds-accordion--radius);
+}
+
+/* ----- 열린 상태 — 항목 ----- */
+.ds-accordion .accordion-item.active .accordion-collapse {
+  height: auto;
+  max-height: 100vh;
+  transition: all 1.5s ease-in-out;
+  visibility: visible;
+}
+.ds-accordion .accordion-item.active .accordion-body {
+  background-color: var(--ds-accordion--color-action-open);
+}
+
+/* ----- 라인형 (type-line) ----- */
+.ds-accordion.type-line {
+  padding: 0;
+  border-top: none;
+}
+.ds-accordion.type-line .accordion-item {
+  padding: 0;
+  border-top: 0.1rem solid var(--ds-accordion--color-divider);
+  border-radius: 0;
+}
+.ds-accordion.type-line .accordion-item .btn-accordion {
+  padding: var(--ds-accordion--line-padding)
+           var(--ds-accordion--line-button-padding-right)
+           var(--ds-accordion--line-padding)
+           0;
+  background: none;
+  border-radius: 0;
+}
+.ds-accordion.type-line .accordion-item .btn-accordion:hover,
+.ds-accordion.type-line .accordion-item .btn-accordion:active {
+  background: none;
+}
+.ds-accordion.type-line .accordion-item .btn-accordion::after {
+  top: var(--ds-accordion--line-padding);
+  right: 0;
+}
+.ds-accordion.type-line .accordion-item .btn-accordion.active {
+  background: none;
+}
+.ds-accordion.type-line .accordion-item .accordion-body {
+  padding: 0 0 var(--ds-accordion--padding);
+  background: none;
+  border-radius: 0;
+}
+.ds-accordion.type-line .accordion-item.active {
+  background: none;
+  border-top-color: var(--ds-accordion--color-divider-open);
+}
+.ds-accordion.type-line .accordion-item.active .accordion-body {
+  background: none;
+}
+
+/* ----- 모바일 ----- */
+@media (max-width: 767px) {
+  .ds-accordion {
+    --ds-accordion--padding: var(--krds-padding-6);
+    --ds-accordion--line-padding: var(--krds-padding-5);
+    --ds-accordion--button-icon-size: var(--krds-icon--size-medium);
+  }
+}

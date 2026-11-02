@@ -1,0 +1,224 @@
+/* =============================================
+   KRDS Breadcrumb Component
+   출처: reference/krds/resources/scss/component/_breadcrumb.scss
+   ============================================= */
+
+/* ----- CSS 변수 ----- */
+.ds-breadcrumb-wrap {
+  --ds-breadcrumb--padding-x: var(--krds-padding-2);
+  --ds-breadcrumb--radius: var(--krds-radius-medium2);
+  --ds-breadcrumb--pc-font-size: var(--krds-pc-font-size-label-small);
+  --ds-breadcrumb--mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --ds-breadcrumb--color-action: var(--krds-light-color-action-secondary);
+  --ds-breadcrumb--color-action-hover: var(--krds-light-color-action-secondary-hover);
+  --ds-breadcrumb--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
+  --ds-breadcrumb--color-text: var(--krds-light-color-text-basic);
+  --ds-breadcrumb--color-text-disabled: var(--krds-light-color-text-disabled);
+  --ds-breadcrumb--color-icon: var(--krds-light-color-icon-gray);
+}
+
+/* ----- 래퍼 ----- */
+.ds-breadcrumb-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* ----- 목록 ----- */
+.ds-breadcrumb-wrap .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--krds-gap-2);
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----- 항목 ----- */
+.ds-breadcrumb-wrap .breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--ds-breadcrumb--pc-font-size);
+}
+
+/* ----- .txt (링크·현재 페이지 공통) ----- */
+.ds-breadcrumb-wrap .breadcrumb li .txt {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--krds-gap-2);
+  padding: 0 var(--ds-breadcrumb--padding-x);
+  background-color: var(--ds-breadcrumb--color-action);
+  border-radius: var(--ds-breadcrumb--radius);
+  color: var(--ds-breadcrumb--color-text);
+  text-decoration: none;
+}
+
+/* ----- 링크 상태 ----- */
+.ds-breadcrumb-wrap .breadcrumb li a.txt:not(.disabled):hover {
+  background-color: var(--ds-breadcrumb--color-action-hover);
+}
+.ds-breadcrumb-wrap .breadcrumb li a.txt:not(.disabled):active {
+  background-color: var(--ds-breadcrumb--color-action-pressed);
+}
+.ds-breadcrumb-wrap .breadcrumb li a.txt:not(.disabled):focus,
+.ds-breadcrumb-wrap .breadcrumb li a.txt:not(.disabled):focus-visible {
+  box-shadow: var(--krds-box-shadow-outline-inset);
+  outline-offset: -0.4rem;
+  outline: none;
+}
+
+/* ----- disabled ----- */
+.ds-breadcrumb-wrap .breadcrumb li a.txt.disabled {
+  cursor: default;
+  color: var(--ds-breadcrumb--color-text-disabled);
+  pointer-events: none;
+}
+
+/* ----- 구분자 화살표 (li::after, 마지막 제외) ----- */
+.ds-breadcrumb-wrap .breadcrumb li:not(:last-child)::after {
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  margin-left: var(--krds-gap-2);
+  background-color: var(--ds-breadcrumb--color-icon);
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  forced-color-adjust: none;
+  transform: rotate(-90deg);
+}
+
+/* ----- 홈 아이콘 (.home .txt::before) ----- */
+.ds-breadcrumb-wrap .breadcrumb li.home {
+  gap: 0;
+}
+.ds-breadcrumb-wrap .breadcrumb li.home .txt::before {
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-color: var(--ds-breadcrumb--color-icon);
+  -webkit-mask-image: url(/img/component/icon/ico_bread_home.svg);
+  mask-image: url(/img/component/icon/ico_bread_home.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  forced-color-adjust: none;
+}
+
+/* ----- 모바일 (max-width: 767px) · .is-mobile 강제 클래스 ----- */
+
+/* ─ 실제 모바일: @media ─ */
+@media (max-width: 767px) {
+  .ds-breadcrumb-wrap .breadcrumb li {
+    font-size: var(--ds-breadcrumb--mobile-font-size);
+  }
+
+  /* 홈·마지막 항목 사이의 중간 항목 → 시각적으로 숨김 (스크린리더에는 노출) */
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:last-child) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* 깊이 3 이상: 마지막 항목에 말줄임·화살표 아이콘 표시 */
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child {
+    gap: var(--krds-gap-2);
+  }
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child::before,
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child::after {
+    content: "";
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--krds-icon--size-small);
+    height: var(--krds-icon--size-small);
+    background-color: var(--ds-breadcrumb--color-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    forced-color-adjust: none;
+  }
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child::before {
+    -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
+    mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  }
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child::after {
+    -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+    mask-image: url(/img/component/icon/ico_angle.svg);
+    transform: rotate(-90deg);
+  }
+  .ds-breadcrumb-wrap .breadcrumb li:not(.home):not(:nth-child(2)):last-child .txt {
+    order: 3;
+  }
+}
+
+/* ─ 강제 모바일: .is-mobile 클래스 (뷰포트 무관, 데모·테스트용) ─ */
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li {
+  font-size: var(--ds-breadcrumb--mobile-font-size);
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:last-child) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child {
+  gap: var(--krds-gap-2);
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child::before,
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child::after {
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--krds-icon--size-small);
+  height: var(--krds-icon--size-small);
+  background-color: var(--ds-breadcrumb--color-icon);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  forced-color-adjust: none;
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child::before {
+  -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  mask-image: url(/img/component/icon/ico_ellipsis.svg);
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child::after {
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  transform: rotate(-90deg);
+}
+.ds-breadcrumb-wrap.is-mobile .breadcrumb li:not(.home):not(:nth-child(2)):last-child .txt {
+  order: 3;
+}

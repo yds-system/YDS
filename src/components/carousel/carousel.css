@@ -1,0 +1,230 @@
+/* =============================================
+   KRDS Carousel (Slide Controls) Component
+   출처: reference/krds/resources/scss/component/_carousel.scss
+   ============================================= */
+
+/* ----- 공통: 모든 swiper 버튼 ----- */
+[class^="swiper-button-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-shrink: 0;
+  width: var(--krds-size-height-6);
+  height: var(--krds-size-height-6);
+  border-radius: var(--krds-radius-max);
+  border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light);
+  background-color: var(--krds-light-color-action-white);
+  cursor: pointer;
+  transition: var(--krds-transition-base);
+}
+
+/* 아이콘 (::after 공통) */
+[class^="swiper-button-"]::after {
+  content: "";
+  display: inline-flex;
+  width: var(--krds-icon--size-large);
+  height: var(--krds-icon--size-large);
+  background-color: var(--krds-light-color-text-basic);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  forced-color-adjust: none;
+  font-size: 0 !important;
+}
+
+[class^="swiper-button-"]:hover {
+  background-color: var(--krds-light-color-action-secondary-hover);
+}
+
+/* ----- swiper-button-prev (이전) ----- */
+.swiper-button-prev::after {
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  transform: rotate(90deg);
+}
+.swiper-button-prev:hover {
+  background-color: var(--krds-light-color-action-secondary-hover);
+}
+.swiper-button-prev:active {
+  background-color: var(--krds-light-color-action-secondary-pressed);
+}
+.swiper-button-prev.swiper-button-disabled {
+  background-color: var(--krds-light-color-action-disabled);
+  opacity: 1;
+  cursor: default;
+  pointer-events: none;
+}
+.swiper-button-prev.swiper-button-disabled::after {
+  background-color: var(--krds-light-color-icon-disabled-on);
+}
+
+/* ----- swiper-button-next (다음) ----- */
+.swiper-button-next::after {
+  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
+  mask-image: url(/img/component/icon/ico_angle.svg);
+  transform: rotate(-90deg);
+}
+.swiper-button-next:hover {
+  background-color: var(--krds-light-color-action-secondary-hover);
+}
+.swiper-button-next:active {
+  background-color: var(--krds-light-color-action-secondary-pressed);
+}
+.swiper-button-next.swiper-button-disabled {
+  background-color: var(--krds-light-color-action-disabled);
+  opacity: 1;
+  cursor: default;
+  pointer-events: none;
+}
+.swiper-button-next.swiper-button-disabled::after {
+  background-color: var(--krds-light-color-icon-disabled-on);
+}
+
+/* ----- swiper-button-play (재생) ----- */
+.swiper-button-play::after {
+  -webkit-mask-image: url(/img/component/icon/ico_swiper_play.svg);
+  mask-image: url(/img/component/icon/ico_swiper_play.svg);
+}
+
+/* ----- swiper-button-stop (멈춤) ----- */
+.swiper-button-stop::after {
+  -webkit-mask-image: url(/img/component/icon/ico_swiper_stop.svg);
+  mask-image: url(/img/component/icon/ico_swiper_stop.svg);
+}
+
+/* ----- swiper-button-more (더보기) ----- */
+.swiper-button-more::after {
+  -webkit-mask-image: url(/img/component/icon/ico_plus.svg);
+  mask-image: url(/img/component/icon/ico_plus.svg);
+}
+
+/* ----- swiper-controller (재생/멈춤 그룹) ----- */
+.swiper-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: var(--krds-gap-3);
+}
+
+/* ----- swiper-navigation (이전/다음/더보기 그룹) ----- */
+.swiper-navigation {
+  display: inline-flex;
+  gap: var(--krds-gap-3);
+}
+
+/* ----- swiper-pagination (불릿) ----- */
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  height: var(--krds-size-height-6);
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: var(--krds-size-height-1);
+  height: var(--krds-size-height-1);
+  background-color: var(--krds-light-color-element-gray);
+  border-radius: var(--krds-radius-max);
+  opacity: 1;
+  transition: var(--krds-transition-base);
+}
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 2rem;
+  border-radius: var(--krds-radius-max);
+  background-color: var(--krds-light-color-element-primary);
+}
+
+/* ----- swiper-pagination (분수형) ----- */
+.swiper-pagination.swiper-pagination-fraction {
+  gap: var(--krds-gap-2);
+  padding: 0 var(--krds-padding-6);
+  color: var(--krds-light-color-text-basic);
+  font-weight: var(--krds-font-weight-bold);
+  border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light);
+  border-radius: var(--krds-radius-max);
+  background-color: var(--krds-light-color-surface-white);
+}
+.swiper-pagination.swiper-pagination-fraction .swiper-pagination-current {
+  color: var(--krds-light-color-text-secondary);
+}
+
+/* ----- swiper-indicator (인디케이터 래퍼) ----- */
+.swiper-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: var(--krds-gap-3);
+  flex-shrink: 0;
+  position: relative;
+}
+.swiper-indicator.text-center {
+  justify-content: center;
+}
+
+/* 인디케이터 안의 pagination: 위치 리셋 */
+.swiper-indicator .swiper-pagination {
+  top: auto;
+  bottom: auto;
+  width: auto;
+}
+.swiper-indicator .swiper-pagination:not(.swiper-pagination-fraction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--krds-size-height-6);
+  padding: var(--krds-padding-5);
+  border-radius: var(--krds-radius-max);
+  background-color: var(--krds-light-color-element-inverse);
+}
+/* 인디케이터 안 불릿의 색상은 배경 대비로 반전 처리 */
+.swiper-indicator .swiper-pagination:not(.swiper-pagination-fraction) .swiper-pagination-bullet {
+  background-color: var(--krds-light-color-surface-white);
+  opacity: 0.5;
+}
+.swiper-indicator .swiper-pagination:not(.swiper-pagination-fraction) .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--krds-light-color-surface-white);
+  opacity: 1;
+}
+
+/* 인디케이터 안의 fraction (배경 있는 타입) */
+.swiper-indicator .swiper-pagination.swiper-pagination-fraction.swiper-pagination-bg {
+  font-weight: var(--krds-font-weight-bold);
+  padding: var(--krds-padding-5);
+  border-radius: var(--krds-radius-max);
+  background-color: var(--krds-light-color-surface-white);
+}
+
+/* 인디케이터 안 nav 버튼: position 리셋 */
+.swiper-indicator .swiper-button-prev,
+.swiper-indicator .swiper-button-next {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin: 0;
+}
+
+/* 인디케이터 안 navigation 그룹 */
+.swiper-indicator .swiper-navigation {
+  display: inline-flex;
+  gap: var(--krds-gap-3);
+}
+
+/* ----- 모바일 ----- */
+@media (max-width: 767px) {
+  .swiper-indicator.w-hide {
+    display: flex !important;
+  }
+  .swiper-indicator .swiper-navigation.w-hide {
+    display: flex !important;
+  }
+}

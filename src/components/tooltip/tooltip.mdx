@@ -1,0 +1,215 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './tooltip.stories.js';
+
+<Meta of={TooltipStories} />
+
+# 툴팁 (Tooltip)
+
+요소에 마우스를 올리거나 포커스를 맞추면 짧은 안내 텍스트를 팝오버로 표시하는 컴포넌트입니다.  
+**인라인형(검은 배경)** 과 **박스형(흰 배경, 테두리)** 두 가지 스타일을 지원하며, 4방향 위치 지정이 가능합니다.
+
+---
+
+## 언제 사용하는지
+
+- 아이콘·버튼의 기능을 **짧은 텍스트로 보충 설명**할 때
+- 폼 필드·라벨에 **추가 안내**가 필요한 때 (단, 항상 노출되어야 하는 내용이면 도움말 텍스트를 사용)
+- 약어·전문 용어를 **마우스오버 시 풀이**할 때
+
+## 사용하지 말아야 할 때
+
+- 툴팁 안에 **클릭 가능한 요소(링크·버튼)** 를 넣어야 할 때 → 팝오버나 다이얼로그를 사용한다.
+- 오류 메시지처럼 **항상 보여야 하는 중요 정보**에는 사용하지 않는다.
+- 모바일 터치 환경에서는 hover 이벤트가 없으므로 주의한다.
+
+---
+
+## HTML 구조
+
+### 트리거 요소
+
+`data-tooltip`, `data-position`, `data-style` 세 가지 data 속성으로 툴팁을 설정합니다.  
+JS 초기화 시 팝오버가 동적으로 생성되고 `aria-describedby`로 연결됩니다.
+
+```html
+<!-- 버튼 트리거 -->
+<button type="button" class="ds-btn ds-btn--medium ds-tooltip"
+        data-tooltip="툴팁 안내 텍스트입니다."
+        data-position="top"
+        data-style="inline">
+  버튼 레이블
+</button>
+
+<!-- 텍스트 요소 트리거 -->
+<span class="ds-tooltip"
+      tabindex="0"
+      data-tooltip="span 요소의 툴팁입니다."
+      data-position="right"
+      data-style="inline">
+  텍스트 요소
+</span>
+```
+
+### 팝오버 (JS가 동적 생성)
+
+```html
+<!-- JS가 canvasElement 하위에 자동 생성 -->
+<div id="tooltip-trigger-xxxxx-popover"
+     class="ds-tooltip-popover pos-top active"
+     role="tooltip">
+  툴팁 안내 텍스트입니다.
+</div>
+```
+
+---
+
+## CSS 클래스
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-tooltip` | 트리거 요소에 부여하는 마커 클래스 |
+| `ds-tooltip-popover` | 팝오버 컨테이너 (JS가 생성, `position: fixed`) |
+| `ds-tooltip-popover.active` | 표시 상태 |
+| `ds-tooltip-popover.tooltip-box` | 박스형 (흰 배경, 테두리, `max-width: 36rem`) |
+| `ds-tooltip-popover.pos-top` | 툴팁이 트리거 위에 위치 |
+| `ds-tooltip-popover.pos-bottom` | 툴팁이 트리거 아래에 위치 |
+| `ds-tooltip-popover.pos-left` | 툴팁이 트리거 왼쪽에 위치 |
+| `ds-tooltip-popover.pos-right` | 툴팁이 트리거 오른쪽에 위치 |
+
+## data 속성
+
+| 속성 | 값 | 설명 |
+|---|---|---|
+| `data-tooltip` | 문자열 | 툴팁에 표시할 텍스트 |
+| `data-position` | `"top"` (기본) | 위쪽에 표시 |
+| `data-position` | `"bottom"` | 아래쪽에 표시 |
+| `data-position` | `"left"` | 왼쪽에 표시 |
+| `data-position` | `"right"` | 오른쪽에 표시 |
+| `data-style` | `"inline"` (기본) | 인라인형 (검은 배경) |
+| `data-style` | `"box"` | 박스형 (흰 배경, 테두리) |
+
+---
+
+## JavaScript
+
+```js
+function initTooltip(root = document) {
+  let popover = root.querySelector('.ds-tooltip-popover');
+  if (!popover) {
+    popover = document.createElement('div');
+    popover.className = 'ds-tooltip-popover';
+    popover.setAttribute('role', 'tooltip');
+    root.appendChild(popover);
+  }
+
+  let hideTimer = null;
+
+  function showTooltip(trigger) {
+    clearTimeout(hideTimer);
+
+    const text     = trigger.dataset.tooltip || '';
+    const position = trigger.dataset.position || 'top';
+    const style    = trigger.dataset.style    || 'inline';
+
+    popover.textContent = text;
+    popover.className = 'ds-tooltip-popover';
+    if (style === 'box') popover.classList.add('tooltip-box');
+    popover.classList.add(`pos-${position}`);
+
+    // aria 연결
+    if (!trigger.id) {
+      trigger.id = `tt-${Math.random().toString(36).slice(2, 7)}`;
+    }
+    popover.id = `${trigger.id}-popover`;
+    trigger.setAttribute('aria-describedby', popover.id);
+
+    popover.classList.add('active');
+
+    // 위치 계산
+    const gap = 12;
+    const tr  = trigger.getBoundingClientRect();
+    const pr  = popover.getBoundingClientRect();
+    let top, left;
+
+    if (position === 'top') {
+      top  = tr.top  - pr.height - gap;
+      left = tr.left + tr.width / 2 - pr.width / 2;
+    } else if (position === 'bottom') {
+      top  = tr.bottom + gap;
+      left = tr.left + tr.width / 2 - pr.width / 2;
+    } else if (position === 'left') {
+      top  = tr.top + tr.height / 2 - pr.height / 2;
+      left = tr.left - pr.width - gap;
+    } else {
+      top  = tr.top + tr.height / 2 - pr.height / 2;
+      left = tr.right + gap;
+    }
+
+    // 뷰포트 경계 보정
+    const m = 8;
+    left = Math.max(m, Math.min(left, window.innerWidth  - pr.width  - m));
+    top  = Math.max(m, Math.min(top,  window.innerHeight - pr.height - m));
+
+    popover.style.top  = `${top}px`;
+    popover.style.left = `${left}px`;
+  }
+
+  function hideTooltip(trigger) {
+    hideTimer = setTimeout(() => {
+      popover.classList.remove('active');
+      if (trigger) trigger.removeAttribute('aria-describedby');
+    }, 100);
+  }
+
+  root.querySelectorAll('.ds-tooltip').forEach(el => {
+    el.addEventListener('mouseenter', () => showTooltip(el));
+    el.addEventListener('mouseleave', () => hideTooltip(el));
+    el.addEventListener('focus',      () => showTooltip(el));
+    el.addEventListener('blur',       () => hideTooltip(el));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') popover.classList.remove('active');
+  });
+}
+
+initTooltip(document.body);
+```
+
+---
+
+## Playground
+
+<Canvas of={TooltipStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 위치
+
+<Canvas of={TooltipStories.위치} />
+
+### 스타일
+
+<Canvas of={TooltipStories.스타일} />
+
+### 트리거 유형
+
+<Canvas of={TooltipStories.트리거유형} />
+
+### 전체 변형
+
+<Canvas of={TooltipStories.전체변형} />
+
+---
+
+## 접근성
+
+- 트리거에 `aria-describedby="팝오버id"`를 연결해 스크린리더가 툴팁 내용을 읽도록 한다.
+- 팝오버에 `role="tooltip"`을 부여해 보조기기가 툴팁으로 인식하게 한다.
+- `mouseenter` 외에 `focus` 이벤트도 처리해 키보드 사용자가 툴팁을 볼 수 있도록 한다.
+- `Escape` 키로 툴팁을 즉시 닫을 수 있어야 한다 (WCAG 1.4.13).
+- `pointer-events: none`으로 팝오버가 마우스 이벤트를 차단하지 않도록 한다.
+- 아이콘 전용 트리거에는 `aria-label`을 반드시 제공한다.
+- 터치 기기에서는 hover 이벤트가 없으므로 중요 정보는 항상 보이는 형태로 제공한다.

@@ -1,0 +1,225 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as TableStories from './table.stories.js';
+
+<Meta of={TableStories} />
+
+# 테이블 (Table)
+
+구조화된 데이터를 행과 열로 표현하는 컴포넌트입니다.  
+KRDS 기본 클래스: `ds-table-wrap > table.tbl.data`
+
+---
+
+## 언제 사용하는지
+
+- **목록형**: 동일한 속성을 가진 항목들을 나열할 때 (공지사항, 검색 결과 등)
+- **가로 헤더형**: 하나의 항목에 대한 상세 정보를 키-값 형식으로 보여줄 때
+- **체크박스 선택형**: 사용자가 항목을 선택해 일괄 처리해야 할 때
+
+---
+
+## 사용하지 말아야 할 때
+
+- 단순 목록(제목+링크)은 `<ul>`, `<ol>` 목록 컴포넌트를 사용한다.
+- 비교 대상이 없는 단독 데이터는 Definition List(`<dl>`)가 적합하다.
+- 레이아웃 배치 목적으로 `<table>`을 사용하지 않는다.
+
+---
+
+## 종류
+
+| 클래스 조합 | 이름 | 설명 |
+|---|---|---|
+| `tbl data` | 목록형 | `<thead>` 열 헤더 + `<tbody>` 데이터 행 |
+| `tbl col data` | 가로 헤더형 | `<tbody>` 행 헤더(`<th scope="row">`)를 포함한 상세 정보형 |
+| `tbl col data` + 체크박스 | 체크박스 선택형 | 첫 열에 체크박스를 포함한 선택 가능한 목록 |
+
+---
+
+## HTML 구조
+
+### 목록형
+
+```html
+<div class="ds-table-wrap">
+  <table class="tbl data">
+    <caption>공지사항 목록으로 번호, 제목, 작성자, 게시일로 구성되어 있습니다.</caption>
+    <colgroup>
+      <col style="width:8%;">
+      <col>
+      <col style="width:12%;">
+      <col style="width:12%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">게시일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>서비스 점검 안내</td>
+        <td>관리자</td>
+        <td>2026-10-28</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### 가로 헤더형
+
+```html
+<div class="ds-table-wrap">
+  <table class="tbl col data">
+    <caption>사용자 상세 정보입니다.</caption>
+    <colgroup>
+      <col style="width:25%;">
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">항목</th>
+        <th scope="col">내용</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">이름</th>
+        <td>홍길동</td>
+      </tr>
+      <tr>
+        <th scope="row">이메일</th>
+        <td>gildong@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### 체크박스 선택형
+
+```html
+<div class="ds-table-wrap">
+  <table class="tbl col data">
+    <caption>선택 가능한 공지사항 목록입니다.</caption>
+    <thead>
+      <tr>
+        <th scope="col">
+          <!-- 전체 선택 체크박스 -->
+          <div class="ds-check-item medium">
+            <input type="checkbox" id="chk-all">
+            <label for="chk-all"><span class="sr-only">전체 선택</span></label>
+          </div>
+        </th>
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+          <div class="ds-check-item medium">
+            <input type="checkbox" id="chk-1">
+            <label for="chk-1"><span class="sr-only">서비스 점검 안내 선택</span></label>
+          </div>
+        </th>
+        <td>1</td>
+        <td>서비스 점검 안내</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+---
+
+## 반응형
+
+| 클래스 | 동작 |
+|---|---|
+| `ds-table-wrap` (기본) | 모바일에서 `overflow-x: auto` + `min-width` 로 가로 스크롤 |
+| `ds-table-wrap.mob-card` | 모바일에서 thead 숨기고 행을 카드로 변환, `data-label` 속성 필요 |
+
+```html
+<!-- 카드형 반응형: ds-table-wrap에 mob-card 추가 -->
+<div class="ds-table-wrap mob-card">
+  <table class="tbl data">
+    ...
+    <tbody>
+      <tr>
+        <!-- td에 data-label 추가 → 모바일 카드 라벨로 사용 -->
+        <td data-label="번호">1</td>
+        <td data-label="제목">서비스 점검 안내</td>
+        <td data-label="작성자">관리자</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+> `mob-card`는 KRDS 기본 패턴이 아닌 **디자인 시스템 확장 클래스**입니다.  
+> 체크박스 선택형 테이블에는 복잡도로 인해 가로 스크롤 방식을 권장합니다.
+
+---
+
+## Playground
+
+<Canvas of={TableStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 목록형
+
+<Canvas of={TableStories.목록형} />
+
+### 가로 헤더형
+
+<Canvas of={TableStories.가로헤더형} />
+
+### 체크박스 선택형
+
+<Canvas of={TableStories.체크박스선택형} />
+
+> 전체 선택 체크박스는 JS로 `indeterminate` ↔ `checked` ↔ `unchecked` 상태를 관리합니다.
+
+### 반응형 — 카드형
+
+<Canvas of={TableStories.반응형카드} />
+
+### 전체 변형
+
+<Canvas of={TableStories.전체변형} />
+
+---
+
+## 접근성
+
+### caption
+
+- 모든 `<table>`에는 `<caption>`을 작성해 표의 목적을 스크린리더에 전달한다.
+- caption은 기본적으로 시각적으로 숨겨지지만(KRDS common.css), `.visible` 클래스로 표시할 수 있다.
+- 내용: `"[표 이름]으로 [열1], [열2], ...로 구성되어 있습니다."` 형식을 권장한다.
+
+### scope 속성
+
+| 요소 | scope | 적용 상황 |
+|---|---|---|
+| `<thead> <th>` | `scope="col"` | 열 전체에 적용되는 헤더 |
+| `<tbody> <th>` | `scope="row"` | 행 전체에 적용되는 헤더 |
+
+### 체크박스 접근성
+
+- 체크박스 `<label>`에 빈 텍스트 대신 `<span class="sr-only">[행 제목] 선택</span>`으로 맥락을 제공한다.
+- 전체 선택 체크박스에도 `<span class="sr-only">전체 선택</span>`을 제공한다.
+- `indeterminate` 상태는 `aria-checked="mixed"` 속성을 함께 제공하는 것을 권장한다.
+
+### 반응형 카드형
+
+- 카드형 전환 시에도 `<thead>`는 DOM에 유지되며 `display: none`으로만 숨긴다 (스크린리더 접근 유지).
+- `data-label`의 내용이 열 헤더 텍스트와 일치해야 한다.

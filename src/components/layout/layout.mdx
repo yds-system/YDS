@@ -1,0 +1,315 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as LayoutStories from './layout.stories.js';
+
+<Meta of={LayoutStories} />
+
+# 레이아웃 (Layout)
+
+헤더·GNB·푸터로 구성된 사이트 전체 레이아웃 컴포넌트입니다.  
+**PC 메가 메뉴**와 **모바일 슬라이드 메뉴**를 지원하며, 건너뛰기 링크와 키보드 탐색이 기본으로 제공됩니다.
+
+---
+
+## 구성 요소
+
+| 요소 | 설명 |
+|---|---|
+| `#ds-skip-link` | 본문 바로가기 링크 (포커스 시 화면 상단에 표시) |
+| `#ds-header` | 유틸리티 바 + 로고 + 액션 버튼 + PC GNB |
+| `.ds-main-menu` | PC GNB 메가 메뉴 (≥1280px) |
+| `.ds-main-menu-mobile` | 모바일 전체 메뉴 슬라이드 패널 (&lt;1280px) |
+| `.gnb-backdrop` | GNB 열림 시 배경 딤 처리 |
+| `#ds-footer` | 관련 사이트 바 + 기관 정보 + 저작권 |
+
+---
+
+## HTML 구조
+
+### 건너뛰기 링크
+
+```html
+<div id="ds-skip-link">
+  <a href="#main-content">본문 바로가기</a>
+</div>
+```
+
+### 헤더
+
+```html
+<header id="ds-header">
+  <div class="header-in">
+    <!-- 유틸리티 + 브랜딩 -->
+    <div class="header-container">
+      <div class="inner">
+        <div class="header-utility" aria-label="부가 메뉴">
+          <ul class="utility-list">
+            <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
+          </ul>
+        </div>
+        <div class="header-branding">
+          <h1 class="logo">
+            <a href="#"><span class="sr-only">사이트명</span></a>
+          </h1>
+          <div class="header-actions">
+            <button type="button" class="btn-navi sch" title="통합검색">통합검색</button>
+            <a href="#" class="btn-navi login">로그인</a>
+            <button type="button" class="btn-navi join">회원가입</button>
+            <!-- 모바일 전용: 전체메뉴 버튼 -->
+            <button type="button" class="btn-navi all"
+                    aria-controls="mobile-nav"
+                    aria-expanded="false"
+                    aria-label="전체 메뉴 열기">전체메뉴</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PC GNB -->
+    <nav class="ds-main-menu" aria-label="주요 메뉴">...</nav>
+    <div class="gnb-backdrop" aria-hidden="true"></div>
+  </div>
+  <!-- 모바일 GNB -->
+  <div id="mobile-nav" class="ds-main-menu-mobile"
+       role="dialog" aria-modal="true" aria-label="전체 메뉴">...</div>
+</header>
+```
+
+### PC GNB — 1depth + 2depth + 3depth
+
+```html
+<nav class="ds-main-menu" aria-label="주요 메뉴">
+  <div class="inner">
+    <ul class="gnb-menu" role="menubar">
+      <li>
+        <button type="button" class="gnb-main-trigger"
+                aria-expanded="false" aria-haspopup="true"
+                aria-controls="gnb-panel-0">
+          서비스 소개
+        </button>
+        <div class="gnb-toggle-wrap" id="gnb-panel-0">
+          <div class="gnb-main-list" data-has-submenu="true">
+            <ul>
+              <li>
+                <button type="button" class="gnb-sub-trigger"
+                        aria-expanded="false"
+                        aria-controls="gnb-sub-0-0">
+                  기관 소개
+                </button>
+                <div class="gnb-sub-list" id="gnb-sub-0-0">
+                  <div class="gnb-sub-content">
+                    <h2 class="sub-title">기관 소개</h2>
+                    <ul>
+                      <li><a href="#">개요</a></li>
+                      <li><a href="#">비전 및 목표</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <!-- 링크 직접 이동 -->
+              <li>
+                <a href="#" class="gnb-sub-trigger is-link">바로가기</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <!-- 링크형 1depth -->
+      <li>
+        <a href="#" class="gnb-main-trigger is-link">사이트맵</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="gnb-backdrop" aria-hidden="true"></div>
+```
+
+### 모바일 GNB
+
+```html
+<div id="mobile-nav" class="ds-main-menu-mobile"
+     role="dialog" aria-modal="true" aria-label="전체 메뉴">
+  <div class="gnb-wrap">
+    <!-- 상단 헤더 -->
+    <div class="gnb-header">
+      <div class="gnb-utils">...</div>
+      <div class="gnb-login">...</div>
+      <div class="gnb-service-menu">
+        <a href="#" class="link">나의GOV</a>
+      </div>
+      <button type="button" id="close-nav" aria-label="전체 메뉴 닫기">...</button>
+    </div>
+    <!-- 본문: 좌(1depth) + 우(2depth) -->
+    <div class="gnb-body">
+      <div class="gnb-menu">
+        <div class="menu-wrap">
+          <ul role="tablist" aria-label="대메뉴">
+            <li><a href="#mGnb-anchor0" class="gnb-main-trigger" data-index="0">서비스 소개</a></li>
+          </ul>
+        </div>
+        <div class="submenu-wrap">
+          <div class="gnb-sub-list" id="mGnb-anchor0" aria-labelledby="mGnb-hd0">
+            <h2 class="sub-title" id="mGnb-hd0">서비스 소개</h2>
+            <ul>
+              <li><a href="#" class="gnb-sub-trigger">기관 소개</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="gnb-bottom">
+        <a href="#" class="ds-btn ds-btn--medium ds-btn--text">사이트맵</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### 푸터
+
+```html
+<footer id="ds-footer">
+  <div class="foot-quick">
+    <div class="inner">
+      <button type="button" class="link">관련 사이트 1</button>
+    </div>
+  </div>
+  <div class="inner">
+    <div class="f-logo"><span class="sr-only">사이트명</span></div>
+    <div class="f-cnt">
+      <div class="f-info">
+        <p class="info-addr">주소</p>
+        <ul class="info-cs">
+          <li><strong class="strong">대표전화 1234-5678</strong></li>
+        </ul>
+      </div>
+      <div class="f-link">
+        <div class="link-go">
+          <a href="#" class="ds-btn ds-btn--medium ds-btn--text">찾아오시는 길</a>
+        </div>
+        <div class="link-sns">
+          <a href="#" class="ds-btn ds-btn--xlarge ds-btn--icon ds-btn--border"><span class="sr-only">인스타그램</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="f-btm">
+      <div class="f-btm-text">
+        <div class="f-menu">
+          <a href="#" class="point">개인정보처리방침</a>
+          <a href="#">저작권 정책</a>
+        </div>
+        <p class="f-copy">© 2025 KRDS. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+---
+
+## CSS 클래스
+
+### 헤더
+
+| 클래스 | 설명 |
+|---|---|
+| `#ds-skip-link` | 건너뛰기 링크 래퍼 |
+| `#ds-header` | 헤더 (`position: sticky; top: 0`) |
+| `header-container` | 유틸리티 바 + 브랜딩 영역 |
+| `header-utility` | 상단 유틸리티 링크 목록 (PC 전용) |
+| `header-branding` | 로고 + 액션 버튼 행 |
+| `logo` | 헤더 로고 (`<h1>` 또는 `<h2>`) |
+| `header-actions` | 오른쪽 액션 버튼 그룹 |
+| `btn-navi` | 아이콘+텍스트 형태의 헤더 버튼 |
+| `btn-navi.sch` | 검색 버튼 |
+| `btn-navi.login` | 로그인 버튼/링크 |
+| `btn-navi.join` | 회원가입 버튼 (PC 전용) |
+| `btn-navi.my` | 나의GOV 버튼 (로그인 후, PC 전용) |
+| `btn-navi.all` | 전체메뉴 버튼 (모바일 전용) |
+
+### PC GNB
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-main-menu` | PC GNB 래퍼 (`nav`) |
+| `gnb-menu` | 1depth 목록 |
+| `gnb-main-trigger` | 1depth 버튼/링크 |
+| `gnb-main-trigger.is-link` | 링크 직접 이동 (화살표 아이콘 없음) |
+| `gnb-main-trigger.active` | 메뉴 열림 상태 |
+| `gnb-toggle-wrap` | 드롭다운 패널 (기본: `display: none`) |
+| `gnb-toggle-wrap.is-open` | 패널 열림 상태 |
+| `gnb-main-list` | 2depth 목록 컨테이너 |
+| `gnb-main-list[data-has-submenu="true"]` | 2depth 사이드바 배경 있음 |
+| `gnb-sub-trigger` | 2depth 버튼/링크 |
+| `gnb-sub-trigger.is-link` | 2depth 직접 링크 |
+| `gnb-sub-trigger.active` | 2depth 선택 상태 |
+| `gnb-sub-list` | 3depth 패널 |
+| `gnb-sub-list.active` | 3depth 표시 상태 |
+| `gnb-sub-list.single-list` | 2depth 없이 3depth 바로 표시 |
+| `gnb-sub-content` | 3depth 콘텐츠 영역 |
+| `gnb-sub-banner` | 3depth 배너 영역 |
+| `gnb-backdrop` | 배경 딤 레이어 |
+| `gnb-backdrop.active` | 딤 표시 상태 |
+
+### 모바일 GNB
+
+| 클래스 | 설명 |
+|---|---|
+| `ds-main-menu-mobile` | 모바일 GNB 래퍼 (`position: fixed; right: -100%`) |
+| `ds-main-menu-mobile.is-open` | 패널 열림 (`right: 0`) |
+| `gnb-wrap` | 흰 패널 영역 |
+| `gnb-header` | 상단 유틸리티·로그인·서비스 메뉴 |
+| `gnb-utils` | 로그인/회원가입 링크 목록 |
+| `gnb-login` | 로그인 상태 표시 |
+| `gnb-service-menu` | 주요 서비스 바로가기 |
+| `gnb-body` | 1depth/2depth 메뉴 본문 |
+| `gnb-menu` | 좌(1depth) + 우(2depth) 레이아웃 |
+| `menu-wrap` | 왼쪽 1depth 탭 목록 |
+| `submenu-wrap` | 오른쪽 2depth 패널 |
+| `gnb-main-trigger.active` | 1depth 탭 선택 상태 |
+| `gnb-sub-list` | 2depth 목록 (id로 스크롤 앵커) |
+| `gnb-bottom` | 하단 추가 링크 |
+| `#close-nav` | 전체 메뉴 닫기 버튼 |
+
+---
+
+## 반응형
+
+| 조건 | 동작 |
+|---|---|
+| ≥ 1280px | PC GNB 표시, `.btn-navi.all` 숨김, 모바일 GNB 숨김 |
+| 768~1279px | PC GNB 숨김, 모바일 GNB 패널 너비 40% |
+| ≤ 767px | 모바일 GNB 패널 전체 너비(100%) |
+
+---
+
+## Playground
+
+<Canvas of={LayoutStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 헤더
+
+<Canvas of={LayoutStories.헤더} />
+
+### 푸터
+
+<Canvas of={LayoutStories.푸터} />
+
+### 전체 변형
+
+<Canvas of={LayoutStories.전체변형} />
+
+---
+
+## 접근성
+
+- `#ds-skip-link a`는 평소에 화면 밖으로 숨겨져 있다가 Tab 포커스 시 화면 상단에 표시되어 본문으로 바로 이동할 수 있도록 한다.
+- `<main id="main-content" tabindex="-1">`을 설정해 건너뛰기 링크 클릭 시 포커스가 본문으로 이동한다.
+- PC GNB: `aria-expanded`, `aria-haspopup`, `aria-controls`로 열림/닫힘 상태와 연관 패널을 연결한다.
+- PC GNB 키보드: `←` `→` 1depth 이동, `↓` 또는 `Enter` 서브메뉴 열기, `↑` `↓` 서브 트리거 이동, `Escape` 닫기.
+- 모바일 GNB: `role="dialog" aria-modal="true" aria-label="전체 메뉴"`로 다이얼로그 패턴을 적용한다.
+- 모바일 GNB 열림 시 포커스를 닫기 버튼으로 이동하고, `Escape` 키로 닫으면 포커스가 트리거 버튼으로 돌아간다.
+- `btn-navi.all`에 `aria-expanded="true|false"`와 `aria-controls="mobile-nav"`를 설정해 보조기기가 관계를 인식할 수 있도록 한다.
+- 로고 `<a>` 안에 `<span class="sr-only">사이트명</span>`으로 스크린리더에 대체 텍스트를 제공한다.
+- 모바일 GNB 열림 시 `document.body`에 `overflow: hidden`을 적용해 배경 스크롤을 막는다.
