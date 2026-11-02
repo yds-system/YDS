@@ -28,7 +28,41 @@
 7. ~~**기반 + 패턴**: 아이콘, 기본 레이아웃~~ ✓
 
 ### 남은 정리 항목
-없음 — 모든 항목 완료 (2026-11-02 최종 점검, 확인 필요 항목 전체 정리 완료)
+없음
+
+---
+
+## 2026-11-02 사이드바 재분류 및 컴포넌트 분리
+
+### 사이드바 분류 변경
+- 기존 6분류(탐색/액션/선택/입력/피드백/콘텐츠) → KRDS 공식 분류 기반 7분류
+- 새 분류: 아이덴티티 / 탐색 / 레이아웃 및 표현 / 액션 / 선택 / 도움 / 입력
+- stories.js title 변경 8개: 아코디언·배지·캐러셀→레이아웃 및 표현, 선택 상자→선택, 탭→레이아웃 및 표현, 표→레이아웃 및 표현, 툴팁→도움, 링크 텍스트→링크
+
+### 새 컴포넌트 분리/추가
+- **헤더**(header): layout.stories.js에서 분리. header.stories.js + header.mdx + header.css
+- **푸터**(footer): layout.stories.js에서 분리. footer.stories.js + footer.mdx + footer.css
+- **메인 메뉴**(main-menu): layout.stories.js에서 분리. main-menu.stories.js + main-menu.mdx + main-menu.css + gnb-init.js(공통 JS)
+- **텍스트 영역**(textarea): text-input.stories.js에서 분리. textarea.stories.js + textarea.mdx + textarea.css
+- layout.stories.js: initPcGnb/initMobileGnb를 gnb-init.js import로 교체, 헤더·푸터·전체변형 export 제거
+- text-input.stories.js: textareaGroup 헬퍼 및 텍스트에어리어 관련 export 3개 제거
+
+### naming-data.js 변경
+- linkNaming: 이름 '링크 텍스트'→'링크', englishName 'Link Text'→'Link', sbPath 변경
+- textInputNaming: textarea 관련 structure·elements·codeExample 제거
+- textareaNaming 신규 추가 (텍스트 영역 독립 네이밍)
+- selectNaming: sbPath '컴포넌트/입력/선택 상자'→'컴포넌트/선택/선택 상자'
+- allComponents 배열에 textareaNaming 추가
+
+### 문서 정리
+- components-naming.mdx: 새 분류 체계로 전면 재작성
+- 모든 컴포넌트 mdx: guidance text 통일 ("KRDS 구성을 기준으로 ds- BEM 규칙...")
+- 모든 컴포넌트 mdx: `## 개요` heading 추가 (없는 파일만)
+- button.mdx: 'KRDS 기본 클래스'→'기본 클래스'
+- layout.mdx: '## 구성 요소' 섹션 삭제, 삭제된 stories 참조 제거
+- link.mdx: 제목 '링크 텍스트'→'링크'
+- preview.js storySort: 새 분류 반영
+- CLAUDE.md: 분류 규칙 업데이트
 
 ---
 
@@ -110,6 +144,33 @@
 | mdx 네이밍 섹션 | 브레드크럼·탭·페이지네이션·아이콘·레이아웃 5개 파일에 `## 네이밍` 섹션 추가 |
 | CLAUSE.md 절차 추가 | 새 컴포넌트 작업 시 mdx 네이밍 섹션 확인 단계 명시 |
 | ARIA ID 정비 | layout.stories.js / layout.mdx의 `gnb-sub-*` / `gnb-panel-*` → `ds-gnb-sub-*` / `ds-gnb-panel-*` |
+
+---
+
+## 2026-11-02 작업 내역 (KRDS 분류 적용 및 문서 정리)
+
+- **Storybook 사이드바 카테고리 전면 재편** (KRDS 공식 분류 적용):
+  - 피드백 → 도움(툴팁) / 레이아웃 및 표현(배지)
+  - 콘텐츠 → 레이아웃 및 표현(아코디언/표/캐러셀 컨트롤)
+  - 탐색/탭 → 레이아웃 및 표현/탭
+  - 입력/선택 상자 → 선택/선택 상자
+  - 신규: 아이덴티티(헤더/푸터), 탐색(메인 메뉴)
+- **새 컴포넌트 세트 생성** (css + stories.js + mdx): header, footer, main-menu, textarea
+  - 각 폴더: src/components/header/, footer/, main-menu/, textarea/
+  - 공통 GNB JS: src/components/main-menu/gnb-init.js (layout.stories.js, main-menu.stories.js 공유)
+- **layout.stories.js**: 헤더/푸터/전체변형 export 제거 → Playground만 남김. gnb-init.js import로 전환
+- **text-input.stories.js**: 텍스트에어리어 export 3개 제거 (textarea.stories.js로 이동)
+- **text-input.mdx**: 텍스트에어리어 Canvas 섹션 제거
+- **링크 텍스트 → 링크** 전면 변경: link.stories.js title, linkNaming 필드(name/englishName/sbPath)
+- **textareaNaming** 신규 추가: naming-data.js에서 textInputNaming 분리, allComponents에 추가
+- **naming-data.js sbPath** 일괄 갱신: tab/badge/tooltip/accordion/table/carousel/select (7종)
+- **preview.js storySort**: Docs 맨 위 + 새 7분류 순서 적용
+- **components-naming.mdx** 전면 재작성: KRDS 공식 분류별 정리, 미구현 컴포넌트 추후 추가 예정으로 이동
+- **모든 mdx 네이밍 guidance text** 통일: "KRDS 구성을 기준으로 ds- BEM 규칙..." 문구로 교체
+- **모든 mdx `## 개요` heading** 추가 (없던 파일)
+- **button.mdx**: "KRDS 기본 클래스" → "기본 클래스", "링크 텍스트 컴포넌트" → "링크 컴포넌트"
+- **layout.mdx**: `## 구성 요소` 섹션 삭제
+- **CLAUDE.md**: 사이드바 분류 "KRDS 공식 10분류를 따르고, 컴포넌트가 있는 분류만 표시" 규칙 반영
 
 ---
 

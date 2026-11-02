@@ -1,7 +1,7 @@
 import './tab.css';
 
 export default {
-  title: '컴포넌트/탐색/탭',
+  title: '컴포넌트/레이아웃 및 표현/탭',
   argTypes: {
     variant: {
       control: { type: 'select' },

@@ -1,7 +1,7 @@
 import './accordion.css';
 
 export default {
-  title: '컴포넌트/콘텐츠/아코디언',
+  title: '컴포넌트/레이아웃 및 표현/아코디언',
   argTypes: {
     type: {
       control: { type: 'select' },

@@ -131,12 +131,12 @@ button.ds-btn.ds-btn--icon [ds-btn--크기] [ds-btn--border]
 <a href="#" class="ds-btn ds-btn--secondary ds-btn--small ds-btn--disabled" aria-disabled="true" tabindex="-1">비활성 링크 버튼</a>`,
 };
 
-// ─── 링크 텍스트 (Link Text) ────────────────────────────────────────────────
+// ─── 링크 (Link) ───────────────────────────────────────────────────────────
 
 export const linkNaming = {
-  name: '링크 텍스트',
-  englishName: 'Link Text',
-  sbPath: '컴포넌트/액션/링크 텍스트',
+  name: '링크',
+  englishName: 'Link',
+  sbPath: '컴포넌트/액션/링크',
   baseClass: 'ds-link',
   krdsClass: 'krds-btn link',
   description: '인라인 또는 독립형 텍스트 링크. 페이지 이동이 목적인 <a> 요소에 사용. 버튼(ds-btn)과 독립된 별도 블록',
@@ -311,13 +311,7 @@ div.ds-form-content
 ├── input.ds-input  [maxlength]
 └── p.ds-count
     ├── span.ds-count__current
-    └── span.ds-count__max
-
-텍스트에어리어:
-div.ds-form-content  [ds-form-content--error]
-└── div.ds-textarea
-    ├── textarea.ds-input
-    └── p.ds-count  (또는 div.ds-textarea__bottom > p.ds-form-hint--error + p.ds-count)`,
+    └── span.ds-count__max`,
 
   elements: [
     { element: '폼 그룹', class: 'ds-form-group', krdsClass: 'form-group', description: '레이블·입력·메시지를 묶는 최상위 컨테이너', confirmed: true },
@@ -330,8 +324,6 @@ div.ds-form-content  [ds-form-content--error]
     { element: '버튼 묶음', class: 'ds-form-content__actions', krdsClass: 'btn-group', description: '삭제·보기 등 버튼을 묶는 컨테이너', confirmed: true },
     { element: '입력값 지우기 버튼', class: 'ds-input__clear-btn', krdsClass: 'btn-delete-input', description: '입력 내용 삭제 버튼. data-delete="true" 시 CSS로 자동 표시', confirmed: true },
     // ds-count 3종은 공통 블록으로 분리 → countNaming 참고
-    { element: 'Textarea 블록', class: 'ds-textarea', krdsClass: 'textarea-wrap', description: 'textarea + 글자 수를 묶는 블록', confirmed: true },
-    { element: 'Textarea 하단', class: 'ds-textarea__bottom', krdsClass: 'textarea-bottom', description: '에러 메시지와 글자 수를 가로로 배치하는 컨테이너', confirmed: true },
   ],
 
   modifiers: [
@@ -367,22 +359,95 @@ div.ds-form-content  [ds-form-content--error]
     <input type="text" id="email" class="ds-input" placeholder="이메일을 입력하세요">
   </div>
   <p class="ds-form-hint ds-form-hint--error">올바른 이메일 형식으로 입력해 주세요.</p>
-</div>
+</div>`,
+};
 
-<!-- Textarea + 글자 수 -->
+// ─── 텍스트 영역 (Textarea) ─────────────────────────────────────────────────
+
+export const textareaNaming = {
+  name: '텍스트 영역',
+  englishName: 'Textarea',
+  sbPath: '컴포넌트/입력/텍스트 영역',
+  baseClass: 'ds-textarea',
+  krdsClass: 'krds-textarea',
+  description: '여러 줄 텍스트를 입력하는 폼 요소. 글자 수 표시(ds-count)와 함께 사용한다',
+
+  structure: `div.ds-form-group
+├── div.ds-form-label
+│   └── label[for]  (+ span.ds-form-label__required  ← 필수 시)
+├── div.ds-form-content  [ds-form-content--error]
+│   └── div.ds-textarea
+│       ├── textarea.ds-input  [maxlength]  [disabled] [readonly]
+│       └── p.ds-count                              ← 글자 수 (선택)
+│           ├── span.ds-count__current
+│           └── span.ds-count__max
+│           또는
+│       div.ds-textarea__bottom                    ← 에러 + 글자 수 나란히
+│           ├── p.ds-form-hint.ds-form-hint--error
+│           └── p.ds-count
+└── p.ds-form-hint  [ds-form-hint--error]`,
+
+  elements: [
+    { element: '폼 그룹', class: 'ds-form-group', krdsClass: 'form-group', description: '레이블·입력·메시지를 묶는 최상위 컨테이너', confirmed: true },
+    { element: '레이블 영역', class: 'ds-form-label', krdsClass: 'form-tit', description: '레이블을 감싸는 영역', confirmed: true },
+    { element: '필수 표시', class: 'ds-form-label__required', krdsClass: '(자체 추가)', description: '필수 입력 표시 (레이블 내 span). KRDS에 대응 클래스 없음', confirmed: true },
+    { element: '입력 영역', class: 'ds-form-content', krdsClass: 'form-conts', description: '입력창을 감싸는 영역. 상태 modifier는 이 요소에 적용한다', confirmed: true },
+    { element: 'Textarea 블록', class: 'ds-textarea', krdsClass: 'textarea-wrap', description: 'textarea + 글자 수를 묶는 블록', confirmed: true },
+    { element: '텍스트 입력창', class: 'ds-input', krdsClass: 'krds-input', description: 'textarea 요소에 적용하는 입력창 클래스', confirmed: true },
+    { element: 'Textarea 하단', class: 'ds-textarea__bottom', krdsClass: 'textarea-bottom', description: '에러 메시지와 글자 수를 가로로 배치하는 컨테이너', confirmed: true },
+    { element: '도움말', class: 'ds-form-hint', krdsClass: 'form-hint', description: '입력 안내·에러 메시지 (p 태그)', confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '상태 (부모)', class: 'ds-form-content--error', krdsClass: 'is-error', description: '에러 상태. ds-form-content에 적용', confirmed: true },
+    { category: '힌트 메시지', class: 'ds-form-hint--error', krdsClass: 'form-hint-invalid', description: '에러 메시지. ds-form-hint와 함께 사용', confirmed: true },
+  ],
+
+  codeExample: `<!-- 기본 Textarea -->
 <div class="ds-form-group">
   <div class="ds-form-label">
     <label for="desc">내용</label>
   </div>
   <div class="ds-form-content">
     <div class="ds-textarea">
-      <textarea id="desc" class="ds-input" maxlength="200"
+      <textarea id="desc" class="ds-input" placeholder="내용을 입력하세요"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 글자 수 표시 -->
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="desc2">내용</label>
+  </div>
+  <div class="ds-form-content">
+    <div class="ds-textarea">
+      <textarea id="desc2" class="ds-input" maxlength="200"
         oninput="this.closest('.ds-textarea').querySelector('.ds-count__current').textContent=this.value.length">
       </textarea>
       <p class="ds-count">
         <span class="ds-count__current" aria-live="polite">0</span>
         <span class="ds-count__max">/ 200</span>
       </p>
+    </div>
+  </div>
+</div>
+
+<!-- 에러 + 글자 수 나란히 -->
+<div class="ds-form-group">
+  <div class="ds-form-label">
+    <label for="desc3">내용</label>
+  </div>
+  <div class="ds-form-content ds-form-content--error">
+    <div class="ds-textarea">
+      <textarea id="desc3" class="ds-input" maxlength="200"></textarea>
+      <div class="ds-textarea__bottom">
+        <p class="ds-form-hint ds-form-hint--error">내용을 입력해 주세요.</p>
+        <p class="ds-count">
+          <span class="ds-count__current" aria-live="polite">0</span>
+          <span class="ds-count__max">/ 200</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>`,
@@ -393,7 +458,7 @@ div.ds-form-content  [ds-form-content--error]
 export const selectNaming = {
   name: '선택 상자',
   englishName: 'Select',
-  sbPath: '컴포넌트/입력/선택 상자',
+  sbPath: '컴포넌트/선택/선택 상자',
   baseClass: 'ds-select',
   krdsClass: 'krds-form-select',
   description: '미리 정의된 선택지 중 하나를 드롭다운으로 선택하는 폼 요소',
@@ -788,7 +853,7 @@ export const breadcrumbNaming = {
 export const tabNaming = {
   name: '탭',
   englishName: 'Tab',
-  sbPath: '컴포넌트/탐색/탭',
+  sbPath: '컴포넌트/레이아웃 및 표현/탭',
   baseClass: 'ds-tab',
   krdsClass: 'ds-tab-wrap',
   description: '하나의 화면 안에서 콘텐츠를 전환하는 탐색 컴포넌트. 라인형·박스형, 전체 너비 변형 지원',
@@ -915,7 +980,7 @@ export const paginationNaming = {
 export const badgeNaming = {
   name: '배지',
   englishName: 'Badge',
-  sbPath: '컴포넌트/피드백/배지',
+  sbPath: '컴포넌트/레이아웃 및 표현/배지',
   baseClass: 'ds-badge',
   krdsClass: 'krds-badge',
   description: '상태·카테고리·숫자 등 짧은 정보를 강조해 표시하는 레이블 요소',
@@ -1012,7 +1077,7 @@ div.ds-badge-group`,
 export const tooltipNaming = {
   name: '툴팁',
   englishName: 'Tooltip',
-  sbPath: '컴포넌트/피드백/툴팁',
+  sbPath: '컴포넌트/도움/툴팁',
   baseClass: 'ds-tooltip',
   krdsClass: 'krds-tooltip',
   description: '요소에 마우스를 올리거나 포커스 시 짧은 안내 텍스트를 팝오버로 표시하는 컴포넌트',
@@ -1082,7 +1147,7 @@ div.ds-tooltip-popover [ds-tooltip-popover--open] [ds-tooltip-popover--box]
 export const accordionNaming = {
   name: '아코디언',
   englishName: 'Accordion',
-  sbPath: '컴포넌트/콘텐츠/아코디언',
+  sbPath: '컴포넌트/레이아웃 및 표현/아코디언',
   baseClass: 'ds-accordion',
   krdsClass: 'krds-accordion',
   description: '제목 클릭으로 콘텐츠를 접었다 펼치는 패널 컴포넌트',
@@ -1151,7 +1216,7 @@ export const accordionNaming = {
 export const tableNaming = {
   name: '표',
   englishName: 'Table',
-  sbPath: '컴포넌트/콘텐츠/표',
+  sbPath: '컴포넌트/레이아웃 및 표현/표',
   baseClass: 'ds-table-wrap',
   krdsClass: 'krds-table-wrap',
   description: '구조화된 데이터를 행과 열로 표현하는 컴포넌트',
@@ -1230,7 +1295,7 @@ export const tableNaming = {
 export const carouselNaming = {
   name: '캐러셀 컨트롤',
   englishName: 'Carousel Controls',
-  sbPath: '컴포넌트/콘텐츠/캐러셀 컨트롤',
+  sbPath: '컴포넌트/레이아웃 및 표현/캐러셀 컨트롤',
   baseClass: 'ds-carousel__indicator',
   krdsClass: 'swiper-indicator',
   description: '슬라이드 탐색·제어를 위한 버튼 및 인디케이터 UI. Swiper.js 등 외부 슬라이더 라이브러리와 조합 사용.',
@@ -1795,6 +1860,7 @@ export const allComponents = [
   buttonNaming,
   linkNaming,
   textInputNaming,
+  textareaNaming,
   selectNaming,
   checkboxNaming,
   radioNaming,

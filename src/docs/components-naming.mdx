@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { buttonNaming, linkNaming, tagNaming, textInputNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming, accordionNaming, tableNaming, carouselNaming, iconNaming, layoutNaming, headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming } from '../docs/naming-data.js';
+import { buttonNaming, linkNaming, tagNaming, textInputNaming, textareaNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming, accordionNaming, tableNaming, carouselNaming, iconNaming, layoutNaming, headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming } from '../docs/naming-data.js';
 
 export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
@@ -17,33 +17,12 @@ export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   );
 };
 
-export const TextareaRow = () => {
-  const textareaEls = textInputNaming.elements.filter(e =>
-    ['ds-input', 'ds-textarea', 'ds-textarea__bottom'].includes(e.class)
-  );
-  return (
-    <tr>
-      <td>텍스트 영역</td>
-      <td>Textarea</td>
-      <td><code>ds-form-group</code></td>
-      <td>
-        {textareaEls.map((e, i) => <span key={i}><code>{e.class}</code>{' '}</span>)}
-        {countNaming.elements.map((e, i) => <span key={'c'+i}><code>{e.class}</code>{' '}</span>)}
-      </td>
-      <td>—</td>
-      <td>다중 행 텍스트 입력 필드</td>
-    </tr>
-  );
-};
+<Meta title="Docs/네이밍 정의서" />
 
-<Meta title="Docs/컴포넌트 네이밍" />
+# 컴포넌트 네이밍 정의서
 
-# KRDS 컴포넌트 목록 & 네이밍 정의서
-
-KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스명·modifier를 정의한 문서입니다.  
-실제 KRDS HTML 코드에서 추출한 클래스명만 기재하며, 확인이 필요한 항목은 **확인 필요**로 표시합니다.
-
-사이드바 구조: **기반 → 컴포넌트 → 패턴** 순으로 표시됩니다.
+범정부 UI/UX 디자인 시스템(KRDS) 기반 ds- BEM 규칙 클래스명 정의서입니다.
+KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 ---
 
@@ -57,6 +36,27 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
 | 색상 토큰 | `기반/색상` (예정) | KRDS 색상 토큰 (`--krds-light-color-*`) |
 | 타이포그래피 | `기반/타이포그래피` (예정) | 서체·크기·행간 토큰 |
 | 간격 | `기반/간격` (예정) | 여백·패딩 토큰 (`--krds-spacing-*`) |
+
+---
+
+## 아이덴티티 (Identity)
+
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <CompRow comp={headerNaming} />
+    <CompRow comp={footerNaming} />
+  </tbody>
+</table>
 
 ---
 
@@ -74,53 +74,34 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
     </tr>
   </thead>
   <tbody>
-    <CompRow comp={headerNaming} />
-    <tr>
-      <td>마스트헤드</td>
-      <td>Masthead</td>
-      <td><code>krds-masthead</code></td>
-      <td><code>toggle-wrap</code> <code>toggle-head</code> <code>inner</code> <code>nuri-txt</code></td>
-      <td>—</td>
-      <td>헤더 상단 공공 사이트 공통 띠 영역</td>
-    </tr>
-    <CompRow comp={footerNaming} />
     <CompRow comp={pcGnbNaming} />
     <CompRow comp={mobileGnbNaming} />
-    <tr>
-      <td>사이드 네비게이션</td>
-      <td>Side Navigation</td>
-      <td><code>krds-side-navigation</code></td>
-      <td><code>lnb-tit</code> <code>lnb-list</code> <code>lnb-item</code> <code>lnb-btn</code> <code>lnb-toggle</code> <code>lnb-submenu</code> <code>lnb-subitem</code> <code>lnb-toggle-popup</code> <code>lnb-submenu-lv2</code> <code>lnb-btn-tit</code> <code>lnb-link</code></td>
-      <td><code>active</code></td>
-      <td>페이지 좌측 로컬 네비게이션</td>
-    </tr>
-    <tr>
-      <td>페이지 내 네비게이션</td>
-      <td>In-Page Navigation</td>
-      <td><code>krds-in-page-navigation-type</code></td>
-      <td><code>krds-in-page-navigation-area</code> <code>in-page-navigation-header</code> <code>quick-caption</code> <code>quick-title</code> <code>in-page-navigation-list</code> <code>in-page-navigation-action</code></td>
-      <td><code>active</code></td>
-      <td>페이지 내 섹션 이동 목차</td>
-    </tr>
     <CompRow comp={breadcrumbNaming} />
-    <CompRow comp={tabNaming} />
     <CompRow comp={paginationNaming} />
+  </tbody>
+</table>
+
+---
+
+## 레이아웃 및 표현 (Layout & Presentation)
+
+<table>
+  <thead>
     <tr>
-      <td>건너뛰기 링크</td>
-      <td>Skip Link</td>
-      <td><code>ds-skip-link</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>키보드 사용자를 위한 본문 건너뛰기</td>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
     </tr>
-    <tr>
-      <td>식별자</td>
-      <td>Identifier</td>
-      <td><code>krds-identifier</code></td>
-      <td><code>logo</code> <code>ban-txt</code></td>
-      <td>—</td>
-      <td>공공 기관 표준 로고·식별자 영역</td>
-    </tr>
+  </thead>
+  <tbody>
+    <CompRow comp={tabNaming} />
+    <CompRow comp={badgeNaming} />
+    <CompRow comp={accordionNaming} />
+    <CompRow comp={tableNaming} />
+    <CompRow comp={carouselNaming} />
   </tbody>
 </table>
 
@@ -142,30 +123,6 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
   <tbody>
     <CompRow comp={buttonNaming} />
     <CompRow comp={linkNaming} />
-    <tr>
-      <td>TTS</td>
-      <td>TTS</td>
-      <td><code>krds-tts</code></td>
-      <td><code>krds-tts-icon</code> <code>krds-tts-text</code> <code>ds-icon</code></td>
-      <td><code>xsmall</code> <code>small</code> <code>medium</code> <code>play</code> <code>disabled</code></td>
-      <td>텍스트 음성 변환(TTS) 재생 버튼</td>
-    </tr>
-    <tr>
-      <td>언어 전환</td>
-      <td>Language Switcher</td>
-      <td><code>krds-drop-wrap</code></td>
-      <td><code>drop-btn</code> <code>drop-menu</code> <code>drop-in</code> <code>drop-list</code> <code>item-link</code></td>
-      <td><code>krds-language</code> <code>active</code></td>
-      <td>서비스 언어를 전환하는 드롭다운</td>
-    </tr>
-    <tr>
-      <td>화면 크기 조절</td>
-      <td>Resize</td>
-      <td><code>krds-drop-wrap</code></td>
-      <td><code>drop-btn</code> <code>drop-menu</code> <code>drop-in</code> <code>drop-list</code> <code>item-link</code> <code>drop-bottom</code></td>
-      <td><code>krds-resize</code> <code>sm</code> <code>md</code> <code>lg</code> <code>xlg</code> <code>xxlg</code> <code>active</code></td>
-      <td>글자 크기 등 화면 표시 크기 조절</td>
-    </tr>
   </tbody>
 </table>
 
@@ -189,35 +146,32 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
       comp={checkboxNaming}
       elementFilter={e => e.class.startsWith('ds-check-')}
     />
-    <tr>
-      <td>체크박스 (칩)</td>
-      <td>Checkbox Chip</td>
-      <td><code>ds-check-group</code></td>
-      <td><code>krds-form-chip</code> <code>krds-form-chip-outline</code></td>
-      <td><code>checked</code> <code>disabled</code></td>
-      <td>칩 형태의 체크박스</td>
-    </tr>
     <CompRow
       comp={radioNaming}
       elementFilter={e => e.class.startsWith('ds-check-')}
     />
-    <tr>
-      <td>라디오 버튼 (칩)</td>
-      <td>Radio Chip</td>
-      <td><code>ds-check-group</code></td>
-      <td><code>krds-form-chip</code> <code>krds-form-chip-outline</code></td>
-      <td><code>checked</code> <code>disabled</code></td>
-      <td>칩 형태의 라디오 버튼</td>
-    </tr>
-    <tr>
-      <td>토글 스위치</td>
-      <td>Toggle Switch</td>
-      <td><code>krds-form-toggle-switch</code></td>
-      <td><code>switch-toggle</code></td>
-      <td><code>large</code> <code>medium</code> <code>checked</code> <code>disabled</code></td>
-      <td>ON/OFF 전환 스위치</td>
-    </tr>
+    <CompRow comp={selectNaming} />
     <CompRow comp={tagNaming} />
+  </tbody>
+</table>
+
+---
+
+## 도움 (Help)
+
+<table>
+  <thead>
+    <tr>
+      <th>컴포넌트명(한글)</th>
+      <th>영문명</th>
+      <th>기본 클래스명</th>
+      <th>하위 요소 클래스명</th>
+      <th>modifier (종류·크기·상태)</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <CompRow comp={tooltipNaming} />
   </tbody>
 </table>
 
@@ -237,162 +191,10 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
     </tr>
   </thead>
   <tbody>
-    <CompRow
-      comp={textInputNaming}
-      elementFilter={e => !['ds-textarea', 'ds-textarea__bottom'].includes(e.class)}
-    />
-    <TextareaRow />
-    <CompRow comp={selectNaming} />
-    <tr>
-      <td>선택 상자 (정렬용)</td>
-      <td>Select Sorting</td>
-      <td>—</td>
-      <td><code>ds-select-sort</code></td>
-      <td><code>large</code> <code>medium</code> <code>small</code></td>
-      <td>목록 정렬 기준 선택에 특화된 셀렉트</td>
-    </tr>
+    <CompRow comp={textInputNaming} />
+    <CompRow comp={textareaNaming} />
     <CompRow comp={dateInputNaming} />
     <CompRow comp={fileUploadNaming} />
-    <CompRow comp={calendarNaming} />
-  </tbody>
-</table>
-
----
-
-## 피드백 (Feedback)
-
-<table>
-  <thead>
-    <tr>
-      <th>컴포넌트명(한글)</th>
-      <th>영문명</th>
-      <th>기본 클래스명</th>
-      <th>하위 요소 클래스명</th>
-      <th>modifier (종류·크기·상태)</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>모달</td>
-      <td>Modal</td>
-      <td><code>krds-modal</code></td>
-      <td><code>modal-dialog</code> <code>modal-content</code> <code>modal-header</code> <code>modal-title</code> <code>modal-conts</code> <code>conts-area</code> <code>modal-btn</code> <code>btn-wrap</code> <code>btn-close</code> <code>modal-back</code></td>
-      <td><code>fade</code></td>
-      <td>사용자 확인·입력을 받는 오버레이 레이어</td>
-    </tr>
-    <CompRow comp={tooltipNaming} />
-    <tr>
-      <td>로딩 스피너</td>
-      <td>Spinner</td>
-      <td><code>form-spinner</code></td>
-      <td><code>krds-spinner</code></td>
-      <td>—</td>
-      <td>로딩 상태를 표시하는 회전 아이콘</td>
-    </tr>
-    <CompRow comp={badgeNaming} />
-    <tr>
-      <td>중요 공지</td>
-      <td>Critical Alerts</td>
-      <td><code>krds-critical-alerts</code></td>
-      <td><code>critical-ban</code> <code>critical-badge</code> <code>critical-txt</code></td>
-      <td><code>danger</code> <code>ok</code> <code>info</code></td>
-      <td>긴급하거나 중요한 시스템 공지 배너</td>
-    </tr>
-    <tr>
-      <td>코치 마크</td>
-      <td>Coach Mark</td>
-      <td><code>krds-coach-mark</code></td>
-      <td><code>txt-box</code> <code>coach-balloon</code> <code>coach-tit</code> <code>desc</code> <code>coach-controls</code> <code>num</code> <code>btn-wrap</code></td>
-      <td><code>bg-white</code></td>
-      <td>신규 기능·UI를 안내하는 가이드 말풍선</td>
-    </tr>
-    <tr>
-      <td>맥락적 도움말</td>
-      <td>Contextual Help</td>
-      <td><code>krds-contextual-help</code></td>
-      <td><code>tooltip-txt</code> <code>tooltip-action</code> <code>tooltip-popover</code> <code>tooltip-title</code> <code>tooltip-contents</code> <code>btn-wrap</code> <code>tooltip-close</code></td>
-      <td><code>top</code> <code>bottom</code> <code>left</code> <code>center</code> <code>right</code></td>
-      <td>컴포넌트 주변에 도움말 팝오버를 표시</td>
-    </tr>
-  </tbody>
-</table>
-
----
-
-## 콘텐츠 (Content)
-
-<table>
-  <thead>
-    <tr>
-      <th>컴포넌트명(한글)</th>
-      <th>영문명</th>
-      <th>기본 클래스명</th>
-      <th>하위 요소 클래스명</th>
-      <th>modifier (종류·크기·상태)</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <CompRow comp={accordionNaming} />
-    <tr>
-      <td>공개/비공개</td>
-      <td>Disclosure</td>
-      <td><code>krds-disclosure</code></td>
-      <td><code>btn-conts-expand</code> <code>expand-wrap</code> <code>expand-in</code></td>
-      <td><code>conts-expand-area</code></td>
-      <td>더보기/접기 형태의 콘텐츠 토글</td>
-    </tr>
-    <CompRow comp={tableNaming} />
-    <tr>
-      <td>구조화된 목록</td>
-      <td>Structured List</td>
-      <td><code>krds-structured-list-type-full</code></td>
-      <td><code>structured-item</code> <code>card-top</code> <code>card-body</code> <code>c-tit</code> <code>c-txt</code> <code>c-date</code> <code>key</code> <code>value</code> <code>card-btm</code> <code>card-btn</code></td>
-      <td><code>type-full</code></td>
-      <td>카드형 데이터 목록</td>
-    </tr>
-    <tr>
-      <td>구조화된 목록 (테이블형)</td>
-      <td>Structured List Table</td>
-      <td><code>krds-structured-list-table</code></td>
-      <td><code>search-list-top</code> <code>sch-left</code> <code>sch-sort</code> <code>sort-label</code> <code>w-sort-btn</code> <code>m-sort-btn</code></td>
-      <td>—</td>
-      <td>검색 결과 등 표 형식의 구조화 목록</td>
-    </tr>
-    <tr>
-      <td>텍스트 목록</td>
-      <td>Text List</td>
-      <td><code>krds-info-list</code></td>
-      <td><code>num</code></td>
-      <td><code>decimal</code> <code>dash</code> <code>hollow</code> <code>ordered</code></td>
-      <td>순서 있는/없는 텍스트 목록</td>
-    </tr>
-    <CompRow comp={carouselNaming} />
-    <tr>
-      <td>단계 표시</td>
-      <td>Step Indicator</td>
-      <td><code>krds-step-wrap</code></td>
-      <td><code>step</code> <code>step-tit</code></td>
-      <td><code>done</code> <code>active</code></td>
-      <td>프로세스 진행 단계를 시각화</td>
-    </tr>
-    <tr>
-      <td>도움말 패널</td>
-      <td>Help Panel</td>
-      <td><code>krds-help-panel</code></td>
-      <td><code>help-panel-wrap</code> <code>help-conts-area</code> <code>conts-area</code> <code>help-title</code> <code>link-list</code> <code>help-panel-action</code></td>
-      <td><code>layer</code> <code>line</code> <code>active</code></td>
-      <td>화면 옆에 슬라이드로 열리는 도움말 패널</td>
-    </tr>
-    <tr>
-      <td>튜토리얼 패널</td>
-      <td>Tutorial Panel</td>
-      <td><code>krds-help-panel</code></td>
-      <td><code>help-panel-wrap</code> <code>help-conts-area</code> <code>coach-help-process</code> <code>conts-wrap</code> <code>help-title</code></td>
-      <td><code>layer</code> <code>line</code> <code>active</code></td>
-      <td>기능 사용법을 단계별로 안내하는 패널</td>
-    </tr>
   </tbody>
 </table>
 
@@ -405,3 +207,32 @@ KRDS(Korea Reference Design System) 기반 컴포넌트의 영문명·클래스�
 | 컴포넌트명(한글) | 영문명 | 구성 요소 | 설명 |
 |---|---|---|---|
 | 기본 레이아웃 | Basic Layout | 헤더(`ds-header`) + GNB(`ds-main-menu`) + 푸터(`ds-footer`) | 서비스 기본 페이지 레이아웃 조합 |
+
+---
+
+## 추후 추가 예정
+
+아직 Storybook에 구현되지 않은 KRDS 컴포넌트 목록입니다.
+
+| 컴포넌트명(한글) | 영문명 | 기본 클래스명 |
+|---|---|---|
+| 마스트헤드 | Masthead | `krds-masthead` |
+| 사이드 네비게이션 | Side Navigation | `krds-side-navigation` |
+| 페이지 내 네비게이션 | In-Page Navigation | `krds-in-page-navigation-type` |
+| 건너뛰기 링크 | Skip Link | `ds-skip-link` |
+| 식별자 | Identifier | `krds-identifier` |
+| TTS | TTS | `krds-tts` |
+| 언어 전환 | Language Switcher | `krds-drop-wrap` |
+| 화면 크기 조절 | Resize | `krds-drop-wrap` |
+| 토글 스위치 | Toggle Switch | `krds-form-toggle-switch` |
+| 모달 | Modal | `krds-modal` |
+| 로딩 스피너 | Spinner | `form-spinner` |
+| 중요 공지 | Critical Alerts | `krds-critical-alerts` |
+| 코치 마크 | Coach Mark | `krds-coach-mark` |
+| 맥락적 도움말 | Contextual Help | `krds-contextual-help` |
+| 공개/비공개 | Disclosure | `krds-disclosure` |
+| 구조화된 목록 | Structured List | `krds-structured-list-type-full` |
+| 텍스트 목록 | Text List | `krds-info-list` |
+| 단계 표시 | Step Indicator | `krds-step-wrap` |
+| 도움말 패널 | Help Panel | `krds-help-panel` |
+| 튜토리얼 패널 | Tutorial Panel | `krds-help-panel` |

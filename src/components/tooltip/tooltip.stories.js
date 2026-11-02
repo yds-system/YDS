@@ -1,7 +1,7 @@
 import './tooltip.css';
 
 export default {
-  title: '컴포넌트/피드백/툴팁',
+  title: '컴포넌트/도움/툴팁',
   argTypes: {
     text: {
       control: { type: 'text' },

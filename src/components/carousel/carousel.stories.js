@@ -1,7 +1,7 @@
 import './carousel.css';
 
 export default {
-  title: '컴포넌트/콘텐츠/캐러셀 컨트롤',
+  title: '컴포넌트/레이아웃 및 표현/캐러셀 컨트롤',
   argTypes: {
     paginationType: {
       control: { type: 'select' },

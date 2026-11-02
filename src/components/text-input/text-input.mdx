@@ -54,6 +54,8 @@ export const ModifierTable = ({ modifiers }) => (
 
 # 텍스트 입력 (Text Input)
 
+## 개요
+
 사용자가 텍스트를 직접 입력하는 폼 요소입니다.  
 라벨·도움말·에러 메시지를 포함한 `ds-form-group` 구조는 체크박스·라디오·셀렉트 등 **모든 폼 요소에서 공통으로 재사용**합니다.
 
@@ -61,8 +63,7 @@ export const ModifierTable = ({ modifiers }) => (
 
 ## 네이밍
 
-> 클래스명은 `reference/krds` 실제 코드를 기준으로 합니다.  
-> 추측 클래스명은 <span style={{ color: '#c97a00', fontWeight: 600 }}>확인 필요</span>로 표시합니다.
+> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -236,71 +237,6 @@ export const ModifierTable = ({ modifiers }) => (
 ### 전체 타입
 
 <Canvas of={TextInputStories.전체변형} />
-
----
-
-## 텍스트에어리어 (Textarea)
-
-여러 줄의 자유 텍스트를 입력하는 폼 요소입니다.  
-`input.ds-input`과 동일한 `ds-form-group` 구조에 `ds-textarea` 블록을 추가해 사용합니다.
-
-### 언제 사용하는지
-
-- 주소, 문의 내용, 메모 등 **여러 줄 입력**이 필요할 때
-- 입력 길이가 한 줄로 예측되지 않을 때
-
-### HTML 구조
-
-```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
-    <label for="id">레이블</label>
-  </div>
-  <div class="ds-form-content">
-    <div class="ds-textarea">
-      <textarea id="id" class="ds-input" placeholder="..." maxlength="200"
-                oninput="this.closest('.ds-textarea').querySelector('.ds-count__current').textContent=this.value.length">
-      </textarea>
-      <!-- 글자 수만 있을 때 -->
-      <p class="ds-count">
-        <span class="ds-count__current" aria-live="polite">0</span>
-        <span class="ds-count__max">/ 200</span>
-      </p>
-    </div>
-  </div>
-</div>
-```
-
-에러 상태에서 글자 수와 에러 메시지를 나란히 표시할 때는 `ds-textarea__bottom`을 사용합니다.
-
-```html
-<div class="ds-form-content ds-form-content--error">
-  <div class="ds-textarea">
-    <textarea class="ds-input" ...></textarea>
-    <div class="ds-textarea__bottom">
-      <p class="ds-form-hint ds-form-hint--error">내용을 입력해 주세요.</p>
-      <p class="ds-count">
-        <span class="ds-count__current" aria-live="polite">0</span>
-        <span class="ds-count__max">/ 200</span>
-      </p>
-    </div>
-  </div>
-</div>
-```
-
-> 클래스명 목록은 위 **네이밍** 섹션을 참고한다. `ds-form-content--error` 상태에서 `.ds-count__current`는 danger 컬러로 자동 전환된다.
-
-### Textarea Playground
-
-<Canvas of={TextInputStories.텍스트에어리어Playground} />
-
-### 텍스트에어리어 기본
-
-<Canvas of={TextInputStories.텍스트에어리어기본} />
-
-### 텍스트에어리어 상태
-
-<Canvas of={TextInputStories.텍스트에어리어상태} />
 
 ---
 

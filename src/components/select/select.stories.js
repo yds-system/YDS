@@ -2,7 +2,7 @@ import '../form-group/form-group.css';
 import './select.css';
 
 export default {
-  title: '컴포넌트/입력/선택 상자',
+  title: '컴포넌트/선택/선택 상자',
   argTypes: {
     label: {
       control: 'text',

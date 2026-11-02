@@ -1,7 +1,7 @@
 import './link.css';
 
 export default {
-  title: '컴포넌트/액션/링크 텍스트',
+  title: '컴포넌트/액션/링크',
   argTypes: {
     label: {
       control: { type: 'text' },
