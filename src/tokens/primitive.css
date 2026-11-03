@@ -24,6 +24,19 @@
   --gray-95:  #131416;
   --gray-100: #000000;
 
+  /* secondary  ─  (자체 추가 / 추후 확정) violet-indigo 계열 */
+  --secondary-5:   #f3f0ff;
+  --secondary-10:  #e8e3ff;
+  --secondary-20:  #cfc5ff;
+  --secondary-30:  #b4a2ff;
+  --secondary-40:  #9579f7;
+  --secondary-50:  #7c5de8;
+  --secondary-60:  #6845ce;
+  --secondary-70:  #5433b4;
+  --secondary-80:  #3d2490;
+  --secondary-90:  #26166b;
+  --secondary-95:  #190e4f;
+
   /* primary  ─  KRDS --krds-color-light-primary-* */
   --primary-5:   #ecf2fe;
   --primary-10:  #d8e5fd;
