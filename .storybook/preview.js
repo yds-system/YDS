@@ -1,9 +1,20 @@
 import '../reference/krds/resources/css/token/krds_tokens.css';
 import '../reference/krds/resources/css/common/common.css';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
   parameters: {
+    viewport: {
+      options: {
+        ...INITIAL_VIEWPORTS,
+        desktop: {
+          name: '데스크톱 (1440px)',
+          styles: { width: '1440px', height: '900px' },
+          type: 'desktop',
+        },
+      },
+    },
     controls: {
       matchers: {
        color: /(background|color)$/i,

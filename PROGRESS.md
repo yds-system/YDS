@@ -147,6 +147,16 @@
 
 ---
 
+## 2026-11-03 모바일 GNB viewport 수정 (Storybook 10 globals API)
+
+- **Storybook 10 viewport API 전환**: `parameters.viewport.defaultViewport`(Storybook 10에서 제거됨) → `globals: { viewport: '...' }`
+- **preview.js**: `INITIAL_VIEWPORTS` import + `parameters.viewport.options`에 전체 기기 뷰포트 + 커스텀 `desktop`(1440×900) 추가
+- **PC_GNB 스토리**: `globals: { viewport: 'desktop' }` 적용
+- **모바일_GNB 스토리**: `globals: { viewport: 'iphone6' }` (375×667) 적용
+- **renderMobileGnb() 강제 스타일 제거**: `position: absolute; visibility: visible` 인라인 스타일 + wrapper div 제거 → `--open` 클래스로 교체 (viewport가 375px이면 미디어 쿼리 display:none 미적용)
+
+---
+
 ## 2026-11-03 메인 메뉴 스토리 수정
 
 - **`.ds-container` 가운데 정렬 누락**: `layout.css`에 `margin-left: auto; margin-right: auto;` 추가 → 헤더·푸터·기본 레이아웃 전체 가운데 정렬 복구
