@@ -2,6 +2,8 @@
  * 디자인 토큰 문서 렌더링 컴포넌트
  * design-tokens.mdx에서 import해서 사용한다.
  * naming-components.js 패턴과 동일하게 React.createElement를 직접 사용한다.
+ *
+ * 토큰 이름(name)이 기준 열, CSS 변수(--name)는 개발 참고용으로 맨 뒤에 표시한다.
  */
 import { createElement as h, Fragment } from 'react';
 import {
@@ -26,9 +28,14 @@ const chipStyle = {
   whiteSpace: 'nowrap',
 };
 
+// 토큰 이름 (--없음, 강조)
 const Chip = (txt) => h('code', { style: chipStyle }, txt);
+// 값·참조 (회색)
 const GrayChip = (txt) => h('code', { style: { ...chipStyle, background: 'transparent', color: '#555' } }, txt);
+// KRDS 원본 (연한 회색, 소형)
 const KrdsChip = (txt) => h('code', { style: { ...chipStyle, background: 'transparent', color: '#999', fontSize: '11px' } }, txt);
+// CSS 변수 (개발 참고용, 연한 배경 + 작은 글씨)
+const CssChip = (name) => h('code', { style: { ...chipStyle, background: '#f8f0ff', color: '#6b3fa0', fontSize: '11px' } }, '--' + name);
 
 const th = (txt) => h('th', {
   style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #ddd', whiteSpace: 'nowrap', fontSize: '12px', fontWeight: 600 }
@@ -52,22 +59,22 @@ const subheadStyle = { margin: '0 0 8px', fontSize: '14px', fontWeight: 600, col
 // ─── 프리미티브 → 시멘틱 연결 표 ──────────────────────────────────────────────
 
 const connectionRows = [
-  { semantic: '--txt-primary',      prim: '--gray-90',    value: '#1e2124', usage: '본문·제목 주요 텍스트' },
-  { semantic: '--txt-danger',       prim: '--red-60',     value: '#bd2c0f', usage: '에러 메시지' },
-  { semantic: '--txt-brand',        prim: '--blue-60',    value: '#0b50d0', usage: '링크·브랜드 강조 텍스트' },
-  { semantic: '--bg-primary',       prim: '--gray-0',     value: '#ffffff', usage: '페이지·카드 기본 배경' },
-  { semantic: '--bg-brand',         prim: '--blue-50',    value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
-  { semantic: '--bg-brand-hover',   prim: '--blue-60',    value: '#0b50d0', usage: '브랜드 hover 배경' },
-  { semantic: '--bg-danger-subtle', prim: '--red-5',      value: '#fdefec', usage: '에러 연한 배경' },
-  { semantic: '--bg-selected',      prim: '--blue-5',     value: '#ecf2fe', usage: '선택된 항목 배경' },
-  { semantic: '--border-focus',     prim: '--blue-50',    value: '#256ef4', usage: '포커스 링' },
-  { semantic: '--border-danger',    prim: '--red-50',     value: '#de3412', usage: '에러 테두리' },
+  { semantic: 'txt-primary',      prim: 'gray-90',    value: '#1e2124', usage: '본문·제목 주요 텍스트' },
+  { semantic: 'txt-danger',       prim: 'red-60',     value: '#bd2c0f', usage: '에러 메시지' },
+  { semantic: 'txt-brand',        prim: 'blue-60',    value: '#0b50d0', usage: '링크·브랜드 강조 텍스트' },
+  { semantic: 'bg-primary',       prim: 'gray-0',     value: '#ffffff', usage: '페이지·카드 기본 배경' },
+  { semantic: 'bg-brand',         prim: 'blue-50',    value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
+  { semantic: 'bg-brand-hover',   prim: 'blue-60',    value: '#0b50d0', usage: '브랜드 hover 배경' },
+  { semantic: 'bg-danger-subtle', prim: 'red-5',      value: '#fdefec', usage: '에러 연한 배경' },
+  { semantic: 'bg-selected',      prim: 'blue-5',     value: '#ecf2fe', usage: '선택된 항목 배경' },
+  { semantic: 'border-focus',     prim: 'blue-50',    value: '#256ef4', usage: '포커스 링' },
+  { semantic: 'border-danger',    prim: 'red-50',     value: '#de3412', usage: '에러 테두리' },
 ];
 
 export const ConnectionTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('시멘틱 토큰'), th('프리미티브'), th('값'), th('용도'))
+      h('tr', null, th('시멘틱 토큰 이름'), th('프리미티브 이름'), th('값'), th('용도'))
     ),
     h('tbody', null,
       ...connectionRows.map(r =>
@@ -87,13 +94,13 @@ export const ConnectionTable = () =>
 // ─── 테마 비교 표 ──────────────────────────────────────────────────────────────
 
 const themeRows = [
-  { token: '--bg-brand',         baseRef: '--blue-50',  baseVal: '#256ef4', themeRef: '--green-50', themeVal: '#228738' },
-  { token: '--bg-brand-hover',   baseRef: '--blue-60',  baseVal: '#0b50d0', themeRef: '--green-60', themeVal: '#267337' },
-  { token: '--bg-brand-pressed', baseRef: '--blue-70',  baseVal: '#083891', themeRef: '--green-70', themeVal: '#285d33' },
-  { token: '--bg-brand-subtle',  baseRef: '--blue-5',   baseVal: '#ecf2fe', themeRef: '--green-5',  themeVal: '#eaf6ec' },
-  { token: '--txt-brand',        baseRef: '--blue-60',  baseVal: '#0b50d0', themeRef: '--green-60', themeVal: '#267337' },
-  { token: '--border-brand',     baseRef: '--blue-50',  baseVal: '#256ef4', themeRef: '--green-50', themeVal: '#228738' },
-  { token: '--border-focus',     baseRef: '--blue-50',  baseVal: '#256ef4', themeRef: '--green-50', themeVal: '#228738' },
+  { token: 'bg-brand',         baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
+  { token: 'bg-brand-hover',   baseRef: 'blue-60',  baseVal: '#0b50d0', themeRef: 'green-60', themeVal: '#267337' },
+  { token: 'bg-brand-pressed', baseRef: 'blue-70',  baseVal: '#083891', themeRef: 'green-70', themeVal: '#285d33' },
+  { token: 'bg-brand-subtle',  baseRef: 'blue-5',   baseVal: '#ecf2fe', themeRef: 'green-5',  themeVal: '#eaf6ec' },
+  { token: 'txt-brand',        baseRef: 'blue-60',  baseVal: '#0b50d0', themeRef: 'green-60', themeVal: '#267337' },
+  { token: 'border-brand',     baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
+  { token: 'border-focus',     baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
 ];
 
 const SwatchCell = (val, refName) =>
@@ -111,7 +118,7 @@ const SwatchCell = (val, refName) =>
 export const ThemeTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('토큰'), th('기본 (blue 계열)'), th('project-a (green 계열)'))
+      h('tr', null, th('토큰 이름'), th('기본 (blue 계열)'), th('project-a (green 계열)'))
     ),
     h('tbody', null,
       ...themeRows.map(r =>
@@ -133,16 +140,17 @@ export const ColorPrimTable = () =>
         h('h4', { style: subheadStyle }, g.name),
         h('table', { style: tableStyle },
           h('thead', null,
-            h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('용도'), th('KRDS 원본'))
+            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
           ),
           h('tbody', null,
             ...g.tokens.map(t =>
-              h('tr', { key: t.css },
+              h('tr', { key: t.name },
                 td(ColorSwatch(t.value)),
-                td(Chip(t.css)),
+                td(Chip(t.name)),
                 td(GrayChip(t.value)),
                 td(t.usage || ''),
-                td(KrdsChip(t.krds))
+                td(KrdsChip(t.krds)),
+                td(CssChip(t.name))
               )
             )
           )
@@ -160,17 +168,18 @@ export const ColorSemanticTable = () =>
         h('h4', { style: subheadStyle }, g.name),
         h('table', { style: tableStyle },
           h('thead', null,
-            h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'))
+            h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
           ),
           h('tbody', null,
             ...g.tokens.map(t =>
-              h('tr', { key: t.css },
+              h('tr', { key: t.name },
                 td(ColorSwatch(t.value)),
-                td(Chip(t.css)),
+                td(Chip(t.name)),
                 td(t.ref ? Chip(t.ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '고정값')),
                 td(GrayChip(t.value)),
                 td(t.usage || ''),
-                td(KrdsChip(t.krds))
+                td(KrdsChip(t.krds)),
+                td(CssChip(t.name))
               )
             )
           )
@@ -184,16 +193,17 @@ export const ColorSemanticTable = () =>
 export const TypoPrimTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('CSS 변수'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'))
+      h('tr', null, th('토큰 이름'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...typoPrimTokens.map(t =>
-        h('tr', { key: t.css },
-          td(Chip(t.css)),
+        h('tr', { key: t.name },
+          td(Chip(t.name)),
           td(GrayChip(t.value)),
           td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888', fontSize: '11px' } }, t.figma)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds))
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
@@ -215,19 +225,20 @@ const TypoSample = (valuePC) => {
 export const TypoStyleTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수 (font-size)'), th('PC (크기/굵기/행간)'), th('모바일'), th('용도'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...typoStyleTokens.map(t =>
-        h('tr', { key: t.css },
+        h('tr', { key: t.name },
           td(TypoSample(t.valuePC)),
-          td(Chip(t.css)),
+          td(Chip(t.name)),
           td(GrayChip(t.valuePC)),
           td(t.valuePC === t.valueMobile
             ? h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
             : h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.valueMobile)
           ),
-          td(t.usage || '')
+          td(t.usage || ''),
+          td(CssChip(t.name))
         )
       )
     )
@@ -250,16 +261,17 @@ const SpacingBar = (val, color) => {
 export const SpacingPrimTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('용도'), th('KRDS 원본'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...spacingPrimTokens.map(t =>
-        h('tr', { key: t.css },
+        h('tr', { key: t.name },
           td(SpacingBar(t.value, '#8a949e')),
-          td(Chip(t.css)),
+          td(Chip(t.name)),
           td(GrayChip(t.value)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds))
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
@@ -270,17 +282,18 @@ export const SpacingPrimTable = () =>
 export const SpacingSemanticTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...spacingSemanticTokens.map(t =>
-        h('tr', { key: t.css },
+        h('tr', { key: t.name },
           td(SpacingBar(t.value, '#256ef4')),
-          td(Chip(t.css)),
+          td(Chip(t.name)),
           td(Chip(t.ref)),
           td(GrayChip(t.value)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds))
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
@@ -302,16 +315,17 @@ const RadiusBox = (val, bg, border) => {
 export const RadiusPrimTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('용도'), th('KRDS 원본'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...radiusPrimTokens.map(t =>
-        h('tr', { key: t.css },
+        h('tr', { key: t.name },
           td(RadiusBox(t.value, '#d8e5fd', '#256ef4')),
-          td(Chip(t.css)),
+          td(Chip(t.name)),
           td(GrayChip(t.value)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds))
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
@@ -320,17 +334,18 @@ export const RadiusPrimTable = () =>
 export const RadiusSemanticTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...radiusSemanticTokens.map(t =>
-        h('tr', { key: t.css },
+        h('tr', { key: t.name },
           td(RadiusBox(t.value, '#ecf2fe', '#0b50d0')),
-          td(Chip(t.css)),
+          td(Chip(t.name)),
           td(Chip(t.ref)),
           td(GrayChip(t.value)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds))
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
