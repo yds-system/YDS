@@ -10,13 +10,13 @@
   /* ── 2. 색상 시멘틱 ─────────────────────────────────────────────────────────── */
 
   /* txt-  (글자색) */
-  --txt-primary:      var(--gray-90);   /* 본문·제목 주요 텍스트      ─ --krds-light-color-text-basic     */
-  --txt-secondary:    var(--gray-70);   /* 보조 설명·플레이스홀더      ─ --krds-light-color-text-subtle    */
-  --txt-tertiary:     var(--gray-50);   /* 3단계 보조 텍스트           ─ (자체 추가)                        */
+  --txt-default:      var(--gray-90);   /* 본문·제목 주요 텍스트      ─ --krds-light-color-text-basic     */
+  --txt-subtle:    var(--gray-70);   /* 보조 설명·플레이스홀더      ─ --krds-light-color-text-subtle    */
+  --txt-subtler:     var(--gray-50);   /* 3단계 보조 텍스트           ─ (자체 추가)                        */
   --txt-disabled:     var(--gray-40);   /* 비활성 텍스트               ─ --krds-light-color-text-disabled  */
   --txt-inverse:      var(--gray-0);    /* 어두운 배경 위 텍스트       ─ --krds-light-color-text-basic-inverse */
-  --txt-on-brand:     var(--gray-0);    /* 브랜드 배경 위 텍스트       ─ (자체 추가)                        */
-  --txt-brand:        var(--primary-60);   /* 브랜드·링크·강조 텍스트     ─ --krds-light-color-text-primary    */
+  --txt-on-primary:     var(--gray-0);    /* 브랜드 배경 위 텍스트       ─ (자체 추가)                        */
+  --txt-primary:        var(--primary-60);   /* 브랜드·링크·강조 텍스트     ─ --krds-light-color-text-primary    */
   --txt-link:         var(--primary-50);   /* 링크 기본                   ─ --krds-light-color-link-default    */
   --txt-link-visited: #5917b8;          /* 방문한 링크 (KRDS 고정값)   ─ --krds-light-color-link-visited    */
   --txt-success:      var(--success-60);  /* 성공 메시지                 ─ --krds-light-color-text-success    */
@@ -25,42 +25,42 @@
   --txt-info:         var(--information-60);   /* 안내 메시지                 ─ --krds-light-color-text-information */
 
   /* bg-  (배경색) */
-  --bg-primary:       var(--gray-0);            /* 페이지·카드 기본 배경       ─ --krds-light-color-background-white          */
-  --bg-secondary:     var(--gray-5);            /* 섹션·코드블록 배경          ─ --krds-light-color-background-gray-subtler   */
-  --bg-tertiary:      var(--gray-10);           /* 3단계 배경 (테이블 행 등)   ─ --krds-light-color-background-gray-subtle    */
+  --bg-default:       var(--gray-0);            /* 페이지·카드 기본 배경       ─ --krds-light-color-background-white          */
+  --bg-subtle:     var(--gray-5);            /* 섹션·코드블록 배경          ─ --krds-light-color-background-gray-subtler   */
+  --bg-subtler:      var(--gray-10);           /* 3단계 배경 (테이블 행 등)   ─ --krds-light-color-background-gray-subtle    */
   --bg-elevated:      var(--gray-0);            /* 플로팅 카드·드롭다운        ─ (자체 추가)                                   */
   --bg-inverse:       var(--gray-90);           /* 다크 배경 (헤더·푸터)       ─ --krds-light-color-background-inverse        */
   --bg-disabled:      var(--gray-20);           /* 비활성 요소 배경            ─ --krds-light-color-surface-disabled          */
   --bg-overlay:       var(--black-alpha-75);    /* 딤 오버레이                 ─ --krds-light-color-background-dim            */
   --bg-hover:         var(--gray-5);            /* 일반 hover 배경             ─ (자체 추가)                                   */
   --bg-selected:      var(--primary-5);            /* 선택된 항목 배경            ─ --krds-light-color-action-primary-selected   */
-  --bg-brand:         var(--primary-50);           /* 브랜드 강조 배경 (버튼 등)  ─ --krds-light-color-button-primary-fill       */
-  --bg-brand-hover:   var(--primary-60);           /* 브랜드 hover                ─ --krds-light-color-button-primary-fill-hover */
-  --bg-brand-pressed: var(--primary-70);           /* 브랜드 pressed              ─ --krds-light-color-button-primary-fill-pressed */
-  --bg-brand-subtle:  var(--primary-5);            /* 브랜드 연한 배경            ─ --krds-light-color-surface-primary-subtler   */
+  --bg-primary:         var(--primary-50);           /* 브랜드 강조 배경 (버튼 등)  ─ --krds-light-color-button-primary-fill       */
+  --bg-primary-hover:   var(--primary-60);           /* 브랜드 hover                ─ --krds-light-color-button-primary-fill-hover */
+  --bg-primary-pressed: var(--primary-70);           /* 브랜드 pressed              ─ --krds-light-color-button-primary-fill-pressed */
+  --bg-primary-subtle:  var(--primary-5);            /* 브랜드 연한 배경            ─ --krds-light-color-surface-primary-subtler   */
   --bg-success-subtle: var(--success-5);          /* 성공 연한 배경              ─ --krds-light-color-surface-success-subtler   */
   --bg-warning-subtle: var(--warning-5);         /* 경고 연한 배경              ─ --krds-light-color-surface-warning-subtler   */
   --bg-danger-subtle:  var(--danger-5);            /* 에러 연한 배경              ─ --krds-light-color-surface-danger-subtler    */
   --bg-info-subtle:    var(--information-5);           /* 안내 연한 배경              ─ --krds-light-color-surface-information-subtler */
 
   /* border-  (테두리색) */
-  --border-primary:  var(--gray-30);  /* 기본 테두리                 ─ --krds-light-color-border-gray       */
-  --border-secondary: var(--gray-20); /* 연한 테두리·구분선          ─ --krds-light-color-border-gray-light */
+  --border-default:  var(--gray-30);  /* 기본 테두리                 ─ --krds-light-color-border-gray       */
+  --border-subtle: var(--gray-20); /* 연한 테두리·구분선          ─ --krds-light-color-border-gray-light */
   --border-strong:   var(--gray-60);  /* 강한 테두리 (입력 필드)     ─ --krds-light-color-input-border      */
   --border-divider:  var(--gray-40);  /* 구분선                      ─ --krds-light-color-divider-gray      */
   --border-focus:    var(--primary-50);  /* 포커스 링                   ─ --krds-light-color-border-primary    */
   --border-disabled: var(--gray-30);  /* 비활성 테두리               ─ --krds-light-color-border-disabled   */
-  --border-brand:    var(--primary-50);  /* 브랜드 테두리               ─ --krds-light-color-border-primary    */
+  --border-primary:    var(--primary-50);  /* 브랜드 테두리               ─ --krds-light-color-border-primary    */
   --border-success:  var(--success-50); /* 성공 테두리                 ─ --krds-light-color-border-success    */
   --border-warning:  var(--warning-50);/* 경고 테두리                 ─ --krds-light-color-border-warning    */
   --border-danger:   var(--danger-50);   /* 에러 테두리                 ─ --krds-light-color-border-danger     */
 
   /* icon-  (아이콘색) */
-  --icon-primary:  var(--gray-80);  /* 기본 아이콘                 ─ --krds-light-color-icon-gray          */
-  --icon-secondary: var(--gray-70); /* 보조 아이콘                 ─ --krds-light-color-icon-gray-light    */
+  --icon-default:  var(--gray-80);  /* 기본 아이콘                 ─ --krds-light-color-icon-gray          */
+  --icon-subtle: var(--gray-70); /* 보조 아이콘                 ─ --krds-light-color-icon-gray-light    */
   --icon-disabled: var(--gray-40);  /* 비활성 아이콘               ─ --krds-light-color-icon-disabled      */
   --icon-inverse:  var(--gray-0);   /* 어두운 배경 위 아이콘       ─ --krds-light-color-icon-inverse       */
-  --icon-brand:    var(--primary-50);  /* 브랜드 아이콘               ─ --krds-light-color-icon-primary       */
+  --icon-primary:    var(--primary-50);  /* 브랜드 아이콘               ─ --krds-light-color-icon-primary       */
   --icon-danger:   var(--danger-50);   /* 에러 아이콘                 ─ --krds-light-color-icon-danger        */
 
 
