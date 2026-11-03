@@ -13,7 +13,7 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 ## BEM 네이밍 규칙
 
-**BEM(Block Element Modifier)**은 CSS 클래스를 역할에 따라 세 가지로 구분하는 네이밍 방법론입니다.
+<strong>BEM(Block Element Modifier)</strong>은 CSS 클래스를 역할에 따라 세 가지로 구분하는 네이밍 방법론입니다.
 
 <table>
   <thead>
@@ -29,7 +29,7 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
     <tr>
       <td><strong>Element</strong> (요소)</td>
       <td><code>ds-&#123;컴포넌트&#125;&#95;&#95;&#123;요소&#125;</code></td>
-      <td><code>ds-btn__text</code>, <code>ds-tag__delete-btn</code></td>
+      <td><code>ds-breadcrumb__link</code>, <code>ds-tag__delete-btn</code></td>
       <td>블록을 구성하는 내부 요소. <code>&#95;&#95;</code>(언더스코어 2개)로 연결. 블록 없이 단독 사용 불가</td>
     </tr>
     <tr>
@@ -42,16 +42,19 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 </table>
 
 ```html
-<!-- 예시: 작은 Primary 버튼 -->
-<button class="ds-btn ds-btn--primary ds-btn--small">
-  <span class="ds-btn__text">확인</span>
-</button>
+<!-- Block + Modifier: Primary 버튼 (ds-btn = Block, ds-btn--primary / ds-btn--small = Modifier) -->
+<button class="ds-btn ds-btn--primary ds-btn--small">확인</button>
 
-<!-- 예시: 에러 상태의 텍스트 입력 -->
-<div class="ds-form-content ds-form-content--error">
-  <input class="ds-input" type="text" />
-  <p class="ds-form-hint ds-form-hint--error">필수 입력 항목입니다.</p>
-</div>
+<!-- Block + Element + Modifier: 브레드크럼 현재 페이지
+     ds-breadcrumb = Block, ds-breadcrumb__link = Element, ds-breadcrumb__link--current = Modifier -->
+<nav class="ds-breadcrumb">
+  <ol class="ds-breadcrumb__list">
+    <li class="ds-breadcrumb__item"><a class="ds-breadcrumb__link" href="#">홈</a></li>
+    <li class="ds-breadcrumb__item">
+      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">현재 페이지</span>
+    </li>
+  </ol>
+</nav>
 ```
 
 ---
