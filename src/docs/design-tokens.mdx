@@ -1,15 +1,16 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { createElement as h, Fragment } from 'react';
 import {
-  colorPrimGroups,
-  colorSemanticGroups,
-  typoPrimTokens,
-  typoStyleTokens,
-  spacingPrimTokens,
-  spacingSemanticTokens,
-  radiusPrimTokens,
-  radiusSemanticTokens,
-} from '../tokens/token-data.js';
+  ConnectionTable,
+  ThemeTable,
+  ColorPrimTable,
+  ColorSemanticTable,
+  TypoPrimTable,
+  TypoStyleTable,
+  SpacingPrimTable,
+  SpacingSemanticTable,
+  RadiusPrimTable,
+  RadiusSemanticTable,
+} from './token-components.js';
 
 <Meta title="기반/디자인 토큰" />
 
@@ -23,14 +24,31 @@ import {
 ## 네이밍 규칙
 
 ```
---{분류}-{대상}-{역할}-{상태}
+--{분류}-{대상}-{역할}
 ```
 
-| 계층 | 설명 | 예시 |
-|------|------|------|
-| **프리미티브** | 원재료. 값 그 자체. 컴포넌트에서 직접 쓰지 않는다. | `--blue-50`, `--gray-90`, `--spacing-16` |
-| **시멘틱** | 용도 기반. 반드시 프리미티브를 `var()`로 참조한다. | `--bg-brand`, `--txt-primary`, `--gap-m` |
-| **테마 오버라이드** | `[data-theme]`에서 시멘틱 토큰 일부를 교체한다. | `--bg-brand: var(--green-50)` |
+<table>
+  <thead>
+    <tr><th>계층</th><th>설명</th><th>예시</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>프리미티브</strong></td>
+      <td>원재료. 값 그 자체. 컴포넌트에서 직접 쓰지 않는다.</td>
+      <td><code>--blue-50</code>, <code>--gray-90</code>, <code>--spacing-16</code></td>
+    </tr>
+    <tr>
+      <td><strong>시멘틱</strong></td>
+      <td>용도 기반. 반드시 프리미티브를 <code>var()</code>로 참조한다.</td>
+      <td><code>--bg-brand</code>, <code>--txt-primary</code>, <code>--gap-m</code></td>
+    </tr>
+    <tr>
+      <td><strong>테마 오버라이드</strong></td>
+      <td><code>[data-theme]</code>에서 시멘틱 토큰 일부를 교체한다.</td>
+      <td><code>--bg-brand: var(--green-50)</code></td>
+    </tr>
+  </tbody>
+</table>
 
 **프리미티브는 물감, 시멘틱은 용도가 적힌 물감통.**
 색칠할 때는 물감통(시멘틱)을 집어든다. 내부에 무슨 물감(프리미티브)이 들어 있는지는 몰라도 된다.
@@ -38,47 +56,12 @@ import {
 
 **장식 vs UI 사용 구분**
 
-- **아이콘·일러스트·차트 등 장식 요소** → 프리미티브 직접 참조 허용 (`--blue-50`, `--green-30` 등)
-- **버튼·텍스트·배경·테두리 등 UI 요소** → 반드시 시멘틱 참조 (`--bg-brand`, `--txt-primary` 등)
+- **아이콘·일러스트·차트 등 장식** → 프리미티브 직접 참조 허용 (`--blue-50`, `--green-30` 등)
+- **버튼·텍스트·배경·테두리 등 UI** → 반드시 시멘틱 참조 (`--bg-brand`, `--txt-primary` 등)
 
 ---
 
 ## 예시: 프리미티브 → 시멘틱 연결
-
-export const ConnectionTable = () => {
-  const rows = [
-    { semantic: '--txt-primary',      prim: '--gray-90',    value: '#1e2124', usage: '본문·제목 주요 텍스트' },
-    { semantic: '--txt-danger',       prim: '--red-60',     value: '#bd2c0f', usage: '에러 메시지' },
-    { semantic: '--txt-brand',        prim: '--blue-60',    value: '#0b50d0', usage: '링크·브랜드 강조 텍스트' },
-    { semantic: '--bg-primary',       prim: '--gray-0',     value: '#ffffff', usage: '페이지·카드 기본 배경' },
-    { semantic: '--bg-brand',         prim: '--blue-50',    value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
-    { semantic: '--bg-brand-hover',   prim: '--blue-60',    value: '#0b50d0', usage: '브랜드 hover 배경' },
-    { semantic: '--bg-danger-subtle', prim: '--red-5',      value: '#fdefec', usage: '에러 연한 배경' },
-    { semantic: '--bg-selected',      prim: '--blue-5',     value: '#ecf2fe', usage: '선택된 항목 배경' },
-    { semantic: '--border-focus',     prim: '--blue-50',    value: '#256ef4', usage: '포커스 링' },
-    { semantic: '--border-danger',    prim: '--red-50',     value: '#de3412', usage: '에러 테두리' },
-  ];
-  const th = (txt) => h('th', { style: { padding: '6px 10px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '5px 10px', borderBottom: '1px solid #eee', verticalAlign: 'middle', ...extra } }, content);
-  const chip = (txt) => h('code', { style: { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace' } }, txt);
-  const swatch = (val) => h('div', { style: { width: '20px', height: '20px', background: val, borderRadius: '3px', border: '1px solid rgba(0,0,0,0.12)', display: 'inline-block', verticalAlign: 'middle' } });
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse', fontSize: '13px' } },
-    h('thead', null,
-      h('tr', null, th('시멘틱 토큰'), th('프리미티브'), th('값'), th('용도'))
-    ),
-    h('tbody', null,
-      ...rows.map(r =>
-        h('tr', { key: r.semantic },
-          td(chip(r.semantic)),
-          td(chip(r.prim)),
-          td(h(Fragment, null, swatch(r.value), h('code', { style: { marginLeft: '6px', fontSize: '12px' } }, r.value))),
-          td(r.usage)
-        )
-      )
-    )
-  );
-};
 
 <ConnectionTable />
 
@@ -88,37 +71,9 @@ export const ConnectionTable = () => {
 
 brand 계열 토큰만 교체하면 모든 버튼·링크·포커스가 함께 바뀝니다.
 
-export const ThemeTable = () => {
-  const rows = [
-    { token: '--bg-brand',         base: '--blue-50 / #256ef4',  theme: '--green-50 / #228738', baseVal: '#256ef4', themeVal: '#228738' },
-    { token: '--bg-brand-hover',   base: '--blue-60 / #0b50d0',  theme: '--green-60 / #267337', baseVal: '#0b50d0', themeVal: '#267337' },
-    { token: '--bg-brand-pressed', base: '--blue-70 / #083891',  theme: '--green-70 / #285d33', baseVal: '#083891', themeVal: '#285d33' },
-    { token: '--bg-brand-subtle',  base: '--blue-5 / #ecf2fe',   theme: '--green-5 / #eaf6ec',  baseVal: '#ecf2fe', themeVal: '#eaf6ec' },
-    { token: '--txt-brand',        base: '--blue-60 / #0b50d0',  theme: '--green-60 / #267337', baseVal: '#0b50d0', themeVal: '#267337' },
-    { token: '--border-brand',     base: '--blue-50 / #256ef4',  theme: '--green-50 / #228738', baseVal: '#256ef4', themeVal: '#228738' },
-    { token: '--border-focus',     base: '--blue-50 / #256ef4',  theme: '--green-50 / #228738', baseVal: '#256ef4', themeVal: '#228738' },
-  ];
-  const th = (txt) => h('th', { style: { padding: '6px 10px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '5px 10px', borderBottom: '1px solid #eee', verticalAlign: 'middle', ...extra } }, content);
-  const chip = (txt) => h('code', { style: { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace' } }, txt);
-  const swatch = (val) => h('div', { style: { width: '18px', height: '18px', background: val, borderRadius: '3px', border: '1px solid rgba(0,0,0,0.12)', display: 'inline-block', verticalAlign: 'middle', marginRight: '5px' } });
-  const cell = (val, txt) => h(Fragment, null, swatch(val), h('code', { style: { fontSize: '12px' } }, txt));
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse', fontSize: '13px' } },
-    h('thead', null,
-      h('tr', null, th('토큰'), th('기본 (blue 계열)'), th('project-a (green 계열)'))
-    ),
-    h('tbody', null,
-      ...rows.map(r =>
-        h('tr', { key: r.token },
-          td(chip(r.token)),
-          td(cell(r.baseVal, r.base)),
-          td(cell(r.themeVal, r.theme))
-        )
-      )
-    )
-  );
-};
+```html
+<html lang="ko" data-theme="project-a">
+```
 
 <ThemeTable />
 
@@ -126,152 +81,28 @@ export const ThemeTable = () => {
 
 ## 1. 색상 프리미티브
 
-export const ColorPrimTable = ({ groups }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const swatch = (val) => h('div', { style: { width: '28px', height: '28px', background: val, borderRadius: '4px', border: '1px solid rgba(0,0,0,0.12)', flexShrink: 0 } });
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-
-  return h(Fragment, null,
-    ...groups.map(g =>
-      h('div', { key: g.name, style: { marginBottom: '24px' } },
-        h('h4', { style: { margin: '0 0 8px', fontSize: '14px', fontWeight: 600 } }, g.name),
-        h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-          h('thead', null,
-            h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'))
-          ),
-          h('tbody', null,
-            ...g.tokens.map(t =>
-              h('tr', { key: t.css },
-                td(swatch(t.value)),
-                td(chip(t.css)),
-                td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-                td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#666' } }, t.figma)),
-                td(t.usage || '—'),
-                td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-              )
-            )
-          )
-        )
-      )
-    )
-  );
-};
-
-<ColorPrimTable groups={colorPrimGroups} />
+<ColorPrimTable />
 
 ---
 
 ## 2. 색상 시멘틱
 
-export const ColorSemanticTable = ({ groups }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const swatch = (val) => h('div', { style: { width: '28px', height: '28px', background: val, borderRadius: '4px', border: '1px solid rgba(0,0,0,0.12)', flexShrink: 0 } });
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-
-  return h(Fragment, null,
-    ...groups.map(g =>
-      h('div', { key: g.name, style: { marginBottom: '24px' } },
-        h('h4', { style: { margin: '0 0 8px', fontSize: '14px', fontWeight: 600 } }, g.name),
-        h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-          h('thead', null,
-            h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'))
-          ),
-          h('tbody', null,
-            ...g.tokens.map(t =>
-              h('tr', { key: t.css },
-                td(swatch(t.value)),
-                td(chip(t.css)),
-                td(t.ref ? chip(t.ref) : h('span', { style: { color: '#999' } }, '(고정값)')),
-                td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-                td(t.usage || '—'),
-                td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-              )
-            )
-          )
-        )
-      )
-    )
-  );
-};
-
-<ColorSemanticTable groups={colorSemanticGroups} />
+<ColorSemanticTable />
 
 ---
 
 ## 3. 타이포
 
-### 프리미티브 (font-size, font-weight, line-height 등)
+### 프리미티브
 
-export const TypoPrimTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('CSS 변수'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(chip(t.css)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#666' } }, t.figma)),
-          td(t.usage || '—'),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-        )
-      )
-    )
-  );
-};
-
-<TypoPrimTable tokens={typoPrimTokens} />
+<TypoPrimTable />
 
 ### 텍스트 스타일 (크기 + 굵기 + 행간 묶음)
 
 PC와 모바일에서 다른 경우에만 `@media (max-width: 1279px)`로 덮어씁니다.
 컴포넌트는 `var(--font-size-heading-l)` 하나만 참조하면 뷰포트에 맞게 자동 전환됩니다.
 
-export const TypoStyleTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-
-  const sample = (t) => {
-    const [szStr, wStr, lhStr] = (t.valuePC || '').split(' / ');
-    const sz = parseFloat(szStr) * 10 + 'px';
-    const fw = wStr === 'bold' ? '700' : wStr === '500' ? '500' : '400';
-    return h('span', { style: { fontSize: sz, fontWeight: fw, lineHeight: '1.5', color: '#1e2124', letterSpacing: 0 } }, '가나다 Aa');
-  };
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수 (font-size)'), th('PC 값 (크기/굵기/행간)'), th('모바일'), th('용도'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(sample(t)),
-          td(chip(t.css)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.valuePC)),
-          td(t.valuePC === t.valueMobile
-            ? h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
-            : h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.valueMobile)
-          ),
-          td(t.usage || '—')
-        )
-      )
-    )
-  );
-};
-
-<TypoStyleTable tokens={typoStyleTokens} />
+<TypoStyleTable />
 
 ---
 
@@ -279,70 +110,11 @@ export const TypoStyleTable = ({ tokens }) => {
 
 ### 프리미티브
 
-export const SpacingPrimTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-  const bar = (val) => {
-    const px = parseFloat(val) * 10;
-    const w = Math.min(px * 2, 160);
-    return h('div', { style: { width: w + 'px', height: '12px', background: '#0b50d0', borderRadius: '2px', minWidth: px === 0 ? '0' : '2px' } });
-  };
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('용도'), th('KRDS 원본'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(bar(t.value)),
-          td(chip(t.css)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-          td(t.usage || '—'),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-        )
-      )
-    )
-  );
-};
-
-<SpacingPrimTable tokens={spacingPrimTokens} />
+<SpacingPrimTable />
 
 ### 시멘틱 (gap, padding, section-padding)
 
-export const SpacingSemanticTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-  const bar = (val) => {
-    const px = parseFloat(val) * 10;
-    const w = Math.min(px * 2, 160);
-    return h('div', { style: { width: w + 'px', height: '12px', background: '#256ef4', borderRadius: '2px', minWidth: px === 0 ? '0' : '4px' } });
-  };
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(bar(t.value)),
-          td(chip(t.css)),
-          td(chip(t.ref)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-          td(t.usage || '—'),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-        )
-      )
-    )
-  );
-};
-
-<SpacingSemanticTable tokens={spacingSemanticTokens} />
+<SpacingSemanticTable />
 
 ---
 
@@ -350,65 +122,8 @@ export const SpacingSemanticTable = ({ tokens }) => {
 
 ### 프리미티브
 
-export const RadiusPrimTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-  const box = (val) => {
-    const r = val === '99.9rem' ? '50px' : parseFloat(val) * 10 + 'px';
-    return h('div', { style: { width: '40px', height: '40px', background: '#d8e5fd', border: '2px solid #256ef4', borderRadius: r, flexShrink: 0 } });
-  };
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('값'), th('용도'), th('KRDS 원본'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(box(t.value)),
-          td(chip(t.css)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-          td(t.usage || '—'),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-        )
-      )
-    )
-  );
-};
-
-<RadiusPrimTable tokens={radiusPrimTokens} />
+<RadiusPrimTable />
 
 ### 시멘틱
 
-export const RadiusSemanticTable = ({ tokens }) => {
-  const chipStyle = { background: '#f1f3f5', padding: '1px 5px', borderRadius: '3px', fontSize: '12px', fontFamily: 'monospace', whiteSpace: 'nowrap' };
-  const chip = (txt) => h('code', { style: chipStyle }, txt);
-  const th = (txt) => h('th', { style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #e0e0e0', whiteSpace: 'nowrap', fontSize: '12px' } }, txt);
-  const td = (content, extra = {}) => h('td', { style: { padding: '4px 8px', borderBottom: '1px solid #eee', verticalAlign: 'middle', fontSize: '12px', ...extra } }, content);
-  const box = (val) => {
-    const r = val.includes('999') || val.includes('원형') ? '50px' : parseFloat(val) * 10 + 'px';
-    return h('div', { style: { width: '40px', height: '40px', background: '#ecf2fe', border: '2px solid #256ef4', borderRadius: r, flexShrink: 0 } });
-  };
-
-  return h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
-    h('thead', null,
-      h('tr', null, th('견본'), th('CSS 변수'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'))
-    ),
-    h('tbody', null,
-      ...tokens.map(t =>
-        h('tr', { key: t.css },
-          td(box(t.value)),
-          td(chip(t.css)),
-          td(chip(t.ref)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent' } }, t.value)),
-          td(t.usage || '—'),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888' } }, t.krds))
-        )
-      )
-    )
-  );
-};
-
-<RadiusSemanticTable tokens={radiusSemanticTokens} />
+<RadiusSemanticTable />
