@@ -9,6 +9,22 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ---
 
+## 필수 전제 — `html { font-size: 62.5% }`
+
+이 시스템의 모든 rem 값은 **1rem = 10px** 기준으로 설계됩니다.
+
+```css
+/* src/global/reset.css 또는 base.css */
+html {
+  font-size: 62.5%; /* 16px × 62.5% = 10px */
+}
+```
+
+> 이 설정이 없으면 `1.6rem`이 16px가 아닌 25.6px(기본 16px 기준)로 렌더링됩니다.  
+> KRDS도 동일한 전제를 사용합니다 (`reference/krds/resources/css/common/common.css` 참고).
+
+---
+
 ## 네이밍 규칙
 
 ### 형식
@@ -20,6 +36,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 - **접두사 없음** — `--ds-`, `--krds-` 등 접두사를 붙이지 않는다.  
   컴포넌트 내부 변수(`--ds-btn--color-*`)와 구별하기 위함.
 - **이름만 보고 용도를 알 수 있게** 짓는다. `--primary`, `--text` 같은 한 단어 이름은 금지.
+- 크기 표기는 **풀네임**으로 통일한다: `small` / `medium` / `large` (축약형 `sm`, `md` 금지).
 - 상태 세그먼트는 **필요한 것만** 붙인다.
 
 ### 분류
@@ -37,7 +54,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
     <tr>
       <td><code>font</code></td>
       <td><code>size</code> / <code>weight</code></td>
-      <td><code>--font-size-body-md</code>, <code>--font-weight-bold</code></td>
+      <td><code>--font-size-body-medium</code>, <code>--font-weight-bold</code></td>
     </tr>
     <tr>
       <td><code>space</code></td>
@@ -52,7 +69,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
     <tr>
       <td><code>shadow</code></td>
       <td>— (크기 이름)</td>
-      <td><code>--shadow-sm</code>, <code>--shadow-md</code></td>
+      <td><code>--shadow-small</code>, <code>--shadow-medium</code></td>
     </tr>
   </tbody>
 </table>
@@ -191,31 +208,54 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ### 글자 크기 (font-size)
 
+PC 기본값을 `:root`에 정의하고, 모바일에서는 `@media`로 덮어씁니다.  
+토큰 이름은 하나지만 뷰포트에 따라 값이 자동으로 바뀝니다.
+
 <table>
   <thead>
-    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도</th></tr>
+    <tr><th>토큰명</th><th>PC 값</th><th>모바일 값</th><th>KRDS 원본 (PC / mobile)</th><th>용도</th></tr>
   </thead>
   <tbody>
     <tr>
-      <td><code>--font-size-body-md</code></td>
+      <td><code>--font-size-body-medium</code></td>
       <td><code>1.7rem</code></td>
-      <td><code>--krds-pc-font-size-body-medium</code></td>
+      <td><code>1.7rem</code></td>
+      <td><code>--krds-pc-font-size-body-medium</code> / <code>--krds-mobile-font-size-body-medium</code></td>
       <td>본문 기본 크기</td>
     </tr>
     <tr>
-      <td><code>--font-size-body-sm</code></td>
+      <td><code>--font-size-body-small</code></td>
       <td><code>1.5rem</code></td>
-      <td><code>--krds-pc-font-size-body-small</code></td>
+      <td><code>1.5rem</code></td>
+      <td><code>--krds-pc-font-size-body-small</code> / <code>--krds-mobile-font-size-body-small</code></td>
       <td>보조 설명·캡션</td>
     </tr>
     <tr>
-      <td><code>--font-size-heading-sm</code></td>
-      <td><code>1.9rem</code></td>
-      <td><code>--krds-pc-font-size-heading-small</code></td>
-      <td>소섹션 제목</td>
+      <td><code>--font-size-heading-medium</code></td>
+      <td><code>2.4rem</code></td>
+      <td><code>2.2rem</code></td>
+      <td><code>--krds-pc-font-size-heading-medium</code> / <code>--krds-mobile-font-size-heading-medium</code></td>
+      <td>섹션 제목</td>
     </tr>
   </tbody>
 </table>
+
+**미디어 쿼리 덮어쓰기 예시** (`--font-size-heading-medium` PC 2.4rem → 모바일 2.2rem):
+
+```css
+/* src/tokens/base.css */
+:root {
+  --font-size-heading-medium: 2.4rem;   /* PC: --krds-pc-font-size-heading-medium */
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --font-size-heading-medium: 2.2rem; /* 모바일: --krds-mobile-font-size-heading-medium */
+  }
+}
+```
+
+컴포넌트 CSS는 `var(--font-size-heading-medium)` 하나만 참조하면 뷰포트에 맞게 자동 전환됩니다.
 
 ### 간격 (space)
 
@@ -275,9 +315,35 @@ import { Meta } from '@storybook/addon-docs/blocks';
   </tbody>
 </table>
 
+### 그림자 (shadow)
+
+KRDS 알파 색상 토큰(`--krds-light-color-alpha-shadow*`)을 조합한 값입니다.
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본 참조</th><th>용도 예시</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--shadow-small</code></td>
+      <td><code>0 0 0.2rem 0 #0000000d,<br />0 0.4rem 0.8rem 0 #00000014</code></td>
+      <td><code>--krds-light-color-alpha-shadow1</code> +<br /><code>--krds-light-color-alpha-shadow2</code><br />(드롭다운 메뉴 그림자)</td>
+      <td>드롭다운, 팝오버, 선택 상자</td>
+    </tr>
+    <tr>
+      <td><code>--shadow-medium</code></td>
+      <td><code>0 0 0.4rem 0 #00000014,<br />0 0.8rem 2rem 0 #0000001f</code></td>
+      <td><code>--krds-light-color-alpha-shadow2</code> +<br /><code>--krds-light-color-alpha-shadow3</code><br />(모달·카드 그림자)</td>
+      <td>모달, 카드, 플로팅 버튼</td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 
-## 프로젝트 테마 예시
+## 테마 · 다크 모드 원칙
+
+### 프로젝트 테마
 
 `data-theme` 속성으로 프로젝트별 브랜드 컬러를 덮어씁니다.  
 Primary 계열만 교체하면 버튼·링크·포커스 등 UI 전체가 일관되게 바뀝니다.
@@ -301,6 +367,23 @@ Primary 계열만 교체하면 버튼·링크·포커스 등 UI 전체가 일관
 ```html
 <!-- 페이지 루트에 theme 속성 부여 -->
 <html lang="ko" data-theme="project-a">
+```
+
+### 다크 모드
+
+필요 시 `[data-mode="dark"]`에서 같은 이름의 `color` 토큰을 덮어씁니다.  
+토큰 이름이 역할 기반이므로 컴포넌트 CSS는 건드리지 않아도 됩니다.
+
+```css
+/* src/tokens/mode-dark.css */
+
+[data-mode="dark"] {
+  --color-bg-default:    #1e2124;
+  --color-bg-subtle:     #33363d;
+  --color-text-default:  #f4f5f6;
+  --color-text-subtle:   #b1b8be;
+  /* … */
+}
 ```
 
 ---
@@ -330,14 +413,18 @@ Primary 계열만 교체하면 버튼·링크·포커스 등 UI 전체가 일관
 --ds-btn--color-tertiary-text: var(--color-text-default);
 ```
 
-### 예시 3 — 입력 필드 테두리
+### 예시 3 — 입력 필드 (text-input.css)
 
 ```css
-/* 현재 (button.css 내 border 예시) */
-border: 0.1rem solid var(--krds-light-color-border-gray);
+/* 현재 (text-input.css) */
+--ds-input--color-text-placeholder: var(--krds-light-color-text-disabled);
+--ds-input--color-border-active:    var(--krds-light-color-input-border-active);
+--ds-input--color-border-error:     var(--krds-light-color-input-border-error);
 
 /* 변경 후 */
-border: 0.1rem solid var(--color-border-default);
+--ds-input--color-text-placeholder: var(--color-text-disabled);
+--ds-input--color-border-active:    var(--color-border-focus);
+--ds-input--color-border-error:     var(--color-border-danger);
 ```
 
 > 교체 범위: `src/components/**/*.css` 전체.  
@@ -347,8 +434,10 @@ border: 0.1rem solid var(--color-border-default);
 
 ## 적용 절차 (추후)
 
-1. `src/tokens/base.css` 생성 — `:root` 에 위 토큰 정의
-2. `src/tokens/theme-*.css` 생성 — 프로젝트별 `[data-theme]` 오버라이드
-3. `preview.js` import 순서: `base.css` → `theme-*.css` → `component.css`
-4. 컴포넌트 CSS에서 `--krds-light-color-*` / `--krds-number-*` 등을 새 토큰으로 교체
-5. `CLAUDE.md` 토큰 섹션 업데이트
+1. `src/tokens/base.css` 생성 — `:root` 에 위 토큰 정의 (PC 기본값)
+2. `@media (max-width: 1279px)` 블록으로 모바일 폰트 크기 덮어쓰기
+3. `src/tokens/theme-*.css` 생성 — 프로젝트별 `[data-theme]` 오버라이드
+4. `src/tokens/mode-dark.css` 생성 — `[data-mode="dark"]` 오버라이드 (필요 시)
+5. `preview.js` import 순서: `base.css` → `theme-*.css` → `component.css`
+6. 컴포넌트 CSS에서 `--krds-light-color-*` / `--krds-number-*` 등을 새 토큰으로 교체
+7. `CLAUDE.md` 토큰 섹션 업데이트

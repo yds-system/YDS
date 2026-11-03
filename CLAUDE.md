@@ -43,15 +43,20 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 
 ### 토큰 네이밍 규칙 (초안 — src/docs/tokens-naming.mdx 참고)
 
+- **필수 전제**: `html { font-size: 62.5%; }` (1rem = 10px). 이 설정이 없으면 모든 rem 값이 틀어진다.
 - **형식**: `--{분류}-{대상}-{역할}-{상태}` (접두사 없음)
   - 분류: `color` / `font` / `space` / `radius` / `shadow`
   - 색상 대상: `text` / `bg` / `border` / `icon`
   - 역할: `default`, `subtle`, `inverse`, `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `disabled`
   - 상태: `hover`, `active`, `focus`, `disabled` (필요한 경우만)
+- **크기 표기는 풀네임**: `small` / `medium` / `large` (축약형 `sm`, `md` 금지)
 - **한 단어 이름 금지**: `--primary`, `--text` 등은 다른 CSS와 충돌 우려.
 - **간격**: px 숫자 그대로 (`--space-4`, `--space-8`, `--space-16` …)
-- **예시**: `--color-text-default`, `--color-bg-primary-hover`, `--color-border-focus`, `--font-size-body-md`, `--space-16`, `--radius-medium`
+- **예시**: `--color-text-default`, `--color-bg-primary-hover`, `--color-border-focus`, `--font-size-body-medium`, `--space-16`, `--radius-medium`, `--shadow-small`
 - 컴포넌트 내부 변수(`--ds-btn--color-*`)와 구별하기 위해 접두사를 붙이지 않는다.
+- **PC/모바일 폰트**: 같은 토큰 이름을 `:root`(PC)와 `@media (max-width: 1279px)`(모바일)에서 각각 정의. 컴포넌트는 토큰 하나만 참조.
+- **프로젝트 테마**: `[data-theme="project-a"]`에서 `primary` 계열 토큰만 덮어씀.
+- **다크 모드**: 필요 시 `[data-mode="dark"]`에서 같은 이름의 `color` 토큰을 덮어씀.
 
 ## 문서 규칙
 - 문서는 한국어로 작성한다.
