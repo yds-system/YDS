@@ -147,6 +147,18 @@
 
 ---
 
+## 2026-11-03 작업 내역 (네이밍 정의서 UI 개선)
+
+- **naming-components.js 생성**: UNCONFIRMED·CompRow·ElementTable·ModifierTable 공용 컴포넌트를 `src/docs/naming-components.js`로 분리 (React.createElement 사용)
+- **CompRow 표시 개선**: 하위 요소·modifier를 세로 칩 목록으로 표시. 다른 블록 클래스는 구분선 + "(공통)" 표시로 구분
+- **ElementTable·ModifierTable 개선**: 클래스명을 옅은 회색 칩 스타일로 표시. baseClass 기준으로 공통 블록 행을 표 하단으로 분리
+- **23개 컴포넌트 mdx 일괄 업데이트**: 로컬 정의 제거, naming-components.js import, `baseClass` prop 추가 (showKrds: header·footer·main-menu)
+- **추후 추가 예정 KRDS 분류 수정**: 공식 메뉴 순서 기준으로 분류 전면 교체 (마스트헤드 삭제, 피드백·설정·콘텐츠 분류 추가)
+- **headerNaming.description**: "ds-utility-list는 헤더·모바일 메뉴 공통 블록" 문구 추가
+- **BEM 규칙 설명 추가**: components-naming.mdx 도입부에 BEM 개념(블록·요소·변형) 설명 섹션 추가
+
+---
+
 ## 2026-11-02 작업 내역 (네이밍 정의서 점검 반영)
 
 - **remark-gfm 추가**: `.storybook/main.js` addon-docs 설정에 remarkPlugins 추가 → 마크다운 GFM 표 렌더링 활성화

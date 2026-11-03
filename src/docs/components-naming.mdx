@@ -1,28 +1,58 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { buttonNaming, linkNaming, tagNaming, textInputNaming, textareaNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming, accordionNaming, tableNaming, carouselNaming, iconNaming, layoutNaming, headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming } from '../docs/naming-data.js';
-
-export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
-  const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
-  const els = elementFilter ? allEls.filter(elementFilter) : allEls;
-  const mods = modifierFilter ? comp.modifiers.filter(modifierFilter) : comp.modifiers;
-  return (
-    <tr>
-      <td>{comp.name}</td>
-      <td>{comp.englishName}</td>
-      <td><code>{comp.baseClass}</code></td>
-      <td>{els.map((e, i) => <span key={i}><code>{e.class}</code>{' '}</span>)}</td>
-      <td>{mods.map((m, i) => <span key={i}><code>{m.class}</code>{' '}</span>)}</td>
-      <td>{comp.description}</td>
-    </tr>
-  );
-};
+import { CompRow } from '../docs/naming-components.js';
 
 <Meta title="Docs/네이밍 정의서" />
 
 # 컴포넌트 네이밍 정의서
 
-범정부 UI/UX 디자인 시스템(KRDS) 기반 ds- BEM 규칙 클래스명 정의서입니다.
+범정부 UI/UX 디자인 시스템(KRDS) 기반 `ds-` BEM 규칙 클래스명 정의서입니다.
 KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
+
+---
+
+## BEM 네이밍 규칙
+
+**BEM(Block Element Modifier)**은 CSS 클래스를 역할에 따라 세 가지로 구분하는 네이밍 방법론입니다.
+
+<table>
+  <thead>
+    <tr><th>구분</th><th>형식</th><th>예시</th><th>설명</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Block</strong> (블록)</td>
+      <td><code>ds-{컴포넌트}</code></td>
+      <td><code>ds-btn</code>, <code>ds-input</code></td>
+      <td>독립적으로 의미를 갖는 컴포넌트 단위. 어디에서든 재사용 가능</td>
+    </tr>
+    <tr>
+      <td><strong>Element</strong> (요소)</td>
+      <td><code>ds-{컴포넌트}__{요소}</code></td>
+      <td><code>ds-btn__text</code>, <code>ds-tag__delete-btn</code></td>
+      <td>블록을 구성하는 내부 요소. <code>__</code>(언더스코어 2개)로 연결. 블록 없이 단독 사용 불가</td>
+    </tr>
+    <tr>
+      <td><strong>Modifier</strong> (변형)</td>
+      <td><code>ds-{컴포넌트}--{modifier}</code></td>
+      <td><code>ds-btn--primary</code>, <code>ds-btn--small</code></td>
+      <td>블록·요소의 변형(종류·크기·상태). <code>--</code>(하이픈 2개)로 연결. 항상 기본 클래스와 함께 사용</td>
+    </tr>
+  </tbody>
+</table>
+
+```html
+<!-- 예시: 작은 Primary 버튼 -->
+<button class="ds-btn ds-btn--primary ds-btn--small">
+  <span class="ds-btn__text">확인</span>
+</button>
+
+<!-- 예시: 에러 상태의 텍스트 입력 -->
+<div class="ds-form-content ds-form-content--error">
+  <input class="ds-input" type="text" />
+  <p class="ds-form-hint ds-form-hint--error">필수 입력 항목입니다.</p>
+</div>
+```
 
 ---
 

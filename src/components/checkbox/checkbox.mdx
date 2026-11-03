@@ -1,54 +1,8 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import * as CheckboxStories from './checkbox.stories.js';
 import { checkboxNaming } from '../../docs/naming-data.js';
+import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
-export const UNCONFIRMED = (
-  <span style={{ color: '#c97a00', fontWeight: 600, fontSize: '0.8em', marginLeft: '0.4em' }}>
-    확인 필요
-  </span>
-);
-
-export const ElementTable = ({ elements }) => (
-  <table>
-    <thead>
-      <tr>
-        <th>요소</th>
-        <th>클래스명</th>
-        <th>설명</th>
-      </tr>
-    </thead>
-    <tbody>
-      {elements.map((el, i) => (
-        <tr key={i}>
-          <td>{el.element}</td>
-          <td><code>{el.class}</code>{!el.confirmed && UNCONFIRMED}</td>
-          <td>{el.description}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-);
-
-export const ModifierTable = ({ modifiers }) => (
-  <table>
-    <thead>
-      <tr>
-        <th>분류</th>
-        <th>클래스명</th>
-        <th>설명</th>
-      </tr>
-    </thead>
-    <tbody>
-      {modifiers.map((mod, i) => (
-        <tr key={i}>
-          <td>{mod.category}</td>
-          <td><code>{mod.class}</code>{!mod.confirmed && UNCONFIRMED}</td>
-          <td>{mod.description}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-);
 
 <Meta of={CheckboxStories} />
 
@@ -71,11 +25,11 @@ export const ModifierTable = ({ modifiers }) => (
 
 ### 클래스명 표
 
-<ElementTable elements={checkboxNaming.elements} />
+<ElementTable elements={checkboxNaming.elements} baseClass={checkboxNaming.baseClass} />
 
 ### 변형(modifier) 표
 
-<ModifierTable modifiers={checkboxNaming.modifiers} />
+<ModifierTable modifiers={checkboxNaming.modifiers} baseClass={checkboxNaming.baseClass} />
 
 ### 코드 예시
 
