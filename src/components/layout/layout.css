@@ -17,6 +17,8 @@
 /* 최대 너비 + 좌우 패딩을 갖는 가운데 정렬 컨테이너 (KRDS .inner 대체) */
 .ds-container {
   max-width: var(--krds-contents-wrap-size);
+  margin-left: auto;
+  margin-right: auto;
   padding-left: var(--krds-contents-padding-x);
   padding-right: var(--krds-contents-padding-x);
 }
@@ -263,7 +265,15 @@
   --ds-main-menu--sub-menu-trigger-color-radius: var(--krds-radius-medium2);
   --ds-main-menu--sub-menu-trigger-color-font-size: var(--krds-pc-font-size-navigation-depth-medium);
 
+  /*
+   * z-index 쌓임 순서 (#ds-header 쌓임 맥락 기준)
+   *   딤(backdrop)  :  5
+   *   PC GNB 영역   : 10  ← ds-main-menu 에 position+z-index로 쌓임 맥락 생성
+   *   드롭다운      :      ds-main-menu 맥락 안에서 z-index 10 (딤 위에 보임)
+   *   모바일 GNB    : 100  (#ds-header 바깥에 fixed 배치)
+   */
   position: relative;
+  z-index: 10;
   background-color: var(--ds-main-menu--color-surface);
   border-top: 0.1rem solid var(--ds-main-menu--color-border);
   border-bottom: 0.1rem solid var(--ds-main-menu--color-border);
@@ -581,6 +591,7 @@
    5. GNB 백드롭
    ========================================================= */
 
+/* 딤: ds-main-menu(z-index 10)보다 낮게 유지 */
 .ds-main-menu__backdrop {
   display: none;
   position: fixed;
@@ -588,7 +599,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 60;
+  z-index: 5;
   background-color: var(--krds-light-color-background-dim);
 }
 

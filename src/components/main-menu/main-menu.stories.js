@@ -165,10 +165,26 @@ function renderMobileGnb() {
 </div>`;
 }
 
+/* ─── viewport 정의 ─────────────────────────── */
+
+const viewports = {
+  desktop: {
+    name: '데스크톱 (1440px)',
+    styles: { width: '1440px', height: '900px' },
+  },
+  mobile: {
+    name: '모바일 (390px)',
+    styles: { width: '390px', height: '844px' },
+  },
+};
+
 /* ─── PC GNB ────────────────────────────────── */
 
 export const PC_GNB = {
   name: 'PC GNB',
+  parameters: {
+    viewport: { viewports, defaultViewport: 'desktop' },
+  },
   render: () => `
     <div id="ds-header">
       ${renderPcGnb()}
@@ -180,6 +196,9 @@ export const PC_GNB = {
 
 export const 모바일_GNB = {
   name: '모바일 GNB',
+  parameters: {
+    viewport: { viewports, defaultViewport: 'mobile' },
+  },
   render: () => renderMobileGnb(),
   play: async ({ canvasElement }) => {
     /* 모바일 GNB는 헤더의 allBtn이 없으므로 직접 1depth 초기화만 */

@@ -147,6 +147,20 @@
 
 ---
 
+## 2026-11-03 메인 메뉴 스토리 수정
+
+- **`.ds-container` 가운데 정렬 누락**: `layout.css`에 `margin-left: auto; margin-right: auto;` 추가 → 헤더·푸터·기본 레이아웃 전체 가운데 정렬 복구
+- **PC GNB backdrop z-index 수정**: `#ds-header`(z-index 70) 쌓임 맥락 안에서 backdrop(60)이 dropdown(10)을 덮는 문제 해결
+  - `ds-main-menu` nav에 `z-index: 10` 추가 → 독립 쌓임 맥락 생성 (딤 위에 보임)
+  - `ds-main-menu__backdrop` z-index 60 → 5 (딤이 메뉴 아래로)
+  - CSS 주석으로 z-index 순서 명시: 딤(5) < PC GNB(10) < 모바일 GNB(100)
+- **모바일 GNB viewport 기본값**: `main-menu.stories.js`에 커스텀 viewport 정의 추가
+  - PC_GNB 스토리: `defaultViewport: 'desktop'` (1440×900)
+  - 모바일_GNB 스토리: `defaultViewport: 'mobile'` (390×844)
+- **main-menu.mdx viewport 안내 추가**: "PC/모바일 메뉴는 화면 너비에 따라 전환되며 툴바 Viewport로 확인" 문구 추가
+
+---
+
 ## 2026-11-03 재점검 수정
 
 - **ds-ico-close → ds-ico-modal-close**: `ds-ico-close`는 icon.css에 미정의. 모바일 GNB 닫기 버튼에 `ds-ico-modal-close` 적용 (header/main-menu/layout stories 3개)
