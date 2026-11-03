@@ -1,4 +1,6 @@
 import './layout.css';
+import '../button/button.css';
+import '../icon/icon.css';
 import { initPcGnb, initMobileGnb } from '../main-menu/gnb-init.js';
 
 export default {
@@ -117,7 +119,7 @@ function renderPcGnb() {
   }).join('');
 
   return `<nav class="ds-main-menu" aria-label="주요 메뉴">
-  <div class="inner">
+  <div class="ds-container">
     <ul class="ds-main-menu__list" role="menubar">${items}</ul>
   </div>
 </nav>
@@ -166,7 +168,7 @@ function renderMobileGnb() {
       </div>
       <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
               aria-label="전체 메뉴 닫기">
-        <span class="ico-close" aria-hidden="true"></span>
+        <i class="ds-icon ds-ico-close" aria-hidden="true"></i>
       </button>
     </div>
     <div class="ds-main-menu-mobile__body">
@@ -192,7 +194,7 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
   return `<header id="ds-header">
   <div class="ds-header__inner">
     <div class="ds-header__container">
-      <div class="inner">
+      <div class="ds-container">
         <div class="ds-header__utility" aria-label="부가 메뉴">
           <ul class="ds-utility-list">
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
@@ -227,14 +229,14 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
 function renderFooter() {
   return `<footer id="ds-footer">
   <div class="ds-footer__quick">
-    <div class="inner">
+    <div class="ds-container">
       <button type="button" class="ds-footer__quick-link">관련 사이트 1</button>
       <button type="button" class="ds-footer__quick-link">관련 사이트 2</button>
       <button type="button" class="ds-footer__quick-link">관련 사이트 3</button>
       <button type="button" class="ds-footer__quick-link">관련 사이트 4</button>
     </div>
   </div>
-  <div class="inner">
+  <div class="ds-container">
     <div class="ds-footer__logo">
       <span class="sr-only">KRDS - Korea Design System</span>
     </div>
@@ -243,8 +245,8 @@ function renderFooter() {
         <p class="ds-footer__address">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
         <ul class="ds-footer__contact">
           <li>
-            <strong class="strong">대표전화 1234-5678</strong>
-            <span class="span">(평일 09:00 ~ 18:00)</span>
+            <strong>대표전화 1234-5678</strong>
+            <span>(평일 09:00 ~ 18:00)</span>
           </li>
         </ul>
       </div>
@@ -298,7 +300,7 @@ function renderLayout(args) {
 ${renderSkipLink()}
 ${renderHeader(args)}
 <main id="main-content" tabindex="-1">
-  <div class="inner" style="padding-top: 4rem; padding-bottom: 8rem; min-height: 40rem;">
+  <div class="ds-container" style="padding-top: 4rem; padding-bottom: 8rem; min-height: 40rem;">
     <h1 style="font-size: var(--krds-pc-font-size-heading-large);
                font-weight: var(--krds-font-weight-bold);
                color: var(--krds-light-color-text-basic);

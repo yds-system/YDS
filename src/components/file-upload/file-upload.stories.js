@@ -1,5 +1,6 @@
 import '../button/button.css';
 import './file-upload.css';
+import '../icon/icon.css';
 
 export default {
   title: '컴포넌트/입력/파일 업로드',

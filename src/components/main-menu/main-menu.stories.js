@@ -1,4 +1,6 @@
 import '../layout/layout.css';
+import '../button/button.css';
+import '../icon/icon.css';
 import { initPcGnb, initMobileGnb } from './gnb-init.js';
 
 export default {
@@ -93,7 +95,7 @@ function renderPcGnb() {
   }).join('');
 
   return `<nav class="ds-main-menu" aria-label="주요 메뉴">
-  <div class="inner">
+  <div class="ds-container">
     <ul class="ds-main-menu__list" role="menubar">${items}</ul>
   </div>
 </nav>
@@ -144,7 +146,7 @@ function renderMobileGnb() {
         </div>
         <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
                 aria-label="전체 메뉴 닫기">
-          <span class="ico-close" aria-hidden="true"></span>
+          <i class="ds-icon ds-ico-close" aria-hidden="true"></i>
         </button>
       </div>
       <div class="ds-main-menu-mobile__body">

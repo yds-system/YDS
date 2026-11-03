@@ -7,8 +7,19 @@
  *   - reference/krds/_main_menu.scss
  *   - reference/krds/_footer.scss
  *
- * 순수 CSS로 재작성. .inner 클래스는 common.css에서 전역 정의됨 (재정의 안 함).
+ * 순수 CSS로 재작성. .inner(common.css)는 .ds-container로 교체. 아래에 동일 규칙 정의.
  */
+
+/* =========================================================
+   0. 공용 컨테이너
+   ========================================================= */
+
+/* 최대 너비 + 좌우 패딩을 갖는 가운데 정렬 컨테이너 (KRDS .inner 대체) */
+.ds-container {
+  max-width: var(--krds-contents-wrap-size);
+  padding-left: var(--krds-contents-padding-x);
+  padding-right: var(--krds-contents-padding-x);
+}
 
 
 /* =========================================================
@@ -97,7 +108,7 @@
 }
 
 /* 헤더 내부 컨테이너 */
-.ds-header__container .inner {
+.ds-header__container .ds-container {
   display: flex;
   flex-direction: column;
   gap: var(--krds-gap-2);
@@ -889,7 +900,7 @@
   background-color: var(--krds-light-color-background-white);
 }
 
-.ds-footer__quick .inner {
+.ds-footer__quick .ds-container {
   display: flex;
   padding: 0;
 }
@@ -944,7 +955,7 @@
 }
 
 /* 푸터 본문 */
-#ds-footer > .inner {
+#ds-footer > .ds-container {
   display: flex;
   flex-direction: column;
   gap: var(--krds-gap-9);
@@ -1195,7 +1206,7 @@
   }
 
   /* 헤더 내부 컨테이너 가로 배치 */
-  #ds-header .ds-header__container .inner {
+  #ds-header .ds-header__container .ds-container {
     padding-top: var(--krds-gap-3);
     padding-bottom: var(--krds-gap-3);
     flex-direction: row;
@@ -1238,7 +1249,7 @@
   }
 
   /* 빠른 링크 세로 배치 */
-  .ds-footer__quick .inner {
+  .ds-footer__quick .ds-container {
     flex-direction: column;
   }
 
@@ -1254,7 +1265,7 @@
   }
 
   /* 푸터 내부 패딩 */
-  #ds-footer > .inner {
+  #ds-footer > .ds-container {
     padding: var(--krds-padding-8) var(--krds-padding-6);
     gap: var(--krds-gap-7);
   }

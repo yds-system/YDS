@@ -53,6 +53,20 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ---
 
+## 언제 사용하는지
+
+- 서비스의 모든 페이지에 공통 레이아웃(헤더 + GNB + 본문 + 푸터)을 제공할 때 사용합니다.
+- `패턴/기본 레이아웃` 스토리에서 PC와 모바일 레이아웃을 한꺼번에 확인할 수 있습니다.
+
+---
+
+## 사용하지 말아야 할 때
+
+- 전용 인쇄 뷰, 임베드, 팝업처럼 전역 탐색이 없는 단독 화면에는 사용하지 않습니다.
+- 헤더·GNB·푸터를 각각 독립적으로 제어해야 한다면 개별 컴포넌트(`헤더`, `메인 메뉴`, `푸터`)를 직접 사용합니다.
+
+---
+
 ## HTML 구조
 
 ### 건너뛰기 링크
@@ -69,7 +83,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <header id="ds-header">
   <div class="ds-header__inner">
     <div class="ds-header__container">
-      <div class="inner">
+      <div class="ds-container">
         <div class="ds-header__utility" aria-label="부가 메뉴">
           <ul class="ds-utility-list">
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
@@ -236,114 +250,6 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
   </div>
 </footer>
 ```
-
----
-
-## CSS 클래스
-
-### 공용 유틸리티
-
-| 클래스 | 설명 |
-|---|---|
-| `ds-utility-list` | 유틸리티 링크 목록 (기본: 우측 정렬) |
-| `ds-utility-list ds-utility-list--start` | 좌측 정렬 (모바일 GNB 내부) |
-
-### 헤더
-
-| 클래스 | 설명 |
-|---|---|
-| `#ds-skip-link` | 건너뛰기 링크 래퍼 |
-| `#ds-header` | 헤더 (`position: sticky; top: 0`) |
-| `ds-header__inner` | 헤더 내부 래퍼 |
-| `ds-header__container` | 유틸리티 바 + 브랜딩 영역 |
-| `ds-header__utility` | 상단 유틸리티 링크 영역 (PC 전용) |
-| `ds-header__branding` | 로고 + 액션 버튼 행 |
-| `ds-header__logo` | 헤더 로고 (`<h1>` 또는 `<h2>`) |
-| `ds-header__actions` | 오른쪽 액션 버튼 그룹 |
-| `ds-header__action-btn` | 아이콘+텍스트 형태의 헤더 버튼 |
-| `ds-header__action-btn ds-header__action-btn--search` | 검색 버튼 |
-| `ds-header__action-btn ds-header__action-btn--login` | 로그인 버튼/링크 |
-| `ds-header__action-btn ds-header__action-btn--join` | 회원가입 버튼 (PC 전용) |
-| `ds-header__action-btn ds-header__action-btn--mypage` | 나의GOV 버튼 (로그인 후, PC 전용) |
-| `ds-header__action-btn ds-header__action-btn--all-menu` | 전체메뉴 버튼 (모바일 전용) |
-
-### PC GNB
-
-| 클래스 | 설명 |
-|---|---|
-| `ds-main-menu` | PC GNB 래퍼 (`nav`) |
-| `ds-main-menu__list` | 1depth 목록 |
-| `ds-main-menu__trigger` | 1depth 버튼/링크 |
-| `ds-main-menu__trigger ds-main-menu__trigger--link` | 링크 직접 이동 (화살표 아이콘 없음) |
-| `ds-main-menu__trigger ds-main-menu__trigger--open` | 메뉴 열림 상태 |
-| `ds-main-menu__dropdown` | 드롭다운 패널 (기본: `display: none`) |
-| `ds-main-menu__dropdown ds-main-menu__dropdown--open` | 패널 열림 상태 |
-| `ds-main-menu__panel` | 2depth 목록 컨테이너 |
-| `ds-main-menu__sub-trigger` | 2depth 버튼/링크 |
-| `ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link` | 2depth 직접 링크 |
-| `ds-main-menu__sub-trigger ds-main-menu__sub-trigger--open` | 2depth 선택 상태 |
-| `ds-main-menu__sub-list` | 3depth 패널 |
-| `ds-main-menu__sub-list ds-main-menu__sub-list--open` | 3depth 표시 상태 |
-| `ds-main-menu__sub-list ds-main-menu__sub-list--single` | 2depth 없이 3depth 바로 표시 |
-| `ds-main-menu__sub-title` | 3depth 섹션 제목 |
-| `ds-main-menu__sub-content` | 3depth 콘텐츠 영역 |
-| `ds-main-menu__sub-link` | 3depth 링크/버튼 |
-| `ds-main-menu__sub-link ds-main-menu__sub-link--current` | 현재 페이지 링크 (`aria-current="page"`) |
-| `ds-main-menu__sub-banner` | 3depth 배너 영역 |
-| `ds-main-menu__backdrop` | 배경 딤 레이어 |
-| `ds-main-menu__backdrop ds-main-menu__backdrop--open` | 딤 표시 상태 |
-
-### 모바일 GNB
-
-| 클래스 | 설명 |
-|---|---|
-| `ds-main-menu-mobile` | 모바일 GNB 래퍼 (`position: fixed; right: -100%`) |
-| `ds-main-menu-mobile ds-main-menu-mobile--open` | 패널 열림 (`right: 0`) |
-| `ds-main-menu-mobile ds-main-menu-mobile--backdrop` | 딤 오버레이 표시 |
-| `ds-main-menu-mobile__panel` | 흰 패널 영역 |
-| `ds-main-menu-mobile__header` | 상단 유틸리티·로그인·서비스 메뉴 |
-| `ds-main-menu-mobile__utils` | 유틸리티 목록 래퍼 |
-| `ds-main-menu-mobile__login` | 로그인 상태 표시 |
-| `ds-main-menu-mobile__service-menu` | 주요 서비스 바로가기 목록 |
-| `ds-main-menu-mobile__service-link` | 서비스 바로가기 링크 |
-| `ds-main-menu-mobile__body` | 1depth/2depth 메뉴 본문 |
-| `ds-main-menu-mobile__menu` | 좌(1depth) + 우(2depth) 레이아웃 |
-| `ds-main-menu-mobile__nav-list` | 왼쪽 1depth 탭 목록 래퍼 |
-| `ds-main-menu-mobile__trigger` | 1depth 트리거 |
-| `ds-main-menu-mobile__trigger ds-main-menu-mobile__trigger--open` | 1depth 탭 선택 상태 |
-| `ds-main-menu-mobile__sub-panel` | 오른쪽 2depth 패널 |
-| `ds-main-menu-mobile__sub-list` | 2depth 목록 |
-| `ds-main-menu-mobile__sub-title` | 2depth 섹션 제목 |
-| `ds-main-menu-mobile__sub-trigger` | 2depth 링크 |
-| `ds-main-menu-mobile__sub-trigger ds-main-menu-mobile__sub-trigger--current` | 현재 페이지 링크 (`aria-current="page"`) |
-| `ds-main-menu-mobile__bottom` | 하단 추가 링크 |
-
-### 푸터
-
-| 클래스 | 설명 |
-|---|---|
-| `#ds-footer` | 푸터 |
-| `ds-footer__quick` | 빠른 링크 바 |
-| `ds-footer__quick-link` | 빠른 링크 버튼/링크 |
-| `ds-footer__logo` | 푸터 로고 |
-| `ds-footer__content` | 푸터 콘텐츠 영역 |
-| `ds-footer__info` | 기관 정보 |
-| `ds-footer__address` | 주소 |
-| `ds-footer__contact` | 연락처 목록 |
-| `ds-footer__links` | 관련 링크·SNS 영역 |
-| `ds-footer__shortcuts` | 관련 사이트 바로가기 |
-| `ds-footer__sns` | SNS 링크 목록 |
-| `ds-footer__sns-item ds-footer__sns-item--instagram` | 인스타그램 SNS 항목 |
-| `ds-footer__sns-item ds-footer__sns-item--youtube` | 유튜브 SNS 항목 |
-| `ds-footer__sns-item ds-footer__sns-item--x` | X(트위터) SNS 항목 |
-| `ds-footer__sns-item ds-footer__sns-item--facebook` | 페이스북 SNS 항목 |
-| `ds-footer__sns-item ds-footer__sns-item--blog` | 블로그 SNS 항목 |
-| `ds-footer__bottom` | 하단 영역 |
-| `ds-footer__bottom-text` | 하단 텍스트 행 |
-| `ds-footer__menu` | 하단 메뉴 링크 목록 |
-| `ds-footer__menu-link` | 하단 메뉴 링크 |
-| `ds-footer__menu-link ds-footer__menu-link--emphasis` | 강조 링크 (굵게) |
-| `ds-footer__copyright` | 저작권 문구 |
 
 ---
 

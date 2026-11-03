@@ -2,6 +2,7 @@ import '../form-group/form-group.css';
 import '../button/button.css';
 import '../text-input/text-input.css';
 import './date-input.css';
+import '../icon/icon.css';
 
 export default {
   title: '컴포넌트/입력/날짜 입력',

@@ -147,6 +147,53 @@
 
 ---
 
+## 2026-11-03 Storybook 전체 점검 반영
+
+### 화면 깨짐 수정
+
+**CSS import 누락 추가**
+- `button.stories.js` → `icon.css` 추가
+- `carousel.stories.js` → `icon.css` 추가
+- `date-input.stories.js` → `icon.css` 추가
+- `file-upload.stories.js` → `icon.css` 추가
+- `footer.stories.js` → `button.css`, `icon.css` 추가
+- `header.stories.js` → `button.css`, `icon.css` 추가
+- `layout.stories.js` → `button.css`, `icon.css` 추가
+- `main-menu.stories.js` → `button.css`, `icon.css` 추가
+- `tooltip.stories.js` → `button.css` 추가
+
+**구버전 클래스 교체**
+- `class="inner"` → `class="ds-container"` (footer·header·main-menu·layout stories + layout.mdx 코드블록)
+- `layout.css`: `.inner` 셀렉터 6곳 → `.ds-container`. 상단에 `.ds-container` 기본 CSS 규칙 추가 (KRDS `.inner` 대체)
+- `naming-data.js`: `layoutNaming.elements`에 `ds-container` (krdsClass: 'inner') 추가
+- `ico-close` → `ds-icon ds-ico-close` (header·main-menu·layout stories 3곳)
+- `class="strong"` / `class="span"` → 클래스 없는 시맨틱 태그 (footer·layout stories)
+- tab.stories.js + tab.mdx: `created` → `ds-tab__selected-text`
+
+**ds-spinner 임시 CSS**
+- `file-upload.css` 상단에 `.ds-spinner` + `@keyframes ds-spin` 추가
+- TODO: 스피너 컴포넌트 추가 시 `spinner.css`로 이동
+
+**미해결 (future work)**
+- `.active` / `.krds-drop-wrap`: `reference/krds/resources/css/common/common.css` (read-only)에 정의. 토큰 작업 시 common.css 의존성 제거하면서 함께 해결 예정
+
+### 문서 수정
+
+- `pagination.mdx`: "KRDS 기본 클래스" → "기본 클래스"
+- `tab.mdx`: `**굵게**` → `<strong>`, `created` 클래스 참조 → `ds-tab__selected-text`
+- `radio.mdx`: `**굵게**` → `<strong>`
+- `header.mdx`: "사용 기준" → "언제 사용하는지" + "사용하지 말아야 할 때" 2섹션으로 분리
+- `footer.mdx`: 동일
+- `main-menu.mdx`: 동일
+- `layout.mdx`: "언제 사용하는지" + "사용하지 말아야 할 때" 추가, "CSS 클래스" 섹션 삭제
+- `icon.mdx`: ElementTable에서 `baseClass` 제거 (아이콘 클래스가 `ds-icon__`으로 시작하지 않아 모두 공통 표시되는 문제), "언제 사용하는지" / "사용하지 말아야 할 때" / "코드 예시" 섹션 추가
+
+### 재발 방지
+
+- `CLAUDE.md`: 검증 체크리스트 섹션 추가 (CSS import 확인, 렌더된 HTML 확인, 구버전 클래스명 검색)
+
+---
+
 ## 2026-11-03 작업 내역 (네이밍 정의서 UI 개선)
 
 - **naming-components.js 생성**: UNCONFIRMED·CompRow·ElementTable·ModifierTable 공용 컴포넌트를 `src/docs/naming-components.js`로 분리 (React.createElement 사용)

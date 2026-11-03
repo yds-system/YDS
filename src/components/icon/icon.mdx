@@ -24,7 +24,7 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ### 클래스명 표
 
-<ElementTable elements={iconNaming.elements} baseClass={iconNaming.baseClass} />
+<ElementTable elements={iconNaming.elements} />
 
 ### 변형(modifier) 표
 
@@ -33,6 +33,55 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 ### 코드 예시
 
 <pre><code>{iconNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 버튼·링크에 아이콘을 추가해 기능을 시각적으로 보완할 때
+- 아이콘 단독으로 의미를 전달해야 하는 경우 (아이콘 버튼 등)
+- 상태·알림을 색상과 함께 시각적으로 표시해야 할 때 (pure 방식 아이콘)
+
+---
+
+## 사용하지 말아야 할 때
+
+- 아이콘의 의미가 주변 텍스트와 중복된다면 `aria-hidden="true"`를 반드시 추가한다.
+- 목록에 없는 아이콘이 필요하다면 직접 추가하기보다 협의 후 등록한다.
+- 장식 목적으로만 사용할 때 텍스트 대체를 생략하지 않는다.
+
+---
+
+## 코드 예시
+
+### 장식용 아이콘 (aria-hidden)
+
+```html
+<!-- 주변 텍스트가 의미를 설명하는 경우 -->
+<button type="button" class="ds-btn ds-btn--primary ds-btn--medium">
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+  검색
+</button>
+```
+
+### 의미 있는 아이콘 (sr-only 권장)
+
+```html
+<!-- 아이콘 단독 버튼 — sr-only 패턴 권장 -->
+<button type="button" class="ds-btn ds-btn--medium ds-btn--icon" aria-label="검색">
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+  <span class="sr-only">검색</span>
+</button>
+```
+
+### 크기 조절
+
+```html
+<i class="ds-icon ds-ico-sch ds-icon--small" aria-hidden="true"></i>
+<i class="ds-icon ds-ico-sch ds-icon--medium" aria-hidden="true"></i>
+<i class="ds-icon ds-ico-sch" aria-hidden="true"></i><!-- 기본(large) -->
+<i class="ds-icon ds-ico-sch ds-icon--xlarge" aria-hidden="true"></i>
+```
 
 ---
 

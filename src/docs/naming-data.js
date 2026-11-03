@@ -1739,6 +1739,7 @@ export const layoutNaming = {
 
   elements: [
     // 공용
+    { element: '컨테이너',        class: 'ds-container',                      krdsClass: 'inner',              description: '최대 너비 + 좌우 패딩 가운데 정렬 컨테이너 (KRDS .inner 대체)', confirmed: true },
     { element: '유틸리티 목록',   class: 'ds-utility-list',                  krdsClass: 'utility-list',      description: '헤더/모바일 GNB 공용 링크 목록 (기본: 우측 정렬)', confirmed: true },
     // 헤더
     { element: '헤더 내부',       class: 'ds-header__inner',                  krdsClass: 'header-in',         description: '헤더 전체 래퍼', confirmed: true },

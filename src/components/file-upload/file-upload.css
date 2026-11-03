@@ -3,6 +3,23 @@
    출처: reference/krds/resources/css/component/component.css
    ============================================= */
 
+/* ds-spinner 임시 정의 (스피너 컴포넌트 구현 전까지 여기서 관리)
+   TODO: 스피너 컴포넌트 추가 시 spinner.css로 이동 */
+.ds-spinner {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: ds-spin 0.75s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes ds-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ----- CSS 변수 ----- */
 .ds-file-upload {
   --ds-file-upload--gap: var(--krds-gap-7);

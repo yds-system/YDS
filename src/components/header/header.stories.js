@@ -1,4 +1,6 @@
 import '../layout/layout.css';
+import '../button/button.css';
+import '../icon/icon.css';
 import { initMobileGnb } from '../main-menu/gnb-init.js';
 
 export default {
@@ -106,7 +108,7 @@ function renderMobileGnb() {
       </div>
       <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
               aria-label="전체 메뉴 닫기">
-        <span class="ico-close" aria-hidden="true"></span>
+        <i class="ds-icon ds-ico-close" aria-hidden="true"></i>
       </button>
     </div>
     <div class="ds-main-menu-mobile__body">
@@ -132,7 +134,7 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
   return `<header id="ds-header">
   <div class="ds-header__inner">
     <div class="ds-header__container">
-      <div class="inner">
+      <div class="ds-container">
         <div class="ds-header__utility" aria-label="부가 메뉴">
           <ul class="ds-utility-list">
             <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>

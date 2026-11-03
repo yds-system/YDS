@@ -1,4 +1,6 @@
 import '../layout/layout.css';
+import '../button/button.css';
+import '../icon/icon.css';
 
 export default {
   title: '컴포넌트/아이덴티티/푸터',
@@ -10,7 +12,7 @@ export default {
 function renderFooter() {
   return `<footer id="ds-footer">
   <div class="ds-footer__quick">
-    <div class="inner">
+    <div class="ds-container">
       <button type="button" class="ds-footer__quick-link">관련 사이트 1</button>
       <button type="button" class="ds-footer__quick-link">관련 사이트 2</button>
       <button type="button" class="ds-footer__quick-link">관련 사이트 3</button>
@@ -26,8 +28,8 @@ function renderFooter() {
         <p class="ds-footer__address">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
         <ul class="ds-footer__contact">
           <li>
-            <strong class="strong">대표전화 1234-5678</strong>
-            <span class="span">(평일 09:00 ~ 18:00)</span>
+            <strong>대표전화 1234-5678</strong>
+            <span>(평일 09:00 ~ 18:00)</span>
           </li>
         </ul>
       </div>

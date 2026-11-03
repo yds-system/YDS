@@ -52,7 +52,7 @@ function renderTab({ prefix, variant, full, tabs }) {
         ${disabledAttr}
       >
         <button type="button" class="ds-tab__btn" ${tab.disabled ? 'disabled' : ''}>
-          ${tab.label}${isActive ? '<i class="sr-only created"> 선택됨</i>' : ''}
+          ${tab.label}${isActive ? '<i class="sr-only ds-tab__selected-text"> 선택됨</i>' : ''}
         </button>
       </li>`;
   }).join('');
@@ -102,7 +102,7 @@ function activateTab(tabList, targetLi) {
     if (isActive) {
       if (btn && !srOnly) {
         const el = document.createElement('i');
-        el.className = 'sr-only created';
+        el.className = 'sr-only ds-tab__selected-text';
         el.textContent = ' 선택됨';
         btn.appendChild(el);
       }

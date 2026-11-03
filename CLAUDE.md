@@ -126,3 +126,12 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - 각 컨트롤에는 description을 한국어로 적는다.
 - 색상은 KRDS에 정의된 종류(variant) select로만 바꾼다.
 - 자유 색상 확인용 컬러 피커(control: 'color')는 "Experimental" 스토리에만 둔다.
+
+## 검증 체크리스트 (새 스토리 작성 시)
+
+- **CSS import 확인**: 스토리에서 사용하는 컴포넌트 클래스(ds-btn, ds-icon 등)가 속한 CSS 파일을 모두 import했는지 확인한다.
+  - 다른 컴포넌트 CSS를 쓴다면 해당 컴포넌트의 CSS도 함께 import한다.
+  - 예: 헤더·푸터·레이아웃에서 버튼을 쓴다면 `../button/button.css`를 추가한다.
+  - 예: 아이콘(ds-icon)을 쓴다면 `../icon/icon.css`를 추가한다.
+- **렌더된 HTML 확인**: 소스가 아닌 브라우저 DevTools에서 실제 렌더된 HTML을 확인해 클래스명이 올바르게 출력되는지 검증한다.
+- **클래스명 최신화**: `.inner`, `ico-close` 등 구버전 클래스명이 남아 있지 않은지 소스 전체(css, js, mdx)를 검색해 확인한다.

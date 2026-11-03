@@ -1,61 +1,28 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { buttonNaming, linkNaming, tagNaming, textInputNaming, textareaNaming, selectNaming, checkboxNaming, radioNaming, countNaming, dateInputNaming, calendarNaming, fileUploadNaming, breadcrumbNaming, tabNaming, paginationNaming, badgeNaming, tooltipNaming, accordionNaming, tableNaming, carouselNaming, iconNaming, layoutNaming, headerNaming, pcGnbNaming, mobileGnbNaming, footerNaming } from '../docs/naming-data.js';
-import { CompRow } from '../docs/naming-components.js';
+
+export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
+  const allEls = comp.elements.filter(e => e.class !== comp.baseClass);
+  const els = elementFilter ? allEls.filter(elementFilter) : allEls;
+  const mods = modifierFilter ? comp.modifiers.filter(modifierFilter) : comp.modifiers;
+  return (
+    <tr>
+      <td>{comp.name}</td>
+      <td>{comp.englishName}</td>
+      <td><code>{comp.baseClass}</code></td>
+      <td>{els.map((e, i) => <span key={i}><code>{e.class}</code>{' '}</span>)}</td>
+      <td>{mods.map((m, i) => <span key={i}><code>{m.class}</code>{' '}</span>)}</td>
+      <td>{comp.description}</td>
+    </tr>
+  );
+};
 
 <Meta title="Docs/네이밍 정의서" />
 
 # 컴포넌트 네이밍 정의서
 
-범정부 UI/UX 디자인 시스템(KRDS) 기반 `ds-` BEM 규칙 클래스명 정의서입니다.
+범정부 UI/UX 디자인 시스템(KRDS) 기반 ds- BEM 규칙 클래스명 정의서입니다.
 KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
-
----
-
-## BEM 네이밍 규칙
-
-<strong>BEM(Block Element Modifier)</strong>은 CSS 클래스를 역할에 따라 세 가지로 구분하는 네이밍 방법론입니다.
-
-<table>
-  <thead>
-    <tr><th>구분</th><th>형식</th><th>예시</th><th>설명</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Block</strong> (블록)</td>
-      <td><code>ds-&#123;컴포넌트&#125;</code></td>
-      <td><code>ds-btn</code>, <code>ds-input</code></td>
-      <td>독립적으로 의미를 갖는 컴포넌트 단위. 어디에서든 재사용 가능</td>
-    </tr>
-    <tr>
-      <td><strong>Element</strong> (요소)</td>
-      <td><code>ds-&#123;컴포넌트&#125;&#95;&#95;&#123;요소&#125;</code></td>
-      <td><code>ds-breadcrumb__link</code>, <code>ds-tag__delete-btn</code></td>
-      <td>블록을 구성하는 내부 요소. <code>&#95;&#95;</code>(언더스코어 2개)로 연결. 블록 없이 단독 사용 불가</td>
-    </tr>
-    <tr>
-      <td><strong>Modifier</strong> (변형)</td>
-      <td><code>ds-&#123;컴포넌트&#125;--&#123;modifier&#125;</code></td>
-      <td><code>ds-btn--primary</code>, <code>ds-btn--small</code></td>
-      <td>블록·요소의 변형(종류·크기·상태). <code>--</code>(하이픈 2개)로 연결. 항상 기본 클래스와 함께 사용</td>
-    </tr>
-  </tbody>
-</table>
-
-```html
-<!-- Block + Modifier: Primary 버튼 (ds-btn = Block, ds-btn--primary / ds-btn--small = Modifier) -->
-<button class="ds-btn ds-btn--primary ds-btn--small">확인</button>
-
-<!-- Block + Element + Modifier: 브레드크럼 현재 페이지
-     ds-breadcrumb = Block, ds-breadcrumb__link = Element, ds-breadcrumb__link--current = Modifier -->
-<nav class="ds-breadcrumb">
-  <ol class="ds-breadcrumb__list">
-    <li class="ds-breadcrumb__item"><a class="ds-breadcrumb__link" href="#">홈</a></li>
-    <li class="ds-breadcrumb__item">
-      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">현재 페이지</span>
-    </li>
-  </ol>
-</nav>
-```
 
 ---
 
@@ -271,31 +238,29 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
     </tr>
   </thead>
   <tbody>
-    <tr><td>공식 배너</td><td>Masthead</td><td>아이덴티티</td></tr>
+    <tr><td>파비콘</td><td>Favicon</td><td>기반</td></tr>
+    <tr><td>이미지</td><td>Image</td><td>기반</td></tr>
+    <tr><td>마스트헤드</td><td>Masthead</td><td>아이덴티티</td></tr>
+    <tr><td>공식 배너</td><td>Banner</td><td>아이덴티티</td></tr>
     <tr><td>운영기관 식별자</td><td>Identifier</td><td>아이덴티티</td></tr>
     <tr><td>건너뛰기 링크</td><td>Skip Link</td><td>탐색</td></tr>
     <tr><td>사이드 메뉴</td><td>Side Navigation</td><td>탐색</td></tr>
     <tr><td>콘텐츠 내 탐색</td><td>In-Page Navigation</td><td>탐색</td></tr>
+    <tr><td>단계 표시기</td><td>Step Indicator</td><td>탐색</td></tr>
+    <tr><td>언어 변경</td><td>Language Switcher</td><td>탐색</td></tr>
+    <tr><td>화면 크기 조정</td><td>Resize</td><td>탐색</td></tr>
+    <tr><td>접근 가능한 미디어</td><td>Accessible Media</td><td>레이아웃 및 표현</td></tr>
     <tr><td>구조화 목록</td><td>Structured List</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>긴급 공지</td><td>Critical Alerts</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>달력</td><td>Calendar</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>디스클로저</td><td>Disclosure</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>모달</td><td>Modal</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>이미지</td><td>Image</td><td>레이아웃 및 표현</td></tr>
     <tr><td>텍스트 목록</td><td>Text List</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>파비콘</td><td>Favicon</td><td>레이아웃 및 표현</td></tr>
-    <tr><td>플로팅 버튼</td><td>FAB</td><td>액션</td></tr>
+    <tr><td>플로팅 버튼</td><td>Floating Button</td><td>액션</td></tr>
     <tr><td>토글 스위치</td><td>Toggle Switch</td><td>선택</td></tr>
-    <tr><td>단계 표시기</td><td>Step Indicator</td><td>피드백</td></tr>
-    <tr><td>스피너</td><td>Spinner</td><td>피드백</td></tr>
+    <tr><td>스피너</td><td>Spinner</td><td>도움</td></tr>
+    <tr><td>긴급 공지</td><td>Critical Alert</td><td>도움</td></tr>
     <tr><td>도움 패널</td><td>Help Panel</td><td>도움</td></tr>
     <tr><td>따라하기 패널</td><td>Tutorial Panel</td><td>도움</td></tr>
-    <tr><td>맥락적 도움말</td><td>Contextual Help</td><td>도움</td></tr>
-    <tr><td>코치마크</td><td>Coach Mark</td><td>도움</td></tr>
-    <tr><td>음성지원 TTS</td><td>TTS</td><td>도움</td></tr>
-    <tr><td>언어 변경</td><td>Language Switcher</td><td>설정</td></tr>
-    <tr><td>화면 크기 조정</td><td>Resize</td><td>설정</td></tr>
-    <tr><td>접근 가능한 미디어</td><td>Accessible Multimedia</td><td>콘텐츠</td></tr>
-    <tr><td>숨긴 콘텐츠</td><td>Visually Hidden</td><td>콘텐츠</td></tr>
+    <tr><td>디스클로저</td><td>Disclosure</td><td>도움</td></tr>
+    <tr><td>숨긴 콘텐츠</td><td>Hidden Content</td><td>도움</td></tr>
+    <tr><td>모달</td><td>Modal</td><td>도움</td></tr>
+    <tr><td>달력</td><td>Calendar</td><td>입력</td></tr>
   </tbody>
 </table>
