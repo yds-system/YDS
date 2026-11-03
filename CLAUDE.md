@@ -39,7 +39,19 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 ## 토큰 (추후 적용)
 - 현재는 KRDS CSS 값을 그대로 사용한다.
 - 토큰 적용 시: 색상·간격·폰트·radius는 CSS 변수로 바꾸고, 테마는 data-theme 속성으로 전환한다. (예: data-theme="project-a")
-- 현재 KRDS 토큰(--krds-*)은 reference/krds에서 불러오고 있다. 토큰 작업 시 src/tokens로 옮기고 --ds- 형식으로 바꾼다.
+- 현재 KRDS 토큰(--krds-*)은 reference/krds에서 불러오고 있다. 토큰 작업 시 src/tokens로 옮기고 아래 규칙의 토큰 이름으로 바꾼다.
+
+### 토큰 네이밍 규칙 (초안 — src/docs/tokens-naming.mdx 참고)
+
+- **형식**: `--{분류}-{대상}-{역할}-{상태}` (접두사 없음)
+  - 분류: `color` / `font` / `space` / `radius` / `shadow`
+  - 색상 대상: `text` / `bg` / `border` / `icon`
+  - 역할: `default`, `subtle`, `inverse`, `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `disabled`
+  - 상태: `hover`, `active`, `focus`, `disabled` (필요한 경우만)
+- **한 단어 이름 금지**: `--primary`, `--text` 등은 다른 CSS와 충돌 우려.
+- **간격**: px 숫자 그대로 (`--space-4`, `--space-8`, `--space-16` …)
+- **예시**: `--color-text-default`, `--color-bg-primary-hover`, `--color-border-focus`, `--font-size-body-md`, `--space-16`, `--radius-medium`
+- 컴포넌트 내부 변수(`--ds-btn--color-*`)와 구별하기 위해 접두사를 붙이지 않는다.
 
 ## 문서 규칙
 - 문서는 한국어로 작성한다.

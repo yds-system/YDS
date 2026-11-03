@@ -1,0 +1,354 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="기반/토큰 네이밍" />
+
+# 디자인 토큰 네이밍 제안서
+
+> **상태: 초안** — 코드에 아직 적용되지 않았습니다. 현재는 `--krds-*` 토큰을 직접 참조합니다.  
+> 실제 적용 시 `src/tokens/` 폴더에 생성하고 컴포넌트 CSS를 일괄 교체합니다.
+
+---
+
+## 네이밍 규칙
+
+### 형식
+
+```
+--{분류}-{대상}-{역할}-{상태}
+```
+
+- **접두사 없음** — `--ds-`, `--krds-` 등 접두사를 붙이지 않는다.  
+  컴포넌트 내부 변수(`--ds-btn--color-*`)와 구별하기 위함.
+- **이름만 보고 용도를 알 수 있게** 짓는다. `--primary`, `--text` 같은 한 단어 이름은 금지.
+- 상태 세그먼트는 **필요한 것만** 붙인다.
+
+### 분류
+
+<table>
+  <thead>
+    <tr><th>분류</th><th>대상 (선택)</th><th>예시</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>color</code></td>
+      <td><code>text</code> / <code>bg</code> / <code>border</code> / <code>icon</code></td>
+      <td><code>--color-text-default</code>, <code>--color-bg-primary-hover</code></td>
+    </tr>
+    <tr>
+      <td><code>font</code></td>
+      <td><code>size</code> / <code>weight</code></td>
+      <td><code>--font-size-body-md</code>, <code>--font-weight-bold</code></td>
+    </tr>
+    <tr>
+      <td><code>space</code></td>
+      <td>— (px 숫자 그대로)</td>
+      <td><code>--space-4</code>, <code>--space-8</code>, <code>--space-16</code></td>
+    </tr>
+    <tr>
+      <td><code>radius</code></td>
+      <td>— (크기 이름)</td>
+      <td><code>--radius-small</code>, <code>--radius-medium</code>, <code>--radius-pill</code></td>
+    </tr>
+    <tr>
+      <td><code>shadow</code></td>
+      <td>— (크기 이름)</td>
+      <td><code>--shadow-sm</code>, <code>--shadow-md</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### 역할 목록
+
+`default` · `subtle` · `inverse` · `primary` · `secondary` · `danger` · `warning` · `success` · `info` · `disabled`
+
+### 상태 목록
+
+`hover` · `active` · `focus` · `disabled` (필요한 경우에만)
+
+---
+
+## 샘플 토큰표
+
+### 글자색 (color-text)
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--color-text-default</code></td>
+      <td><code>#1e2124</code></td>
+      <td><code>--krds-light-color-text-basic</code></td>
+      <td>본문·레이블 기본 텍스트</td>
+    </tr>
+    <tr>
+      <td><code>--color-text-subtle</code></td>
+      <td><code>#464c53</code></td>
+      <td><code>--krds-light-color-text-subtle</code></td>
+      <td>보조 설명·플레이스홀더</td>
+    </tr>
+    <tr>
+      <td><code>--color-text-disabled</code></td>
+      <td><code>#8a949e</code></td>
+      <td><code>--krds-light-color-text-disabled</code></td>
+      <td>비활성 텍스트</td>
+    </tr>
+    <tr>
+      <td><code>--color-text-inverse</code></td>
+      <td><code>#ffffff</code></td>
+      <td><code>--krds-light-color-text-basic-inverse</code></td>
+      <td>어두운 배경 위 텍스트</td>
+    </tr>
+    <tr>
+      <td><code>--color-text-primary</code></td>
+      <td><code>#0b50d0</code></td>
+      <td><code>--krds-light-color-text-primary</code></td>
+      <td>링크·강조 텍스트</td>
+    </tr>
+    <tr>
+      <td><code>--color-text-danger</code></td>
+      <td><code>#bd2c0f</code></td>
+      <td><code>--krds-light-color-text-danger</code></td>
+      <td>에러 메시지</td>
+    </tr>
+  </tbody>
+</table>
+
+### 배경색 (color-bg)
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--color-bg-default</code></td>
+      <td><code>#ffffff</code></td>
+      <td><code>--krds-light-color-surface-white</code></td>
+      <td>페이지·카드 기본 배경</td>
+    </tr>
+    <tr>
+      <td><code>--color-bg-subtle</code></td>
+      <td><code>#f4f5f6</code></td>
+      <td><code>--krds-light-color-surface-gray-subtler</code></td>
+      <td>섹션·코드블록 배경</td>
+    </tr>
+    <tr>
+      <td><code>--color-bg-inverse</code></td>
+      <td><code>#1e2124</code></td>
+      <td><code>--krds-light-color-surface-inverse</code></td>
+      <td>다크 배경 (헤더·푸터)</td>
+    </tr>
+    <tr>
+      <td><code>--color-bg-primary</code></td>
+      <td><code>#256ef4</code></td>
+      <td><code>--krds-light-color-button-primary-fill</code></td>
+      <td>Primary 버튼·강조 배경</td>
+    </tr>
+    <tr>
+      <td><code>--color-bg-primary-hover</code></td>
+      <td><code>#0b50d0</code></td>
+      <td><code>--krds-light-color-button-primary-fill-hover</code></td>
+      <td>Primary 버튼 hover</td>
+    </tr>
+    <tr>
+      <td><code>--color-bg-disabled</code></td>
+      <td><code>#cdd1d5</code></td>
+      <td><code>--krds-light-color-surface-disabled</code></td>
+      <td>비활성 요소 배경</td>
+    </tr>
+  </tbody>
+</table>
+
+### 테두리색 (color-border)
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--color-border-default</code></td>
+      <td><code>#b1b8be</code></td>
+      <td><code>--krds-light-color-border-gray</code></td>
+      <td>입력 필드·카드 기본 테두리</td>
+    </tr>
+    <tr>
+      <td><code>--color-border-focus</code></td>
+      <td><code>#256ef4</code></td>
+      <td><code>--krds-light-color-border-primary</code></td>
+      <td>포커스 링</td>
+    </tr>
+    <tr>
+      <td><code>--color-border-danger</code></td>
+      <td><code>#de3412</code></td>
+      <td><code>--krds-light-color-border-danger</code></td>
+      <td>에러 상태 테두리</td>
+    </tr>
+  </tbody>
+</table>
+
+### 글자 크기 (font-size)
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--font-size-body-md</code></td>
+      <td><code>1.7rem</code></td>
+      <td><code>--krds-pc-font-size-body-medium</code></td>
+      <td>본문 기본 크기</td>
+    </tr>
+    <tr>
+      <td><code>--font-size-body-sm</code></td>
+      <td><code>1.5rem</code></td>
+      <td><code>--krds-pc-font-size-body-small</code></td>
+      <td>보조 설명·캡션</td>
+    </tr>
+    <tr>
+      <td><code>--font-size-heading-sm</code></td>
+      <td><code>1.9rem</code></td>
+      <td><code>--krds-pc-font-size-heading-small</code></td>
+      <td>소섹션 제목</td>
+    </tr>
+  </tbody>
+</table>
+
+### 간격 (space)
+
+숫자는 px 기준. 값은 rem으로 정의 (1rem = 10px 기준).
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도 예시</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--space-8</code></td>
+      <td><code>0.8rem</code></td>
+      <td><code>--krds-number-5</code></td>
+      <td>아이콘↔레이블 간격, 인라인 gap</td>
+    </tr>
+    <tr>
+      <td><code>--space-16</code></td>
+      <td><code>1.6rem</code></td>
+      <td><code>--krds-number-8</code></td>
+      <td>버튼 좌우 패딩, 카드 내부 간격</td>
+    </tr>
+    <tr>
+      <td><code>--space-24</code></td>
+      <td><code>2.4rem</code></td>
+      <td><code>--krds-number-10</code></td>
+      <td>섹션 간 여백, 폼 그룹 간격</td>
+    </tr>
+  </tbody>
+</table>
+
+### 모서리 반경 (radius)
+
+<table>
+  <thead>
+    <tr><th>토큰명</th><th>값</th><th>KRDS 원본</th><th>용도 예시</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--radius-small</code></td>
+      <td><code>0.4rem</code></td>
+      <td><code>--krds-radius-small1</code></td>
+      <td>태그, 뱃지</td>
+    </tr>
+    <tr>
+      <td><code>--radius-medium</code></td>
+      <td><code>0.6rem</code></td>
+      <td><code>--krds-radius-medium1</code></td>
+      <td>버튼(xsmall~small), 입력 필드</td>
+    </tr>
+    <tr>
+      <td><code>--radius-pill</code></td>
+      <td><code>100rem</code></td>
+      <td><code>--krds-radius-max</code></td>
+      <td>알약형 버튼, 검색바</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 프로젝트 테마 예시
+
+`data-theme` 속성으로 프로젝트별 브랜드 컬러를 덮어씁니다.  
+Primary 계열만 교체하면 버튼·링크·포커스 등 UI 전체가 일관되게 바뀝니다.
+
+```css
+/* src/tokens/theme-project-a.css */
+
+[data-theme="project-a"] {
+  /* Primary 배경 계열 */
+  --color-bg-primary:       #5c2d91;   /* 보라 계열 브랜드 */
+  --color-bg-primary-hover: #4a2370;
+
+  /* Primary 텍스트 */
+  --color-text-primary:     #5c2d91;
+
+  /* Primary 테두리 (포커스 링 포함) */
+  --color-border-focus:     #5c2d91;
+}
+```
+
+```html
+<!-- 페이지 루트에 theme 속성 부여 -->
+<html lang="ko" data-theme="project-a">
+```
+
+---
+
+## 컴포넌트 CSS 마이그레이션 예시
+
+현재 컴포넌트 CSS는 `--krds-*` 토큰을 직접 참조합니다.  
+토큰 작업 시 아래와 같이 교체합니다.
+
+### 예시 1 — 버튼 Primary 배경
+
+```css
+/* 현재 (button.css) */
+--ds-btn--color-primary-fill: var(--krds-light-color-button-primary-fill);
+
+/* 변경 후 */
+--ds-btn--color-primary-fill: var(--color-bg-primary);
+```
+
+### 예시 2 — 버튼 기본 텍스트
+
+```css
+/* 현재 (button.css) */
+--ds-btn--color-tertiary-text: var(--krds-light-color-text-basic);
+
+/* 변경 후 */
+--ds-btn--color-tertiary-text: var(--color-text-default);
+```
+
+### 예시 3 — 입력 필드 테두리
+
+```css
+/* 현재 (button.css 내 border 예시) */
+border: 0.1rem solid var(--krds-light-color-border-gray);
+
+/* 변경 후 */
+border: 0.1rem solid var(--color-border-default);
+```
+
+> 교체 범위: `src/components/**/*.css` 전체.  
+> `reference/krds/`는 수정하지 않는다.
+
+---
+
+## 적용 절차 (추후)
+
+1. `src/tokens/base.css` 생성 — `:root` 에 위 토큰 정의
+2. `src/tokens/theme-*.css` 생성 — 프로젝트별 `[data-theme]` 오버라이드
+3. `preview.js` import 순서: `base.css` → `theme-*.css` → `component.css`
+4. 컴포넌트 CSS에서 `--krds-light-color-*` / `--krds-number-*` 등을 새 토큰으로 교체
+5. `CLAUDE.md` 토큰 섹션 업데이트
