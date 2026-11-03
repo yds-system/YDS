@@ -1,0 +1,15 @@
+/* =============================================================================
+   프로젝트 A 테마
+   brand 계열 토큰을 green 프리미티브로 교체한다.
+   사용: <html data-theme="project-a">
+   ============================================================================= */
+
+[data-theme="project-a"] {
+  --bg-brand:         var(--green-50); /* blue-50 → green-50 */
+  --bg-brand-hover:   var(--green-60); /* blue-60 → green-60 */
+  --bg-brand-pressed: var(--green-70); /* blue-70 → green-70 */
+  --bg-brand-subtle:  var(--green-5);  /* blue-5  → green-5  */
+  --txt-brand:        var(--green-60); /* blue-60 → green-60 */
+  --border-brand:     var(--green-50); /* blue-50 → green-50 */
+  --border-focus:     var(--green-50); /* blue-50 → green-50 */
+}

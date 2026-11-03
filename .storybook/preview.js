@@ -1,5 +1,8 @@
 import '../reference/krds/resources/css/token/krds_tokens.css';
 import '../reference/krds/resources/css/common/common.css';
+import '../src/tokens/primitive.css';
+import '../src/tokens/semantic.css';
+import '../src/tokens/theme-project-a.css';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */
@@ -33,7 +36,7 @@ const preview = {
       storySort: {
         order: [
           'Docs',
-          '기반', ['아이콘', '*'],
+          '기반', ['디자인 토큰', '아이콘', '*'],
           '컴포넌트', [
             '아이덴티티', ['헤더', '푸터', '*'],
             '탐색', ['메인 메뉴', '브레드크럼', '페이지네이션', '*'],

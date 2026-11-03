@@ -282,6 +282,19 @@
 
 ---
 
+## 2026-11-03 디자인 토큰 1단계 생성 (색상·타이포·간격·모서리)
+
+- `src/tokens/primitive.css`: 색상(gray/blue/red/orange/green/info/black-alpha/white-alpha), 타이포(font-family/size/weight/line-height/letter-spacing), 간격(spacing-0~80), 모서리(radius-0~999) 프리미티브
+- `src/tokens/semantic.css`: 색상 시멘틱(txt-/bg-/border-/icon-), 타이포 텍스트 스타일(display/heading/body/label/caption/code, PC+모바일 @media), 간격 시멘틱(gap-/padding-/section-padding-), 모서리 시멘틱(radius-xs~circle)
+- `src/tokens/theme-project-a.css`: brand 계열 7개 토큰을 green 프리미티브로 교체
+- `src/tokens/token-data.js`: 전체 토큰 배열 데이터 (1·2·3·4·6번 토큰)
+- `src/docs/design-tokens.mdx`: 사이드바 "기반/디자인 토큰" — 네이밍 규칙, 프리미티브→시멘틱 연결 표, 테마 비교 표, 그룹별 렌더링 표 (token-data.js 반복문)
+- `preview.js`: primitive → semantic → theme 순서로 import 추가, storySort에 '디자인 토큰' 추가
+- `src/docs/tokens-naming.mdx`: 삭제 (design-tokens.mdx로 대체)
+- 5~12번 토큰(크기·테두리·그림자·투명도·레이어·모션·레이아웃)은 다음 단계에서 추가 예정
+
+---
+
 ## 추후 검토
 
 - 필터 태그 선택 상태 (`ds-tag--selected`): KRDS 원본에 없음. 필요 시 신규 추가 협의 후 결정.
