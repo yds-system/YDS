@@ -168,7 +168,7 @@ function renderMobileGnb() {
       </div>
       <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
               aria-label="전체 메뉴 닫기">
-        <i class="ds-icon ds-ico-close" aria-hidden="true"></i>
+        <i class="ds-icon ds-ico-modal-close" aria-hidden="true"></i>
       </button>
     </div>
     <div class="ds-main-menu-mobile__body">

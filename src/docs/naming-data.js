@@ -1454,7 +1454,7 @@ export const headerNaming = {
 
   structure: `#ds-header
 └── .ds-header__inner
-    └── .ds-header__container > .inner
+    └── .ds-header__container > .ds-container
         ├── .ds-header__utility > ul.ds-utility-list [ds-utility-list--start]
         └── .ds-header__branding
             ├── h1.ds-header__logo
@@ -1631,7 +1631,7 @@ export const footerNaming = {
 
   structure: `#ds-footer
 ├── .ds-footer__quick > .ds-footer__quick-link
-└── .inner
+└── .ds-container
     ├── .ds-footer__logo
     ├── .ds-footer__content
     │   ├── .ds-footer__info
@@ -1691,7 +1691,7 @@ export const layoutNaming = {
 
   structure: `#ds-header
 ├── .ds-header__inner
-│   ├── .ds-header__container > .inner
+│   ├── .ds-header__container > .ds-container
 │   │   ├── .ds-header__utility > ul.ds-utility-list
 │   │   └── .ds-header__branding
 │   │       ├── h1.ds-header__logo
@@ -1721,7 +1721,7 @@ export const layoutNaming = {
 
 #ds-footer
 ├── .ds-footer__quick > .ds-footer__quick-link
-└── .inner
+└── .ds-container
     ├── .ds-footer__logo
     ├── .ds-footer__content
     │   ├── .ds-footer__info

@@ -19,7 +19,7 @@ function renderFooter() {
       <button type="button" class="ds-footer__quick-link">관련 사이트 4</button>
     </div>
   </div>
-  <div class="inner">
+  <div class="ds-container">
     <div class="ds-footer__logo">
       <span class="sr-only">KRDS - Korea Design System</span>
     </div>

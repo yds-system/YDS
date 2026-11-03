@@ -147,6 +147,17 @@
 
 ---
 
+## 2026-11-03 재점검 수정
+
+- **ds-ico-close → ds-ico-modal-close**: `ds-ico-close`는 icon.css에 미정의. 모바일 GNB 닫기 버튼에 `ds-ico-modal-close` 적용 (header/main-menu/layout stories 3개)
+- **footer.stories.js inner 잔존**: `  <div class="inner">` (2칸 들여쓰기) → `ds-container`. 이전 replace_all에서 누락된 건
+- **naming-data.js structure 교체**: headerNaming·footerNaming·layoutNaming의 구조도 텍스트에서 `.inner` 4곳 → `.ds-container`
+- **radio.mdx**: 접근성 섹션 `**방향키(↑↓ / ←→)**` → `<strong>방향키(↑↓ / ←→)</strong>`
+- **icon.stories.js**: 데모 전용 클래스 `icon-card/icon-section/cat-count/icon-grid` → `sb-icon-card/sb-icon-section/sb-cat-count/sb-icon-grid` (sb- 접두사 도입)
+- **CLAUDE.md**: "Storybook 전용 클래스는 sb- 접두사" 규칙 추가
+
+---
+
 ## 2026-11-03 Storybook 전체 점검 반영
 
 ### 화면 깨짐 수정

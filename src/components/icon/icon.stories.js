@@ -181,7 +181,7 @@ export const 전체그리드 = {
 
     const cards = ICONS.map(ic => `
       <button type="button"
-        class="icon-card"
+        class="sb-icon-card"
         data-name="${ic.name}"
         data-label="${ic.label}"
         data-category="${ic.category}"
@@ -198,7 +198,7 @@ export const 전체그리드 = {
     const sections = categories.map(cat => {
       const catCards = ICONS.filter(ic => ic.category === cat).map(ic => `
         <button type="button"
-          class="icon-card"
+          class="sb-icon-card"
           data-name="${ic.name}"
           data-label="${ic.label}"
           data-category="${ic.category}"
@@ -211,13 +211,13 @@ export const 전체그리드 = {
           <span style="font-size:0.9rem;color:var(--krds-light-color-text-disabled);">${ic.label}</span>
         </button>`).join('');
       return `
-        <section class="icon-section" data-category="${cat}" style="margin-bottom:3.2rem;">
+        <section class="sb-icon-section" data-category="${cat}" style="margin-bottom:3.2rem;">
           <h2 style="font-size:1.3rem;font-weight:bold;color:var(--krds-light-color-text-bolder);
                      margin-bottom:1.2rem;padding-bottom:0.6rem;
                      border-bottom:1px solid var(--krds-light-color-border-gray-light);">
-            ${cat} <span class="cat-count" style="font-weight:normal;color:var(--krds-light-color-text-subtle);"></span>
+            ${cat} <span class="sb-cat-count" style="font-weight:normal;color:var(--krds-light-color-text-subtle);"></span>
           </h2>
-          <div class="icon-grid" style="${gridStyle}">${catCards}</div>
+          <div class="sb-icon-grid" style="${gridStyle}">${catCards}</div>
         </section>`;
     }).join('');
 
@@ -250,7 +250,7 @@ export const 전체그리드 = {
         </div>
 
         <!-- 그리드 -->
-        <div id="icon-sections">${sections}</div>
+        <div id="sb-icon-sections">${sections}</div>
 
         <!-- 검색 결과 없음 -->
         <p id="icon-empty"
@@ -265,14 +265,14 @@ export const 전체그리드 = {
     const countEl     = canvasElement.querySelector('#icon-count');
     const toast       = canvasElement.querySelector('#copy-toast');
     const emptyMsg    = canvasElement.querySelector('#icon-empty');
-    const sections    = canvasElement.querySelectorAll('.icon-section');
-    const cards       = [...canvasElement.querySelectorAll('.icon-card')];
+    const sections    = canvasElement.querySelectorAll('.sb-icon-section');
+    const cards       = [...canvasElement.querySelectorAll('.sb-icon-card')];
 
     /* 카테고리별 개수 초기 표시 */
     sections.forEach(section => {
       const cat = section.dataset.category;
-      const count = section.querySelectorAll('.icon-card').length;
-      const countSpan = section.querySelector('.cat-count');
+      const count = section.querySelectorAll('.sb-icon-card').length;
+      const countSpan = section.querySelector('.sb-cat-count');
       if (countSpan) countSpan.textContent = `(${count})`;
     });
 
@@ -320,7 +320,7 @@ export const 전체그리드 = {
       let visible = 0;
 
       sections.forEach(section => {
-        const sectionCards = [...section.querySelectorAll('.icon-card')];
+        const sectionCards = [...section.querySelectorAll('.sb-icon-card')];
         let sectionVisible = 0;
 
         sectionCards.forEach(card => {
@@ -333,7 +333,7 @@ export const 전체그리드 = {
         });
 
         section.style.display = sectionVisible > 0 ? '' : 'none';
-        const countSpan = section.querySelector('.cat-count');
+        const countSpan = section.querySelector('.sb-cat-count');
         if (countSpan) countSpan.textContent = `(${sectionVisible})`;
         visible += sectionVisible;
       });
