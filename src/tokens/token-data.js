@@ -321,7 +321,28 @@ export const shadowSemanticTokens = [
 ];
 
 
-/* ── 6. 모서리 ────────────────────────────────────────────────────────────── */
+/* ── 6. 테마 오버라이드 ───────────────────────────────────────────────────── */
+
+/**
+ * project-a 테마: color-primary-* 프리미티브를 초록 계열로 교체한다.
+ * 키는 토큰 이름(-- 없음), 값은 테마 적용 후 hex 색상.
+ */
+export const themeProjectAOverrides = {
+  'color-primary-5':  '#eaf6ec',
+  'color-primary-10': '#d8eedd',
+  'color-primary-20': '#a9dab4',
+  'color-primary-30': '#7ec88e',
+  'color-primary-40': '#3fa654',
+  'color-primary-50': '#228738',
+  'color-primary-60': '#267337',
+  'color-primary-70': '#285d33',
+  'color-primary-80': '#1f4727',
+  'color-primary-90': '#122b18',
+  'color-primary-95': '#0e2012',
+};
+
+
+/* ── 7. 모서리 ────────────────────────────────────────────────────────────── */
 
 export const radiusPrimTokens = [
   { name: 'radius-0',   figma: 'radius/0',   value: '0rem',    usage: '0px — 직각',           krds: '(자체 추가)'           },

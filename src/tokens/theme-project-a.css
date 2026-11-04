@@ -1,15 +1,20 @@
 /* =============================================================================
    프로젝트 A 테마
-   brand 계열 토큰을 success 프리미티브로 교체한다.
+   color-primary-* 프리미티브 값 자체를 초록 계열로 덮어쓴다.
+   이 프리미티브를 var()로 참조하는 모든 시멘틱 토큰이 자동으로 바뀐다.
    사용: <html data-theme="project-a">
    ============================================================================= */
 
 [data-theme="project-a"] {
-  --color-bg-primary:         var(--color-success-50); /* primary-50 → success-50 */
-  --color-bg-primary-hover:   var(--color-success-60); /* primary-60 → success-60 */
-  --color-bg-primary-pressed: var(--color-success-70); /* primary-70 → success-70 */
-  --color-bg-primary-subtle:  var(--color-success-5);  /* primary-5  → success-5  */
-  --color-text-primary:        var(--color-success-60); /* primary-60 → success-60 */
-  --color-border-primary:     var(--color-success-50); /* primary-50 → success-50 */
-  --color-border-focus:     var(--color-success-50); /* primary-50 → success-50 */
+  --color-primary-5:  #eaf6ec;
+  --color-primary-10: #d8eedd;
+  --color-primary-20: #a9dab4;
+  --color-primary-30: #7ec88e;
+  --color-primary-40: #3fa654;
+  --color-primary-50: #228738;
+  --color-primary-60: #267337;
+  --color-primary-70: #285d33;
+  --color-primary-80: #1f4727;
+  --color-primary-90: #122b18;
+  --color-primary-95: #0e2012;
 }

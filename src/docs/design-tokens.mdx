@@ -74,7 +74,9 @@ import {
 
 ## 테마 비교: 기본 vs project-a
 
-brand 계열 토큰만 교체하면 모든 버튼·링크·포커스가 함께 바뀝니다.
+`[data-theme="project-a"]`에서 `color-primary-*` **프리미티브 값 자체**를 초록 계열로 덮어씁니다.
+이 프리미티브를 `var()`로 참조하는 `color-bg-primary`, `color-text-primary`, `color-border-focus` 등
+모든 시멘틱 토큰이 자동으로 바뀝니다.
 
 ```html
 <html lang="ko" data-theme="project-a">

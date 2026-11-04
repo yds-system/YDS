@@ -16,6 +16,7 @@ import {
   shadowSemanticTokens,
   radiusPrimTokens,
   radiusSemanticTokens,
+  themeProjectAOverrides,
 } from '../tokens/token-data.js';
 
 // ─── 내부 유틸 ────────────────────────────────────────────────────────────────
@@ -60,19 +61,14 @@ const sectionStyle = { marginBottom: '32px' };
 const subheadStyle = { margin: '0 0 8px', fontSize: '14px', fontWeight: 600, color: '#333' };
 
 // ─── 프리미티브 → 시멘틱 연결 표 ──────────────────────────────────────────────
+// 각 시멘틱 그룹에서 ref가 있는 토큰 3개씩 자동 추출
 
-const connectionRows = [
-  { semantic: 'color-text-default',      prim: 'color-gray-90',      value: '#1e2124', usage: '본문·제목 주요 텍스트' },
-  { semantic: 'color-text-danger',       prim: 'color-danger-60',    value: '#bd2c0f', usage: '에러 메시지' },
-  { semantic: 'color-text-primary',      prim: 'color-primary-60',   value: '#0b50d0', usage: '브랜드·강조 텍스트' },
-  { semantic: 'color-bg-default',        prim: 'color-gray-0',       value: '#ffffff', usage: '페이지·카드 기본 배경' },
-  { semantic: 'color-bg-primary',        prim: 'color-primary-50',   value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
-  { semantic: 'color-bg-primary-hover',  prim: 'color-primary-60',   value: '#0b50d0', usage: '브랜드 hover 배경' },
-  { semantic: 'color-bg-danger-subtle',  prim: 'color-danger-5',     value: '#fdefec', usage: '에러 연한 배경' },
-  { semantic: 'color-bg-selected',       prim: 'color-primary-5',    value: '#ecf2fe', usage: '선택된 항목 배경' },
-  { semantic: 'color-border-focus',      prim: 'color-primary-50',   value: '#256ef4', usage: '포커스 링' },
-  { semantic: 'color-border-danger',     prim: 'color-danger-50',    value: '#de3412', usage: '에러 테두리' },
-];
+const connectionRows = colorSemanticGroups.flatMap(g =>
+  g.tokens
+    .filter(t => t.ref !== null)
+    .slice(0, 3)
+    .map(t => ({ semantic: t.name, prim: t.ref, value: t.value, usage: t.usage }))
+);
 
 export const ConnectionTable = () =>
   h('table', { style: tableStyle },
@@ -95,18 +91,16 @@ export const ConnectionTable = () =>
   );
 
 // ─── 테마 비교 표 ──────────────────────────────────────────────────────────────
+// color-primary-* 프리미티브 토큰별로 기본값 vs project-a 값 자동 생성
 
-const themeRows = [
-  { token: 'color-bg-primary',         baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
-  { token: 'color-bg-primary-hover',   baseRef: 'color-primary-60', baseVal: '#0b50d0', themeRef: 'color-success-60', themeVal: '#267337' },
-  { token: 'color-bg-primary-pressed', baseRef: 'color-primary-70', baseVal: '#083891', themeRef: 'color-success-70', themeVal: '#285d33' },
-  { token: 'color-bg-primary-subtle',  baseRef: 'color-primary-5',  baseVal: '#ecf2fe', themeRef: 'color-success-5',  themeVal: '#eaf6ec' },
-  { token: 'color-text-primary',       baseRef: 'color-primary-60', baseVal: '#0b50d0', themeRef: 'color-success-60', themeVal: '#267337' },
-  { token: 'color-border-primary',     baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
-  { token: 'color-border-focus',       baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
-];
+const _primaryTokens = colorPrimGroups.find(g => g.name === 'primary').tokens;
+const themeRows = _primaryTokens.map(t => ({
+  token:    t.name,
+  baseVal:  t.value,
+  themeVal: themeProjectAOverrides[t.name] || t.value,
+}));
 
-const SwatchCell = (val, refName) =>
+const SwatchVal = (val) =>
   h(Fragment, null,
     h('div', {
       style: {
@@ -115,20 +109,20 @@ const SwatchCell = (val, refName) =>
         verticalAlign: 'middle', marginRight: '6px',
       }
     }),
-    h('code', { style: { fontSize: '12px' } }, refName + ' / ' + val)
+    h('code', { style: { fontSize: '12px' } }, val)
   );
 
 export const ThemeTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('토큰 이름'), th('기본 (primary 계열)'), th('project-a (success 계열)'))
+      h('tr', null, th('프리미티브 토큰'), th('기본값'), th('project-a 값'))
     ),
     h('tbody', null,
       ...themeRows.map(r =>
         h('tr', { key: r.token },
           td(Chip(r.token)),
-          td(SwatchCell(r.baseVal, r.baseRef)),
-          td(SwatchCell(r.themeVal, r.themeRef))
+          td(SwatchVal(r.baseVal)),
+          td(SwatchVal(r.themeVal))
         )
       )
     )
