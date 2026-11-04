@@ -134,10 +134,7 @@
   --font-size-24: 2.4rem; /* --krds-pc-font-size-heading-medium */
   --font-size-28: 2.8rem; /* --krds-mobile-font-size-heading-xlarge */
   --font-size-32: 3.2rem; /* --krds-pc-font-size-heading-large  */
-  --font-size-36: 3.6rem; /* --krds-pc-font-size-display-small  */
   --font-size-40: 4rem;   /* --krds-pc-font-size-heading-xlarge */
-  --font-size-44: 4.4rem; /* --krds-pc-font-size-display-medium */
-  --font-size-60: 6rem;   /* --krds-pc-font-size-display-large  */
 
   /* font-weight ─ KRDS --krds-typo-font-weight-* */
   --font-weight-regular: 400;

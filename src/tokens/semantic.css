@@ -73,15 +73,6 @@
 
   /* ── 3. 타이포 시멘틱 — 텍스트 스타일 묶음 (PC 기본) ────────────────────────── */
 
-  /* display */
-  --font-size-display-l:    var(--font-size-60);
-  --font-weight-display-l:  var(--font-weight-bold);
-  --line-height-display-l:  var(--line-height-tight);
-
-  --font-size-display-m:    var(--font-size-44);
-  --font-weight-display-m:  var(--font-weight-bold);
-  --line-height-display-m:  var(--line-height-tight);
-
   /* heading */
   --font-size-heading-xl:   var(--font-size-40);
   --font-weight-heading-xl: var(--font-weight-bold);
@@ -112,29 +103,9 @@
   --font-weight-body-s:     var(--font-weight-regular);
   --line-height-body-s:     var(--line-height-normal);
 
-  /* label */
-  --font-size-label-l:      var(--font-size-19);
-  --font-weight-label-l:    var(--font-weight-medium);
-  --line-height-label-l:    var(--line-height-normal);
-
-  --font-size-label-m:      var(--font-size-17);
-  --font-weight-label-m:    var(--font-weight-medium);
-  --line-height-label-m:    var(--line-height-normal);
-
-  --font-size-label-s:      var(--font-size-15);
-  --font-weight-label-s:    var(--font-weight-medium);
-  --line-height-label-s:    var(--line-height-normal);
-
-  /* caption */
-  --font-size-caption:      var(--font-size-13);
-  --font-weight-caption:    var(--font-weight-regular);
-  --line-height-caption:    var(--line-height-normal);
-
-  /* code  ─  자체 추가 */
-  --font-size-code:         var(--font-size-15);
-  --font-weight-code:       var(--font-weight-regular);
-  --line-height-code:       var(--line-height-relaxed);
-  --font-family-code-token: var(--font-family-code);
+  --font-size-body-xs:      var(--font-size-13);
+  --font-weight-body-xs:    var(--font-weight-regular);
+  --line-height-body-xs:    var(--line-height-normal);
 
 
   /* ── 4. 간격 시멘틱 ─────────────────────────────────────────────────────────── */
@@ -173,12 +144,10 @@
 @media (max-width: 1279px) {
   :root {
     /* 타이포: PC/모바일에서 다른 값만 오버라이드 */
-    --font-size-display-l:   var(--font-size-44); /* 60px → 44px */
-    --font-size-display-m:   var(--font-size-32); /* 44px → 32px */
     --font-size-heading-xl:  var(--font-size-28); /* 40px → 28px */
     --font-size-heading-l:   var(--font-size-24); /* 32px → 24px */
     --font-size-heading-m:   var(--font-size-22); /* 24px → 22px */
-    /* heading-s / body / label / caption: PC = 모바일 → 오버라이드 불필요 */
+    /* heading-s / body-*: PC = 모바일 → 오버라이드 불필요 */
 
     /* 간격: section-padding 모바일 축소 */
     --section-padding-s: var(--spacing-12); /* 16px → 12px */
