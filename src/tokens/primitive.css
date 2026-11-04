@@ -9,6 +9,32 @@
 
   /* ── 1. 색상 프리미티브 ─────────────────────────────────────────────────────── */
 
+  /* color-primary  ─  KRDS --krds-color-light-primary-* */
+  --color-primary-5:   #ecf2fe;
+  --color-primary-10:  #d8e5fd;
+  --color-primary-20:  #b1cefb;
+  --color-primary-30:  #86aff9;
+  --color-primary-40:  #4c87f6;
+  --color-primary-50:  #256ef4;
+  --color-primary-60:  #0b50d0;
+  --color-primary-70:  #083891;
+  --color-primary-80:  #052561;
+  --color-primary-90:  #03163a;
+  --color-primary-95:  #020f27;
+
+  /* color-secondary  ─  KRDS --krds-color-light-secondary-* */
+  --color-secondary-5:   #eef2f7;
+  --color-secondary-10:  #d6e0eb;
+  --color-secondary-20:  #bacbde;
+  --color-secondary-30:  #90b0d5;
+  --color-secondary-40:  #6b96c7;
+  --color-secondary-50:  #346fb2;
+  --color-secondary-60:  #1c589c;
+  --color-secondary-70:  #063a74;
+  --color-secondary-80:  #052b57;
+  --color-secondary-90:  #031f3f;
+  --color-secondary-95:  #02162c;
+
   /* color-gray  ─  KRDS --krds-color-light-gray-* */
   --color-gray-0:   #ffffff;
   --color-gray-5:   #f4f5f6;
@@ -23,32 +49,6 @@
   --color-gray-90:  #1e2124;
   --color-gray-95:  #131416;
   --color-gray-100: #000000;
-
-  /* color-secondary  ─  (자체 추가 / 추후 확정) violet-indigo 계열 */
-  --color-secondary-5:   #f3f0ff;
-  --color-secondary-10:  #e8e3ff;
-  --color-secondary-20:  #cfc5ff;
-  --color-secondary-30:  #b4a2ff;
-  --color-secondary-40:  #9579f7;
-  --color-secondary-50:  #7c5de8;
-  --color-secondary-60:  #6845ce;
-  --color-secondary-70:  #5433b4;
-  --color-secondary-80:  #3d2490;
-  --color-secondary-90:  #26166b;
-  --color-secondary-95:  #190e4f;
-
-  /* color-primary  ─  KRDS --krds-color-light-primary-* */
-  --color-primary-5:   #ecf2fe;
-  --color-primary-10:  #d8e5fd;
-  --color-primary-20:  #b1cefb;
-  --color-primary-30:  #86aff9;
-  --color-primary-40:  #4c87f6;
-  --color-primary-50:  #256ef4;
-  --color-primary-60:  #0b50d0;
-  --color-primary-70:  #083891;
-  --color-primary-80:  #052561;
-  --color-primary-90:  #03163a;
-  --color-primary-95:  #020f27;
 
   /* color-danger  ─  KRDS --krds-color-light-danger-* */
   --color-danger-5:    #fdefec;
