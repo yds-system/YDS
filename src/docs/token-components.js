@@ -13,6 +13,7 @@ import {
   typoStyleTokens,
   spacingPrimTokens,
   spacingSemanticTokens,
+  shadowSemanticTokens,
   radiusPrimTokens,
   radiusSemanticTokens,
 } from '../tokens/token-data.js';
@@ -342,6 +343,48 @@ export const RadiusSemanticTable = () =>
           td(RadiusBox(t.value, '#ecf2fe', '#0b50d0')),
           td(Chip(t.name)),
           td(Chip(t.ref)),
+          td(GrayChip(t.value)),
+          td(t.usage || ''),
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 5. 그림자 ────────────────────────────────────────────────────────────────
+
+const ShadowBox = (shadowValue) =>
+  h('div', {
+    style: {
+      width: '48px', height: '32px',
+      background: '#ffffff',
+      borderRadius: '4px',
+      boxShadow: shadowValue === 'none' ? 'none' : shadowValue,
+      border: shadowValue === 'none' ? '1px dashed #cdd1d5' : 'none',
+      flexShrink: 0,
+    }
+  });
+
+// token-data의 value는 가독용 문자열(px 단위). CSS 적용용 실제 값은 별도 맵.
+const shadowCssValues = {
+  'shadow-none': 'none',
+  'shadow-s': '0 0 0.2rem 0 rgba(0,0,0,.10), 0 0.4rem 0.8rem 0 rgba(0,0,0,.10)',
+  'shadow-m': '0 0 0.2rem 0 rgba(0,0,0,.10), 0 0.8rem 1.6rem 0 rgba(0,0,0,.10)',
+  'shadow-l': '0 0 0.2rem 0 rgba(0,0,0,.10), 0 1.6rem 2.4rem 0 rgba(0,0,0,.25)',
+};
+
+export const ShadowTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조'), th('값 (px 기준)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+    ),
+    h('tbody', null,
+      ...shadowSemanticTokens.map(t =>
+        h('tr', { key: t.name },
+          td(ShadowBox(shadowCssValues[t.name] || 'none')),
+          td(Chip(t.name)),
+          td(t.ref ? GrayChip(t.ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '—')),
           td(GrayChip(t.value)),
           td(t.usage || ''),
           td(KrdsChip(t.krds)),

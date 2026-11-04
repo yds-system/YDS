@@ -311,6 +311,16 @@ export const spacingSemanticTokens = [
 ];
 
 
+/* ── 5. 그림자 ────────────────────────────────────────────────────────────── */
+
+export const shadowSemanticTokens = [
+  { name: 'shadow-none', figma: 'shadow/none', value: 'none',                                                                                      usage: '그림자 없음',               ref: '—',                                      krds: '(자체 추가)'                            },
+  { name: 'shadow-s',    figma: 'shadow/s',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 4px 8px 0 rgba(0,0,0,.10)',                                    usage: '카드·슬라이드 박스 기본',    ref: 'black-alpha-10 × 2',                     krds: '--krds-critical-alerts--banner-shadow'  },
+  { name: 'shadow-m',    figma: 'shadow/m',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 8px 16px 0 rgba(0,0,0,.10)',                                   usage: '카드 hover·드롭다운·툴팁',   ref: 'black-alpha-10 × 2',                     krds: '--krds-help-panel--shadow'              },
+  { name: 'shadow-l',    figma: 'shadow/l',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 16px 24px 0 rgba(0,0,0,.25)',                                  usage: '모달',                       ref: 'black-alpha-10 + black-alpha-25',        krds: '--krds-modal--wrap-shadow'              },
+];
+
+
 /* ── 6. 모서리 ────────────────────────────────────────────────────────────── */
 
 export const radiusPrimTokens = [
