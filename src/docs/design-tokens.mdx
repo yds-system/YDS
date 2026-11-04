@@ -35,17 +35,17 @@ import {
     <tr>
       <td><strong>프리미티브</strong></td>
       <td>원재료. 값 그 자체. 컴포넌트에서 직접 쓰지 않는다.</td>
-      <td><code>--blue-50</code>, <code>--gray-90</code>, <code>--spacing-16</code></td>
+      <td><code>--primary-50</code>, <code>--gray-90</code>, <code>--space-16</code></td>
     </tr>
     <tr>
       <td><strong>시멘틱</strong></td>
       <td>용도 기반. 반드시 프리미티브를 <code>var()</code>로 참조한다.</td>
-      <td><code>--bg-brand</code>, <code>--txt-primary</code>, <code>--gap-m</code></td>
+      <td><code>--bg-primary</code>, <code>--txt-default</code>, <code>--gap-m</code></td>
     </tr>
     <tr>
       <td><strong>테마 오버라이드</strong></td>
       <td><code>[data-theme]</code>에서 시멘틱 토큰 일부를 교체한다.</td>
-      <td><code>--bg-brand: var(--green-50)</code></td>
+      <td><code>--bg-primary: var(--success-50)</code></td>
     </tr>
   </tbody>
 </table>
@@ -56,8 +56,8 @@ import {
 
 **장식 vs UI 사용 구분**
 
-- **아이콘·일러스트·차트 등 장식** → 프리미티브 직접 참조 허용 (`--blue-50`, `--green-30` 등)
-- **버튼·텍스트·배경·테두리 등 UI** → 반드시 시멘틱 참조 (`--bg-brand`, `--txt-primary` 등)
+- **아이콘·일러스트·차트 등 장식** → 프리미티브 직접 참조 허용 (`--primary-50`, `--success-30` 등)
+- **버튼·텍스트·배경·테두리 등 UI** → 반드시 시멘틱 참조 (`--bg-primary`, `--txt-default` 등)
 
 ---
 
@@ -108,11 +108,26 @@ PC와 모바일에서 다른 경우에만 `@media (max-width: 1279px)`로 덮어
 
 ## 4. 간격
 
+### 간격 사용 규칙
+
+- **방향을 토큰 이름에 넣지 않는다.** `--gap-top-m` 같은 이름 대신 CSS 속성에서 방향을 지정한다. (`margin-top: var(--margin-m)`)
+- **스케일**: xs → s → m → l → xl. 범위를 벗어나면 2xs / 2xl로 확장한다.
+- **일회성 특수값**은 시멘틱 토큰 대신 프리미티브(`--space-12`)를 직접 사용해도 된다.
+- **Figma 연동**: `gap-*` 는 Figma "gap" scope, `padding-*` 는 "padding" scope에 매핑한다.
+
+| 그룹 | 용도 |
+|---|---|
+| `gap-xs~xl` | flex·grid 아이템 사이 간격 |
+| `padding-xs~xl` | 컴포넌트 내부 여백 |
+| `margin-xs~xl` | 블록 간 외부 여백 (gap보다 한 단계 큰 값) |
+| `section-padding-s/m/l` | 섹션 상하 여백 (모바일에서 자동 축소) |
+| `container-padding` | 페이지 좌우 여백 (모바일에서 자동 축소) |
+
 ### 프리미티브
 
 <SpacingPrimTable />
 
-### 시멘틱 (gap, padding, section-padding)
+### 시멘틱
 
 <SpacingSemanticTable />
 

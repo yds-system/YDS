@@ -110,21 +110,34 @@
 
   /* ── 4. 간격 시멘틱 ─────────────────────────────────────────────────────────── */
 
-  --gap-xs: var(--spacing-4);   /* 아이콘↔레이블 등 인라인 소간격  ─ --krds-gap-2   */
-  --gap-s:  var(--spacing-8);   /* 입력 그룹 내부 간격             ─ --krds-gap-3   */
-  --gap-m:  var(--spacing-16);  /* 컴포넌트 간 기본 간격           ─ --krds-gap-5   */
-  --gap-l:  var(--spacing-24);  /* 섹션 내 블록 간격               ─ --krds-gap-7   */
-  --gap-xl: var(--spacing-40);  /* 섹션 간 여백                    ─ --krds-gap-9   */
+  /* gap- : flex/grid 아이템 간 간격 (Figma: gap scope) */
+  --gap-xs: var(--space-4);   /* 아이콘↔레이블 등 인라인 소간격  ─ --krds-gap-2   */
+  --gap-s:  var(--space-8);   /* 입력 그룹 내부 간격             ─ --krds-gap-3   */
+  --gap-m:  var(--space-16);  /* 컴포넌트 간 기본 간격           ─ --krds-gap-5   */
+  --gap-l:  var(--space-24);  /* 섹션 내 블록 간격               ─ --krds-gap-7   */
+  --gap-xl: var(--space-40);  /* 섹션 간 여백                    ─ --krds-gap-9   */
 
-  --padding-xs: var(--spacing-4);   /* 뱃지·태그 소형 내부 여백    ─ --krds-padding-2   */
-  --padding-s:  var(--spacing-8);   /* 버튼 상하 패딩 기본          ─ --krds-padding-3   */
-  --padding-m:  var(--spacing-16);  /* 카드·입력 필드 내부 여백     ─ --krds-padding-6   */
-  --padding-l:  var(--spacing-24);  /* 섹션 헤더 내부 여백          ─ --krds-padding-8   */
-  --padding-xl: var(--spacing-40);  /* 페이지 상단 여백             ─ --krds-padding-10  */
+  /* padding- : 컴포넌트·컨테이너 내부 여백 (Figma: padding scope) */
+  --padding-xs: var(--space-4);   /* 뱃지·태그 소형 내부 여백    ─ --krds-padding-2   */
+  --padding-s:  var(--space-8);   /* 버튼 상하 패딩 기본          ─ --krds-padding-3   */
+  --padding-m:  var(--space-16);  /* 카드·입력 필드 내부 여백     ─ --krds-padding-6   */
+  --padding-l:  var(--space-24);  /* 섹션 헤더 내부 여백          ─ --krds-padding-8   */
+  --padding-xl: var(--space-40);  /* 페이지 상단 여백             ─ --krds-padding-10  */
 
-  --section-padding-s: var(--spacing-16); /* 소형 섹션 여백  ─ (자체 추가) */
-  --section-padding-m: var(--spacing-32); /* 일반 섹션 여백  ─ (자체 추가) */
-  --section-padding-l: var(--spacing-48); /* 대형 섹션 여백  ─ (자체 추가) */
+  /* margin- : 블록 간 외부 여백. gap보다 한 단계 큰 값 사용 (자체 추가) */
+  --margin-xs: var(--space-8);   /* 연관 블록 최소 외부 여백  */
+  --margin-s:  var(--space-16);  /* 소형 블록 외부 여백       */
+  --margin-m:  var(--space-24);  /* 중형 블록 외부 여백       */
+  --margin-l:  var(--space-40);  /* 대형 블록 외부 여백       */
+  --margin-xl: var(--space-64);  /* 섹션 간 최대 외부 여백    */
+
+  /* section-padding- : 섹션 상하 여백. 모바일에서 @media로 축소 (자체 추가) */
+  --section-padding-s: var(--space-16); /* 소형 섹션 여백 */
+  --section-padding-m: var(--space-32); /* 일반 섹션 여백 */
+  --section-padding-l: var(--space-48); /* 대형 섹션 여백 */
+
+  /* container-padding : 페이지 좌우 여백. 모바일에서 @media로 축소 (자체 추가) */
+  --container-padding: var(--space-32); /* PC 기본 (32px) */
 
 
   /* ── 6. 모서리 시멘틱 ───────────────────────────────────────────────────────── */
@@ -149,9 +162,10 @@
     --font-size-heading-m:   var(--font-size-22); /* 24px → 22px */
     /* heading-s / body-*: PC = 모바일 → 오버라이드 불필요 */
 
-    /* 간격: section-padding 모바일 축소 */
-    --section-padding-s: var(--spacing-12); /* 16px → 12px */
-    --section-padding-m: var(--spacing-20); /* 32px → 20px */
-    --section-padding-l: var(--spacing-32); /* 48px → 32px */
+    /* 간격: section-padding·container-padding 모바일 축소 */
+    --section-padding-s: var(--space-12); /* 16px → 12px */
+    --section-padding-m: var(--space-20); /* 32px → 20px */
+    --section-padding-l: var(--space-32); /* 48px → 32px */
+    --container-padding: var(--space-20); /* 32px → 20px */
   }
 }

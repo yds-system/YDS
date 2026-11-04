@@ -147,26 +147,26 @@
   --line-height-relaxed: 1.75;
 
   /* letter-spacing ─ KRDS --krds-typo-letter-spacing-* */
-  --letter-spacing-tight:  -0.025em;
-  --letter-spacing-normal:  0em;
+  --font-letter-spacing-tight:  -0.025em;
+  --font-letter-spacing-normal:  0em;
 
 
   /* ── 4. 간격 프리미티브 ─────────────────────────────────────────────────────── */
 
-  /* spacing (px 단위 이름) ─ KRDS --krds-number-* */
-  --spacing-0:  0rem;    /* --krds-number-0  */
-  --spacing-2:  0.2rem;  /* --krds-number-2  */
-  --spacing-4:  0.4rem;  /* --krds-number-3  */
-  --spacing-8:  0.8rem;  /* --krds-number-5  */
-  --spacing-12: 1.2rem;  /* --krds-number-7  */
-  --spacing-16: 1.6rem;  /* --krds-number-8  */
-  --spacing-20: 2rem;    /* --krds-number-9  */
-  --spacing-24: 2.4rem;  /* --krds-number-10 */
-  --spacing-32: 3.2rem;  /* --krds-number-12 */
-  --spacing-40: 4rem;    /* --krds-number-14 */
-  --spacing-48: 4.8rem;  /* --krds-number-16 */
-  --spacing-64: 6.4rem;  /* --krds-number-18 */
-  --spacing-80: 8rem;    /* --krds-number-20 */
+  /* space (px 단위 이름) ─ KRDS --krds-number-* */
+  --space-0:  0rem;    /* --krds-number-0  */
+  --space-2:  0.2rem;  /* --krds-number-2  */
+  --space-4:  0.4rem;  /* --krds-number-3  */
+  --space-8:  0.8rem;  /* --krds-number-5  */
+  --space-12: 1.2rem;  /* --krds-number-7  */
+  --space-16: 1.6rem;  /* --krds-number-8  */
+  --space-20: 2rem;    /* --krds-number-9  */
+  --space-24: 2.4rem;  /* --krds-number-10 */
+  --space-32: 3.2rem;  /* --krds-number-12 */
+  --space-40: 4rem;    /* --krds-number-14 */
+  --space-48: 4.8rem;  /* --krds-number-16 */
+  --space-64: 6.4rem;  /* --krds-number-18 */
+  --space-80: 8rem;    /* --krds-number-20 */
 
 
   /* ── 6. 모서리 프리미티브 ───────────────────────────────────────────────────── */
