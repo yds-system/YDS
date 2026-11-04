@@ -26,7 +26,9 @@ const chipStyle = {
   borderRadius: '3px',
   fontSize: '12px',
   fontFamily: 'monospace',
-  whiteSpace: 'nowrap',
+  whiteSpace: 'normal',
+  wordBreak: 'break-word',
+  overflowWrap: 'break-word',
 };
 
 // 토큰 이름 (--없음, 강조)
@@ -39,7 +41,7 @@ const KrdsChip = (txt) => h('code', { style: { ...chipStyle, background: 'transp
 const CssChip = (name) => h('code', { style: { ...chipStyle, background: '#f8f0ff', color: '#6b3fa0', fontSize: '11px' } }, '--' + name);
 
 const th = (txt) => h('th', {
-  style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #ddd', whiteSpace: 'nowrap', fontSize: '12px', fontWeight: 600 }
+  style: { padding: '5px 8px', background: '#f8f8f8', textAlign: 'left', borderBottom: '2px solid #ddd', fontSize: '12px', fontWeight: 600 }
 }, txt);
 
 const td = (content, extraStyle) => h('td', {
