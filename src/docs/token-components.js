@@ -62,16 +62,16 @@ const subheadStyle = { margin: '0 0 8px', fontSize: '14px', fontWeight: 600, col
 // ─── 프리미티브 → 시멘틱 연결 표 ──────────────────────────────────────────────
 
 const connectionRows = [
-  { semantic: 'txt-primary',      prim: 'gray-90',    value: '#1e2124', usage: '본문·제목 주요 텍스트' },
-  { semantic: 'txt-danger',       prim: 'red-60',     value: '#bd2c0f', usage: '에러 메시지' },
-  { semantic: 'txt-brand',        prim: 'blue-60',    value: '#0b50d0', usage: '링크·브랜드 강조 텍스트' },
-  { semantic: 'bg-primary',       prim: 'gray-0',     value: '#ffffff', usage: '페이지·카드 기본 배경' },
-  { semantic: 'bg-brand',         prim: 'blue-50',    value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
-  { semantic: 'bg-brand-hover',   prim: 'blue-60',    value: '#0b50d0', usage: '브랜드 hover 배경' },
-  { semantic: 'bg-danger-subtle', prim: 'red-5',      value: '#fdefec', usage: '에러 연한 배경' },
-  { semantic: 'bg-selected',      prim: 'blue-5',     value: '#ecf2fe', usage: '선택된 항목 배경' },
-  { semantic: 'border-focus',     prim: 'blue-50',    value: '#256ef4', usage: '포커스 링' },
-  { semantic: 'border-danger',    prim: 'red-50',     value: '#de3412', usage: '에러 테두리' },
+  { semantic: 'color-text-default',      prim: 'color-gray-90',      value: '#1e2124', usage: '본문·제목 주요 텍스트' },
+  { semantic: 'color-text-danger',       prim: 'color-danger-60',    value: '#bd2c0f', usage: '에러 메시지' },
+  { semantic: 'color-text-primary',      prim: 'color-primary-60',   value: '#0b50d0', usage: '브랜드·강조 텍스트' },
+  { semantic: 'color-bg-default',        prim: 'color-gray-0',       value: '#ffffff', usage: '페이지·카드 기본 배경' },
+  { semantic: 'color-bg-primary',        prim: 'color-primary-50',   value: '#256ef4', usage: '브랜드 배경 (버튼 등)' },
+  { semantic: 'color-bg-primary-hover',  prim: 'color-primary-60',   value: '#0b50d0', usage: '브랜드 hover 배경' },
+  { semantic: 'color-bg-danger-subtle',  prim: 'color-danger-5',     value: '#fdefec', usage: '에러 연한 배경' },
+  { semantic: 'color-bg-selected',       prim: 'color-primary-5',    value: '#ecf2fe', usage: '선택된 항목 배경' },
+  { semantic: 'color-border-focus',      prim: 'color-primary-50',   value: '#256ef4', usage: '포커스 링' },
+  { semantic: 'color-border-danger',     prim: 'color-danger-50',    value: '#de3412', usage: '에러 테두리' },
 ];
 
 export const ConnectionTable = () =>
@@ -97,13 +97,13 @@ export const ConnectionTable = () =>
 // ─── 테마 비교 표 ──────────────────────────────────────────────────────────────
 
 const themeRows = [
-  { token: 'bg-brand',         baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
-  { token: 'bg-brand-hover',   baseRef: 'blue-60',  baseVal: '#0b50d0', themeRef: 'green-60', themeVal: '#267337' },
-  { token: 'bg-brand-pressed', baseRef: 'blue-70',  baseVal: '#083891', themeRef: 'green-70', themeVal: '#285d33' },
-  { token: 'bg-brand-subtle',  baseRef: 'blue-5',   baseVal: '#ecf2fe', themeRef: 'green-5',  themeVal: '#eaf6ec' },
-  { token: 'txt-brand',        baseRef: 'blue-60',  baseVal: '#0b50d0', themeRef: 'green-60', themeVal: '#267337' },
-  { token: 'border-brand',     baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
-  { token: 'border-focus',     baseRef: 'blue-50',  baseVal: '#256ef4', themeRef: 'green-50', themeVal: '#228738' },
+  { token: 'color-bg-primary',         baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
+  { token: 'color-bg-primary-hover',   baseRef: 'color-primary-60', baseVal: '#0b50d0', themeRef: 'color-success-60', themeVal: '#267337' },
+  { token: 'color-bg-primary-pressed', baseRef: 'color-primary-70', baseVal: '#083891', themeRef: 'color-success-70', themeVal: '#285d33' },
+  { token: 'color-bg-primary-subtle',  baseRef: 'color-primary-5',  baseVal: '#ecf2fe', themeRef: 'color-success-5',  themeVal: '#eaf6ec' },
+  { token: 'color-text-primary',       baseRef: 'color-primary-60', baseVal: '#0b50d0', themeRef: 'color-success-60', themeVal: '#267337' },
+  { token: 'color-border-primary',     baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
+  { token: 'color-border-focus',       baseRef: 'color-primary-50', baseVal: '#256ef4', themeRef: 'color-success-50', themeVal: '#228738' },
 ];
 
 const SwatchCell = (val, refName) =>
@@ -121,7 +121,7 @@ const SwatchCell = (val, refName) =>
 export const ThemeTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('토큰 이름'), th('기본 (blue 계열)'), th('project-a (green 계열)'))
+      h('tr', null, th('토큰 이름'), th('기본 (primary 계열)'), th('project-a (success 계열)'))
     ),
     h('tbody', null,
       ...themeRows.map(r =>

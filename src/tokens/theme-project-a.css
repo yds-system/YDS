@@ -5,11 +5,11 @@
    ============================================================================= */
 
 [data-theme="project-a"] {
-  --bg-primary:         var(--success-50); /* primary-50 → success-50 */
-  --bg-primary-hover:   var(--success-60); /* primary-60 → success-60 */
-  --bg-primary-pressed: var(--success-70); /* primary-70 → success-70 */
-  --bg-primary-subtle:  var(--success-5);  /* primary-5  → success-5  */
-  --txt-primary:        var(--success-60); /* primary-60 → success-60 */
-  --border-primary:     var(--success-50); /* primary-50 → success-50 */
-  --border-focus:     var(--success-50); /* primary-50 → success-50 */
+  --color-bg-primary:         var(--color-success-50); /* primary-50 → success-50 */
+  --color-bg-primary-hover:   var(--color-success-60); /* primary-60 → success-60 */
+  --color-bg-primary-pressed: var(--color-success-70); /* primary-70 → success-70 */
+  --color-bg-primary-subtle:  var(--color-success-5);  /* primary-5  → success-5  */
+  --color-text-primary:        var(--color-success-60); /* primary-60 → success-60 */
+  --color-border-primary:     var(--color-success-50); /* primary-50 → success-50 */
+  --color-border-focus:     var(--color-success-50); /* primary-50 → success-50 */
 }

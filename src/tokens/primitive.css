@@ -9,114 +9,114 @@
 
   /* ── 1. 색상 프리미티브 ─────────────────────────────────────────────────────── */
 
-  /* gray  ─  KRDS --krds-color-light-gray-* */
-  --gray-0:   #ffffff;
-  --gray-5:   #f4f5f6;
-  --gray-10:  #e6e8ea;
-  --gray-20:  #cdd1d5;
-  --gray-30:  #b1b8be;
-  --gray-40:  #8a949e;
-  --gray-50:  #6d7882;
-  --gray-60:  #58616a;
-  --gray-70:  #464c53;
-  --gray-80:  #33363d;
-  --gray-90:  #1e2124;
-  --gray-95:  #131416;
-  --gray-100: #000000;
+  /* color-gray  ─  KRDS --krds-color-light-gray-* */
+  --color-gray-0:   #ffffff;
+  --color-gray-5:   #f4f5f6;
+  --color-gray-10:  #e6e8ea;
+  --color-gray-20:  #cdd1d5;
+  --color-gray-30:  #b1b8be;
+  --color-gray-40:  #8a949e;
+  --color-gray-50:  #6d7882;
+  --color-gray-60:  #58616a;
+  --color-gray-70:  #464c53;
+  --color-gray-80:  #33363d;
+  --color-gray-90:  #1e2124;
+  --color-gray-95:  #131416;
+  --color-gray-100: #000000;
 
-  /* secondary  ─  (자체 추가 / 추후 확정) violet-indigo 계열 */
-  --secondary-5:   #f3f0ff;
-  --secondary-10:  #e8e3ff;
-  --secondary-20:  #cfc5ff;
-  --secondary-30:  #b4a2ff;
-  --secondary-40:  #9579f7;
-  --secondary-50:  #7c5de8;
-  --secondary-60:  #6845ce;
-  --secondary-70:  #5433b4;
-  --secondary-80:  #3d2490;
-  --secondary-90:  #26166b;
-  --secondary-95:  #190e4f;
+  /* color-secondary  ─  (자체 추가 / 추후 확정) violet-indigo 계열 */
+  --color-secondary-5:   #f3f0ff;
+  --color-secondary-10:  #e8e3ff;
+  --color-secondary-20:  #cfc5ff;
+  --color-secondary-30:  #b4a2ff;
+  --color-secondary-40:  #9579f7;
+  --color-secondary-50:  #7c5de8;
+  --color-secondary-60:  #6845ce;
+  --color-secondary-70:  #5433b4;
+  --color-secondary-80:  #3d2490;
+  --color-secondary-90:  #26166b;
+  --color-secondary-95:  #190e4f;
 
-  /* primary  ─  KRDS --krds-color-light-primary-* */
-  --primary-5:   #ecf2fe;
-  --primary-10:  #d8e5fd;
-  --primary-20:  #b1cefb;
-  --primary-30:  #86aff9;
-  --primary-40:  #4c87f6;
-  --primary-50:  #256ef4;
-  --primary-60:  #0b50d0;
-  --primary-70:  #083891;
-  --primary-80:  #052561;
-  --primary-90:  #03163a;
-  --primary-95:  #020f27;
+  /* color-primary  ─  KRDS --krds-color-light-primary-* */
+  --color-primary-5:   #ecf2fe;
+  --color-primary-10:  #d8e5fd;
+  --color-primary-20:  #b1cefb;
+  --color-primary-30:  #86aff9;
+  --color-primary-40:  #4c87f6;
+  --color-primary-50:  #256ef4;
+  --color-primary-60:  #0b50d0;
+  --color-primary-70:  #083891;
+  --color-primary-80:  #052561;
+  --color-primary-90:  #03163a;
+  --color-primary-95:  #020f27;
 
-  /* danger  ─  KRDS --krds-color-light-danger-* */
-  --danger-5:    #fdefec;
-  --danger-10:   #fcdfd9;
-  --danger-20:   #f7afa1;
-  --danger-30:   #f48771;
-  --danger-40:   #f05f42;
-  --danger-50:   #de3412;
-  --danger-60:   #bd2c0f;
-  --danger-70:   #8a240f;
-  --danger-80:   #5c180a;
-  --danger-90:   #390d05;
-  --danger-95:   #260903;
+  /* color-danger  ─  KRDS --krds-color-light-danger-* */
+  --color-danger-5:    #fdefec;
+  --color-danger-10:   #fcdfd9;
+  --color-danger-20:   #f7afa1;
+  --color-danger-30:   #f48771;
+  --color-danger-40:   #f05f42;
+  --color-danger-50:   #de3412;
+  --color-danger-60:   #bd2c0f;
+  --color-danger-70:   #8a240f;
+  --color-danger-80:   #5c180a;
+  --color-danger-90:   #390d05;
+  --color-danger-95:   #260903;
 
-  /* warning  ─  KRDS --krds-color-light-warning-* */
-  --warning-5:   #fff3db;
-  --warning-10:  #ffe0a3;
-  --warning-20:  #ffc95c;
-  --warning-30:  #ffb114;
-  --warning-40:  #c78500;
-  --warning-50:  #9e6a00;
-  --warning-60:  #8a5c00;
-  --warning-70:  #614100;
-  --warning-80:  #422c00;
-  --warning-90:  #2e1f00;
-  --warning-95:  #241800;
+  /* color-warning  ─  KRDS --krds-color-light-warning-* */
+  --color-warning-5:   #fff3db;
+  --color-warning-10:  #ffe0a3;
+  --color-warning-20:  #ffc95c;
+  --color-warning-30:  #ffb114;
+  --color-warning-40:  #c78500;
+  --color-warning-50:  #9e6a00;
+  --color-warning-60:  #8a5c00;
+  --color-warning-70:  #614100;
+  --color-warning-80:  #422c00;
+  --color-warning-90:  #2e1f00;
+  --color-warning-95:  #241800;
 
-  /* success  ─  KRDS --krds-color-light-success-* */
-  --success-5:    #eaf6ec;
-  --success-10:   #d8eedd;
-  --success-20:   #a9dab4;
-  --success-30:   #7ec88e;
-  --success-40:   #3fa654;
-  --success-50:   #228738;
-  --success-60:   #267337;
-  --success-70:   #285d33;
-  --success-80:   #1f4727;
-  --success-90:   #122b18;
-  --success-95:   #0e2012;
+  /* color-success  ─  KRDS --krds-color-light-success-* */
+  --color-success-5:    #eaf6ec;
+  --color-success-10:   #d8eedd;
+  --color-success-20:   #a9dab4;
+  --color-success-30:   #7ec88e;
+  --color-success-40:   #3fa654;
+  --color-success-50:   #228738;
+  --color-success-60:   #267337;
+  --color-success-70:   #285d33;
+  --color-success-80:   #1f4727;
+  --color-success-90:   #122b18;
+  --color-success-95:   #0e2012;
 
-  /* information  ─  KRDS --krds-color-light-information-* */
-  --information-5:    #e7f4fe;
-  --information-10:   #d3ebfd;
-  --information-20:   #9ed2fa;
-  --information-30:   #5fb5f7;
-  --information-40:   #2098f3;
-  --information-50:   #0b78cb;
-  --information-60:   #096ab3;
-  --information-70:   #085691;
-  --information-80:   #053961;
-  --information-90:   #03253f;
-  --information-95:   #021a2c;
+  /* color-information  ─  KRDS --krds-color-light-information-* */
+  --color-information-5:    #e7f4fe;
+  --color-information-10:   #d3ebfd;
+  --color-information-20:   #9ed2fa;
+  --color-information-30:   #5fb5f7;
+  --color-information-40:   #2098f3;
+  --color-information-50:   #0b78cb;
+  --color-information-60:   #096ab3;
+  --color-information-70:   #085691;
+  --color-information-80:   #053961;
+  --color-information-90:   #03253f;
+  --color-information-95:   #021a2c;
 
-  /* black-alpha  ─  KRDS --krds-color-light-alpha-black* */
-  --black-alpha-100: #000000;
-  --black-alpha-75:  #000000bf;
-  --black-alpha-50:  #00000080;
-  --black-alpha-25:  #00000040;
-  --black-alpha-10:  #0000001a;
-  --black-alpha-0:   #00000000;
+  /* color-black-alpha  ─  KRDS --krds-color-light-alpha-black* */
+  --color-black-alpha-100: #000000;
+  --color-black-alpha-75:  #000000bf;
+  --color-black-alpha-50:  #00000080;
+  --color-black-alpha-25:  #00000040;
+  --color-black-alpha-10:  #0000001a;
+  --color-black-alpha-0:   #00000000;
 
-  /* white-alpha  ─  KRDS --krds-color-light-alpha-white* */
-  --white-alpha-100: #ffffff;
-  --white-alpha-75:  #ffffffbf;
-  --white-alpha-50:  #ffffff80;
-  --white-alpha-25:  #ffffff40;
-  --white-alpha-10:  #ffffff1a;
-  --white-alpha-0:   #ffffff00;
+  /* color-white-alpha  ─  KRDS --krds-color-light-alpha-white* */
+  --color-white-alpha-100: #ffffff;
+  --color-white-alpha-75:  #ffffffbf;
+  --color-white-alpha-50:  #ffffff80;
+  --color-white-alpha-25:  #ffffff40;
+  --color-white-alpha-10:  #ffffff1a;
+  --color-white-alpha-0:   #ffffff00;
 
 
   /* ── 3. 타이포 프리미티브 ───────────────────────────────────────────────────── */
