@@ -56,7 +56,18 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - 컴포넌트 내부 변수(`--ds-btn--color-*`)와 구별하기 위해 접두사를 붙이지 않는다.
 - **PC/모바일 폰트**: 같은 토큰 이름을 `:root`(PC)와 `@media (max-width: 1279px)`(모바일)에서 각각 정의. 컴포넌트는 토큰 하나만 참조.
 - **프로젝트 테마**: `[data-theme="project-a"]`에서 `primary` 계열 토큰만 덮어씀.
-- **다크 모드**: 필요 시 `[data-mode="dark"]`에서 같은 이름의 `color` 토큰을 덮어씀.
+
+### 화면 모드 규칙
+
+- **화면 모드는 `html` 요소의 `data-mode` 속성 하나로 제어한다.** CSS 클래스(`.dark`, `.high-contrast` 등) 사용 금지.
+- **모드 목록**:
+  - 속성 없음(기본) = 라이트 모드
+  - `data-mode="dark"` = 일반 다크
+  - `data-mode="high-contrast"` = KRDS 선명한 화면 (고대비, 공공기관 필수)
+  - `data-mode="system"` = OS 설정 연동 (`prefers-color-scheme: dark`일 때 다크 값 적용)
+- **컴포넌트 CSS는 시멘틱 토큰(`--color-*`)만 참조해야 모드 전환이 자동 적용된다.** 프리미티브(`--color-gray-90` 등)를 직접 쓰면 모드가 바뀌어도 색상이 바뀌지 않는다.
+- **고대비 호환**: `data-mode="high-contrast"` 설정 시 Storybook decorator가 `data-krds-mode="high-contrast"`도 함께 붙여 KRDS 컴포넌트와의 전환 기간 호환을 보장한다.
+- **대비 기준**: 고대비 7:1(WCAG AAA), 다크 4.5:1(WCAG AA) 이상. disabled 상태는 대비 요건 면제.
 
 ## 문서 규칙
 - 문서는 한국어로 작성한다.

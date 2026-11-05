@@ -199,7 +199,7 @@
   --color-text-inverse:      var(--color-gray-90);
   --color-text-on-primary:   var(--color-gray-90);           /* 다크 bg-primary가 밝아져 흰 글자 대비 미달 */
   --color-text-link:         var(--color-primary-40);
-  --color-text-link-visited: #c084fc; /* 자체 추가 — 4.5:1+ 대비 확보 */
+  --color-text-link-visited: #c49ff9; /* 다크·고대비 통일 고정값 — KRDS #c49ff9 */
 
   /* color-bg */
   --color-bg-default:            var(--color-gray-90);
@@ -245,4 +245,143 @@
   --color-icon-disabled:  var(--color-gray-60);
   --color-icon-inverse:   var(--color-gray-90);
 
+}
+
+
+/* ── 고대비 모드 (data-mode="high-contrast") — KRDS 선명한 화면 값 ───────────── */
+/* 배경 black(gray-100) 기반. 텍스트·아이콘은 밝게, 배경은 어둡게.               */
+/* WCAG AAA(7:1) 목표. KRDS --krds-high-contrast-color-* 매핑 준수.             */
+
+[data-mode="high-contrast"] {
+
+  /* color-text */
+  --color-text-default:      var(--color-gray-5);         /* HC text-basic: gray-5     */
+  --color-text-subtle:       var(--color-gray-20);        /* HC text-subtle: gray-20   */
+  --color-text-subtler:      var(--color-gray-40);        /* 중간 보조 (직접 대응 없음) */
+  --color-text-primary:      var(--color-primary-20);     /* HC text-primary: prim-20  */
+  --color-text-secondary:    var(--color-teal-20);        /* HC text-secondary: teal-20*/
+  --color-text-danger:       var(--color-danger-20);      /* HC text-danger: danger-20 */
+  --color-text-warning:      var(--color-warning-20);     /* HC text-warning: warn-20  */
+  --color-text-success:      var(--color-success-20);     /* HC text-success: succ-20  */
+  --color-text-information:  var(--color-information-20); /* HC text-info: info-20     */
+  --color-text-disabled:     var(--color-gray-60);        /* HC text-disabled: gray-60 */
+  --color-text-inverse:      var(--color-gray-90);        /* HC text-basic-inverse     */
+  --color-text-on-primary:   var(--color-gray-0);         /* primary-50(4.82:1) — KRDS 기준 */
+  --color-text-link:         var(--color-primary-30);     /* HC link-default: prim-30  */
+  --color-text-link-visited: #c49ff9;                     /* HC link-visited 고정값    */
+
+  /* color-bg */
+  --color-bg-default:            var(--color-gray-100);        /* HC bg-white: black        */
+  --color-bg-subtle:             var(--color-gray-95);         /* HC bg-gray-subtler        */
+  --color-bg-subtler:            var(--color-gray-90);         /* HC bg-gray-subtle         */
+  --color-bg-primary:            var(--color-primary-50);      /* 라이트와 동일             */
+  --color-bg-primary-hover:      var(--color-primary-60);      /* 라이트와 동일             */
+  --color-bg-primary-pressed:    var(--color-primary-70);      /* 라이트와 동일             */
+  --color-bg-primary-subtle:     var(--color-primary-95);      /* HC surface-primary-subtler*/
+  --color-bg-secondary:          var(--color-teal-60);         /* HC element-secondary      */
+  --color-bg-secondary-hover:    var(--color-teal-70);         /* HC secondary-70           */
+  --color-bg-secondary-pressed:  var(--color-teal-80);         /* HC secondary-80           */
+  --color-bg-secondary-subtle:   var(--color-teal-95);         /* HC surface-secondary-subtler */
+  --color-bg-danger-subtle:      var(--color-danger-95);       /* HC surface-danger-subtler */
+  --color-bg-warning-subtle:     var(--color-warning-95);      /* HC surface-warning-subtler*/
+  --color-bg-success-subtle:     var(--color-success-95);      /* HC surface-success-subtler*/
+  --color-bg-information-subtle: var(--color-information-95);  /* HC surface-info-subtler   */
+  --color-bg-elevated:           var(--color-gray-95);         /* 직접 대응 없음            */
+  --color-bg-inverse:            var(--color-gray-10);         /* HC bg-inverse: gray-10    */
+  --color-bg-disabled:           var(--color-gray-70);         /* HC surface-disabled       */
+  --color-bg-overlay:            var(--color-black-alpha-75);  /* 동일                      */
+  --color-bg-hover:              var(--color-gray-95);         /* 직접 대응 없음            */
+  --color-bg-selected:           var(--color-primary-95);      /* HC action-primary-selected*/
+
+  /* color-border */
+  --color-border-default:   var(--color-gray-70);    /* HC border-gray            */
+  --color-border-subtle:    var(--color-gray-80);    /* HC border-gray-light      */
+  --color-border-primary:   var(--color-primary-50); /* HC border-primary (동일)  */
+  --color-border-secondary: var(--color-teal-60);    /* HC border-secondary       */
+  --color-border-danger:    var(--color-danger-50);  /* HC border-danger (동일)   */
+  --color-border-warning:   var(--color-warning-50); /* HC border-warning (동일)  */
+  --color-border-success:   var(--color-success-50); /* HC border-success (동일)  */
+  --color-border-strong:    var(--color-gray-40);    /* HC input-border: gray-40  */
+  --color-border-divider:   var(--color-gray-70);    /* HC divider-gray           */
+  --color-border-focus:     var(--color-primary-50); /* HC input-border-active    */
+  --color-border-disabled:  var(--color-gray-70);    /* HC border-disabled        */
+
+  /* color-icon */
+  --color-icon-default:   var(--color-gray-5);         /* HC icon-gray: gray-5      */
+  --color-icon-subtle:    var(--color-gray-20);        /* HC icon-gray-light        */
+  --color-icon-primary:   var(--color-primary-20);     /* HC icon-primary: prim-20  */
+  --color-icon-secondary: var(--color-teal-20);        /* HC icon-secondary: teal-20*/
+  --color-icon-danger:    var(--color-danger-20);      /* HC icon-danger: danger-20 */
+  --color-icon-disabled:  var(--color-gray-60);        /* HC icon-disabled: gray-60 */
+  --color-icon-inverse:   var(--color-gray-90);        /* HC icon-inverse: gray-90  */
+
+}
+
+
+/* ── 시스템 모드 (data-mode="system") — OS 다크 설정 시 다크 값 적용 ───────────── */
+
+@media (prefers-color-scheme: dark) {
+  [data-mode="system"] {
+
+    /* color-text */
+    --color-text-default:      var(--color-gray-5);
+    --color-text-subtle:       var(--color-gray-20);
+    --color-text-subtler:      var(--color-gray-40);
+    --color-text-primary:      var(--color-primary-40);
+    --color-text-secondary:    var(--color-secondary-40);
+    --color-text-danger:       var(--color-danger-40);
+    --color-text-warning:      var(--color-warning-30);
+    --color-text-success:      var(--color-success-40);
+    --color-text-information:  var(--color-information-40);
+    --color-text-disabled:     var(--color-gray-50);
+    --color-text-inverse:      var(--color-gray-90);
+    --color-text-on-primary:   var(--color-gray-90);
+    --color-text-link:         var(--color-primary-40);
+    --color-text-link-visited: #c49ff9;
+
+    /* color-bg */
+    --color-bg-default:            var(--color-gray-90);
+    --color-bg-subtle:             var(--color-gray-80);
+    --color-bg-subtler:            var(--color-gray-70);
+    --color-bg-primary:            var(--color-primary-40);
+    --color-bg-primary-hover:      var(--color-primary-30);
+    --color-bg-primary-pressed:    var(--color-primary-20);
+    --color-bg-primary-subtle:     var(--color-primary-90);
+    --color-bg-secondary:          var(--color-secondary-40);
+    --color-bg-secondary-hover:    var(--color-secondary-30);
+    --color-bg-secondary-pressed:  var(--color-secondary-20);
+    --color-bg-secondary-subtle:   var(--color-secondary-90);
+    --color-bg-danger-subtle:      var(--color-danger-90);
+    --color-bg-warning-subtle:     var(--color-warning-90);
+    --color-bg-success-subtle:     var(--color-success-90);
+    --color-bg-information-subtle: var(--color-information-90);
+    --color-bg-elevated:           var(--color-gray-80);
+    --color-bg-inverse:            var(--color-gray-0);
+    --color-bg-disabled:           var(--color-gray-70);
+    --color-bg-hover:              var(--color-gray-80);
+    --color-bg-selected:           var(--color-primary-90);
+
+    /* color-border */
+    --color-border-default:   var(--color-gray-50);
+    --color-border-subtle:    var(--color-gray-70);
+    --color-border-primary:   var(--color-primary-40);
+    --color-border-secondary: var(--color-secondary-40);
+    --color-border-danger:    var(--color-danger-40);
+    --color-border-warning:   var(--color-warning-40);
+    --color-border-success:   var(--color-success-40);
+    --color-border-strong:    var(--color-gray-30);
+    --color-border-divider:   var(--color-gray-70);
+    --color-border-focus:     var(--color-primary-40);
+    --color-border-disabled:  var(--color-gray-70);
+
+    /* color-icon */
+    --color-icon-default:   var(--color-gray-20);
+    --color-icon-subtle:    var(--color-gray-30);
+    --color-icon-primary:   var(--color-primary-40);
+    --color-icon-secondary: var(--color-secondary-40);
+    --color-icon-danger:    var(--color-danger-40);
+    --color-icon-disabled:  var(--color-gray-60);
+    --color-icon-inverse:   var(--color-gray-90);
+
+  }
 }

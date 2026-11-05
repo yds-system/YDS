@@ -6,6 +6,49 @@ import '../src/tokens/theme-project-a.css';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */
+
+// ── 화면 모드 툴바 ──────────────────────────────────────────────────────────────
+export const globalTypes = {
+  colorMode: {
+    name: '화면 모드',
+    description: '라이트 / 다크 / 고대비(KRDS 선명한 화면) / 시스템',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        { value: 'light',         title: '라이트',  right: '☀️' },
+        { value: 'dark',          title: '다크',    right: '🌙' },
+        { value: 'high-contrast', title: '고대비',  right: '◑'  },
+        { value: 'system',        title: '시스템',  right: '💻' },
+      ],
+      showName: true,
+      dynamicTitle: true,
+    },
+  },
+};
+
+// ── 화면 모드 동기화 decorator ──────────────────────────────────────────────────
+// html[data-mode] 설정 + 고대비일 때 data-krds-mode="high-contrast" 동기화
+export const decorators = [
+  (story, context) => {
+    const mode = context.globals.colorMode || 'light';
+    const html = document.documentElement;
+
+    if (mode === 'light') {
+      html.removeAttribute('data-mode');
+      html.removeAttribute('data-krds-mode');
+    } else if (mode === 'high-contrast') {
+      html.setAttribute('data-mode', 'high-contrast');
+      html.setAttribute('data-krds-mode', 'high-contrast'); // 전환 기간 KRDS 호환
+    } else {
+      html.setAttribute('data-mode', mode); // 'dark' | 'system'
+      html.removeAttribute('data-krds-mode');
+    }
+
+    return story();
+  },
+];
+
 const preview = {
   parameters: {
     viewport: {

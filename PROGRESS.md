@@ -295,6 +295,15 @@
 
 ---
 
+## 2026-11-05 디자인 토큰 — 고대비·시스템 모드 추가
+
+- **primitive.css**: `color-teal` 그룹 5단계 추가 (`--color-teal-20/60/70/80/95`) — KRDS 고대비 secondary 전용
+- **semantic.css** dark mode: `--color-text-link-visited` 값 `#c084fc` → `#c49ff9`, 주석 "다크·고대비 통일 고정값"으로 변경
+- **semantic.css**: `[data-mode="high-contrast"]` 블록 신규 추가 (text/bg/border/icon 전체, WCAG AAA 목표, KRDS 고대비 매핑)
+- **semantic.css**: `@media (prefers-color-scheme: dark) [data-mode="system"]` 블록 신규 추가 (OS 다크 설정 연동)
+
+---
+
 ## 2026-11-05 신규 컴포넌트 추가
 
 - **이미지** (ds-image): 비율별 aspect-ratio 컴포넌트. `ds-image--16x9/4x3/3x2/1x1/21x9`

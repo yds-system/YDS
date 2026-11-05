@@ -110,6 +110,13 @@
   --color-black-alpha-10:  #0000001a;
   --color-black-alpha-0:   #00000000;
 
+  /* color-teal  ─  KRDS --krds-color-high-contrast-secondary-* (고대비 모드 secondary 전용) */
+  --color-teal-20: #abd8e3;
+  --color-teal-60: #1f687a;
+  --color-teal-70: #17505e;
+  --color-teal-80: #113b45;
+  --color-teal-95: #091f25;
+
   /* color-white-alpha  ─  KRDS --krds-color-light-alpha-white* */
   --color-white-alpha-100: #ffffff;
   --color-white-alpha-75:  #ffffffbf;
