@@ -160,6 +160,18 @@ export const ColorPrimTable = () =>
 
 // ─── 2. 색상 시멘틱 ───────────────────────────────────────────────────────────
 
+const DualSwatch = (lightVal, darkVal) =>
+  h('div', { style: { display: 'flex', gap: '1px', flexShrink: 0 } },
+    h('div', { style: { width: '20px', height: '28px', background: lightVal, borderRadius: '4px 0 0 4px', border: '1px solid rgba(0,0,0,0.12)', borderRight: 'none' } }),
+    h('div', { style: { width: '20px', height: '28px', background: darkVal,  borderRadius: '0 4px 4px 0', border: '1px solid rgba(0,0,0,0.12)' } })
+  );
+
+const RefVal = (ref, val) =>
+  h('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+    ref ? Chip(ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '고정값'),
+    GrayChip(val)
+  );
+
 export const ColorSemanticTable = () =>
   h(Fragment, null,
     ...colorSemanticGroups.map(g =>
@@ -167,17 +179,23 @@ export const ColorSemanticTable = () =>
         h('h4', { style: subheadStyle }, g.name),
         h('table', { style: tableStyle },
           h('thead', null,
-            h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+            h('tr', null,
+              th('L · D'),
+              th('토큰 이름'),
+              th('라이트 (참조 → 값)'),
+              th('다크 (참조 → 값)'),
+              th('용도'),
+              th('CSS 변수')
+            )
           ),
           h('tbody', null,
             ...g.tokens.map(t =>
               h('tr', { key: t.name },
-                td(ColorSwatch(t.value)),
+                td(DualSwatch(t.value, t.darkValue)),
                 td(Chip(t.name)),
-                td(t.ref ? Chip(t.ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '고정값')),
-                td(GrayChip(t.value)),
+                td(RefVal(t.ref, t.value)),
+                td(RefVal(t.darkRef, t.darkValue)),
                 td(t.usage || ''),
-                td(KrdsChip(t.krds)),
                 td(CssChip(t.name))
               )
             )
@@ -394,7 +412,7 @@ export const SpacingSemanticTable = () =>
     h('div', { style: deprecatedWrapStyle },
       h('table', { style: tableStyle },
         h('thead', null,
-          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('PC 값'), th('모바일'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
         ),
         h('tbody', null,
           ...spacingSemanticTokens.map(t =>
@@ -403,6 +421,10 @@ export const SpacingSemanticTable = () =>
               td(Chip(t.name)),
               td(Chip(t.ref)),
               td(GrayChip(t.value)),
+              td(t.mobile
+                ? h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.mobile)
+                : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
+              ),
               td(t.usage || ''),
               td(KrdsChip(t.krds)),
               td(CssChip(t.name))
@@ -448,7 +470,7 @@ export const RadiusPrimTable = () =>
 export const RadiusSemanticTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('모바일'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...radiusSemanticTokens.map(t =>
@@ -457,6 +479,7 @@ export const RadiusSemanticTable = () =>
           td(Chip(t.name)),
           td(Chip(t.ref)),
           td(GrayChip(t.value)),
+          td(h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')),
           td(t.usage || ''),
           td(KrdsChip(t.krds)),
           td(CssChip(t.name))

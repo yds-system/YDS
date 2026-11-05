@@ -19,7 +19,7 @@
     var id = '';
     try { id = decodeURIComponent(params.get('id') || ''); } catch (e) {}
     // '토큰-정의서'가 포함되고 '색상'이 아닌 페이지는 TOC 숨김
-    var hide = id.includes('토큰-정의서') && !id.includes('색상');
+    var hide = id.includes('토큰-정의서') && id.includes('메인');
     document.documentElement.classList.toggle('sb-no-toc', hide);
   }
   update();

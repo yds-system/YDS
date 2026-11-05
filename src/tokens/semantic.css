@@ -179,3 +179,69 @@
     --container-padding: var(--space-20); /* 32px → 20px */
   }
 }
+
+
+/* ── 다크 모드 (data-mode="dark") — 색상 시멘틱만 덮어씀 ──────────────────────── */
+
+[data-mode="dark"] {
+
+  /* color-text */
+  --color-text-default:      var(--color-gray-5);
+  --color-text-subtle:       var(--color-gray-20);
+  --color-text-subtler:      var(--color-gray-40);
+  --color-text-primary:      var(--color-primary-40);
+  --color-text-secondary:    var(--color-secondary-40);
+  --color-text-danger:       var(--color-danger-40);
+  --color-text-warning:      var(--color-warning-30);
+  --color-text-success:      var(--color-success-40);
+  --color-text-information:  var(--color-information-40);
+  --color-text-disabled:     var(--color-gray-50);
+  --color-text-inverse:      var(--color-gray-90);
+  --color-text-link:         var(--color-primary-40);
+  --color-text-link-visited: #a855f7; /* 자체 추가 */
+
+  /* color-bg */
+  --color-bg-default:            var(--color-gray-90);
+  --color-bg-subtle:             var(--color-gray-80);
+  --color-bg-subtler:            var(--color-gray-70);
+  --color-bg-primary:            var(--color-primary-40);
+  --color-bg-primary-hover:      var(--color-primary-30);
+  --color-bg-primary-pressed:    var(--color-primary-20);
+  --color-bg-primary-subtle:     var(--color-primary-90);
+  --color-bg-secondary:          var(--color-secondary-40);
+  --color-bg-secondary-hover:    var(--color-secondary-30);
+  --color-bg-secondary-pressed:  var(--color-secondary-20);
+  --color-bg-secondary-subtle:   var(--color-secondary-90);
+  --color-bg-danger-subtle:      var(--color-danger-90);
+  --color-bg-warning-subtle:     var(--color-warning-90);
+  --color-bg-success-subtle:     var(--color-success-90);
+  --color-bg-information-subtle: var(--color-information-90);
+  --color-bg-elevated:           var(--color-gray-80);
+  --color-bg-inverse:            var(--color-gray-0);
+  --color-bg-disabled:           var(--color-gray-70);
+  --color-bg-hover:              var(--color-gray-80);
+  --color-bg-selected:           var(--color-primary-90);
+
+  /* color-border */
+  --color-border-default:   var(--color-gray-50);
+  --color-border-subtle:    var(--color-gray-70);
+  --color-border-primary:   var(--color-primary-40);
+  --color-border-secondary: var(--color-secondary-40);
+  --color-border-danger:    var(--color-danger-40);
+  --color-border-warning:   var(--color-warning-40);
+  --color-border-success:   var(--color-success-40);
+  --color-border-strong:    var(--color-gray-30);
+  --color-border-divider:   var(--color-gray-70);
+  --color-border-focus:     var(--color-primary-40);
+  --color-border-disabled:  var(--color-gray-70);
+
+  /* color-icon */
+  --color-icon-default:   var(--color-gray-20);
+  --color-icon-subtle:    var(--color-gray-30);
+  --color-icon-primary:   var(--color-primary-40);
+  --color-icon-secondary: var(--color-secondary-40);
+  --color-icon-danger:    var(--color-danger-40);
+  --color-icon-disabled:  var(--color-gray-60);
+  --color-icon-inverse:   var(--color-gray-90);
+
+}
