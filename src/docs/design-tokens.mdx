@@ -1,19 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import {
-  ConnectionTable,
-  ThemeTable,
-  ColorPrimTable,
-  ColorSemanticTable,
-  TypoPrimTable,
-  TypoStyleTable,
-  SpacingPrimTable,
-  SpacingSemanticTable,
-  ShadowTable,
-  RadiusPrimTable,
-  RadiusSemanticTable,
-} from './token-components.js';
+import { ConnectionTable, ThemeTable } from './token-components.js';
 
-<Meta title="디자인 토큰 정의서" />
+<Meta title="디자인 토큰 정의서/메인" />
 
 # 디자인 토큰
 
@@ -23,13 +11,14 @@ import {
 ---
 
 ## 디자인 토큰 요소
-<ul>
-  <li>색상</li>
-  <li>타이포그래피</li>
-  <li>간격</li>
-  <li>라운드</li>
-  <li>그림자</li>
-</ul>
+
+| 분류 | 페이지 |
+|---|---|
+| 색상 | 디자인 토큰 정의서 / 색상 |
+| 타이포그래피 | 디자인 토큰 정의서 / 타이포그래피 |
+| 간격 | 디자인 토큰 정의서 / 간격 |
+| 라운드 | 디자인 토큰 정의서 / 라운드 |
+| 그림자 | 디자인 토큰 정의서 / 그림자 |
 
 ---
 
@@ -94,88 +83,4 @@ import {
 ```
 
 <ThemeTable />
-
----
-
-## 1. 색상
-
-### 프리미티브
-
-<ColorPrimTable />
-
----
-
-### 시멘틱
-
-<ColorSemanticTable />
-
----
-
-## 2. 타이포그래피
-
-### 프리미티브
-
-<TypoPrimTable />
-
-### 시멘틱: 텍스트 스타일 (크기 + 굵기 + 행간 묶음)
-
-PC와 모바일에서 다른 경우에만 `@media (max-width: 1279px)`로 덮어씁니다.
-컴포넌트는 `var(--font-size-heading-l)` 하나만 참조하면 뷰포트에 맞게 자동 전환됩니다.
-
-<TypoStyleTable />
-
----
-
-## 3. 간격
-
-### 간격 사용 규칙
-
-- **스케일**: xs → s → m → l → xl. 프리미티브 토큰 이름에 크기 접두사가 포함되어 있다. (`--space-xs-4`, `--space-m-24` …)
-- **방향을 토큰 이름에 넣지 않는다.** CSS 속성에서 방향을 지정한다. (`margin-top: var(--space-s-16)`)
-- **일회성 특수값**은 원본 프리미티브(`--space-12`)를 직접 사용해도 된다.
-- **Figma 연동**: 변수 이름은 `space/xs/4`, `space/m/24` 형식으로 만든다.
-
-| 크기 | 값 | 사용 예 |
-|---|---|---|
-| `space-xs-*` | 2 · 4 · 8px | 아이콘 내부, 인라인 소간격 |
-| `space-s-*` | 12 · 16 · 20px | 버튼 패딩, 컴포넌트 기본 간격 |
-| `space-m-*` | 24 · 32px | 카드·섹션 내부 여백 |
-| `space-l-*` | 40 · 48px | 섹션 간 여백 |
-| `space-xl-*` | 64 · 80px | 페이지 레벨 최대 여백 |
-
-### 프리미티브
-
-<SpacingPrimTable />
-
-### 시멘틱
-
-<SpacingSemanticTable />
-
----
-
-## 4. 라운드
-
-### 프리미티브
-
-<RadiusPrimTable />
-
-### 시멘틱
-
-<RadiusSemanticTable />
-
----
-
-## 5. 그림자
-
-그림자는 **elevation(높이감)** 을 표현합니다. 레이어가 위로 올라올수록 s → m → l 단계를 씁니다.
-
-**사용 규칙**
-
-- **카드**: 기본 `shadow-s`, hover 시 `shadow-m`으로 전환한다.
-- **드롭다운·툴팁**: `shadow-m`
-- **모달**: `shadow-l`
-
-**Figma 연동**: Figma에서 Effect Style을 `shadow/s`, `shadow/m`, `shadow/l` 이름으로 만들어 연결한다.
-
-<ShadowTable />
 

@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TypoPrimTable, TypoStyleTable } from './token-components.js';
+
+<Meta title="디자인 토큰 정의서/타이포그래피" />
+
+# 타이포그래피 (Typography)
+
+---
+
+## 프리미티브
+
+<TypoPrimTable />
+
+---
+
+## 시멘틱: 텍스트 스타일
+
+크기 + 굵기 + 행간을 묶은 텍스트 스타일 토큰입니다.
+PC와 모바일에서 다른 경우에만 `@media (max-width: 1279px)`로 덮어씁니다.
+컴포넌트는 `var(--font-size-heading-l)` 하나만 참조하면 뷰포트에 맞게 자동 전환됩니다.
+
+<TypoStyleTable />

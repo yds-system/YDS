@@ -18,6 +18,18 @@ const chipStyle = {
   whiteSpace: 'nowrap',
 };
 
+/** 괄호 앞에서만 줄바꿈 허용 — <wbr> 삽입 */
+const breakAtParen = (text) => {
+  if (!text || !text.includes('(')) return text;
+  const parts = text.split('(');
+  const result = [parts[0]];
+  for (let i = 1; i < parts.length; i++) {
+    result.push(h('wbr', { key: i }));
+    result.push('(' + parts[i]);
+  }
+  return result;
+};
+
 const Chip = (cls) => h('code', { style: chipStyle }, cls);
 
 /**
@@ -113,12 +125,12 @@ export const CompRow = ({ comp, elementFilter, modifierFilter }) => {
   return h(
     'tr',
     null,
-    h('td', null, comp.name),
-    h('td', null, comp.englishName),
+    h('td', { style: { wordBreak: 'keep-all' } }, comp.name),
+    h('td', { style: { whiteSpace: 'nowrap' } }, comp.englishName),
     h('td', null, Chip(comp.baseClass)),
     h('td', null, renderList(els)),
     h('td', null, renderList(mods)),
-    h('td', null, comp.description)
+    h('td', { style: { wordBreak: 'keep-all' } }, breakAtParen(comp.description))
   );
 };
 
@@ -156,7 +168,7 @@ export const ElementTable = ({ elements, baseClass, showKrds }) => {
       ),
       h('td', null, Chip(el.class), !el.confirmed ? UNCONFIRMED : null),
       showKrds ? h('td', null, h('code', null, el.krdsClass)) : null,
-      h('td', null, el.description)
+      h('td', { style: { wordBreak: 'keep-all' } }, breakAtParen(el.description))
     );
 
   return h(
@@ -225,7 +237,7 @@ export const ModifierTable = ({ modifiers, baseClass, showKrds }) => {
           : null
       ),
       showKrds ? h('td', null, h('code', null, mod.krdsClass)) : null,
-      h('td', null, mod.description)
+      h('td', { style: { wordBreak: 'keep-all' } }, breakAtParen(mod.description))
     );
 
   return h(
