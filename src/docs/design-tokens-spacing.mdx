@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SpacingPrimTable, SpacingSemanticTable } from './token-components.js';
+
+<Meta title="디자인 토큰 정의서/간격" parameters={{ docs: { toc: false } }} />
+
+# 간격 (Spacing)
+
+---
+
+## 사용 규칙
+
+- **스케일**: xs → s → m → l → xl. 프리미티브 토큰 이름에 크기 접두사가 포함되어 있다. (`--space-xs-4`, `--space-m-24` …)
+- **방향을 토큰 이름에 넣지 않는다.** CSS 속성에서 방향을 지정한다. (`margin-top: var(--space-s-16)`)
+- **일회성 특수값**은 원본 프리미티브(`--space-12`)를 직접 사용해도 된다.
+- **Figma 연동**: 변수 이름은 `space/xs/4`, `space/m/24` 형식으로 만든다.
+
+| 크기 | 값 | 사용 예 |
+|---|---|---|
+| `space-xs-*` | 2 · 4 · 8px | 아이콘 내부, 인라인 소간격 |
+| `space-s-*` | 12 · 16 · 20px | 버튼 패딩, 컴포넌트 기본 간격 |
+| `space-m-*` | 24 · 32px | 카드·섹션 내부 여백 |
+| `space-l-*` | 40 · 48px | 섹션 간 여백 |
+| `space-xl-*` | 64 · 80px | 페이지 레벨 최대 여백 |
+
+---
+
+## 프리미티브
+
+<SpacingPrimTable />
+
+---
+
+## 시멘틱
+
+<SpacingSemanticTable />
