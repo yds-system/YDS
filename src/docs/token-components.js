@@ -13,6 +13,7 @@ import {
   typoPrimGroupedTokens,
   typoStyleTokens,
   spacingPrimTokens,
+  spacingSizeGroups,
   spacingSemanticTokens,
   shadowSemanticTokens,
   radiusPrimTokens,
@@ -364,6 +365,52 @@ export const SpacingPrimTable = () =>
           td(t.usage || ''),
           td(KrdsChip(t.krds)),
           td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 4. 간격 크기 별칭 (시멘틱) ──────────────────────────────────────────────
+
+const sizeGroupLabelStyle = {
+  margin: '16px 0 6px',
+  fontSize: '13px',
+  fontWeight: 700,
+  color: '#333',
+  borderLeft: '3px solid #256ef4',
+  paddingLeft: '8px',
+};
+
+export const SpacingSizeTable = () =>
+  h(Fragment, null,
+    ...spacingSizeGroups.map(g =>
+      h('div', { key: g.size, style: sectionStyle },
+        h('div', { style: sizeGroupLabelStyle }, g.label),
+        h('table', { style: tableStyle },
+          h('thead', null,
+            h('tr', null,
+              th('견본'),
+              th('토큰 이름'),
+              th('참조 프리미티브'),
+              th('값'),
+              th('px'),
+              th('용도'),
+              th('CSS 변수')
+            )
+          ),
+          h('tbody', null,
+            ...g.tokens.map(t =>
+              h('tr', { key: t.name },
+                td(SpacingBar(t.value, '#7ec88e')),
+                td(Chip(t.name)),
+                td(Chip(t.ref)),
+                td(GrayChip(t.value)),
+                td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
+                td(t.usage || ''),
+                td(CssChip(t.name))
+              )
+            )
+          )
         )
       )
     )

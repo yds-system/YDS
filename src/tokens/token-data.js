@@ -336,18 +336,63 @@ export const typoStyleTokens = [
 
 export const spacingPrimTokens = [
   { name: 'space-0',  figma: 'space/0',  value: '0rem',   usage: '간격 없음', krds: '--krds-number-0'  },
-  { name: 'space-2',  figma: 'space/2',  value: '0.2rem', usage: '2px',       krds: '--krds-number-2'  },
-  { name: 'space-4',  figma: 'space/4',  value: '0.4rem', usage: '4px',       krds: '--krds-number-3'  },
-  { name: 'space-8',  figma: 'space/8',  value: '0.8rem', usage: '8px',       krds: '--krds-number-5'  },
-  { name: 'space-12', figma: 'space/12', value: '1.2rem', usage: '12px',      krds: '--krds-number-7'  },
-  { name: 'space-16', figma: 'space/16', value: '1.6rem', usage: '16px',      krds: '--krds-number-8'  },
-  { name: 'space-20', figma: 'space/20', value: '2rem',   usage: '20px',      krds: '--krds-number-9'  },
-  { name: 'space-24', figma: 'space/24', value: '2.4rem', usage: '24px',      krds: '--krds-number-10' },
-  { name: 'space-32', figma: 'space/32', value: '3.2rem', usage: '32px',      krds: '--krds-number-12' },
-  { name: 'space-40', figma: 'space/40', value: '4rem',   usage: '40px',      krds: '--krds-number-14' },
-  { name: 'space-48', figma: 'space/48', value: '4.8rem', usage: '48px',      krds: '--krds-number-16' },
-  { name: 'space-64', figma: 'space/64', value: '6.4rem', usage: '64px',      krds: '--krds-number-18' },
-  { name: 'space-80', figma: 'space/80', value: '8rem',   usage: '80px',      krds: '--krds-number-20' },
+  { name: 'space-2',  figma: 'space/2',  value: '0.2rem', usage: '',          krds: '--krds-number-2'  },
+  { name: 'space-4',  figma: 'space/4',  value: '0.4rem', usage: '',          krds: '--krds-number-3'  },
+  { name: 'space-8',  figma: 'space/8',  value: '0.8rem', usage: '',          krds: '--krds-number-5'  },
+  { name: 'space-12', figma: 'space/12', value: '1.2rem', usage: '',          krds: '--krds-number-7'  },
+  { name: 'space-16', figma: 'space/16', value: '1.6rem', usage: '',          krds: '--krds-number-8'  },
+  { name: 'space-20', figma: 'space/20', value: '2rem',   usage: '',          krds: '--krds-number-9'  },
+  { name: 'space-24', figma: 'space/24', value: '2.4rem', usage: '',          krds: '--krds-number-10' },
+  { name: 'space-32', figma: 'space/32', value: '3.2rem', usage: '',          krds: '--krds-number-12' },
+  { name: 'space-40', figma: 'space/40', value: '4rem',   usage: '',          krds: '--krds-number-14' },
+  { name: 'space-48', figma: 'space/48', value: '4.8rem', usage: '',          krds: '--krds-number-16' },
+  { name: 'space-64', figma: 'space/64', value: '6.4rem', usage: '',          krds: '--krds-number-18' },
+  { name: 'space-80', figma: 'space/80', value: '8rem',   usage: '',          krds: '--krds-number-20' },
+];
+
+export const spacingSizeGroups = [
+  {
+    size: 'xs',
+    label: 'xs  —  2 · 4 · 8px',
+    tokens: [
+      { name: 'space-xs-2', ref: 'space-2',  figma: 'space/xs/2',  value: '0.2rem', usage: '최소 간격',      krds: '--krds-number-2' },
+      { name: 'space-xs-4', ref: 'space-4',  figma: 'space/xs/4',  value: '0.4rem', usage: '아이콘 내부',    krds: '--krds-number-3' },
+      { name: 'space-xs-8', ref: 'space-8',  figma: 'space/xs/8',  value: '0.8rem', usage: '인라인 소간격',  krds: '--krds-number-5' },
+    ],
+  },
+  {
+    size: 's',
+    label: 's  —  12 · 16 · 20px',
+    tokens: [
+      { name: 'space-s-12', ref: 'space-12', figma: 'space/s/12',  value: '1.2rem', usage: '컴팩트 내부 여백',  krds: '--krds-number-7' },
+      { name: 'space-s-16', ref: 'space-16', figma: 'space/s/16',  value: '1.6rem', usage: '기본 내부 여백',    krds: '--krds-number-8' },
+      { name: 'space-s-20', ref: 'space-20', figma: 'space/s/20',  value: '2rem',   usage: '넓은 소형 여백',   krds: '--krds-number-9' },
+    ],
+  },
+  {
+    size: 'm',
+    label: 'm  —  24 · 32px',
+    tokens: [
+      { name: 'space-m-24', ref: 'space-24', figma: 'space/m/24',  value: '2.4rem', usage: '컴포넌트 간 중간 간격',  krds: '--krds-number-10' },
+      { name: 'space-m-32', ref: 'space-32', figma: 'space/m/32',  value: '3.2rem', usage: '섹션 내 블록 여백',      krds: '--krds-number-12' },
+    ],
+  },
+  {
+    size: 'l',
+    label: 'l  —  40 · 48px',
+    tokens: [
+      { name: 'space-l-40', ref: 'space-40', figma: 'space/l/40',  value: '4rem',   usage: '섹션 패딩 기본',   krds: '--krds-number-14' },
+      { name: 'space-l-48', ref: 'space-48', figma: 'space/l/48',  value: '4.8rem', usage: '섹션 패딩 대형',   krds: '--krds-number-16' },
+    ],
+  },
+  {
+    size: 'xl',
+    label: 'xl  —  64 · 80px',
+    tokens: [
+      { name: 'space-xl-64', ref: 'space-64', figma: 'space/xl/64', value: '6.4rem', usage: '섹션 간 외부 여백',      krds: '--krds-number-18' },
+      { name: 'space-xl-80', ref: 'space-80', figma: 'space/xl/80', value: '8rem',   usage: '섹션 간 최대 외부 여백', krds: '--krds-number-20' },
+    ],
+  },
 ];
 
 export const spacingSemanticTokens = [

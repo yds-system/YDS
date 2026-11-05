@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { ColorSemanticTable, TypoStyleTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic, ModeInfoBox } from './token-components.js';
+import { ColorSemanticTable, TypoStyleTable, SpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic, ModeInfoBox } from './token-components.js';
 
 <Meta title="디자인 토큰 정의서/시멘틱" />
 
@@ -31,6 +31,14 @@ PC(기본)와 모바일(`@media max-width: 1279px`) 값을 함께 표시합니�
 ---
 
 ## 간격
+
+크기 그룹 별칭 토큰(space-{크기}-{px})은 프리미티브 숫자형 토큰을 `var()`로 참조합니다. 컴포넌트에서 직접 쓸 수 있는 의미 있는 크기 단위입니다.
+
+<SpacingSizeTable />
+
+---
+
+아래 gap / padding / margin 토큰은 용도별 별칭으로, 향후 프리미티브로 대체될 예정입니다.
 
 <SpacingSemanticTable />
 
