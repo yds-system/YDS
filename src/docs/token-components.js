@@ -139,7 +139,7 @@ export const ColorPrimTable = () =>
         h('h4', { style: subheadStyle }, g.name),
         h('table', { style: tableStyle },
           h('thead', null,
-            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('CSS 변수'))
           ),
           h('tbody', null,
             ...g.tokens.map(t =>
@@ -148,7 +148,6 @@ export const ColorPrimTable = () =>
                 td(Chip(t.name)),
                 td(GrayChip(t.value)),
                 td(t.usage || ''),
-                td(KrdsChip(t.krds)),
                 td(CssChip(t.name))
               )
             )
@@ -257,11 +256,11 @@ export const TypoPrimTable = () =>
           g.group === 'font-size'
             ? h('colgroup', null,
                 h('col', { style: { width: '220px' } }),
-                h('col', null), h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
+                h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
               )
             : null,
           h('thead', null,
-            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('피그마'), th('용도'), th('CSS 변수'))
           ),
           h('tbody', null,
             ...g.tokens.map(t =>
@@ -271,7 +270,6 @@ export const TypoPrimTable = () =>
                 td(GrayChip(t.value)),
                 td(FigmaChip(t.figma)),
                 td(t.usage || ''),
-                td(KrdsChip(t.krds)),
                 td(CssChip(t.name))
               )
             )
@@ -353,7 +351,7 @@ const SpacingBar = (val, color) => {
 export const SpacingPrimTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('px'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('px'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...spacingPrimTokens.map(t =>
@@ -363,7 +361,6 @@ export const SpacingPrimTable = () =>
           td(GrayChip(t.value)),
           td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
           td(t.usage || ''),
-          td(KrdsChip(t.krds)),
           td(CssChip(t.name))
         )
       )
@@ -499,7 +496,7 @@ const RadiusBox = (val, bg, border) => {
 export const RadiusPrimTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...radiusPrimTokens.map(t =>
@@ -508,7 +505,6 @@ export const RadiusPrimTable = () =>
           td(Chip(t.name)),
           td(GrayChip(t.value)),
           td(t.usage || ''),
-          td(KrdsChip(t.krds)),
           td(CssChip(t.name))
         )
       )
