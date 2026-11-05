@@ -7,4 +7,22 @@
   .sbdocs-wrapper > aside > nav {
     width: 220px !important;
   }
+  /* 색상을 제외한 토큰 정의서 페이지는 TOC 숨김 */
+  html.sb-no-toc .sbdocs-wrapper > aside {
+    display: none !important;
+  }
 </style>
+<script>
+(function () {
+  function update() {
+    var params = new URLSearchParams(window.location.search);
+    var id = '';
+    try { id = decodeURIComponent(params.get('id') || ''); } catch (e) {}
+    // '토큰-정의서'가 포함되고 '색상'이 아닌 페이지는 TOC 숨김
+    var hide = id.includes('토큰-정의서') && !id.includes('색상');
+    document.documentElement.classList.toggle('sb-no-toc', hide);
+  }
+  update();
+  setInterval(update, 300);
+})();
+</script>
