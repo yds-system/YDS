@@ -295,6 +295,14 @@
 
 ---
 
+## 2026-11-05 신규 컴포넌트 추가
+
+- **이미지** (ds-image): 비율별 aspect-ratio 컴포넌트. `ds-image--16x9/4x3/3x2/1x1/21x9`
+- **로고** (ds-logo): `object-fit: contain` + 흑백(`--grayscale`) + 로고 목록(`ds-logo-list`)
+- **카드** (ds-card): 세로/가로/테두리/링크 변형. `ds-card-list` 3열 그리드 + 반응형
+
+---
+
 ## 추후 검토
 
 - 필터 태그 선택 상태 (`ds-tag--selected`): KRDS 원본에 없음. 필요 시 신규 추가 협의 후 결정.

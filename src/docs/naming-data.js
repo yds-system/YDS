@@ -1857,6 +1857,83 @@ export const layoutNaming = {
 <a href="#" class="ds-footer__menu-link ds-footer__menu-link--emphasis">개인정보처리방침</a>`,
 };
 
+// ─── 카드 (Card) ─────────────────────────────────────────────────────────────
+
+export const cardNaming = {
+  name: '카드',
+  englishName: 'Card',
+  sbPath: '컴포넌트/레이아웃 및 표현/카드',
+  baseClass: 'ds-card',
+  krdsClass: '(자체 추가)',
+  description: '이미지·제목·설명·액션을 묶어 하나의 콘텐츠 단위로 표시하는 컴포넌트',
+
+  structure: `article.ds-card [--horizontal] [--border] [--link]
+├── div.ds-card__media
+│   └── div.ds-image.ds-image--{비율}
+│       └── img.ds-image__img
+└── div.ds-card__body
+    ├── p.ds-card__meta
+    ├── h3.ds-card__title  [a href]
+    ├── p.ds-card__desc
+    └── div.ds-card__actions
+
+목록:
+ul.ds-card-list
+└── li > article.ds-card`,
+
+  elements: [
+    { element: '카드',      class: 'ds-card',          krdsClass: '(자체 추가)', description: '카드 루트 요소. shadow-s, radius-m 기본 적용. hover 시 shadow-m', confirmed: true },
+    { element: '미디어',    class: 'ds-card__media',   krdsClass: '(자체 추가)', description: '이미지 영역. ds-image 컴포넌트를 자식으로 사용',                  confirmed: true },
+    { element: '본문',      class: 'ds-card__body',    krdsClass: '(자체 추가)', description: '텍스트 콘텐츠 영역. padding-m, gap-s 적용',                       confirmed: true },
+    { element: '메타',      class: 'ds-card__meta',    krdsClass: '(자체 추가)', description: '카테고리·날짜 등 보조 정보. 소형 텍스트, 보조 색상',              confirmed: true },
+    { element: '제목',      class: 'ds-card__title',   krdsClass: '(자체 추가)', description: '카드 제목. 적절한 헤딩 레벨 사용. --link 시 a 태그로 감쌈',      confirmed: true },
+    { element: '설명',      class: 'ds-card__desc',    krdsClass: '(자체 추가)', description: '카드 본문 설명 텍스트',                                            confirmed: true },
+    { element: '액션',      class: 'ds-card__actions', krdsClass: '(자체 추가)', description: '버튼 등 액션 요소 묶음. margin-top: auto로 하단 정렬',             confirmed: true },
+    { element: '카드 목록', class: 'ds-card-list',     krdsClass: '(자체 추가)', description: '카드 3열 그리드 목록. 모바일(max-width:1279px)에서 1열로 전환',   confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '방향', class: 'ds-card--horizontal', krdsClass: '(자체 추가)', description: '가로형. 이미지(22rem 고정)가 왼쪽, 본문이 오른쪽에 배치. 모바일에서 세로 전환', confirmed: true },
+    { category: '스타일', class: 'ds-card--border',   krdsClass: '(자체 추가)', description: '테두리형. 그림자 없이 border로 구분. hover 시 테두리 색이 진해짐', confirmed: true },
+    { category: '동작', class: 'ds-card--link',       krdsClass: '(자체 추가)', description: '제목 a 태그의 ::after로 카드 전체를 클릭 영역으로 확장',           confirmed: true },
+  ],
+
+  codeExample: `<!-- 기본 카드 -->
+<article class="ds-card">
+  <div class="ds-card__media">
+    <div class="ds-image ds-image--16x9">
+      <img class="ds-image__img" src="thumb.jpg" alt="썸네일 설명">
+    </div>
+  </div>
+  <div class="ds-card__body">
+    <p class="ds-card__meta">공지사항 · 2026.11.05</p>
+    <h3 class="ds-card__title">카드 제목</h3>
+    <p class="ds-card__desc">카드 설명 텍스트입니다.</p>
+  </div>
+</article>
+
+<!-- 링크 카드 (전체 클릭 영역) -->
+<article class="ds-card ds-card--link">
+  <div class="ds-card__media">
+    <div class="ds-image ds-image--16x9">
+      <img class="ds-image__img" src="thumb.jpg" alt="">
+    </div>
+  </div>
+  <div class="ds-card__body">
+    <p class="ds-card__meta">자료실</p>
+    <h3 class="ds-card__title"><a href="/detail">카드 제목</a></h3>
+    <p class="ds-card__desc">카드 설명 텍스트입니다.</p>
+  </div>
+</article>
+
+<!-- 카드 목록 (3열 그리드) -->
+<ul class="ds-card-list">
+  <li><article class="ds-card ds-card--link">...</article></li>
+  <li><article class="ds-card ds-card--link">...</article></li>
+  <li><article class="ds-card ds-card--link">...</article></li>
+</ul>`,
+};
+
 // ─── 이미지 (Image) ──────────────────────────────────────────────────────────
 
 export const imageNaming = {
@@ -1966,6 +2043,7 @@ export const allComponents = [
   accordionNaming,
   tableNaming,
   carouselNaming,
+  cardNaming,
   imageNaming,
   logoNaming,
   iconNaming,

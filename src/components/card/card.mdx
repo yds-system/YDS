@@ -1,0 +1,91 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as CardStories from './card.stories.js';
+import { cardNaming } from '../../docs/naming-data.js';
+import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
+
+<Meta of={CardStories} />
+
+# 카드 (Card)
+
+이미지·제목·설명·액션을 묶어 하나의 콘텐츠 단위로 표시하는 컴포넌트입니다.  
+목록·그리드 레이아웃에서 반복 항목을 나타낼 때 사용합니다.
+
+---
+
+## 개요
+
+- **블록**: `ds-card`
+- **목록 래퍼**: `ds-card-list`
+- **KRDS 원본**: 자체 추가
+
+---
+
+## 네이밍
+
+### 구조도
+
+<pre><code>{cardNaming.structure}</code></pre>
+
+### 클래스명 표
+
+<ElementTable elements={cardNaming.elements} baseClass={cardNaming.baseClass} />
+
+### 변형(modifier) 표
+
+<ModifierTable modifiers={cardNaming.modifiers} baseClass={cardNaming.baseClass} />
+
+### 코드 예시
+
+<pre><code>{cardNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 뉴스·공지·자료 목록을 카드 그리드로 표시할 때
+- 썸네일 이미지와 텍스트를 함께 나열할 때
+- 클릭 가능한 항목 목록을 시각적으로 구분할 때
+
+## 사용하지 말아야 할 때
+
+- 단순 텍스트 목록에는 `<ul>` / `<ol>`을 사용한다.
+- 테이블 데이터에는 `ds-table`을 사용한다.
+
+---
+
+## Playground
+
+<Canvas of={CardStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 가로형
+
+<Canvas of={CardStories.가로형} />
+
+### 테두리형
+
+<Canvas of={CardStories.테두리형} />
+
+### 링크 카드
+
+<Canvas of={CardStories.링크카드} />
+
+### 카드 목록 (3열 그리드)
+
+<Canvas of={CardStories.카드목록} />
+
+### 전체 변형
+
+<Canvas of={CardStories.전체변형} />
+
+---
+
+## 접근성
+
+- **링크 카드 (`--link`)**: 제목의 `<a>` 태그를 사용해 전체 영역을 클릭 가능하게 한다. `<div>` 클릭 이벤트로 처리하지 않는다.
+- **이미지**: `ds-image__img`의 `alt`는 이미지 내용을 설명한다. 장식 이미지라면 `alt=""`로 설정한다.
+- **카드 제목**: `<h2>`~`<h4>` 등 적절한 헤딩 레벨로 작성한다. 페이지 구조에 맞게 조정한다.
+- **카드 목록**: `<ul class="ds-card-list"><li>` 구조를 사용해 목록임을 스크린 리더에 전달한다.
