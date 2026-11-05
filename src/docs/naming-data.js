@@ -1936,39 +1936,58 @@ ul.ds-card-list
 
 // ─── 이미지 (Image) ──────────────────────────────────────────────────────────
 
-export const imageNaming = {
-  name: '이미지',
-  englishName: 'Image',
-  sbPath: '컴포넌트/레이아웃 및 표현/이미지',
-  baseClass: 'ds-image',
-  krdsClass: '(KRDS 기준 — component.css 미포함)',
-  description: '비율을 고정하고 object-fit: cover로 콘텐츠 이미지를 표시하는 컴포넌트',
+export const thumbnailNaming = {
+  name: '썸네일',
+  englishName: 'Thumbnail',
+  sbPath: '컴포넌트/레이아웃 및 표현/썸네일',
+  baseClass: 'ds-thumbnail',
+  krdsClass: '(KRDS 이미지 기준 적용, 라벨·배지·크기 modifier는 자체 추가)',
+  description: '비율·크기 고정 이미지 컴포넌트. 라벨·배지 오버레이 자리 및 빈 상태 제공',
 
-  structure: `div.ds-image [ds-image--비율]
-└── img.ds-image__img`,
+  structure: `div.ds-thumbnail [ds-thumbnail--비율] [ds-thumbnail--크기] [ds-thumbnail--circle] [ds-thumbnail--empty]
+├── img.ds-thumbnail__img
+├── span.ds-thumbnail__label  (선택 — 왼쪽 위 오버레이)
+└── span.ds-thumbnail__badge  (선택 — 오른쪽 위 오버레이)`,
 
   elements: [
-    { element: '이미지 래퍼', class: 'ds-image',      krdsClass: '(KRDS 기준 — 확인 필요)', description: '비율·radius·배경색 정의. aspect-ratio modifier와 함께 사용', confirmed: false },
-    { element: '이미지',      class: 'ds-image__img',  krdsClass: '(KRDS 기준 — 확인 필요)', description: 'img 태그. width/height 100%, object-fit: cover, alt 필수',   confirmed: false },
+    { element: '썸네일 래퍼',  class: 'ds-thumbnail',         krdsClass: '(KRDS 이미지 기준)', description: '비율·크기·모양 modifier와 함께 사용. position: relative',       confirmed: true },
+    { element: '이미지',       class: 'ds-thumbnail__img',    krdsClass: '(KRDS 이미지 기준)', description: 'img 태그. object-fit: cover. alt 필수',                        confirmed: true },
+    { element: '라벨 자리',    class: 'ds-thumbnail__label',  krdsClass: '(자체 추가)',         description: '왼쪽 위 절대 위치 오버레이. 배지·태그 등 임의 콘텐츠를 담음',  confirmed: true },
+    { element: '배지 자리',    class: 'ds-thumbnail__badge',  krdsClass: '(자체 추가)',         description: '오른쪽 위 절대 위치 오버레이. 카운트 배지 등을 담음',           confirmed: true },
   ],
 
   modifiers: [
-    { category: '비율', class: 'ds-image--1x1',  krdsClass: '(확인 필요)', description: '1:1 정방형',         confirmed: false },
-    { category: '비율', class: 'ds-image--4x3',  krdsClass: '(확인 필요)', description: '4:3 (사진 표준)',    confirmed: false },
-    { category: '비율', class: 'ds-image--3x2',  krdsClass: '(확인 필요)', description: '3:2 (카메라 표준)',  confirmed: false },
-    { category: '비율', class: 'ds-image--16x9', krdsClass: '(확인 필요)', description: '16:9 (와이드 표준)', confirmed: false },
-    { category: '비율', class: 'ds-image--21x9', krdsClass: '(확인 필요)', description: '21:9 (울트라와이드)', confirmed: false },
+    { category: '비율', class: 'ds-thumbnail--1x1',    krdsClass: '(자체 추가)', description: '1:1 정방형 (기본 비율)',    confirmed: true },
+    { category: '비율', class: 'ds-thumbnail--4x3',    krdsClass: '(자체 추가)', description: '4:3',                       confirmed: true },
+    { category: '비율', class: 'ds-thumbnail--16x9',   krdsClass: '(자체 추가)', description: '16:9 (와이드)',              confirmed: true },
+    { category: '모양', class: 'ds-thumbnail--circle', krdsClass: '(자체 추가)', description: '원형. --1x1 비율과 함께 사용', confirmed: true },
+    { category: '크기', class: 'ds-thumbnail--xs',     krdsClass: '(자체 추가)', description: '56px 고정 너비',             confirmed: true },
+    { category: '크기', class: 'ds-thumbnail--s',      krdsClass: '(자체 추가)', description: '72px 고정 너비',             confirmed: true },
+    { category: '크기', class: 'ds-thumbnail--m',      krdsClass: '(자체 추가)', description: '104px 고정 너비',            confirmed: true },
+    { category: '크기', class: 'ds-thumbnail--l',      krdsClass: '(자체 추가)', description: '160px 고정 너비',            confirmed: true },
+    { category: '크기', class: 'ds-thumbnail--xl',     krdsClass: '(자체 추가)', description: '너비 100% (부모에 맞춤)',    confirmed: true },
+    { category: '상태', class: 'ds-thumbnail--empty',  krdsClass: '(자체 추가)', description: '로딩·실패 상태. 배경 + 이미지 없음 아이콘 가운데 표시', confirmed: true },
   ],
 
-  codeExample: `<!-- 16:9 콘텐츠 이미지 -->
-<div class="ds-image ds-image--16x9">
-  <img class="ds-image__img" src="photo.jpg" alt="사진 설명">
+  codeExample: `<!-- 기본: 16:9 -->
+<div class="ds-thumbnail ds-thumbnail--16x9">
+  <img class="ds-thumbnail__img" src="photo.jpg" alt="사진 설명">
 </div>
 
-<!-- 1:1 장식 이미지 -->
-<div class="ds-image ds-image--1x1">
-  <img class="ds-image__img" src="deco.jpg" alt="">
-</div>`,
+<!-- 원형 아바타 (m 크기) -->
+<div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--m ds-thumbnail--circle">
+  <img class="ds-thumbnail__img" src="avatar.jpg" alt="홍길동">
+</div>
+
+<!-- 라벨 + 배지 오버레이 -->
+<div class="ds-thumbnail ds-thumbnail--16x9">
+  <img class="ds-thumbnail__img" src="photo.jpg" alt="사진 설명">
+  <span class="ds-thumbnail__label">NEW</span>
+  <span class="ds-thumbnail__badge">3</span>
+</div>
+
+<!-- 로딩·실패 상태 -->
+<div class="ds-thumbnail ds-thumbnail--16x9 ds-thumbnail--empty"></div>`,
 };
 
 // ─── 로고 (Logo) ─────────────────────────────────────────────────────────────
@@ -2044,7 +2063,7 @@ export const allComponents = [
   tableNaming,
   carouselNaming,
   cardNaming,
-  imageNaming,
+  thumbnailNaming,
   logoNaming,
   iconNaming,
   layoutNaming,

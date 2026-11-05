@@ -1,5 +1,5 @@
 import './card.css';
-import '../image/image.css';
+import '../thumbnail/thumbnail.css';
 
 export default {
   title: '컴포넌트/레이아웃 및 표현/카드',
@@ -8,7 +8,7 @@ export default {
     meta:       { control: 'text',    description: '메타 정보 (카테고리·날짜 등)',      table: { category: '내용' } },
     desc:       { control: 'text',    description: '설명 텍스트',                      table: { category: '내용' } },
     hasMedia:   { control: 'boolean', description: '이미지 영역 표시 여부',             table: { category: '구성' } },
-    ratio:      { control: { type: 'select' }, options: ['16x9', '4x3', '3x2', '1x1'], description: '이미지 비율', table: { category: '구성' } },
+    ratio:      { control: { type: 'select' }, options: ['16x9', '4x3', '1x1'], description: '이미지 비율', table: { category: '구성' } },
     hasActions: { control: 'boolean', description: '액션 버튼 영역 표시 여부',          table: { category: '구성' } },
     horizontal: { control: 'boolean', description: '가로형 (--horizontal)',             table: { category: '변형' } },
     border:     { control: 'boolean', description: '테두리형 — 그림자 없음 (--border)', table: { category: '변형' } },
@@ -49,8 +49,8 @@ function card({ title, meta, desc, hasMedia, ratio = '16x9', hasActions, horizon
     <article class="${cls}">
       ${hasMedia ? `
       <div class="ds-card__media">
-        <div class="ds-image ds-image--${ratio}">
-          <img class="ds-image__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${imgLabel || '카드 이미지'}">
+        <div class="ds-thumbnail ds-thumbnail--${ratio}">
+          <img class="ds-thumbnail__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${imgLabel || '카드 이미지'}">
         </div>
       </div>` : ''}
       <div class="ds-card__body">

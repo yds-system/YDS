@@ -101,7 +101,7 @@
   width: 22rem;
 }
 
-.ds-card--horizontal .ds-card__media .ds-image {
+.ds-card--horizontal .ds-card__media .ds-thumbnail {
   height: 100%;
   border-radius: 0;
 }
