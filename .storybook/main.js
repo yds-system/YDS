@@ -22,7 +22,7 @@ const config = {
     },
   ],
   "framework": "@storybook/html-vite",
-  "staticDirs": ["../reference/krds/resources"],
+  "staticDirs": ["../reference/krds/resources", "../public"],
   async viteFinal(config) {
     config.resolve = config.resolve ?? {};
     config.resolve.alias = {
