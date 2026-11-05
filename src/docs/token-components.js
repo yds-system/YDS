@@ -10,8 +10,10 @@ import {
   colorPrimGroups,
   colorSemanticGroups,
   typoPrimTokens,
+  typoPrimGroupedTokens,
   typoStyleTokens,
   spacingPrimTokens,
+  spacingPrimGroupedTokens,
   spacingSemanticTokens,
   shadowSemanticTokens,
   radiusPrimTokens,
@@ -187,20 +189,64 @@ export const ColorSemanticTable = () =>
 
 // ─── 3. 타이포 프리미티브 ─────────────────────────────────────────────────────
 
+const typoGroupLabelStyle = {
+  margin: '16px 0 6px',
+  fontSize: '13px',
+  fontWeight: 700,
+  color: '#333',
+  borderLeft: '3px solid #256ef4',
+  paddingLeft: '8px',
+};
+
+const FigmaChip = (txt) =>
+  h('code', { style: { ...chipStyle, background: 'transparent', color: '#888', fontSize: '11px' } }, txt);
+
+const TypoSampleInline = (token) => {
+  if (token.group === 'font-size') {
+    const rem = parseFloat(token.value);
+    const px = rem * 10;
+    return h('span', { style: { fontSize: px + 'px', lineHeight: 1.3, color: '#1e2124', whiteSpace: 'nowrap' } }, '가나다 Aa');
+  }
+  if (token.group === 'font-weight') {
+    return h('span', { style: { fontWeight: token.value, fontSize: '14px', color: '#1e2124' } }, '가나다 Aa');
+  }
+  if (token.group === 'line-height') {
+    return h('span', { style: { lineHeight: token.value, fontSize: '12px', color: '#555', display: 'inline-block', width: '40px', border: '1px dashed #cdd1d5', padding: '2px 4px' } }, '행\n간');
+  }
+  if (token.group === 'font-letter-spacing') {
+    return h('span', { style: { letterSpacing: token.value, fontSize: '13px', color: '#1e2124' } }, '가나다 Aa');
+  }
+  return h('span', { style: { fontSize: '12px', color: '#888', fontFamily: token.name === 'font-family-code' ? 'monospace' : 'sans-serif' } }, 'Aa 가나다');
+};
+
 export const TypoPrimTable = () =>
-  h('table', { style: tableStyle },
-    h('thead', null,
-      h('tr', null, th('토큰 이름'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
-    ),
-    h('tbody', null,
-      ...typoPrimTokens.map(t =>
-        h('tr', { key: t.name },
-          td(Chip(t.name)),
-          td(GrayChip(t.value)),
-          td(h('code', { style: { ...chipStyle, background: 'transparent', color: '#888', fontSize: '11px' } }, t.figma)),
-          td(t.usage || ''),
-          td(KrdsChip(t.krds)),
-          td(CssChip(t.name))
+  h(Fragment, null,
+    ...typoPrimGroupedTokens.map(g =>
+      h('div', { key: g.group, style: sectionStyle },
+        h('div', { style: typoGroupLabelStyle }, g.label),
+        h('table', { style: tableStyle },
+          g.group === 'font-size'
+            ? h('colgroup', null,
+                h('col', { style: { width: '220px' } }),
+                h('col', null), h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
+              )
+            : null,
+          h('thead', null,
+            h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('피그마'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+          ),
+          h('tbody', null,
+            ...g.tokens.map(t =>
+              h('tr', { key: t.name },
+                td(TypoSampleInline({ ...t, group: g.group })),
+                td(Chip(t.name)),
+                td(GrayChip(t.value)),
+                td(FigmaChip(t.figma)),
+                td(t.usage || ''),
+                td(KrdsChip(t.krds)),
+                td(CssChip(t.name))
+              )
+            )
+          )
         )
       )
     )
@@ -211,7 +257,7 @@ export const TypoPrimTable = () =>
 const TypoSample = (valuePC) => {
   const parts = (valuePC || '').split(' / ');
   const szRem = parseFloat(parts[0]) || 1.7;
-  const szPx = Math.min(szRem * 10, 32); // 미리보기는 최대 32px로 제한
+  const szPx = szRem * 10;
   const wStr = parts[1] || '400';
   const fw = wStr === 'bold' ? '700' : wStr === '500' ? '500' : '400';
   return h('span', {
@@ -255,20 +301,57 @@ const SpacingBar = (val, color) => {
   });
 };
 
+const sizeGroupLabelStyle = {
+  margin: '16px 0 6px',
+  fontSize: '13px',
+  fontWeight: 700,
+  color: '#256ef4',
+  letterSpacing: '0.03em',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+};
+
+const sizeBadgeStyle = (size) => {
+  const colorMap = { xs: '#8a949e', s: '#3fa654', m: '#256ef4', l: '#de3412', xl: '#6b3fa0' };
+  return {
+    display: 'inline-block',
+    padding: '1px 7px',
+    borderRadius: '10px',
+    background: colorMap[size] || '#8a949e',
+    color: '#fff',
+    fontSize: '11px',
+    fontWeight: 700,
+    fontFamily: 'monospace',
+    letterSpacing: '0.05em',
+  };
+};
+
 export const SpacingPrimTable = () =>
-  h('table', { style: tableStyle },
-    h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
-    ),
-    h('tbody', null,
-      ...spacingPrimTokens.map(t =>
-        h('tr', { key: t.name },
-          td(SpacingBar(t.value, '#8a949e')),
-          td(Chip(t.name)),
-          td(GrayChip(t.value)),
-          td(t.usage || ''),
-          td(KrdsChip(t.krds)),
-          td(CssChip(t.name))
+  h(Fragment, null,
+    ...spacingPrimGroupedTokens.map(g =>
+      h('div', { key: g.size, style: sectionStyle },
+        h('div', { style: sizeGroupLabelStyle },
+          h('span', { style: sizeBadgeStyle(g.size) }, g.size),
+          h('span', { style: { color: '#555', fontWeight: 400 } }, g.label.replace(/^[a-z]+\s+—\s+/, ''))
+        ),
+        h('table', { style: tableStyle },
+          h('thead', null,
+            h('tr', null, th('견본'), th('토큰 이름'), th('원본 토큰'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+          ),
+          h('tbody', null,
+            ...g.tokens.map(t =>
+              h('tr', { key: t.name },
+                td(SpacingBar(t.value, '#8a949e')),
+                td(Chip(t.name)),
+                td(GrayChip(t.base)),
+                td(GrayChip(t.value)),
+                td(t.usage || ''),
+                td(KrdsChip(t.krds)),
+                td(CssChip(t.name))
+              )
+            )
+          )
         )
       )
     )
@@ -276,21 +359,51 @@ export const SpacingPrimTable = () =>
 
 // ─── 4. 간격 시멘틱 ───────────────────────────────────────────────────────────
 
+const deprecatedWrapStyle = {
+  position: 'relative',
+  opacity: 0.45,
+  pointerEvents: 'none',
+  userSelect: 'none',
+};
+
+const deprecatedBannerStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '6px',
+  marginBottom: '10px',
+  padding: '5px 12px',
+  background: '#fff3cd',
+  border: '1px solid #ffc107',
+  borderRadius: '4px',
+  fontSize: '12px',
+  color: '#856404',
+  fontWeight: 600,
+  pointerEvents: 'auto',
+};
+
 export const SpacingSemanticTable = () =>
-  h('table', { style: tableStyle },
-    h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+  h('div', { style: { position: 'relative' } },
+    h('div', { style: deprecatedBannerStyle },
+      h('span', null, '⚠'),
+      h('span', null, '미사용 — gap / padding / margin 시멘틱 토큰은 프리미티브(space-{크기}-{px})로 대체 예정입니다.')
     ),
-    h('tbody', null,
-      ...spacingSemanticTokens.map(t =>
-        h('tr', { key: t.name },
-          td(SpacingBar(t.value, '#256ef4')),
-          td(Chip(t.name)),
-          td(Chip(t.ref)),
-          td(GrayChip(t.value)),
-          td(t.usage || ''),
-          td(KrdsChip(t.krds)),
-          td(CssChip(t.name))
+    h('div', { style: deprecatedWrapStyle },
+      h('table', { style: tableStyle },
+        h('thead', null,
+          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값 (PC→모바일)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+        ),
+        h('tbody', null,
+          ...spacingSemanticTokens.map(t =>
+            h('tr', { key: t.name },
+              td(SpacingBar(t.value, '#256ef4')),
+              td(Chip(t.name)),
+              td(Chip(t.ref)),
+              td(GrayChip(t.value)),
+              td(t.usage || ''),
+              td(KrdsChip(t.krds)),
+              td(CssChip(t.name))
+            )
+          )
         )
       )
     )

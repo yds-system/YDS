@@ -1857,6 +1857,93 @@ export const layoutNaming = {
 <a href="#" class="ds-footer__menu-link ds-footer__menu-link--emphasis">개인정보처리방침</a>`,
 };
 
+// ─── 이미지 (Image) ──────────────────────────────────────────────────────────
+
+export const imageNaming = {
+  name: '이미지',
+  englishName: 'Image',
+  sbPath: '컴포넌트/레이아웃 및 표현/이미지',
+  baseClass: 'ds-image',
+  krdsClass: '(KRDS 기준 — component.css 미포함)',
+  description: '비율을 고정하고 object-fit: cover로 콘텐츠 이미지를 표시하는 컴포넌트',
+
+  structure: `div.ds-image [ds-image--비율]
+└── img.ds-image__img`,
+
+  elements: [
+    { element: '이미지 래퍼', class: 'ds-image',      krdsClass: '(KRDS 기준 — 확인 필요)', description: '비율·radius·배경색 정의. aspect-ratio modifier와 함께 사용', confirmed: false },
+    { element: '이미지',      class: 'ds-image__img',  krdsClass: '(KRDS 기준 — 확인 필요)', description: 'img 태그. width/height 100%, object-fit: cover, alt 필수',   confirmed: false },
+  ],
+
+  modifiers: [
+    { category: '비율', class: 'ds-image--1x1',  krdsClass: '(확인 필요)', description: '1:1 정방형',         confirmed: false },
+    { category: '비율', class: 'ds-image--4x3',  krdsClass: '(확인 필요)', description: '4:3 (사진 표준)',    confirmed: false },
+    { category: '비율', class: 'ds-image--3x2',  krdsClass: '(확인 필요)', description: '3:2 (카메라 표준)',  confirmed: false },
+    { category: '비율', class: 'ds-image--16x9', krdsClass: '(확인 필요)', description: '16:9 (와이드 표준)', confirmed: false },
+    { category: '비율', class: 'ds-image--21x9', krdsClass: '(확인 필요)', description: '21:9 (울트라와이드)', confirmed: false },
+  ],
+
+  codeExample: `<!-- 16:9 콘텐츠 이미지 -->
+<div class="ds-image ds-image--16x9">
+  <img class="ds-image__img" src="photo.jpg" alt="사진 설명">
+</div>
+
+<!-- 1:1 장식 이미지 -->
+<div class="ds-image ds-image--1x1">
+  <img class="ds-image__img" src="deco.jpg" alt="">
+</div>`,
+};
+
+// ─── 로고 (Logo) ─────────────────────────────────────────────────────────────
+
+export const logoNaming = {
+  name: '로고',
+  englishName: 'Logo',
+  sbPath: '컴포넌트/레이아웃 및 표현/로고',
+  baseClass: 'ds-logo',
+  krdsClass: '(자체 추가)',
+  description: '비율을 유지한 채 기관·브랜드 로고를 표시하는 컴포넌트 (object-fit: contain)',
+
+  structure: `div.ds-logo [ds-logo--비율] [ds-logo--grayscale]
+└── img.ds-logo__img
+
+목록:
+div.ds-logo-list`,
+
+  elements: [
+    { element: '로고 래퍼', class: 'ds-logo',       krdsClass: '(자체 추가)', description: '비율 modifier와 함께 사용. 높이를 CSS로 지정해 크기 제어',       confirmed: true },
+    { element: '로고 이미지', class: 'ds-logo__img', krdsClass: '(자체 추가)', description: 'img 태그. object-fit: contain, 가운데 정렬. alt에 기관명 필수', confirmed: true },
+    { element: '로고 목록', class: 'ds-logo-list',   krdsClass: '(자체 추가)', description: '여러 로고를 가로로 나열하는 flex 컨테이너',                      confirmed: true },
+  ],
+
+  modifiers: [
+    { category: '비율', class: 'ds-logo--1x1',      krdsClass: '(자체 추가)', description: '1:1 정방형 (심볼형 로고)',         confirmed: true },
+    { category: '비율', class: 'ds-logo--2x1',      krdsClass: '(자체 추가)', description: '2:1 가로형 로고',                 confirmed: true },
+    { category: '비율', class: 'ds-logo--3x1',      krdsClass: '(자체 추가)', description: '3:1 넓은 가로형 로고',            confirmed: true },
+    { category: '효과', class: 'ds-logo--grayscale', krdsClass: '(자체 추가)', description: '흑백 처리. hover·focus 시 컬러로 전환', confirmed: true },
+  ],
+
+  codeExample: `<!-- 3:1 가로형 로고 -->
+<div class="ds-logo ds-logo--3x1" style="height:5rem;">
+  <img class="ds-logo__img" src="logo.svg" alt="행정안전부">
+</div>
+
+<!-- 흑백 처리 (hover 시 컬러) -->
+<div class="ds-logo ds-logo--3x1 ds-logo--grayscale" style="height:5rem;">
+  <img class="ds-logo__img" src="logo.svg" alt="행정안전부">
+</div>
+
+<!-- 로고 목록 -->
+<div class="ds-logo-list">
+  <div class="ds-logo ds-logo--3x1 ds-logo--grayscale" style="height:4rem;">
+    <img class="ds-logo__img" src="logo-a.svg" alt="기관 A">
+  </div>
+  <div class="ds-logo ds-logo--3x1 ds-logo--grayscale" style="height:4rem;">
+    <img class="ds-logo__img" src="logo-b.svg" alt="기관 B">
+  </div>
+</div>`,
+};
+
 // ─── 전체 목록 (components-naming.mdx 용) ──────────────────────────────────
 // 새 컴포넌트를 추가하면 이 배열에도 추가한다.
 
@@ -1879,6 +1966,8 @@ export const allComponents = [
   accordionNaming,
   tableNaming,
   carouselNaming,
+  imageNaming,
+  logoNaming,
   iconNaming,
   layoutNaming,
   headerNaming,

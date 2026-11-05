@@ -1,0 +1,85 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as LogoStories from './logo.stories.js';
+import { logoNaming } from '../../docs/naming-data.js';
+import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
+
+<Meta of={LogoStories} />
+
+# 로고 (Logo)
+
+기관·브랜드 로고를 비율을 유지한 채 표시하는 컴포넌트입니다.  
+`object-fit: contain`으로 이미지가 잘리지 않고, 중앙 정렬로 표시됩니다.
+
+---
+
+## 개요
+
+- **블록**: `ds-logo`
+- **래퍼(목록)**: `ds-logo-list`
+- **KRDS 원본**: 자체 추가
+
+---
+
+## 네이밍
+
+### 구조도
+
+<pre><code>{logoNaming.structure}</code></pre>
+
+### 클래스명 표
+
+<ElementTable elements={logoNaming.elements} baseClass={logoNaming.baseClass} />
+
+### 변형(modifier) 표
+
+<ModifierTable modifiers={logoNaming.modifiers} baseClass={logoNaming.baseClass} />
+
+### 코드 예시
+
+<pre><code>{logoNaming.codeExample}</code></pre>
+
+---
+
+## 언제 사용하는지
+
+- 협력 기관·파트너 로고를 나열할 때
+- 헤더·푸터에 기관 로고를 삽입할 때 (`ds-header__logo` 등과 조합)
+
+## 사용하지 말아야 할 때
+
+- 콘텐츠용 사진·일러스트는 `ds-image`를 사용한다.
+- 아이콘은 `ds-icon`을 사용한다.
+
+---
+
+## Playground
+
+<Canvas of={LogoStories.Playground} />
+
+---
+
+## 코드 예시
+
+### 비율
+
+<Canvas of={LogoStories.비율} />
+
+### 흑백
+
+<Canvas of={LogoStories.흑백} />
+
+### 로고 목록
+
+<Canvas of={LogoStories.로고목록} />
+
+### 전체 변형
+
+<Canvas of={LogoStories.전체변형} />
+
+---
+
+## 접근성
+
+- `alt`에 기관명을 명시한다. (예: `alt="행정안전부"`)
+- 로고가 링크를 감싸는 경우 `<a>` 태그에 `aria-label`을 추가해 목적지를 안내한다.
+- 흑백(`--grayscale`) 처리 시 색상 대비가 낮아질 수 있으므로, 로고 이미지 자체의 가독성을 사전에 확인한다.

@@ -258,6 +258,58 @@ export const typoPrimTokens = [
   { name: 'font-letter-spacing-normal', figma: 'font-letter-spacing/normal', value: '0em',      usage: '기본',    krds: '--krds-typo-letter-spacing-0'  },
 ];
 
+export const typoPrimGroupedTokens = [
+  {
+    group: 'font-family',
+    label: 'Font Family — 서체',
+    tokens: [
+      { name: 'font-family-base', figma: 'font-family/base', value: "'Pretendard GOV', sans-serif", usage: '기본 폰트', krds: '--krds-typo-font-type' },
+      { name: 'font-family-code', figma: 'font-family/code', value: "'D2Coding', monospace",        usage: '코드 폰트', krds: '(자체 추가)'            },
+    ],
+  },
+  {
+    group: 'font-size',
+    label: 'Font Size — 크기',
+    tokens: [
+      { name: 'font-size-13', figma: 'font-size/13', value: '1.3rem (13px)', usage: 'body-xs',             krds: '--krds-pc-font-size-body-xsmall'       },
+      { name: 'font-size-15', figma: 'font-size/15', value: '1.5rem (15px)', usage: 'body-s',              krds: '--krds-pc-font-size-body-small'         },
+      { name: 'font-size-17', figma: 'font-size/17', value: '1.7rem (17px)', usage: 'body-m',              krds: '--krds-pc-font-size-body-medium'        },
+      { name: 'font-size-19', figma: 'font-size/19', value: '1.9rem (19px)', usage: 'body-l · heading-s',  krds: '--krds-pc-font-size-body-large'         },
+      { name: 'font-size-22', figma: 'font-size/22', value: '2.2rem (22px)', usage: 'heading-m (모바일)',  krds: '--krds-mobile-font-size-heading-medium'  },
+      { name: 'font-size-24', figma: 'font-size/24', value: '2.4rem (24px)', usage: 'heading-m (PC)',      krds: '--krds-pc-font-size-heading-medium'      },
+      { name: 'font-size-28', figma: 'font-size/28', value: '2.8rem (28px)', usage: 'heading-xl (모바일)', krds: '--krds-mobile-font-size-heading-xlarge'  },
+      { name: 'font-size-32', figma: 'font-size/32', value: '3.2rem (32px)', usage: 'heading-l (PC)',      krds: '--krds-pc-font-size-heading-large'       },
+      { name: 'font-size-40', figma: 'font-size/40', value: '4rem (40px)',   usage: 'heading-xl (PC)',     krds: '--krds-pc-font-size-heading-xlarge'      },
+    ],
+  },
+  {
+    group: 'font-weight',
+    label: 'Font Weight — 굵기',
+    tokens: [
+      { name: 'font-weight-regular', figma: 'font-weight/regular', value: '400', usage: '본문 기본 굵기', krds: '--krds-typo-font-weight-regular' },
+      { name: 'font-weight-medium',  figma: 'font-weight/medium',  value: '500', usage: '레이블·강조',    krds: '(자체 추가)'                     },
+      { name: 'font-weight-bold',    figma: 'font-weight/bold',    value: '700', usage: '제목·버튼',      krds: '--krds-typo-font-weight-bold'    },
+    ],
+  },
+  {
+    group: 'line-height',
+    label: 'Line Height — 행간',
+    tokens: [
+      { name: 'line-height-tight',   figma: 'line-height/tight',   value: '1.25', usage: '큰 제목',         krds: '(자체 추가)' },
+      { name: 'line-height-normal',  figma: 'line-height/normal',  value: '1.5',  usage: '본문 기본',       krds: '(자체 추가)' },
+      { name: 'line-height-relaxed', figma: 'line-height/relaxed', value: '1.75', usage: '코드·읽기 긴 글', krds: '(자체 추가)' },
+    ],
+  },
+  {
+    group: 'font-letter-spacing',
+    label: 'Letter Spacing — 자간',
+    tokens: [
+      { name: 'font-letter-spacing-tight',  figma: 'font-letter-spacing/tight',  value: '-0.025em', usage: '큰 제목', krds: '(자체 추가)'                 },
+      { name: 'font-letter-spacing-normal', figma: 'font-letter-spacing/normal', value: '0em',      usage: '기본',    krds: '--krds-typo-letter-spacing-0' },
+    ],
+  },
+];
+
 export const typoStyleTokens = [
   { name: 'font-size-heading-xl', figma: 'text-style/heading-xl', valuePC: '4rem / bold / 1.25',   valueMobile: '2.8rem / bold / 1.25',  usage: '최대 섹션 제목',          krds: '--krds-pc-font-size-heading-xlarge'    },
   { name: 'font-size-heading-l',  figma: 'text-style/heading-l',  valuePC: '3.2rem / bold / 1.25', valueMobile: '2.4rem / bold / 1.25',  usage: '대형 섹션 제목',          krds: '--krds-pc-font-size-heading-large'     },
@@ -286,6 +338,52 @@ export const spacingPrimTokens = [
   { name: 'space-48', figma: 'space/48', value: '4.8rem', usage: '48px',      krds: '--krds-number-16' },
   { name: 'space-64', figma: 'space/64', value: '6.4rem', usage: '64px',      krds: '--krds-number-18' },
   { name: 'space-80', figma: 'space/80', value: '8rem',   usage: '80px',      krds: '--krds-number-20' },
+];
+
+/* 크기 그룹별 별칭 토큰 (space-xs-N ~ space-xl-N) */
+export const spacingPrimGroupedTokens = [
+  {
+    size: 'xs',
+    label: 'xs  —  2 · 4 · 8px',
+    tokens: [
+      { name: 'space-xs-2', base: 'space-2',  figma: 'space/xs/2',  value: '0.2rem', usage: '2px — 최소 간격',      krds: '--krds-number-2' },
+      { name: 'space-xs-4', base: 'space-4',  figma: 'space/xs/4',  value: '0.4rem', usage: '4px — 아이콘 내부',    krds: '--krds-number-3' },
+      { name: 'space-xs-8', base: 'space-8',  figma: 'space/xs/8',  value: '0.8rem', usage: '8px — 인라인 소간격',  krds: '--krds-number-5' },
+    ],
+  },
+  {
+    size: 's',
+    label: 's  —  12 · 16 · 20px',
+    tokens: [
+      { name: 'space-s-12', base: 'space-12', figma: 'space/s/12', value: '1.2rem', usage: '12px — 소형 내부 여백', krds: '--krds-number-7' },
+      { name: 'space-s-16', base: 'space-16', figma: 'space/s/16', value: '1.6rem', usage: '16px — 컴포넌트 기본',  krds: '--krds-number-8' },
+      { name: 'space-s-20', base: 'space-20', figma: 'space/s/20', value: '2rem',   usage: '20px — 소형 블록 간격', krds: '--krds-number-9' },
+    ],
+  },
+  {
+    size: 'm',
+    label: 'm  —  24 · 32px',
+    tokens: [
+      { name: 'space-m-24', base: 'space-24', figma: 'space/m/24', value: '2.4rem', usage: '24px — 중형 블록 간격', krds: '--krds-number-10' },
+      { name: 'space-m-32', base: 'space-32', figma: 'space/m/32', value: '3.2rem', usage: '32px — 섹션 내부 여백', krds: '--krds-number-12' },
+    ],
+  },
+  {
+    size: 'l',
+    label: 'l  —  40 · 48px',
+    tokens: [
+      { name: 'space-l-40', base: 'space-40', figma: 'space/l/40', value: '4rem',   usage: '40px — 섹션 간 여백',   krds: '--krds-number-14' },
+      { name: 'space-l-48', base: 'space-48', figma: 'space/l/48', value: '4.8rem', usage: '48px — 대형 섹션 여백', krds: '--krds-number-16' },
+    ],
+  },
+  {
+    size: 'xl',
+    label: 'xl  —  64 · 80px',
+    tokens: [
+      { name: 'space-xl-64', base: 'space-64', figma: 'space/xl/64', value: '6.4rem', usage: '64px — 페이지 레벨 여백', krds: '--krds-number-18' },
+      { name: 'space-xl-80', base: 'space-80', figma: 'space/xl/80', value: '8rem',   usage: '80px — 최대 여백',        krds: '--krds-number-20' },
+    ],
+  },
 ];
 
 export const spacingSemanticTokens = [
