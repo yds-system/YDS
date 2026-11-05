@@ -387,6 +387,11 @@ export const SpacingSizeTable = () =>
       h('div', { key: g.size, style: sectionStyle },
         h('div', { style: sizeGroupLabelStyle }, g.label),
         h('table', { style: tableStyle },
+          h('colgroup', null,
+            h('col', { style: { width: '200px' } }),
+            h('col', null), h('col', null), h('col', null), h('col', null),
+            h('col', null), h('col', null), h('col', null)
+          ),
           h('thead', null,
             h('tr', null,
               th('견본'),
