@@ -429,17 +429,16 @@ export const SpacingSizeTable = () =>
 // ─── 4. 간격 시멘틱 ───────────────────────────────────────────────────────────
 
 const deprecatedWrapStyle = {
-  position: 'relative',
   opacity: 0.45,
   pointerEvents: 'none',
   userSelect: 'none',
+  marginTop: '12px',
 };
 
-const deprecatedBannerStyle = {
-  display: 'inline-flex',
+const deprecatedSummaryStyle = {
+  display: 'flex',
   alignItems: 'center',
   gap: '6px',
-  marginBottom: '10px',
   padding: '5px 12px',
   background: '#fff3cd',
   border: '1px solid #ffc107',
@@ -447,14 +446,16 @@ const deprecatedBannerStyle = {
   fontSize: '12px',
   color: '#856404',
   fontWeight: 600,
-  pointerEvents: 'auto',
+  cursor: 'pointer',
+  listStyle: 'none',
+  userSelect: 'none',
 };
 
 export const SpacingSemanticTable = () =>
-  h('div', { style: { position: 'relative' } },
-    h('div', { style: deprecatedBannerStyle },
+  h('details', { style: { marginBottom: '8px' } },
+    h('summary', { style: deprecatedSummaryStyle },
       h('span', null, '⚠'),
-      h('span', null, '미사용 — gap / padding / margin 시멘틱 토큰은 프리미티브(space-{크기}-{px})로 대체 예정입니다.')
+      h('span', null, '미사용 — gap / padding / margin 시멘틱 토큰 (클릭하여 펼치기)')
     ),
     h('div', { style: deprecatedWrapStyle },
       h('table', { style: tableStyle },
