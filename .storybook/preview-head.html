@@ -18,8 +18,8 @@
     var params = new URLSearchParams(window.location.search);
     var id = '';
     try { id = decodeURIComponent(params.get('id') || ''); } catch (e) {}
-    // '토큰-정의서'가 포함되고 '색상'이 아닌 페이지는 TOC 숨김
-    var hide = id.includes('토큰-정의서') && id.includes('메인');
+    // 토큰 정의서 페이지는 모두 사이드바 TOC 숨김 (인라인 TOC로 대체)
+    var hide = id.includes('토큰-정의서');
     document.documentElement.classList.toggle('sb-no-toc', hide);
   }
   update();

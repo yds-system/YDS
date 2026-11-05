@@ -13,7 +13,6 @@ import {
   typoPrimGroupedTokens,
   typoStyleTokens,
   spacingPrimTokens,
-  spacingPrimGroupedTokens,
   spacingSemanticTokens,
   shadowSemanticTokens,
   radiusPrimTokens,
@@ -283,14 +282,21 @@ const TypoSample = (valuePC) => {
   }, '가나다 Aa');
 };
 
+const RefPrimChips = (refs) => {
+  if (!refs || refs.length === 0) return h('span', { style: { color: '#aaa', fontSize: '11px' } }, '—');
+  return h('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px' } },
+    ...refs.map((r, i) => h('code', { key: i, style: { ...chipStyle, background: '#f0f7ff', color: '#0b50d0', fontSize: '11px' } }, r))
+  );
+};
+
 export const TypoStyleTable = () =>
   h('table', { style: tableStyle },
     h('colgroup', null,
-      h('col', { style: { width: '220px' } }),
-      h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
+      h('col', { style: { width: '200px' } }),
+      h('col', null), h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
     ),
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('용도'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('참조 프리미티브'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...typoStyleTokens.map(t =>
@@ -302,6 +308,15 @@ export const TypoStyleTable = () =>
             ? h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
             : h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.valueMobile)
           ),
+          td(h('span', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } },
+            RefPrimChips(t.refsPC),
+            t.refsMobile
+              ? h('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '4px', paddingTop: '4px', borderTop: '1px solid #eee' } },
+                  h('span', { style: { fontSize: '10px', color: '#aaa', marginBottom: '2px' } }, '모바일'),
+                  ...t.refsMobile.map((r, i) => h('code', { key: i, style: { ...chipStyle, background: '#fff8e0', color: '#8a5c00', fontSize: '11px' } }, r))
+                )
+              : null
+          )),
           td(t.usage || ''),
           td(CssChip(t.name))
         )
@@ -323,57 +338,21 @@ const SpacingBar = (val, color) => {
   });
 };
 
-const sizeGroupLabelStyle = {
-  margin: '16px 0 6px',
-  fontSize: '13px',
-  fontWeight: 700,
-  color: '#256ef4',
-  letterSpacing: '0.03em',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '6px',
-};
-
-const sizeBadgeStyle = (size) => {
-  const colorMap = { xs: '#8a949e', s: '#3fa654', m: '#256ef4', l: '#de3412', xl: '#6b3fa0' };
-  return {
-    display: 'inline-block',
-    padding: '1px 7px',
-    borderRadius: '10px',
-    background: colorMap[size] || '#8a949e',
-    color: '#fff',
-    fontSize: '11px',
-    fontWeight: 700,
-    fontFamily: 'monospace',
-    letterSpacing: '0.05em',
-  };
-};
-
 export const SpacingPrimTable = () =>
-  h(Fragment, null,
-    ...spacingPrimGroupedTokens.map(g =>
-      h('div', { key: g.size, style: sectionStyle },
-        h('div', { style: sizeGroupLabelStyle },
-          h('span', { style: sizeBadgeStyle(g.size) }, g.size),
-          h('span', { style: { color: '#555', fontWeight: 400 } }, g.label.replace(/^[a-z]+\s+—\s+/, ''))
-        ),
-        h('table', { style: tableStyle },
-          h('thead', null,
-            h('tr', null, th('견본'), th('토큰 이름'), th('원본 토큰'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
-          ),
-          h('tbody', null,
-            ...g.tokens.map(t =>
-              h('tr', { key: t.name },
-                td(SpacingBar(t.value, '#8a949e')),
-                td(Chip(t.name)),
-                td(GrayChip(t.base)),
-                td(GrayChip(t.value)),
-                td(t.usage || ''),
-                td(KrdsChip(t.krds)),
-                td(CssChip(t.name))
-              )
-            )
-          )
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null, th('견본'), th('토큰 이름'), th('값'), th('px'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+    ),
+    h('tbody', null,
+      ...spacingPrimTokens.map(t =>
+        h('tr', { key: t.name },
+          td(SpacingBar(t.value, '#256ef4')),
+          td(Chip(t.name)),
+          td(GrayChip(t.value)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
+          td(t.usage || ''),
+          td(KrdsChip(t.krds)),
+          td(CssChip(t.name))
         )
       )
     )
@@ -513,7 +492,7 @@ const shadowCssValues = {
 export const ShadowTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('참조'), th('값 (px 기준)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조'), th('값 (px 기준)'), th('다크'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...shadowSemanticTokens.map(t =>
@@ -522,6 +501,7 @@ export const ShadowTable = () =>
           td(Chip(t.name)),
           td(t.ref ? GrayChip(t.ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '—')),
           td(GrayChip(t.value)),
+          td(h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')),
           td(t.usage || ''),
           td(KrdsChip(t.krds)),
           td(CssChip(t.name))
@@ -529,3 +509,47 @@ export const ShadowTable = () =>
       )
     )
   );
+
+// ─── 인라인 페이지 TOC ────────────────────────────────────────────────────────
+
+const tocWrapStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '8px',
+  margin: '16px 0 32px',
+};
+
+const tocPillStyle = {
+  display: 'inline-block',
+  padding: '4px 14px',
+  borderRadius: '99px',
+  background: '#f1f3f5',
+  color: '#256ef4',
+  fontSize: '13px',
+  fontWeight: 500,
+  textDecoration: 'none',
+  border: '1px solid #e0e7ff',
+  lineHeight: 1.5,
+};
+
+const PageToc = (sections) =>
+  h('nav', { 'aria-label': '페이지 목차', style: tocWrapStyle },
+    ...sections.map(({ label, anchor }) =>
+      h('a', { key: anchor, href: '#' + anchor, style: tocPillStyle }, label)
+    )
+  );
+
+export const PageTocPrimitive = () => PageToc([
+  { label: '색상',       anchor: '색상'       },
+  { label: '타이포그래피', anchor: '타이포그래피' },
+  { label: '간격',       anchor: '간격'       },
+  { label: '모서리',     anchor: '모서리'     },
+]);
+
+export const PageTocSemantic = () => PageToc([
+  { label: '색상',       anchor: '색상'       },
+  { label: '타이포그래피', anchor: '타이포그래피' },
+  { label: '간격',       anchor: '간격'       },
+  { label: '모서리',     anchor: '모서리'     },
+  { label: '그림자',     anchor: '그림자'     },
+]);

@@ -197,8 +197,9 @@
   --color-text-information:  var(--color-information-40);
   --color-text-disabled:     var(--color-gray-50);
   --color-text-inverse:      var(--color-gray-90);
+  --color-text-on-primary:   var(--color-gray-90);           /* 다크 bg-primary가 밝아져 흰 글자 대비 미달 */
   --color-text-link:         var(--color-primary-40);
-  --color-text-link-visited: #a855f7; /* 자체 추가 */
+  --color-text-link-visited: #c084fc; /* 자체 추가 — 4.5:1+ 대비 확보 */
 
   /* color-bg */
   --color-bg-default:            var(--color-gray-90);
