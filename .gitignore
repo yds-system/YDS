@@ -1,4 +1,11 @@
 node_modules/
+dist/
 storybook-static/
-.claude/
+.env
+.env.*
+
+# Debug files
 *.log
+
+# Claude local settings
+.claude/
