@@ -6,7 +6,7 @@ addons.setConfig({
     base: 'light',
     brandTitle: 'YDS',
     brandImage: './yds_logo2.svg',
-    brandUrl: '/',
+    brandUrl: '/YDS/',
     brandTarget: '_self',
   }),
 });
