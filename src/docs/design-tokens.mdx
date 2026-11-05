@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { ConnectionTable, ThemeTable } from './token-components.js';
+import { ConnectionTable } from './token-components.js';
 
 <Meta title="디자인 토큰 정의서/메인" />
 
@@ -67,17 +67,4 @@ import { ConnectionTable, ThemeTable } from './token-components.js';
 
 <ConnectionTable />
 
----
-
-## 테마 비교: 기본 vs project-a
-
-`[data-theme="project-a"]`에서 `color-primary-*` **프리미티브 값 자체**를 초록 계열로 덮어씁니다.
-이 프리미티브를 `var()`로 참조하는 `color-bg-primary`, `color-text-primary`, `color-border-focus` 등
-모든 시멘틱 토큰이 자동으로 바뀝니다.
-
-```html
-<html lang="ko" data-theme="project-a">
-```
-
-<ThemeTable />
 

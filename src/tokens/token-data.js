@@ -373,24 +373,24 @@ export const spacingSizeGroups = [
     size: 'm',
     label: 'm  —  24 · 32px',
     tokens: [
-      { name: 'space-m-24', ref: 'space-24', figma: 'space/m/24',  value: '2.4rem', usage: '컴포넌트 간 중간 간격',  krds: '--krds-number-10' },
-      { name: 'space-m-32', ref: 'space-32', figma: 'space/m/32',  value: '3.2rem', usage: '섹션 내 블록 여백',      krds: '--krds-number-12' },
+      { name: 'space-m-24', ref: 'space-24', figma: 'space/m/24',  value: '2.4rem', mobile: '2rem',   usage: '컴포넌트 간 중간 간격',  krds: '--krds-number-10' },
+      { name: 'space-m-32', ref: 'space-32', figma: 'space/m/32',  value: '3.2rem', mobile: '2.4rem', usage: '섹션 내 블록 여백',      krds: '--krds-number-12' },
     ],
   },
   {
     size: 'l',
     label: 'l  —  40 · 48px',
     tokens: [
-      { name: 'space-l-40', ref: 'space-40', figma: 'space/l/40',  value: '4rem',   usage: '섹션 패딩 기본',   krds: '--krds-number-14' },
-      { name: 'space-l-48', ref: 'space-48', figma: 'space/l/48',  value: '4.8rem', usage: '섹션 패딩 대형',   krds: '--krds-number-16' },
+      { name: 'space-l-40', ref: 'space-40', figma: 'space/l/40',  value: '4rem',   mobile: '3.2rem', usage: '섹션 패딩 기본',   krds: '--krds-number-14' },
+      { name: 'space-l-48', ref: 'space-48', figma: 'space/l/48',  value: '4.8rem', mobile: '4rem',   usage: '섹션 패딩 대형',   krds: '--krds-number-16' },
     ],
   },
   {
     size: 'xl',
     label: 'xl  —  64 · 80px',
     tokens: [
-      { name: 'space-xl-64', ref: 'space-64', figma: 'space/xl/64', value: '6.4rem', usage: '섹션 간 외부 여백',      krds: '--krds-number-18' },
-      { name: 'space-xl-80', ref: 'space-80', figma: 'space/xl/80', value: '8rem',   usage: '섹션 간 최대 외부 여백', krds: '--krds-number-20' },
+      { name: 'space-xl-64', ref: 'space-64', figma: 'space/xl/64', value: '6.4rem', mobile: '4.8rem', usage: '섹션 간 외부 여백',      krds: '--krds-number-18' },
+      { name: 'space-xl-80', ref: 'space-80', figma: 'space/xl/80', value: '8rem',   mobile: '6.4rem', usage: '섹션 간 최대 외부 여백', krds: '--krds-number-20' },
     ],
   },
 ];

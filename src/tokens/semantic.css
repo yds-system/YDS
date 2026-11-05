@@ -191,6 +191,14 @@
     --font-size-heading-m:   var(--font-size-22); /* 24px → 22px */
     /* heading-s / body-*: PC = 모바일 → 오버라이드 불필요 */
 
+    /* 간격: space-m/l/xl 크기 별칭 모바일 축소 */
+    --space-m-24: var(--space-20); /* 24px → 20px */
+    --space-m-32: var(--space-24); /* 32px → 24px */
+    --space-l-40: var(--space-32); /* 40px → 32px */
+    --space-l-48: var(--space-40); /* 48px → 40px */
+    --space-xl-64: var(--space-48); /* 64px → 48px */
+    --space-xl-80: var(--space-64); /* 80px → 64px */
+
     /* 간격: section-padding·container-padding 모바일 축소 */
     --section-padding-s: var(--space-12); /* 16px → 12px */
     --section-padding-m: var(--space-20); /* 32px → 20px */
