@@ -131,6 +131,16 @@ export const colorPrimGroups = [
     ],
   },
   {
+    name: 'teal',
+    tokens: [
+      { name: 'color-teal-20', figma: 'color/teal/20', value: '#abd8e3', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-20' },
+      { name: 'color-teal-60', figma: 'color/teal/60', value: '#1f687a', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-60' },
+      { name: 'color-teal-70', figma: 'color/teal/70', value: '#17505e', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-70' },
+      { name: 'color-teal-80', figma: 'color/teal/80', value: '#113b45', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-80' },
+      { name: 'color-teal-95', figma: 'color/teal/95', value: '#091f25', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-95' },
+    ],
+  },
+  {
     name: 'black-alpha',
     tokens: [
       { name: 'color-black-alpha-100', figma: 'color/black-alpha/100', value: '#000000',   usage: '불투명 검정',          krds: '--krds-color-light-alpha-black100' },
@@ -139,16 +149,6 @@ export const colorPrimGroups = [
       { name: 'color-black-alpha-25',  figma: 'color/black-alpha/25',  value: '#00000040', usage: '',                     krds: '--krds-color-light-alpha-black25'  },
       { name: 'color-black-alpha-10',  figma: 'color/black-alpha/10',  value: '#0000001a', usage: '그림자·호버 오버레이', krds: '--krds-color-light-alpha-black10'  },
       { name: 'color-black-alpha-0',   figma: 'color/black-alpha/0',   value: '#00000000', usage: '완전 투명',            krds: '--krds-color-light-alpha-black0'   },
-    ],
-  },
-  {
-    name: 'teal',
-    tokens: [
-      { name: 'color-teal-20', figma: 'color/teal/20', value: '#abd8e3', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-20' },
-      { name: 'color-teal-60', figma: 'color/teal/60', value: '#1f687a', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-60' },
-      { name: 'color-teal-70', figma: 'color/teal/70', value: '#17505e', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-70' },
-      { name: 'color-teal-80', figma: 'color/teal/80', value: '#113b45', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-80' },
-      { name: 'color-teal-95', figma: 'color/teal/95', value: '#091f25', usage: '고대비 모드 secondary 전용', krds: '--krds-color-high-contrast-secondary-95' },
     ],
   },
   {

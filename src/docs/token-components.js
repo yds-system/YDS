@@ -394,6 +394,7 @@ export const SpacingSizeTable = () =>
               th('참조 프리미티브'),
               th('값'),
               th('px'),
+              th('모바일'),
               th('용도'),
               th('CSS 변수')
             )
@@ -406,6 +407,7 @@ export const SpacingSizeTable = () =>
                 td(Chip(t.ref)),
                 td(GrayChip(t.value)),
                 td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
+                td(h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')),
                 td(t.usage || ''),
                 td(CssChip(t.name))
               )
