@@ -267,6 +267,10 @@ const TypoSample = (valuePC) => {
 
 export const TypoStyleTable = () =>
   h('table', { style: tableStyle },
+    h('colgroup', null,
+      h('col', { style: { width: '220px' } }),
+      h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
+    ),
     h('thead', null,
       h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('용도'), th('CSS 변수'))
     ),
