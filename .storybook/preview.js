@@ -18,6 +18,13 @@ const preview = {
         },
       },
     },
+    docs: {
+      toc: {
+        title: '목차',
+        headingSelector: 'h2, h3',
+      },
+    },
+
     controls: {
       matchers: {
        color: /(background|color)$/i,
