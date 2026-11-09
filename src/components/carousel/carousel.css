@@ -51,8 +51,8 @@
 
 /* ----- ds-carousel__move-btn--prev (이전) ----- */
 .ds-carousel__move-btn.ds-carousel__move-btn--prev::after {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(90deg);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--prev:hover {
@@ -73,8 +73,8 @@
 
 /* ----- ds-carousel__move-btn--next (다음) ----- */
 .ds-carousel__move-btn.ds-carousel__move-btn--next::after {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(-90deg);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--next:hover {
@@ -95,20 +95,20 @@
 
 /* ----- ds-carousel__play-btn (재생) ----- */
 .ds-carousel__play-btn::after {
-  -webkit-mask-image: url(/img/component/icon/ico_swiper_play.svg);
-  mask-image: url(/img/component/icon/ico_swiper_play.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
 }
 
 /* ----- ds-carousel__stop-btn (멈춤) ----- */
 .ds-carousel__stop-btn::after {
-  -webkit-mask-image: url(/img/component/icon/ico_swiper_stop.svg);
-  mask-image: url(/img/component/icon/ico_swiper_stop.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
 }
 
 /* ----- ds-carousel__more-btn (더보기) ----- */
 .ds-carousel__more-btn::after {
-  -webkit-mask-image: url(/img/component/icon/ico_plus.svg);
-  mask-image: url(/img/component/icon/ico_plus.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
 }
 
 /* ----- ds-carousel__controller (재생/멈춤 그룹) ----- */

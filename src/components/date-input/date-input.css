@@ -173,8 +173,8 @@
   width: var(--krds-size-height-3);
   height: var(--krds-size-height-3);
   background-color: var(--krds-light-color-text-basic);
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -212,8 +212,8 @@
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
   background-color: var(--krds-light-color-text-basic);
-  -webkit-mask-image: url(/img/component/icon/ico_arrow_dropdown.svg);
-  mask-image: url(/img/component/icon/ico_arrow_dropdown.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center center;

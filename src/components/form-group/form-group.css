@@ -169,8 +169,8 @@
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  -webkit-mask-image: url(/img/component/icon/ico_information.svg);
-  mask-image: url(/img/component/icon/ico_information.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_information.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_information.svg);
 }
 
 /* 상태별(--error, --success, --info) 아이콘은 별도 SVG 사용 */
@@ -187,7 +187,7 @@
 .ds-form-group .ds-form-hint--success::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
-  background-image: url(/img/component/icon/ico_success_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -199,7 +199,7 @@
 .ds-form-group .ds-form-hint--info::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
-  background-image: url(/img/component/icon/ico_information_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -211,7 +211,7 @@
 .ds-form-group .ds-form-hint--error::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
-  background-image: url(/img/component/icon/ico_error_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }

@@ -85,8 +85,8 @@
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transition: var(--krds-transition-base);
   transform: rotate(0deg);
 }

@@ -90,8 +90,8 @@ a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus-visible {
   height: var(--krds-icon--size-small);
   margin-left: var(--krds-gap-2);
   background-color: var(--ds-breadcrumb--color-icon);
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -111,8 +111,8 @@ a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus-visible {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
   background-color: var(--ds-breadcrumb--color-icon);
-  -webkit-mask-image: url(/img/component/icon/ico_bread_home.svg);
-  mask-image: url(/img/component/icon/ico_bread_home.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -164,12 +164,12 @@ a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus-visible {
     forced-color-adjust: none;
   }
   .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
-    -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
-    mask-image: url(/img/component/icon/ico_ellipsis.svg);
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
   }
   .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
-    -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-    mask-image: url(/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
     transform: rotate(-90deg);
   }
   .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child .ds-breadcrumb__link {
@@ -213,12 +213,12 @@ a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus-visible {
   forced-color-adjust: none;
 }
 .ds-breadcrumb--mobile .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
-  -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
-  mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
 }
 .ds-breadcrumb--mobile .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(-90deg);
 }
 .ds-breadcrumb--mobile .ds-breadcrumb__item:not(.ds-breadcrumb__item--home):not(:nth-child(2)):last-child .ds-breadcrumb__link {

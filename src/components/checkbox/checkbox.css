@@ -224,8 +224,8 @@ fieldset.ds-form-group > legend.ds-form-label + * {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  -webkit-mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
-  mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
   background-color: var(--ds-check--checkbox-check-color-element);
 }
 .ds-check-item input[type=checkbox]:checked ~ label:before {

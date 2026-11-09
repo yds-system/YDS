@@ -47,7 +47,7 @@
   height: var(--ds-select--size-height-large);
   padding: 0 var(--ds-select--padding-right-large) 0 var(--ds-select--padding-default);
   background-color: var(--ds-select--color-background) !important;
-  background-image: url(/img/component/icon/ico_angle.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   background-repeat: no-repeat;
   background-position: center right var(--ds-select--padding-default);
   background-size: var(--ds-select--icon-size-large);
@@ -130,7 +130,7 @@
 /* 비활성화 */
 .ds-select[disabled] {
   background-color: var(--ds-select--color-background-disabled) !important;
-  background-image: url(/img/component/icon/ico_angle_disabled.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
   border-color: var(--ds-select--color-border-disabled);
   color: var(--ds-select--color-text-disabled);
   cursor: not-allowed;
