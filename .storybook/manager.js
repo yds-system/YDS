@@ -5,7 +5,7 @@ addons.setConfig({
   theme: create({
     base: 'light',
     brandTitle: 'YDS',
-    brandImage: './yds_logo2.svg',
+    brandImage: './yds_logo_main.png',
     brandUrl: '/YDS/',
     brandTarget: '_self',
   }),
