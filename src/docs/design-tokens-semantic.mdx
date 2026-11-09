@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { SemanticStaticColorTable, SemanticTypoStyleTable, FixedSpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic } from './token-components.js';
+import { SemanticStaticColorTable, SemanticTypoStyleTable, SpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic } from './token-components.js';
 
 <Meta title="디자인 토큰 정의서/시멘틱" />
 
@@ -35,11 +35,11 @@ PC·모바일 값이 동일한 고정 타이포 토큰입니다.
 
 ## 간격
 
-`xs · s` 고정 크기 그룹입니다.
+크기 그룹 별칭 토큰입니다. `m / l / xl` 그룹은 모바일에서 한 단계 작은 값으로 전환됩니다.
 
-반응형 그룹(`m / l / xl`)과 레이아웃 토큰(`section-padding-*`, `container-padding`)은 **반응형** 페이지에서 확인하세요.
+레이아웃 토큰(`section-padding-*`, `container-padding`)은 **반응형** 페이지에서 확인하세요.
 
-<FixedSpacingSizeTable />
+<SpacingSizeTable />
 
 ---
 

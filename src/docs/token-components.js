@@ -796,7 +796,6 @@ export const SemanticStaticColorTable = () =>
 
 export const PageTocResponsive = () => PageToc([
   { label: '타이포그래피', anchor: '타이포그래피' },
-  { label: '간격',         anchor: '간격'         },
   { label: '레이아웃',     anchor: '레이아웃'     },
 ]);
 
