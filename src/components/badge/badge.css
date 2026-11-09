@@ -46,7 +46,7 @@
   --ds-badge--color-disabled-element: var(--krds-light-color-element-disabled-dark);
   --ds-badge--color-disabled-element-lighter: var(--krds-light-color-element-disabled-light);
   --ds-badge--color-disabled-text: var(--krds-light-color-text-disabled-on);
-  --ds-badge--color-text-basic: var(--color-text-on-primary);
+  --ds-badge--color-text-basic: var(--color-text-on-static);
   --ds-badge--color-text-warning: var(--krds-light-color-text-static);
 }
 

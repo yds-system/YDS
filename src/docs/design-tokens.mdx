@@ -10,12 +10,29 @@ import { ConnectionTable } from './token-components.js';
 
 ---
 
-## 디자인 토큰 요소
+## 4계층 토큰 구조
 
-| 계층 | 페이지 | 포함 항목 |
+| 계층 | 파일 | 역할 |
 |---|---|---|
-| 프리미티브 | 디자인 토큰 정의서 / 프리미티브 | 색상·타이포그래피·간격·모서리 |
-| 시멘틱 | 디자인 토큰 정의서 / 시멘틱 | 색상(라이트·다크)·타이포그래피(PC·모바일)·간격·모서리·그림자 |
+| **프리미티브** | `primitive.css` | 원재료 (색상·폰트·간격·모서리 원시 값) |
+| **반응형** | `responsive.css` | 뷰포트별 가변 토큰 (PC 기본 → 모바일 덮어쓰기) |
+| **모드** | `mode.css` | 색상 모드별 가변 토큰 (라이트·다크·고대비·시스템) |
+| **시멘틱** | `semantic.css` | 용도 기반 고정 토큰 (프리미티브·반응형·모드 참조) |
+
+**참조 방향**: `semantic / responsive / mode` → `primitive`
+
+역방향(예: `primitive`가 `semantic`을 참조) 금지.
+
+---
+
+## 로드 순서
+
+```
+primitive.css   → 원재료 (색상·크기·폰트·간격·모서리 원시 값)
+responsive.css  → 반응형 (PC 기본값 + @media 모바일 덮어쓰기)
+mode.css        → 모드 색상 (라이트·다크·고대비·시스템)
+semantic.css    → 시멘틱 (고정 타이포·간격·그림자·모서리 별칭)
+```
 
 ---
 
@@ -36,14 +53,19 @@ import { ConnectionTable } from './token-components.js';
       <td><code>--color-primary-50</code>, <code>--color-gray-90</code>, <code>--space-16</code></td>
     </tr>
     <tr>
-      <td><strong>시멘틱</strong></td>
-      <td>용도 기반. 반드시 프리미티브를 <code>var()</code>로 참조한다.</td>
-      <td><code>--color-bg-primary</code>, <code>--color-text-default</code>, <code>--gap-m</code></td>
+      <td><strong>반응형</strong></td>
+      <td>뷰포트별 가변. 토큰 이름 숫자는 PC 기준값(px).</td>
+      <td><code>--space-m-24</code>, <code>--font-size-heading-xl</code></td>
     </tr>
     <tr>
-      <td><strong>테마 오버라이드</strong></td>
-      <td><code>[data-theme]</code>에서 시멘틱 토큰 일부를 교체한다.</td>
-      <td><code>--color-bg-primary: var(--color-primary-50)</code></td>
+      <td><strong>모드</strong></td>
+      <td>모드별 가변 색상. 컴포넌트는 이 토큰만 참조해야 모드가 자동 전환된다.</td>
+      <td><code>--color-bg-primary</code>, <code>--color-text-default</code></td>
+    </tr>
+    <tr>
+      <td><strong>시멘틱</strong></td>
+      <td>용도 기반 고정 별칭. 반드시 프리미티브를 <code>var()</code>로 참조한다.</td>
+      <td><code>--shadow-m</code>, <code>--radius-m</code>, <code>--gap-m</code></td>
     </tr>
   </tbody>
 </table>
@@ -59,12 +81,10 @@ import { ConnectionTable } from './token-components.js';
 **장식 vs UI 사용 구분**
 
 - **아이콘·일러스트·차트 등 장식** → 프리미티브 직접 참조 허용 (`--color-primary-50`, `--color-success-30` 등)
-- **버튼·텍스트·배경·테두리 등 UI** → 반드시 시멘틱 참조 (`--color-bg-primary`, `--color-text-default` 등)
+- **버튼·텍스트·배경·테두리 등 UI** → 반드시 모드·시멘틱 참조 (`--color-bg-primary`, `--color-text-default` 등)
 
 ---
 
 ## 예시: 프리미티브 → 시멘틱 연결
 
 <ConnectionTable />
-
-

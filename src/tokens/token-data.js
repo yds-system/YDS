@@ -183,6 +183,7 @@ export const colorSemanticGroups = [
       { name: 'color-text-disabled',     figma: 'color/text/disabled',     value: '#8a949e', ref: 'color-gray-40',        darkRef: 'color-gray-50',         darkValue: '#6d7882', hcRef: 'color-gray-60',       hcValue: '#58616a', usage: '비활성 텍스트',              krds: '--krds-light-color-text-disabled'       },
       { name: 'color-text-inverse',      figma: 'color/text/inverse',      value: '#ffffff', ref: 'color-gray-0',         darkRef: 'color-gray-90',         darkValue: '#1e2124', hcRef: 'color-gray-90',       hcValue: '#1e2124', usage: '어두운 배경 위 텍스트',      krds: '--krds-light-color-text-basic-inverse'  },
       { name: 'color-text-on-primary',   figma: 'color/text/on-primary',   value: '#ffffff', ref: 'color-gray-0',         darkRef: 'color-gray-90',         darkValue: '#1e2124', hcRef: 'color-gray-0',        hcValue: '#ffffff', usage: '브랜드 배경 위 텍스트',      krds: '(자체 추가)'                            },
+      { name: 'color-text-on-secondary', figma: 'color/text/on-secondary', value: '#ffffff', ref: 'color-gray-0',         darkRef: 'color-gray-90',         darkValue: '#1e2124', hcRef: 'color-gray-100',      hcValue: '#000000', usage: 'secondary 채움 배경 위 텍스트', krds: '(자체 추가)'                           },
       { name: 'color-text-link',         figma: 'color/text/link',         value: '#256ef4', ref: 'color-primary-50',     darkRef: 'color-primary-40',      darkValue: '#4c87f6', hcRef: 'color-primary-30',    hcValue: '#86aff9', usage: '링크 기본',                  krds: '--krds-light-color-link-default'        },
       { name: 'color-text-link-visited', figma: 'color/text/link-visited', value: '#5917b8', ref: null,                   darkRef: null,                    darkValue: '#c49ff9', hcRef: null,                  hcValue: '#c49ff9', usage: '방문한 링크 (KRDS 고정값)',  krds: '--krds-light-color-link-visited'        },
     ],
@@ -469,4 +470,42 @@ export const radiusSemanticTokens = [
   { name: 'radius-l',      figma: 'radius/l',      value: '1.2rem (12px)',   ref: 'radius-12',  usage: '모달·패널',                krds: '--krds-radius-xlarge1' },
   { name: 'radius-xl',     figma: 'radius/xl',     value: '1.6rem (16px)',   ref: 'radius-16',  usage: '대형 카드',                krds: '(자체 추가)'           },
   { name: 'radius-circle', figma: 'radius/circle', value: '99.9rem (원형)', ref: 'radius-999', usage: '원형·알약형 버튼·뱃지',   krds: '--krds-radius-max'     },
+];
+
+
+/* ── 반응형 페이지용 exports ──────────────────────────────────────────────────── */
+
+/** font-size-heading-xl / l / m: PC/모바일 별도 행으로 표시 */
+export const responsiveTypoTokens = [
+  { name: 'font-size-heading-xl', pcRef: 'font-size-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'font-size-28', mobileValue: '2.8rem', mobilePx: '28px', usage: '최대 섹션 제목', krds: '--krds-pc-font-size-heading-xlarge'  },
+  { name: 'font-size-heading-l',  pcRef: 'font-size-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'font-size-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '대형 섹션 제목', krds: '--krds-pc-font-size-heading-large'   },
+  { name: 'font-size-heading-m',  pcRef: 'font-size-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'font-size-22', mobileValue: '2.2rem', mobilePx: '22px', usage: '중형 섹션 제목', krds: '--krds-pc-font-size-heading-medium'  },
+];
+
+/** space m/l/xl 그룹: 모바일에서 한 단계 축소 */
+export const responsiveSpacingGroups = spacingSizeGroups.slice(2); // m, l, xl
+
+/** space xs/s 그룹: 고정 (반응형 아님) */
+export const fixedSpacingSizeGroups = spacingSizeGroups.slice(0, 2); // xs, s
+
+/** heading-s, body-l/m/s/xs: PC = 모바일 (고정) */
+export const semanticTypoStyleTokens = typoStyleTokens.slice(3);
+
+/** section-padding-s/m/l, container-padding: 레이아웃 반응형 간격 */
+export const responsiveLayoutTokens = [
+  { name: 'section-padding-s', pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '소형 섹션 여백' },
+  { name: 'section-padding-m', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '일반 섹션 여백' },
+  { name: 'section-padding-l', pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '대형 섹션 여백' },
+  { name: 'container-padding', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '페이지 좌우 여백' },
+];
+
+/** 그림자 색상: mode.css에 정의, 모든 모드에서 동일 */
+export const shadowColorTokens = [
+  { name: 'color-shadow-subtle',  value: 'rgba(0,0,0,0.10)', ref: 'color-black-alpha-10', usage: '기본 그림자 (shadow-s, shadow-m 첫 레이어)', krds: '(자체 추가)' },
+  { name: 'color-shadow-default', value: 'rgba(0,0,0,0.25)', ref: 'color-black-alpha-25', usage: '깊은 그림자 (shadow-l 두 번째 레이어)',         krds: '(자체 추가)' },
+];
+
+/** 모드 불변 고정 색상: semantic.css에 정의 */
+export const semanticStaticColorTokens = [
+  { name: 'color-text-on-static', value: '#ffffff', ref: 'color-gray-0', usage: '어두운 채움(dark fill) 배경 위 텍스트·아이콘 — 모든 모드에서 항상 흰색', krds: '(자체 추가)' },
 ];

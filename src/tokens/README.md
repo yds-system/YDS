@@ -53,3 +53,30 @@ Figma에서는 **responsive** 컬렉션의 **mobile** 모드에서 확인할 수
 | `data-mode="system"` | OS 설정 연동 |
 
 컴포넌트 CSS는 `--color-*` 시멘틱 토큰만 참조하면 모드 전환이 자동 적용된다.
+
+### `system` 모드 동작 방식
+
+```css
+/* mode.css 내부 구조 */
+@media (prefers-color-scheme: dark) {
+  [data-mode="system"] { /* 다크 토큰 덮어쓰기 */ }
+}
+```
+
+- `data-mode="system"` 설정 후 OS가 **다크**이면 → `@media (prefers-color-scheme: dark)` 쿼리와 결합되어 다크 토큰이 적용된다.
+- OS가 **라이트**이면 → 미디어 쿼리 내부 CSS가 무시되어 `:root`의 라이트 기본값이 유지된다.
+- JavaScript 없이 순수 CSS로 동작하며, OS 설정 변경 시 즉시 반응한다.
+
+### `system` 모드와 `high-contrast` 모드의 관계
+
+두 모드는 **완전히 별개**다. `data-mode`는 한 번에 하나의 값만 가질 수 있다.
+
+| `data-mode` | 적용 모드 |
+|---|---|
+| (없음) | 라이트 |
+| `"dark"` | 다크 (고정) |
+| `"high-contrast"` | 고대비 (고정) |
+| `"system"` | OS가 다크이면 다크, 라이트이면 라이트 |
+
+- `system` 모드는 OS 다크/라이트만 추적한다. **OS 고대비 설정(`prefers-contrast: more`)은 별도 대응이 필요**하며, 현재는 `high-contrast`를 명시적으로 선택해야 한다.
+- `high-contrast` 선택 시 Storybook decorator가 `data-krds-mode="high-contrast"`도 함께 붙여 KRDS 컴포넌트 호환을 보장한다.

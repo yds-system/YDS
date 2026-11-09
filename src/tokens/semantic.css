@@ -11,6 +11,14 @@
 
 :root {
 
+  /* ── 2. 색상 시멘틱 (모드 불변) ──────────────────────────────────────────── */
+
+  /* 채움(dark fill) 배경 위 텍스트 — 모든 모드에서 항상 흰색.
+     primary 이외 배경(secondary, gray, danger, success, info 등)에서 사용.
+     mode.css의 --color-text-on-primary/secondary (모드별 가변)와 구별된다.    */
+  --color-text-on-static: var(--color-gray-0);
+
+
   /* ── 3. 타이포 시멘틱 ─────────────────────────────────────────────────────── */
   /* font-size-heading-xl / l / m 는 반응형 → responsive.css 에 정의            */
 

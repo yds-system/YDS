@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { ColorSemanticTable, TypoStyleTable, SpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic, ModeInfoBox } from './token-components.js';
+import { SemanticStaticColorTable, SemanticTypoStyleTable, FixedSpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic } from './token-components.js';
 
 <Meta title="디자인 토큰 정의서/시멘틱" />
 
@@ -7,34 +7,39 @@ import { ColorSemanticTable, TypoStyleTable, SpacingSizeTable, SpacingSemanticTa
 
 <PageTocSemantic />
 
-> 피그마 **Semantic** 컬렉션과 같은 구성입니다. 용도 기반으로 프리미티브를 `var()`로 참조합니다.
-> 색상은 라이트·다크·고대비 모드 값을, 타이포·간격·모서리는 PC·모바일 값을 함께 표시합니다.
+> `semantic.css`에서 정의. 용도 기반으로 프리미티브를 `var()`로 참조합니다.
+>
+> 모드별 색상은 **모드** 페이지, 반응형 타이포·간격은 **반응형** 페이지에서 확인하세요.
 
 ---
 
-## 색상
+## 고정 색상
 
-<ModeInfoBox />
+모드와 무관하게 항상 같은 값을 유지하는 색상 토큰입니다.
 
-라이트(기본) · 다크(`[data-mode="dark"]`) · 고대비(`[data-mode="high-contrast"]`)의 참조·값을 함께 표시합니다.
+`mode.css`의 `--color-text-on-primary / --color-text-on-secondary`(모드별 가변)와 달리, 이 토큰은 어두운 채움(dark fill) 배경 위에서 항상 흰색으로 표시됩니다.
 
-<ColorSemanticTable />
+<SemanticStaticColorTable />
 
 ---
 
 ## 타이포그래피
 
-PC(기본)와 모바일(`@media max-width: 1279px`) 값을 함께 표시합니다.
+PC·모바일 값이 동일한 고정 타이포 토큰입니다.
 
-<TypoStyleTable />
+반응형 제목(`heading-xl / heading-l / heading-m`)은 **반응형** 페이지에서 확인하세요.
+
+<SemanticTypoStyleTable />
 
 ---
 
 ## 간격
 
-크기 그룹 별칭 토큰(`space-{크기}-{px}` 형식)은 프리미티브 숫자형 토큰을 `var()`로 참조합니다. 컴포넌트에서 직접 쓸 수 있는 의미 있는 크기 단위입니다.
+`xs · s` 고정 크기 그룹입니다.
 
-<SpacingSizeTable />
+반응형 그룹(`m / l / xl`)과 레이아웃 토큰(`section-padding-*`, `container-padding`)은 **반응형** 페이지에서 확인하세요.
+
+<FixedSpacingSizeTable />
 
 ---
 
@@ -51,5 +56,7 @@ PC(기본)와 모바일(`@media max-width: 1279px`) 값을 함께 표시합니�
 ---
 
 ## 그림자
+
+`--shadow-*` 토큰은 `mode.css`의 `--color-shadow-subtle / --color-shadow-default` 토큰을 참조합니다.
 
 <ShadowTable />

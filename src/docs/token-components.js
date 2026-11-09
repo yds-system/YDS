@@ -19,6 +19,13 @@ import {
   radiusPrimTokens,
   radiusSemanticTokens,
   themeProjectAOverrides,
+  responsiveTypoTokens,
+  responsiveSpacingGroups,
+  responsiveLayoutTokens,
+  fixedSpacingSizeGroups,
+  semanticTypoStyleTokens,
+  shadowColorTokens,
+  semanticStaticColorTokens,
 } from '../tokens/token-data.js';
 
 // ─── 내부 유틸 ────────────────────────────────────────────────────────────────
@@ -299,7 +306,7 @@ const RefPrimChips = (refs) => {
   );
 };
 
-export const TypoStyleTable = () =>
+const TypoStyleTableData = (tokens) =>
   h('table', { style: tableStyle },
     h('colgroup', null,
       h('col', { style: { width: '200px' } }),
@@ -309,7 +316,7 @@ export const TypoStyleTable = () =>
       h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('참조 프리미티브'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
-      ...typoStyleTokens.map(t =>
+      ...tokens.map(t =>
         h('tr', { key: t.name },
           td(TypoSample(t.valuePC)),
           td(Chip(t.name)),
@@ -333,6 +340,9 @@ export const TypoStyleTable = () =>
       )
     )
   );
+
+export const TypoStyleTable         = () => TypoStyleTableData(typoStyleTokens);
+export const SemanticTypoStyleTable = () => TypoStyleTableData(semanticTypoStyleTokens);
 
 // ─── 4. 간격 프리미티브 ───────────────────────────────────────────────────────
 
@@ -378,9 +388,9 @@ const sizeGroupLabelStyle = {
   paddingLeft: '8px',
 };
 
-export const SpacingSizeTable = () =>
+const SpacingSizeSection = (groups) =>
   h(Fragment, null,
-    ...spacingSizeGroups.map(g =>
+    ...groups.map(g =>
       h('div', { key: g.size, style: sectionStyle },
         h('div', { style: sizeGroupLabelStyle }, g.label),
         h('table', { style: tableStyle },
@@ -422,6 +432,10 @@ export const SpacingSizeTable = () =>
       )
     )
   );
+
+export const SpacingSizeTable       = () => SpacingSizeSection(spacingSizeGroups);
+export const FixedSpacingSizeTable  = () => SpacingSizeSection(fixedSpacingSizeGroups);
+export const ResponsiveSpacingTable = () => SpacingSizeSection(responsiveSpacingGroups);
 
 // ─── 4. 간격 시멘틱 ───────────────────────────────────────────────────────────
 
@@ -612,11 +626,11 @@ export const PageTocPrimitive = () => PageToc([
 ]);
 
 export const PageTocSemantic = () => PageToc([
-  { label: '색상',       anchor: '색상'       },
+  { label: '고정 색상',    anchor: '고정-색상'    },
   { label: '타이포그래피', anchor: '타이포그래피' },
-  { label: '간격',       anchor: '간격'       },
-  { label: '모서리',     anchor: '모서리'     },
-  { label: '그림자',     anchor: '그림자'     },
+  { label: '간격',         anchor: '간격'         },
+  { label: '모서리',       anchor: '모서리'       },
+  { label: '그림자',       anchor: '그림자'       },
 ]);
 
 // ─── 색상 모드 안내 박스 ──────────────────────────────────────────────────────
@@ -674,3 +688,119 @@ export const ModeInfoBox = () =>
       ' 도 자동 동기화됩니다.'
     )
   );
+
+// ─── 반응형: 타이포 표 ────────────────────────────────────────────────────────
+
+const PcChip     = (txt) => h('code', { style: { ...chipStyle, background: '#f0f7ff', color: '#0b50d0', fontSize: '11px' } }, txt);
+const MobileChip = (txt) => h('code', { style: { ...chipStyle, background: '#fff8e0', color: '#8a5c00', fontSize: '11px' } }, txt);
+
+export const ResponsiveTypoTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null,
+        th('토큰 이름'),
+        th('PC 참조'), th('PC 값'), th('PC px'),
+        th('모바일 참조'), th('모바일 값'), th('모바일 px'),
+        th('용도'), th('CSS 변수')
+      )
+    ),
+    h('tbody', null,
+      ...responsiveTypoTokens.map(t =>
+        h('tr', { key: t.name },
+          td(Chip(t.name)),
+          td(PcChip(t.pcRef)),
+          td(GrayChip(t.pcValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.pcPx)),
+          td(MobileChip(t.mobileRef)),
+          td(GrayChip(t.mobileValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.mobilePx)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 반응형: 레이아웃 표 ──────────────────────────────────────────────────────
+
+export const ResponsiveLayoutTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null,
+        th('토큰 이름'),
+        th('PC 참조'), th('PC 값'), th('PC px'),
+        th('모바일 참조'), th('모바일 값'), th('모바일 px'),
+        th('용도'), th('CSS 변수')
+      )
+    ),
+    h('tbody', null,
+      ...responsiveLayoutTokens.map(t =>
+        h('tr', { key: t.name },
+          td(Chip(t.name)),
+          td(PcChip(t.pcRef)),
+          td(GrayChip(t.pcValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.pcPx)),
+          td(MobileChip(t.mobileRef)),
+          td(GrayChip(t.mobileValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.mobilePx)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 모드: 그림자 색상 표 ─────────────────────────────────────────────────────
+
+export const ShadowColorTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('CSS 변수'))
+    ),
+    h('tbody', null,
+      ...shadowColorTokens.map(t =>
+        h('tr', { key: t.name },
+          td(ColorSwatch(t.value)),
+          td(Chip(t.name)),
+          td(Chip(t.ref)),
+          td(GrayChip(t.value)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 시멘틱: 고정 색상 표 ─────────────────────────────────────────────────────
+
+export const SemanticStaticColorTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('CSS 변수'))
+    ),
+    h('tbody', null,
+      ...semanticStaticColorTokens.map(t =>
+        h('tr', { key: t.name },
+          td(ColorSwatch(t.value)),
+          td(Chip(t.name)),
+          td(Chip(t.ref)),
+          td(GrayChip(t.value)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+// ─── 추가 TOC ─────────────────────────────────────────────────────────────────
+
+export const PageTocResponsive = () => PageToc([
+  { label: '타이포그래피', anchor: '타이포그래피' },
+  { label: '간격',         anchor: '간격'         },
+  { label: '레이아웃',     anchor: '레이아웃'     },
+]);
+
+export const PageTocMode = () => PageToc([
+  { label: '색상',     anchor: '색상'   },
+  { label: '그림자색', anchor: '그림자색' },
+]);
