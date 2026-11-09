@@ -1,5 +1,11 @@
 # 디자인 토큰 구조
 
+> **수정 규칙**: CSS 토큰을 수정할 때 `src/docs/token-data.js`도 함께 수정하고, `npm run check:tokens`으로 일치 여부를 확인한다.
+>
+> 추후 JSON + Style Dictionary 체계로 전환되면 `token-data.js`는 자동 생성 파일로 대체될 예정이다.
+
+---
+
 ## rem 기준
 
 ```
