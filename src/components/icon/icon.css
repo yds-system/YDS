@@ -44,15 +44,15 @@
 
 /* ds-ico-angle: 꺽쇠 (기본: 아래) */
 .ds-icon.ds-ico-angle {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
 }
 .ds-icon.ds-ico-angle.ds-icon--disabled {
-  -webkit-mask-image: url(/img/component/icon/ico_angle_disabled.svg);
-  mask-image: url(/img/component/icon/ico_angle_disabled.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
   -webkit-mask-image: none;
   mask-image: none;
-  background-image: url(/img/component/icon/ico_angle_disabled.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -65,65 +65,65 @@
 
 /* ds-ico-go: 이동 화살표 */
 .ds-icon.ds-ico-go {
-  -webkit-mask-image: url(/img/component/icon/ico_go.svg);
-  mask-image: url(/img/component/icon/ico_go.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
 }
 
 /* ds-ico-go-top: 맨 위로 */
 .ds-icon.ds-ico-go-top {
-  -webkit-mask-image: url(/img/component/icon/ico_go_top.svg);
-  mask-image: url(/img/component/icon/ico_go_top.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go_top.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go_top.svg);
 }
 
 /* ds-ico-link: 링크 (go 아이콘 재사용) */
 .ds-icon.ds-ico-link {
-  -webkit-mask-image: url(/img/component/icon/ico_go.svg);
-  mask-image: url(/img/component/icon/ico_go.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
 }
 
 /* ds-ico-page-next: 페이지 다음 */
 .ds-icon.ds-ico-page-next {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(-90deg);
 }
 
 /* ds-ico-bread-home: 홈(브레드크럼) */
 .ds-icon.ds-ico-bread-home {
-  -webkit-mask-image: url(/img/component/icon/ico_bread_home.svg);
-  mask-image: url(/img/component/icon/ico_bread_home.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
 }
 
 /* ds-ico-all: 전체 메뉴 */
 .ds-icon.ds-ico-all {
-  -webkit-mask-image: url(/img/component/icon/ico_all.svg);
-  mask-image: url(/img/component/icon/ico_all.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
 }
 
 /* ds-ico-global: 글로벌/언어 */
 .ds-icon.ds-ico-global {
-  -webkit-mask-image: url(/img/component/icon/ico_global.svg);
-  mask-image: url(/img/component/icon/ico_global.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_global.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_global.svg);
 }
 
 /* ds-ico-func: 펼치기 (기본: 오른쪽) */
 .ds-icon.ds-ico-func {
-  -webkit-mask-image: url(/img/component/icon/ico_expand.svg);
-  mask-image: url(/img/component/icon/ico_expand.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_expand.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_expand.svg);
 }
 .ds-icon.ds-ico-func.ds-icon--up { transform: rotate(-90deg); }
 
 /* ds-ico-fold: 접기/펼치기 */
 .ds-icon.ds-ico-fold {
-  -webkit-mask-image: url(/img/component/icon/ico_foldable.svg);
-  mask-image: url(/img/component/icon/ico_foldable.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_foldable.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_foldable.svg);
 }
 .ds-icon.ds-ico-fold.ds-icon--right { transform: rotate(-180deg); }
 
 /* ds-ico-toggle: 토글 (angle 아이콘 재사용) */
 .ds-icon.ds-ico-toggle {
-  -webkit-mask-image: url(/img/component/icon/ico_angle.svg);
-  mask-image: url(/img/component/icon/ico_angle.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
 }
 
 /* ============================================================
@@ -132,33 +132,33 @@
 
 /* ds-ico-sch: 검색 */
 .ds-icon.ds-ico-sch {
-  -webkit-mask-image: url(/img/component/icon/ico_sch.svg);
-  mask-image: url(/img/component/icon/ico_sch.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
 }
 
 /* ds-ico-sch-plus: 검색+ */
 .ds-icon.ds-ico-sch-plus {
-  -webkit-mask-image: url(/img/component/icon/ico_sch_plus.svg);
-  mask-image: url(/img/component/icon/ico_sch_plus.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch_plus.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch_plus.svg);
 }
 
 /* ds-ico-plus: 추가 */
 .ds-icon.ds-ico-plus {
-  -webkit-mask-image: url(/img/component/icon/ico_plus.svg);
-  mask-image: url(/img/component/icon/ico_plus.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
 }
 
 /* ds-ico-del: 삭제 */
 .ds-icon.ds-ico-del {
-  -webkit-mask-image: url(/img/component/icon/ico_delete.svg);
-  mask-image: url(/img/component/icon/ico_delete.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_delete.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_delete.svg);
 }
 
 /* ds-ico-delete-fill: 삭제(채움) — pure */
 .ds-icon.ds-ico-delete-fill {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_delete_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_delete_fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -167,87 +167,87 @@
 /* ds-ico-popup-close / ds-ico-modal-close: 닫기 */
 .ds-icon.ds-ico-popup-close,
 .ds-icon.ds-ico-modal-close {
-  -webkit-mask-image: url(/img/component/icon/ico_close.svg);
-  mask-image: url(/img/component/icon/ico_close.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_close.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_close.svg);
 }
 
 /* ds-ico-more: 더보기 */
 .ds-icon.ds-ico-more {
-  -webkit-mask-image: url(/img/component/icon/ico_more.svg);
-  mask-image: url(/img/component/icon/ico_more.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
 }
 
 /* ds-ico-ellipsis: 말줄임 */
 .ds-icon.ds-ico-ellipsis {
-  -webkit-mask-image: url(/img/component/icon/ico_ellipsis.svg);
-  mask-image: url(/img/component/icon/ico_ellipsis.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
 }
 
 /* ds-ico-filter: 필터 */
 .ds-icon.ds-ico-filter {
-  -webkit-mask-image: url(/img/component/icon/ico_filter.svg);
-  mask-image: url(/img/component/icon/ico_filter.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_filter.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_filter.svg);
 }
 
 /* ds-ico-reset / ds-ico-refresh: 초기화/새로고침 (같은 아이콘) */
 .ds-icon.ds-ico-reset,
 .ds-icon.ds-ico-refresh {
-  -webkit-mask-image: url(/img/component/icon/ico_reset.svg);
-  mask-image: url(/img/component/icon/ico_reset.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_reset.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_reset.svg);
 }
 
 /* ds-ico-upload: 업로드 */
 .ds-icon.ds-ico-upload {
-  -webkit-mask-image: url(/img/component/icon/ico_upload.svg);
-  mask-image: url(/img/component/icon/ico_upload.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_upload.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_upload.svg);
 }
 
 /* ds-ico-down: 다운로드 */
 .ds-icon.ds-ico-down {
-  -webkit-mask-image: url(/img/component/icon/ico_download.svg);
-  mask-image: url(/img/component/icon/ico_download.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_download.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_download.svg);
 }
 
 /* ds-ico-print: 인쇄 */
 .ds-icon.ds-ico-print {
-  -webkit-mask-image: url(/img/component/icon/ico_print.svg);
-  mask-image: url(/img/component/icon/ico_print.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_print.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_print.svg);
 }
 
 /* ds-ico-scrap: 스크랩 */
 .ds-icon.ds-ico-scrap {
-  -webkit-mask-image: url(/img/component/icon/ico_scrap.svg);
-  mask-image: url(/img/component/icon/ico_scrap.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_scrap.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_scrap.svg);
 }
 
 /* ds-ico-share: 공유 */
 .ds-icon.ds-ico-share {
-  -webkit-mask-image: url(/img/component/icon/ico_share.svg);
-  mask-image: url(/img/component/icon/ico_share.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_share.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_share.svg);
 }
 
 /* ds-ico-like: 좋아요 */
 .ds-icon.ds-ico-like {
-  -webkit-mask-image: url(/img/component/icon/ico_like.svg);
-  mask-image: url(/img/component/icon/ico_like.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_like.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_like.svg);
 }
 
 /* ds-ico-setting: 설정 */
 .ds-icon.ds-ico-setting {
-  -webkit-mask-image: url(/img/component/icon/ico_setting.svg);
-  mask-image: url(/img/component/icon/ico_setting.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_setting.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_setting.svg);
 }
 
 /* ds-ico-view-mode: 보기 모드 */
 .ds-icon.ds-ico-view-mode {
-  -webkit-mask-image: url(/img/component/icon/ico_view_mode.svg);
-  mask-image: url(/img/component/icon/ico_view_mode.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_view_mode.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_view_mode.svg);
 }
 
 /* ds-ico-file: 파일 */
 .ds-icon.ds-ico-file {
-  -webkit-mask-image: url(/img/component/icon/ico_file.svg);
-  mask-image: url(/img/component/icon/ico_file.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_file.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_file.svg);
 }
 
 /* ============================================================
@@ -258,7 +258,7 @@
 .ds-icon.ds-ico-help {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_help.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_help.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -266,15 +266,15 @@
 
 /* ds-ico-tooltip: 툴팁 */
 .ds-icon.ds-ico-tooltip {
-  -webkit-mask-image: url(/img/component/icon/ico_tooltip.svg);
-  mask-image: url(/img/component/icon/ico_tooltip.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_tooltip.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_tooltip.svg);
 }
 
 /* ds-ico-success-fill: 성공 — pure */
 .ds-icon.ds-ico-success-fill {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_success_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -284,7 +284,7 @@
 .ds-icon.ds-ico-information-fill {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_information_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -294,7 +294,7 @@
 .ds-icon.ds-ico-error-fill {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_error_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -304,7 +304,7 @@
 .ds-icon.ds-ico-complete-fill {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_complete_fill.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_complete_fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -314,7 +314,7 @@
 .ds-icon.ds-ico-flag {
   -webkit-mask: none;
   mask: none;
-  background-image: url(/img/component/icon/ico_flag.svg);
+  background-image: url(../../../reference/krds/resources/img/component/icon/ico_flag.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -322,8 +322,8 @@
 
 /* ds-ico-urgent-danger: 긴급(위험) */
 .ds-icon.ds-ico-urgent-danger {
-  -webkit-mask-image: url(/img/component/icon/ico_urgent_badge_danger.svg);
-  mask-image: url(/img/component/icon/ico_urgent_badge_danger.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_urgent_badge_danger.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_urgent_badge_danger.svg);
 }
 
 /* ============================================================
@@ -332,18 +332,18 @@
 
 /* ds-ico-pw-visible / ds-ico-pw-visible-on: 비밀번호 표시/숨김 */
 .ds-icon.ds-ico-pw-visible {
-  -webkit-mask-image: url(/img/component/icon/ico_pw_visible_off.svg);
-  mask-image: url(/img/component/icon/ico_pw_visible_off.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_off.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_off.svg);
 }
 .ds-icon.ds-ico-pw-visible-on {
-  -webkit-mask-image: url(/img/component/icon/ico_pw_visible_on.svg);
-  mask-image: url(/img/component/icon/ico_pw_visible_on.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_on.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_on.svg);
 }
 
 /* ds-ico-checkbox: 체크박스 */
 .ds-icon.ds-ico-checkbox {
-  -webkit-mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
-  mask-image: url(/img/component/icon/ico_checkbox_checked.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
 }
 
 /* ============================================================
@@ -352,14 +352,14 @@
 
 /* ds-ico-calendar: 달력 */
 .ds-icon.ds-ico-calendar {
-  -webkit-mask-image: url(/img/component/icon/ico_calendar.svg);
-  mask-image: url(/img/component/icon/ico_calendar.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_calendar.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_calendar.svg);
 }
 
 /* ds-ico-cal-move: 달력 이동 */
 .ds-icon.ds-ico-cal-move {
-  -webkit-mask-image: url(/img/component/icon/ico_arrow_dropdown.svg);
-  mask-image: url(/img/component/icon/ico_arrow_dropdown.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
 }
 
 /* ============================================================
@@ -368,58 +368,58 @@
 
 /* ds-ico-log: 로그인 */
 .ds-icon.ds-ico-log {
-  -webkit-mask-image: url(/img/component/icon/ico_login.svg);
-  mask-image: url(/img/component/icon/ico_login.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
 }
 
 /* ds-ico-logout: 로그아웃 */
 .ds-icon.ds-ico-logout {
-  -webkit-mask-image: url(/img/component/icon/ico_logout.svg);
-  mask-image: url(/img/component/icon/ico_logout.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_logout.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_logout.svg);
 }
 
 /* ds-ico-join: 회원가입 */
 .ds-icon.ds-ico-join {
-  -webkit-mask-image: url(/img/component/icon/ico_join.svg);
-  mask-image: url(/img/component/icon/ico_join.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
 }
 
 /* ds-ico-my: 나의 정보 */
 .ds-icon.ds-ico-my {
-  -webkit-mask-image: url(/img/component/icon/ico_my.svg);
-  mask-image: url(/img/component/icon/ico_my.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
 }
 
 /* ds-ico-login-go: 인증 이동 */
 .ds-icon.ds-ico-login-go {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_go.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_go.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_go.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_go.svg);
 }
 
 /* ds-ico-login-type01~06: 로그인 인증 방식 */
 .ds-icon.ds-ico-login-type01 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_01.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_01.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_01.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_01.svg);
 }
 .ds-icon.ds-ico-login-type02 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_02.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_02.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_02.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_02.svg);
 }
 .ds-icon.ds-ico-login-type03 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_03.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_03.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_03.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_03.svg);
 }
 .ds-icon.ds-ico-login-type04 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_04.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_04.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_04.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_04.svg);
 }
 .ds-icon.ds-ico-login-type05 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_05.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_05.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_05.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_05.svg);
 }
 .ds-icon.ds-ico-login-type06 {
-  -webkit-mask-image: url(/img/component/icon/ico_login_certify_type_06.svg);
-  mask-image: url(/img/component/icon/ico_login_certify_type_06.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_06.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_06.svg);
 }
 
 /* ============================================================
@@ -428,20 +428,20 @@
 
 /* ds-ico-call: 전화 */
 .ds-icon.ds-ico-call {
-  -webkit-mask-image: url(/img/component/icon/ico_call.svg);
-  mask-image: url(/img/component/icon/ico_call.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_call.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_call.svg);
 }
 
 /* ds-ico-email: 이메일 */
 .ds-icon.ds-ico-email {
-  -webkit-mask-image: url(/img/component/icon/ico_email.svg);
-  mask-image: url(/img/component/icon/ico_email.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_email.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_email.svg);
 }
 
 /* ds-ico-faq: FAQ */
 .ds-icon.ds-ico-faq {
-  -webkit-mask-image: url(/img/component/icon/ico_faq.svg);
-  mask-image: url(/img/component/icon/ico_faq.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_faq.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_faq.svg);
 }
 
 /* ============================================================
@@ -449,24 +449,24 @@
    ============================================================ */
 
 .ds-icon.ds-ico-blog {
-  -webkit-mask-image: url(/img/component/icon/ico_blog.svg);
-  mask-image: url(/img/component/icon/ico_blog.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
 }
 .ds-icon.ds-ico-facebook {
-  -webkit-mask-image: url(/img/component/icon/ico_facebook.svg);
-  mask-image: url(/img/component/icon/ico_facebook.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
 }
 .ds-icon.ds-ico-instagram {
-  -webkit-mask-image: url(/img/component/icon/ico_instagram.svg);
-  mask-image: url(/img/component/icon/ico_instagram.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
 }
 .ds-icon.ds-ico-sns-x {
-  -webkit-mask-image: url(/img/component/icon/ico_sns_x.svg);
-  mask-image: url(/img/component/icon/ico_sns_x.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
 }
 .ds-icon.ds-ico-youtube {
-  -webkit-mask-image: url(/img/component/icon/ico_youtube.svg);
-  mask-image: url(/img/component/icon/ico_youtube.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
 }
 
 /* ============================================================
@@ -474,10 +474,10 @@
    ============================================================ */
 
 .ds-icon.ds-ico-swiper-play {
-  -webkit-mask-image: url(/img/component/icon/ico_swiper_play.svg);
-  mask-image: url(/img/component/icon/ico_swiper_play.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
 }
 .ds-icon.ds-ico-swiper-stop {
-  -webkit-mask-image: url(/img/component/icon/ico_swiper_stop.svg);
-  mask-image: url(/img/component/icon/ico_swiper_stop.svg);
+  -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
+  mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
 }
