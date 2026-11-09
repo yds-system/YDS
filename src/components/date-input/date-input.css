@@ -104,7 +104,7 @@
   --ds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-light-color-alpha-shadow1),
                                            0 0.4rem 0.8rem 0 var(--krds-light-color-alpha-shadow2);
   --ds-calendar--date-set-color-action: var(--krds-light-color-action-secondary-active);
-  --ds-calendar--date-set-color-text: var(--krds-light-color-text-inverse-static);
+  --ds-calendar--date-set-color-text: var(--color-text-on-primary);
   --ds-calendar--date-set-color-text-day-off: var(--krds-light-color-text-danger);
   --ds-calendar--date-set-color-text-disabled: var(--krds-light-color-text-disabled);
   --ds-calendar--date-set-color-action-pressed: var(--krds-light-color-action-secondary-on-pressed);

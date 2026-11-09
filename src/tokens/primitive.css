@@ -111,11 +111,18 @@
   --color-black-alpha-0:   #00000000;
 
   /* color-teal  ─  KRDS --krds-color-high-contrast-secondary-* (고대비 모드 secondary 전용) */
+  --color-teal-5:  #edf6f8;
+  --color-teal-10: #d5ebf1;
   --color-teal-20: #abd8e3;
+  --color-teal-30: #75c0d1;
   --color-teal-60: #1f687a;
   --color-teal-70: #17505e;
   --color-teal-80: #113b45;
   --color-teal-95: #091f25;
+
+  /* color-purple  ─  방문한 링크 전용 (자체 추가) */
+  --color-purple-30: #c49ff9;  /* 다크·고대비 link-visited */
+  --color-purple-60: #5917b8;  /* 라이트 link-visited      */
 
   /* color-white-alpha  ─  KRDS --krds-color-light-alpha-white* */
   --color-white-alpha-100: #ffffff;

@@ -59,7 +59,7 @@
   --ds-btn--color-primary-fill-disabled: var(--krds-light-color-button-disabled-fill);
   --ds-btn--color-primary-border: var(--krds-light-color-button-primary-fill);
   --ds-btn--color-primary-border-disabled: var(--krds-light-color-button-disabled-border);
-  --ds-btn--color-primary-text: var(--krds-light-color-text-inverse-static);
+  --ds-btn--color-primary-text: var(--color-text-on-primary);
   --ds-btn--color-primary-text-disabled: var(--krds-light-color-text-disabled-on);
 
   --ds-btn--color-secondary-fill: var(--krds-light-color-button-secondary-fill);
