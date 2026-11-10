@@ -5,7 +5,7 @@ import './date-input.css';
 import '../icon/icon.css';
 
 export default {
-  title: 'Components/Date Picker',
+  title: 'Components/Date Input',
   argTypes: {
     label: {
       control: 'text',

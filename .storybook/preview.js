@@ -89,11 +89,11 @@ const preview = {
         order: [
           'Overview',    ['Introduction', 'Naming', '*'],
           'Brand',       ['Logo', '*'],
-          'Foundations', ['Accessibility', 'Border Radius', 'Color', 'Iconography', 'Layout', 'Shadow', 'Spacing', 'Typography', '*'],
+          'Foundations', ['Accessibility', 'Color', 'Iconography', 'Layout', 'Radius', 'Shadow', 'Spacing', 'Typography', '*'],
           'Components',  [
             'Accordion', 'Badge', 'Breadcrumb', 'Button',
             'Card', 'Carousel', 'Checkbox',
-            'Date Picker', 'File Upload', 'Footer', 'Header',
+            'Date Input', 'File Upload', 'Footer', 'Header',
             'Link', 'Main Menu', 'Pagination', 'Radio Button',
             'Select', 'Tab', 'Table', 'Tag',
             'Text Input', 'Textarea', 'Thumbnail', 'Tooltip', '*',
