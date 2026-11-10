@@ -47,9 +47,15 @@ export const decorators = [
       html.removeAttribute('data-krds-mode');
     }
 
-    // 스토리 캔버스 · docs 미리보기 배경을 모드 토큰에 맞춰 동기화
-    document.body.style.background = 'var(--color-bg-default)';
-    document.body.style.color = 'var(--color-text-default)';
+    // Canvas 모드: body 전체에 배경·글자색 적용
+    // Docs 모드: body는 Storybook 기본 스타일 유지, .sbdocs-preview 안쪽만 적용
+    if (context.viewMode === 'story') {
+      document.body.style.background = 'var(--color-bg-default)';
+      document.body.style.color = 'var(--color-text-default)';
+    } else {
+      document.body.style.background = '';
+      document.body.style.color = '';
+    }
 
     let modeStyle = document.getElementById('yds-mode-preview-style');
     if (!modeStyle) {
@@ -57,7 +63,7 @@ export const decorators = [
       modeStyle.id = 'yds-mode-preview-style';
       document.head.appendChild(modeStyle);
     }
-    modeStyle.textContent = '.sbdocs-preview { background: var(--color-bg-default) !important; }';
+    modeStyle.textContent = '.sbdocs-preview { background: var(--color-bg-default) !important; color: var(--color-text-default) !important; }';
 
     return story();
   },
