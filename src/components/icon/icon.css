@@ -15,18 +15,18 @@
 /* ----- 기본 클래스 ----- */
 .yds-icon {
   display: inline-flex;
-  width: var(--krds-icon--size-large);   /* 기본 크기: large */
-  height: var(--krds-icon--size-large);
+  width: var(--icon-size-l);   /* 기본 크기: large */
+  height: var(--icon-size-l);
   background-color: var(--color-text-default);
   forced-color-adjust: none;
 }
 
 /* ----- 크기 modifier (독립 사용 시) ----- */
-.yds-icon.yds-icon--xsmall { width: var(--krds-icon--size-xsmall); height: var(--krds-icon--size-xsmall); }
-.yds-icon.yds-icon--small  { width: var(--krds-icon--size-small);  height: var(--krds-icon--size-small);  }
-.yds-icon.yds-icon--medium { width: var(--krds-icon--size-medium); height: var(--krds-icon--size-medium); }
+.yds-icon.yds-icon--xsmall { width: var(--icon-size-xs); height: var(--icon-size-xs); }
+.yds-icon.yds-icon--small  { width: var(--icon-size-s);  height: var(--icon-size-s);  }
+.yds-icon.yds-icon--medium { width: var(--icon-size-m); height: var(--icon-size-m); }
 /* large = 기본값 */
-.yds-icon.yds-icon--xlarge { width: var(--krds-icon--size-xlarge); height: var(--krds-icon--size-xlarge); }
+.yds-icon.yds-icon--xlarge { width: var(--icon-size-xl); height: var(--icon-size-xl); }
 
 /* ----- mask 공통 속성 (mask 방식 아이콘 공통) ----- */
 .yds-icon[class*=" yds-ico-"]:not(.yds-ico-delete-fill):not(.yds-ico-help):not(.yds-ico-success-fill):not(.yds-ico-information-fill):not(.yds-ico-error-fill):not(.yds-ico-complete-fill):not(.yds-ico-flag) {

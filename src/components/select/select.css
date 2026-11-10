@@ -16,28 +16,28 @@
   --yds-select--color-text-active: var(--color-text-default);
   --yds-select--color-text-completed: var(--color-text-subtle);
   --yds-select--color-text-disabled: var(--color-text-subtler);
-  --yds-select--padding-default: var(--krds-padding-6);
+  --yds-select--padding-default: var(--space-16);
 
-  --yds-select--size-height-small: var(--krds-size-height-6);
-  --yds-select--icon-size-small: var(--krds-icon--size-small);
-  --yds-select--radius-small: var(--krds-radius-medium3);
-  --yds-select--padding-right-small: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-small));
-  --yds-select--pc-font-size-small: var(--krds-pc-font-size-label-small);
-  --yds-select--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
+  --yds-select--size-height-small: var(--size-40);
+  --yds-select--icon-size-small: var(--icon-size-s);
+  --yds-select--radius-small: var(--radius-8);
+  --yds-select--padding-right-small: calc(var(--yds-select--padding-default) + var(--space-8) + var(--yds-select--icon-size-small));
+  --yds-select--pc-font-size-small: var(--font-size-15);
+  --yds-select--mobile-font-size-small: var(--font-size-15);
 
-  --yds-select--size-height-medium: var(--krds-size-height-7);
-  --yds-select--icon-size-medium: var(--krds-icon--size-medium);
-  --yds-select--padding-right-medium: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-medium));
-  --yds-select--radius-medium: var(--krds-radius-medium2);
-  --yds-select--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
-  --yds-select--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --yds-select--size-height-medium: var(--size-48);
+  --yds-select--icon-size-medium: var(--icon-size-m);
+  --yds-select--padding-right-medium: calc(var(--yds-select--padding-default) + var(--space-8) + var(--yds-select--icon-size-medium));
+  --yds-select--radius-medium: var(--radius-6);
+  --yds-select--pc-font-size-medium: var(--font-size-17);
+  --yds-select--mobile-font-size-medium: var(--font-size-17);
 
-  --yds-select--size-height-large: var(--krds-size-height-8);
-  --yds-select--icon-size-large: var(--krds-icon--size-large);
-  --yds-select--padding-right-large: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-large));
-  --yds-select--radius-large: var(--krds-radius-medium1);
-  --yds-select--pc-font-size-large: var(--krds-pc-font-size-label-large);
-  --yds-select--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+  --yds-select--size-height-large: var(--size-56);
+  --yds-select--icon-size-large: var(--icon-size-l);
+  --yds-select--padding-right-large: calc(var(--yds-select--padding-default) + var(--space-8) + var(--yds-select--icon-size-large));
+  --yds-select--radius-large: var(--radius-6);
+  --yds-select--pc-font-size-large: var(--font-size-19);
+  --yds-select--mobile-font-size-large: var(--font-size-19);
 }
 
 /* ----- 기본 스타일 (Large 기본값) ----- */
@@ -51,14 +51,14 @@
   background-repeat: no-repeat;
   background-position: center right var(--yds-select--padding-default);
   background-size: var(--yds-select--icon-size-large);
-  border-width: var(--krds-light-border-width-variable-regular);
+  border-width: var(--border-width-1);
   border-style: solid;
   border-color: var(--yds-select--color-border);
   border-radius: var(--yds-select--radius-large);
   font-family: inherit;
   font-size: var(--yds-select--pc-font-size-large);
   color: var(--yds-select--color-text);
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;

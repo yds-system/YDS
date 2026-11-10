@@ -99,6 +99,24 @@
   --shadow-l: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 1.6rem 2.4rem 0 var(--color-shadow-default);  /* 모달                      ─ --krds-modal--wrap-shadow 패턴             */
 
 
+  /* ── 5b. 아이콘 치수 시멘틱 ────────────────────────────────────────────────── */
+  /* 아이콘 크기. --size-* 프리미티브를 참조한다.
+     ─ KRDS --krds-icon--size-* 대응 ─────────────────────────────────────────── */
+  --icon-size-xs: var(--size-16);  /* 16px — xsmall (뱃지·태그 내부 등)   */
+  --icon-size-s:  var(--size-16);  /* 16px — small  (xsmall과 동일)        */
+  --icon-size-m:  var(--size-20);  /* 20px — medium (버튼·폼 아이콘)       */
+  --icon-size-l:  var(--size-24);  /* 24px — large  (단독 아이콘 기본)     */
+  --icon-size-xl: var(--size-24);  /* 24px — xlarge (large와 동일)         */
+
+
+  /* ── 5c. 레이아웃 컨테이너 시멘틱 ─────────────────────────────────────────── */
+  /* px 단위 유지 (KRDS 원본 값 그대로). rem 환산 불필요.
+     ─ KRDS --krds-contents-* 대응 ───────────────────────────────────────────── */
+  --container-max-width:  1200px;  /* --krds-contents-size       — 콘텐츠 최대 너비          */
+  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size  — 콘텐츠 + 좌우 패딩 합산   */
+  --container-padding-x:  24px;    /* --krds-contents-padding-x  — 콘텐츠 좌우 내부 여백(PC) */
+
+
   /* ── 6. 모서리 시멘틱 ───────────────────────────────────────────────────────── */
 
   --radius-xs:     var(--radius-2);   /* 아주 작은 요소 (뱃지 등)    ─ --krds-radius-xsmall1 */
@@ -108,4 +126,12 @@
   --radius-xl:     var(--radius-16);  /* 대형 카드                   ─ (자체 추가)            */
   --radius-circle: var(--radius-999); /* 원형·알약형                 ─ --krds-radius-max      */
 
+}
+
+/* ── 모바일 container-padding-x 덮어쓰기 ──────────────────────────────────────── */
+/* KRDS 기준: max-width 1023px에서 16px. YDS는 1279px 기준 적용. */
+@media (max-width: 1279px) {
+  :root {
+    --container-padding-x: 16px; /* --krds-contents-padding-x mobile */
+  }
 }

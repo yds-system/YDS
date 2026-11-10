@@ -6,15 +6,15 @@
 
 /* ----- CSS 변수 ----- */
 .yds-table-wrap {
-  --yds-table--data-thead-th-padding: var(--krds-padding-3);
-  --yds-table--data-thead-th-padding-sides: var(--krds-padding-6);
-  --yds-table--data-thead-pc-font-size: var(--krds-pc-font-size-heading-xxsmall);
-  --yds-table--data-thead-mobile-font-size: var(--krds-mobile-font-size-heading-xxsmall);
-  --yds-table--data-tbody-pc-font-size: var(--krds-pc-font-size-label-medium);
-  --yds-table--data-tbody-mobile-font-size: var(--krds-mobile-font-size-label-medium);
-  --yds-table--data-tbody-padding: var(--krds-padding-5);
-  --yds-table--data-tbody-padding-sides: var(--krds-padding-6);
-  --yds-table--data-border-width: var(--krds-light-border-width-variable-regular);
+  --yds-table--data-thead-th-padding: var(--space-8);
+  --yds-table--data-thead-th-padding-sides: var(--space-16);
+  --yds-table--data-thead-pc-font-size: var(--font-size-15);
+  --yds-table--data-thead-mobile-font-size: var(--font-size-15);
+  --yds-table--data-tbody-pc-font-size: var(--font-size-17);
+  --yds-table--data-tbody-mobile-font-size: var(--font-size-17);
+  --yds-table--data-tbody-padding: var(--space-12);
+  --yds-table--data-tbody-padding-sides: var(--space-16);
+  --yds-table--data-border-width: var(--border-width-1);
   --yds-table--data-thead-border: var(--color-border-secondary-subtle);
   --yds-table--data-thead-surface: var(--color-bg-secondary-subtle);
   --yds-table--data-thead-color-text: var(--color-text-stronger);
@@ -29,15 +29,15 @@
   position: static !important;
   width: auto !important;
   height: auto !important;
-  padding: var(--krds-padding-2) 0 !important;
+  padding: var(--space-4) 0 !important;
   overflow: visible !important;
   clip: auto !important;
   white-space: normal !important;
   caption-side: top;
-  font-size: var(--krds-pc-font-size-label-small);
+  font-size: var(--font-size-15);
   color: var(--color-text-subtle);
   text-align: left;
-  margin-bottom: var(--krds-gap-3) !important;
+  margin-bottom: var(--space-8) !important;
 }
 
 /* ----- 공통 셀 ----- */
@@ -51,7 +51,7 @@
   padding: var(--yds-table--data-thead-th-padding) var(--yds-table--data-thead-th-padding-sides);
   background-color: var(--yds-table--data-thead-surface);
   border-bottom: var(--yds-table--data-border-width) solid var(--yds-table--data-thead-border);
-  font-weight: var(--krds-font-weight-bold);
+  font-weight: var(--font-weight-bold);
   font-size: var(--yds-table--data-thead-pc-font-size);
   color: var(--yds-table--data-thead-color-text);
   text-align: left;
@@ -70,7 +70,7 @@
   border-bottom: var(--yds-table--data-border-width) solid var(--yds-table--data-tbody-color-divider);
   font-size: var(--yds-table--data-tbody-pc-font-size);
   color: var(--yds-table--data-tbody-color-text);
-  font-weight: var(--krds-font-weight-regular);
+  font-weight: var(--font-weight-regular);
   text-align: left;
 }
 @media (max-width: 767px) {
@@ -82,7 +82,7 @@
 
 /* ----- 가로 헤더형 (yds-table--row-header): tbody th 구분 강조 ----- */
 .yds-table-wrap .yds-table.yds-table--row-header.yds-table--data tbody th {
-  font-weight: var(--krds-font-weight-bold);
+  font-weight: var(--font-weight-bold);
   color: var(--yds-table--data-thead-color-text);
   background-color: var(--yds-table--data-thead-surface);
   white-space: nowrap;
@@ -140,8 +140,8 @@
   .yds-table-wrap.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody tr {
     display: block;
     border: var(--yds-table--data-border-width) solid var(--yds-table--data-tbody-color-divider);
-    border-radius: var(--krds-radius-medium2);
-    margin-bottom: var(--krds-gap-5);
+    border-radius: var(--radius-6);
+    margin-bottom: var(--space-16);
     overflow: hidden;
     background-color: var(--yds-table--data-tbody-color-surface);
   }
@@ -151,7 +151,7 @@
   .yds-table-wrap.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody th {
     display: flex;
     align-items: flex-start;
-    gap: var(--krds-gap-5);
+    gap: var(--space-16);
     border-bottom: var(--yds-table--data-border-width) solid var(--yds-table--data-tbody-color-divider);
     width: 100%;
     box-sizing: border-box;
@@ -165,7 +165,7 @@
     content: attr(data-label);
     flex-shrink: 0;
     min-width: 7rem;
-    font-weight: var(--krds-font-weight-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--yds-table--data-thead-color-text);
     font-size: var(--yds-table--data-thead-pc-font-size);
   }
@@ -173,7 +173,7 @@
   /* 가로 헤더형은 th[scope=row]가 라벨 역할 → 카드형 불필요 스타일 제거 */
   .yds-table-wrap.yds-table-wrap--mobile-card .yds-table.yds-table--row-header.yds-table--data tbody th[scope="row"] {
     background-color: var(--yds-table--data-thead-surface);
-    font-weight: var(--krds-font-weight-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--yds-table--data-thead-color-text);
     white-space: normal;
   }

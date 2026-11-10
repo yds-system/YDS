@@ -1,5 +1,5 @@
-import '../reference/krds/resources/css/token/krds_tokens.css';
-import '../reference/krds/resources/css/common/common.css';
+// import '../reference/krds/resources/css/token/krds_tokens.css';  // ← --krds-* 의존 제거 완료
+// import '../reference/krds/resources/css/common/common.css';       // ← --krds-* 의존 제거 완료
 import '../src/tokens/primitive.css';
 import '../src/tokens/responsive.css';
 import '../src/tokens/mode.css';

@@ -5,19 +5,19 @@
 
 /* ----- CSS 변수 ----- */
 .yds-badge {
-  --yds-badge--size-height: var(--krds-size-height-4);
+  --yds-badge--size-height: var(--size-24);
   --yds-badge--line-height: 2.4rem;
-  --yds-badge--padding: var(--krds-padding-3);
-  --yds-badge--radius: var(--krds-radius-small2);
-  --yds-badge--radius-max: var(--krds-radius-max);
+  --yds-badge--padding: var(--space-8);
+  --yds-badge--radius: var(--radius-4);
+  --yds-badge--radius-max: var(--radius-999);
   --yds-badge--dot-size: .6rem;
   --yds-badge--dot-padding: 0;
-  --yds-badge--number-size-height: var(--krds-size-height-3);
-  --yds-badge--pc-font-size: var(--krds-pc-font-size-label-small);
-  --yds-badge--mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --yds-badge--pc-font-size-large: var(--krds-pc-font-size-label-medium);
-  --yds-badge--mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
-  --yds-badge--size-height-large: var(--krds-size-height-5);
+  --yds-badge--number-size-height: var(--size-20);
+  --yds-badge--pc-font-size: var(--font-size-15);
+  --yds-badge--mobile-font-size: var(--font-size-15);
+  --yds-badge--pc-font-size-large: var(--font-size-17);
+  --yds-badge--mobile-font-size-large: var(--font-size-17);
+  --yds-badge--size-height-large: var(--size-32);
 
   --yds-badge--color-primary-element: var(--color-icon-primary);
   --yds-badge--color-primary-element-lighter: var(--color-bg-primary-subtle);
@@ -62,7 +62,7 @@
   height: var(--yds-badge--size-height);
   line-height: var(--yds-badge--line-height);
   font-size: var(--yds-badge--pc-font-size);
-  font-weight: var(--krds-font-weight-regular);
+  font-weight: var(--font-weight-regular);
   padding: 0 var(--yds-badge--padding);
   border-radius: var(--yds-badge--radius);
   white-space: nowrap;
@@ -102,39 +102,39 @@
 
 /* ----- 색상 variant — outline ----- */
 .yds-badge.yds-badge--outline-primary {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-primary-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-primary-element);
   color: var(--yds-badge--color-primary-text);
 }
 .yds-badge.yds-badge--outline-secondary {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-secondary-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-secondary-element);
   color: var(--yds-badge--color-secondary-text);
 }
 .yds-badge.yds-badge--outline-gray {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-gray-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-gray-element);
   color: var(--yds-badge--color-gray-text);
 }
 .yds-badge.yds-badge--outline-point {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-point-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-point-element);
   color: var(--yds-badge--color-point-text);
 }
 .yds-badge.yds-badge--outline-danger {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-danger-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-danger-element);
   color: var(--yds-badge--color-danger-text);
 }
 .yds-badge.yds-badge--outline-warning {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-warning-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-warning-element);
   color: var(--yds-badge--color-warning-text);
 }
 .yds-badge.yds-badge--outline-success {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-success-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-success-element);
   color: var(--yds-badge--color-success-text);
 }
 .yds-badge.yds-badge--outline-information {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-information-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-information-element);
   color: var(--yds-badge--color-information-text);
 }
 .yds-badge.yds-badge--outline-disabled {
-  border: var(--krds-light-border-width-variable-regular) solid var(--yds-badge--color-disabled-element);
+  border: var(--border-width-1) solid var(--yds-badge--color-disabled-element);
   color: var(--yds-badge--color-disabled-text);
 }
 
@@ -216,7 +216,7 @@
 
 /* ----- Group ----- */
 .yds-badge-group {
-  --yds-badge--wrap-gap: var(--krds-gap-3);
+  --yds-badge--wrap-gap: var(--space-8);
   display: flex;
   flex-wrap: wrap;
   align-items: center;

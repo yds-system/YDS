@@ -400,19 +400,21 @@ export const typoStyleTokens = [
 /* ── 4. 간격 ──────────────────────────────────────────────────────────────── */
 
 export const spacingPrimTokens = [
-  { name: 'space-0',  figma: 'space/0',  value: '0rem',   usage: '간격 없음', krds: '--krds-number-0'  },
-  { name: 'space-2',  figma: 'space/2',  value: '0.2rem', usage: '',          krds: '--krds-number-2'  },
-  { name: 'space-4',  figma: 'space/4',  value: '0.4rem', usage: '',          krds: '--krds-number-3'  },
-  { name: 'space-8',  figma: 'space/8',  value: '0.8rem', usage: '',          krds: '--krds-number-5'  },
-  { name: 'space-12', figma: 'space/12', value: '1.2rem', usage: '',          krds: '--krds-number-7'  },
-  { name: 'space-16', figma: 'space/16', value: '1.6rem', usage: '',          krds: '--krds-number-8'  },
-  { name: 'space-20', figma: 'space/20', value: '2rem',   usage: '',          krds: '--krds-number-9'  },
-  { name: 'space-24', figma: 'space/24', value: '2.4rem', usage: '',          krds: '--krds-number-10' },
-  { name: 'space-32', figma: 'space/32', value: '3.2rem', usage: '',          krds: '--krds-number-12' },
-  { name: 'space-40', figma: 'space/40', value: '4rem',   usage: '',          krds: '--krds-number-14' },
-  { name: 'space-48', figma: 'space/48', value: '4.8rem', usage: '',          krds: '--krds-number-16' },
-  { name: 'space-64', figma: 'space/64', value: '6.4rem', usage: '',          krds: '--krds-number-18' },
-  { name: 'space-80', figma: 'space/80', value: '8rem',   usage: '',          krds: '--krds-number-20' },
+  { name: 'space-0',  figma: 'space/0',  value: '0rem',   usage: '간격 없음',                              krds: '--krds-number-0'  },
+  { name: 'space-2',  figma: 'space/2',  value: '0.2rem', usage: '',                                       krds: '--krds-number-2'  },
+  { name: 'space-4',  figma: 'space/4',  value: '0.4rem', usage: '',                                       krds: '--krds-number-3'  },
+  { name: 'space-8',  figma: 'space/8',  value: '0.8rem', usage: '',                                       krds: '--krds-number-5'  },
+  { name: 'space-10', figma: 'space/10', value: '1rem',   usage: '⚠️ KRDS 호환 예외 단계 (4px 배수 아님)', krds: '--krds-padding-4' },
+  { name: 'space-12', figma: 'space/12', value: '1.2rem', usage: '',                                       krds: '--krds-number-7'  },
+  { name: 'space-16', figma: 'space/16', value: '1.6rem', usage: '',                                       krds: '--krds-number-8'  },
+  { name: 'space-20', figma: 'space/20', value: '2rem',   usage: '',                                       krds: '--krds-number-9'  },
+  { name: 'space-24', figma: 'space/24', value: '2.4rem', usage: '',                                       krds: '--krds-number-10' },
+  { name: 'space-32', figma: 'space/32', value: '3.2rem', usage: '',                                       krds: '--krds-number-12' },
+  { name: 'space-40', figma: 'space/40', value: '4rem',   usage: '',                                       krds: '--krds-number-14' },
+  { name: 'space-48', figma: 'space/48', value: '4.8rem', usage: '',                                       krds: '--krds-number-16' },
+  { name: 'space-56', figma: 'space/56', value: '5.6rem', usage: '⚠️ KRDS 호환 예외 단계 (4px 배수 아님)', krds: '--krds-size-height-8' },
+  { name: 'space-64', figma: 'space/64', value: '6.4rem', usage: '',                                       krds: '--krds-number-18' },
+  { name: 'space-80', figma: 'space/80', value: '8rem',   usage: '',                                       krds: '--krds-number-20' },
 ];
 
 export const spacingSizeGroups = [
@@ -521,6 +523,7 @@ export const radiusPrimTokens = [
   { name: 'radius-4',   figma: 'radius/4',   value: '0.4rem',  usage: '4px',                  krds: '--krds-radius-small1'  },
   { name: 'radius-6',   figma: 'radius/6',   value: '0.6rem',  usage: '6px',                  krds: '--krds-radius-medium1' },
   { name: 'radius-8',   figma: 'radius/8',   value: '0.8rem',  usage: '8px',                  krds: '--krds-radius-medium3' },
+  { name: 'radius-10',  figma: 'radius/10',  value: '1rem',    usage: '10px',                 krds: '--krds-radius-large2'  },
   { name: 'radius-12',  figma: 'radius/12',  value: '1.2rem',  usage: '12px',                 krds: '--krds-radius-xlarge1' },
   { name: 'radius-16',  figma: 'radius/16',  value: '1.6rem',  usage: '16px',                 krds: '(자체 추가)'           },
   { name: 'radius-24',  figma: 'radius/24',  value: '2.4rem',  usage: '24px',                 krds: '(자체 추가)'           },
@@ -572,4 +575,42 @@ export const shadowColorTokens = [
 /** 모드 불변 고정 색상: semantic.css에 정의 */
 export const semanticStaticColorTokens = [
   { name: 'color-text-on-static', value: '#ffffff', ref: 'color-gray-0', usage: '어두운 채움(dark fill) 배경 위 텍스트·아이콘 — 모든 모드에서 항상 흰색', krds: '(자체 추가)' },
+];
+
+
+/* ── 치수 프리미티브 (size-*) ─────────────────────────────────────────────── */
+
+/** 컴포넌트 높이·너비 등 치수(dimension) 전용 프리미티브. KRDS --krds-size-height-* 대응. */
+export const sizePrimTokens = [
+  { name: 'size-8',  figma: 'size/8',  value: '0.8rem', usage: '8px  — 소형 indicator, carousel 등',                     krds: '--krds-size-height-1' },
+  { name: 'size-16', figma: 'size/16', value: '1.6rem', usage: '16px — 체크박스·아이콘 최소 크기',                       krds: '--krds-size-height-2' },
+  { name: 'size-20', figma: 'size/20', value: '2rem',   usage: '20px — 뱃지·체크박스 중간 크기',                         krds: '--krds-size-height-3' },
+  { name: 'size-24', figma: 'size/24', value: '2.4rem', usage: '24px — 아이콘 기본 크기, 뱃지·체크박스 대형',            krds: '--krds-size-height-4' },
+  { name: 'size-32', figma: 'size/32', value: '3.2rem', usage: '32px — 뱃지·버튼·태그 xsmall',                           krds: '--krds-size-height-5' },
+  { name: 'size-40', figma: 'size/40', value: '4rem',   usage: '40px — 버튼·입력 필드·셀렉트·탭 small',                 krds: '--krds-size-height-6' },
+  { name: 'size-48', figma: 'size/48', value: '4.8rem', usage: '48px — 버튼·입력 필드·셀렉트·탭 medium',                krds: '--krds-size-height-7' },
+  { name: 'size-56', figma: 'size/56', value: '5.6rem', usage: '56px — 버튼·입력 필드 large ⚠️ KRDS 호환 예외 단계',   krds: '--krds-size-height-8' },
+  { name: 'size-64', figma: 'size/64', value: '6.4rem', usage: '64px — 버튼 xlarge',                                     krds: '--krds-size-height-9' },
+];
+
+
+/* ── 아이콘 치수 시멘틱 ───────────────────────────────────────────────────── */
+
+/** 아이콘 크기 시멘틱 토큰. --size-* 프리미티브를 참조. KRDS --krds-icon--size-* 대응. */
+export const iconSizeTokens = [
+  { name: 'icon-size-xs', figma: 'icon-size/xs', value: '1.6rem (16px)', ref: 'size-16', usage: 'xsmall — 뱃지·태그 내부 등 소형 (--krds-icon--size-xsmall)',  krds: '--krds-icon--size-xsmall' },
+  { name: 'icon-size-s',  figma: 'icon-size/s',  value: '1.6rem (16px)', ref: 'size-16', usage: 'small — xsmall과 동일 (--krds-icon--size-small)',              krds: '--krds-icon--size-small'  },
+  { name: 'icon-size-m',  figma: 'icon-size/m',  value: '2rem (20px)',   ref: 'size-20', usage: 'medium — 버튼·폼 아이콘 (--krds-icon--size-medium)',           krds: '--krds-icon--size-medium' },
+  { name: 'icon-size-l',  figma: 'icon-size/l',  value: '2.4rem (24px)', ref: 'size-24', usage: 'large — 단독 아이콘 기본, 기본 클래스 (--krds-icon--size-large)', krds: '--krds-icon--size-large'  },
+  { name: 'icon-size-xl', figma: 'icon-size/xl', value: '2.4rem (24px)', ref: 'size-24', usage: 'xlarge — large와 동일 (--krds-icon--size-xlarge)',              krds: '--krds-icon--size-xlarge' },
+];
+
+
+/* ── 레이아웃 컨테이너 시멘틱 ────────────────────────────────────────────── */
+
+/** 레이아웃 컨테이너 시멘틱 토큰. px 단위 유지(KRDS 원본 값). */
+export const containerTokens = [
+  { name: 'container-max-width',  figma: 'container/max-width',  value: '1200px', ref: null, usage: '콘텐츠 최대 너비 (--krds-contents-size)',                krds: '--krds-contents-size'      },
+  { name: 'container-wrap-width', figma: 'container/wrap-width', value: '1248px', ref: null, usage: '콘텐츠 + 좌우 패딩 합산 최대 너비 (--krds-contents-wrap-size)', krds: '--krds-contents-wrap-size' },
+  { name: 'container-padding-x',  figma: 'container/padding-x',  value: '24px (pc) / 16px (mobile)', ref: null, usage: '콘텐츠 좌우 내부 여백 (--krds-contents-padding-x)', krds: '--krds-contents-padding-x' },
 ];

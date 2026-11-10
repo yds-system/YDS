@@ -20,7 +20,7 @@ fieldset.yds-form-group > legend.yds-form-label {
 }
 fieldset.yds-form-group > legend.yds-form-label > span {
   font-size: var(--yds-form-group--label-pc-font-size);
-  font-weight: var(--krds-font-weight-regular);
+  font-weight: var(--font-weight-regular);
 }
 @media (max-width: 767px) {
   fieldset.yds-form-group > legend.yds-form-label > span {
@@ -48,7 +48,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 /* ----- Check Area ----- */
 .yds-check-group {
   display: flex;
-  gap: var(--krds-gap-6);
+  gap: var(--space-20);
 }
 .yds-check-group--column {
   flex-direction: column;
@@ -73,25 +73,25 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   --yds-check--checkbox-check-color-element-checked: var(--color-text-on-static);
   --yds-check--checkbox-check-color-element-disabled: var(--color-icon-disabled);
   --yds-check--additional-text-color-text: var(--color-text-subtle);
-  --yds-check--button-size-medium: var(--krds-size-height-3);
+  --yds-check--button-size-medium: var(--size-20);
   --yds-check--radio-check-size-medium: 1rem;
   --yds-check--checkbox-check-size-medium: 1.2rem;
-  --yds-check--radio-button-radius-medium: var(--krds-radius-max);
-  --yds-check--checkbox-button-radius-medium: var(--krds-radius-small1);
-  --yds-check--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
-  --yds-check--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
-  --yds-check--additional-text-pc-font-size-medium: var(--krds-pc-font-size-label-small);
-  --yds-check--additional-text-mobile-font-size-medium: var(--krds-mobile-font-size-label-small);
-  --yds-check--button-size-large: var(--krds-size-height-4);
+  --yds-check--radio-button-radius-medium: var(--radius-999);
+  --yds-check--checkbox-button-radius-medium: var(--radius-4);
+  --yds-check--pc-font-size-medium: var(--font-size-17);
+  --yds-check--mobile-font-size-medium: var(--font-size-17);
+  --yds-check--additional-text-pc-font-size-medium: var(--font-size-15);
+  --yds-check--additional-text-mobile-font-size-medium: var(--font-size-15);
+  --yds-check--button-size-large: var(--size-24);
   --yds-check--radio-check-size-large: 1.2rem;
-  --yds-check--checkbox-check-size-large: var(--krds-size-height-2);
-  --yds-check--radio-button-radius-large: var(--krds-radius-max);
-  --yds-check--checkbox-button-radius-large: var(--krds-radius-small2);
-  --yds-check--pc-font-size-large: var(--krds-pc-font-size-label-large);
-  --yds-check--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
-  --yds-check--additional-text-pc-font-size-large: var(--krds-pc-font-size-label-medium);
-  --yds-check--additional-text-mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
-  --yds-check--gap: var(--krds-gap-3);
+  --yds-check--checkbox-check-size-large: var(--size-16);
+  --yds-check--radio-button-radius-large: var(--radius-999);
+  --yds-check--checkbox-button-radius-large: var(--radius-4);
+  --yds-check--pc-font-size-large: var(--font-size-19);
+  --yds-check--mobile-font-size-large: var(--font-size-19);
+  --yds-check--additional-text-pc-font-size-large: var(--font-size-17);
+  --yds-check--additional-text-mobile-font-size-large: var(--font-size-17);
+  --yds-check--gap: var(--space-8);
   --yds-check--button-margin-top: 0.3rem;
 }
 
@@ -179,7 +179,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   width: var(--yds-check--radio-check-size-medium);
   height: var(--yds-check--radio-check-size-medium);
   background-color: var(--yds-check--radio-check-color-element);
-  border-radius: var(--krds-radius-max);
+  border-radius: var(--radius-999);
 }
 .yds-check-item input[type=radio]:checked ~ label:before {
   border-color: var(--yds-check--button-color-border-checked);
@@ -326,7 +326,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 
 /* ----- 추가 텍스트 ----- */
 .yds-check-item .yds-check-item__desc {
-  margin-top: var(--krds-padding-2);
+  margin-top: var(--space-4);
 }
 .yds-check-item .yds-check-item__desc .yds-check-item__text {
   color: var(--yds-check--additional-text-color-text);

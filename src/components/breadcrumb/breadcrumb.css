@@ -5,10 +5,10 @@
 
 /* ----- CSS 변수 + 래퍼 ----- */
 .yds-breadcrumb {
-  --yds-breadcrumb--padding-x: var(--krds-padding-2);
-  --yds-breadcrumb--radius: var(--krds-radius-medium2);
-  --yds-breadcrumb--pc-font-size: var(--krds-pc-font-size-label-small);
-  --yds-breadcrumb--mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --yds-breadcrumb--padding-x: var(--space-4);
+  --yds-breadcrumb--radius: var(--radius-6);
+  --yds-breadcrumb--pc-font-size: var(--font-size-15);
+  --yds-breadcrumb--mobile-font-size: var(--font-size-15);
   --yds-breadcrumb--color-action: transparent;
   --yds-breadcrumb--color-action-hover: var(--color-bg-interactive-hover);
   --yds-breadcrumb--color-action-pressed: var(--color-bg-interactive-pressed);
@@ -24,7 +24,7 @@
 .yds-breadcrumb__list {
   display: flex;
   align-items: center;
-  gap: var(--krds-gap-2);
+  gap: var(--space-4);
   width: 100%;
   list-style: none;
   margin: 0;
@@ -46,7 +46,7 @@
 .yds-breadcrumb__link {
   display: inline-flex;
   align-items: center;
-  gap: var(--krds-gap-2);
+  gap: var(--space-4);
   padding: 0 var(--yds-breadcrumb--padding-x);
   background-color: var(--yds-breadcrumb--color-action);
   border-radius: var(--yds-breadcrumb--radius);
@@ -86,9 +86,9 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
-  margin-left: var(--krds-gap-2);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
+  margin-left: var(--space-4);
   background-color: var(--yds-breadcrumb--color-icon);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
@@ -108,8 +108,8 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-color: var(--yds-breadcrumb--color-icon);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
@@ -144,7 +144,7 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
 
   /* 깊이 3 이상: 마지막 항목에 말줄임·화살표 아이콘 표시 */
   .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child {
-    gap: var(--krds-gap-2);
+    gap: var(--space-4);
   }
   .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before,
   .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
@@ -152,8 +152,8 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    width: var(--krds-icon--size-small);
-    height: var(--krds-icon--size-small);
+    width: var(--icon-size-s);
+    height: var(--icon-size-s);
     background-color: var(--yds-breadcrumb--color-icon);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
@@ -193,7 +193,7 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   border: 0;
 }
 .yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child {
-  gap: var(--krds-gap-2);
+  gap: var(--space-4);
 }
 .yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before,
 .yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
@@ -201,8 +201,8 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-color: var(--yds-breadcrumb--color-icon);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;

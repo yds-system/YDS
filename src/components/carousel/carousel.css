@@ -13,13 +13,13 @@
   justify-content: center;
   flex-direction: row;
   flex-shrink: 0;
-  width: var(--krds-size-height-6);
-  height: var(--krds-size-height-6);
-  border-radius: var(--krds-radius-max);
-  border: var(--krds-light-border-width-variable-regular) solid var(--color-border-subtle);
+  width: var(--size-40);
+  height: var(--size-40);
+  border-radius: var(--radius-999);
+  border: var(--border-width-1) solid var(--color-border-subtle);
   background-color: var(--color-bg-default);
   cursor: pointer;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 
 /* 아이콘 (::after 공통) */
@@ -29,8 +29,8 @@
 .yds-carousel__more-btn::after {
   content: "";
   display: inline-flex;
-  width: var(--krds-icon--size-large);
-  height: var(--krds-icon--size-large);
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
   background-color: var(--color-text-default);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -117,13 +117,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
 }
 
 /* ----- yds-carousel__nav (이전/다음/더보기 그룹) ----- */
 .yds-carousel__nav {
   display: inline-flex;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
 }
 
 /* ----- yds-carousel__pagination (불릿) ----- */
@@ -133,31 +133,31 @@
   justify-content: center;
   flex-direction: row;
   position: relative;
-  height: var(--krds-size-height-6);
+  height: var(--size-40);
 }
 
 .yds-carousel__pagination .yds-carousel__bullet {
-  width: var(--krds-size-height-1);
-  height: var(--krds-size-height-1);
+  width: var(--size-8);
+  height: var(--size-8);
   background-color: var(--color-bg-gray-element);
-  border-radius: var(--krds-radius-max);
+  border-radius: var(--radius-999);
   opacity: 1;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 .yds-carousel__pagination .yds-carousel__bullet.yds-carousel__bullet--current {
   width: 2rem;
-  border-radius: var(--krds-radius-max);
+  border-radius: var(--radius-999);
   background-color: var(--color-icon-primary);
 }
 
 /* ----- yds-carousel__pagination (분수형) ----- */
 .yds-carousel__pagination.yds-carousel__pagination--fraction {
-  gap: var(--krds-gap-2);
-  padding: 0 var(--krds-padding-6);
+  gap: var(--space-4);
+  padding: 0 var(--space-16);
   color: var(--color-text-default);
-  font-weight: var(--krds-font-weight-bold);
-  border: var(--krds-light-border-width-variable-regular) solid var(--color-border-subtle);
-  border-radius: var(--krds-radius-max);
+  font-weight: var(--font-weight-bold);
+  border: var(--border-width-1) solid var(--color-border-subtle);
+  border-radius: var(--radius-999);
   background-color: var(--color-bg-default);
 }
 .yds-carousel__pagination.yds-carousel__pagination--fraction .yds-carousel__pagination-current {
@@ -170,7 +170,7 @@
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
   flex-shrink: 0;
   position: relative;
 }
@@ -188,9 +188,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--krds-size-height-6);
-  padding: var(--krds-padding-5);
-  border-radius: var(--krds-radius-max);
+  height: var(--size-40);
+  padding: var(--space-12);
+  border-radius: var(--radius-999);
   background-color: var(--color-icon-inverse);
 }
 /* 인디케이터 안 불릿의 색상은 배경 대비로 반전 처리 */
@@ -205,9 +205,9 @@
 
 /* 인디케이터 안의 fraction (배경 있는 타입) */
 .yds-carousel__indicator .yds-carousel__pagination.yds-carousel__pagination--fraction.yds-carousel__pagination--bg {
-  font-weight: var(--krds-font-weight-bold);
-  padding: var(--krds-padding-5);
-  border-radius: var(--krds-radius-max);
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-12);
+  border-radius: var(--radius-999);
   background-color: var(--color-bg-default);
 }
 
@@ -224,7 +224,7 @@
 /* 인디케이터 안 navigation 그룹 */
 .yds-carousel__indicator .yds-carousel__nav {
   display: inline-flex;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
 }
 
 /* ----- 모바일 ----- */

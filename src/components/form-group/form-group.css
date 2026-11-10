@@ -6,12 +6,12 @@
 
 /* ----- CSS 변수 ----- */
 .yds-form-group {
-  --yds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
-  --yds-form-group--label-mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --yds-form-group--gap: var(--krds-gap-3);
-  --yds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
-  --yds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
-  --yds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
+  --yds-form-group--label-pc-font-size: var(--font-size-15);
+  --yds-form-group--label-mobile-font-size: var(--font-size-15);
+  --yds-form-group--gap: var(--space-8);
+  --yds-form-group--icon-padding-right: calc(var(--space-20) * 2 + var(--icon-size-l));
+  --yds-form-group--message-pc-font-size: var(--font-size-13);
+  --yds-form-group--message-mobile-font-size: var(--font-size-13);
   --yds-form-group--message-text-color: var(--color-text-subtle);
   --yds-form-group--message-success-text-color: var(--color-text-success);
   --yds-form-group--message-information-text-color: var(--color-text-information);
@@ -24,13 +24,13 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--krds-gap-7);
+  gap: var(--space-24);
 }
 
 /* ----- 폼 그룹 가로 배치 ----- */
 .yds-form-row {
   display: flex;
-  gap: var(--krds-gap-5);
+  gap: var(--space-16);
 }
 .yds-form-row .yds-form-group {
   width: fit-content;
@@ -61,7 +61,7 @@
 }
 .yds-form-group .yds-form-label label {
   font-size: var(--yds-form-group--label-pc-font-size);
-  font-weight: var(--krds-font-weight-regular);
+  font-weight: var(--font-weight-regular);
 }
 @media (max-width: 767px) {
   .yds-form-group .yds-form-label label {
@@ -91,7 +91,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--krds-gap-4);
+  gap: var(--space-12);
   width: 100%;
 }
 
@@ -108,7 +108,7 @@
 .yds-form-group .yds-form-content--with-btn .yds-btn {
   position: absolute;
   top: 50%;
-  right: var(--krds-padding-7);
+  right: var(--space-20);
   transform: translateY(-50%);
 }
 .yds-form-group .yds-form-content--with-btn .yds-form-content__actions {
@@ -116,7 +116,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
 }
 .yds-form-group .yds-form-content--with-btn .yds-form-content__actions .yds-btn {
   position: static;
@@ -143,7 +143,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  gap: var(--krds-gap-2);
+  gap: var(--space-4);
   width: 100%;
   font-size: var(--yds-form-group--message-pc-font-size);
   color: var(--yds-form-group--message-text-color);
@@ -159,8 +159,8 @@
   content: "";
   display: inline-flex;
   flex-shrink: 0;
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-color: var(--color-text-subtle);
   forced-color-adjust: none;
   -webkit-mask-repeat: no-repeat;
@@ -185,8 +185,8 @@
   color: var(--yds-form-group--message-success-text-color);
 }
 .yds-form-group .yds-form-hint--success::before {
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -197,8 +197,8 @@
   color: var(--yds-form-group--message-information-text-color);
 }
 .yds-form-group .yds-form-hint--info::before {
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -209,8 +209,8 @@
   color: var(--yds-form-group--message-error-text-color);
 }
 .yds-form-group .yds-form-hint--error::before {
-  width: var(--krds-icon--size-small);
-  height: var(--krds-icon--size-small);
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;

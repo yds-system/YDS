@@ -181,6 +181,7 @@
   --space-2:  0.2rem;  /* --krds-number-2  */
   --space-4:  0.4rem;  /* --krds-number-3  */
   --space-8:  0.8rem;  /* --krds-number-5  */
+  --space-10: 1rem;    /* --krds-padding-4 ⚠️ KRDS 호환 예외 단계 (4px 배수 아님) */
   --space-12: 1.2rem;  /* --krds-number-7  */
   --space-16: 1.6rem;  /* --krds-number-8  */
   --space-20: 2rem;    /* --krds-number-9  */
@@ -188,8 +189,25 @@
   --space-32: 3.2rem;  /* --krds-number-12 */
   --space-40: 4rem;    /* --krds-number-14 */
   --space-48: 4.8rem;  /* --krds-number-16 */
+  --space-56: 5.6rem;  /* --krds-size-height-8 ⚠️ KRDS 호환 예외 단계 (4px 배수 아님) */
   --space-64: 6.4rem;  /* --krds-number-18 */
   --space-80: 8rem;    /* --krds-number-20 */
+
+
+  /* ── 5. 치수 프리미티브 ─────────────────────────────────────────────────────── */
+
+  /* size (px 단위 이름) — 컴포넌트 높이·너비 등 치수(dimension) 전용.
+     spacing이 아닌 height/width/min-height 등에 사용한다.
+     ─ KRDS --krds-size-height-* 대응 ────────────────────────────────────────── */
+  --size-8:  0.8rem;  /* --krds-size-height-1 */
+  --size-16: 1.6rem;  /* --krds-size-height-2 */
+  --size-20: 2rem;    /* --krds-size-height-3 */
+  --size-24: 2.4rem;  /* --krds-size-height-4 */
+  --size-32: 3.2rem;  /* --krds-size-height-5 */
+  --size-40: 4rem;    /* --krds-size-height-6 */
+  --size-48: 4.8rem;  /* --krds-size-height-7 */
+  --size-56: 5.6rem;  /* --krds-size-height-8 */
+  --size-64: 6.4rem;  /* --krds-size-height-9 */
 
 
   /* ── 6. 모서리 프리미티브 ───────────────────────────────────────────────────── */
@@ -200,9 +218,29 @@
   --radius-4:   0.4rem;  /* --krds-radius-small1    */
   --radius-6:   0.6rem;  /* --krds-radius-medium1   */
   --radius-8:   0.8rem;  /* --krds-radius-medium3   */
+  --radius-10:  1rem;    /* --krds-radius-large2    */
   --radius-12:  1.2rem;  /* --krds-radius-xlarge1   */
   --radius-16:  1.6rem;  /* (자체 추가)              */
   --radius-24:  2.4rem;  /* (자체 추가)              */
   --radius-999: 99.9rem; /* --krds-radius-max        */
+
+
+  /* ── 7. 타이포 보조 프리미티브 ─────────────────────────────────────────────── */
+
+  /* line-height-none: 1 (줄 높이 없음) ─ KRDS --krds-line-height-none 대응 */
+  --line-height-none: 1;
+
+
+  /* ── 8. 테두리 두께 프리미티브 ─────────────────────────────────────────────── */
+
+  /* border-width (px 단위) ─ KRDS --krds-light-border-width-variable-* 대응 */
+  --border-width-1: 1px;  /* --krds-light-border-width-variable-regular */
+  --border-width-2: 2px;  /* --krds-light-border-width-variable-medium  */
+
+
+  /* ── 9. 트랜지션 프리미티브 ────────────────────────────────────────────────── */
+
+  /* transition-base: 공통 인터랙티브 트랜지션 ─ KRDS --krds-transition-base 대응 */
+  --transition-base: 0.4s ease-in-out;
 
 }

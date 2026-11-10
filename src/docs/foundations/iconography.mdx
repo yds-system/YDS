@@ -43,13 +43,13 @@ KRDS 아이콘 시스템은 약 90개의 SVG 파일을 CSS로 로드한다. 렌�
 
 icon.css 기준 크기 단계. 독립 사용 시 modifier 클래스를 추가하고, 컴포넌트 내부에서는 컴포넌트 CSS가 크기를 직접 지정한다.
 
-| 클래스 | 크기 | 사용 |
-|---|---|---|
-| `yds-icon--xsmall` | 1.6rem (16px) | 뱃지·태그 내부 등 소형 |
-| `yds-icon--small` | 1.6rem (16px) | xsmall과 동일 |
-| `yds-icon--medium` | 2rem (20px) | 버튼·폼 아이콘 |
-| 기본 크기 | 2.4rem (24px) | 단독 아이콘 기본 (클래스 없음) |
-| `yds-icon--xlarge` | 2.4rem (24px) | large와 동일 |
+| 클래스 | 토큰 | 크기 | 사용 |
+|---|---|---|---|
+| `yds-icon--xsmall` | `--icon-size-xs` | 1.6rem (16px) | 뱃지·태그 내부 등 소형 |
+| `yds-icon--small` | `--icon-size-s` | 1.6rem (16px) | xsmall과 동일 |
+| `yds-icon--medium` | `--icon-size-m` | 2rem (20px) | 버튼·폼 아이콘 |
+| 기본 크기 (클래스 없음) | `--icon-size-l` | 2.4rem (24px) | 단독 아이콘 기본 |
+| `yds-icon--xlarge` | `--icon-size-xl` | 2.4rem (24px) | large와 동일 |
 
 <Canvas of={IconStories.크기} />
 

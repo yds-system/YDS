@@ -27,21 +27,21 @@
   --yds-link--color-text-disabled: var(--color-text-disabled);
 
   /* 폰트 크기 · 패딩 */
-  --yds-link--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
-  --yds-link--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
-  --yds-link--padding-x-xsmall:        var(--krds-padding-1);
-  --yds-link--pc-font-size-small:      var(--krds-pc-font-size-label-small);
-  --yds-link--mobile-font-size-small:  var(--krds-mobile-font-size-label-small);
-  --yds-link--padding-x-small:         var(--krds-padding-1);
-  --yds-link--pc-font-size-medium:     var(--krds-pc-font-size-label-medium);
-  --yds-link--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
-  --yds-link--padding-x-medium:        var(--krds-padding-1);
-  --yds-link--pc-font-size-large:      var(--krds-pc-font-size-label-large);
-  --yds-link--mobile-font-size-large:  var(--krds-mobile-font-size-label-large);
-  --yds-link--padding-x-large:         var(--krds-padding-1);
-  --yds-link--pc-font-size-xlarge:     var(--krds-pc-font-size-label-large);
-  --yds-link--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
-  --yds-link--padding-x-xlarge:        var(--krds-padding-1);
+  --yds-link--pc-font-size-xsmall:     var(--font-size-15);
+  --yds-link--mobile-font-size-xsmall: var(--font-size-15);
+  --yds-link--padding-x-xsmall:        var(--space-2);
+  --yds-link--pc-font-size-small:      var(--font-size-15);
+  --yds-link--mobile-font-size-small:  var(--font-size-15);
+  --yds-link--padding-x-small:         var(--space-2);
+  --yds-link--pc-font-size-medium:     var(--font-size-17);
+  --yds-link--mobile-font-size-medium: var(--font-size-17);
+  --yds-link--padding-x-medium:        var(--space-2);
+  --yds-link--pc-font-size-large:      var(--font-size-19);
+  --yds-link--mobile-font-size-large:  var(--font-size-19);
+  --yds-link--padding-x-large:         var(--space-2);
+  --yds-link--pc-font-size-xlarge:     var(--font-size-19);
+  --yds-link--mobile-font-size-xlarge: var(--font-size-19);
+  --yds-link--padding-x-xlarge:        var(--space-2);
 }
 
 /* ----- 기본 스타일 (large 기본값) ----- */
@@ -53,7 +53,7 @@
   text-align: left;
   white-space: normal;
   cursor: pointer;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 @media (max-width: 767px) {
   .yds-link {
@@ -214,7 +214,7 @@
 /* yds-link__text--underline-hover: 기본은 투명, 상호작용 시 표시 */
 .yds-link .yds-link__text.yds-link__text--underline-hover {
   text-decoration-color: transparent;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 .yds-link:hover .yds-link__text.yds-link__text--underline-hover,
 .yds-link:active .yds-link__text.yds-link__text--underline-hover,
@@ -228,5 +228,5 @@
   display: inline-block;
   background-color: var(--yds-link--color-text);
   margin-bottom: -0.5rem;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }

@@ -19,22 +19,22 @@
   --yds-input--color-text-readonly: var(--color-text-subtle);
   --yds-input--color-text-disabled: var(--color-text-subtler);
   --yds-input--color-text-placeholder: var(--color-text-disabled);
-  --yds-input--padding-x: var(--krds-padding-6);
+  --yds-input--padding-x: var(--space-16);
 
-  --yds-input--size-height-small: var(--krds-size-height-6);
-  --yds-input--radius-small: var(--krds-radius-medium1);
-  --yds-input--pc-font-size-small: var(--krds-pc-font-size-label-small);
-  --yds-input--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
+  --yds-input--size-height-small: var(--size-40);
+  --yds-input--radius-small: var(--radius-6);
+  --yds-input--pc-font-size-small: var(--font-size-15);
+  --yds-input--mobile-font-size-small: var(--font-size-15);
 
-  --yds-input--size-height-medium: var(--krds-size-height-7);
-  --yds-input--radius-medium: var(--krds-radius-medium2);
-  --yds-input--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
-  --yds-input--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --yds-input--size-height-medium: var(--size-48);
+  --yds-input--radius-medium: var(--radius-6);
+  --yds-input--pc-font-size-medium: var(--font-size-17);
+  --yds-input--mobile-font-size-medium: var(--font-size-17);
 
-  --yds-input--size-height-large: var(--krds-size-height-8);
-  --yds-input--radius-large: var(--krds-radius-medium3);
-  --yds-input--pc-font-size-large: var(--krds-pc-font-size-label-large);
-  --yds-input--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+  --yds-input--size-height-large: var(--size-56);
+  --yds-input--radius-large: var(--radius-8);
+  --yds-input--pc-font-size-large: var(--font-size-19);
+  --yds-input--mobile-font-size-large: var(--font-size-19);
 }
 
 /* ----- 기본 스타일 (Large 기본값) ----- */
@@ -49,7 +49,7 @@
   font-family: inherit;
   font-size: var(--yds-input--pc-font-size-large);
   color: var(--yds-input--color-text);
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 @media (max-width: 767px) {
   .yds-input {
@@ -134,7 +134,7 @@
 textarea.yds-input {
   --yds-input--textarea-size-height: 14.4rem;
   height: var(--yds-input--textarea-size-height);
-  padding: var(--krds-padding-3) var(--krds-padding-6);
+  padding: var(--space-8) var(--space-16);
   line-height: 1.6;
   resize: vertical;
 }
@@ -145,7 +145,7 @@ textarea.yds-input {
   align-items: normal;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--krds-gap-3);
+  gap: var(--space-8);
   width: 100%;
 }
 
@@ -157,14 +157,14 @@ textarea.yds-input {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--krds-gap-1);
+  gap: var(--space-2);
   width: 100%;
-  font-size: var(--krds-pc-font-size-label-xsmall);
+  font-size: var(--font-size-13);
   color: var(--yds-count--color);
 }
 @media (max-width: 767px) {
   .yds-count {
-    font-size: var(--krds-mobile-font-size-body-small);
+    font-size: var(--font-size-15);
   }
 }
 .yds-count__current {
@@ -178,7 +178,7 @@ textarea.yds-input {
 .yds-textarea__bottom {
   display: flex;
   align-items: flex-start;
-  gap: var(--krds-gap-5);
+  gap: var(--space-16);
   width: 100%;
 }
 .yds-textarea__bottom .yds-count {

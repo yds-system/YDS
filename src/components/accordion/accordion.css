@@ -5,15 +5,15 @@
 
 /* ----- CSS 변수 ----- */
 .yds-accordion {
-  --yds-accordion--list-margin-y: var(--krds-padding-2);
-  --yds-accordion--padding: var(--krds-padding-8);
-  --yds-accordion--button-icon-size: var(--krds-icon--size-large);
-  --yds-accordion--button-padding-right: calc(var(--yds-accordion--padding) + var(--krds-gap-5) + var(--yds-accordion--button-icon-size));
-  --yds-accordion--line-padding: var(--krds-padding-7);
-  --yds-accordion--line-button-padding-right: calc(var(--krds-gap-5) + var(--yds-accordion--button-icon-size));
-  --yds-accordion--radius: var(--krds-radius-large2);
-  --yds-accordion--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
-  --yds-accordion--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
+  --yds-accordion--list-margin-y: var(--space-4);
+  --yds-accordion--padding: var(--space-24);
+  --yds-accordion--button-icon-size: var(--icon-size-l);
+  --yds-accordion--button-padding-right: calc(var(--yds-accordion--padding) + var(--space-16) + var(--yds-accordion--button-icon-size));
+  --yds-accordion--line-padding: var(--space-20);
+  --yds-accordion--line-button-padding-right: calc(var(--space-16) + var(--yds-accordion--button-icon-size));
+  --yds-accordion--radius: var(--radius-10);
+  --yds-accordion--button-pc-font-size: var(--font-size-17);
+  --yds-accordion--button-mobile-font-size: var(--font-size-17);
 
   --yds-accordion--color-action: transparent;
   --yds-accordion--button-color-action: transparent;
@@ -37,7 +37,7 @@
 /* ----- 항목 ----- */
 .yds-accordion .yds-accordion__item {
   padding: var(--yds-accordion--list-margin-y) 0;
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
 }
 
 /* ----- 헤더 버튼 ----- */
@@ -52,7 +52,7 @@
   border-radius: var(--yds-accordion--radius);
   font-size: var(--yds-accordion--button-pc-font-size);
   color: var(--yds-accordion--button-color-text);
-  font-weight: var(--krds-font-weight-bold);
+  font-weight: var(--font-weight-bold);
   text-align: left;
 }
 @media (max-width: 767px) {
@@ -87,7 +87,7 @@
   mask-size: contain;
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
   transform: rotate(0deg);
 }
 
@@ -177,8 +177,8 @@
 /* ----- 모바일 ----- */
 @media (max-width: 767px) {
   .yds-accordion {
-    --yds-accordion--padding: var(--krds-padding-6);
-    --yds-accordion--line-padding: var(--krds-padding-5);
-    --yds-accordion--button-icon-size: var(--krds-icon--size-medium);
+    --yds-accordion--padding: var(--space-16);
+    --yds-accordion--line-padding: var(--space-12);
+    --yds-accordion--button-icon-size: var(--icon-size-m);
   }
 }

@@ -12,31 +12,31 @@
   --yds-tag--color-border: var(--color-border-subtle);
 
   /* small */
-  --yds-tag--wrapper-gap-x-small: var(--krds-gap-2);
-  --yds-tag--wrapper-gap-y-small: var(--krds-gap-3);
-  --yds-tag--size-height-small: var(--krds-size-height-4);
-  --yds-tag--button-size-small: var(--krds-size-height-2);
-  --yds-tag--padding-x-small: var(--krds-padding-3);
-  --yds-tag--pc-font-size-small: var(--krds-pc-font-size-label-xsmall);
-  --yds-tag--mobile-font-size-small: var(--krds-mobile-font-size-label-xsmall);
+  --yds-tag--wrapper-gap-x-small: var(--space-4);
+  --yds-tag--wrapper-gap-y-small: var(--space-8);
+  --yds-tag--size-height-small: var(--size-24);
+  --yds-tag--button-size-small: var(--size-16);
+  --yds-tag--padding-x-small: var(--space-8);
+  --yds-tag--pc-font-size-small: var(--font-size-13);
+  --yds-tag--mobile-font-size-small: var(--font-size-13);
 
   /* medium (기본값) */
-  --yds-tag--wrapper-gap-x-medium: var(--krds-gap-3);
-  --yds-tag--wrapper-gap-y-medium: var(--krds-gap-3);
-  --yds-tag--size-height-medium: var(--krds-size-height-5);
-  --yds-tag--button-size-medium: var(--krds-size-height-2);
-  --yds-tag--padding-x-medium: var(--krds-padding-4);
-  --yds-tag--pc-font-size-medium: var(--krds-pc-font-size-label-small);
-  --yds-tag--mobile-font-size-medium: var(--krds-mobile-font-size-label-small);
+  --yds-tag--wrapper-gap-x-medium: var(--space-8);
+  --yds-tag--wrapper-gap-y-medium: var(--space-8);
+  --yds-tag--size-height-medium: var(--size-32);
+  --yds-tag--button-size-medium: var(--size-16);
+  --yds-tag--padding-x-medium: var(--space-10);
+  --yds-tag--pc-font-size-medium: var(--font-size-15);
+  --yds-tag--mobile-font-size-medium: var(--font-size-15);
 
   /* large */
-  --yds-tag--wrapper-gap-x-large: var(--krds-gap-3);
-  --yds-tag--wrapper-gap-y-large: var(--krds-gap-4);
-  --yds-tag--size-height-large: var(--krds-size-height-6);
-  --yds-tag--button-size-large: var(--krds-size-height-2);
-  --yds-tag--padding-x-large: var(--krds-padding-5);
-  --yds-tag--pc-font-size-large: var(--krds-pc-font-size-label-medium);
-  --yds-tag--mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
+  --yds-tag--wrapper-gap-x-large: var(--space-8);
+  --yds-tag--wrapper-gap-y-large: var(--space-12);
+  --yds-tag--size-height-large: var(--size-40);
+  --yds-tag--button-size-large: var(--size-16);
+  --yds-tag--padding-x-large: var(--space-12);
+  --yds-tag--pc-font-size-large: var(--font-size-17);
+  --yds-tag--mobile-font-size-large: var(--font-size-17);
 }
 
 /* ----- Wrap (기본: medium) ----- */
@@ -114,16 +114,16 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  gap: var(--krds-gap-1);
+  gap: var(--space-2);
   height: var(--yds-tag--size-height-medium);
   padding: 0 var(--yds-tag--padding-x-medium);
   border-radius: var(--yds-tag--size-height-medium);
   font-size: var(--yds-tag--pc-font-size-medium);
-  line-height: var(--krds-line-height-none);
+  line-height: var(--line-height-none);
   background-color: var(--yds-tag--color-action);
   border: 0.1rem solid var(--yds-tag--color-border);
   color: var(--yds-tag--color-text);
-  transition: var(--krds-transition-base);
+  transition: var(--transition-base);
   white-space: nowrap;
 }
 @media (max-width: 767px) {
@@ -144,7 +144,7 @@
 .yds-tag-group .yds-tag.yds-tag--link:hover,
 .yds-tag-group .yds-tag.yds-tag--link:active {
   text-decoration: underline;
-  text-underline-offset: var(--krds-font-underline-offset);
+  text-underline-offset: 0.3rem; /* KRDS --krds-font-underline-offset 하드코딩 (tag 전용) */
 }
 
 /* ----- 삭제 버튼 ----- */
@@ -157,5 +157,5 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  line-height: var(--krds-line-height-none);
+  line-height: var(--line-height-none);
 }
