@@ -102,7 +102,7 @@ const preview = {
     options: {
       storySort: {
         order: [
-          'Overview',    ['Introduction', 'Naming', '*'],
+          'Overview',    ['Introduction', 'Directory', 'Naming', '*'],
           'Brand',       ['Logo', '*'],
           'Foundations', ['Accessibility', 'Color', 'Iconography', 'Layout', 'Radius', 'Shadow', 'Spacing', 'Typography', '*'],
           'Components',  [

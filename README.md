@@ -61,6 +61,16 @@ title: 'Patterns/Pattern Name'
 
 ---
 
+## 배포 파일 생성 전 확인 사항
+
+> **`--krds-*` 의존 제거 필요**  
+> 현재 컴포넌트 CSS는 KRDS 토큰(`--krds-padding-*`, `--krds-gap-*`, `--krds-radius-*` 등 87개)을 직접 참조하고 있다.  
+> 배포 파일(`yds-tokens.css`, `yds-components.css`) 생성 전에 이 변수들을 YDS 토큰(`--space-*`, `--radius-*`, `--font-*` 등)으로 교체하고,  
+> `reference/krds/resources/css/common/common.css`를 로드하지 않아도 화면이 동일하게 보이는지 확인해야 한다.  
+> 의존 변수 전체 목록: `docs/krds-dependencies.md`
+
+---
+
 ## 개발 명령어
 
 ```bash
