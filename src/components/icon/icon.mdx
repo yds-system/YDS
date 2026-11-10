@@ -3,10 +3,9 @@ import * as IconStories from './icon.stories.js';
 import { iconNaming } from '../../docs/naming-data.js';
 import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
+<Meta title="Components/Icon" />
 
-<Meta of={IconStories} />
-
-# Iconography
+# Icon
 
 아이콘
 
@@ -87,50 +86,9 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ---
 
-## KRDS 아이콘 사용 방식 분석
+## Playground
 
-### 방식: 개별 SVG + CSS mask-image (스프라이트 미사용)
-
-KRDS는 아이콘 스프라이트(sprite) 또는 인라인 SVG를 사용하지 않습니다.  
-각 아이콘이 독립된 `.svg` 파일로 제공되며, **CSS `mask-image`** 로 로드합니다.
-
-| 항목 | 내용 |
-|---|---|
-| 파일 위치 | `/img/component/icon/*.svg` |
-| HTML 마크업 | `<i class="ds-icon ds-ico-*">` |
-| 색상 제어 | `background-color` (mask 방식) |
-| 파일 수 | 약 90개 SVG |
-
-### 두 가지 렌더 방식
-
-#### ① mask 방식 (기본 · 단색 아이콘)
-
-`mask-image`로 SVG를 마스크로 사용하고 `background-color`로 색상을 칠합니다.  
-부모 요소의 색상을 상속받거나 CSS로 자유롭게 변경할 수 있습니다.
-
-```css
-.ds-icon.ds-ico-sch {
-  -webkit-mask-image: url(/img/component/icon/ico_sch.svg);
-  mask-image: url(/img/component/icon/ico_sch.svg);
-  /* background-color 로 색상 변경 */
-}
-```
-
-#### ② pure 방식 (SVG 원본 색상 유지)
-
-`background-image`로 SVG를 불러와 **원본 색상을 그대로** 표시합니다.  
-상태·알림 아이콘처럼 특정 색상이 의미를 가지는 경우에 사용합니다.
-
-```css
-.ds-icon.ds-ico-success-fill {
-  background-image: url(/img/component/icon/ico_success_fill.svg);
-  background-color: transparent !important;
-  -webkit-mask: none;
-  mask: none;
-}
-```
-
-**pure 방식 아이콘**: `ds-ico-help`, `ds-ico-success-fill`, `ds-ico-information-fill`, `ds-ico-error-fill`, `ds-ico-complete-fill`, `ds-ico-flag`, `ds-ico-delete-fill`
+<Canvas of={IconStories.Playground} />
 
 ---
 
@@ -158,128 +116,3 @@ KRDS는 아이콘 스프라이트(sprite) 또는 인라인 SVG를 사용하지 �
   <span class="sr-only">검색</span>
 </button>
 ```
-
----
-
-## 크기
-
-아이콘 크기는 `--krds-icon--size-*` CSS 변수로 제어합니다.  
-독립 사용 시 size 클래스를 추가하고, 컴포넌트 내에서는 컴포넌트 CSS가 크기를 지정합니다.
-
-| 클래스 | CSS 변수 | 크기 |
-|---|---|---|
-| `ds-icon--xsmall` | `--krds-icon--size-xsmall` | `--krds-size-height-2` |
-| `ds-icon--small`  | `--krds-icon--size-small`  | `--krds-size-height-2` |
-| `ds-icon--medium` | `--krds-icon--size-medium` | `--krds-size-height-3` |
-| (기본)             | `--krds-icon--size-large`  | `--krds-size-height-4` |
-| `ds-icon--xlarge` | `--krds-icon--size-xlarge` | `--krds-size-height-4` |
-
----
-
-## 아이콘 목록
-
-| 클래스 | SVG 파일 | 설명 | 방식 |
-|---|---|---|---|
-| `ds-ico-angle` | `ico_angle.svg` | 꺽쇠 (기본: 아래, `ds-icon--up` `ds-icon--left` `ds-icon--right` `ds-icon--disabled` 변형) | mask |
-| `ds-ico-go` | `ico_go.svg` | 이동 화살표 | mask |
-| `ds-ico-go-top` | `ico_go_top.svg` | 맨 위로 | mask |
-| `ds-ico-link` | `ico_go.svg` | 링크 | mask |
-| `ds-ico-page-next` | `ico_angle.svg` | 페이지 다음 | mask |
-| `ds-ico-bread-home` | `ico_bread_home.svg` | 홈(브레드크럼) | mask |
-| `ds-ico-all` | `ico_all.svg` | 전체 메뉴 | mask |
-| `ds-ico-global` | `ico_global.svg` | 글로벌/언어 | mask |
-| `ds-ico-func` | `ico_expand.svg` | 펼치기 (`ds-icon--up` 변형) | mask |
-| `ds-ico-fold` | `ico_foldable.svg` | 접기/펼치기 (`ds-icon--right` 변형) | mask |
-| `ds-ico-toggle` | `ico_angle.svg` | 토글 | mask |
-| `ds-ico-sch` | `ico_sch.svg` | 검색 | mask |
-| `ds-ico-sch-plus` | `ico_sch_plus.svg` | 검색+ | mask |
-| `ds-ico-plus` | `ico_plus.svg` | 추가 | mask |
-| `ds-ico-del` | `ico_delete.svg` | 삭제 | mask |
-| `ds-ico-delete-fill` | `ico_delete_fill.svg` | 삭제(채움) | **pure** |
-| `ds-ico-popup-close` | `ico_close.svg` | 닫기(팝업) | mask |
-| `ds-ico-modal-close` | `ico_close.svg` | 닫기(모달) | mask |
-| `ds-ico-more` | `ico_more.svg` | 더보기 | mask |
-| `ds-ico-ellipsis` | `ico_ellipsis.svg` | 말줄임 | mask |
-| `ds-ico-filter` | `ico_filter.svg` | 필터 | mask |
-| `ds-ico-reset` | `ico_reset.svg` | 초기화 | mask |
-| `ds-ico-refresh` | `ico_reset.svg` | 새로고침 | mask |
-| `ds-ico-upload` | `ico_upload.svg` | 업로드 | mask |
-| `ds-ico-down` | `ico_download.svg` | 다운로드 | mask |
-| `ds-ico-print` | `ico_print.svg` | 인쇄 | mask |
-| `ds-ico-scrap` | `ico_scrap.svg` | 스크랩 | mask |
-| `ds-ico-share` | `ico_share.svg` | 공유 | mask |
-| `ds-ico-like` | `ico_like.svg` | 좋아요 | mask |
-| `ds-ico-setting` | `ico_setting.svg` | 설정 | mask |
-| `ds-ico-view-mode` | `ico_view_mode.svg` | 보기 모드 | mask |
-| `ds-ico-file` | `ico_file.svg` | 파일 | mask |
-| `ds-ico-help` | `ico_help.svg` | 도움말 | **pure** |
-| `ds-ico-tooltip` | `ico_tooltip.svg` | 툴팁 | mask |
-| `ds-ico-success-fill` | `ico_success_fill.svg` | 성공 | **pure** |
-| `ds-ico-information-fill` | `ico_information_fill.svg` | 정보 | **pure** |
-| `ds-ico-error-fill` | `ico_error_fill.svg` | 오류 | **pure** |
-| `ds-ico-complete-fill` | `ico_complete_fill.svg` | 완료 | **pure** |
-| `ds-ico-flag` | `ico_flag.svg` | 깃발 | **pure** |
-| `ds-ico-urgent-danger` | `ico_urgent_badge_danger.svg` | 긴급(위험) | mask |
-| `ds-ico-pw-visible` | `ico_pw_visible_off.svg` | 비밀번호 숨김 | mask |
-| `ds-ico-pw-visible-on` | `ico_pw_visible_on.svg` | 비밀번호 표시 | mask |
-| `ds-ico-checkbox` | `ico_checkbox_checked.svg` | 체크박스 | mask |
-| `ds-ico-calendar` | `ico_calendar.svg` | 달력 | mask |
-| `ds-ico-cal-move` | `ico_arrow_dropdown.svg` | 달력 이동 | mask |
-| `ds-ico-log` | `ico_login.svg` | 로그인 | mask |
-| `ds-ico-logout` | `ico_logout.svg` | 로그아웃 | mask |
-| `ds-ico-join` | `ico_join.svg` | 회원가입 | mask |
-| `ds-ico-my` | `ico_my.svg` | 나의 정보 | mask |
-| `ds-ico-login-go` | `ico_login_certify_go.svg` | 인증 이동 | mask |
-| `ds-ico-login-type01~06` | `ico_login_certify_type_0*.svg` | 로그인 인증 방식 | mask |
-| `ds-ico-call` | `ico_call.svg` | 전화 | mask |
-| `ds-ico-email` | `ico_email.svg` | 이메일 | mask |
-| `ds-ico-faq` | `ico_faq.svg` | FAQ | mask |
-| `ds-ico-blog` | `ico_blog.svg` | 블로그 | mask |
-| `ds-ico-facebook` | `ico_facebook.svg` | 페이스북 | mask |
-| `ds-ico-instagram` | `ico_instagram.svg` | 인스타그램 | mask |
-| `ds-ico-sns-x` | `ico_sns_x.svg` | X (트위터) | mask |
-| `ds-ico-youtube` | `ico_youtube.svg` | 유튜브 | mask |
-| `ds-ico-swiper-play` | `ico_swiper_play.svg` | 슬라이드 재생 | mask |
-| `ds-ico-swiper-stop` | `ico_swiper_stop.svg` | 슬라이드 멈춤 | mask |
-
----
-
-## Playground
-
-<Canvas of={IconStories.Playground} />
-
----
-
-## 전체 그리드 (검색 + 복사)
-
-> 아이콘 이름 또는 한국어로 검색할 수 있습니다. 카드를 클릭하면 HTML 코드가 클립보드에 복사됩니다.
-
-<Canvas of={IconStories.전체그리드} />
-
----
-
-## 크기
-
-<Canvas of={IconStories.크기} />
-
----
-
-## 렌더 방식
-
-<Canvas of={IconStories.렌더방식} />
-
----
-
-## 접근성
-
-<Canvas of={IconStories.접근성} />
-
----
-
-## 접근성 가이드
-
-- 아이콘이 **장식용**인 경우(주변 텍스트가 의미를 설명): `aria-hidden="true"`를 추가한다.
-- 아이콘이 **단독으로 의미를 전달**하는 경우: `role="img" aria-label="설명"`을 추가하거나, 버튼 내부에 `<span class="sr-only">설명</span>`을 함께 작성한다.
-- 아이콘 전용 버튼에서는 `aria-label`보다 **sr-only 패턴을 권장**한다. 번역이 쉽고 DOM에서 직접 확인 가능하기 때문이다.
-- `<i>` 요소는 의미 없는 인라인 요소이며 KRDS에서 아이콘 컨테이너로 사용한다. 대체 가능한 요소로 `<span>`도 사용할 수 있다.
-- pure 방식 아이콘(성공·오류·완료 등)은 색상 자체가 의미를 가지므로, 색상 외에 **텍스트나 레이블로 의미를 보완**해야 한다.

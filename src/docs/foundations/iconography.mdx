@@ -1,0 +1,159 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as IconStories from '../../components/icon/icon.stories.js';
+import { IconColorTable } from '../token-components.js';
+
+<Meta of={IconStories} />
+
+# Iconography
+
+아이코노그래피
+
+---
+
+## 개요
+
+KRDS 아이콘 시스템은 약 90개의 SVG 파일을 CSS로 로드한다. 렌더 방식은 두 가지다.
+
+| 항목 | mask 방식 (기본) | pure 방식 |
+|---|---|---|
+| 렌더 방법 | CSS `mask-image` + `background-color` | CSS `background-image` |
+| 색상 제어 | `color-icon-*` 토큰으로 변경 가능 | SVG 원본 색상 고정 |
+| 사용 대상 | 단색 아이콘 (대부분) | 의미 있는 색상을 가진 상태·알림 아이콘 |
+
+**pure 방식 아이콘 목록**: `ds-ico-help`, `ds-ico-success-fill`, `ds-ico-information-fill`, `ds-ico-error-fill`, `ds-ico-complete-fill`, `ds-ico-flag`, `ds-ico-delete-fill`
+
+```css
+/* mask 방식 — background-color로 색상 제어 */
+.ds-icon.ds-ico-sch {
+  mask-image: url(ico_sch.svg);
+  background-color: var(--color-icon-default);
+}
+
+/* pure 방식 — SVG 원본 색상 그대로 */
+.ds-icon.ds-ico-success-fill {
+  background-image: url(ico_success_fill.svg);
+  background-color: transparent !important;
+  mask: none;
+}
+```
+
+---
+
+## 크기
+
+icon.css 기준 크기 단계. 독립 사용 시 modifier 클래스를 추가하고, 컴포넌트 내부에서는 컴포넌트 CSS가 크기를 직접 지정한다.
+
+| 클래스 | 크기 | 사용 |
+|---|---|---|
+| `ds-icon--xsmall` | 1.6rem (16px) | 뱃지·태그 내부 등 소형 |
+| `ds-icon--small` | 1.6rem (16px) | xsmall과 동일 |
+| `ds-icon--medium` | 2rem (20px) | 버튼·폼 아이콘 |
+| 기본 크기 | 2.4rem (24px) | 단독 아이콘 기본 (클래스 없음) |
+| `ds-icon--xlarge` | 2.4rem (24px) | large와 동일 |
+
+<Canvas of={IconStories.크기} />
+
+---
+
+## 색상
+
+mask 방식 아이콘의 색상은 `background-color`로 제어된다. 항상 `color-icon-*` 시멘틱 토큰을 사용한다. 모드가 바뀌면 토큰 값이 자동으로 전환된다.
+
+<IconColorTable />
+
+---
+
+## 사용 규칙
+
+### 해야 할 것
+
+- mask 아이콘 색상은 항상 **`color-icon-*` 시멘틱 토큰**을 참조한다. `background-color`에 색상 값을 직접 쓰지 않는다.
+- 텍스트와 함께 사용할 때는 `display: flex; align-items: center`로 수직 중앙 정렬을 맞춘다.
+- 아이콘 크기는 `ds-icon--{size}` modifier를 사용한다. 너비·높이를 별도 지정하지 않는다.
+
+```css
+/* 올바른 예 */
+.ds-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s-12);
+}
+.ds-btn .ds-icon {
+  color: inherit; /* background-color는 아이콘이 color-icon-* 토큰으로 처리 */
+}
+```
+
+### 하지 말 것
+
+- `background-color: #333`처럼 색상 값을 직접 지정하지 않는다. 모드가 바뀌어도 색상이 바뀌지 않는다.
+- pure 방식 아이콘에 `background-color`를 덮어쓰지 않는다. SVG 색상이 의미를 가진다.
+- 목록에 없는 아이콘을 직접 추가하지 않는다. 협의 후 icon.css에 등록한다.
+- 기본 크기(24px)에는 별도 클래스가 없다. `ds-icon--xlarge`도 같은 크기이므로 별도로 큰 크기가 있다고 혼동하지 않는다.
+
+---
+
+## 접근성
+
+KWCAG 2.2 — 5.1.1 적절한 대체 텍스트 제공
+
+아이콘은 맥락에 따라 세 가지 패턴으로 처리한다.
+
+### 장식용 아이콘
+
+주변 텍스트가 의미를 설명할 때. 스크린 리더가 읽지 않는다.
+
+```html
+<button type="button" class="ds-btn ds-btn--primary ds-btn--medium">
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+  검색
+</button>
+```
+
+### 의미 있는 아이콘 — 버튼 내부 (sr-only 권장)
+
+아이콘만 있는 버튼. `sr-only` 패턴이 권장된다. DOM에서 텍스트를 직접 확인할 수 있고 번역 도구에도 반응한다.
+
+```html
+<button type="button" class="ds-btn ds-btn--medium ds-btn--icon" aria-label="검색">
+  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+  <span class="sr-only">검색</span>
+</button>
+```
+
+### 의미 있는 아이콘 — 독립 사용
+
+버튼 없이 아이콘 단독으로 의미를 전달할 때.
+
+```html
+<i class="ds-icon ds-ico-error-fill" role="img" aria-label="오류"></i>
+```
+
+### pure 방식 아이콘 추가 주의
+
+pure 방식(성공·오류·완료 등)은 색상 자체가 의미를 가진다. **색상 외에 텍스트나 레이블로 의미를 반드시 보완**해야 한다 (KWCAG 2.2 — 5.4.1 색에 무관한 콘텐츠 인식).
+
+```html
+<!-- 색상+텍스트 함께 제공 -->
+<span class="ds-icon ds-ico-success-fill" aria-hidden="true"></span>
+<span>저장 완료</span>
+```
+
+---
+
+## 아이콘 목록
+
+아이콘 이름 또는 한국어로 검색할 수 있다. 카드를 클릭하면 HTML 코드가 클립보드에 복사된다.
+
+<Canvas of={IconStories.전체그리드} />
+
+---
+
+## 렌더 방식
+
+<Canvas of={IconStories.렌더방식} />
+
+---
+
+## 접근성 예시
+
+<Canvas of={IconStories.접근성} />
