@@ -4,7 +4,7 @@ import '../icon/icon.css';
 import { initMobileGnb } from '../main-menu/gnb-init.js';
 
 export default {
-  title: '컴포넌트/아이덴티티/헤더',
+  title: 'Components/헤더',
   parameters: { layout: 'fullscreen' },
   argTypes: {
     siteName: {

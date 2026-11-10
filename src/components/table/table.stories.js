@@ -3,7 +3,7 @@ import '../form-group/form-group.css';
 import './table.css';
 
 export default {
-  title: '컴포넌트/레이아웃 및 표현/표',
+  title: 'Components/표',
   argTypes: {
     caption: {
       control: 'text',

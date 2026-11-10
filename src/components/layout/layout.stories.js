@@ -4,7 +4,7 @@ import '../icon/icon.css';
 import { initPcGnb, initMobileGnb } from '../main-menu/gnb-init.js';
 
 export default {
-  title: '패턴/기본 레이아웃',
+  title: 'Patterns/기본 레이아웃',
   parameters: {
     layout: 'fullscreen',
   },

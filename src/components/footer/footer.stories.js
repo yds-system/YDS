@@ -3,7 +3,7 @@ import '../button/button.css';
 import '../icon/icon.css';
 
 export default {
-  title: '컴포넌트/아이덴티티/푸터',
+  title: 'Components/푸터',
   parameters: { layout: 'fullscreen' },
 };
 

@@ -1,7 +1,7 @@
 import './logo.css';
 
 export default {
-  title: '컴포넌트/레이아웃 및 표현/로고',
+  title: 'Brand/로고',
   argTypes: {
     ratio: {
       control: { type: 'select' },

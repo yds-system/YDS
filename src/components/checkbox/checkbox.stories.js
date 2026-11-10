@@ -2,7 +2,7 @@ import '../form-group/form-group.css';
 import './checkbox.css';
 
 export default {
-  title: '컴포넌트/선택/체크박스',
+  title: 'Components/체크박스',
   argTypes: {
     label: {
       control: 'text',

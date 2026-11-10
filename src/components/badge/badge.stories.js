@@ -1,7 +1,7 @@
 import './badge.css';
 
 export default {
-  title: '컴포넌트/레이아웃 및 표현/배지',
+  title: 'Components/배지',
   argTypes: {
     label: {
       control: 'text',

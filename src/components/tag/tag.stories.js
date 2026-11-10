@@ -1,7 +1,7 @@
 import './tag.css';
 
 export default {
-  title: '컴포넌트/선택/태그',
+  title: 'Components/태그',
   argTypes: {
     label: {
       control: 'text',

@@ -2,7 +2,7 @@ import '../form-group/form-group.css';
 import '../checkbox/checkbox.css'; /* ds-check-item 공유 CSS */
 
 export default {
-  title: '컴포넌트/선택/라디오 버튼',
+  title: 'Components/라디오 버튼',
   argTypes: {
     label: {
       control: 'text',

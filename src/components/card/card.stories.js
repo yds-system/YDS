@@ -2,7 +2,7 @@ import './card.css';
 import '../thumbnail/thumbnail.css';
 
 export default {
-  title: '컴포넌트/레이아웃 및 표현/카드',
+  title: 'Components/카드',
   argTypes: {
     title:      { control: 'text',    description: '카드 제목',                        table: { category: '내용' } },
     meta:       { control: 'text',    description: '메타 정보 (카테고리·날짜 등)',      table: { category: '내용' } },

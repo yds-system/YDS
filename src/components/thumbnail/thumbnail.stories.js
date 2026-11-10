@@ -1,7 +1,7 @@
 import './thumbnail.css';
 
 export default {
-  title: '컴포넌트/레이아웃 및 표현/썸네일',
+  title: 'Components/썸네일',
   argTypes: {
     ratio: {
       control: { type: 'select' },

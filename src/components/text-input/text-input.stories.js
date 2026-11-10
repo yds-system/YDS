@@ -3,7 +3,7 @@ import '../button/button.css';
 import './text-input.css';
 
 export default {
-  title: '컴포넌트/입력/텍스트 입력',
+  title: 'Components/텍스트 입력',
   argTypes: {
     label: {
       control: 'text',

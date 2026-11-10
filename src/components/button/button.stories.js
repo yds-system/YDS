@@ -2,7 +2,7 @@ import './button.css';
 import '../icon/icon.css';
 
 export default {
-  title: '컴포넌트/액션/버튼',
+  title: 'Components/버튼',
   argTypes: {
     label: {
       control: 'text',
