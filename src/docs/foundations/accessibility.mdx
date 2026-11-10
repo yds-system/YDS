@@ -6,4 +6,213 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 접근성
 
-작성 예정
+---
+
+## 개요
+
+이 디자인 시스템은 **WCAG 2.1 AA** 기준을 기본으로 하며, 공공기관 필수 항목인 **고대비 모드(AAA, 7:1)**를 추가로 지원한다. 모든 컴포넌트는 키보드 탐색·스크린 리더·브라우저 글꼴 확대 환경에서 올바르게 동작해야 한다.
+
+| 기준 | 대비 | 적용 대상 |
+|---|---|---|
+| WCAG 2.1 AA | 4.5:1 (본문), 3:1 (대형 텍스트·UI 요소) | 라이트·다크 모드 |
+| WCAG 2.1 AAA | 7:1 | 고대비 모드 (`data-mode="high-contrast"`) |
+| KRDS 선명한 화면 | 7:1 | 공공기관 필수 — 고대비 모드와 동일 |
+
+---
+
+## 색상 대비
+
+### 기준
+
+| 대상 | 최소 비율 | 기준 |
+|---|---|---|
+| 일반 본문·제목 텍스트 | **4.5:1** | WCAG AA |
+| 대형 텍스트 (18pt+ 또는 굵은 14pt+) | 3:1 | WCAG AA |
+| UI 컴포넌트 (아이콘·테두리·그래프) | **3:1** | WCAG AA |
+| 고대비 모드 (`data-mode="high-contrast"`) | **7:1** | WCAG AAA |
+| `disabled` 상태 | 면제 | WCAG 1.4.3 예외 |
+
+### 모드별 주의사항
+
+- 컴포넌트는 반드시 **시멘틱 토큰**(`--color-text-*`, `--color-bg-*`)을 사용해야 한다. 프리미티브 토큰을 직접 쓰면 모드 전환 시 대비가 깨질 수 있다.
+- `color-text-on-static`은 어두운 채움 배경 위 텍스트·아이콘에 사용한다. 모든 모드에서 흰색 고정.
+- `color-text-disabled`는 비활성 상태에만 쓴다. 대비 기준 미달 색상이므로 활성 텍스트에 절대 사용하지 않는다.
+
+대비 자동 검증은 Color 페이지의 접근성 항목 참조.
+
+---
+
+## 키보드 접근성
+
+### 포커스 표시
+
+모든 인터랙티브 요소는 포커스 시 **명확한 시각적 표시**가 있어야 한다. 이 시스템에서는 `--shadow-focus-inset` 또는 `outline` 기반 포커스 링을 사용한다.
+
+```css
+/* 올바른 예 — 포커스 링 */
+.ds-btn:focus-visible {
+  outline: 0.2rem solid var(--color-border-focus);
+  outline-offset: 0.2rem;
+}
+
+/* 잘못된 예 — 포커스 숨김 */
+:focus { outline: none; }
+```
+
+- `outline: none` 또는 `outline: 0`을 단독으로 쓰지 않는다. 반드시 대체 포커스 표시를 제공한다.
+- `:focus-visible`을 사용하면 마우스 클릭 시에는 포커스 링이 나타나지 않고 키보드 탐색 시에만 표시된다.
+
+### 탭 순서
+
+- 탭 순서는 **DOM 순서**와 일치해야 한다. CSS `order`나 `position`으로 시각 순서를 변경하면 DOM 순서와 불일치가 생긴다.
+- `tabindex="0"`: 커스텀 인터랙티브 요소에 키보드 포커스 추가. 꼭 필요한 경우에만.
+- `tabindex="-1"`: 프로그래밍 방식으로 포커스를 이동할 때 (예: 모달 열기 후 첫 번째 항목으로 포커스 이동). DOM 탭 순서에서는 제외.
+- `tabindex` 양수 값(`tabindex="1"` 등)은 사용하지 않는다. 탭 순서가 복잡해져 유지보수가 어렵다.
+
+### 건너뛰기 링크
+
+```html
+<!-- 페이지 최상단 — 첫 번째 인터랙티브 요소 앞에 위치 -->
+<a id="ds-skip-link" href="#main-content">본문으로 건너뛰기</a>
+
+<header>...</header>
+
+<main id="main-content">...</main>
+```
+
+화면에는 보이지 않다가 포커스를 받으면 나타난다. 키보드 사용자가 반복 탐색 메뉴를 건너뛸 수 있도록 모든 페이지에 제공한다.
+
+---
+
+## 스크린 리더
+
+### 시멘틱 HTML
+
+스크린 리더는 HTML 태그 의미를 기반으로 콘텐츠를 해석한다. 역할(role)이 명확한 HTML 요소를 먼저 사용한다.
+
+| 용도 | 올바른 태그 | 피해야 할 패턴 |
+|---|---|---|
+| 버튼 | `<button>` | `<div onclick>`, `<a>` |
+| 링크 | `<a href>` | `<button>` (페이지 이동) |
+| 체크박스 | `<input type="checkbox">` | 커스텀 div |
+| 목록 | `<ul>`, `<ol>` | div 나열 |
+| 제목 | `<h1>` ~ `<h6>` | 굵은 `<p>` |
+| 테이블 | `<table>` + `<caption>` | CSS 그리드 |
+
+### ARIA 사용 원칙
+
+ARIA는 HTML 시맨틱으로 표현할 수 없는 경우에만 보완적으로 사용한다.
+
+```html
+<!-- role: 커스텀 토글 버튼 -->
+<div role="switch" aria-checked="true" tabindex="0">알림 켜기</div>
+
+<!-- aria-label: 아이콘만 있는 버튼 -->
+<button aria-label="닫기">
+  <span class="ds-icon ds-ico-close" aria-hidden="true"></span>
+</button>
+
+<!-- aria-describedby: 에러 메시지 연결 -->
+<input aria-describedby="email-error" aria-invalid="true">
+<p id="email-error" role="alert">올바른 이메일 형식이 아닙니다.</p>
+
+<!-- aria-hidden: 장식용 아이콘 -->
+<span class="ds-icon ds-ico-check" aria-hidden="true"></span>
+```
+
+- 아이콘만 있는 버튼에는 반드시 `aria-label`을 제공한다.
+- 에러 메시지는 `role="alert"` + `aria-describedby`로 입력 필드와 연결한다.
+- 장식용 아이콘(`aria-hidden="true"`)은 스크린 리더가 읽지 않는다.
+- `aria-label`이 있으면 버튼 텍스트보다 `aria-label`이 우선 읽힌다. 텍스트와 의미가 다르지 않도록 주의한다.
+
+### 폼 레이블
+
+```html
+<!-- 올바른 예 — 명시적 레이블 연결 -->
+<label for="user-name">이름</label>
+<input id="user-name" type="text">
+
+<!-- 올바른 예 — 필수 입력 표시 -->
+<label for="email">
+  이메일
+  <span class="ds-form-label__required" aria-label="필수">*</span>
+</label>
+
+<!-- 잘못된 예 — placeholder만으로 레이블 대체 -->
+<input type="text" placeholder="이름을 입력하세요">
+```
+
+- 모든 입력 필드에 `<label>`을 연결한다. `placeholder`는 레이블 대체 불가 — 포커스 시 사라져 사용자가 무엇을 입력해야 하는지 잊기 쉽다.
+- `sr-only` 클래스로 화면에는 숨기되 스크린 리더에는 읽히는 레이블을 제공할 수 있다.
+
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+```
+
+---
+
+## 반응형 접근성
+
+### 최소 글자 크기
+
+| 용도 | 최소 크기 | 토큰 |
+|---|---|---|
+| 일반 본문 | 15px | `font-size-body-s` |
+| 보조 텍스트 (캡션·뱃지) | 13px | `font-size-body-xs` |
+| 비활성 텍스트 | 대비 면제, 크기 동일 | — |
+
+13px(`font-size-body-xs`) 미만은 사용하지 않는다.
+
+### 브라우저 글꼴 확대
+
+`html { font-size: 62.5%; }` 설정은 사용자가 브라우저 기본 글꼴 크기를 키울 때 `rem` 단위가 비례 확대되도록 한다. 텍스트를 `px`로 고정하면 이 확대가 무시된다.
+
+WCAG 2.1 성공 기준 1.4.4(텍스트 크기 조정): 텍스트는 200%까지 확대해도 콘텐츠·기능을 잃지 않아야 한다.
+
+### 터치 타깃 크기
+
+인터랙티브 요소의 최소 터치 타깃은 **44×44px**이다 (WCAG 2.5.5 목표 기준). 버튼이 작더라도 `padding`이나 `::before` 가상 요소로 타깃 영역을 확보한다.
+
+---
+
+## 모션 접근성
+
+애니메이션·전환 효과는 `prefers-reduced-motion` 미디어 쿼리로 비활성화 옵션을 제공한다.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+---
+
+## 컴포넌트 체크리스트
+
+새 컴포넌트를 추가할 때 아래 항목을 확인한다.
+
+- [ ] 모든 인터랙티브 요소에 포커스 링이 보인다.
+- [ ] 키보드만으로 모든 기능을 사용할 수 있다.
+- [ ] 모든 입력 필드에 `<label>`이 연결되어 있다.
+- [ ] 아이콘만 있는 버튼에 `aria-label`이 있다.
+- [ ] 색상 대비가 최소 4.5:1을 충족한다.
+- [ ] 고대비 모드(`data-mode="high-contrast"`)에서 화면이 깨지지 않는다.
+- [ ] 에러 메시지가 `role="alert"` 또는 `aria-describedby`로 연결되어 있다.
+- [ ] 장식용 아이콘에 `aria-hidden="true"`가 있다.
+- [ ] 텍스트가 `rem` 단위이고 200% 확대 시 레이아웃이 깨지지 않는다.

@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { RadiusPrimTable, RadiusSemanticTable } from '../token-components.js';
 
 <Meta title="Foundations/Radius" />
 
@@ -6,4 +7,73 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 모서리
 
-작성 예정
+---
+
+## 개요
+
+모서리 반경 토큰은 **2계층 구조**로 관리된다.
+
+| 계층 | 예시 | 역할 |
+|---|---|---|
+| 프리미티브 | `radius-8` | 원시 값 (rem 단위) |
+| 시멘틱 | `radius-m` | 용도 기반 이름 (xs~circle) |
+
+컴포넌트는 항상 **시멘틱 토큰**(`radius-xs` ~ `radius-circle`)을 사용한다. 프리미티브(`radius-8` 등)를 컴포넌트에서 직접 참조하지 않는다.
+
+---
+
+## 스케일
+
+### 원시 모서리
+
+<RadiusPrimTable />
+
+### 시멘틱 모서리
+
+<RadiusSemanticTable />
+
+---
+
+## 크기 그룹별 사용처
+
+| 토큰 | 크기 | 주요 사용처 |
+|---|---|---|
+| **radius-xs** | 2px | 뱃지·태그 소형, 인라인 요소 모서리 |
+| **radius-s** | 4px | 태그·칩, 소형 버튼, 토스트 모서리 |
+| **radius-m** | 8px | 버튼(기본), 텍스트 입력·선택 상자, 카드 |
+| **radius-l** | 12px | 모달·다이얼로그·패널·드롭다운 |
+| **radius-xl** | 16px | 대형 카드, 배너, 대형 패널 |
+| **radius-circle** | 999px+ | 원형 아이콘 버튼, 알약형 태그·뱃지, FAB |
+
+**선택 기준**: 요소가 작을수록 작은 값을 쓴다. 아이콘 버튼이나 뱃지처럼 높이가 작은 요소에 `radius-l` 이상을 쓰면 모양이 의도치 않게 원형으로 변하므로 주의한다.
+
+---
+
+## 사용 규칙
+
+### 해야 할 것
+
+- 컴포넌트에서는 항상 **시멘틱 토큰**(`--radius-m`, `--radius-l` 등)을 사용한다.
+- 컴포넌트 내부 변수(`--ds-{component}--radius`)는 시멘틱 토큰을 참조해 선언한다.
+
+```css
+/* 올바른 예 — 시멘틱 토큰 참조 */
+.ds-btn {
+  --ds-btn--radius: var(--radius-m);
+  border-radius: var(--ds-btn--radius);
+}
+
+.ds-card {
+  --ds-card--radius: var(--radius-m);
+  border-radius: var(--ds-card--radius);
+}
+```
+
+- 원형·알약형이 필요한 경우 `radius-circle`을 사용한다. 큰 고정 값(`50%`, `999px`)을 직접 쓰지 않는다.
+
+### 하지 말 것
+
+- `border-radius: 8px`, `border-radius: 0.8rem` 처럼 **값을 직접 작성**하지 않는다.
+- `--radius-8` 같은 **프리미티브 토큰을 컴포넌트에서 직접** 사용하지 않는다. 반드시 `radius-xs` ~ `radius-circle` 시멘틱 토큰을 거쳐 참조한다.
+- 작은 요소(뱃지·태그)에 `radius-l` 이상을 쓰지 않는다. 의도치 않은 원형 왜곡이 발생한다.
+- 토큰에 없는 중간 값(예: 3px, 5px, 10px)을 임의로 추가하지 않는다. 꼭 필요하면 토큰 추가를 먼저 논의한다.

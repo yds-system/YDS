@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { ResponsiveLayoutTable } from '../token-components.js';
 
 <Meta title="Foundations/Layout" />
 
@@ -6,4 +7,75 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 레이아웃
 
-작성 예정
+---
+
+## 개요
+
+레이아웃은 **브레이크포인트 1개**(`max-width: 1279px`)로 PC와 모바일 두 뷰포트를 구분한다. 별도의 태블릿 중간 단계는 없다.
+
+| 구분 | 뷰포트 너비 | 컨테이너 max-width | 좌우 패딩 |
+|---|---|---|---|
+| **PC** | 1280px 이상 | 1248px | 24px |
+| **모바일** | 1279px 이하 | 100% | 16px |
+
+**컨테이너**(`ds-container`)는 가운데 정렬 + 최대 너비를 갖는 공통 래퍼다. 헤더·푸터·메인 콘텐츠 등 모든 페이지 영역이 이 컨테이너 안에서 정렬된다.
+
+```html
+<!-- 기본 구조 -->
+<div class="ds-container">
+  <!-- 콘텐츠 -->
+</div>
+```
+
+---
+
+## 레이아웃 토큰
+
+섹션 여백과 컨테이너 패딩은 뷰포트에 따라 달라지는 반응형 토큰이다.
+
+<ResponsiveLayoutTable />
+
+---
+
+## 섹션 여백 사용처
+
+| 토큰 | PC | 모바일 | 주요 사용처 |
+|---|---|---|---|
+| **section-padding-s** | 16px | 12px | 카드 그룹 내부 여백, 폼 패딩 |
+| **section-padding-m** | 32px | 20px | 일반 섹션 상하 여백, 콘텐츠 블록 패딩 |
+| **section-padding-l** | 48px | 32px | 주요 섹션 상하 여백, 히어로·배너 패딩 |
+| **container-padding** | 32px | 20px | 컨테이너 좌우 패딩 (자동 적용) |
+
+---
+
+## 사용 규칙
+
+### 해야 할 것
+
+- 페이지 최상위 콘텐츠 영역은 항상 `ds-container`로 감싸 가운데 정렬한다.
+- 섹션 간 여백은 **레이아웃 토큰**(`--section-padding-s/m/l`)을 사용한다.
+
+```css
+/* 올바른 예 — 레이아웃 토큰 참조 */
+.ds-section {
+  padding-top: var(--section-padding-m);
+  padding-bottom: var(--section-padding-m);
+}
+```
+
+- 브레이크포인트가 필요한 경우 `@media (max-width: 1279px)`를 사용한다. 1280px 이상은 PC로 취급한다.
+- 반응형 토큰(`--section-padding-s/m/l`, `--container-padding`)을 사용하면 미디어 쿼리 없이 뷰포트에 맞는 값이 자동 적용된다.
+
+### 하지 말 것
+
+- `padding: 32px`, `max-width: 1200px` 처럼 **값을 직접 작성**하지 않는다.
+- 반응형 토큰 위에 별도 미디어 쿼리로 같은 속성을 덮어쓰지 않는다. 중복 쿼리가 토큰 반응형 로직을 방해할 수 있다.
+- `ds-container` 안에 또 다른 `ds-container`를 중첩하지 않는다. 패딩이 두 번 적용되어 콘텐츠가 과도하게 좁아진다.
+- 1279px 외의 임의 브레이크포인트(예: 768px, 1024px)를 추가하지 않는다. 꼭 필요하면 먼저 협의한다.
+
+---
+
+## 접근성
+
+- 페이지 최상단에 **건너뛰기 링크**(`#ds-skip-link`)를 제공한다. 키보드 사용자가 반복 탐색 메뉴를 건너뛰고 본문으로 바로 이동할 수 있어야 한다.
+- 콘텐츠 순서는 **DOM 순서**가 시각적 순서와 일치해야 한다. CSS `order`나 `grid-row` 등으로 시각 순서를 역전하면 스크린 리더 사용자에게 혼란을 준다.

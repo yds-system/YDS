@@ -29,38 +29,38 @@ import { ColorPrimTable, ColorSemanticTable } from '../token-components.js';
 
 ### Primary
 
-브랜드 대표 색상. 사용자에게 가장 중요한 단 하나의 메인 액션에 사용한다.
+브랜드 대표 색상. **한 영역 내 가장 중요한 행동 1개에만** 사용한다.
 
 - **사용**: 주요 버튼(`ds-btn--primary`), 외곽선 버튼의 hover·pressed 상태, 링크, 포커스 링, 체크박스·라디오 선택 상태
-- **사용 금지**: 페이지 내에 여러 primary 버튼이 나란히 존재하는 경우 (희소성 원칙 위반)
+- **규칙**: 한 영역에 Primary 버튼이 2개 이상 있다면 디자인을 재검토한다. 같은 영역의 다른 보조 행동은 Secondary로 표현한다.
 
 ### Secondary
 
-2번 브랜드 색상. Primary보다 덜 강조된 주요 액션이나 탐색 UI에 사용한다.
+2번 브랜드 색상. Primary보다 덜 강조된 보조 행동이나 탐색 UI에 사용한다.
 
 - **사용**: 탐색 항목(탭·GNB) 활성 상태, 목록 내 현재 선택 항목, secondary 버튼
-- <span style={{background:'#fff3cd',color:'#664d03',padding:'2px 8px',borderRadius:'4px',fontSize:'11px',fontWeight:700}}>팀 결정 필요</span> Primary와 Secondary 중 어느 쪽을 쓸지 모호한 경우(예: 카드 내 보조 액션)의 기준을 명확히 정한다.
+- **구분 기준**: 한 영역에서 Primary 1개를 정한 뒤, 나머지 버튼·행동은 Secondary(또는 Tertiary) 처리한다. 카드·폼 내 보조 액션(예: 취소, 더 보기)은 Secondary.
 
 ### Point
 
-강조용 빨강 계열. KRDS에 없는 자체 추가 색상이다.
+주목·알림 목적의 강조 빨강. KRDS에 없는 자체 추가 색상이다.
 
-- **사용 예시**: 새 콘텐츠 뱃지, 읽지 않음 인디케이터, 필수 항목 강조
-- <span style={{background:'#fff3cd',color:'#664d03',padding:'2px 8px',borderRadius:'4px',fontSize:'11px',fontWeight:700}}>팀 결정 필요</span> Point와 Danger를 구분하는 기준을 정한다. (Danger = 오류·삭제·위험한 액션 / Point = 새 항목·읽지 않음 등 중립적 강조로 분리할지 여부)
+- **사용**: 새 콘텐츠 뱃지, 읽지 않음 인디케이터, 필수 입력 강조 표시, 알림 개수
+- **사용 금지**: 오류 메시지, 삭제 확인, 위험한 액션. 오류에는 반드시 Danger를 사용한다.
 
 ### Danger
 
-오류·삭제·파괴적 액션을 나타낸다.
+오류·삭제·파괴적 액션 전용.
 
-- **사용**: 에러 메시지, 에러 테두리(`--color-border-danger`), 삭제 버튼, 필수 필드 에러 상태
-- **사용 금지**: 단순 경고나 주의 (그 경우엔 Warning 사용)
+- **사용**: 에러 메시지(`--color-text-danger`), 에러 테두리(`--color-border-danger`), 삭제 버튼, 필수 입력 에러 상태
+- **구분**: Point(주목)와 혼용하지 않는다. "오류입니다"는 Danger, "새 항목"은 Point.
 
 ### Warning
 
-주의·경고 상태. 오류는 아니지만 사용자 주의가 필요한 경우.
+주의·경고. 오류는 아니지만 사용자 주의가 필요한 경우.
 
 - **사용**: 경고 알림 배너, 경고 뱃지(`--color-bg-warning-element`), 만료 임박 안내
-- **참고**: warning-element 배경(`#ffb114`)은 어두운 텍스트(`--color-text-on-warning-element`)와 짝을 맞춰야 한다.
+- **참고**: warning-element 배경(`#ffb114`)은 반드시 `--color-text-on-warning-element`(어두운 텍스트)와 짝을 맞춰야 한다.
 
 ### Success
 
@@ -116,16 +116,16 @@ document.documentElement.removeAttribute('data-mode');
 ### 해야 할 것
 
 - 컴포넌트에서는 항상 **시멘틱 토큰**(`--color-bg-*`, `--color-text-*` 등)을 사용한다.
-- 채움(fill) 배경 위 텍스트는 반드시 **짝 맞는 on-\* 토큰**을 사용한다. (예: `--color-bg-warning-element` 배경 → `--color-text-on-warning-element` 텍스트)
-- 채움 배경의 `on-*` 토큰이 없을 경우, `npm run check:contrast`로 직접 대비를 확인한다.
+- 채움(fill) 배경 위 텍스트는 **짝 맞는 on-\* 토큰**을 사용한다. (예: `--color-bg-warning-element` → `--color-text-on-warning-element`)
+- **`color-text-on-static`**: 채움 배경 위 텍스트·아이콘이 모든 모드에서 항상 흰색이어야 하는 경우에 사용한다. 현재 사용 컴포넌트: Badge(채움형 변형), Checkbox(체크 마크), Date Input(선택된 날짜 텍스트), Pagination(활성 페이지 번호), Tab(채움형 탭 텍스트). 새 컴포넌트를 추가할 때 같은 조건이면 on-static을 사용한다.
 - 그레이 계열 텍스트는 `--color-text-default` → `--color-text-subtle` → `--color-text-subtler` 순서로 위계를 지킨다.
 
 ### 하지 말 것
 
-- `--color-primary-50`, `--color-gray-90` 같은 **프리미티브 토큰을 컴포넌트에서 직접 사용**하면 안 된다. 모드 전환 시 색상이 바뀌지 않는다.
+- `--color-primary-50`, `--color-gray-90` 같은 **프리미티브 토큰을 컴포넌트에서 직접 사용**하지 않는다. 모드 전환 시 색상이 바뀌지 않는다.
 - CSS 클래스(`.dark`, `.light`)나 미디어 쿼리(`prefers-color-scheme`)로 모드를 제어하지 않는다. `data-mode` 속성만 사용한다.
 - `--color-text-disabled`를 활성 텍스트에 사용하지 않는다. 대비 기준 미달 상태이므로 비활성 UI에만 쓴다.
-- <span style={{background:'#fff3cd',color:'#664d03',padding:'2px 8px',borderRadius:'4px',fontSize:'11px',fontWeight:700}}>팀 결정 필요</span> `color-bg-static`(`--color-text-on-static`) 사용 범위 — "항상 흰색 텍스트가 필요한 채움 배경"의 적용 기준을 구체적인 컴포넌트 목록으로 정한다.
+- 오류 상태에 Point 색상(`--color-text-point`, `--color-bg-point-*`)을 사용하지 않는다.
 
 ---
 
@@ -143,13 +143,11 @@ document.documentElement.removeAttribute('data-mode');
 
 ### 자동 검증
 
-대비를 직접 계산하지 말고 스크립트를 사용한다.
-
 ```bash
 npm run check:contrast
 ```
 
-`scripts/contrast-pairs.json`에 등록된 모든 색상 쌍을 Light·Dark·High Contrast 세 모드에서 자동 계산한다.
+`scripts/contrast-pairs.json`에 등록된 색상 쌍을 Light·Dark·High Contrast 세 모드에서 자동 계산한다.
 
 ### 알려진 예외
 
@@ -158,15 +156,3 @@ npm run check:contrast
 | `color-text-primary-on-subtle-pressed` / `color-bg-primary-subtle-pressed` | Light | 4.26:1 | KRDS 원본 값. 순간 상태(pressed)이므로 허용 |
 
 예외를 추가하려면 `scripts/contrast-pairs.json`의 해당 쌍에 `exceptions` 배열을 추가한다.
-
-```json
-{
-  "name": "...",
-  "fg": "color-text-...",
-  "bg": "color-bg-...",
-  "type": "text",
-  "exceptions": [
-    { "mode": "light", "reason": "사유 설명" }
-  ]
-}
-```
