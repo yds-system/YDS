@@ -3,7 +3,7 @@ import '../form-group/form-group.css';
 import './table.css';
 
 export default {
-  title: 'Components/표',
+  title: 'Components/Table',
   argTypes: {
     caption: {
       control: 'text',

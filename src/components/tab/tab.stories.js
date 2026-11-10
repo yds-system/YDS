@@ -1,7 +1,7 @@
 import './tab.css';
 
 export default {
-  title: 'Components/탭',
+  title: 'Components/Tab',
   argTypes: {
     variant: {
       control: { type: 'select' },

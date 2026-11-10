@@ -1,7 +1,7 @@
 import './badge.css';
 
 export default {
-  title: 'Components/배지',
+  title: 'Components/Badge',
   argTypes: {
     label: {
       control: 'text',

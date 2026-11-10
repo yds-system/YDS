@@ -1,7 +1,7 @@
 import './link.css';
 
 export default {
-  title: 'Components/링크',
+  title: 'Components/Link',
   argTypes: {
     label: {
       control: { type: 'text' },

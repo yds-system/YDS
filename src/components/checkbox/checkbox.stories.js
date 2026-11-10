@@ -2,7 +2,7 @@ import '../form-group/form-group.css';
 import './checkbox.css';
 
 export default {
-  title: 'Components/체크박스',
+  title: 'Components/Checkbox',
   argTypes: {
     label: {
       control: 'text',

@@ -2,7 +2,7 @@ import './carousel.css';
 import '../icon/icon.css';
 
 export default {
-  title: 'Components/캐러셀 컨트롤',
+  title: 'Components/Carousel',
   argTypes: {
     paginationType: {
       control: { type: 'select' },

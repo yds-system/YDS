@@ -3,7 +3,7 @@ import '../button/button.css';
 import '../text-input/text-input.css';
 
 export default {
-  title: 'Components/텍스트 영역',
+  title: 'Components/Textarea',
   argTypes: {
     label: { control: 'text', description: '레이블 텍스트', table: { category: '내용' } },
     placeholder: { control: 'text', description: '플레이스홀더', table: { category: '내용' } },

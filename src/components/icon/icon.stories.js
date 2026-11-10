@@ -1,7 +1,7 @@
 import './icon.css';
 
 export default {
-  title: 'Foundations/아이코노그래피',
+  title: 'Foundations/Iconography',
   argTypes: {
     name: {
       control: { type: 'select' },

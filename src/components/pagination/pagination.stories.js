@@ -1,7 +1,7 @@
 import './pagination.css';
 
 export default {
-  title: 'Components/페이지네이션',
+  title: 'Components/Pagination',
   argTypes: {
     totalPages: {
       control: { type: 'number', min: 1, step: 1 },

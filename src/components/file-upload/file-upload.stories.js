@@ -3,7 +3,7 @@ import './file-upload.css';
 import '../icon/icon.css';
 
 export default {
-  title: 'Components/파일 업로드',
+  title: 'Components/File Upload',
   argTypes: {
     title: {
       control: 'text',

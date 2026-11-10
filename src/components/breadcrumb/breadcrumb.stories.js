@@ -1,7 +1,7 @@
 import './breadcrumb.css';
 
 export default {
-  title: 'Components/브레드크럼',
+  title: 'Components/Breadcrumb',
   argTypes: {
     depth: {
       control: { type: 'select' },

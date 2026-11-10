@@ -1,7 +1,7 @@
 import './tag.css';
 
 export default {
-  title: 'Components/태그',
+  title: 'Components/Tag',
   argTypes: {
     label: {
       control: 'text',

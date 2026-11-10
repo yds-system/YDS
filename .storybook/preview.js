@@ -87,18 +87,19 @@ const preview = {
     options: {
       storySort: {
         order: [
-          'Overview', ['*'],
-          'Brand', ['로고', '*'],
-          'Foundations', ['색상', '타이포그래피', '간격', '레이아웃', '모서리', '그림자', '접근성', '아이코노그래피', '*'],
-          'Components', [
-            '날짜 입력', '라디오 버튼', '링크', '메인 메뉴',
-            '배지', '버튼', '브레드크럼', '선택 상자', '썸네일',
-            '아코디언', '체크박스', '카드', '캐러셀 컨트롤',
-            '태그', '탭', '텍스트 영역', '텍스트 입력', '툴팁',
-            '파일 업로드', '페이지네이션', '표', '푸터', '헤더', '*',
+          'Overview',    ['Introduction', 'Naming', '*'],
+          'Brand',       ['Logo', '*'],
+          'Foundations', ['Accessibility', 'Border Radius', 'Color', 'Iconography', 'Layout', 'Shadow', 'Spacing', 'Typography', '*'],
+          'Components',  [
+            'Accordion', 'Badge', 'Breadcrumb', 'Button',
+            'Card', 'Carousel', 'Checkbox',
+            'Date Picker', 'File Upload', 'Footer', 'Header',
+            'Link', 'Main Menu', 'Pagination', 'Radio Button',
+            'Select', 'Tab', 'Table', 'Tag',
+            'Text Input', 'Textarea', 'Thumbnail', 'Tooltip', '*',
           ],
-          'Tokens', ['메인', '프리미티브', '반응형', '모드', '시멘틱', '*'],
-          'Patterns', ['기본 레이아웃', '*'],
+          'Tokens',   ['Overview', 'Mode', 'Primitive', 'Responsive', 'Semantic', '*'],
+          'Patterns', ['Basic Layout', '*'],
           '*',
         ],
       },

@@ -2,7 +2,7 @@ import './tooltip.css';
 import '../button/button.css';
 
 export default {
-  title: 'Components/툴팁',
+  title: 'Components/Tooltip',
   argTypes: {
     text: {
       control: { type: 'text' },

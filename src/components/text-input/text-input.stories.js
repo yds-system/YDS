@@ -3,7 +3,7 @@ import '../button/button.css';
 import './text-input.css';
 
 export default {
-  title: 'Components/텍스트 입력',
+  title: 'Components/Text Input',
   argTypes: {
     label: {
       control: 'text',

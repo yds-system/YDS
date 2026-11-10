@@ -2,7 +2,7 @@ import './button.css';
 import '../icon/icon.css';
 
 export default {
-  title: 'Components/버튼',
+  title: 'Components/Button',
   argTypes: {
     label: {
       control: 'text',

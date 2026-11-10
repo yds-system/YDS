@@ -1,7 +1,7 @@
 import './accordion.css';
 
 export default {
-  title: 'Components/아코디언',
+  title: 'Components/Accordion',
   argTypes: {
     type: {
       control: { type: 'select' },
