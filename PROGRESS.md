@@ -304,6 +304,18 @@
 
 ---
 
+## 2026-11-10 Foundations 페이지 7종 작성
+
+- **Color**: 4계층 구조·3개 모드 개요, ColorPrimTable, ColorSemanticTable, 역할별 사용(Primary~Information), 모드 전환 코드, 사용 규칙, 접근성(대비 기준·자동 검증)
+- **Typography**: 개요(Pretendard GOV, 1rem=10px), SemanticTypoStyleTable, ResponsiveTypoTable, TypoPrimTable, 위계(Heading/Body/font-weight), 사용 규칙, 접근성(최소 크기·행간·브라우저 확대)
+- **Spacing**: 3계층 구조 개요, SpacingPrimTable, SpacingSizeTable, SpacingSemanticTable(details 접힘), 그룹별 사용처(xs~xl), 사용 규칙
+- **Radius**: 2계층 구조 개요, RadiusPrimTable, RadiusSemanticTable, 그룹별 사용처(xs~circle), 사용 규칙
+- **Shadow**: 개요(2레이어 구조), ShadowTable, ShadowColorTable, 깊이 단계별 사용처(none~l), 사용 규칙
+- **Layout**: 브레이크포인트(1280px), 컨테이너(max-width 1248px), ResponsiveLayoutTable, 섹션 여백 사용처, 사용 규칙, 접근성(건너뛰기 링크·DOM 순서)
+- **Accessibility**: WCAG 2.1 AA/AAA·KRDS 기준, 색상 대비, 키보드 접근성(포커스·탭 순서·건너뛰기 링크), 스크린 리더(시맨틱 HTML·ARIA·폼 레이블), 반응형 접근성, 모션, 컴포넌트 체크리스트
+
+---
+
 ## 2026-11-10 KRDS 색상 토큰 마이그레이션
 
 - **scripts/krds-color-map.json 생성**: KRDS `--krds-light-color-*` / `--krds-box-shadow-outline-inset` / `--krds-light-alpha-black0` → YDS 토큰 대응 매핑 (100개 항목)
