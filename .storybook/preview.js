@@ -30,7 +30,7 @@ export const globalTypes = {
 };
 
 // ── 화면 모드 동기화 decorator ──────────────────────────────────────────────────
-// html[data-mode] 설정 + 고대비일 때 data-krds-mode="high-contrast" 동기화
+// html[data-mode] 설정
 export const decorators = [
   (story, context) => {
     const mode = context.globals.colorMode || 'light';
@@ -38,13 +38,10 @@ export const decorators = [
 
     if (mode === 'light') {
       html.removeAttribute('data-mode');
-      html.removeAttribute('data-krds-mode');
     } else if (mode === 'high-contrast') {
       html.setAttribute('data-mode', 'high-contrast');
-      html.setAttribute('data-krds-mode', 'high-contrast'); // 전환 기간 KRDS 호환
     } else {
       html.setAttribute('data-mode', mode); // 'dark' | 'system'
-      html.removeAttribute('data-krds-mode');
     }
 
     // Canvas 모드: body 전체에 배경·글자색 적용
