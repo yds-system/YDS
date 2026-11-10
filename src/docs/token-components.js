@@ -187,9 +187,10 @@ const RefVal = (ref, val) =>
     GrayChip(val)
   );
 
-const renderSemanticGroup = (g) =>
-  h('div', { key: g.name, style: sectionStyle },
-    h('h4', { style: subheadStyle }, g.name),
+const renderSemanticGroup = (g) => {
+  const title = g.name || g.group;
+  return h('div', { key: title, style: sectionStyle },
+    h('h4', { style: subheadStyle }, title),
     h('table', { style: tableStyle },
       h('thead', null,
         h('tr', null,
@@ -217,6 +218,7 @@ const renderSemanticGroup = (g) =>
       )
     )
   );
+};
 
 export const ColorSemanticTable = () =>
   h(Fragment, null, ...colorSemanticGroups.map(renderSemanticGroup));
@@ -224,7 +226,7 @@ export const ColorSemanticTable = () =>
 export const IconColorTable = () =>
   h(Fragment, null,
     ...colorSemanticGroups
-      .filter(g => g.name.startsWith('color-icon'))
+      .filter(g => (g.name || g.group || '').startsWith('color-icon'))
       .map(renderSemanticGroup)
   );
 

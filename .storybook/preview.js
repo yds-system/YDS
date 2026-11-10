@@ -47,6 +47,18 @@ export const decorators = [
       html.removeAttribute('data-krds-mode');
     }
 
+    // 스토리 캔버스 · docs 미리보기 배경을 모드 토큰에 맞춰 동기화
+    document.body.style.background = 'var(--color-bg-default)';
+    document.body.style.color = 'var(--color-text-default)';
+
+    let modeStyle = document.getElementById('yds-mode-preview-style');
+    if (!modeStyle) {
+      modeStyle = document.createElement('style');
+      modeStyle.id = 'yds-mode-preview-style';
+      document.head.appendChild(modeStyle);
+    }
+    modeStyle.textContent = '.sbdocs-preview { background: var(--color-bg-default) !important; }';
+
     return story();
   },
 ];
@@ -98,8 +110,8 @@ const preview = {
             'Select', 'Tab', 'Table', 'Tag',
             'Text Input', 'Textarea', 'Thumbnail', 'Tooltip', '*',
           ],
-          'Tokens',   ['Overview', 'Mode', 'Primitive', 'Responsive', 'Semantic', '*'],
           'Patterns', ['Basic Layout', '*'],
+          'Tokens',   ['Overview', 'Mode', 'Primitive', 'Responsive', 'Semantic', '*'],
           '*',
         ],
       },
