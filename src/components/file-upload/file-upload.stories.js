@@ -70,12 +70,12 @@ function fileItem({ name, size, status, errorMsg }) {
   if (status === 'uploading') {
     actionHtml = `
       <span class="yds-spinner" role="status">
-        <span class="sr-only">업로드 중</span>
+        <span class="yds-sr-only">업로드 중</span>
       </span>`;
   } else if (status === 'done') {
     actionHtml = `
       <span class="yds-file-upload__item-icon yds-file-upload__item-icon--completed">
-        <em class="sr-only">업로드 완료</em>
+        <em class="yds-sr-only">업로드 완료</em>
       </span>`;
   } else {
     /* error 또는 기본 — 삭제 버튼 */

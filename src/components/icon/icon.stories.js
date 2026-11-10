@@ -480,7 +480,7 @@ export const 접근성 = {
 
       <section>
         <h2 style="font-size:1.4rem;font-weight:bold;margin-bottom:1.2rem;color:var(--krds-light-color-text-bolder);">
-          sr-only 텍스트로 대체 — 버튼에 권장
+          yds-sr-only 텍스트로 대체 — 버튼에 권장
         </h2>
         <p style="font-size:1.3rem;color:var(--krds-light-color-text-subtle);margin-bottom:1.2rem;">
           아이콘 버튼에서 가장 많이 사용하는 패턴. aria-label보다 번역·유지보수가 쉽습니다.
@@ -488,12 +488,12 @@ export const 접근성 = {
         <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1.2rem;">
           <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border:1px solid var(--krds-light-color-border-gray);border-radius:0.4rem;background:none;cursor:pointer;">
             <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
-            <span class="sr-only">검색</span>
+            <span class="yds-sr-only">검색</span>
           </button>
         </div>
         <pre style="background:var(--krds-light-color-surface-gray);padding:1.2rem;border-radius:0.6rem;font-size:1.2rem;overflow:auto;">&lt;button type="button"&gt;
   &lt;i class="yds-icon yds-ico-sch" aria-hidden="true"&gt;&lt;/i&gt;
-  &lt;span class="sr-only"&gt;검색&lt;/span&gt;
+  &lt;span class="yds-sr-only"&gt;검색&lt;/span&gt;
 &lt;/button&gt;</pre>
       </section>
     </div>`,

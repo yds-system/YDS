@@ -31,7 +31,7 @@ export const buttonNaming = {
 
 아이콘 전용 버튼:
 button.yds-btn.yds-btn--icon [yds-btn--크기] [yds-btn--border]
-├── span.sr-only              ← 숨김 텍스트 (필수)
+├── span.yds-sr-only          ← 숨김 텍스트 (필수)
 └── i.yds-icon.yds-ico-*`,
 
   /** 클래스명 표 */
@@ -52,7 +52,7 @@ button.yds-btn.yds-btn--icon [yds-btn--크기] [yds-btn--border]
     },
     {
       element: '숨김 텍스트',
-      class: 'sr-only',
+      class: 'yds-sr-only',
       krdsClass: 'sr-only',
       description: '스크린 리더 전용 설명 텍스트. 아이콘 전용 버튼(.yds-btn--icon)에 반드시 포함.',
       confirmed: true,
@@ -66,7 +66,7 @@ button.yds-btn.yds-btn--icon [yds-btn--크기] [yds-btn--border]
     { category: '종류', class: 'yds-btn--secondary', krdsClass: 'secondary', description: 'Primary와 함께 쓰는 보조 액션 버튼', confirmed: true },
     { category: '종류', class: 'yds-btn--tertiary',  krdsClass: 'tertiary',  description: '낮은 우선순위 액션 버튼 (취소·닫기 등)', confirmed: true },
     { category: '종류', class: 'yds-btn--text',      krdsClass: 'text',      description: '테두리 없이 텍스트만 표시하는 버튼', confirmed: true },
-    { category: '종류', class: 'yds-btn--icon',      krdsClass: 'icon',      description: '텍스트 없이 아이콘만 표시하는 버튼 (sr-only 필수)', confirmed: true },
+    { category: '종류', class: 'yds-btn--icon',      krdsClass: 'icon',      description: '텍스트 없이 아이콘만 표시하는 버튼 (yds-sr-only 필수)', confirmed: true },
     // 크기
     { category: '크기', class: 'yds-btn--xsmall', krdsClass: 'xsmall', description: 'X-Small (가장 작은 크기)', confirmed: true },
     { category: '크기', class: 'yds-btn--small',  krdsClass: 'small',  description: 'Small', confirmed: true },
@@ -103,15 +103,15 @@ button.yds-btn.yds-btn--icon [yds-btn--크기] [yds-btn--border]
   <i class="yds-icon yds-ico-sch" aria-hidden="true"></i> 검색
 </button>
 
-<!-- 아이콘 전용 버튼 (sr-only 필수) -->
+<!-- 아이콘 전용 버튼 (yds-sr-only 필수) -->
 <button type="button" class="yds-btn yds-btn--icon yds-btn--medium">
-  <span class="sr-only">검색</span>
+  <span class="yds-sr-only">검색</span>
   <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
 </button>
 
 <!-- 아이콘 전용 + 원형 테두리 -->
 <button type="button" class="yds-btn yds-btn--icon yds-btn--large yds-btn--border">
-  <span class="sr-only">새로고침</span>
+  <span class="yds-sr-only">새로고침</span>
   <i class="yds-icon yds-ico-refresh" aria-hidden="true"></i>
 </button>
 
@@ -222,13 +222,13 @@ export const tagNaming = {
 └── span.yds-tag  또는  a.yds-tag.yds-tag--link
     ├── [텍스트]
     └── button.yds-tag__delete-btn        ← 삭제 버튼 (선택)
-        └── span.sr-only`,
+        └── span.yds-sr-only`,
 
   elements: [
     { element: '태그 그룹', class: 'yds-tag-group', krdsClass: 'krds-tag-wrap', description: '태그 목록 컨테이너. 크기 modifier를 함께 사용한다.', confirmed: true },
     { element: '태그 항목', class: 'yds-tag', krdsClass: 'krds-btn-tag', description: '개별 태그. span(삭제 가능) 또는 a(링크) 태그에 적용', confirmed: true },
-    { element: '삭제 버튼', class: 'yds-tag__delete-btn', krdsClass: 'btn-delete', description: '태그 내 삭제 버튼. sr-only로 텍스트 필수', confirmed: true },
-    { element: '숨김 텍스트', class: 'sr-only', krdsClass: 'sr-only', description: '삭제 버튼의 스크린 리더 전용 텍스트', confirmed: true },
+    { element: '삭제 버튼', class: 'yds-tag__delete-btn', krdsClass: 'btn-delete', description: '태그 내 삭제 버튼. yds-sr-only로 텍스트 필수', confirmed: true },
+    { element: '숨김 텍스트', class: 'yds-sr-only', krdsClass: 'sr-only', description: '삭제 버튼의 스크린 리더 전용 텍스트', confirmed: true },
   ],
 
   modifiers: [
@@ -243,13 +243,13 @@ export const tagNaming = {
   <span class="yds-tag">
     공지사항
     <button type="button" class="yds-tag__delete-btn">
-      <span class="sr-only">공지사항 삭제</span>
+      <span class="yds-sr-only">공지사항 삭제</span>
     </button>
   </span>
   <span class="yds-tag">
     이벤트
     <button type="button" class="yds-tag__delete-btn">
-      <span class="sr-only">이벤트 삭제</span>
+      <span class="yds-sr-only">이벤트 삭제</span>
     </button>
   </span>
 </div>
@@ -894,7 +894,7 @@ export const tabNaming = {
           id="tab-1" role="tab"
           aria-selected="true" aria-controls="panel-1">
         <button type="button" class="yds-tab__btn">
-          탭 1 <i class="sr-only created"> 선택됨</i>
+          탭 1 <i class="yds-sr-only ds-tab__selected-text"> 선택됨</i>
         </button>
       </li>
       <li class="yds-tab__item"
@@ -907,12 +907,12 @@ export const tabNaming = {
   <div class="yds-tab__panels">
     <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
              class="yds-tab__panel yds-tab__panel--selected" tabindex="0">
-      <h3 class="sr-only">탭 1 영역</h3>
+      <h3 class="yds-sr-only">탭 1 영역</h3>
       탭 1 콘텐츠
     </section>
     <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
              class="yds-tab__panel" tabindex="0">
-      <h3 class="sr-only">탭 2 영역</h3>
+      <h3 class="yds-sr-only">탭 2 영역</h3>
       탭 2 콘텐츠
     </section>
   </div>
@@ -959,19 +959,19 @@ export const paginationNaming = {
   <div class="yds-pagination">
     <a class="yds-pagination__move-btn yds-pagination__move-btn--first" href="#" data-navi="first">처음</a>
     <a class="yds-pagination__move-btn yds-pagination__move-btn--prev" href="#" data-navi="prev">
-      <span class="sr-only">이전 페이지</span>
+      <span class="yds-sr-only">이전 페이지</span>
     </a>
     <div class="yds-pagination__list">
       <a class="yds-pagination__link" href="#" data-page="1">1</a>
       <span class="yds-pagination__link yds-pagination__link--ellipsis" aria-hidden="true"></span>
       <a class="yds-pagination__link" href="#" data-page="3">3</a>
       <span class="yds-pagination__link yds-pagination__link--current" aria-current="page">
-        <span class="sr-only">현재페이지 </span>4
+        <span class="yds-sr-only">현재페이지 </span>4
       </span>
       <a class="yds-pagination__link" href="#" data-page="5">5</a>
     </div>
     <a class="yds-pagination__move-btn yds-pagination__move-btn--next" href="#" data-navi="next">
-      <span class="sr-only">다음 페이지</span>
+      <span class="yds-sr-only">다음 페이지</span>
     </a>
     <a class="yds-pagination__move-btn yds-pagination__move-btn--last" href="#" data-navi="last">마지막</a>
   </div>
@@ -1344,16 +1344,16 @@ export const carouselNaming = {
 
   codeExample: `<!-- 개별 버튼 -->
 <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev">
-  <span class="sr-only">이전</span>
+  <span class="yds-sr-only">이전</span>
 </button>
 <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next">
-  <span class="sr-only">다음</span>
+  <span class="yds-sr-only">다음</span>
 </button>
 
 <!-- 비활성 버튼 -->
 <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled"
         aria-disabled="true">
-  <span class="sr-only">이전</span>
+  <span class="yds-sr-only">이전</span>
 </button>
 
 <!-- 불릿 페이지네이션 -->
@@ -1378,15 +1378,15 @@ export const carouselNaming = {
   </div>
   <div class="yds-carousel__controller">
     <button type="button" class="yds-carousel__stop-btn">
-      <span class="sr-only">슬라이드 멈춤</span>
+      <span class="yds-sr-only">슬라이드 멈춤</span>
     </button>
   </div>
   <div class="yds-carousel__nav">
     <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev">
-      <span class="sr-only">이전</span>
+      <span class="yds-sr-only">이전</span>
     </button>
     <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next">
-      <span class="sr-only">다음</span>
+      <span class="yds-sr-only">다음</span>
     </button>
   </div>
 </div>`,
@@ -1438,7 +1438,7 @@ export const iconNaming = {
 <!-- 의미 있는 아이콘 (버튼 내) -->
 <button type="button">
   <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
-  <span class="sr-only">검색</span>
+  <span class="yds-sr-only">검색</span>
 </button>`,
 };
 

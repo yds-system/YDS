@@ -38,7 +38,7 @@ export default {
 function tag({ label, deletable = false, link = false }) {
   const linkClass = link ? ' yds-tag--link' : '';
   const deleteBtn = deletable
-    ? `<button type="button" class="yds-tag__delete-btn"><span class="sr-only">${label} 삭제</span></button>`
+    ? `<button type="button" class="yds-tag__delete-btn"><span class="yds-sr-only">${label} 삭제</span></button>`
     : '';
   return `<span class="yds-tag${linkClass}">${label}${deleteBtn}</span>`;
 }

@@ -67,7 +67,7 @@ function renderSingle({ label, hint, required, state, disabled }) {
                  aria-haspopup="dialog" aria-expanded="false">
           <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"${dis}
                   aria-label="달력 열기" aria-expanded="false" aria-controls="${id}-cal">
-            <span class="sr-only">달력 열기</span>
+            <span class="yds-sr-only">달력 열기</span>
             <i class="yds-icon yds-ico-calendar"></i>
           </button>
         </div>
@@ -102,7 +102,7 @@ function renderRange({ label, hint, required }) {
           </ul>
           <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"
                   aria-label="달력 열기" aria-expanded="false" aria-controls="${id}-cal">
-            <span class="sr-only">달력 열기</span>
+            <span class="yds-sr-only">달력 열기</span>
             <i class="yds-icon yds-ico-calendar"></i>
           </button>
         </div>
@@ -168,7 +168,7 @@ class DatePicker {
     return `
       <div class="yds-calendar__head">
         <button type="button" class="yds-calendar__move-btn yds-calendar__move-btn--prev" aria-label="이전 달">
-          <span class="sr-only">이전 달</span>
+          <span class="yds-sr-only">이전 달</span>
         </button>
         <div class="yds-calendar__switch-group">
           <div class="yds-calendar__dropdown">
@@ -189,7 +189,7 @@ class DatePicker {
           </div>
         </div>
         <button type="button" class="yds-calendar__move-btn yds-calendar__move-btn--next" aria-label="다음 달">
-          <span class="sr-only">다음 달</span>
+          <span class="yds-sr-only">다음 달</span>
         </button>
       </div>`;
   }

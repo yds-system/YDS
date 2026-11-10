@@ -145,7 +145,7 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
         <div class="yds-header__branding">
           <h1 class="yds-header__logo">
             <a href="#">
-              <span class="sr-only">${siteName}</span>
+              <span class="yds-sr-only">${siteName}</span>
             </a>
           </h1>
           <div class="yds-header__actions">

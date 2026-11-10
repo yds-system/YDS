@@ -122,7 +122,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
     <th scope="col" style="width:4rem;">
       <div class="yds-check-item yds-check-item--medium" style="justify-content:center;">
         <input type="checkbox" id="${allId}">
-        <label for="${allId}"><span class="sr-only">전체 선택</span></label>
+        <label for="${allId}"><span class="yds-sr-only">전체 선택</span></label>
       </div>
     </th>
     ${headers.map(h => `<th scope="col">${h}</th>`).join('')}
@@ -134,7 +134,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
       <th scope="row" style="text-align:center;">
         <div class="yds-check-item yds-check-item--medium" style="justify-content:center;">
           <input type="checkbox" id="${chkId}" data-row>
-          <label for="${chkId}"><span class="sr-only">${row.title} 선택</span></label>
+          <label for="${chkId}"><span class="yds-sr-only">${row.title} 선택</span></label>
         </div>
       </th>
       <td data-label="번호">${row.no}</td>

@@ -65,13 +65,13 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 </button>
 ```
 
-### 의미 있는 아이콘 (sr-only 권장)
+### 의미 있는 아이콘 (yds-sr-only 권장)
 
 ```html
-<!-- 아이콘 단독 버튼 — sr-only 패턴 권장 -->
+<!-- 아이콘 단독 버튼 — yds-sr-only 패턴 권장 -->
 <button type="button" class="yds-btn yds-btn--medium yds-btn--icon" aria-label="검색">
   <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
-  <span class="sr-only">검색</span>
+  <span class="yds-sr-only">검색</span>
 </button>
 ```
 
@@ -110,9 +110,9 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 <!-- 방법 1: role + aria-label -->
 <i class="yds-icon yds-ico-sch" role="img" aria-label="검색"></i>
 
-<!-- 방법 2: sr-only (버튼 내부에서 권장) -->
+<!-- 방법 2: yds-sr-only (버튼 내부에서 권장) -->
 <button type="button">
   <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
-  <span class="sr-only">검색</span>
+  <span class="yds-sr-only">검색</span>
 </button>
 ```

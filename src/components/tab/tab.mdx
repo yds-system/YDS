@@ -78,7 +78,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
           id="tab-1" role="tab"
           aria-selected="true" aria-controls="panel-1">
         <button type="button" class="yds-tab__btn">
-          탭 1 <i class="sr-only yds-tab__selected-text"> 선택됨</i>
+          탭 1 <i class="yds-sr-only yds-tab__selected-text"> 선택됨</i>
         </button>
       </li>
       <li class="yds-tab__item"
@@ -99,12 +99,12 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
   <div class="yds-tab__panels">
     <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
              class="yds-tab__panel yds-tab__panel--selected" tabindex="0">
-      <h3 class="sr-only">탭 1 영역</h3>
+      <h3 class="yds-sr-only">탭 1 영역</h3>
       탭 1 콘텐츠
     </section>
     <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
              class="yds-tab__panel" tabindex="0">
-      <h3 class="sr-only">탭 2 영역</h3>
+      <h3 class="yds-sr-only">탭 2 영역</h3>
       탭 2 콘텐츠
     </section>
   </div>
@@ -183,7 +183,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 - 활성 탭 `<li>`에 `aria-selected="true"`, 나머지는 `"false"`.
 - 활성 탭 항목에 `yds-tab__item--selected` 클래스를 추가한다.
-- 활성 탭 버튼 내부에 `<i class="sr-only yds-tab__selected-text"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
+- 활성 탭 버튼 내부에 `<i class="yds-sr-only yds-tab__selected-text"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
 - `<ul role="tablist">`에 `aria-label`로 탭 그룹의 목적을 설명한다.
 - `<section role="tabpanel">`에 `tabindex="0"`을 부여해 패널 자체가 포커스를 받을 수 있게 한다.
 - 비활성화 탭은 방향키 탐색에서 제외하고, `aria-disabled="true"` + `disabled` 속성을 함께 적용한다.

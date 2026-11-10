@@ -84,7 +84,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
         <div class="yds-file-upload__item-name">파일명.hwp [HWP, 17KB]</div>
         <div class="yds-file-upload__item-actions">
           <span class="yds-spinner" role="status">
-            <span class="sr-only">업로드 중</span>
+            <span class="yds-sr-only">업로드 중</span>
           </span>
         </div>
       </div>
@@ -96,7 +96,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
         <div class="yds-file-upload__item-name">파일명.pdf [PDF, 1.2MB]</div>
         <div class="yds-file-upload__item-actions">
           <span class="yds-file-upload__item-icon yds-file-upload__item-icon--completed">
-            <em class="sr-only">업로드 완료</em>
+            <em class="yds-sr-only">업로드 완료</em>
           </span>
         </div>
       </div>
@@ -212,7 +212,7 @@ dropZone.addEventListener('drop', (e) => {
 - `<input type="file">`과 `<label>`의 `for`·`id`를 반드시 연결한다.
 - 파일 선택 버튼에 `tabindex="-1"`, `aria-hidden="true"`를 설정하고, 실제 포커스는 `<label>`이 받도록 한다.
 - 드래그 앤 드롭 영역에 `role="region"`, `aria-label`을 부여해 보조기기가 영역을 인식하도록 한다.
-- 업로드 중 스피너에 `role="status"`와 `.sr-only` 텍스트("업로드 중")를 제공한다.
-- 완료 아이콘(`.yds-file-upload__item-icon--completed`)은 `<em class="sr-only">업로드 완료</em>`로 상태를 전달한다.
+- 업로드 중 스피너에 `role="status"`와 `.yds-sr-only` 텍스트("업로드 중")를 제공한다.
+- 완료 아이콘(`.yds-file-upload__item-icon--completed`)은 `<em class="yds-sr-only">업로드 완료</em>`로 상태를 전달한다.
 - 삭제 버튼에 `aria-label="파일명 삭제"` 형식으로 대상 파일을 명시한다.
 - 오류 메시지(`.yds-file-upload__item-hint`)는 해당 `<li>` 내부에 위치해 맥락을 유지한다.

@@ -316,6 +316,20 @@
 
 ---
 
+## 2026-11-10 base.css 추가 (기반 스타일 복구)
+
+- **src/tokens/base.css 신규 생성**: KRDS common.css 의존 제거 후 빠진 기반 스타일 YDS 독립 버전으로 복구
+  - `html { font-size: 62.5% }` — 1rem = 10px 복구 (1.6배 스케일 오류 수정)
+  - `@font-face` 3종 (Regular 400 / Medium 500 / Bold 700) → `src/tokens/fonts/`로 경로 자립화
+  - `body` 기본: 'Pretendard GOV' 패밀리, font-size 1.5rem, line-height 1.5, word-break: keep-all
+  - 최소 리셋: box-sizing border-box, 여백 초기화, 목록 초기화, 버튼·입력 초기화, 테이블 초기화
+  - `.sr-only` 접근성 유틸리티 (KRDS .blind 대응)
+- **src/tokens/fonts/**: Pretendard GOV 웹폰트 6파일 복사 (reference/krds/resources/fonts/ → src/tokens/fonts/)
+- **preview.js**: `base.css`를 토큰 파일보다 먼저 import 추가
+- check:tokens ✓, check:contrast ✓
+
+---
+
 ## 2026-11-10 --krds-* 의존 제거 (비색상 토큰)
 
 - **scripts/krds-map.json 생성**: 87개 `--krds-*` 변수 → YDS 토큰 대응 매핑 (existing 63 / new 7 / ambiguous 17)

@@ -87,7 +87,7 @@ KRDS(범정부 UI/UX 디자인 시스템)를 기준으로 한다.
 - **변형(modifier)**: `yds-{컴포넌트}--{modifier}` (예: `yds-btn--primary`, `yds-btn--small`)
 - **아이콘 루트**: `yds-icon` (기존 `svg-icon` 대체)
 - **아이콘 종류**: `yds-ico-{이름}` (기존 `ico-*` 대체, 예: `yds-ico-sch`, `yds-ico-go`)
-- **예외 — 전역 유틸리티**: `sr-only` 는 접두사 없이 그대로 사용한다.
+- **접근성 유틸리티**: `yds-sr-only` (스크린 리더 전용 텍스트. `src/components/common.css`에 정의)
 - **CSS 컴포넌트 변수**: `--yds-{컴포넌트}--{속성}` (예: `--yds-btn--color-primary-fill`)
 - **KRDS 디자인 토큰** (`var(--krds-light-color-*)`, `var(--krds-size-*)` 등)은 reference/krds에서 전역 로드되므로 그대로 참조한다.
 - `reference/krds`는 원본이므로 절대 수정하지 않는다.

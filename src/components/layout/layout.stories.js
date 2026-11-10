@@ -205,7 +205,7 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
         <div class="yds-header__branding">
           <h1 class="yds-header__logo">
             <a href="#">
-              <span class="sr-only">${siteName}</span>
+              <span class="yds-sr-only">${siteName}</span>
             </a>
           </h1>
           <div class="yds-header__actions">
@@ -238,7 +238,7 @@ function renderFooter() {
   </div>
   <div class="yds-container">
     <div class="yds-footer__logo">
-      <span class="sr-only">KRDS - Korea Design System</span>
+      <span class="yds-sr-only">KRDS - Korea Design System</span>
     </div>
     <div class="yds-footer__content">
       <div class="yds-footer__info">
@@ -257,13 +257,13 @@ function renderFooter() {
         </div>
         <div class="yds-footer__sns">
           <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
-            <span class="sr-only">인스타그램</span>
+            <span class="yds-sr-only">인스타그램</span>
           </a>
           <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
-            <span class="sr-only">유튜브</span>
+            <span class="yds-sr-only">유튜브</span>
           </a>
           <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
-            <span class="sr-only">X</span>
+            <span class="yds-sr-only">X</span>
           </a>
         </div>
       </div>

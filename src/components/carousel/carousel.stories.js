@@ -109,13 +109,13 @@ function renderController({ isPlaying }) {
   if (isPlaying) {
     return `<div class="yds-carousel__controller">
   <button type="button" class="yds-carousel__stop-btn" title="슬라이드 멈춤">
-    <span class="sr-only">슬라이드 멈춤</span>
+    <span class="yds-sr-only">슬라이드 멈춤</span>
   </button>
 </div>`;
   }
   return `<div class="yds-carousel__controller">
   <button type="button" class="yds-carousel__play-btn" title="슬라이드 재생">
-    <span class="sr-only">슬라이드 재생</span>
+    <span class="yds-sr-only">슬라이드 재생</span>
   </button>
 </div>`;
 }
@@ -124,11 +124,11 @@ function renderNavigation({ prevDisabled, nextDisabled, showMore }) {
   const prevClass = `yds-carousel__move-btn yds-carousel__move-btn--prev${prevDisabled ? ' yds-carousel__move-btn--disabled' : ''}`;
   const nextClass = `yds-carousel__move-btn yds-carousel__move-btn--next${nextDisabled ? ' yds-carousel__move-btn--disabled' : ''}`;
   const moreBtn = showMore
-    ? `<a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>`
+    ? `<a href="#" class="yds-carousel__more-btn"><span class="yds-sr-only">더 보기</span></a>`
     : '';
   return `<div class="yds-carousel__nav">
-  <button type="button" class="${prevClass}" ${prevDisabled ? 'aria-disabled="true"' : ''}><span class="sr-only">이전</span></button>
-  <button type="button" class="${nextClass}" ${nextDisabled ? 'aria-disabled="true"' : ''}><span class="sr-only">다음</span></button>${moreBtn ? '\n  ' + moreBtn : ''}
+  <button type="button" class="${prevClass}" ${prevDisabled ? 'aria-disabled="true"' : ''}><span class="yds-sr-only">이전</span></button>
+  <button type="button" class="${nextClass}" ${nextDisabled ? 'aria-disabled="true"' : ''}><span class="yds-sr-only">다음</span></button>${moreBtn ? '\n  ' + moreBtn : ''}
 </div>`;
 }
 
@@ -180,21 +180,21 @@ export const 개별버튼 = {
   render: () => `<div style="padding:2.4rem;">
     ${section('이전 / 다음 (prev / next)', `
       <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
-        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
-        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
-        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전 (비활성)</span></button>
-        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음 (비활성)</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="yds-sr-only">이전</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="yds-sr-only">다음</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">이전 (비활성)</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">다음 (비활성)</span></button>
       </div>
     `)}
     ${section('재생 / 멈춤 (play / stop)', `
       <div style="display:flex;gap:1.2rem;align-items:center;">
-        <button type="button" class="yds-carousel__play-btn"><span class="sr-only">슬라이드 재생</span></button>
-        <button type="button" class="yds-carousel__stop-btn"><span class="sr-only">슬라이드 멈춤</span></button>
+        <button type="button" class="yds-carousel__play-btn"><span class="yds-sr-only">슬라이드 재생</span></button>
+        <button type="button" class="yds-carousel__stop-btn"><span class="yds-sr-only">슬라이드 멈춤</span></button>
       </div>
     `)}
     ${section('더보기 (more)', `
       <div style="display:flex;gap:1.2rem;align-items:center;">
-        <a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
+        <a href="#" class="yds-carousel__more-btn"><span class="yds-sr-only">더 보기</span></a>
       </div>
     `)}
   </div>`,
@@ -341,13 +341,13 @@ export const 전체변형 = {
     return `<div style="padding:2.4rem;">
       ${section('개별 버튼', `
         <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
-          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
-          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
-          <button type="button" class="yds-carousel__play-btn"><span class="sr-only">재생</span></button>
-          <button type="button" class="yds-carousel__stop-btn"><span class="sr-only">멈춤</span></button>
-          <a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
-          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전(비활성)</span></button>
-          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음(비활성)</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="yds-sr-only">이전</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="yds-sr-only">다음</span></button>
+          <button type="button" class="yds-carousel__play-btn"><span class="yds-sr-only">재생</span></button>
+          <button type="button" class="yds-carousel__stop-btn"><span class="yds-sr-only">멈춤</span></button>
+          <a href="#" class="yds-carousel__more-btn"><span class="yds-sr-only">더 보기</span></a>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">이전(비활성)</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">다음(비활성)</span></button>
         </div>
       `)}
       ${section('인디케이터 — 불릿 + 재생 + 이전/다음', renderIndicator({

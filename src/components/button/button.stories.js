@@ -115,15 +115,15 @@ export const 아이콘전용 = {
   render: ({ disabled }) =>
     row(`
       <button type="button" class="yds-btn yds-btn--icon"${disabled ? ' disabled' : ''}>
-        <span class="sr-only">검색</span>
+        <span class="yds-sr-only">검색</span>
         <i class="yds-icon yds-ico-sch"></i>
       </button>
       <button type="button" class="yds-btn yds-btn--icon yds-btn--medium"${disabled ? ' disabled' : ''}>
-        <span class="sr-only">도움말</span>
+        <span class="yds-sr-only">도움말</span>
         <i class="yds-icon yds-ico-help"></i>
       </button>
       <button type="button" class="yds-btn yds-btn--icon yds-btn--large yds-btn--border"${disabled ? ' disabled' : ''}>
-        <span class="sr-only">새로고침</span>
+        <span class="yds-sr-only">새로고침</span>
         <i class="yds-icon yds-ico-refresh"></i>
       </button>
     `),

@@ -93,7 +93,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
         </div>
         <div class="yds-header__branding">
           <h1 class="yds-header__logo">
-            <a href="#"><span class="sr-only">사이트명</span></a>
+            <a href="#"><span class="yds-sr-only">사이트명</span></a>
           </h1>
           <div class="yds-header__actions">
             <button type="button" class="yds-header__action-btn yds-header__action-btn--search" title="통합검색">통합검색</button>
@@ -218,7 +218,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
     </div>
   </div>
   <div class="inner">
-    <div class="yds-footer__logo"><span class="sr-only">사이트명</span></div>
+    <div class="yds-footer__logo"><span class="yds-sr-only">사이트명</span></div>
     <div class="yds-footer__content">
       <div class="yds-footer__info">
         <p class="yds-footer__address">주소</p>
@@ -232,10 +232,10 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
         </div>
         <ul class="yds-footer__sns">
           <li class="yds-footer__sns-item yds-footer__sns-item--instagram">
-            <a href="#" target="_blank"><span class="sr-only">인스타그램</span></a>
+            <a href="#" target="_blank"><span class="yds-sr-only">인스타그램</span></a>
           </li>
           <li class="yds-footer__sns-item yds-footer__sns-item--youtube">
-            <a href="#" target="_blank"><span class="sr-only">유튜브</span></a>
+            <a href="#" target="_blank"><span class="yds-sr-only">유튜브</span></a>
           </li>
         </ul>
       </div>
@@ -285,4 +285,4 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 - 모바일 GNB: `role="dialog" aria-modal="true" aria-label="전체 메뉴"`로 다이얼로그 패턴을 적용한다.
 - 모바일 GNB 열림 시 포커스를 닫기 버튼으로 이동하고, `Escape` 키로 닫으면 포커스가 트리거 버튼으로 돌아간다.
 - `yds-header__action-btn--all-menu`에 `aria-expanded="true|false"`와 `aria-controls="mobile-nav"`를 설정한다.
-- 로고 `<a>` 안에 `<span class="sr-only">사이트명</span>`으로 스크린리더에 대체 텍스트를 제공한다.
+- 로고 `<a>` 안에 `<span class="yds-sr-only">사이트명</span>`으로 스크린리더에 대체 텍스트를 제공한다.

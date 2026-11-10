@@ -6,6 +6,7 @@ import '../src/tokens/responsive.css';
 import '../src/tokens/mode.css';
 import '../src/tokens/semantic.css';
 import '../src/tokens/theme-project-a.css';
+import '../src/components/common.css';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */

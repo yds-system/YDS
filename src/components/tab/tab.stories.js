@@ -52,7 +52,7 @@ function renderTab({ prefix, variant, full, tabs }) {
         ${disabledAttr}
       >
         <button type="button" class="yds-tab__btn" ${tab.disabled ? 'disabled' : ''}>
-          ${tab.label}${isActive ? '<i class="sr-only yds-tab__selected-text"> 선택됨</i>' : ''}
+          ${tab.label}${isActive ? '<i class="yds-sr-only yds-tab__selected-text"> 선택됨</i>' : ''}
         </button>
       </li>`;
   }).join('');
@@ -69,7 +69,7 @@ function renderTab({ prefix, variant, full, tabs }) {
         class="yds-tab__panel${isActive ? ' yds-tab__panel--selected' : ''}"
         tabindex="0"
       >
-        <h3 class="sr-only">${tab.label} 영역</h3>
+        <h3 class="yds-sr-only">${tab.label} 영역</h3>
         <p>${tab.content || tab.label + ' 영역의 콘텐츠입니다.'}</p>
       </section>`;
   }).join('');
@@ -98,11 +98,11 @@ function activateTab(tabList, targetLi) {
     li.classList.toggle('yds-tab__item--selected', isActive);
 
     const btn = li.querySelector('.yds-tab__btn');
-    const srOnly = btn?.querySelector('.sr-only.created');
+    const srOnly = btn?.querySelector('.yds-sr-only.created');
     if (isActive) {
       if (btn && !srOnly) {
         const el = document.createElement('i');
-        el.className = 'sr-only yds-tab__selected-text';
+        el.className = 'yds-sr-only yds-tab__selected-text';
         el.textContent = ' 선택됨';
         btn.appendChild(el);
       }

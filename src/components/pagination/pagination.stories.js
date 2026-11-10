@@ -82,7 +82,7 @@ function renderPagination({ totalPages, currentPage, pageGroupSize = 5, showFirs
     }
     const isActive = item.page === cp;
     if (isActive) {
-      return `<span class="yds-pagination__link yds-pagination__link--current" aria-current="page"><span class="sr-only">현재페이지 </span>${item.page}</span>`;
+      return `<span class="yds-pagination__link yds-pagination__link--current" aria-current="page"><span class="yds-sr-only">현재페이지 </span>${item.page}</span>`;
     }
     return `<a class="yds-pagination__link" href="#" data-page="${item.page}">${item.page}</a>`;
   }).join('');
@@ -100,12 +100,12 @@ function renderPagination({ totalPages, currentPage, pageGroupSize = 5, showFirs
     : '';
 
   const naviPrev = isFirst
-    ? '<span class="yds-pagination__move-btn yds-pagination__move-btn--prev yds-pagination__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전 페이지</span></span>'
-    : '<a class="yds-pagination__move-btn yds-pagination__move-btn--prev" href="#" data-navi="prev"><span class="sr-only">이전 페이지</span></a>';
+    ? '<span class="yds-pagination__move-btn yds-pagination__move-btn--prev yds-pagination__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">이전 페이지</span></span>'
+    : '<a class="yds-pagination__move-btn yds-pagination__move-btn--prev" href="#" data-navi="prev"><span class="yds-sr-only">이전 페이지</span></a>';
 
   const naviNext = isLast
-    ? '<span class="yds-pagination__move-btn yds-pagination__move-btn--next yds-pagination__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음 페이지</span></span>'
-    : '<a class="yds-pagination__move-btn yds-pagination__move-btn--next" href="#" data-navi="next"><span class="sr-only">다음 페이지</span></a>';
+    ? '<span class="yds-pagination__move-btn yds-pagination__move-btn--next yds-pagination__move-btn--disabled" aria-disabled="true"><span class="yds-sr-only">다음 페이지</span></span>'
+    : '<a class="yds-pagination__move-btn yds-pagination__move-btn--next" href="#" data-navi="next"><span class="yds-sr-only">다음 페이지</span></a>';
 
   return `
     <nav aria-label="페이지 탐색">

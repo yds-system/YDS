@@ -164,13 +164,13 @@ export const Password = {
             <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn"
               aria-label="내용 삭제"
               onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');inp.value='';inp.focus();})(this)">
-              <span class="sr-only">내용 삭제</span>
+              <span class="yds-sr-only">내용 삭제</span>
               <i class="yds-icon yds-ico-delete-fill"></i>
             </button>
             <button type="button" class="yds-btn yds-btn--medium yds-btn--icon"
               aria-label="입력한 비밀번호 보기"
-              onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');var isHidden=inp.type==='password';inp.type=isHidden?'text':'password';btn.querySelector('.sr-only').textContent=isHidden?'입력한 비밀번호 가리기':'입력한 비밀번호 보기';})(this)">
-              <span class="sr-only">입력한 비밀번호 보기</span>
+              onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');var isHidden=inp.type==='password';inp.type=isHidden?'text':'password';btn.querySelector('.yds-sr-only').textContent=isHidden?'입력한 비밀번호 가리기':'입력한 비밀번호 보기';})(this)">
+              <span class="yds-sr-only">입력한 비밀번호 보기</span>
               <i class="yds-icon yds-ico-pw-visible"></i>
             </button>
           </div>
@@ -199,11 +199,11 @@ export const Search = {
           <div class="yds-form-content__actions">
             <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn"
               onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');inp.value='';inp.focus();})(this)">
-              <span class="sr-only">내용 삭제</span>
+              <span class="yds-sr-only">내용 삭제</span>
               <i class="yds-icon yds-ico-delete-fill"></i>
             </button>
             <button type="button" class="yds-btn yds-btn--medium yds-btn--icon">
-              <span class="sr-only">검색</span>
+              <span class="yds-sr-only">검색</span>
               <i class="yds-icon yds-ico-sch"></i>
             </button>
           </div>
