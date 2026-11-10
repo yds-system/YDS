@@ -9,9 +9,9 @@
  * 불일치 항목만 출력하고 종료 코드 1 반환. 모두 일치하면 0.
  */
 
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, statSync } from 'fs';
 import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+import { dirname, resolve, join } from 'path';
 
 import {
   colorPrimGroups,
@@ -188,10 +188,67 @@ for (const t of responsiveLayoutTokens) {
   check('반응형 레이아웃', t.name, `var(--${t.pcRef})`, respRoot.get(t.name));
 }
 
+// ── 13. SCSS var() 미정의 참조 검사 ──────────────────────────────────────────
+// 토큰 파일에 정의된 변수 목록 (전체 src/tokens/*.scss)
+
+function collectFiles(dir) {
+  const list = [];
+  for (const e of readdirSync(dir)) {
+    const f = join(dir, e);
+    if (statSync(f).isDirectory()) list.push(...collectFiles(f));
+    else list.push(f);
+  }
+  return list;
+}
+
+function extractDefined(src) {
+  const names = new Set();
+  for (const m of src.matchAll(/^\s+(--[a-z][a-z0-9-]+)\s*:/gm)) names.add(m[1]);
+  return names;
+}
+
+// 토큰 파일에서 정의된 모든 변수
+const tokenDefined = new Set();
+for (const f of collectFiles(resolve(root, 'src/tokens')).filter(f => f.endsWith('.scss'))) {
+  for (const n of extractDefined(readFileSync(f, 'utf-8'))) tokenDefined.add(n);
+}
+
+// 컴포넌트 파일 전체에서 정의된 --yds-* 변수
+const compScssFiles = collectFiles(resolve(root, 'src/components')).filter(f => f.endsWith('.scss'));
+const allCompDefined = new Set();
+for (const f of compScssFiles) {
+  for (const n of extractDefined(readFileSync(f, 'utf-8'))) {
+    if (n.startsWith('--yds-')) allCompDefined.add(n);
+  }
+}
+
+// 각 컴포넌트 파일에서 미정의 var() 검사
+for (const f of compScssFiles) {
+  const src = readFileSync(f, 'utf-8');
+  const relPath = f.replace(root + '\\', '').replace(root + '/', '').replace(/\\/g, '/');
+  const localDefined = extractDefined(src); // 같은 파일 안에서 정의된 변수
+  for (const m of src.matchAll(/var\((--[a-z][a-z0-9-]+)/g)) {
+    const name = m[1];
+    if (localDefined.has(name)) continue; // 같은 파일 안에 정의됨 → OK
+    if (name.startsWith('--yds-')) {
+      // --yds-* 변수: 전체 컴포넌트 SCSS 어딘가에 정의돼 있어야 함 (크로스 컴포넌트 허용)
+      if (!allCompDefined.has(name)) {
+        errors.push(`[미정의 컴포넌트 변수] ${relPath}: ${name}`);
+      }
+    } else {
+      // 그 외: 토큰 파일에 정의돼 있어야 함
+      if (!tokenDefined.has(name)) {
+        errors.push(`[미정의 토큰] ${relPath}: ${name}`);
+      }
+    }
+  }
+}
+
 // ── 결과 출력 ─────────────────────────────────────────────────────────────────
 
 if (errors.length === 0) {
   console.log('✓ 모든 토큰 일치 (token-data.js ↔ *.css)');
+  console.log('✓ 미정의 var() 참조 없음 (src/**/*.scss)');
   process.exit(0);
 } else {
   console.error(`\n✗ 불일치 ${errors.length}건:\n`);

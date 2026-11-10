@@ -304,6 +304,17 @@
 
 ---
 
+## 2026-11-10 미정의 토큰 참조 수정 + check:tokens 강화
+
+- `checkbox.scss`: `--color-bg-element-gray-dark` → `--color-bg-gray-element-strong` (토큰 이름 통일 때 누락)
+- `check-tokens.mjs`: SCSS `var()` 미정의 참조 검사 추가 (13번 검사)
+  - 토큰 변수(`--color-*` 등): 토큰 파일에 정의돼 있어야 함
+  - `--yds-*`: 전체 컴포넌트 SCSS 어딘가에 정의돼 있어야 함 (크로스 컴포넌트 허용)
+  - 같은 파일 안에 정의된 로컬 변수(`--tooltip-arrow-*` 등)는 모두 허용
+- 검사 통과 ✓
+
+---
+
 ## 2026-11-10 src → reference/krds 의존 제거
 
 - `src/assets/images/icons/` 신규: KRDS SVG 아이콘 91개 복사 (reference/krds/resources/img/component/icon/ → src 안으로 이동)
