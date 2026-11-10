@@ -81,14 +81,14 @@
 }
 /* modifier: 왼쪽 정렬 (모바일 GNB 내부용) */
 .yds-utility-list {
-  &--start {
+  &.yds-utility-list--start {
 
     justify-content: flex-start;
 
   }
 }
 .yds-utility-list {
-  &--start > li:not(:first-child) {
+  &.yds-utility-list--start > li:not(:first-child) {
 
     margin-left: var(--space-8);
     padding-left: var(--space-8);
@@ -807,7 +807,7 @@
 
 }
 .yds-main-menu-mobile {
-  &--open {
+  &.yds-main-menu-mobile--open {
 
     right: 0;
     visibility: visible;

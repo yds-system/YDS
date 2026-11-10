@@ -181,14 +181,14 @@
   }
 }
 .yds-form-content {
-  &--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-input__clear-btn {
+  &.yds-form-content--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-input__clear-btn {
 
     display: flex;
 
   }
 }
 .yds-form-content {
-  &--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-form-content__actions .yds-input__clear-btn {
+  &.yds-form-content--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-form-content__actions .yds-input__clear-btn {
 
     display: flex;
 

@@ -113,7 +113,7 @@
 }
 /* ----- 스크롤 래퍼 (PC에서 강제 스크롤) ----- */
 .yds-table-wrap {
-  &--scroll {
+  &.yds-table-wrap--scroll {
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -121,7 +121,7 @@
   }
 }
 .yds-table-wrap {
-  &--scroll .yds-table {
+  &.yds-table-wrap--scroll .yds-table {
     width: 100%;
   }
 }
@@ -141,8 +141,8 @@
     }
   }
   .yds-table-wrap {
-    &--mobile-scroll th,
-  &--mobile-scroll td {
+    &.yds-table-wrap--mobile-scroll th,
+  &.yds-table-wrap--mobile-scroll td {
 
       white-space: nowrap;
 
@@ -155,7 +155,7 @@
    ───────────────────────────────────────────── */
 @media (max-width: 767px) {
   .yds-table-wrap {
-    &--mobile-card {
+    &.yds-table-wrap--mobile-card {
 
       overflow-x: visible;
       width: 100%;
@@ -163,7 +163,7 @@
     }
   }
   .yds-table-wrap {
-    &--mobile-card .yds-table {
+    &.yds-table-wrap--mobile-card .yds-table {
 
       min-width: 0;
       width: 100%;
@@ -172,7 +172,7 @@
   }
   /* thead 숨김 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data thead {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data thead {
 
       display: none;
 
@@ -180,8 +180,8 @@
   }
   /* table → block 전환 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data,
-  &--mobile-card .yds-table.yds-table--data tbody {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data,
+  &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody {
 
       display: block;
       width: 100%;
@@ -190,7 +190,7 @@
   }
   /* 행 → 카드 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data tbody tr {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody tr {
 
       display: block;
       border: var(--yds-table--data-border-width) solid var(--yds-table--data-tbody-color-divider);
@@ -203,8 +203,8 @@
   }
   /* 셀 → 라벨+값 행 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data tbody td,
-  &--mobile-card .yds-table.yds-table--data tbody th {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody td,
+  &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody th {
 
       display: flex;
       align-items: flex-start;
@@ -216,7 +216,7 @@
     }
   }
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data tbody tr > *:last-child {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody tr > *:last-child {
 
       border-bottom: 0;
 
@@ -224,7 +224,7 @@
   }
   /* data-label → ::before 라벨 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--data tbody td[data-label]::before {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--data tbody td[data-label]::before {
 
       content: attr(data-label);
       flex-shrink: 0;
@@ -237,7 +237,7 @@
   }
   /* 가로 헤더형은 th[scope=row]가 라벨 역할 → 카드형 불필요 스타일 제거 */
   .yds-table-wrap {
-    &--mobile-card .yds-table.yds-table--row-header.yds-table--data tbody th[scope="row"] {
+    &.yds-table-wrap--mobile-card .yds-table.yds-table--row-header.yds-table--data tbody th[scope="row"] {
 
       background-color: var(--yds-table--data-thead-surface);
       font-weight: var(--font-weight-bold);

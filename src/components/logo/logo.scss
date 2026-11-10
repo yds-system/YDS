@@ -25,31 +25,31 @@
 }
 /* ----- 비율 modifier ----- */
 .yds-logo {
-  &--1x1 {
+  &.yds-logo--1x1 {
     aspect-ratio: 1 / 1;
   }
 }
 .yds-logo {
-  &--2x1 {
+  &.yds-logo--2x1 {
     aspect-ratio: 2 / 1;
   }
 }
 .yds-logo {
-  &--3x1 {
+  &.yds-logo--3x1 {
     aspect-ratio: 3 / 1;
   }
 }
 /* ----- 흑백 modifier ----- */
 .yds-logo {
-  &--grayscale .yds-logo__img {
+  &.yds-logo--grayscale .yds-logo__img {
 
     filter: grayscale(100%);
 
   }
 }
 .yds-logo {
-  &--grayscale:hover .yds-logo__img,
-  &--grayscale:focus-within .yds-logo__img {
+  &.yds-logo--grayscale:hover .yds-logo__img,
+  &.yds-logo--grayscale:focus-within .yds-logo__img {
 
     filter: grayscale(0%);
 

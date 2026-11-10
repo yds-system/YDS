@@ -50,14 +50,14 @@
 /* ----- 크기별 Wrap + 태그 ----- */
 /* small */
 .yds-tag-group {
-  &--small {
+  &.yds-tag-group--small {
 
     gap: var(--yds-tag--wrapper-gap-y-small) var(--yds-tag--wrapper-gap-x-small);
 
   }
 }
 .yds-tag-group {
-  &--small .yds-tag {
+  &.yds-tag-group--small .yds-tag {
 
     height: var(--yds-tag--size-height-small);
     padding: 0 var(--yds-tag--padding-x-small);
@@ -68,7 +68,7 @@
 }
 @media (max-width: 767px) {
   .yds-tag-group {
-    &--small .yds-tag {
+    &.yds-tag-group--small .yds-tag {
 
       font-size: var(--yds-tag--mobile-font-size-small);
 
@@ -76,7 +76,7 @@
   }
 }
 .yds-tag-group {
-  &--small .yds-tag .yds-tag__delete-btn {
+  &.yds-tag-group--small .yds-tag .yds-tag__delete-btn {
 
     width: var(--yds-tag--button-size-small);
     height: var(--yds-tag--button-size-small);
@@ -85,14 +85,14 @@
 }
 /* medium (기본) */
 .yds-tag-group {
-  &--medium {
+  &.yds-tag-group--medium {
 
     gap: var(--yds-tag--wrapper-gap-y-medium) var(--yds-tag--wrapper-gap-x-medium);
 
   }
 }
 .yds-tag-group {
-  &--medium .yds-tag {
+  &.yds-tag-group--medium .yds-tag {
 
     height: var(--yds-tag--size-height-medium);
     padding: 0 var(--yds-tag--padding-x-medium);
@@ -103,7 +103,7 @@
 }
 @media (max-width: 767px) {
   .yds-tag-group {
-    &--medium .yds-tag {
+    &.yds-tag-group--medium .yds-tag {
 
       font-size: var(--yds-tag--mobile-font-size-medium);
 
@@ -111,7 +111,7 @@
   }
 }
 .yds-tag-group {
-  &--medium .yds-tag .yds-tag__delete-btn {
+  &.yds-tag-group--medium .yds-tag .yds-tag__delete-btn {
 
     width: var(--yds-tag--button-size-medium);
     height: var(--yds-tag--button-size-medium);
@@ -120,14 +120,14 @@
 }
 /* large */
 .yds-tag-group {
-  &--large {
+  &.yds-tag-group--large {
 
     gap: var(--yds-tag--wrapper-gap-y-large) var(--yds-tag--wrapper-gap-x-large);
 
   }
 }
 .yds-tag-group {
-  &--large .yds-tag {
+  &.yds-tag-group--large .yds-tag {
 
     height: var(--yds-tag--size-height-large);
     padding: 0 var(--yds-tag--padding-x-large);
@@ -138,7 +138,7 @@
 }
 @media (max-width: 767px) {
   .yds-tag-group {
-    &--large .yds-tag {
+    &.yds-tag-group--large .yds-tag {
 
       font-size: var(--yds-tag--mobile-font-size-large);
 
@@ -146,7 +146,7 @@
   }
 }
 .yds-tag-group {
-  &--large .yds-tag .yds-tag__delete-btn {
+  &.yds-tag-group--large .yds-tag .yds-tag__delete-btn {
 
     width: var(--yds-tag--button-size-large);
     height: var(--yds-tag--button-size-large);

@@ -135,7 +135,7 @@
 }
 /* ----- 전체 너비 (--full) ----- */
 .yds-tab {
-  &--full .yds-tab__list {
+  &.yds-tab--full .yds-tab__list {
 
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +147,7 @@
   }
 }
 .yds-tab {
-  &--full .yds-tab__list .yds-tab__item {
+  &.yds-tab--full .yds-tab__list .yds-tab__item {
 
     flex: 1 1 0px;
     min-width: 0;
@@ -155,7 +155,7 @@
   }
 }
 .yds-tab {
-  &--full .yds-tab__btn {
+  &.yds-tab--full .yds-tab__btn {
 
     height: var(--yds-tab--full-button-size-height);
     padding: 0;
@@ -165,7 +165,7 @@
 }
 @media (max-width: 767px) {
   .yds-tab {
-    &--full .yds-tab__btn {
+    &.yds-tab--full .yds-tab__btn {
       font-size: var(--yds-tab--full-button-mobile-font-size);
     }
   }
@@ -174,7 +174,7 @@
    라인형 (--line)
    ───────────────────────────────────────────── */
 .yds-tab {
-  &--line .yds-tab__btn {
+  &.yds-tab--line .yds-tab__btn {
 
     min-width: var(--yds-tab--button-size-min-width);
     padding: 0 var(--yds-tab--line-button-padding);
@@ -183,7 +183,7 @@
 }
 /* 활성 인디케이터: ::before 가로 막대 */
 .yds-tab {
-  &--line .yds-tab__btn::before {
+  &.yds-tab--line .yds-tab__btn::before {
 
     position: absolute;
     bottom: 0;
@@ -197,14 +197,14 @@
   }
 }
 .yds-tab {
-  &--line .yds-tab__item--selected .yds-tab__btn {
+  &.yds-tab--line .yds-tab__item--selected .yds-tab__btn {
 
     color: var(--yds-tab--line-button-color-text-active);
 
   }
 }
 .yds-tab {
-  &--line .yds-tab__item--selected .yds-tab__btn::before {
+  &.yds-tab--line .yds-tab__item--selected .yds-tab__btn::before {
 
     left: 0;
     width: 100%;
@@ -213,7 +213,7 @@
 }
 /* 라인형 전체 너비 */
 .yds-tab {
-  &--line.yds-tab--full .yds-tab__btn {
+  &.yds-tab--line.yds-tab--full .yds-tab__btn {
 
     border: 0;
     border-bottom: 2px solid var(--yds-tab--line-button-color-border);
@@ -221,7 +221,7 @@
   }
 }
 .yds-tab {
-  &--line.yds-tab--full .yds-tab__btn::before {
+  &.yds-tab--line.yds-tab--full .yds-tab__btn::before {
 
     bottom: -0.2rem;
 
@@ -231,7 +231,7 @@
    박스형 (--fill)
    ───────────────────────────────────────────── */
 .yds-tab {
-  &--fill .yds-tab__btn {
+  &.yds-tab--fill .yds-tab__btn {
 
     padding: 0 var(--yds-tab--fill-button-padding);
     border-radius: var(--yds-tab--fill-button-radius);
@@ -239,7 +239,7 @@
   }
 }
 .yds-tab {
-  &--fill .yds-tab__btn:focus-visible {
+  &.yds-tab--fill .yds-tab__btn:focus-visible {
 
     box-shadow: inset 0 0 0 0.6rem var(--color-border-primary);
     outline-offset: -0.4rem;
@@ -247,7 +247,7 @@
   }
 }
 .yds-tab {
-  &--fill .yds-tab__item--selected .yds-tab__btn {
+  &.yds-tab--fill .yds-tab__item--selected .yds-tab__btn {
 
     background-color: var(--yds-tab--fill-button-color-action-active);
     border-color: var(--yds-tab--fill-button-color-border-active) !important;
@@ -257,7 +257,7 @@
 }
 /* 박스형 전체 너비 */
 .yds-tab {
-  &--fill.yds-tab--full .yds-tab__btn {
+  &.yds-tab--fill.yds-tab--full .yds-tab__btn {
 
     border-color: var(--yds-tab--fill-button-color-border);
     border-radius: 0;
@@ -265,14 +265,14 @@
   }
 }
 .yds-tab {
-  &--fill.yds-tab--full .yds-tab__list .yds-tab__item + .yds-tab__item .yds-tab__btn {
+  &.yds-tab--fill.yds-tab--full .yds-tab__list .yds-tab__item + .yds-tab__item .yds-tab__btn {
 
     border-left: none;
 
   }
 }
 .yds-tab {
-  &--fill.yds-tab--full .yds-tab__list .yds-tab__item:first-of-type .yds-tab__btn {
+  &.yds-tab--fill.yds-tab--full .yds-tab__list .yds-tab__item:first-of-type .yds-tab__btn {
 
     border-top-left-radius: var(--yds-tab--fill-button-radius);
     border-bottom-left-radius: var(--yds-tab--fill-button-radius);
@@ -280,7 +280,7 @@
   }
 }
 .yds-tab {
-  &--fill.yds-tab--full .yds-tab__list .yds-tab__item:last-of-type .yds-tab__btn {
+  &.yds-tab--fill.yds-tab--full .yds-tab__list .yds-tab__item:last-of-type .yds-tab__btn {
 
     border-top-right-radius: var(--yds-tab--fill-button-radius);
     border-bottom-right-radius: var(--yds-tab--fill-button-radius);
@@ -290,7 +290,7 @@
 /* 박스형 전체 너비 — 모바일에서 스크롤 pill 그룹으로 변환 */
 @media (max-width: 767px) {
   .yds-tab {
-    &--fill.yds-tab--full .yds-tab__list {
+    &.yds-tab--fill.yds-tab--full .yds-tab__list {
 
       gap: var(--space-8);
       flex-wrap: nowrap;
@@ -298,7 +298,7 @@
     }
   }
   .yds-tab {
-    &--fill.yds-tab--full .yds-tab__list .yds-tab__item {
+    &.yds-tab--fill.yds-tab--full .yds-tab__list .yds-tab__item {
 
       width: fit-content;
       flex: none;
@@ -306,7 +306,7 @@
     }
   }
   .yds-tab {
-    &--fill.yds-tab--full .yds-tab__list .yds-tab__item .yds-tab__btn {
+    &.yds-tab--fill.yds-tab--full .yds-tab__list .yds-tab__item .yds-tab__btn {
 
       border-radius: var(--yds-tab--fill-button-radius);
       border-width: 0;

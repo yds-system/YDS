@@ -23,23 +23,23 @@
 }
 /* ----- 크기 modifier (독립 사용 시) ----- */
 .yds-icon {
-  &--xsmall {
+  &.yds-icon--xsmall {
     width: var(--icon-size-xs); height: var(--icon-size-xs);
   }
 }
 .yds-icon {
-  &--small {
+  &.yds-icon--small {
     width: var(--icon-size-s);  height: var(--icon-size-s);
   }
 }
 .yds-icon {
-  &--medium {
+  &.yds-icon--medium {
     width: var(--icon-size-m); height: var(--icon-size-m);
   }
 }
 /* large = 기본값 */
 .yds-icon {
-  &--xlarge {
+  &.yds-icon--xlarge {
     width: var(--icon-size-xl); height: var(--icon-size-xl);
   }
 }

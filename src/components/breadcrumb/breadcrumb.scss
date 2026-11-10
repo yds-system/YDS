@@ -232,14 +232,14 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
 }
 /* ─ 강제 모바일: .yds-breadcrumb--mobile (뷰포트 무관, 데모·테스트용) ─ */
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item {
 
     font-size: var(--yds-breadcrumb--mobile-font-size);
 
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:last-child) {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:last-child) {
 
     position: absolute;
     width: 1px;
@@ -254,15 +254,15 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child {
 
     gap: var(--space-4);
 
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before,
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before,
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
 
     content: "";
     display: inline-flex;
@@ -282,7 +282,7 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
 
     -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
     mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
@@ -290,7 +290,7 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
 
     -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
     mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
@@ -299,7 +299,7 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   }
 }
 .yds-breadcrumb {
-  &--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child .yds-breadcrumb__link {
+  &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child .yds-breadcrumb__link {
 
     order: 3;
 

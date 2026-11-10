@@ -62,7 +62,7 @@
 }
 /* ----- 크기 ----- */
 .yds-input {
-  &--small {
+  &.yds-input--small {
 
     height: var(--yds-input--size-height-small);
     border-radius: var(--yds-input--radius-small);
@@ -72,13 +72,13 @@
 }
 @media (max-width: 767px) {
   .yds-input {
-    &--small {
+    &.yds-input--small {
       font-size: var(--yds-input--mobile-font-size-small);
     }
   }
 }
 .yds-input {
-  &--medium {
+  &.yds-input--medium {
 
     height: var(--yds-input--size-height-medium);
     border-radius: var(--yds-input--radius-medium);
@@ -88,13 +88,13 @@
 }
 @media (max-width: 767px) {
   .yds-input {
-    &--medium {
+    &.yds-input--medium {
       font-size: var(--yds-input--mobile-font-size-medium);
     }
   }
 }
 .yds-input {
-  &--large {
+  &.yds-input--large {
 
     height: var(--yds-input--size-height-large);
     border-radius: var(--yds-input--radius-large);
@@ -104,7 +104,7 @@
 }
 @media (max-width: 767px) {
   .yds-input {
-    &--large {
+    &.yds-input--large {
       font-size: var(--yds-input--mobile-font-size-large);
     }
   }
@@ -112,7 +112,7 @@
 /* ----- 상태 ----- */
 .yds-input {
   &:focus,
-  &--focus {
+  &.yds-input--focus {
 
     border-color: var(--yds-input--color-border-active);
     border-width: 2px;
@@ -150,7 +150,7 @@
 }
 /* 에러 상태 (.yds-form-content--error 하위) */
 .yds-form-content {
-  &--error .yds-input {
+  &.yds-form-content--error .yds-input {
 
     border-color: var(--yds-input--color-border-error);
     border-width: 2px;
@@ -158,7 +158,7 @@
   }
 }
 .yds-form-content {
-  &--error .yds-input:focus {
+  &.yds-form-content--error .yds-input:focus {
 
     border-color: var(--yds-input--color-border-active);
 
@@ -232,7 +232,7 @@ textarea.yds-input {
   }
 }
 .yds-form-content {
-  &--error .yds-count__current {
+  &.yds-form-content--error .yds-count__current {
 
     color: var(--yds-count--color-error);
 

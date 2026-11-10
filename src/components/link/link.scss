@@ -69,7 +69,7 @@
 }
 /* ----- 크기 변형 ----- */
 .yds-link {
-  &--xsmall {
+  &.yds-link--xsmall {
 
     padding: 0 var(--yds-link--padding-x-xsmall);
     font-size: var(--yds-link--pc-font-size-xsmall);
@@ -78,7 +78,7 @@
 }
 @media (max-width: 767px) {
   .yds-link {
-    &--xsmall {
+    &.yds-link--xsmall {
 
       font-size: var(--yds-link--mobile-font-size-xsmall);
 
@@ -86,12 +86,12 @@
   }
 }
 .yds-link {
-  &--xsmall .yds-icon {
+  &.yds-link--xsmall .yds-icon {
     margin-bottom: -0.3rem;
   }
 }
 .yds-link {
-  &--small {
+  &.yds-link--small {
 
     padding: 0 var(--yds-link--padding-x-small);
     font-size: var(--yds-link--pc-font-size-small);
@@ -100,7 +100,7 @@
 }
 @media (max-width: 767px) {
   .yds-link {
-    &--small {
+    &.yds-link--small {
 
       font-size: var(--yds-link--mobile-font-size-small);
 
@@ -108,12 +108,12 @@
   }
 }
 .yds-link {
-  &--small .yds-icon {
+  &.yds-link--small .yds-icon {
     margin-bottom: -0.3rem;
   }
 }
 .yds-link {
-  &--medium {
+  &.yds-link--medium {
 
     padding: 0 var(--yds-link--padding-x-medium);
     font-size: var(--yds-link--pc-font-size-medium);
@@ -122,7 +122,7 @@
 }
 @media (max-width: 767px) {
   .yds-link {
-    &--medium {
+    &.yds-link--medium {
 
       font-size: var(--yds-link--mobile-font-size-medium);
 
@@ -130,12 +130,12 @@
   }
 }
 .yds-link {
-  &--medium .yds-icon {
+  &.yds-link--medium .yds-icon {
     margin-bottom: -0.4rem;
   }
 }
 .yds-link {
-  &--large {
+  &.yds-link--large {
 
     padding: 0 var(--yds-link--padding-x-large);
     font-size: var(--yds-link--pc-font-size-large);
@@ -144,7 +144,7 @@
 }
 @media (max-width: 767px) {
   .yds-link {
-    &--large {
+    &.yds-link--large {
 
       font-size: var(--yds-link--mobile-font-size-large);
 
@@ -152,12 +152,12 @@
   }
 }
 .yds-link {
-  &--large .yds-icon {
+  &.yds-link--large .yds-icon {
     margin-bottom: -0.5rem;
   }
 }
 .yds-link {
-  &--xlarge {
+  &.yds-link--xlarge {
 
     padding: 0 var(--yds-link--padding-x-xlarge);
     font-size: var(--yds-link--pc-font-size-xlarge);
@@ -166,7 +166,7 @@
 }
 @media (max-width: 767px) {
   .yds-link {
-    &--xlarge {
+    &.yds-link--xlarge {
 
       font-size: var(--yds-link--mobile-font-size-xlarge);
 
@@ -174,20 +174,20 @@
   }
 }
 .yds-link {
-  &--xlarge .yds-icon {
+  &.yds-link--xlarge .yds-icon {
     margin-bottom: -0.6rem;
   }
 }
 /* ----- .yds-link--basic (본문 텍스트 색상) ----- */
 .yds-link {
-  &--basic {
+  &.yds-link--basic {
 
     color: var(--color-text-default);
 
   }
 }
 .yds-link {
-  &--basic .yds-icon {
+  &.yds-link--basic .yds-icon {
 
     background-color: var(--color-text-default);
 
@@ -241,18 +241,18 @@
 }
 /* basic 상호작용 */
 .yds-link {
-  &--basic:hover,
-  &--basic:active,
-  &--basic:focus {
+  &.yds-link--basic:hover,
+  &.yds-link--basic:active,
+  &.yds-link--basic:focus {
 
     color: var(--yds-link--color-text-hover);
 
   }
 }
 .yds-link {
-  &--basic:hover .yds-icon,
-  &--basic:active .yds-icon,
-  &--basic:focus .yds-icon {
+  &.yds-link--basic:hover .yds-icon,
+  &.yds-link--basic:active .yds-icon,
+  &.yds-link--basic:focus .yds-icon {
 
     background-color: var(--yds-link--color-text-hover);
 
@@ -260,20 +260,20 @@
 }
 /* ----- .yds-link--pure: 상호작용 시 기본 링크 색상 유지 ----- */
 .yds-link {
-  &--pure:hover,
-  &--pure:active,
-  &--pure:focus,
-  &--pure:visited {
+  &.yds-link--pure:hover,
+  &.yds-link--pure:active,
+  &.yds-link--pure:focus,
+  &.yds-link--pure:visited {
 
     color: var(--yds-link--color-text);
 
   }
 }
 .yds-link {
-  &--pure:hover .yds-icon,
-  &--pure:active .yds-icon,
-  &--pure:focus .yds-icon,
-  &--pure:visited .yds-icon {
+  &.yds-link--pure:hover .yds-icon,
+  &.yds-link--pure:active .yds-icon,
+  &.yds-link--pure:focus .yds-icon,
+  &.yds-link--pure:visited .yds-icon {
 
     background-color: var(--yds-link--color-text);
 
@@ -302,7 +302,7 @@
 }
 /* ----- 비활성화 ----- */
 .yds-link {
-  &--disabled {
+  &.yds-link--disabled {
 
     color: var(--yds-link--color-text-disabled);
     cursor: default;
@@ -311,21 +311,21 @@
   }
 }
 .yds-link {
-  &--disabled .yds-icon {
+  &.yds-link--disabled .yds-icon {
 
     background-color: var(--yds-link--color-text-disabled);
 
   }
 }
 .yds-link {
-  &--disabled:hover {
+  &.yds-link--disabled:hover {
 
     color: var(--yds-link--color-text-disabled);
 
   }
 }
 .yds-link {
-  &--disabled:hover .yds-icon {
+  &.yds-link--disabled:hover .yds-icon {
 
     background-color: var(--yds-link--color-text-disabled);
 

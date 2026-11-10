@@ -107,7 +107,7 @@
 }
 /* ----- --border: 테두리형 (그림자 없음) ----- */
 .yds-card {
-  &--border {
+  &.yds-card--border {
 
     box-shadow: none;
     border: 1px solid var(--yds-card--border-color);
@@ -115,7 +115,7 @@
   }
 }
 .yds-card {
-  &--border:hover {
+  &.yds-card--border:hover {
 
     box-shadow: none;
     border-color: var(--color-border-default);
@@ -124,21 +124,21 @@
 }
 /* ----- --horizontal: 가로형 ----- */
 .yds-card {
-  &--horizontal {
+  &.yds-card--horizontal {
 
     flex-direction: row;
 
   }
 }
 .yds-card {
-  &--horizontal .yds-card__media {
+  &.yds-card--horizontal .yds-card__media {
 
     width: 22rem;
 
   }
 }
 .yds-card {
-  &--horizontal .yds-card__media .yds-thumbnail {
+  &.yds-card--horizontal .yds-card__media .yds-thumbnail {
 
     height: 100%;
     border-radius: 0;
@@ -147,7 +147,7 @@
 }
 /* ----- --link: 제목 링크를 카드 전체 영역으로 확장 ----- */
 .yds-card {
-  &--link .yds-card__title a::after {
+  &.yds-card--link .yds-card__title a::after {
 
     content: '';
     position: absolute;
@@ -156,14 +156,14 @@
   }
 }
 .yds-card {
-  &--link .yds-card__title a:hover {
+  &.yds-card--link .yds-card__title a:hover {
 
     text-decoration: none;
 
   }
 }
 .yds-card {
-  &--link:hover .yds-card__title a {
+  &.yds-card--link:hover .yds-card__title a {
 
     text-decoration: underline;
 
@@ -187,14 +187,14 @@
 
   }
   .yds-card {
-    &--horizontal {
+    &.yds-card--horizontal {
 
       flex-direction: column;
 
     }
   }
   .yds-card {
-    &--horizontal .yds-card__media {
+    &.yds-card--horizontal .yds-card__media {
 
       width: 100%;
 

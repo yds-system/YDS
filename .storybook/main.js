@@ -37,6 +37,10 @@ const config = {
     config.css.preprocessorOptions.scss.additionalData =
       '@mixin mobile { @media (max-width: 1279px) { @content; } }\n';
 
+    // 개발 서버: localhost ↔ 127.0.0.1 모두 허용 (Vite 8 host check 우회)
+    config.server ??= {};
+    config.server.allowedHosts = 'all';
+
     return config;
   },
 };

@@ -149,7 +149,7 @@
 }
 .yds-btn {
   &[disabled],
-  &--disabled {
+  &.yds-btn--disabled {
 
     background-color: var(--yds-btn--color-primary-fill-disabled);
     border-color: var(--yds-btn--color-primary-border-disabled);
@@ -160,7 +160,7 @@
 }
 .yds-btn {
   &[disabled]:hover,
-  &--disabled:hover {
+  &.yds-btn--disabled:hover {
 
     background-color: var(--yds-btn--color-primary-fill-disabled);
     border-color: var(--yds-btn--color-primary-border-disabled);
@@ -170,7 +170,7 @@
 }
 /* ----- 크기 ----- */
 .yds-btn {
-  &--xsmall {
+  &.yds-btn--xsmall {
 
     gap: var(--yds-btn--gap-xsmall);
     height: var(--yds-btn--size-height-xsmall);
@@ -183,7 +183,7 @@
 }
 @media (max-width: 767px) {
   .yds-btn {
-    &--xsmall {
+    &.yds-btn--xsmall {
 
       font-size: var(--yds-btn--mobile-font-size-xsmall);
 
@@ -191,7 +191,7 @@
   }
 }
 .yds-btn {
-  &--xsmall .yds-icon {
+  &.yds-btn--xsmall .yds-icon {
 
     width: var(--icon-size-xs);
     height: var(--icon-size-xs);
@@ -199,7 +199,7 @@
   }
 }
 .yds-btn {
-  &--small {
+  &.yds-btn--small {
 
     gap: var(--yds-btn--gap-small);
     height: var(--yds-btn--size-height-small);
@@ -212,7 +212,7 @@
 }
 @media (max-width: 767px) {
   .yds-btn {
-    &--small {
+    &.yds-btn--small {
 
       font-size: var(--yds-btn--mobile-font-size-small);
 
@@ -220,7 +220,7 @@
   }
 }
 .yds-btn {
-  &--small .yds-icon {
+  &.yds-btn--small .yds-icon {
 
     width: var(--icon-size-s);
     height: var(--icon-size-s);
@@ -228,7 +228,7 @@
   }
 }
 .yds-btn {
-  &--medium {
+  &.yds-btn--medium {
 
     gap: var(--yds-btn--gap-medium);
     height: var(--yds-btn--size-height-medium);
@@ -241,7 +241,7 @@
 }
 @media (max-width: 767px) {
   .yds-btn {
-    &--medium {
+    &.yds-btn--medium {
 
       font-size: var(--yds-btn--mobile-font-size-medium);
 
@@ -249,7 +249,7 @@
   }
 }
 .yds-btn {
-  &--medium .yds-icon {
+  &.yds-btn--medium .yds-icon {
 
     width: var(--icon-size-m);
     height: var(--icon-size-m);
@@ -257,7 +257,7 @@
   }
 }
 .yds-btn {
-  &--large {
+  &.yds-btn--large {
 
     gap: var(--yds-btn--gap-large);
     height: var(--yds-btn--size-height-large);
@@ -270,7 +270,7 @@
 }
 @media (max-width: 767px) {
   .yds-btn {
-    &--large {
+    &.yds-btn--large {
 
       font-size: var(--yds-btn--mobile-font-size-large);
 
@@ -278,7 +278,7 @@
   }
 }
 .yds-btn {
-  &--large .yds-icon {
+  &.yds-btn--large .yds-icon {
 
     width: var(--icon-size-l);
     height: var(--icon-size-l);
@@ -286,7 +286,7 @@
   }
 }
 .yds-btn {
-  &--xlarge {
+  &.yds-btn--xlarge {
 
     gap: var(--yds-btn--gap-xlarge);
     height: var(--yds-btn--size-height-xlarge);
@@ -299,7 +299,7 @@
 }
 @media (max-width: 767px) {
   .yds-btn {
-    &--xlarge {
+    &.yds-btn--xlarge {
 
       font-size: var(--yds-btn--mobile-font-size-xlarge);
 
@@ -307,7 +307,7 @@
   }
 }
 .yds-btn {
-  &--xlarge .yds-icon {
+  &.yds-btn--xlarge .yds-icon {
 
     width: var(--icon-size-xl);
     height: var(--icon-size-xl);
@@ -316,7 +316,7 @@
 }
 /* ----- 위계: Primary ----- */
 .yds-btn {
-  &--primary {
+  &.yds-btn--primary {
 
     background-color: var(--yds-btn--color-primary-fill);
     border-color: var(--yds-btn--color-primary-border);
@@ -332,22 +332,22 @@
   }
 }
 .yds-btn {
-  &--primary:hover {
+  &.yds-btn--primary:hover {
 
     background-color: var(--yds-btn--color-primary-fill-hover);
 
   }
 }
 .yds-btn {
-  &--primary:active,
-  &--primary:focus {
+  &.yds-btn--primary:active,
+  &.yds-btn--primary:focus {
 
     background-color: var(--yds-btn--color-primary-fill-pressed);
 
   }
 }
 .yds-btn {
-  &--primary[disabled],
+  &.yds-btn--primary[disabled],
   &.yds-btn--primary.yds-btn--disabled {
 
     background-color: var(--yds-btn--color-primary-fill-disabled);
@@ -365,7 +365,7 @@
   }
 }
 .yds-btn {
-  &--primary[disabled]:hover,
+  &.yds-btn--primary[disabled]:hover,
   &.yds-btn--primary.yds-btn--disabled:hover {
 
     background-color: var(--yds-btn--color-primary-fill-disabled);
@@ -376,7 +376,7 @@
 }
 /* ----- 위계: Secondary ----- */
 .yds-btn {
-  &--secondary {
+  &.yds-btn--secondary {
 
     background-color: var(--yds-btn--color-secondary-fill);
     border-color: var(--yds-btn--color-secondary-border);
@@ -392,22 +392,22 @@
   }
 }
 .yds-btn {
-  &--secondary:hover {
+  &.yds-btn--secondary:hover {
 
     background-color: var(--yds-btn--color-secondary-fill-hover);
 
   }
 }
 .yds-btn {
-  &--secondary:active,
-  &--secondary:focus {
+  &.yds-btn--secondary:active,
+  &.yds-btn--secondary:focus {
 
     background-color: var(--yds-btn--color-secondary-fill-pressed);
 
   }
 }
 .yds-btn {
-  &--secondary[disabled],
+  &.yds-btn--secondary[disabled],
   &.yds-btn--secondary.yds-btn--disabled {
 
     background-color: var(--yds-btn--color-secondary-fill-disabled);
@@ -425,7 +425,7 @@
   }
 }
 .yds-btn {
-  &--secondary[disabled]:hover,
+  &.yds-btn--secondary[disabled]:hover,
   &.yds-btn--secondary.yds-btn--disabled:hover {
 
     background-color: var(--yds-btn--color-secondary-fill-disabled);
@@ -436,7 +436,7 @@
 }
 /* ----- 위계: Tertiary ----- */
 .yds-btn {
-  &--tertiary {
+  &.yds-btn--tertiary {
 
     background-color: var(--yds-btn--color-tertiary-fill);
     border-color: var(--yds-btn--color-tertiary-border);
@@ -452,22 +452,22 @@
   }
 }
 .yds-btn {
-  &--tertiary:hover {
+  &.yds-btn--tertiary:hover {
 
     background-color: var(--yds-btn--color-tertiary-fill-hover);
 
   }
 }
 .yds-btn {
-  &--tertiary:active,
-  &--tertiary:focus {
+  &.yds-btn--tertiary:active,
+  &.yds-btn--tertiary:focus {
 
     background-color: var(--yds-btn--color-tertiary-fill-pressed);
 
   }
 }
 .yds-btn {
-  &--tertiary[disabled],
+  &.yds-btn--tertiary[disabled],
   &.yds-btn--tertiary.yds-btn--disabled {
 
     background-color: var(--yds-btn--color-tertiary-fill-disabled);
@@ -485,7 +485,7 @@
   }
 }
 .yds-btn {
-  &--tertiary[disabled]:hover,
+  &.yds-btn--tertiary[disabled]:hover,
   &.yds-btn--tertiary.yds-btn--disabled:hover {
 
     background-color: var(--yds-btn--color-tertiary-fill-disabled);
@@ -496,7 +496,7 @@
 }
 /* ----- Text 버튼 ----- */
 .yds-btn {
-  &--text {
+  &.yds-btn--text {
 
     --yds-btn--size-height-xsmall: var(--size-20);
     --yds-btn--padding-x-xsmall: var(--space-2);
@@ -532,22 +532,22 @@
   }
 }
 .yds-btn {
-  &--text:hover {
+  &.yds-btn--text:hover {
 
     background-color: var(--yds-btn--color-text-fill-hover);
 
   }
 }
 .yds-btn {
-  &--text:active,
-  &--text:focus {
+  &.yds-btn--text:active,
+  &.yds-btn--text:focus {
 
     background-color: var(--yds-btn--color-text-fill-pressed);
 
   }
 }
 .yds-btn {
-  &--text[disabled],
+  &.yds-btn--text[disabled],
   &.yds-btn--text.yds-btn--disabled {
 
     background-color: var(--yds-btn--color-text-fill-disabled);
@@ -565,7 +565,7 @@
   }
 }
 .yds-btn {
-  &--text[disabled]:hover,
+  &.yds-btn--text[disabled]:hover,
   &.yds-btn--text.yds-btn--disabled:hover {
 
     background-color: var(--yds-btn--color-text-fill-disabled);
@@ -654,7 +654,7 @@
   }
 }
 .yds-btn {
-  &--text .yds-icon {
+  &.yds-btn--text .yds-icon {
 
     display: inline-block;
     margin-bottom: -0.5rem;
@@ -663,7 +663,7 @@
 }
 /* ----- Icon 전용 버튼 ----- */
 .yds-btn {
-  &--icon {
+  &.yds-btn--icon {
 
     --yds-btn--icon-size-xsmall: var(--size-16);
     --yds-btn--icon-size-small: var(--size-20);
@@ -681,8 +681,8 @@
   }
 }
 .yds-btn {
-  &--icon:hover,
-  &--icon:active {
+  &.yds-btn--icon:hover,
+  &.yds-btn--icon:active {
 
     background-color: inherit;
 
@@ -769,7 +769,7 @@
   }
 }
 .yds-btn {
-  &--icon .yds-icon {
+  &.yds-btn--icon .yds-icon {
 
     background-color: var(--color-text-default);
 

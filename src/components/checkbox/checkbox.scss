@@ -64,7 +64,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 
 }
 .yds-check-group {
-  &--column {
+  &.yds-check-group--column {
 
     flex-direction: column;
 
@@ -204,8 +204,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 /* ----- 에러 상태 (.yds-form-content--error 하위) ----- */
 .yds-form-content {
-  &--error .yds-check-item input[type=checkbox] ~ label:before,
-  &--error .yds-check-item input[type=radio] ~ label:before {
+  &.yds-form-content--error .yds-check-item input[type=checkbox] ~ label:before,
+  &.yds-form-content--error .yds-check-item input[type=radio] ~ label:before {
 
     border-color: var(--color-border-danger);
     border-width: 0.2rem;
@@ -257,7 +257,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 /* Large 라디오 */
 .yds-check-item {
-  &--large > input[type=radio] ~ label:before {
+  &.yds-check-item--large > input[type=radio] ~ label:before {
 
     border-radius: var(--yds-check--radio-button-radius-large);
     width: var(--yds-check--button-size-large);
@@ -266,7 +266,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large > input[type=radio] ~ label:after {
+  &.yds-check-item--large > input[type=radio] ~ label:after {
 
     top: calc((var(--yds-check--button-size-large) - var(--yds-check--radio-check-size-large)) / 2 + var(--yds-check--button-margin-top));
     left: calc((var(--yds-check--button-size-large) - var(--yds-check--radio-check-size-large)) / 2);
@@ -354,7 +354,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 /* Large 체크박스 */
 .yds-check-item {
-  &--large > input[type=checkbox] ~ label:before {
+  &.yds-check-item--large > input[type=checkbox] ~ label:before {
 
     border-radius: var(--yds-check--checkbox-button-radius-large);
     width: var(--yds-check--button-size-large);
@@ -363,7 +363,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large > input[type=checkbox] ~ label:after {
+  &.yds-check-item--large > input[type=checkbox] ~ label:after {
 
     top: calc((var(--yds-check--button-size-large) - var(--yds-check--checkbox-check-size-large)) / 2 + var(--yds-check--button-margin-top));
     left: calc((var(--yds-check--button-size-large) - var(--yds-check--checkbox-check-size-large)) / 2);
@@ -373,7 +373,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large > input[type=checkbox]:indeterminate ~ label:after {
+  &.yds-check-item--large > input[type=checkbox]:indeterminate ~ label:after {
 
     -webkit-mask: none;
     mask: none;
@@ -387,8 +387,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
    크기 공통 (label 폰트·간격)
    ───────────────────────────────────────────── */
 .yds-check-item {
-  &--medium > input[type=radio] ~ label,
-  &--medium > input[type=checkbox] ~ label {
+  &.yds-check-item--medium > input[type=radio] ~ label,
+  &.yds-check-item--medium > input[type=checkbox] ~ label {
 
     font-size: var(--yds-check--pc-font-size-medium);
     gap: var(--yds-check--gap);
@@ -397,8 +397,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 @media (max-width: 767px) {
   .yds-check-item {
-    &--medium > input[type=radio] ~ label,
-  &--medium > input[type=checkbox] ~ label {
+    &.yds-check-item--medium > input[type=radio] ~ label,
+  &.yds-check-item--medium > input[type=checkbox] ~ label {
 
       font-size: var(--yds-check--mobile-font-size-medium);
 
@@ -406,8 +406,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large > input[type=radio] ~ label,
-  &--large > input[type=checkbox] ~ label {
+  &.yds-check-item--large > input[type=radio] ~ label,
+  &.yds-check-item--large > input[type=checkbox] ~ label {
 
     font-size: var(--yds-check--pc-font-size-large);
     gap: var(--yds-check--gap);
@@ -416,8 +416,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 @media (max-width: 767px) {
   .yds-check-item {
-    &--large > input[type=radio] ~ label,
-  &--large > input[type=checkbox] ~ label {
+    &.yds-check-item--large > input[type=radio] ~ label,
+  &.yds-check-item--large > input[type=checkbox] ~ label {
 
       font-size: var(--yds-check--mobile-font-size-large);
 
@@ -426,8 +426,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 /* 크기별 label:before 크기 */
 .yds-check-item {
-  &--medium > input[type=radio] ~ label:before,
-  &--medium > input[type=checkbox] ~ label:before {
+  &.yds-check-item--medium > input[type=radio] ~ label:before,
+  &.yds-check-item--medium > input[type=checkbox] ~ label:before {
 
     width: var(--yds-check--button-size-medium);
     height: var(--yds-check--button-size-medium);
@@ -435,8 +435,8 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large > input[type=radio] ~ label:before,
-  &--large > input[type=checkbox] ~ label:before {
+  &.yds-check-item--large > input[type=radio] ~ label:before,
+  &.yds-check-item--large > input[type=checkbox] ~ label:before {
 
     width: var(--yds-check--button-size-large);
     height: var(--yds-check--button-size-large);
@@ -445,14 +445,14 @@ fieldset.yds-form-group > legend.yds-form-label + * {
 }
 /* 크기별 check-item__desc 들여쓰기 */
 .yds-check-item {
-  &--medium > input ~ label + .yds-check-item__desc {
+  &.yds-check-item--medium > input ~ label + .yds-check-item__desc {
 
     padding-left: calc(var(--yds-check--button-size-medium) + var(--yds-check--gap));
 
   }
 }
 .yds-check-item {
-  &--large > input ~ label + .yds-check-item__desc {
+  &.yds-check-item--large > input ~ label + .yds-check-item__desc {
 
     padding-left: calc(var(--yds-check--button-size-large) + var(--yds-check--gap));
 
@@ -475,7 +475,7 @@ fieldset.yds-form-group > legend.yds-form-label + * {
   }
 }
 .yds-check-item {
-  &--large .yds-check-item__desc .yds-check-item__text {
+  &.yds-check-item--large .yds-check-item__desc .yds-check-item__text {
 
     font-size: var(--yds-check--additional-text-pc-font-size-large);
 

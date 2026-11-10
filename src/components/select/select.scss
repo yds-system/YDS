@@ -74,7 +74,7 @@
 }
 /* ----- 크기 ----- */
 .yds-select {
-  &--small {
+  &.yds-select--small {
 
     height: var(--yds-select--size-height-small);
     padding: 0 var(--yds-select--padding-right-small) 0 var(--yds-select--padding-default);
@@ -86,13 +86,13 @@
 }
 @media (max-width: 767px) {
   .yds-select {
-    &--small {
+    &.yds-select--small {
       font-size: var(--yds-select--mobile-font-size-small);
     }
   }
 }
 .yds-select {
-  &--medium {
+  &.yds-select--medium {
 
     height: var(--yds-select--size-height-medium);
     padding: 0 var(--yds-select--padding-right-medium) 0 var(--yds-select--padding-default);
@@ -104,13 +104,13 @@
 }
 @media (max-width: 767px) {
   .yds-select {
-    &--medium {
+    &.yds-select--medium {
       font-size: var(--yds-select--mobile-font-size-medium);
     }
   }
 }
 .yds-select {
-  &--large {
+  &.yds-select--large {
 
     height: var(--yds-select--size-height-large);
     padding: 0 var(--yds-select--padding-right-large) 0 var(--yds-select--padding-default);
@@ -122,7 +122,7 @@
 }
 @media (max-width: 767px) {
   .yds-select {
-    &--large {
+    &.yds-select--large {
       font-size: var(--yds-select--mobile-font-size-large);
     }
   }
@@ -141,14 +141,14 @@
 }
 /* 선택 완료 (빈 값이 아닌 option 선택 시) */
 .yds-select {
-  &--completed {
+  &.yds-select--completed {
 
     color: var(--yds-select--color-text-completed);
 
   }
 }
 .yds-select {
-  &--completed:focus {
+  &.yds-select--completed:focus {
 
     color: var(--yds-select--color-text-active);
 

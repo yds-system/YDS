@@ -53,7 +53,7 @@
 }
 /* ----- --empty: 로딩·실패 시 배경 + 아이콘 ----- */
 .yds-thumbnail {
-  &--empty {
+  &.yds-thumbnail--empty {
 
     display: grid;
     place-items: center;
@@ -61,14 +61,14 @@
   }
 }
 .yds-thumbnail {
-  &--empty .yds-thumbnail__img {
+  &.yds-thumbnail--empty .yds-thumbnail__img {
 
     display: none;
 
   }
 }
 .yds-thumbnail {
-  &--empty::before {
+  &.yds-thumbnail--empty::before {
 
     content: '';
     width: min(40%, 3.2rem);
@@ -83,23 +83,23 @@
 }
 /* ----- 비율 modifier ----- */
 .yds-thumbnail {
-  &--1x1 {
+  &.yds-thumbnail--1x1 {
     aspect-ratio: 1 / 1;
   }
 }
 .yds-thumbnail {
-  &--4x3 {
+  &.yds-thumbnail--4x3 {
     aspect-ratio: 4 / 3;
   }
 }
 .yds-thumbnail {
-  &--16x9 {
+  &.yds-thumbnail--16x9 {
     aspect-ratio: 16 / 9;
   }
 }
 /* ----- --circle: 원형 (1:1 전용) ----- */
 .yds-thumbnail {
-  &--circle {
+  &.yds-thumbnail--circle {
 
     border-radius: 50%;
 
@@ -107,31 +107,31 @@
 }
 /* ----- 크기 modifier (너비 고정) ----- */
 .yds-thumbnail {
-  &--xs {
+  &.yds-thumbnail--xs {
     width: 5.6rem;
   }
 }
 /* 56px */
 .yds-thumbnail {
-  &--s {
+  &.yds-thumbnail--s {
     width: 7.2rem;
   }
 }
 /* 72px */
 .yds-thumbnail {
-  &--m {
+  &.yds-thumbnail--m {
     width: 10.4rem;
   }
 }
 /* 104px */
 .yds-thumbnail {
-  &--l {
+  &.yds-thumbnail--l {
     width: 16rem;
   }
 }
 /* 160px */
 .yds-thumbnail {
-  &--xl {
+  &.yds-thumbnail--xl {
     width: 100%;
   }
 }

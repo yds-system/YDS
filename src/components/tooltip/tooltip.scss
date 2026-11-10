@@ -35,7 +35,7 @@
 
 }
 .yds-tooltip-popover {
-  &--open {
+  &.yds-tooltip-popover--open {
 
     display: block;
 
@@ -50,7 +50,7 @@
 }
 /* ----- 박스형 ----- */
 .yds-tooltip-popover {
-  &--box {
+  &.yds-tooltip-popover--box {
 
     white-space: normal;
     max-width: 36rem;
@@ -78,7 +78,7 @@
   }
 }
 .yds-tooltip-popover {
-  &--box::before {
+  &.yds-tooltip-popover--box::before {
 
     --tooltip-arrow-size: 1.2rem;
     border: 0.1rem solid var(--yds-tooltip--popover-color-border);
@@ -96,7 +96,7 @@
 ----- */
 /* --right (기본): 화살표 왼쪽 */
 .yds-tooltip-popover {
-  &--right::before {
+  &.yds-tooltip-popover--right::before {
 
     left: var(--tooltip-arrow-gap);
     top: 50%;
@@ -106,7 +106,7 @@
 }
 /* --left: 화살표 오른쪽 */
 .yds-tooltip-popover {
-  &--left::before {
+  &.yds-tooltip-popover--left::before {
 
     left: calc(100% + var(--tooltip-arrow-gap));
     top: 50%;
@@ -116,7 +116,7 @@
 }
 /* --top: 화살표 아래쪽 */
 .yds-tooltip-popover {
-  &--top::before {
+  &.yds-tooltip-popover--top::before {
 
     top: calc(100% + var(--tooltip-arrow-gap));
     left: 50%;
@@ -133,7 +133,7 @@
 }
 /* --bottom: 화살표 위쪽 */
 .yds-tooltip-popover {
-  &--bottom::before {
+  &.yds-tooltip-popover--bottom::before {
 
     top: var(--tooltip-arrow-gap);
     left: 50%;

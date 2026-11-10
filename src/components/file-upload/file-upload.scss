@@ -67,7 +67,7 @@
 }
 /* 테두리 변형 */
 .yds-file-upload {
-  &--line {
+  &.yds-file-upload--line {
 
     padding: var(--yds-file-upload--line-pc-padding);
     border: var(--yds-file-upload--border-width) solid var(--yds-file-upload--line-color-border);
@@ -77,7 +77,7 @@
 }
 @media (max-width: 767px) {
   .yds-file-upload {
-    &--line {
+    &.yds-file-upload--line {
 
       padding: var(--yds-file-upload--line-mobile-padding);
 
