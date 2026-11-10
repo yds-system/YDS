@@ -46,8 +46,12 @@
   --ds-badge--color-disabled-element: var(--color-icon-disabled);
   --ds-badge--color-disabled-element-lighter: var(--color-bg-disabled);
   --ds-badge--color-disabled-text: var(--color-text-subtler);
-  --ds-badge--color-text-basic: var(--color-text-on-static);
-  --ds-badge--color-text-warning: var(--color-text-default);
+  --ds-badge--color-text-basic:       var(--color-text-on-static);
+  --ds-badge--color-text-warning:     var(--color-text-on-warning-element);
+  --ds-badge--color-text-success:     var(--color-text-on-success-element);
+  --ds-badge--color-text-information: var(--color-text-on-information-element);
+  --ds-badge--color-text-point:       var(--color-text-on-point-element);
+  --ds-badge--color-text-gray:        var(--color-text-on-gray-element);
 }
 
 /* ----- 기본 스타일 ----- */
@@ -145,11 +149,11 @@
 }
 .ds-badge.ds-badge--bg-gray {
   background-color: var(--ds-badge--color-gray-element);
-  color: var(--ds-badge--color-text-basic);
+  color: var(--ds-badge--color-text-gray);
 }
 .ds-badge.ds-badge--bg-point {
   background-color: var(--ds-badge--color-point-element);
-  color: var(--ds-badge--color-text-basic);
+  color: var(--ds-badge--color-text-point);
 }
 .ds-badge.ds-badge--bg-danger {
   background-color: var(--ds-badge--color-danger-element);
@@ -157,15 +161,15 @@
 }
 .ds-badge.ds-badge--bg-warning {
   background-color: var(--ds-badge--color-warning-element);
-  color: var(--ds-badge--color-text-warning); /* warning은 어두운 텍스트 */
+  color: var(--ds-badge--color-text-warning);
 }
 .ds-badge.ds-badge--bg-success {
   background-color: var(--ds-badge--color-success-element);
-  color: var(--ds-badge--color-text-basic);
+  color: var(--ds-badge--color-text-success);
 }
 .ds-badge.ds-badge--bg-information {
   background-color: var(--ds-badge--color-information-element);
-  color: var(--ds-badge--color-text-basic);
+  color: var(--ds-badge--color-text-information);
 }
 .ds-badge.ds-badge--bg-disabled {
   background-color: var(--ds-badge--color-disabled-element);

@@ -107,6 +107,10 @@
   --color-text-secondary-strong:        var(--color-secondary-80);   /* secondary 강조 텍스트 (KRDS text-secondary 원래 값) */
   --color-text-on-warning-element:      var(--color-gray-90);        /* warning 채움 배경 위 텍스트 — 항상 어두움 */
   --color-text-on-interactive-active:   var(--color-gray-0);         /* interactive-active 배경 위 텍스트 */
+  --color-text-on-success-element:      var(--color-gray-0);         /* 성공 채움 배경 위 텍스트 */
+  --color-text-on-information-element:  var(--color-gray-0);         /* 정보 채움 배경 위 텍스트 */
+  --color-text-on-point-element:        var(--color-gray-0);         /* 포인트 채움 배경 위 텍스트 */
+  --color-text-on-gray-element:         var(--color-gray-0);         /* 중립 채움 배경 위 텍스트 */
 
   /* ── color-icon (추가) ──────────────────────────────────────────────────────── */
   --color-icon-on-disabled:             var(--color-gray-50);        /* 비활성 요소 위 아이콘 */
@@ -213,6 +217,10 @@
   --color-text-secondary-strong:        var(--color-secondary-20);
   --color-text-on-warning-element:      var(--color-gray-90);
   --color-text-on-interactive-active:   var(--color-gray-90);
+  --color-text-on-success-element:      var(--color-gray-90);
+  --color-text-on-information-element:  var(--color-gray-90);
+  --color-text-on-point-element:        var(--color-gray-100);       /* point-40(#d65c66) 위 — gray-90은 4.29:1로 미달 */
+  --color-text-on-gray-element:         var(--color-gray-0);         /* dark bg=gray-50, 흰색 4.5:1 ✓ */
   --color-icon-on-disabled:             var(--color-gray-50);
   --color-icon-secondary-strong:        var(--color-secondary-30);
   --color-border-secondary-subtle:      var(--color-secondary-80);
@@ -299,8 +307,8 @@
   --color-bg-interactive-hover:         var(--color-teal-95);
   --color-bg-interactive-pressed:       var(--color-teal-80);
   --color-bg-interactive-active:        var(--color-teal-20);
-  --color-bg-primary-subtle-hover:      var(--color-primary-10);
-  --color-bg-primary-subtle-pressed:    var(--color-primary-5);
+  --color-bg-primary-subtle-hover:      var(--color-primary-90);     /* dark bg와 같은 계열 — text-primary(primary-20) 대비 11:1 ✓ */
+  --color-bg-primary-subtle-pressed:    var(--color-primary-80);     /* hover보다 약간 밝음 — text-primary 대비 11:1 ✓ */
   --color-bg-pressed:                   var(--color-gray-90);
   --color-bg-warning-element:           var(--color-warning-20);
   --color-bg-success-element:           var(--color-success-20);
@@ -316,6 +324,10 @@
   --color-text-secondary-strong:        var(--color-secondary-20);
   --color-text-on-warning-element:      var(--color-gray-90);
   --color-text-on-interactive-active:   var(--color-gray-100);
+  --color-text-on-success-element:      var(--color-gray-90);        /* HC bg=success-20(#a9dab4) 위 — 10.3:1 ✓ */
+  --color-text-on-information-element:  var(--color-gray-90);        /* HC bg=information-20(#9ed2fa) 위 — 10.0:1 ✓ */
+  --color-text-on-point-element:        var(--color-gray-90);        /* HC bg=point-20(#ebadb2) 위 — 충분히 높음 ✓ */
+  --color-text-on-gray-element:         var(--color-gray-90);        /* HC bg=gray-40(#8a949e) 위 — 5.25:1 ✓ */
   --color-icon-on-disabled:             var(--color-gray-60);
   --color-icon-secondary-strong:        var(--color-secondary-20);
   --color-border-secondary-subtle:      var(--color-teal-80);
@@ -414,6 +426,10 @@
     --color-text-secondary-strong:        var(--color-secondary-20);
     --color-text-on-warning-element:      var(--color-gray-90);
     --color-text-on-interactive-active:   var(--color-gray-90);
+    --color-text-on-success-element:      var(--color-gray-90);
+    --color-text-on-information-element:  var(--color-gray-90);
+    --color-text-on-point-element:        var(--color-gray-100);
+    --color-text-on-gray-element:         var(--color-gray-0);
     --color-icon-on-disabled:             var(--color-gray-50);
     --color-icon-secondary-strong:        var(--color-secondary-30);
     --color-border-secondary-subtle:      var(--color-secondary-80);

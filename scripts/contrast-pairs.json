@@ -1,0 +1,66 @@
+[
+  {
+    "name": "on-primary / bg-primary",
+    "fg": "color-text-on-primary",
+    "bg": "color-bg-primary",
+    "type": "text"
+  },
+  {
+    "name": "on-secondary / bg-secondary",
+    "fg": "color-text-on-secondary",
+    "bg": "color-bg-secondary",
+    "type": "text"
+  },
+  {
+    "name": "on-warning-element / bg-warning-element",
+    "fg": "color-text-on-warning-element",
+    "bg": "color-bg-warning-element",
+    "type": "text"
+  },
+  {
+    "name": "on-interactive-active / bg-interactive-active",
+    "fg": "color-text-on-interactive-active",
+    "bg": "color-bg-interactive-active",
+    "type": "text"
+  },
+  {
+    "name": "on-success-element / bg-success-element",
+    "fg": "color-text-on-success-element",
+    "bg": "color-bg-success-element",
+    "type": "text"
+  },
+  {
+    "name": "on-information-element / bg-information-element",
+    "fg": "color-text-on-information-element",
+    "bg": "color-bg-information-element",
+    "type": "text"
+  },
+  {
+    "name": "on-point-element / bg-point-element",
+    "fg": "color-text-on-point-element",
+    "bg": "color-bg-point-element",
+    "type": "text"
+  },
+  {
+    "name": "on-gray-element / bg-gray-element",
+    "fg": "color-text-on-gray-element",
+    "bg": "color-bg-gray-element",
+    "type": "text"
+  },
+  {
+    "name": "text-primary / bg-primary-subtle-hover",
+    "fg": "color-text-primary",
+    "bg": "color-bg-primary-subtle-hover",
+    "type": "text",
+    "modes": ["HC"],
+    "_note": "light/dark은 primary scale 특성상 대비 미달 (선행 이슈). HC만 검사."
+  },
+  {
+    "name": "text-primary / bg-primary-subtle-pressed",
+    "fg": "color-text-primary",
+    "bg": "color-bg-primary-subtle-pressed",
+    "type": "text",
+    "modes": ["HC"],
+    "_note": "light/dark은 primary scale 특성상 대비 미달 (선행 이슈). HC만 검사."
+  }
+]
