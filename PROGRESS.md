@@ -304,6 +304,21 @@
 
 ---
 
+## 2026-11-10 CSS → SCSS 전환
+
+- `src/tokens/*.css` + `src/components/**/*.css` → `.scss` (33개 파일)
+- BEM modifier/state 중첩: `.yds-X.yds-X--mod` → `.yds-X { &--mod { } }` (단순 더블클래스)
+  - 복합 triple-class(`.yds-X.yds-X--mod1.yds-X--mod2`)는 `& + rest` 형태로 specificity 보존
+- `@media (max-width: 1279px)` → `@include mobile` (layout·card·semantic·responsive 4개)
+- `src/styles/_mixins.scss` 신규: `@mixin mobile` 정의
+- `.storybook/main.js`: Vite `additionalData`로 모든 `.scss`에 mobile 믹스인 자동 주입
+- `.storybook/preview.js` + 모든 `stories.js`: import 경로 `.css` → `.scss`
+- `scripts/check-tokens.mjs`, `check-contrast.mjs`: 토큰 경로 `.css` → `.scss`
+- `scripts/convert-to-scss.mjs` 추가 (변환 도구 보관)
+- check:tokens ✓ / check:contrast ✓ / build-storybook ✓
+
+---
+
 ## 2026-11-10 Foundations 페이지 7종 작성
 
 - **Color**: 4계층 구조·3개 모드 개요, ColorPrimTable, ColorSemanticTable, 역할별 사용(Primary~Information), 모드 전환 코드, 사용 규칙, 접근성(대비 기준·자동 검증)
