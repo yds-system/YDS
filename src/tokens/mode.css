@@ -111,6 +111,9 @@
   --color-text-on-information-element:  var(--color-gray-0);         /* 정보 채움 배경 위 텍스트 */
   --color-text-on-point-element:        var(--color-gray-0);         /* 포인트 채움 배경 위 텍스트 */
   --color-text-on-gray-element:         var(--color-gray-0);         /* 중립 채움 배경 위 텍스트 */
+  --color-text-on-gray-element-strong:  var(--color-gray-0);         /* 진한 중립 채움 배경 위 텍스트 */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-60);   /* 외곽선 버튼 hover bg 위 텍스트 */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-60);   /* 외곽선 버튼 pressed bg 위 텍스트 */
 
   /* ── color-icon (추가) ──────────────────────────────────────────────────────── */
   --color-icon-on-disabled:             var(--color-gray-50);        /* 비활성 요소 위 아이콘 */
@@ -221,6 +224,9 @@
   --color-text-on-information-element:  var(--color-gray-90);
   --color-text-on-point-element:        var(--color-gray-100);       /* point-40(#d65c66) 위 — gray-90은 4.29:1로 미달 */
   --color-text-on-gray-element:         var(--color-gray-0);         /* dark bg=gray-50, 흰색 4.5:1 ✓ */
+  --color-text-on-gray-element-strong:  var(--color-gray-90);        /* dark bg=gray-40(#8a949e) 위 5.25:1 ✓ */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-30);   /* dark hover bg(primary-80) 위 6.6:1 ✓ */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-20);   /* dark pressed bg(primary-70) 위 6.6:1 ✓ */
   --color-icon-on-disabled:             var(--color-gray-50);
   --color-icon-secondary-strong:        var(--color-secondary-30);
   --color-border-secondary-subtle:      var(--color-secondary-80);
@@ -328,6 +334,9 @@
   --color-text-on-information-element:  var(--color-gray-90);        /* HC bg=information-20(#9ed2fa) 위 — 10.0:1 ✓ */
   --color-text-on-point-element:        var(--color-gray-90);        /* HC bg=point-20(#ebadb2) 위 — 충분히 높음 ✓ */
   --color-text-on-gray-element:         var(--color-gray-90);        /* HC bg=gray-40(#8a949e) 위 — 5.25:1 ✓ */
+  --color-text-on-gray-element-strong:  var(--color-gray-90);        /* HC bg=gray-30(#b1b8be) 위 8.1:1 ✓ */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-20);   /* HC hover bg(primary-90) 위 11:1 ✓ */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-20);   /* HC pressed bg(primary-80) 위 9:1 ✓ */
   --color-icon-on-disabled:             var(--color-gray-60);
   --color-icon-secondary-strong:        var(--color-secondary-20);
   --color-border-secondary-subtle:      var(--color-teal-80);
@@ -430,6 +439,9 @@
     --color-text-on-information-element:  var(--color-gray-90);
     --color-text-on-point-element:        var(--color-gray-100);
     --color-text-on-gray-element:         var(--color-gray-0);
+    --color-text-on-gray-element-strong:  var(--color-gray-90);
+    --color-text-primary-on-subtle-hover:   var(--color-primary-30);
+    --color-text-primary-on-subtle-pressed: var(--color-primary-20);
     --color-icon-on-disabled:             var(--color-gray-50);
     --color-icon-secondary-strong:        var(--color-secondary-30);
     --color-border-secondary-subtle:      var(--color-secondary-80);

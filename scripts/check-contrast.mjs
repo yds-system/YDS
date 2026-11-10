@@ -108,7 +108,8 @@ const hcMap    = mergeMap(primRoot, modeLight, semRoot, modeHC);
 // ── 대비 검사 ───────────────────────────────────────────────────────────────────
 
 const pairs = readJson('scripts/contrast-pairs.json');
-const errors = [];
+const errors     = [];
+const excepts    = [];
 
 const MODES = [
   { key: 'light', map: lightMap },
@@ -138,20 +139,30 @@ for (const pair of pairs) {
 
     const ratio = contrastRatio(fg, bg);
     if (ratio < threshold) {
-      errors.push(
-        `[${pair.name}][${key}] ✗ ${ratio.toFixed(2)}:1 (${threshold}:1 미달)` +
-        `  fg=${fg}  bg=${bg}`
-      );
+      const exc = pair.exceptions?.find(e => e.mode === key);
+      if (exc) {
+        excepts.push(`[${pair.name}][${key}] ⚠ ${ratio.toFixed(2)}:1 — ${exc.reason}`);
+      } else {
+        errors.push(
+          `[${pair.name}][${key}] ✗ ${ratio.toFixed(2)}:1 (${threshold}:1 미달)` +
+          `  fg=${fg}  bg=${bg}`
+        );
+      }
     }
   }
 }
 
 if (errors.length === 0) {
-  console.log('✓ 모든 대비 통과');
+  console.log(`✓ 미달 0건 / 예외 ${excepts.length}건`);
+  for (const e of excepts) console.log(' ', e);
   process.exit(0);
 } else {
-  console.error(`\n✗ 미달 ${errors.length}건:\n`);
-  for (const e of errors) console.error(' ', e);
+  console.error(`\n✗ 미달 ${errors.length}건 / 예외 ${excepts.length}건:\n`);
+  for (const e of errors)  console.error(' ', e);
+  if (excepts.length) {
+    console.error('\n예외:');
+    for (const e of excepts) console.error(' ', e);
+  }
   console.error('');
   process.exit(1);
 }

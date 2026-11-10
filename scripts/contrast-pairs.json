@@ -48,19 +48,27 @@
     "type": "text"
   },
   {
-    "name": "text-primary / bg-primary-subtle-hover",
-    "fg": "color-text-primary",
-    "bg": "color-bg-primary-subtle-hover",
-    "type": "text",
-    "modes": ["HC"],
-    "_note": "light/dark은 primary scale 특성상 대비 미달 (선행 이슈). HC만 검사."
+    "name": "on-gray-element-strong / bg-gray-element-strong",
+    "fg": "color-text-on-gray-element-strong",
+    "bg": "color-bg-gray-element-strong",
+    "type": "text"
   },
   {
-    "name": "text-primary / bg-primary-subtle-pressed",
-    "fg": "color-text-primary",
+    "name": "text-primary-on-subtle-hover / bg-primary-subtle-hover",
+    "fg": "color-text-primary-on-subtle-hover",
+    "bg": "color-bg-primary-subtle-hover",
+    "type": "text"
+  },
+  {
+    "name": "text-primary-on-subtle-pressed / bg-primary-subtle-pressed",
+    "fg": "color-text-primary-on-subtle-pressed",
     "bg": "color-bg-primary-subtle-pressed",
     "type": "text",
-    "modes": ["HC"],
-    "_note": "light/dark은 primary scale 특성상 대비 미달 (선행 이슈). HC만 검사."
+    "exceptions": [
+      {
+        "mode": "light",
+        "reason": "KRDS 원본, 순간 상태 (4.26:1)"
+      }
+    ]
   }
 ]

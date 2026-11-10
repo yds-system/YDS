@@ -286,6 +286,9 @@ export const colorSemanticGroups = [
       { name: 'color-text-on-information-element', figma: 'color/text/on-information-element', value: '#ffffff', ref: 'color-gray-0',   darkRef: 'color-gray-90',  darkValue: '#1e2124', hcRef: 'color-gray-90',  hcValue: '#1e2124', usage: '정보 채움 배경 위 텍스트 (light: 4.60:1 / dark: 5.28:1 / HC: 10.0:1)', krds: '(자체 추가)' },
       { name: 'color-text-on-point-element',       figma: 'color/text/on-point-element',       value: '#ffffff', ref: 'color-gray-0',   darkRef: 'color-gray-100', darkValue: '#000000', hcRef: 'color-gray-90',  hcValue: '#1e2124', usage: '포인트 채움 배경 위 텍스트 (dark: gray-100 — gray-90은 4.29:1로 미달)', krds: '(자체 추가)' },
       { name: 'color-text-on-gray-element',        figma: 'color/text/on-gray-element',        value: '#ffffff', ref: 'color-gray-0',   darkRef: 'color-gray-0',   darkValue: '#ffffff', hcRef: 'color-gray-90',  hcValue: '#1e2124', usage: '중립 채움 배경 위 텍스트 (dark bg=gray-50: 4.5:1 ✓)', krds: '(자체 추가)' },
+      { name: 'color-text-on-gray-element-strong', figma: 'color/text/on-gray-element-strong', value: '#ffffff', ref: 'color-gray-0',   darkRef: 'color-gray-90',  darkValue: '#1e2124', hcRef: 'color-gray-90',  hcValue: '#1e2124', usage: '진한 중립 채움 배경 위 텍스트 (light:6.3 / dark:5.25 / HC:8.1)', krds: '(자체 추가)' },
+      { name: 'color-text-primary-on-subtle-hover',   figma: 'color/text/primary-on-subtle-hover',   value: '#0b50d0', ref: 'color-primary-60', darkRef: 'color-primary-30', darkValue: '#86aff9', hcRef: 'color-primary-20', hcValue: '#b1cefb', usage: '외곽선 버튼 hover bg 위 텍스트 (dark:6.6:1 / HC:11:1)', krds: '(자체 추가)' },
+      { name: 'color-text-primary-on-subtle-pressed', figma: 'color/text/primary-on-subtle-pressed', value: '#0b50d0', ref: 'color-primary-60', darkRef: 'color-primary-20', darkValue: '#b1cefb', hcRef: 'color-primary-20', hcValue: '#b1cefb', usage: '외곽선 버튼 pressed bg 위 텍스트 (light: KRDS 예외 4.26:1 / dark:6.6:1 / HC:9:1)', krds: '(자체 추가)' },
     ]
   },
   {
