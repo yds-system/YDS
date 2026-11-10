@@ -22,10 +22,10 @@
   --ds-badge--color-primary-element: var(--color-icon-primary);
   --ds-badge--color-primary-element-lighter: var(--color-bg-primary-subtle);
   --ds-badge--color-primary-text: var(--color-text-primary);
-  --ds-badge--color-secondary-element: var(--color-icon-secondary);
+  --ds-badge--color-secondary-element: var(--color-icon-secondary-strong);
   --ds-badge--color-secondary-element-lighter: var(--color-bg-secondary-subtle);
-  --ds-badge--color-secondary-text: var(--color-text-secondary);
-  --ds-badge--color-gray-element: var(--color-bg-element-gray);
+  --ds-badge--color-secondary-text: var(--color-text-secondary-strong);
+  --ds-badge--color-gray-element: var(--color-bg-gray-element);
   --ds-badge--color-gray-element-lighter: var(--color-bg-subtler);
   --ds-badge--color-gray-text: var(--color-text-subtle);
   --ds-badge--color-point-element: var(--color-bg-point-element);

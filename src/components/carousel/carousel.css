@@ -139,7 +139,7 @@
 .ds-carousel__pagination .ds-carousel__bullet {
   width: var(--krds-size-height-1);
   height: var(--krds-size-height-1);
-  background-color: var(--color-bg-element-gray);
+  background-color: var(--color-bg-gray-element);
   border-radius: var(--krds-radius-max);
   opacity: 1;
   transition: var(--krds-transition-base);
@@ -161,7 +161,7 @@
   background-color: var(--color-bg-default);
 }
 .ds-carousel__pagination.ds-carousel__pagination--fraction .ds-carousel__pagination-current {
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary-strong);
 }
 
 /* ----- ds-carousel__indicator (인디케이터 래퍼) ----- */

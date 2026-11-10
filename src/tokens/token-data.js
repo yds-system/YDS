@@ -268,30 +268,35 @@ export const colorSemanticGroups = [
       { name: 'color-bg-information-element',    figma: 'color/bg/information-element',    value: '#0b78cb', ref: 'color-information-50',  darkRef: 'color-information-40',  darkValue: '#2098f3', hcRef: 'color-information-20', hcValue: '#9ed2fa', usage: '정보 뱃지 채움색', krds: '--krds-light-color-element-information' },
       { name: 'color-bg-point-element',          figma: 'color/bg/point-element',          value: '#d63d4a', ref: 'color-point-50',        darkRef: 'color-point-40',        darkValue: '#d65c66', hcRef: 'color-point-20',    hcValue: '#ebadb2', usage: '포인트(강조 빨강) 뱃지 채움색', krds: '--krds-light-color-element-point' },
       { name: 'color-bg-point-subtle',           figma: 'color/bg/point-subtle',           value: '#fbeff0', ref: 'color-point-5',         darkRef: 'color-point-90',        darkValue: '#310c0f', hcRef: 'color-point-95',    hcValue: '#21080a', usage: '포인트 연한 배경색', krds: '--krds-light-color-element-point-lighter' },
-      { name: 'color-bg-element-gray',           figma: 'color/bg/element-gray',           value: '#6d7882', ref: 'color-gray-50',         darkRef: 'color-gray-50',         darkValue: '#6d7882', hcRef: 'color-gray-40',     hcValue: '#8a949e', usage: '중립 뱃지·인디케이터 채움색', krds: '--krds-light-color-element-gray' },
-      { name: 'color-bg-element-gray-dark',      figma: 'color/bg/element-gray-dark',      value: '#58616a', ref: 'color-gray-60',         darkRef: 'color-gray-40',         darkValue: '#8a949e', hcRef: 'color-gray-30',     hcValue: '#b1b8be', usage: '진한 중립 채움색', krds: '--krds-light-color-element-gray-dark' },
+      { name: 'color-bg-gray-element',            figma: 'color/bg/gray-element',           value: '#6d7882', ref: 'color-gray-50',         darkRef: 'color-gray-50',         darkValue: '#6d7882', hcRef: 'color-gray-40',     hcValue: '#8a949e', usage: '중립 뱃지·인디케이터 채움색', krds: '--krds-light-color-element-gray' },
+      { name: 'color-bg-gray-element-strong',    figma: 'color/bg/gray-element-strong',    value: '#58616a', ref: 'color-gray-60',         darkRef: 'color-gray-40',         darkValue: '#8a949e', hcRef: 'color-gray-30',     hcValue: '#b1b8be', usage: '진한 중립 채움색', krds: '--krds-light-color-element-gray-dark' },
     ]
   },
   {
     group: 'color-text (추가)',
     tokens: [
-      { name: 'color-text-link-hover',   figma: 'color/text/link-hover',   value: '#0b50d0', ref: 'color-primary-60',  darkRef: 'color-primary-30', darkValue: '#86aff9', hcRef: 'color-primary-20', hcValue: '#b1cefb', usage: '링크 hover 텍스트색', krds: '--krds-light-color-link-hover' },
-      { name: 'color-text-link-pressed', figma: 'color/text/link-pressed', value: '#083891', ref: 'color-primary-70',  darkRef: 'color-primary-20', darkValue: '#b1cefb', hcRef: 'color-primary-10', hcValue: '#d8e5fd', usage: '링크 pressed 텍스트색', krds: '--krds-light-color-link-pressed' },
-      { name: 'color-text-stronger',     figma: 'color/text/stronger',     value: '#131416', ref: 'color-gray-95',     darkRef: 'color-gray-0',     darkValue: '#ffffff', hcRef: 'color-gray-5',     hcValue: '#f4f5f6', usage: '최강조 텍스트 (기본보다 진한)', krds: '--krds-light-color-text-bolder' },
-      { name: 'color-text-point',        figma: 'color/text/point',        value: '#ab2b36', ref: 'color-point-60',    darkRef: 'color-point-40',   darkValue: '#d65c66', hcRef: 'color-point-20',   hcValue: '#ebadb2', usage: '포인트 색상 텍스트', krds: '--krds-light-color-text-point' },
+      { name: 'color-text-link-hover',          figma: 'color/text/link-hover',          value: '#0b50d0', ref: 'color-primary-60',    darkRef: 'color-primary-30',    darkValue: '#86aff9', hcRef: 'color-primary-20',  hcValue: '#b1cefb', usage: '링크 hover 텍스트색', krds: '--krds-light-color-link-hover' },
+      { name: 'color-text-link-pressed',        figma: 'color/text/link-pressed',        value: '#083891', ref: 'color-primary-70',    darkRef: 'color-primary-20',    darkValue: '#b1cefb', hcRef: 'color-primary-10',  hcValue: '#d8e5fd', usage: '링크 pressed 텍스트색', krds: '--krds-light-color-link-pressed' },
+      { name: 'color-text-stronger',            figma: 'color/text/stronger',            value: '#131416', ref: 'color-gray-95',       darkRef: 'color-gray-0',        darkValue: '#ffffff', hcRef: 'color-gray-5',      hcValue: '#f4f5f6', usage: '최강조 텍스트 (기본보다 진한)', krds: '--krds-light-color-text-bolder' },
+      { name: 'color-text-point',               figma: 'color/text/point',               value: '#ab2b36', ref: 'color-point-60',      darkRef: 'color-point-40',      darkValue: '#d65c66', hcRef: 'color-point-20',    hcValue: '#ebadb2', usage: '포인트 색상 텍스트', krds: '--krds-light-color-text-point' },
+      { name: 'color-text-secondary-strong',    figma: 'color/text/secondary-strong',    value: '#052b57', ref: 'color-secondary-80',  darkRef: 'color-secondary-20',  darkValue: '#bacbde', hcRef: 'color-secondary-20', hcValue: '#bacbde', usage: 'secondary 강조 텍스트 (KRDS 원래 값)', krds: '--krds-light-color-text-secondary' },
+      { name: 'color-text-on-warning-element',  figma: 'color/text/on-warning-element',  value: '#1e2124', ref: 'color-gray-90',       darkRef: 'color-gray-90',       darkValue: '#1e2124', hcRef: 'color-gray-90',     hcValue: '#1e2124', usage: 'warning 채움 배경 위 텍스트 — 항상 어두움', krds: '--krds-light-color-text-static' },
+      { name: 'color-text-on-interactive-active', figma: 'color/text/on-interactive-active', value: '#ffffff', ref: 'color-gray-0',   darkRef: 'color-gray-90',       darkValue: '#1e2124', hcRef: 'color-gray-100',    hcValue: '#000000', usage: 'interactive-active 배경 위 텍스트', krds: '--krds-light-color-action-secondary-on-selected' },
     ]
   },
   {
     group: 'color-icon (추가)',
     tokens: [
-      { name: 'color-icon-on-disabled', figma: 'color/icon/on-disabled', value: '#6d7882', ref: 'color-gray-50', darkRef: 'color-gray-50', darkValue: '#6d7882', hcRef: 'color-gray-60', hcValue: '#58616a', usage: '비활성 요소 위 아이콘색', krds: '--krds-light-color-icon-disabled-on' },
+      { name: 'color-icon-on-disabled',        figma: 'color/icon/on-disabled',         value: '#6d7882', ref: 'color-gray-50',       darkRef: 'color-gray-50',       darkValue: '#6d7882', hcRef: 'color-gray-60',     hcValue: '#58616a', usage: '비활성 요소 위 아이콘색', krds: '--krds-light-color-icon-disabled-on' },
+      { name: 'color-icon-secondary-strong',   figma: 'color/icon/secondary-strong',    value: '#063a74', ref: 'color-secondary-70',  darkRef: 'color-secondary-30',  darkValue: '#90b0d5', hcRef: 'color-secondary-20', hcValue: '#bacbde', usage: 'secondary 강조 아이콘 (KRDS element-secondary 원래 값)', krds: '--krds-light-color-element-secondary' },
     ]
   },
   {
     group: 'color-border (추가)',
     tokens: [
-      { name: 'color-border-secondary-subtle', figma: 'color/border/secondary-subtle', value: '#d6e0eb', ref: 'color-secondary-10', darkRef: 'color-secondary-80', darkValue: '#052b57', hcRef: 'color-teal-80', hcValue: '#113b45', usage: '연한 secondary 테두리', krds: '--krds-light-color-border-secondary-light' },
-      { name: 'color-border-divider-dark',     figma: 'color/border/divider-dark',     value: '#6d7882', ref: 'color-gray-50',       darkRef: 'color-gray-60',      darkValue: '#58616a', hcRef: 'color-gray-40', hcValue: '#8a949e', usage: '진한 구분선', krds: '--krds-light-color-divider-gray-dark' },
+      { name: 'color-border-secondary-subtle',  figma: 'color/border/secondary-subtle',  value: '#d6e0eb', ref: 'color-secondary-10',  darkRef: 'color-secondary-80',  darkValue: '#052b57', hcRef: 'color-teal-80',     hcValue: '#113b45', usage: '연한 secondary 테두리', krds: '--krds-light-color-border-secondary-light' },
+      { name: 'color-border-divider-dark',      figma: 'color/border/divider-dark',      value: '#6d7882', ref: 'color-gray-50',       darkRef: 'color-gray-60',       darkValue: '#58616a', hcRef: 'color-gray-40',     hcValue: '#8a949e', usage: '진한 구분선', krds: '--krds-light-color-divider-gray-dark' },
+      { name: 'color-border-secondary-strong',  figma: 'color/border/secondary-strong',  value: '#063a74', ref: 'color-secondary-70',  darkRef: 'color-secondary-30',  darkValue: '#90b0d5', hcRef: 'color-secondary-20', hcValue: '#bacbde', usage: 'secondary 강조 테두리 (KRDS border-secondary 원래 값)', krds: '--krds-light-color-border-secondary' },
     ]
   },
 ];

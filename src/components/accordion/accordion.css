@@ -23,7 +23,7 @@
   --ds-accordion--color-divider: var(--color-border-subtle);
   --ds-accordion--color-divider-open: var(--color-border-divider-dark);
   --ds-accordion--button-color-text: var(--color-text-default);
-  --ds-accordion--button-color-text-open: var(--color-text-secondary);
+  --ds-accordion--button-color-text-open: var(--color-text-secondary-strong);
   --ds-accordion--color-icon: var(--color-icon-default);
 }
 

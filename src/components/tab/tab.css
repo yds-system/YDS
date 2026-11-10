@@ -29,7 +29,7 @@
   --ds-tab--fill-button-color-text: var(--color-text-on-static);
   --ds-tab--line-button-color-border: var(--color-border-default);
   --ds-tab--line-button-color-line-active: var(--color-bg-interactive-active);
-  --ds-tab--line-button-color-text-active: var(--color-text-secondary);
+  --ds-tab--line-button-color-text-active: var(--color-text-secondary-strong);
 
   display: flex;
   align-items: flex-start;

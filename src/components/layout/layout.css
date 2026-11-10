@@ -237,15 +237,15 @@
   --ds-main-menu--toggle-color-surface: var(--color-bg-default);
   --ds-main-menu--main-menu-color-surface: var(--color-bg-secondary-subtle);
   --ds-main-menu--sub-trigger-color-text: var(--color-text-default);
-  --ds-main-menu--sub-trigger-color-text-selected: var(--color-text-secondary);
+  --ds-main-menu--sub-trigger-color-text-selected: var(--color-text-secondary-strong);
   --ds-main-menu--sub-trigger-color-action: transparent;
-  --ds-main-menu--sub-trigger-color-action-selected: var(--color-text-on-secondary);
+  --ds-main-menu--sub-trigger-color-action-selected: var(--color-text-on-interactive-active);
   --ds-main-menu--sub-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
   --ds-main-menu--sub-menu-color-action: transparent;
   --ds-main-menu--sub-menu-color-action-hover: var(--color-bg-interactive-hover);
   --ds-main-menu--sub-menu-color-action-pressed: var(--color-bg-interactive-pressed);
   --ds-main-menu--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
-  --ds-main-menu--sub-menu-trigger-color-text-selected: var(--color-text-secondary);
+  --ds-main-menu--sub-menu-trigger-color-text-selected: var(--color-text-secondary-strong);
   --ds-main-menu--banner-background: var(--color-bg-subtler);
 
   --ds-main-menu--main-trigger-size-height: var(--krds-size-height-8);
@@ -624,8 +624,8 @@
   --ds-main-menu-mobile--main-trigger-height: var(--krds-size-height-8);
   --ds-main-menu-mobile--main-trigger-padding-x: var(--krds-padding-5);
   --ds-main-menu-mobile--main-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
-  --ds-main-menu-mobile--main-trigger-color-text-active: var(--color-text-secondary);
-  --ds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-on-secondary);
+  --ds-main-menu-mobile--main-trigger-color-text-active: var(--color-text-secondary-strong);
+  --ds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-on-interactive-active);
   --ds-main-menu-mobile--menu-color-surface: var(--color-bg-secondary-subtle);
   --ds-main-menu-mobile--menu-left-width: 12rem;
   --ds-main-menu-mobile--sub-menu-color-surface: var(--color-bg-default);
@@ -642,7 +642,7 @@
   --ds-main-menu-mobile--sub-menu-trigger-border-radius: var(--krds-radius-medium1);
   --ds-main-menu-mobile--sub-menu-trigger-color-action-hover: var(--color-bg-interactive-hover);
   --ds-main-menu-mobile--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
-  --ds-main-menu-mobile--sub-menu-trigger-color-text-selected: var(--color-text-secondary);
+  --ds-main-menu-mobile--sub-menu-trigger-color-text-selected: var(--color-text-secondary-strong);
 
   position: fixed;
   top: 0;

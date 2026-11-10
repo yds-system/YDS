@@ -94,9 +94,9 @@
   --ds-calendar--color-border: var(--color-border-secondary-subtle);
   --ds-calendar--color-surface: var(--color-bg-secondary-subtle);
   --ds-calendar--color-text-sub: var(--color-text-subtle);
-  --ds-calendar--head-btn-cal-move-color-text-active: var(--color-text-secondary);
+  --ds-calendar--head-btn-cal-move-color-text-active: var(--color-text-secondary-strong);
   --ds-calendar--head-btn-cal-move-color-border: var(--color-border-subtle);
-  --ds-calendar--head-btn-cal-move-color-border-active: var(--color-border-secondary);
+  --ds-calendar--head-btn-cal-move-color-border-active: var(--color-border-secondary-strong);
   --ds-calendar--head-btn-cal-move-color-action: var(--color-bg-default);
   --ds-calendar--head-btn-cal-switch-color-action-hover: var(--color-bg-interactive-hover);
   --ds-calendar--head-btn-cal-switch-color-action-active: var(--color-bg-interactive-pressed);
