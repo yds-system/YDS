@@ -92,6 +92,7 @@
   /* 색상은 mode.css --color-shadow-subtle / --color-shadow-default 를 참조한다.      */
   /* 카드는 기본 shadow-s, hover 시 shadow-m으로 전환한다.                             */
 
+  --shadow-focus-inset: inset 0 0 0 0.2rem var(--color-border-focus); /* 포커스 인셋 링 */
   --shadow-none: none;
   --shadow-s: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 0.4rem 0.8rem 0 var(--color-shadow-subtle);   /* 카드·슬라이드 박스 기본   ─ --krds-critical-alerts--banner-shadow 패턴 */
   --shadow-m: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 0.8rem 1.6rem 0 var(--color-shadow-subtle);   /* 카드 hover·드롭다운·툴팁  ─ --krds-help-panel--shadow 패턴             */

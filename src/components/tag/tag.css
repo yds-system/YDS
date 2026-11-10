@@ -5,11 +5,11 @@
 
 /* ----- CSS 변수 ----- */
 .ds-tag-group {
-  --ds-tag--color-text: var(--krds-light-color-text-basic);
-  --ds-tag--color-action: var(--krds-light-color-action-white);
-  --ds-tag--color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-tag--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-tag--color-border: var(--krds-light-color-border-gray-light);
+  --ds-tag--color-text: var(--color-text-default);
+  --ds-tag--color-action: var(--color-bg-default);
+  --ds-tag--color-action-hover: var(--color-bg-interactive-hover);
+  --ds-tag--color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-tag--color-border: var(--color-border-subtle);
 
   /* small */
   --ds-tag--wrapper-gap-x-small: var(--krds-gap-2);

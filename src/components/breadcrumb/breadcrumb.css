@@ -9,12 +9,12 @@
   --ds-breadcrumb--radius: var(--krds-radius-medium2);
   --ds-breadcrumb--pc-font-size: var(--krds-pc-font-size-label-small);
   --ds-breadcrumb--mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --ds-breadcrumb--color-action: var(--krds-light-color-action-secondary);
-  --ds-breadcrumb--color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-breadcrumb--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-breadcrumb--color-text: var(--krds-light-color-text-basic);
-  --ds-breadcrumb--color-text-disabled: var(--krds-light-color-text-disabled);
-  --ds-breadcrumb--color-icon: var(--krds-light-color-icon-gray);
+  --ds-breadcrumb--color-action: transparent;
+  --ds-breadcrumb--color-action-hover: var(--color-bg-interactive-hover);
+  --ds-breadcrumb--color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-breadcrumb--color-text: var(--color-text-default);
+  --ds-breadcrumb--color-text-disabled: var(--color-text-disabled);
+  --ds-breadcrumb--color-icon: var(--color-icon-default);
 
   display: flex;
   justify-content: center;
@@ -63,7 +63,7 @@ a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):active {
 }
 a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus,
 a.ds-breadcrumb__link:not(.ds-breadcrumb__link--disabled):focus-visible {
-  box-shadow: var(--krds-box-shadow-outline-inset);
+  box-shadow: var(--shadow-focus-inset);
   outline-offset: -0.4rem;
   outline: none;
 }

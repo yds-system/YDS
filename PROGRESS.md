@@ -304,6 +304,22 @@
 
 ---
 
+## 2026-11-10 KRDS 색상 토큰 마이그레이션
+
+- **scripts/krds-color-map.json 생성**: KRDS `--krds-light-color-*` / `--krds-box-shadow-outline-inset` / `--krds-light-alpha-black0` → YDS 토큰 대응 매핑 (100개 항목)
+- **src/tokens/primitive.css**: `color-point` 그룹 7단계 추가 (`--color-point-5/20/40/50/60/90/95`)
+- **src/tokens/mode.css**: 4개 모드(라이트·다크·고대비·시스템) 각각에 추가 토큰 21개 삽입:
+  - `color-bg`: interactive-hover/pressed/active, primary-subtle-hover/pressed, pressed, warning/success/information/point-element, point-subtle, element-gray/gray-dark
+  - `color-text`: link-hover/pressed, stronger, point
+  - `color-icon`: on-disabled
+  - `color-border`: secondary-subtle, divider-dark
+- **src/tokens/semantic.css**: `--shadow-focus-inset` 추가 (포커스 인셋 링, `inset 0 0 0 0.2rem var(--color-border-focus)`)
+- **19개 컴포넌트 CSS 일괄 교체** (총 302건): accordion/badge/breadcrumb/button/carousel/checkbox/date-input/file-upload/form-group/icon/layout/link/pagination/select/tab/table/tag/text-input/tooltip
+- **src/tokens/token-data.js 업데이트**: colorPrimGroups에 color-point 그룹 추가, colorSemanticGroups에 4개 추가 그룹(color-bg/text/icon/border) 추가
+- **check-tokens.mjs 통과** (전체 불일치 0건)
+
+---
+
 ## 2026-11-05 신규 컴포넌트 추가
 
 - **이미지** (ds-image): 비율별 aspect-ratio 컴포넌트. `ds-image--16x9/4x3/3x2/1x1/21x9`

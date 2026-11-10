@@ -20,11 +20,11 @@
 /* ----- CSS 변수 ----- */
 .ds-link {
   /* 색상 */
-  --ds-link--color-text:          var(--krds-light-color-link-default);
-  --ds-link--color-text-hover:    var(--krds-light-color-link-hover);
-  --ds-link--color-text-pressed:  var(--krds-light-color-link-pressed);
-  --ds-link--color-text-visited:  var(--krds-light-color-link-visited);
-  --ds-link--color-text-disabled: var(--krds-light-color-text-disabled);
+  --ds-link--color-text:          var(--color-text-link);
+  --ds-link--color-text-hover:    var(--color-text-link-hover);
+  --ds-link--color-text-pressed:  var(--color-text-link-pressed);
+  --ds-link--color-text-visited:  var(--color-text-link-visited);
+  --ds-link--color-text-disabled: var(--color-text-disabled);
 
   /* 폰트 크기 · 패딩 */
   --ds-link--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
@@ -119,10 +119,10 @@
 
 /* ----- .ds-link--basic (본문 텍스트 색상) ----- */
 .ds-link.ds-link--basic {
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
 }
 .ds-link.ds-link--basic .ds-icon {
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
 }
 
 /* ----- 상호작용 상태 색상 ----- */
@@ -181,13 +181,13 @@
 .ds-link.ds-link--basic.ds-link--pure:active,
 .ds-link.ds-link--basic.ds-link--pure:focus,
 .ds-link.ds-link--basic.ds-link--pure:visited {
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
 }
 .ds-link.ds-link--basic.ds-link--pure:hover .ds-icon,
 .ds-link.ds-link--basic.ds-link--pure:active .ds-icon,
 .ds-link.ds-link--basic.ds-link--pure:focus .ds-icon,
 .ds-link.ds-link--basic.ds-link--pure:visited .ds-icon {
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
 }
 
 /* ----- 비활성화 ----- */
@@ -213,7 +213,7 @@
 
 /* ds-link__text--underline-hover: 기본은 투명, 상호작용 시 표시 */
 .ds-link .ds-link__text.ds-link__text--underline-hover {
-  text-decoration-color: var(--krds-light-color-border-transparency);
+  text-decoration-color: transparent;
   transition: var(--krds-transition-base);
 }
 .ds-link:hover .ds-link__text.ds-link__text--underline-hover,

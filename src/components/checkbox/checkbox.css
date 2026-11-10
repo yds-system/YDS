@@ -16,7 +16,7 @@ fieldset.ds-form-group > legend.ds-form-label {
   float: left;
   width: 100%;
   padding: 0;
-  color: var(--krds-light-color-text-subtle);
+  color: var(--color-text-subtle);
 }
 fieldset.ds-form-group > legend.ds-form-label > span {
   font-size: var(--ds-form-group--label-pc-font-size);
@@ -56,23 +56,23 @@ fieldset.ds-form-group > legend.ds-form-label + * {
 
 /* ----- CSS 변수 ----- */
 .ds-check-item {
-  --ds-check--color-text: var(--krds-light-color-text-bolder);
-  --ds-check--color-text-disabled: var(--krds-light-color-text-disabled);
-  --ds-check--color-text-sub: var(--krds-light-color-text-subtle);
-  --ds-check--color-text-sub-disabled: var(--krds-light-color-text-disabled);
-  --ds-check--button-color-element: var(--krds-light-color-element-inverse);
-  --ds-check--button-color-element-disabled: var(--krds-light-color-element-disabled-light);
-  --ds-check--button-color-border: var(--krds-light-color-element-gray-dark);
-  --ds-check--button-color-border-checked: var(--krds-light-color-element-primary);
-  --ds-check--button-color-border-disabled: var(--krds-light-color-element-disabled-dark);
-  --ds-check--checkbox-button-color-element-checked: var(--krds-light-color-element-primary);
-  --ds-check--radio-check-color-element: var(--krds-light-alpha-black0);
-  --ds-check--radio-check-color-element-checked: var(--krds-light-color-element-primary);
-  --ds-check--radio-check-color-element-disabled: var(--krds-light-color-element-disabled-dark);
-  --ds-check--checkbox-check-color-element: var(--krds-light-alpha-black0);
-  --ds-check--checkbox-check-color-element-checked: var(--krds-light-color-element-inverse-static);
-  --ds-check--checkbox-check-color-element-disabled: var(--krds-light-color-element-disabled-dark);
-  --ds-check--additional-text-color-text: var(--krds-light-color-text-subtle);
+  --ds-check--color-text: var(--color-text-stronger);
+  --ds-check--color-text-disabled: var(--color-text-disabled);
+  --ds-check--color-text-sub: var(--color-text-subtle);
+  --ds-check--color-text-sub-disabled: var(--color-text-disabled);
+  --ds-check--button-color-element: var(--color-icon-inverse);
+  --ds-check--button-color-element-disabled: var(--color-bg-disabled);
+  --ds-check--button-color-border: var(--color-bg-element-gray-dark);
+  --ds-check--button-color-border-checked: var(--color-icon-primary);
+  --ds-check--button-color-border-disabled: var(--color-icon-disabled);
+  --ds-check--checkbox-button-color-element-checked: var(--color-icon-primary);
+  --ds-check--radio-check-color-element: transparent;
+  --ds-check--radio-check-color-element-checked: var(--color-icon-primary);
+  --ds-check--radio-check-color-element-disabled: var(--color-icon-disabled);
+  --ds-check--checkbox-check-color-element: transparent;
+  --ds-check--checkbox-check-color-element-checked: var(--color-text-on-static);
+  --ds-check--checkbox-check-color-element-disabled: var(--color-icon-disabled);
+  --ds-check--additional-text-color-text: var(--color-text-subtle);
   --ds-check--button-size-medium: var(--krds-size-height-3);
   --ds-check--radio-check-size-medium: 1rem;
   --ds-check--checkbox-check-size-medium: 1.2rem;
@@ -155,14 +155,14 @@ fieldset.ds-form-group > legend.ds-form-label + * {
 /* ----- 포커스 ----- */
 .ds-check-item input[type=radio]:focus-visible ~ label:before,
 .ds-check-item input[type=checkbox]:focus-visible ~ label:before {
-  outline: 2px solid var(--krds-light-color-element-primary);
+  outline: 2px solid var(--color-icon-primary);
   outline-offset: 0.2rem;
 }
 
 /* ----- 에러 상태 (.ds-form-content--error 하위) ----- */
 .ds-form-content--error .ds-check-item input[type=checkbox] ~ label:before,
 .ds-form-content--error .ds-check-item input[type=radio] ~ label:before {
-  border-color: var(--krds-light-color-input-border-error);
+  border-color: var(--color-border-danger);
   border-width: 0.2rem;
 }
 

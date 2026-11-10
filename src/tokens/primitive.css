@@ -120,6 +120,15 @@
   --color-teal-80: #113b45;
   --color-teal-95: #091f25;
 
+  /* color-point  ─  KRDS --krds-color-light-point-* (강조 빨강) */
+  --color-point-5:   #fbeff0;
+  --color-point-20:  #ebadb2;
+  --color-point-40:  #d65c66;
+  --color-point-50:  #d63d4a;
+  --color-point-60:  #ab2b36;
+  --color-point-90:  #310c0f;
+  --color-point-95:  #21080a;
+
   /* color-purple  ─  방문한 링크 전용 (자체 추가) */
   --color-purple-30: #c49ff9;  /* 다크·고대비 link-visited */
   --color-purple-60: #5917b8;  /* 라이트 link-visited      */

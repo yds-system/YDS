@@ -6,13 +6,13 @@
 
 /* ----- CSS 변수 ----- */
 .ds-pagination {
-  --ds-pagination--color-text: var(--krds-light-color-text-subtle);
+  --ds-pagination--color-text: var(--color-text-subtle);
   --ds-pagination--color-text-active: var(--color-text-on-static);
-  --ds-pagination--color-text-disabled: var(--krds-light-color-text-disabled);
-  --ds-pagination--color-action: var(--krds-light-color-action-secondary);
-  --ds-pagination--color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-pagination--color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-pagination--color-action-active: var(--krds-light-color-action-secondary-active);
+  --ds-pagination--color-text-disabled: var(--color-text-disabled);
+  --ds-pagination--color-action: transparent;
+  --ds-pagination--color-action-hover: var(--color-bg-interactive-hover);
+  --ds-pagination--color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-pagination--color-action-active: var(--color-bg-interactive-active);
   --ds-pagination-gap: var(--krds-gap-3);
   --ds-pagination-margin-top: var(--krds-pc-gap-layout-h2-h3);
   --ds-pagination--size-height: var(--krds-size-height-6);

@@ -42,14 +42,14 @@
 
   --ds-file-upload--border-width: var(--krds-light-border-width-variable-regular);
   --ds-file-upload--border-medium: var(--krds-light-border-width-variable-medium);
-  --ds-file-upload--file-color-surface: var(--krds-light-color-surface-gray-subtle);
-  --ds-file-upload--file-color-border-active: var(--krds-light-color-border-gray);
-  --ds-file-upload--list-color-surface: var(--krds-light-color-surface-danger-subtler);
-  --ds-file-upload--list-color-border: var(--krds-light-color-divider-gray-light);
-  --ds-file-upload--list-color-border-error: var(--krds-light-color-border-danger);
-  --ds-file-upload--list-color-text: var(--krds-light-color-text-bolder);
-  --ds-file-upload--list-color-text-error: var(--krds-light-color-text-danger);
-  --ds-file-upload--line-color-border: var(--krds-light-color-border-gray);
+  --ds-file-upload--file-color-surface: var(--color-bg-subtler);
+  --ds-file-upload--file-color-border-active: var(--color-border-default);
+  --ds-file-upload--list-color-surface: var(--color-bg-danger-subtle);
+  --ds-file-upload--list-color-border: var(--color-border-subtle);
+  --ds-file-upload--list-color-border-error: var(--color-border-danger);
+  --ds-file-upload--list-color-text: var(--color-text-stronger);
+  --ds-file-upload--list-color-text-error: var(--color-text-danger);
+  --ds-file-upload--line-color-border: var(--color-border-default);
 }
 
 /* ----- 최상위 컨테이너 ----- */
@@ -144,7 +144,7 @@
   font-weight: var(--krds-font-weight-bold);
 }
 .ds-file-upload__total-current {
-  color: var(--krds-light-color-text-primary);
+  color: var(--color-text-primary);
 }
 
 /* 목록 ul */
@@ -257,7 +257,7 @@
   width: 100%;
   padding-top: var(--krds-padding-5);
   margin-top: var(--krds-padding-5);
-  border-top: var(--ds-file-upload--border-width) solid var(--krds-light-color-divider-gray);
+  border-top: var(--ds-file-upload--border-width) solid var(--color-border-divider);
   color: var(--ds-file-upload--list-color-text-error);
 }
 .ds-file-upload__item-hint::before {

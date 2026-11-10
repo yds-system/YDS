@@ -16,8 +16,8 @@
   width: var(--krds-size-height-6);
   height: var(--krds-size-height-6);
   border-radius: var(--krds-radius-max);
-  border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light);
-  background-color: var(--krds-light-color-action-white);
+  border: var(--krds-light-border-width-variable-regular) solid var(--color-border-subtle);
+  background-color: var(--color-bg-default);
   cursor: pointer;
   transition: var(--krds-transition-base);
 }
@@ -31,7 +31,7 @@
   display: inline-flex;
   width: var(--krds-icon--size-large);
   height: var(--krds-icon--size-large);
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center center;
@@ -46,7 +46,7 @@
 .ds-carousel__play-btn:hover,
 .ds-carousel__stop-btn:hover,
 .ds-carousel__more-btn:hover {
-  background-color: var(--krds-light-color-action-secondary-hover);
+  background-color: var(--color-bg-interactive-hover);
 }
 
 /* ----- ds-carousel__move-btn--prev (이전) ----- */
@@ -56,19 +56,19 @@
   transform: rotate(90deg);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--prev:hover {
-  background-color: var(--krds-light-color-action-secondary-hover);
+  background-color: var(--color-bg-interactive-hover);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--prev:active {
-  background-color: var(--krds-light-color-action-secondary-pressed);
+  background-color: var(--color-bg-interactive-pressed);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--prev.ds-carousel__move-btn--disabled {
-  background-color: var(--krds-light-color-action-disabled);
+  background-color: var(--color-bg-disabled);
   opacity: 1;
   cursor: default;
   pointer-events: none;
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--prev.ds-carousel__move-btn--disabled::after {
-  background-color: var(--krds-light-color-icon-disabled-on);
+  background-color: var(--color-icon-on-disabled);
 }
 
 /* ----- ds-carousel__move-btn--next (다음) ----- */
@@ -78,19 +78,19 @@
   transform: rotate(-90deg);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--next:hover {
-  background-color: var(--krds-light-color-action-secondary-hover);
+  background-color: var(--color-bg-interactive-hover);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--next:active {
-  background-color: var(--krds-light-color-action-secondary-pressed);
+  background-color: var(--color-bg-interactive-pressed);
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--next.ds-carousel__move-btn--disabled {
-  background-color: var(--krds-light-color-action-disabled);
+  background-color: var(--color-bg-disabled);
   opacity: 1;
   cursor: default;
   pointer-events: none;
 }
 .ds-carousel__move-btn.ds-carousel__move-btn--next.ds-carousel__move-btn--disabled::after {
-  background-color: var(--krds-light-color-icon-disabled-on);
+  background-color: var(--color-icon-on-disabled);
 }
 
 /* ----- ds-carousel__play-btn (재생) ----- */
@@ -139,7 +139,7 @@
 .ds-carousel__pagination .ds-carousel__bullet {
   width: var(--krds-size-height-1);
   height: var(--krds-size-height-1);
-  background-color: var(--krds-light-color-element-gray);
+  background-color: var(--color-bg-element-gray);
   border-radius: var(--krds-radius-max);
   opacity: 1;
   transition: var(--krds-transition-base);
@@ -147,21 +147,21 @@
 .ds-carousel__pagination .ds-carousel__bullet.ds-carousel__bullet--current {
   width: 2rem;
   border-radius: var(--krds-radius-max);
-  background-color: var(--krds-light-color-element-primary);
+  background-color: var(--color-icon-primary);
 }
 
 /* ----- ds-carousel__pagination (분수형) ----- */
 .ds-carousel__pagination.ds-carousel__pagination--fraction {
   gap: var(--krds-gap-2);
   padding: 0 var(--krds-padding-6);
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   font-weight: var(--krds-font-weight-bold);
-  border: var(--krds-light-border-width-variable-regular) solid var(--krds-light-color-border-gray-light);
+  border: var(--krds-light-border-width-variable-regular) solid var(--color-border-subtle);
   border-radius: var(--krds-radius-max);
-  background-color: var(--krds-light-color-surface-white);
+  background-color: var(--color-bg-default);
 }
 .ds-carousel__pagination.ds-carousel__pagination--fraction .ds-carousel__pagination-current {
-  color: var(--krds-light-color-text-secondary);
+  color: var(--color-text-secondary);
 }
 
 /* ----- ds-carousel__indicator (인디케이터 래퍼) ----- */
@@ -191,15 +191,15 @@
   height: var(--krds-size-height-6);
   padding: var(--krds-padding-5);
   border-radius: var(--krds-radius-max);
-  background-color: var(--krds-light-color-element-inverse);
+  background-color: var(--color-icon-inverse);
 }
 /* 인디케이터 안 불릿의 색상은 배경 대비로 반전 처리 */
 .ds-carousel__indicator .ds-carousel__pagination:not(.ds-carousel__pagination--fraction) .ds-carousel__bullet {
-  background-color: var(--krds-light-color-surface-white);
+  background-color: var(--color-bg-default);
   opacity: 0.5;
 }
 .ds-carousel__indicator .ds-carousel__pagination:not(.ds-carousel__pagination--fraction) .ds-carousel__bullet.ds-carousel__bullet--current {
-  background-color: var(--krds-light-color-surface-white);
+  background-color: var(--color-bg-default);
   opacity: 1;
 }
 
@@ -208,7 +208,7 @@
   font-weight: var(--krds-font-weight-bold);
   padding: var(--krds-padding-5);
   border-radius: var(--krds-radius-max);
-  background-color: var(--krds-light-color-surface-white);
+  background-color: var(--color-bg-default);
 }
 
 /* 인디케이터 안 nav 버튼: position 리셋 */

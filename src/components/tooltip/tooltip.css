@@ -10,11 +10,11 @@
   --ds-tooltip--popover-contents-pc-font-size: var(--krds-pc-font-size-body-small);
   --ds-tooltip--popover-contents-mobile-font-size: var(--krds-mobile-font-size-body-small);
   --ds-tooltip--popover-margin-x: 2.4rem;
-  --ds-tooltip--popover-inline-color-text: var(--krds-light-color-text-basic-inverse);
-  --ds-tooltip--popover-box-color-text: var(--krds-light-color-text-basic);
-  --ds-tooltip--popover-color-border: var(--krds-light-color-border-gray);
-  --ds-tooltip--popover-color-surface: var(--krds-light-color-surface-inverse);
-  --ds-tooltip--popover-box-color-surface: var(--krds-light-color-surface-white-subtler);
+  --ds-tooltip--popover-inline-color-text: var(--color-text-inverse);
+  --ds-tooltip--popover-box-color-text: var(--color-text-default);
+  --ds-tooltip--popover-color-border: var(--color-border-default);
+  --ds-tooltip--popover-color-surface: var(--color-bg-inverse);
+  --ds-tooltip--popover-box-color-surface: var(--color-bg-default);
 }
 
 /* ----- 팝오버 기본 (인라인형 — 검은 배경) ----- */

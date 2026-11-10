@@ -6,19 +6,19 @@
 
 /* ----- CSS 변수 ----- */
 .ds-input {
-  --ds-input--color-surface: var(--krds-light-color-input-surface);
-  --ds-input--color-surface-readonly: var(--krds-light-color-input-surface-disabled);
-  --ds-input--color-surface-disabled: var(--krds-light-color-input-surface-disabled);
-  --ds-input--color-border: var(--krds-light-color-input-border);
-  --ds-input--color-border-active: var(--krds-light-color-input-border-active);
-  --ds-input--color-border-readonly: var(--krds-light-color-input-border-disabled);
-  --ds-input--color-border-disabled: var(--krds-light-color-input-border-disabled);
-  --ds-input--color-border-error: var(--krds-light-color-input-border-error);
-  --ds-input--color-text: var(--krds-light-color-text-subtle);
-  --ds-input--color-text-active: var(--krds-light-color-text-basic);
-  --ds-input--color-text-readonly: var(--krds-light-color-text-subtle);
-  --ds-input--color-text-disabled: var(--krds-light-color-text-disabled-on);
-  --ds-input--color-text-placeholder: var(--krds-light-color-text-disabled);
+  --ds-input--color-surface: var(--color-bg-default);
+  --ds-input--color-surface-readonly: var(--color-bg-disabled);
+  --ds-input--color-surface-disabled: var(--color-bg-disabled);
+  --ds-input--color-border: var(--color-border-strong);
+  --ds-input--color-border-active: var(--color-border-focus);
+  --ds-input--color-border-readonly: var(--color-border-disabled);
+  --ds-input--color-border-disabled: var(--color-border-disabled);
+  --ds-input--color-border-error: var(--color-border-danger);
+  --ds-input--color-text: var(--color-text-subtle);
+  --ds-input--color-text-active: var(--color-text-default);
+  --ds-input--color-text-readonly: var(--color-text-subtle);
+  --ds-input--color-text-disabled: var(--color-text-subtler);
+  --ds-input--color-text-placeholder: var(--color-text-disabled);
   --ds-input--padding-x: var(--krds-padding-6);
 
   --ds-input--size-height-small: var(--krds-size-height-6);
@@ -151,9 +151,9 @@ textarea.ds-input {
 
 /* ----- 글자 수 표시 (textarea·input 공통) ----- */
 .ds-count {
-  --ds-count--color: var(--krds-light-color-text-subtle);
-  --ds-count--color-active: var(--krds-light-color-text-primary);
-  --ds-count--color-error: var(--krds-light-color-text-danger);
+  --ds-count--color: var(--color-text-subtle);
+  --ds-count--color-active: var(--color-text-primary);
+  --ds-count--color-error: var(--color-text-danger);
   display: flex;
   align-items: center;
   justify-content: flex-end;

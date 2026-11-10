@@ -45,8 +45,8 @@
   overflow: visible;
   z-index: 9999;
   padding: 0.8rem 1.6rem;
-  background: var(--krds-light-color-surface-inverse);
-  color: var(--krds-light-color-text-basic-inverse);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
   text-decoration: none;
 }
 
@@ -91,11 +91,11 @@
    ========================================================= */
 
 #ds-header {
-  --ds-header--color-surface: var(--krds-light-color-surface-white);
-  --ds-header--utility-color-divider: var(--krds-light-color-divider-gray-light);
-  --ds-header--navi-color-text: var(--krds-light-color-text-basic);
-  --ds-header--navi-color-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-header--navi-color-pressed: var(--krds-light-color-action-secondary-pressed);
+  --ds-header--color-surface: var(--color-bg-default);
+  --ds-header--utility-color-divider: var(--color-border-subtle);
+  --ds-header--navi-color-text: var(--color-text-default);
+  --ds-header--navi-color-hover: var(--color-bg-interactive-hover);
+  --ds-header--navi-color-pressed: var(--color-bg-interactive-pressed);
   --ds-header--navi-min-height: var(--krds-size-height-6);
   --ds-header--navi-gap: var(--krds-gap-2) var(--krds-gap-3);
   --ds-header--navi-padding: var(--krds-padding-2) var(--krds-padding-5) 0;
@@ -227,26 +227,26 @@
    ========================================================= */
 
 .ds-main-menu {
-  --ds-main-menu--color-surface: var(--krds-light-color-surface-white);
-  --ds-main-menu--color-border: var(--krds-light-color-divider-gray-light);
-  --ds-main-menu--main-trigger-color-text: var(--krds-light-color-text-subtle);
-  --ds-main-menu--main-trigger-color-text-active: var(--krds-light-color-text-basic);
-  --ds-main-menu--main-trigger-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-main-menu--main-trigger-color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-main-menu--main-trigger-color-border-selected: var(--krds-light-color-action-secondary-active);
-  --ds-main-menu--toggle-color-surface: var(--krds-light-color-surface-white-subtle);
-  --ds-main-menu--main-menu-color-surface: var(--krds-light-color-surface-secondary-subtler);
-  --ds-main-menu--sub-trigger-color-text: var(--krds-light-color-text-basic);
-  --ds-main-menu--sub-trigger-color-text-selected: var(--krds-light-color-text-secondary);
-  --ds-main-menu--sub-trigger-color-action: var(--krds-light-color-action-secondary-on);
-  --ds-main-menu--sub-trigger-color-action-selected: var(--krds-light-color-action-secondary-on-selected);
-  --ds-main-menu--sub-trigger-color-action-pressed: var(--krds-light-color-action-secondary-on-pressed);
-  --ds-main-menu--sub-menu-color-action: var(--krds-light-color-action-secondary);
-  --ds-main-menu--sub-menu-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-main-menu--sub-menu-color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-main-menu--sub-menu-trigger-color-action-selected: var(--krds-light-color-action-secondary-selected);
-  --ds-main-menu--sub-menu-trigger-color-text-selected: var(--krds-light-color-text-secondary);
-  --ds-main-menu--banner-background: var(--krds-light-color-surface-gray-subtle);
+  --ds-main-menu--color-surface: var(--color-bg-default);
+  --ds-main-menu--color-border: var(--color-border-subtle);
+  --ds-main-menu--main-trigger-color-text: var(--color-text-subtle);
+  --ds-main-menu--main-trigger-color-text-active: var(--color-text-default);
+  --ds-main-menu--main-trigger-color-action-hover: var(--color-bg-interactive-hover);
+  --ds-main-menu--main-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-main-menu--main-trigger-color-border-selected: var(--color-bg-interactive-active);
+  --ds-main-menu--toggle-color-surface: var(--color-bg-default);
+  --ds-main-menu--main-menu-color-surface: var(--color-bg-secondary-subtle);
+  --ds-main-menu--sub-trigger-color-text: var(--color-text-default);
+  --ds-main-menu--sub-trigger-color-text-selected: var(--color-text-secondary);
+  --ds-main-menu--sub-trigger-color-action: transparent;
+  --ds-main-menu--sub-trigger-color-action-selected: var(--color-text-on-secondary);
+  --ds-main-menu--sub-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-main-menu--sub-menu-color-action: transparent;
+  --ds-main-menu--sub-menu-color-action-hover: var(--color-bg-interactive-hover);
+  --ds-main-menu--sub-menu-color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-main-menu--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
+  --ds-main-menu--sub-menu-trigger-color-text-selected: var(--color-text-secondary);
+  --ds-main-menu--banner-background: var(--color-bg-subtler);
 
   --ds-main-menu--main-trigger-size-height: var(--krds-size-height-8);
   --ds-main-menu--main-trigger-padding-x: var(--krds-padding-6);
@@ -526,7 +526,7 @@
   background-color: var(--ds-main-menu--sub-menu-color-action);
   border-radius: var(--ds-main-menu--sub-menu-trigger-color-radius);
   font-size: var(--ds-main-menu--sub-menu-trigger-color-font-size);
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -543,7 +543,7 @@
   width: 0.4rem;
   height: 0.4rem;
   margin-top: var(--krds-padding-4);
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
   border-radius: 50%;
 }
 
@@ -600,7 +600,7 @@
   width: 100%;
   height: 100%;
   z-index: 5;
-  background-color: var(--krds-light-color-background-dim);
+  background-color: var(--color-bg-overlay);
 }
 
 .ds-main-menu__backdrop.ds-main-menu__backdrop--open {
@@ -613,36 +613,36 @@
    ========================================================= */
 
 .ds-main-menu-mobile {
-  --ds-main-menu-mobile--color-surface: var(--krds-light-color-surface-white);
-  --ds-main-menu-mobile--color-dim: var(--krds-light-color-background-dim);
+  --ds-main-menu-mobile--color-surface: var(--color-bg-default);
+  --ds-main-menu-mobile--color-dim: var(--color-bg-overlay);
   --ds-main-menu-mobile--header-gap: var(--krds-gap-5);
   --ds-main-menu-mobile--header-padding-top: var(--krds-padding-5);
   --ds-main-menu-mobile--header-padding-x: var(--krds-padding-5);
   --ds-main-menu-mobile--header-padding-bottom: var(--krds-padding-5);
-  --ds-main-menu-mobile--header-color-border: var(--krds-light-color-divider-gray-light);
+  --ds-main-menu-mobile--header-color-border: var(--color-border-subtle);
   --ds-main-menu-mobile--login-gap: var(--krds-gap-3);
   --ds-main-menu-mobile--main-trigger-height: var(--krds-size-height-8);
   --ds-main-menu-mobile--main-trigger-padding-x: var(--krds-padding-5);
   --ds-main-menu-mobile--main-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium-bold);
-  --ds-main-menu-mobile--main-trigger-color-text-active: var(--krds-light-color-text-secondary);
-  --ds-main-menu-mobile--main-trigger-color-action-active: var(--krds-light-color-action-secondary-on-selected);
-  --ds-main-menu-mobile--menu-color-surface: var(--krds-light-color-surface-secondary-subtler);
+  --ds-main-menu-mobile--main-trigger-color-text-active: var(--color-text-secondary);
+  --ds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-on-secondary);
+  --ds-main-menu-mobile--menu-color-surface: var(--color-bg-secondary-subtle);
   --ds-main-menu-mobile--menu-left-width: 12rem;
-  --ds-main-menu-mobile--sub-menu-color-surface: var(--krds-light-color-surface-white);
+  --ds-main-menu-mobile--sub-menu-color-surface: var(--color-bg-default);
   --ds-main-menu-mobile--sub-menu-padding: var(--krds-padding-5);
   --ds-main-menu-mobile--sub-list-padding-y: var(--krds-padding-4);
   --ds-main-menu-mobile--sub-title-font-size: var(--krds-mobile-font-size-navigation-title-small);
   --ds-main-menu-mobile--sub-title-padding-top: var(--krds-padding-3);
   --ds-main-menu-mobile--sub-title-padding-x: 0;
   --ds-main-menu-mobile--sub-title-padding-bottom: var(--krds-padding-4);
-  --ds-main-menu-mobile--sub-title-color-border: var(--krds-light-color-divider-gray-light);
+  --ds-main-menu-mobile--sub-title-color-border: var(--color-border-subtle);
   --ds-main-menu-mobile--sub-menu-trigger-padding-y: var(--krds-padding-3);
   --ds-main-menu-mobile--sub-menu-trigger-padding-x: var(--krds-padding-3);
   --ds-main-menu-mobile--sub-menu-trigger-font-size: var(--krds-mobile-font-size-navigation-depth-medium);
   --ds-main-menu-mobile--sub-menu-trigger-border-radius: var(--krds-radius-medium1);
-  --ds-main-menu-mobile--sub-menu-trigger-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-main-menu-mobile--sub-menu-trigger-color-action-selected: var(--krds-light-color-action-secondary-selected);
-  --ds-main-menu-mobile--sub-menu-trigger-color-text-selected: var(--krds-light-color-text-secondary);
+  --ds-main-menu-mobile--sub-menu-trigger-color-action-hover: var(--color-bg-interactive-hover);
+  --ds-main-menu-mobile--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
+  --ds-main-menu-mobile--sub-menu-trigger-color-text-selected: var(--color-text-secondary);
 
   position: fixed;
   top: 0;
@@ -731,7 +731,7 @@
   font-size: var(--ds-main-menu-mobile--main-trigger-font-size);
   font-weight: bold;
   text-decoration: none;
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
 }
 
 /* GNB 본문 (스크롤 영역) */
@@ -777,7 +777,7 @@
   font-size: var(--ds-main-menu-mobile--main-trigger-font-size);
   font-weight: bold;
   text-decoration: none;
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   position: static;
   border: none;
   background: none;
@@ -850,7 +850,7 @@
   font-size: var(--ds-main-menu-mobile--sub-menu-trigger-font-size);
   border-radius: var(--ds-main-menu-mobile--sub-menu-trigger-border-radius);
   text-decoration: none;
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   width: 100%;
   background: none;
   border: none;
@@ -901,14 +901,14 @@
 #ds-footer {
   position: relative;
   z-index: 50;
-  background-color: var(--krds-light-color-surface-gray-subtler);
+  background-color: var(--color-bg-subtle);
 }
 
 /* 빠른 링크 */
 .ds-footer__quick {
-  border-top: 0.1rem solid var(--krds-light-color-border-gray-light);
-  border-bottom: 0.1rem solid var(--krds-light-color-border-gray-light);
-  background-color: var(--krds-light-color-background-white);
+  border-top: 0.1rem solid var(--color-border-subtle);
+  border-bottom: 0.1rem solid var(--color-border-subtle);
+  background-color: var(--color-bg-default);
 }
 
 .ds-footer__quick .ds-container {
@@ -924,18 +924,18 @@
   gap: var(--krds-gap-3);
   height: calc(var(--krds-size-height-8) - 0.2rem);
   padding: 0 var(--krds-padding-8);
-  background-color: var(--krds-light-color-action-secondary);
+  background-color: transparent;
   border: none;
-  border-right: 0.1rem solid var(--krds-light-color-border-gray-light);
+  border-right: 0.1rem solid var(--color-border-subtle);
   transition: var(--krds-transition-base);
   cursor: pointer;
   text-decoration: none;
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   font-size: inherit;
 }
 
 .ds-footer__quick-link:first-child {
-  border-left: 0.1rem solid var(--krds-light-color-border-gray-light);
+  border-left: 0.1rem solid var(--color-border-subtle);
 }
 
 /* + 아이콘 */
@@ -945,7 +945,7 @@
   flex-shrink: 0;
   width: var(--krds-icon--size-medium);
   height: var(--krds-icon--size-medium);
-  background-color: var(--krds-light-color-icon-gray);
+  background-color: var(--color-icon-default);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
   -webkit-mask-size: contain;
@@ -958,11 +958,11 @@
 }
 
 .ds-footer__quick-link:hover {
-  background-color: var(--krds-light-color-action-secondary-hover);
+  background-color: var(--color-bg-interactive-hover);
 }
 
 .ds-footer__quick-link:active {
-  background-color: var(--krds-light-color-action-secondary-pressed);
+  background-color: var(--color-bg-interactive-pressed);
 }
 
 /* 푸터 본문 */
@@ -1003,7 +1003,7 @@
 }
 
 .ds-footer__address {
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
 }
 
 .ds-footer__contact {
@@ -1040,7 +1040,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--krds-gap-2);
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   text-decoration: none;
   transition: var(--krds-transition-base);
 }
@@ -1080,7 +1080,7 @@
   width: var(--krds-size-height-7);
   height: var(--krds-size-height-7);
   border-radius: 50%;
-  background-color: var(--krds-light-color-action-secondary);
+  background-color: transparent;
   transition: var(--krds-transition-base);
   text-indent: -9999px;
   overflow: hidden;
@@ -1092,7 +1092,7 @@
   position: absolute;
   width: var(--krds-icon--size-medium);
   height: var(--krds-icon--size-medium);
-  background-color: var(--krds-light-color-icon-gray);
+  background-color: var(--color-icon-default);
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -1103,7 +1103,7 @@
 }
 
 .ds-footer__sns a:hover {
-  background-color: var(--krds-light-color-action-secondary-hover);
+  background-color: var(--color-bg-interactive-hover);
 }
 
 .ds-footer__sns-item--instagram a::before {
@@ -1137,7 +1137,7 @@
   flex-direction: column;
   padding-top: var(--krds-padding-6);
   gap: var(--krds-gap-9);
-  border-top: 0.1rem solid var(--krds-light-color-divider-gray-light);
+  border-top: 0.1rem solid var(--color-border-subtle);
 }
 
 .ds-footer__bottom-text {
@@ -1158,7 +1158,7 @@
 }
 
 .ds-footer__menu a {
-  color: var(--krds-light-color-text-basic);
+  color: var(--color-text-default);
   text-decoration: none;
   transition: var(--krds-transition-base);
 }
@@ -1174,7 +1174,7 @@
 /* 저작권 */
 .ds-footer__copyright {
   font-size: var(--krds-pc-font-size-body-small);
-  color: var(--krds-light-color-text-subtle);
+  color: var(--color-text-subtle);
 }
 
 
@@ -1222,7 +1222,7 @@
     padding-bottom: var(--krds-gap-3);
     flex-direction: row;
     align-items: center;
-    border-bottom: 0.1rem solid var(--krds-light-color-divider-gray-light);
+    border-bottom: 0.1rem solid var(--color-border-subtle);
   }
 
   /* 로고 크기 축소 */
@@ -1268,7 +1268,7 @@
     min-height: calc(var(--krds-size-height-7) - 0.2rem);
     padding: 0 var(--krds-padding-6);
     border: 0;
-    border-top: 0.1rem solid var(--krds-light-color-border-gray-light);
+    border-top: 0.1rem solid var(--color-border-subtle);
   }
 
   .ds-footer__quick-link:first-child {

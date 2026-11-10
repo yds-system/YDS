@@ -17,7 +17,7 @@
   display: inline-flex;
   width: var(--krds-icon--size-large);   /* 기본 크기: large */
   height: var(--krds-icon--size-large);
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
   forced-color-adjust: none;
 }
 

@@ -11,7 +11,7 @@
 
 /* ----- 날짜 입력 필드 래퍼 ----- */
 .ds-date-input__input-wrap {
-  --ds-input--color-surface: var(--krds-light-color-input-surface);
+  --ds-input--color-surface: var(--color-bg-default);
   position: relative;
   z-index: 1;
   width: 100%;
@@ -91,27 +91,27 @@
   --ds-calendar--table-wrap-padding: var(--krds-gap-5);
   --ds-calendar--table-head-pc-font-size: var(--krds-pc-font-size-label-small);
   --ds-calendar--set-date-radius: var(--krds-radius-max);
-  --ds-calendar--color-border: var(--krds-light-color-border-secondary-light);
-  --ds-calendar--color-surface: var(--krds-light-color-surface-secondary-subtler);
-  --ds-calendar--color-text-sub: var(--krds-light-color-text-subtle);
-  --ds-calendar--head-btn-cal-move-color-text-active: var(--krds-light-color-text-secondary);
-  --ds-calendar--head-btn-cal-move-color-border: var(--krds-light-color-border-gray-light);
-  --ds-calendar--head-btn-cal-move-color-border-active: var(--krds-light-color-border-secondary);
-  --ds-calendar--head-btn-cal-move-color-action: var(--krds-light-color-action-white);
-  --ds-calendar--head-btn-cal-switch-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-calendar--head-btn-cal-switch-color-action-active: var(--krds-light-color-action-secondary-pressed);
-  --ds-calendar--head-btn-cal-switch-color-text-disabled: var(--krds-light-color-text-disabled-on);
-  --ds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--krds-light-color-alpha-shadow1),
-                                           0 0.4rem 0.8rem 0 var(--krds-light-color-alpha-shadow2);
-  --ds-calendar--date-set-color-action: var(--krds-light-color-action-secondary-active);
+  --ds-calendar--color-border: var(--color-border-secondary-subtle);
+  --ds-calendar--color-surface: var(--color-bg-secondary-subtle);
+  --ds-calendar--color-text-sub: var(--color-text-subtle);
+  --ds-calendar--head-btn-cal-move-color-text-active: var(--color-text-secondary);
+  --ds-calendar--head-btn-cal-move-color-border: var(--color-border-subtle);
+  --ds-calendar--head-btn-cal-move-color-border-active: var(--color-border-secondary);
+  --ds-calendar--head-btn-cal-move-color-action: var(--color-bg-default);
+  --ds-calendar--head-btn-cal-switch-color-action-hover: var(--color-bg-interactive-hover);
+  --ds-calendar--head-btn-cal-switch-color-action-active: var(--color-bg-interactive-pressed);
+  --ds-calendar--head-btn-cal-switch-color-text-disabled: var(--color-text-subtler);
+  --ds-calendar--head-drop-down-shadow: 0 0 0.2rem 0 var(--color-shadow-subtle),
+                                           0 0.4rem 0.8rem 0 var(--color-shadow-subtle);
+  --ds-calendar--date-set-color-action: var(--color-bg-interactive-active);
   --ds-calendar--date-set-color-text: var(--color-text-on-static);
-  --ds-calendar--date-set-color-text-day-off: var(--krds-light-color-text-danger);
-  --ds-calendar--date-set-color-text-disabled: var(--krds-light-color-text-disabled);
-  --ds-calendar--date-set-color-action-pressed: var(--krds-light-color-action-secondary-on-pressed);
-  --ds-calendar--date-set-color-action-period: var(--krds-light-color-action-secondary-on-selected);
-  --ds-calendar--date-set-color-element-today: var(--krds-light-color-element-point);
-  --ds-calendar--action-btn-wrap-color-border: var(--krds-light-color-divider-gray-light);
-  --ds-calendar--action-btn-wrap-color-surface: var(--krds-light-color-surface-white);
+  --ds-calendar--date-set-color-text-day-off: var(--color-text-danger);
+  --ds-calendar--date-set-color-text-disabled: var(--color-text-disabled);
+  --ds-calendar--date-set-color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-calendar--date-set-color-action-period: var(--color-text-on-secondary);
+  --ds-calendar--date-set-color-element-today: var(--color-bg-point-element);
+  --ds-calendar--action-btn-wrap-color-border: var(--color-border-subtle);
+  --ds-calendar--action-btn-wrap-color-surface: var(--color-bg-default);
 
   display: none;
   position: relative;
@@ -172,7 +172,7 @@
   display: inline-flex;
   width: var(--krds-size-height-3);
   height: var(--krds-size-height-3);
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   -webkit-mask-repeat: no-repeat;
@@ -211,7 +211,7 @@
   display: inline-flex;
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
   -webkit-mask-repeat: no-repeat;

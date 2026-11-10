@@ -12,10 +12,10 @@
   --ds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
   --ds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
   --ds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
-  --ds-form-group--message-text-color: var(--krds-light-color-text-subtle);
-  --ds-form-group--message-success-text-color: var(--krds-light-color-text-success);
-  --ds-form-group--message-information-text-color: var(--krds-light-color-text-information);
-  --ds-form-group--message-error-text-color: var(--krds-light-color-text-danger);
+  --ds-form-group--message-text-color: var(--color-text-subtle);
+  --ds-form-group--message-success-text-color: var(--color-text-success);
+  --ds-form-group--message-information-text-color: var(--color-text-information);
+  --ds-form-group--message-error-text-color: var(--color-text-danger);
 }
 
 /* ----- 폼 그룹 세로 묶음 ----- */
@@ -57,7 +57,7 @@
 /* ----- 레이블 영역 ----- */
 .ds-form-group .ds-form-label {
   width: 100%;
-  color: var(--krds-light-color-text-subtle);
+  color: var(--color-text-subtle);
 }
 .ds-form-group .ds-form-label label {
   font-size: var(--ds-form-group--label-pc-font-size);
@@ -78,7 +78,7 @@
   height: 0.6rem;
   margin-left: 0.4rem;
   border-radius: 50%;
-  background-color: var(--krds-light-color-text-danger);
+  background-color: var(--color-text-danger);
   vertical-align: middle;
   overflow: hidden;
   font-size: 0;
@@ -161,7 +161,7 @@
   flex-shrink: 0;
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
-  background-color: var(--krds-light-color-text-subtle);
+  background-color: var(--color-text-subtle);
   forced-color-adjust: none;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;

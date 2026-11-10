@@ -15,16 +15,16 @@
   --ds-accordion--button-pc-font-size: var(--krds-pc-font-size-heading-xsmall);
   --ds-accordion--button-mobile-font-size: var(--krds-mobile-font-size-heading-xsmall);
 
-  --ds-accordion--color-action: var(--krds-light-color-action-secondary);
-  --ds-accordion--button-color-action: var(--krds-light-color-action-secondary);
-  --ds-accordion--button-color-action-hover: var(--krds-light-color-action-secondary-hover);
-  --ds-accordion--button-color-action-pressed: var(--krds-light-color-action-secondary-pressed);
-  --ds-accordion--color-action-open: var(--krds-light-color-action-secondary-hover);
-  --ds-accordion--color-divider: var(--krds-light-color-divider-gray-light);
-  --ds-accordion--color-divider-open: var(--krds-light-color-divider-gray-dark);
-  --ds-accordion--button-color-text: var(--krds-light-color-text-basic);
-  --ds-accordion--button-color-text-open: var(--krds-light-color-text-secondary);
-  --ds-accordion--color-icon: var(--krds-light-color-icon-gray);
+  --ds-accordion--color-action: transparent;
+  --ds-accordion--button-color-action: transparent;
+  --ds-accordion--button-color-action-hover: var(--color-bg-interactive-hover);
+  --ds-accordion--button-color-action-pressed: var(--color-bg-interactive-pressed);
+  --ds-accordion--color-action-open: var(--color-bg-interactive-hover);
+  --ds-accordion--color-divider: var(--color-border-subtle);
+  --ds-accordion--color-divider-open: var(--color-border-divider-dark);
+  --ds-accordion--button-color-text: var(--color-text-default);
+  --ds-accordion--button-color-text-open: var(--color-text-secondary);
+  --ds-accordion--color-icon: var(--color-icon-default);
 }
 
 /* ----- 기본형 컨테이너 ----- */

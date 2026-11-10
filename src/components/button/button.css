@@ -53,41 +53,41 @@
 
 /* ----- CSS 변수 (색상) ----- */
 .ds-btn {
-  --ds-btn--color-primary-fill: var(--krds-light-color-button-primary-fill);
-  --ds-btn--color-primary-fill-hover: var(--krds-light-color-button-primary-fill-hover);
-  --ds-btn--color-primary-fill-pressed: var(--krds-light-color-button-primary-fill-pressed);
-  --ds-btn--color-primary-fill-disabled: var(--krds-light-color-button-disabled-fill);
-  --ds-btn--color-primary-border: var(--krds-light-color-button-primary-fill);
-  --ds-btn--color-primary-border-disabled: var(--krds-light-color-button-disabled-border);
+  --ds-btn--color-primary-fill: var(--color-bg-primary);
+  --ds-btn--color-primary-fill-hover: var(--color-bg-primary-hover);
+  --ds-btn--color-primary-fill-pressed: var(--color-bg-primary-pressed);
+  --ds-btn--color-primary-fill-disabled: var(--color-bg-disabled);
+  --ds-btn--color-primary-border: var(--color-bg-primary);
+  --ds-btn--color-primary-border-disabled: var(--color-border-disabled);
   --ds-btn--color-primary-text: var(--color-text-on-primary);
-  --ds-btn--color-primary-text-disabled: var(--krds-light-color-text-disabled-on);
+  --ds-btn--color-primary-text-disabled: var(--color-text-subtler);
 
-  --ds-btn--color-secondary-fill: var(--krds-light-color-button-secondary-fill);
-  --ds-btn--color-secondary-fill-hover: var(--krds-light-color-button-secondary-fill-hover);
-  --ds-btn--color-secondary-fill-pressed: var(--krds-light-color-button-secondary-fill-pressed);
-  --ds-btn--color-secondary-fill-disabled: var(--krds-light-color-button-disabled-fill);
-  --ds-btn--color-secondary-border: var(--krds-light-color-button-secondary-border);
-  --ds-btn--color-secondary-border-disabled: var(--krds-light-color-button-disabled-border);
-  --ds-btn--color-secondary-text: var(--krds-light-color-text-primary);
-  --ds-btn--color-secondary-text-disabled: var(--krds-light-color-text-disabled-on);
+  --ds-btn--color-secondary-fill: var(--color-bg-primary-subtle);
+  --ds-btn--color-secondary-fill-hover: var(--color-bg-primary-subtle-hover);
+  --ds-btn--color-secondary-fill-pressed: var(--color-bg-primary-subtle-pressed);
+  --ds-btn--color-secondary-fill-disabled: var(--color-bg-disabled);
+  --ds-btn--color-secondary-border: var(--color-border-primary);
+  --ds-btn--color-secondary-border-disabled: var(--color-border-disabled);
+  --ds-btn--color-secondary-text: var(--color-text-primary);
+  --ds-btn--color-secondary-text-disabled: var(--color-text-subtler);
 
-  --ds-btn--color-tertiary-fill: var(--krds-light-color-button-tertiary-fill);
-  --ds-btn--color-tertiary-fill-hover: var(--krds-light-color-button-tertiary-fill-hover);
-  --ds-btn--color-tertiary-fill-pressed: var(--krds-light-color-button-tertiary-fill-pressed);
-  --ds-btn--color-tertiary-fill-disabled: var(--krds-light-color-button-disabled-fill);
-  --ds-btn--color-tertiary-border: var(--krds-light-color-button-tertiary-border);
-  --ds-btn--color-tertiary-border-disabled: var(--krds-light-color-button-disabled-border);
-  --ds-btn--color-tertiary-text: var(--krds-light-color-text-basic);
-  --ds-btn--color-tertiary-text-disabled: var(--krds-light-color-text-disabled-on);
+  --ds-btn--color-tertiary-fill: transparent;
+  --ds-btn--color-tertiary-fill-hover: var(--color-bg-hover);
+  --ds-btn--color-tertiary-fill-pressed: var(--color-bg-pressed);
+  --ds-btn--color-tertiary-fill-disabled: var(--color-bg-disabled);
+  --ds-btn--color-tertiary-border: var(--color-border-strong);
+  --ds-btn--color-tertiary-border-disabled: var(--color-border-disabled);
+  --ds-btn--color-tertiary-text: var(--color-text-default);
+  --ds-btn--color-tertiary-text-disabled: var(--color-text-subtler);
 
-  --ds-btn--color-text-fill: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-text-fill-hover: var(--krds-light-color-button-text-fill-hover);
-  --ds-btn--color-text-fill-pressed: var(--krds-light-color-button-text-fill-pressed);
-  --ds-btn--color-text-fill-disabled: var(--krds-light-color-button-text-fill);
-  --ds-btn--color-text-border: var(--krds-light-color-button-text-border);
-  --ds-btn--color-text-border-disabled: var(--krds-light-color-border-transparency);
-  --ds-btn--color-text-text: var(--krds-light-color-text-basic);
-  --ds-btn--color-text-text-disabled: var(--krds-light-color-text-disabled);
+  --ds-btn--color-text-fill: transparent;
+  --ds-btn--color-text-fill-hover: var(--color-bg-interactive-hover);
+  --ds-btn--color-text-fill-pressed: var(--color-bg-interactive-pressed);
+  --ds-btn--color-text-fill-disabled: transparent;
+  --ds-btn--color-text-border: transparent;
+  --ds-btn--color-text-border-disabled: transparent;
+  --ds-btn--color-text-text: var(--color-text-default);
+  --ds-btn--color-text-text-disabled: var(--color-text-disabled);
 
 }
 
@@ -438,7 +438,7 @@
   height: var(--ds-btn--icon-size-medium);
   padding: 0 !important;
   background-color: transparent;
-  border-color: var(--krds-light-color-border-transparency);
+  border-color: transparent;
   color: inherit;
   border: 0;
 }
@@ -487,14 +487,14 @@
   height: 100%;
 }
 .ds-btn.ds-btn--icon .ds-icon {
-  background-color: var(--krds-light-color-text-basic);
+  background-color: var(--color-text-default);
 }
 .ds-btn.ds-btn--icon.ds-btn--pure .ds-icon {
   background-color: transparent;
 }
 .ds-btn.ds-btn--icon.ds-btn--border {
-  background-color: var(--krds-light-color-background-white);
-  border: 0.1rem solid var(--krds-light-color-border-gray);
+  background-color: var(--color-bg-default);
+  border: 0.1rem solid var(--color-border-default);
   border-radius: var(--krds-radius-max);
 }
 .ds-btn.ds-btn--icon.ds-btn--border.ds-btn--large .ds-icon {
@@ -507,5 +507,5 @@
 }
 .ds-btn.ds-btn--icon.ds-btn--border[disabled],
 .ds-btn.ds-btn--icon.ds-btn--border.ds-btn--disabled {
-  background-color: var(--krds-light-color-button-disabled-fill);
+  background-color: var(--color-bg-disabled);
 }

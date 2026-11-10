@@ -15,12 +15,12 @@
   --ds-table--data-tbody-padding: var(--krds-padding-5);
   --ds-table--data-tbody-padding-sides: var(--krds-padding-6);
   --ds-table--data-border-width: var(--krds-light-border-width-variable-regular);
-  --ds-table--data-thead-border: var(--krds-light-color-border-secondary-light);
-  --ds-table--data-thead-surface: var(--krds-light-color-surface-secondary-subtler);
-  --ds-table--data-thead-color-text: var(--krds-light-color-text-bolder);
-  --ds-table--data-tbody-color-surface: var(--krds-light-color-surface-white-subtle);
-  --ds-table--data-tbody-color-divider: var(--krds-light-color-divider-gray-light);
-  --ds-table--data-tbody-color-text: var(--krds-light-color-text-subtle);
+  --ds-table--data-thead-border: var(--color-border-secondary-subtle);
+  --ds-table--data-thead-surface: var(--color-bg-secondary-subtle);
+  --ds-table--data-thead-color-text: var(--color-text-stronger);
+  --ds-table--data-tbody-color-surface: var(--color-bg-default);
+  --ds-table--data-tbody-color-divider: var(--color-border-subtle);
+  --ds-table--data-tbody-color-text: var(--color-text-subtle);
   width: 100%;
 }
 
@@ -35,7 +35,7 @@
   white-space: normal !important;
   caption-side: top;
   font-size: var(--krds-pc-font-size-label-small);
-  color: var(--krds-light-color-text-subtle);
+  color: var(--color-text-subtle);
   text-align: left;
   margin-bottom: var(--krds-gap-3) !important;
 }

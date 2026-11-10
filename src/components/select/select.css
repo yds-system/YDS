@@ -6,16 +6,16 @@
 
 /* ----- CSS 변수 ----- */
 .ds-select {
-  --ds-select--color-background: var(--krds-light-color-input-surface);
-  --ds-select--color-background-disabled: var(--krds-light-color-input-surface-disabled);
-  --ds-select--color-border: var(--krds-light-color-input-border);
-  --ds-select--color-border-active: var(--krds-light-color-input-border-active);
-  --ds-select--color-border-disabled: var(--krds-light-color-input-border-disabled);
-  --ds-select--color-border-error: var(--krds-light-color-text-point);
-  --ds-select--color-text: var(--krds-light-color-text-disabled);
-  --ds-select--color-text-active: var(--krds-light-color-text-basic);
-  --ds-select--color-text-completed: var(--krds-light-color-text-subtle);
-  --ds-select--color-text-disabled: var(--krds-light-color-text-disabled-on);
+  --ds-select--color-background: var(--color-bg-default);
+  --ds-select--color-background-disabled: var(--color-bg-disabled);
+  --ds-select--color-border: var(--color-border-strong);
+  --ds-select--color-border-active: var(--color-border-focus);
+  --ds-select--color-border-disabled: var(--color-border-disabled);
+  --ds-select--color-border-error: var(--color-text-point);
+  --ds-select--color-text: var(--color-text-disabled);
+  --ds-select--color-text-active: var(--color-text-default);
+  --ds-select--color-text-completed: var(--color-text-subtle);
+  --ds-select--color-text-disabled: var(--color-text-subtler);
   --ds-select--padding-default: var(--krds-padding-6);
 
   --ds-select--size-height-small: var(--krds-size-height-6);
