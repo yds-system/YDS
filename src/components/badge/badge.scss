@@ -1,0 +1,347 @@
+/* =============================================
+   KRDS Badge Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+/* ----- CSS 변수 ----- */
+.yds-badge {
+
+  --yds-badge--size-height: var(--size-24);
+  --yds-badge--line-height: 2.4rem;
+  --yds-badge--padding: var(--space-8);
+  --yds-badge--radius: var(--radius-4);
+  --yds-badge--radius-max: var(--radius-999);
+  --yds-badge--dot-size: .6rem;
+  --yds-badge--dot-padding: 0;
+  --yds-badge--number-size-height: var(--size-20);
+  --yds-badge--pc-font-size: var(--font-size-15);
+  --yds-badge--mobile-font-size: var(--font-size-15);
+  --yds-badge--pc-font-size-large: var(--font-size-17);
+  --yds-badge--mobile-font-size-large: var(--font-size-17);
+  --yds-badge--size-height-large: var(--size-32);
+
+  --yds-badge--color-primary-element: var(--color-icon-primary);
+  --yds-badge--color-primary-element-lighter: var(--color-bg-primary-subtle);
+  --yds-badge--color-primary-text: var(--color-text-primary);
+  --yds-badge--color-secondary-element: var(--color-icon-secondary-strong);
+  --yds-badge--color-secondary-element-lighter: var(--color-bg-secondary-subtle);
+  --yds-badge--color-secondary-text: var(--color-text-secondary-strong);
+  --yds-badge--color-gray-element: var(--color-bg-gray-element);
+  --yds-badge--color-gray-element-lighter: var(--color-bg-subtler);
+  --yds-badge--color-gray-text: var(--color-text-subtle);
+  --yds-badge--color-point-element: var(--color-bg-point-element);
+  --yds-badge--color-point-element-lighter: var(--color-bg-point-subtle);
+  --yds-badge--color-point-text: var(--color-text-point);
+  --yds-badge--color-danger-element: var(--color-icon-danger);
+  --yds-badge--color-danger-element-lighter: var(--color-bg-danger-subtle);
+  --yds-badge--color-danger-text: var(--color-text-danger);
+  --yds-badge--color-warning-element: var(--color-bg-warning-element);
+  --yds-badge--color-warning-element-lighter: var(--color-bg-warning-subtle);
+  --yds-badge--color-warning-text: var(--color-text-warning);
+  --yds-badge--color-success-element: var(--color-bg-success-element);
+  --yds-badge--color-success-element-lighter: var(--color-bg-success-subtle);
+  --yds-badge--color-success-text: var(--color-text-success);
+  --yds-badge--color-information-element: var(--color-bg-information-element);
+  --yds-badge--color-information-element-lighter: var(--color-bg-information-subtle);
+  --yds-badge--color-information-text: var(--color-text-information);
+  --yds-badge--color-disabled-element: var(--color-icon-disabled);
+  --yds-badge--color-disabled-element-lighter: var(--color-bg-disabled);
+  --yds-badge--color-disabled-text: var(--color-text-subtler);
+  --yds-badge--color-text-basic:       var(--color-text-on-static);
+  --yds-badge--color-text-warning:     var(--color-text-on-warning-element);
+  --yds-badge--color-text-success:     var(--color-text-on-success-element);
+  --yds-badge--color-text-information: var(--color-text-on-information-element);
+  --yds-badge--color-text-point:       var(--color-text-on-point-element);
+  --yds-badge--color-text-gray:        var(--color-text-on-gray-element);
+
+}
+/* ----- 기본 스타일 ----- */
+.yds-badge {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--yds-badge--size-height);
+  line-height: var(--yds-badge--line-height);
+  font-size: var(--yds-badge--pc-font-size);
+  font-weight: var(--font-weight-regular);
+  padding: 0 var(--yds-badge--padding);
+  border-radius: var(--yds-badge--radius);
+  white-space: nowrap;
+
+}
+@media (max-width: 767px) {
+  .yds-badge {
+
+    font-size: var(--yds-badge--mobile-font-size);
+
+  }
+}
+/* ----- 크기 ----- */
+.yds-badge {
+  &--large {
+
+    height: var(--yds-badge--size-height-large);
+    font-size: var(--yds-badge--pc-font-size-large);
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-badge {
+    &--large {
+
+      font-size: var(--yds-badge--mobile-font-size-large);
+
+    }
+  }
+}
+/* 숫자 배지 */
+.yds-badge {
+  &--number {
+
+    height: var(--yds-badge--number-size-height);
+    border-radius: var(--yds-badge--radius-max);
+    min-width: var(--yds-badge--number-size-height);
+    padding: 0 var(--yds-badge--padding);
+
+  }
+}
+/* 점 배지 */
+.yds-badge {
+  &--dot {
+
+    width: var(--yds-badge--dot-size);
+    height: var(--yds-badge--dot-size);
+    padding: var(--yds-badge--dot-padding);
+    border-radius: var(--yds-badge--radius-max);
+
+  }
+}
+/* ----- 색상 variant — outline ----- */
+.yds-badge {
+  &--outline-primary {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-primary-element);
+    color: var(--yds-badge--color-primary-text);
+
+  }
+}
+.yds-badge {
+  &--outline-secondary {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-secondary-element);
+    color: var(--yds-badge--color-secondary-text);
+
+  }
+}
+.yds-badge {
+  &--outline-gray {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-gray-element);
+    color: var(--yds-badge--color-gray-text);
+
+  }
+}
+.yds-badge {
+  &--outline-point {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-point-element);
+    color: var(--yds-badge--color-point-text);
+
+  }
+}
+.yds-badge {
+  &--outline-danger {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-danger-element);
+    color: var(--yds-badge--color-danger-text);
+
+  }
+}
+.yds-badge {
+  &--outline-warning {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-warning-element);
+    color: var(--yds-badge--color-warning-text);
+
+  }
+}
+.yds-badge {
+  &--outline-success {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-success-element);
+    color: var(--yds-badge--color-success-text);
+
+  }
+}
+.yds-badge {
+  &--outline-information {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-information-element);
+    color: var(--yds-badge--color-information-text);
+
+  }
+}
+.yds-badge {
+  &--outline-disabled {
+
+    border: var(--border-width-1) solid var(--yds-badge--color-disabled-element);
+    color: var(--yds-badge--color-disabled-text);
+
+  }
+}
+/* ----- 색상 variant — bg (채우기) ----- */
+.yds-badge {
+  &--bg-primary {
+
+    background-color: var(--yds-badge--color-primary-element);
+    color: var(--yds-badge--color-text-basic);
+
+  }
+}
+.yds-badge {
+  &--bg-secondary {
+
+    background-color: var(--yds-badge--color-secondary-element);
+    color: var(--yds-badge--color-text-basic);
+
+  }
+}
+.yds-badge {
+  &--bg-gray {
+
+    background-color: var(--yds-badge--color-gray-element);
+    color: var(--yds-badge--color-text-gray);
+
+  }
+}
+.yds-badge {
+  &--bg-point {
+
+    background-color: var(--yds-badge--color-point-element);
+    color: var(--yds-badge--color-text-point);
+
+  }
+}
+.yds-badge {
+  &--bg-danger {
+
+    background-color: var(--yds-badge--color-danger-element);
+    color: var(--yds-badge--color-text-basic);
+
+  }
+}
+.yds-badge {
+  &--bg-warning {
+
+    background-color: var(--yds-badge--color-warning-element);
+    color: var(--yds-badge--color-text-warning);
+
+  }
+}
+.yds-badge {
+  &--bg-success {
+
+    background-color: var(--yds-badge--color-success-element);
+    color: var(--yds-badge--color-text-success);
+
+  }
+}
+.yds-badge {
+  &--bg-information {
+
+    background-color: var(--yds-badge--color-information-element);
+    color: var(--yds-badge--color-text-information);
+
+  }
+}
+.yds-badge {
+  &--bg-disabled {
+
+    background-color: var(--yds-badge--color-disabled-element);
+    color: var(--yds-badge--color-text-basic);
+
+  }
+}
+/* ----- 색상 variant — bg-light (밝은 배경) ----- */
+.yds-badge {
+  &--bg-light-primary {
+
+    background-color: var(--yds-badge--color-primary-element-lighter);
+    color: var(--yds-badge--color-primary-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-secondary {
+
+    background-color: var(--yds-badge--color-secondary-element-lighter);
+    color: var(--yds-badge--color-secondary-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-gray {
+
+    background-color: var(--yds-badge--color-gray-element-lighter);
+    color: var(--yds-badge--color-gray-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-point {
+
+    background-color: var(--yds-badge--color-point-element-lighter);
+    color: var(--yds-badge--color-point-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-danger {
+
+    background-color: var(--yds-badge--color-danger-element-lighter);
+    color: var(--yds-badge--color-danger-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-warning {
+
+    background-color: var(--yds-badge--color-warning-element-lighter);
+    color: var(--yds-badge--color-warning-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-success {
+
+    background-color: var(--yds-badge--color-success-element-lighter);
+    color: var(--yds-badge--color-success-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-information {
+
+    background-color: var(--yds-badge--color-information-element-lighter);
+    color: var(--yds-badge--color-information-text);
+
+  }
+}
+.yds-badge {
+  &--bg-light-disabled {
+
+    background-color: var(--yds-badge--color-disabled-element-lighter);
+    color: var(--yds-badge--color-disabled-text);
+
+  }
+}
+/* ----- Group ----- */
+.yds-badge-group {
+
+  --yds-badge--wrap-gap: var(--space-8);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--yds-badge--wrap-gap);
+
+}

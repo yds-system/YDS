@@ -1,0 +1,440 @@
+/* =============================================================================
+   디자인 토큰 — 모드 (Mode)
+   모드(라이트·다크·고대비)에 따라 달라지는 색상 토큰.
+   값은 반드시 primitive를 var()로 참조한다. hex 직접 사용 금지.
+
+   참조 방향: mode → primitive (역방향 금지)
+   모드 적용: html 요소의 data-mode 속성으로 제어
+     - 속성 없음(기본) = 라이트
+     - data-mode="dark"          = 다크
+     - data-mode="high-contrast" = 고대비 (WCAG AAA 7:1 목표)
+     - data-mode="system"        = OS 설정 연동
+   ============================================================================= */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   라이트 모드 (기본 :root)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+:root {
+
+  /* ── color-text ──────────────────────────────────────────────────────────────── */
+  --color-text-default:      var(--color-gray-90);
+  --color-text-subtle:       var(--color-gray-70);
+  --color-text-subtler:      var(--color-gray-50);
+  --color-text-primary:      var(--color-primary-60);
+  --color-text-secondary:    var(--color-secondary-60);
+  --color-text-danger:       var(--color-danger-60);
+  --color-text-warning:      var(--color-warning-60);
+  --color-text-success:      var(--color-success-60);
+  --color-text-information:  var(--color-information-60);
+  --color-text-disabled:     var(--color-gray-40);
+  --color-text-inverse:      var(--color-gray-0);
+  --color-text-on-primary:   var(--color-gray-0);    /* primary 채움 배경 위 텍스트 */
+  --color-text-on-secondary: var(--color-gray-0);    /* secondary 채움 배경 위 텍스트 */
+  --color-text-link:         var(--color-primary-50);
+  --color-text-link-visited: var(--color-purple-60);
+
+  /* ── color-bg ────────────────────────────────────────────────────────────────── */
+  --color-bg-default:            var(--color-gray-0);
+  --color-bg-subtle:             var(--color-gray-5);
+  --color-bg-subtler:            var(--color-gray-10);
+  --color-bg-primary:            var(--color-primary-50);
+  --color-bg-primary-hover:      var(--color-primary-60);
+  --color-bg-primary-pressed:    var(--color-primary-70);
+  --color-bg-primary-subtle:     var(--color-primary-5);
+  --color-bg-secondary:          var(--color-secondary-50);
+  --color-bg-secondary-hover:    var(--color-secondary-60);
+  --color-bg-secondary-pressed:  var(--color-secondary-70);
+  --color-bg-secondary-subtle:   var(--color-secondary-5);
+  --color-bg-danger-subtle:      var(--color-danger-5);
+  --color-bg-warning-subtle:     var(--color-warning-5);
+  --color-bg-success-subtle:     var(--color-success-5);
+  --color-bg-information-subtle: var(--color-information-5);
+  --color-bg-elevated:           var(--color-gray-0);
+  --color-bg-inverse:            var(--color-gray-90);
+  --color-bg-disabled:           var(--color-gray-20);
+  --color-bg-overlay:            var(--color-black-alpha-75);
+  --color-bg-hover:              var(--color-gray-5);
+  --color-bg-selected:           var(--color-primary-5);
+
+  /* ── color-border ────────────────────────────────────────────────────────────── */
+  --color-border-default:   var(--color-gray-30);
+  --color-border-subtle:    var(--color-gray-20);
+  --color-border-primary:   var(--color-primary-50);
+  --color-border-secondary: var(--color-secondary-50);
+  --color-border-danger:    var(--color-danger-50);
+  --color-border-warning:   var(--color-warning-50);
+  --color-border-success:   var(--color-success-50);
+  --color-border-strong:    var(--color-gray-60);
+  --color-border-divider:   var(--color-gray-40);
+  --color-border-focus:     var(--color-primary-50);
+  --color-border-disabled:  var(--color-gray-30);
+
+  /* ── color-icon ──────────────────────────────────────────────────────────────── */
+  --color-icon-default:   var(--color-gray-80);
+  --color-icon-subtle:    var(--color-gray-70);
+  --color-icon-primary:   var(--color-primary-50);
+  --color-icon-secondary: var(--color-secondary-50);
+  --color-icon-danger:    var(--color-danger-50);
+  --color-icon-disabled:  var(--color-gray-40);
+  --color-icon-inverse:   var(--color-gray-0);
+
+  /* ── color-shadow ────────────────────────────────────────────────────────────── */
+  --color-shadow-subtle:  var(--color-black-alpha-10);
+  --color-shadow-default: var(--color-black-alpha-25);
+
+  /* ── color-bg (추가) ────────────────────────────────────────────────────────── */
+  --color-bg-interactive-hover:         var(--color-secondary-5);    /* 탐색·탭·아코디언 항목 hover */
+  --color-bg-interactive-pressed:       var(--color-secondary-10);   /* 탐색·탭·아코디언 항목 pressed */
+  --color-bg-interactive-active:        var(--color-secondary-70);   /* 현재 선택된 탐색 항목 bg */
+  --color-bg-primary-subtle-hover:      var(--color-primary-10);     /* 외곽선(secondary) 버튼 hover */
+  --color-bg-primary-subtle-pressed:    var(--color-primary-20);     /* 외곽선(secondary) 버튼 pressed */
+  --color-bg-pressed:                   var(--color-gray-10);        /* 3차(tertiary) 버튼 pressed */
+  --color-bg-warning-element:           var(--color-warning-30);     /* 경고 뱃지 채움 */
+  --color-bg-success-element:           var(--color-success-50);     /* 성공 뱃지 채움 */
+  --color-bg-information-element:       var(--color-information-50); /* 정보 뱃지 채움 */
+  --color-bg-point-element:             var(--color-point-50);       /* 포인트(강조 빨강) 뱃지 채움 */
+  --color-bg-point-subtle:              var(--color-point-5);        /* 포인트 연한 배경 */
+  --color-bg-gray-element:              var(--color-gray-50);        /* 중립 뱃지·인디케이터 채움 */
+  --color-bg-gray-element-strong:       var(--color-gray-60);        /* 진한 중립 채움 */
+
+  /* ── color-text (추가) ──────────────────────────────────────────────────────── */
+  --color-text-link-hover:              var(--color-primary-60);     /* 링크 hover */
+  --color-text-link-pressed:            var(--color-primary-70);     /* 링크 pressed */
+  --color-text-stronger:                var(--color-gray-95);        /* 최강조 텍스트 */
+  --color-text-point:                   var(--color-point-60);       /* 포인트 색상 텍스트 */
+  --color-text-secondary-strong:        var(--color-secondary-80);   /* secondary 강조 텍스트 (KRDS text-secondary 원래 값) */
+  --color-text-on-warning-element:      var(--color-gray-90);        /* warning 채움 배경 위 텍스트 — 항상 어두움 */
+  --color-text-on-interactive-active:   var(--color-gray-0);         /* interactive-active 배경 위 텍스트 */
+  --color-text-on-success-element:      var(--color-gray-0);         /* 성공 채움 배경 위 텍스트 */
+  --color-text-on-information-element:  var(--color-gray-0);         /* 정보 채움 배경 위 텍스트 */
+  --color-text-on-point-element:        var(--color-gray-0);         /* 포인트 채움 배경 위 텍스트 */
+  --color-text-on-gray-element:         var(--color-gray-0);         /* 중립 채움 배경 위 텍스트 */
+  --color-text-on-gray-element-strong:  var(--color-gray-0);         /* 진한 중립 채움 배경 위 텍스트 */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-60);   /* 외곽선 버튼 hover bg 위 텍스트 */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-60);   /* 외곽선 버튼 pressed bg 위 텍스트 */
+
+  /* ── color-icon (추가) ──────────────────────────────────────────────────────── */
+  --color-icon-on-disabled:             var(--color-gray-50);        /* 비활성 요소 위 아이콘 */
+  --color-icon-secondary-strong:        var(--color-secondary-70);   /* secondary 강조 아이콘 (KRDS element-secondary 원래 값) */
+
+  /* ── color-border (추가) ────────────────────────────────────────────────────── */
+  --color-border-secondary-subtle:      var(--color-secondary-10);   /* 연한 secondary 테두리 */
+  --color-border-secondary-strong:      var(--color-secondary-70);   /* secondary 강조 테두리 (KRDS border-secondary 원래 값) */
+  --color-border-divider-dark:          var(--color-gray-50);        /* 진한 구분선 */
+
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   다크 모드 (data-mode="dark")
+   ═══════════════════════════════════════════════════════════════════════════════ */
+[data-mode="dark"] {
+
+  /* ── color-text ──────────────────────────────────────────────────────────────── */
+  --color-text-default:      var(--color-gray-5);
+  --color-text-subtle:       var(--color-gray-20);
+  --color-text-subtler:      var(--color-gray-40);
+  --color-text-primary:      var(--color-primary-40);
+  --color-text-secondary:    var(--color-secondary-40);
+  --color-text-danger:       var(--color-danger-40);
+  --color-text-warning:      var(--color-warning-30);
+  --color-text-success:      var(--color-success-40);
+  --color-text-information:  var(--color-information-40);
+  --color-text-disabled:     var(--color-gray-50);
+  --color-text-inverse:      var(--color-gray-90);
+  --color-text-on-primary:   var(--color-gray-90);   /* dark bg-primary(primary-40)가 밝아 흰색 대비 미달 */
+  --color-text-on-secondary: var(--color-gray-90);
+  --color-text-link:         var(--color-primary-40);
+  --color-text-link-visited: var(--color-purple-30);
+
+  /* ── color-bg ────────────────────────────────────────────────────────────────── */
+  --color-bg-default:            var(--color-gray-90);
+  --color-bg-subtle:             var(--color-gray-80);
+  --color-bg-subtler:            var(--color-gray-70);
+  --color-bg-primary:            var(--color-primary-40);
+  --color-bg-primary-hover:      var(--color-primary-30);
+  --color-bg-primary-pressed:    var(--color-primary-20);
+  --color-bg-primary-subtle:     var(--color-primary-90);
+  --color-bg-secondary:          var(--color-secondary-40);
+  --color-bg-secondary-hover:    var(--color-secondary-30);
+  --color-bg-secondary-pressed:  var(--color-secondary-20);
+  --color-bg-secondary-subtle:   var(--color-secondary-90);
+  --color-bg-danger-subtle:      var(--color-danger-90);
+  --color-bg-warning-subtle:     var(--color-warning-90);
+  --color-bg-success-subtle:     var(--color-success-90);
+  --color-bg-information-subtle: var(--color-information-90);
+  --color-bg-elevated:           var(--color-gray-80);
+  --color-bg-inverse:            var(--color-gray-0);
+  --color-bg-disabled:           var(--color-gray-70);
+  --color-bg-overlay:            var(--color-black-alpha-75);
+  --color-bg-hover:              var(--color-gray-80);
+  --color-bg-selected:           var(--color-primary-90);
+
+  /* ── color-border ────────────────────────────────────────────────────────────── */
+  --color-border-default:   var(--color-gray-50);
+  --color-border-subtle:    var(--color-gray-70);
+  --color-border-primary:   var(--color-primary-40);
+  --color-border-secondary: var(--color-secondary-40);
+  --color-border-danger:    var(--color-danger-40);
+  --color-border-warning:   var(--color-warning-40);
+  --color-border-success:   var(--color-success-40);
+  --color-border-strong:    var(--color-gray-30);
+  --color-border-divider:   var(--color-gray-70);
+  --color-border-focus:     var(--color-primary-40);
+  --color-border-disabled:  var(--color-gray-70);
+
+  /* ── color-icon ──────────────────────────────────────────────────────────────── */
+  --color-icon-default:   var(--color-gray-20);
+  --color-icon-subtle:    var(--color-gray-30);
+  --color-icon-primary:   var(--color-primary-40);
+  --color-icon-secondary: var(--color-secondary-40);
+  --color-icon-danger:    var(--color-danger-40);
+  --color-icon-disabled:  var(--color-gray-60);
+  --color-icon-inverse:   var(--color-gray-90);
+
+  /* ── color-shadow ────────────────────────────────────────────────────────────── */
+  --color-shadow-subtle:  var(--color-black-alpha-10);
+  --color-shadow-default: var(--color-black-alpha-25);
+
+  /* ── 추가 토큰 (dark) ───────────────────────────────────────────────────────── */
+  --color-bg-interactive-hover:         var(--color-secondary-90);
+  --color-bg-interactive-pressed:       var(--color-secondary-80);
+  --color-bg-interactive-active:        var(--color-secondary-30);
+  --color-bg-primary-subtle-hover:      var(--color-primary-80);
+  --color-bg-primary-subtle-pressed:    var(--color-primary-70);
+  --color-bg-pressed:                   var(--color-gray-70);
+  --color-bg-warning-element:           var(--color-warning-40);
+  --color-bg-success-element:           var(--color-success-40);
+  --color-bg-information-element:       var(--color-information-40);
+  --color-bg-point-element:             var(--color-point-40);
+  --color-bg-point-subtle:              var(--color-point-90);
+  --color-bg-gray-element:              var(--color-gray-50);
+  --color-bg-gray-element-strong:       var(--color-gray-40);
+  --color-text-link-hover:              var(--color-primary-30);
+  --color-text-link-pressed:            var(--color-primary-20);
+  --color-text-stronger:                var(--color-gray-0);
+  --color-text-point:                   var(--color-point-40);
+  --color-text-secondary-strong:        var(--color-secondary-20);
+  --color-text-on-warning-element:      var(--color-gray-90);
+  --color-text-on-interactive-active:   var(--color-gray-90);
+  --color-text-on-success-element:      var(--color-gray-90);
+  --color-text-on-information-element:  var(--color-gray-90);
+  --color-text-on-point-element:        var(--color-gray-100);       /* point-40(#d65c66) 위 — gray-90은 4.29:1로 미달 */
+  --color-text-on-gray-element:         var(--color-gray-0);         /* dark bg=gray-50, 흰색 4.5:1 ✓ */
+  --color-text-on-gray-element-strong:  var(--color-gray-90);        /* dark bg=gray-40(#8a949e) 위 5.25:1 ✓ */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-30);   /* dark hover bg(primary-80) 위 6.6:1 ✓ */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-20);   /* dark pressed bg(primary-70) 위 6.6:1 ✓ */
+  --color-icon-on-disabled:             var(--color-gray-50);
+  --color-icon-secondary-strong:        var(--color-secondary-30);
+  --color-border-secondary-subtle:      var(--color-secondary-80);
+  --color-border-secondary-strong:      var(--color-secondary-30);
+  --color-border-divider-dark:          var(--color-gray-60);
+
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   고대비 모드 (data-mode="high-contrast") — KRDS 선명한 화면
+   배경 black(gray-100) 기반. WCAG AAA(7:1) 목표.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+[data-mode="high-contrast"] {
+
+  /* ── color-text ──────────────────────────────────────────────────────────────── */
+  --color-text-default:      var(--color-gray-5);         /* 19.1:1 ✓ */
+  --color-text-subtle:       var(--color-gray-20);        /* 13.4:1 ✓ */
+  --color-text-subtler:      var(--color-gray-30);        /* 10.0:1 ✓ */
+  --color-text-primary:      var(--color-primary-20);     /* 13.1:1 ✓ */
+  --color-text-secondary:    var(--color-teal-20);        /* 13.7:1 ✓ */
+  --color-text-danger:       var(--color-danger-20);      /* 11.6:1 ✓ */
+  --color-text-warning:      var(--color-warning-20);     /* 13.8:1 ✓ */
+  --color-text-success:      var(--color-success-20);     /* 13.4:1 ✓ */
+  --color-text-information:  var(--color-information-20); /* 13.1:1 ✓ */
+  --color-text-disabled:     var(--color-gray-60);        /* 3.3:1  면제 */
+  --color-text-inverse:      var(--color-gray-90);
+  --color-text-on-primary:   var(--color-gray-100);       /* primary-20 배경: 13.1:1 ✓ */
+  --color-text-on-secondary: var(--color-gray-100);       /* teal-20 배경:    13.7:1 ✓ */
+  --color-text-link:         var(--color-primary-30);     /*  9.5:1 ✓ */
+  --color-text-link-visited: var(--color-purple-30);
+
+  /* ── color-bg ────────────────────────────────────────────────────────────────── */
+  --color-bg-default:            var(--color-gray-100);
+  --color-bg-subtle:             var(--color-gray-95);
+  --color-bg-subtler:            var(--color-gray-90);
+  --color-bg-primary:            var(--color-primary-20);    /* 13.1:1 ✓ */
+  --color-bg-primary-hover:      var(--color-primary-10);    /* 16.5:1 ✓ */
+  --color-bg-primary-pressed:    var(--color-primary-5);     /* 18.7:1 ✓ */
+  --color-bg-primary-subtle:     var(--color-primary-95);
+  --color-bg-secondary:          var(--color-teal-20);       /* 13.7:1 ✓ */
+  --color-bg-secondary-hover:    var(--color-teal-10);       /* 17.0:1 ✓ */
+  --color-bg-secondary-pressed:  var(--color-teal-5);        /* ~19.0:1 ✓ */
+  --color-bg-secondary-subtle:   var(--color-teal-95);
+  --color-bg-danger-subtle:      var(--color-danger-95);
+  --color-bg-warning-subtle:     var(--color-warning-95);
+  --color-bg-success-subtle:     var(--color-success-95);
+  --color-bg-information-subtle: var(--color-information-95);
+  --color-bg-elevated:           var(--color-gray-95);
+  --color-bg-inverse:            var(--color-gray-10);
+  --color-bg-disabled:           var(--color-gray-70);
+  --color-bg-overlay:            var(--color-black-alpha-75);
+  --color-bg-hover:              var(--color-gray-95);
+  --color-bg-selected:           var(--color-primary-95);
+
+  /* ── color-border ────────────────────────────────────────────────────────────── */
+  --color-border-default:   var(--color-gray-30);    /* 10.0:1 ✓ */
+  --color-border-subtle:    var(--color-gray-40);    /*  6.4:1 ✓ */
+  --color-border-primary:   var(--color-primary-30); /*  9.5:1 ✓ */
+  --color-border-secondary: var(--color-teal-30);    /* 10.2:1 ✓ */
+  --color-border-danger:    var(--color-danger-50);
+  --color-border-warning:   var(--color-warning-50);
+  --color-border-success:   var(--color-success-50);
+  --color-border-strong:    var(--color-gray-40);    /*  6.4:1 ✓ */
+  --color-border-divider:   var(--color-gray-50);    /*  4.6:1 ✓ */
+  --color-border-focus:     var(--color-primary-30); /*  9.5:1 ✓ */
+  --color-border-disabled:  var(--color-gray-60);    /*  3.3:1 면제 */
+
+  /* ── color-icon ──────────────────────────────────────────────────────────────── */
+  --color-icon-default:   var(--color-gray-5);         /* 19.1:1 ✓ */
+  --color-icon-subtle:    var(--color-gray-20);        /* 13.4:1 ✓ */
+  --color-icon-primary:   var(--color-primary-20);     /* 13.1:1 ✓ */
+  --color-icon-secondary: var(--color-teal-20);        /* 13.7:1 ✓ */
+  --color-icon-danger:    var(--color-danger-20);      /* 11.6:1 ✓ */
+  --color-icon-disabled:  var(--color-gray-60);        /*  3.3:1 면제 */
+  --color-icon-inverse:   var(--color-gray-90);
+
+  /* ── color-shadow ────────────────────────────────────────────────────────────── */
+  --color-shadow-subtle:  var(--color-black-alpha-10);
+  --color-shadow-default: var(--color-black-alpha-25);
+
+  /* ── 추가 토큰 (high-contrast) ─────────────────────────────────────────────── */
+  --color-bg-interactive-hover:         var(--color-teal-95);
+  --color-bg-interactive-pressed:       var(--color-teal-80);
+  --color-bg-interactive-active:        var(--color-teal-20);
+  --color-bg-primary-subtle-hover:      var(--color-primary-90);     /* dark bg와 같은 계열 — text-primary(primary-20) 대비 11:1 ✓ */
+  --color-bg-primary-subtle-pressed:    var(--color-primary-80);     /* hover보다 약간 밝음 — text-primary 대비 11:1 ✓ */
+  --color-bg-pressed:                   var(--color-gray-90);
+  --color-bg-warning-element:           var(--color-warning-20);
+  --color-bg-success-element:           var(--color-success-20);
+  --color-bg-information-element:       var(--color-information-20);
+  --color-bg-point-element:             var(--color-point-20);
+  --color-bg-point-subtle:              var(--color-point-95);
+  --color-bg-gray-element:              var(--color-gray-40);
+  --color-bg-gray-element-strong:       var(--color-gray-30);
+  --color-text-link-hover:              var(--color-primary-20);
+  --color-text-link-pressed:            var(--color-primary-10);
+  --color-text-stronger:                var(--color-gray-5);
+  --color-text-point:                   var(--color-point-20);
+  --color-text-secondary-strong:        var(--color-secondary-20);
+  --color-text-on-warning-element:      var(--color-gray-90);
+  --color-text-on-interactive-active:   var(--color-gray-100);
+  --color-text-on-success-element:      var(--color-gray-90);        /* HC bg=success-20(#a9dab4) 위 — 10.3:1 ✓ */
+  --color-text-on-information-element:  var(--color-gray-90);        /* HC bg=information-20(#9ed2fa) 위 — 10.0:1 ✓ */
+  --color-text-on-point-element:        var(--color-gray-90);        /* HC bg=point-20(#ebadb2) 위 — 충분히 높음 ✓ */
+  --color-text-on-gray-element:         var(--color-gray-90);        /* HC bg=gray-40(#8a949e) 위 — 5.25:1 ✓ */
+  --color-text-on-gray-element-strong:  var(--color-gray-90);        /* HC bg=gray-30(#b1b8be) 위 8.1:1 ✓ */
+  --color-text-primary-on-subtle-hover:   var(--color-primary-20);   /* HC hover bg(primary-90) 위 11:1 ✓ */
+  --color-text-primary-on-subtle-pressed: var(--color-primary-20);   /* HC pressed bg(primary-80) 위 9:1 ✓ */
+  --color-icon-on-disabled:             var(--color-gray-60);
+  --color-icon-secondary-strong:        var(--color-secondary-20);
+  --color-border-secondary-subtle:      var(--color-teal-80);
+  --color-border-secondary-strong:      var(--color-secondary-20);
+  --color-border-divider-dark:          var(--color-gray-40);
+
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   시스템 모드 (data-mode="system") — OS 다크 설정 연동
+   ═══════════════════════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  [data-mode="system"] {
+
+    --color-text-default:      var(--color-gray-5);
+    --color-text-subtle:       var(--color-gray-20);
+    --color-text-subtler:      var(--color-gray-40);
+    --color-text-primary:      var(--color-primary-40);
+    --color-text-secondary:    var(--color-secondary-40);
+    --color-text-danger:       var(--color-danger-40);
+    --color-text-warning:      var(--color-warning-30);
+    --color-text-success:      var(--color-success-40);
+    --color-text-information:  var(--color-information-40);
+    --color-text-disabled:     var(--color-gray-50);
+    --color-text-inverse:      var(--color-gray-90);
+    --color-text-on-primary:   var(--color-gray-90);
+    --color-text-on-secondary: var(--color-gray-90);
+    --color-text-link:         var(--color-primary-40);
+    --color-text-link-visited: var(--color-purple-30);
+
+    --color-bg-default:            var(--color-gray-90);
+    --color-bg-subtle:             var(--color-gray-80);
+    --color-bg-subtler:            var(--color-gray-70);
+    --color-bg-primary:            var(--color-primary-40);
+    --color-bg-primary-hover:      var(--color-primary-30);
+    --color-bg-primary-pressed:    var(--color-primary-20);
+    --color-bg-primary-subtle:     var(--color-primary-90);
+    --color-bg-secondary:          var(--color-secondary-40);
+    --color-bg-secondary-hover:    var(--color-secondary-30);
+    --color-bg-secondary-pressed:  var(--color-secondary-20);
+    --color-bg-secondary-subtle:   var(--color-secondary-90);
+    --color-bg-danger-subtle:      var(--color-danger-90);
+    --color-bg-warning-subtle:     var(--color-warning-90);
+    --color-bg-success-subtle:     var(--color-success-90);
+    --color-bg-information-subtle: var(--color-information-90);
+    --color-bg-elevated:           var(--color-gray-80);
+    --color-bg-inverse:            var(--color-gray-0);
+    --color-bg-disabled:           var(--color-gray-70);
+    --color-bg-overlay:            var(--color-black-alpha-75);
+    --color-bg-hover:              var(--color-gray-80);
+    --color-bg-selected:           var(--color-primary-90);
+
+    --color-border-default:   var(--color-gray-50);
+    --color-border-subtle:    var(--color-gray-70);
+    --color-border-primary:   var(--color-primary-40);
+    --color-border-secondary: var(--color-secondary-40);
+    --color-border-danger:    var(--color-danger-40);
+    --color-border-warning:   var(--color-warning-40);
+    --color-border-success:   var(--color-success-40);
+    --color-border-strong:    var(--color-gray-30);
+    --color-border-divider:   var(--color-gray-70);
+    --color-border-focus:     var(--color-primary-40);
+    --color-border-disabled:  var(--color-gray-70);
+
+    --color-icon-default:   var(--color-gray-20);
+    --color-icon-subtle:    var(--color-gray-30);
+    --color-icon-primary:   var(--color-primary-40);
+    --color-icon-secondary: var(--color-secondary-40);
+    --color-icon-danger:    var(--color-danger-40);
+    --color-icon-disabled:  var(--color-gray-60);
+    --color-icon-inverse:   var(--color-gray-90);
+
+    --color-shadow-subtle:  var(--color-black-alpha-10);
+    --color-shadow-default: var(--color-black-alpha-25);
+
+    /* ── 추가 토큰 (dark) ───────────────────────────────────────────────────────── */
+    --color-bg-interactive-hover:         var(--color-secondary-90);
+    --color-bg-interactive-pressed:       var(--color-secondary-80);
+    --color-bg-interactive-active:        var(--color-secondary-30);
+    --color-bg-primary-subtle-hover:      var(--color-primary-80);
+    --color-bg-primary-subtle-pressed:    var(--color-primary-70);
+    --color-bg-pressed:                   var(--color-gray-70);
+    --color-bg-warning-element:           var(--color-warning-40);
+    --color-bg-success-element:           var(--color-success-40);
+    --color-bg-information-element:       var(--color-information-40);
+    --color-bg-point-element:             var(--color-point-40);
+    --color-bg-point-subtle:              var(--color-point-90);
+    --color-bg-gray-element:              var(--color-gray-50);
+    --color-bg-gray-element-strong:       var(--color-gray-40);
+    --color-text-link-hover:              var(--color-primary-30);
+    --color-text-link-pressed:            var(--color-primary-20);
+    --color-text-stronger:                var(--color-gray-0);
+    --color-text-point:                   var(--color-point-40);
+    --color-text-secondary-strong:        var(--color-secondary-20);
+    --color-text-on-warning-element:      var(--color-gray-90);
+    --color-text-on-interactive-active:   var(--color-gray-90);
+    --color-text-on-success-element:      var(--color-gray-90);
+    --color-text-on-information-element:  var(--color-gray-90);
+    --color-text-on-point-element:        var(--color-gray-100);
+    --color-text-on-gray-element:         var(--color-gray-0);
+    --color-text-on-gray-element-strong:  var(--color-gray-90);
+    --color-text-primary-on-subtle-hover:   var(--color-primary-30);
+    --color-text-primary-on-subtle-pressed: var(--color-primary-20);
+    --color-icon-on-disabled:             var(--color-gray-50);
+    --color-icon-secondary-strong:        var(--color-secondary-30);
+    --color-border-secondary-subtle:      var(--color-secondary-80);
+    --color-border-secondary-strong:      var(--color-secondary-30);
+    --color-border-divider-dark:          var(--color-gray-60);
+
+  }
+}

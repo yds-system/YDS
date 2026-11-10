@@ -1,4 +1,4 @@
-import './accordion.css';
+import './accordion.scss';
 
 export default {
   title: 'Components/Accordion',

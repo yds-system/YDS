@@ -1,4 +1,4 @@
-import './breadcrumb.css';
+import './breadcrumb.scss';
 
 export default {
   title: 'Components/Breadcrumb',

@@ -316,6 +316,15 @@
 
 ---
 
+## 2026-11-10 base.css 글꼴 수정 + sr-only → yds-sr-only
+
+- **base.css**: `font-family`를 `body`에서 `html`로 이동 → `font-family: inherit` 리셋이 Pretendard GOV를 덮어쓰는 문제 해결
+- **base.css**: `.sr-only` 제거 (common.css로 이전)
+- **src/components/common.css** 신규: `.yds-sr-only` 정의, preview.js에 import 추가
+- `.sr-only` → `.yds-sr-only` 전면 교체: stories.js 13개 + mdx 14개 + naming-data.js + CLAUDE.md
+
+---
+
 ## 2026-11-10 base.css 추가 (기반 스타일 복구)
 
 - **src/tokens/base.css 신규 생성**: KRDS common.css 의존 제거 후 빠진 기반 스타일 YDS 독립 버전으로 복구

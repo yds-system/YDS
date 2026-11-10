@@ -1,8 +1,8 @@
-import '../form-group/form-group.css';
-import '../button/button.css';
-import '../text-input/text-input.css';
-import './date-input.css';
-import '../icon/icon.css';
+import '../form-group/form-group.scss';
+import '../button/button.scss';
+import '../text-input/text-input.scss';
+import './date-input.scss';
+import '../icon/icon.scss';
 
 export default {
   title: 'Components/Date Input',

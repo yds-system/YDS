@@ -1,0 +1,167 @@
+/* =============================================
+   KRDS Tooltip Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+/* ----- CSS 변수 ----- */
+.yds-tooltip-popover {
+
+  --yds-tooltip--popover-radius: var(--radius-4);
+  --yds-tooltip--popover-radius-box: var(--radius-12);
+  --yds-tooltip--popover-contents-pc-font-size: var(--font-size-15);
+  --yds-tooltip--popover-contents-mobile-font-size: var(--font-size-15);
+  --yds-tooltip--popover-margin-x: 2.4rem;
+  --yds-tooltip--popover-inline-color-text: var(--color-text-inverse);
+  --yds-tooltip--popover-box-color-text: var(--color-text-default);
+  --yds-tooltip--popover-color-border: var(--color-border-default);
+  --yds-tooltip--popover-color-surface: var(--color-bg-inverse);
+  --yds-tooltip--popover-box-color-surface: var(--color-bg-default);
+
+}
+/* ----- 팝오버 기본 (인라인형 — 검은 배경) ----- */
+.yds-tooltip-popover {
+
+  display: none;
+  position: fixed;
+  z-index: 200;
+  white-space: nowrap;
+  font-size: var(--yds-tooltip--popover-contents-pc-font-size);
+  border-radius: var(--yds-tooltip--popover-radius);
+  padding: var(--space-4) var(--space-12);
+  color: var(--yds-tooltip--popover-inline-color-text);
+  background-color: var(--yds-tooltip--popover-color-surface);
+  top: 0;
+  left: 0;
+  pointer-events: none; /* 마우스 이벤트 통과 */
+
+}
+.yds-tooltip-popover {
+  &--open {
+
+    display: block;
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-tooltip-popover {
+
+    font-size: var(--yds-tooltip--popover-contents-mobile-font-size);
+
+  }
+}
+/* ----- 박스형 ----- */
+.yds-tooltip-popover {
+  &--box {
+
+    white-space: normal;
+    max-width: 36rem;
+    border: 0.1rem solid var(--yds-tooltip--popover-color-border);
+    border-radius: var(--yds-tooltip--popover-radius-box);
+    padding: var(--space-24);
+    color: var(--yds-tooltip--popover-box-color-text);
+    background-color: var(--yds-tooltip--popover-box-color-surface);
+
+  }
+}
+/* ----- 화살표 기본 (::before) ----- */
+.yds-tooltip-popover {
+  &::before {
+
+    --tooltip-arrow-size: 0.8rem;
+    --tooltip-arrow-gap: calc((var(--tooltip-arrow-size) / 2) * -1);
+    content: "";
+    width: var(--tooltip-arrow-size);
+    height: var(--tooltip-arrow-size);
+    display: block;
+    position: absolute;
+    background-color: var(--yds-tooltip--popover-color-surface);
+
+  }
+}
+.yds-tooltip-popover {
+  &--box::before {
+
+    --tooltip-arrow-size: 1.2rem;
+    border: 0.1rem solid var(--yds-tooltip--popover-color-border);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    background-color: var(--yds-tooltip--popover-box-color-surface);
+
+  }
+}
+/* ----- 위치별 화살표 -----
+   --right : 툴팁이 트리거 오른쪽 → 화살표가 팝오버 왼쪽 (← 트리거 방향)
+   --left  : 툴팁이 트리거 왼쪽  → 화살표가 팝오버 오른쪽
+   --top   : 툴팁이 트리거 위쪽  → 화살표가 팝오버 아래쪽
+   --bottom: 툴팁이 트리거 아래쪽 → 화살표가 팝오버 위쪽
+----- */
+/* --right (기본): 화살표 왼쪽 */
+.yds-tooltip-popover {
+  &--right::before {
+
+    left: var(--tooltip-arrow-gap);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+
+  }
+}
+/* --left: 화살표 오른쪽 */
+.yds-tooltip-popover {
+  &--left::before {
+
+    left: calc(100% + var(--tooltip-arrow-gap));
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+
+  }
+}
+/* --top: 화살표 아래쪽 */
+.yds-tooltip-popover {
+  &--top::before {
+
+    top: calc(100% + var(--tooltip-arrow-gap));
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+
+  }
+}
+.yds-tooltip-popover {
+  &.yds-tooltip-popover--top.yds-tooltip-popover--box::before {
+
+    transform: translateX(-50%) rotate(135deg);
+
+  }
+}
+/* --bottom: 화살표 위쪽 */
+.yds-tooltip-popover {
+  &--bottom::before {
+
+    top: var(--tooltip-arrow-gap);
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+
+  }
+}
+.yds-tooltip-popover {
+  &.yds-tooltip-popover--bottom.yds-tooltip-popover--box::before {
+
+    transform: translateX(-50%) rotate(-135deg);
+
+  }
+}
+/* ----- 420px 이하: 화살표 숨김, 중앙 정렬 ----- */
+@media (max-width: 420px) {
+  .yds-tooltip-popover {
+
+    width: calc(100vw - 3.2rem);
+    max-width: 100%;
+    white-space: normal;
+
+  }
+  .yds-tooltip-popover {
+    &::before {
+
+      display: none;
+
+    }
+  }
+}

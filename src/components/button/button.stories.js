@@ -1,5 +1,5 @@
-import './button.css';
-import '../icon/icon.css';
+import './button.scss';
+import '../icon/icon.scss';
 
 export default {
   title: 'Components/Button',

@@ -1,5 +1,5 @@
-import '../form-group/form-group.css';
-import './select.css';
+import '../form-group/form-group.scss';
+import './select.scss';
 
 export default {
   title: 'Components/Select',

@@ -1,5 +1,5 @@
-import './tooltip.css';
-import '../button/button.css';
+import './tooltip.scss';
+import '../button/button.scss';
 
 export default {
   title: 'Components/Tooltip',

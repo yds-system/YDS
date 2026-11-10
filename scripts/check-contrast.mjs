@@ -90,9 +90,9 @@ function contrastRatio(hex1, hex2) {
 
 // ── 토큰 맵 구성 ────────────────────────────────────────────────────────────────
 
-const primCss = readCss('src/tokens/primitive.css');
-const modeCss = readCss('src/tokens/mode.css');
-const semCss  = readCss('src/tokens/semantic.css');
+const primCss = readCss('src/tokens/primitive.scss');
+const modeCss = readCss('src/tokens/mode.scss');
+const semCss  = readCss('src/tokens/semantic.scss');
 
 const primRoot  = parseProps(extractBlock(primCss, ':root'));
 const modeLight = parseProps(extractBlock(modeCss, ':root'));

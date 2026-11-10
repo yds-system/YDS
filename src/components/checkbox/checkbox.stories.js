@@ -1,5 +1,5 @@
-import '../form-group/form-group.css';
-import './checkbox.css';
+import '../form-group/form-group.scss';
+import './checkbox.scss';
 
 export default {
   title: 'Components/Checkbox',

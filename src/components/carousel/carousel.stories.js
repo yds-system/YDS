@@ -1,5 +1,5 @@
-import './carousel.css';
-import '../icon/icon.css';
+import './carousel.scss';
+import '../icon/icon.scss';
 
 export default {
   title: 'Components/Carousel',

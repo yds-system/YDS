@@ -1,0 +1,131 @@
+/* =============================================================================
+   디자인 토큰 — 시멘틱
+   용도 기반 토큰. 항상 프리미티브를 var()로 참조한다.
+
+   참조 방향: semantic → primitive (역방향 금지)
+   색상 토큰  → mode.css (라이트·다크·고대비·시스템)
+   반응형 토큰 → responsive.css (font-size-heading-xl/l/m, space-m/l/xl, section/container)
+
+   컴포넌트는 mode.css · responsive.css · semantic.css 세 파일의 토큰만 참조한다.
+   ============================================================================= */
+:root {
+
+  /* ── 2. 색상 시멘틱 (모드 불변) ──────────────────────────────────────────── */
+
+  /* 채움(dark fill) 배경 위 텍스트 — 모든 모드에서 항상 흰색.
+  primary 이외 배경(secondary, gray, danger, success, info 등)에서 사용.
+  mode.css의 --color-text-on-primary/secondary (모드별 가변)와 구별된다.    */
+  --color-text-on-static: var(--color-gray-0);
+
+  /* ── 3. 타이포 시멘틱 ─────────────────────────────────────────────────────── */
+  /* font-size-heading-xl / l / m 는 반응형 → responsive.css 에 정의            */
+
+  /* heading */
+  --font-weight-heading-xl: var(--font-weight-bold);
+  --line-height-heading-xl: var(--line-height-tight);
+
+  --font-weight-heading-l:  var(--font-weight-bold);
+  --line-height-heading-l:  var(--line-height-tight);
+
+  --font-weight-heading-m:  var(--font-weight-bold);
+  --line-height-heading-m:  var(--line-height-normal);
+
+  --font-size-heading-s:    var(--font-size-19);       /* PC = 모바일, 반응형 불필요 */
+  --font-weight-heading-s:  var(--font-weight-bold);
+  --line-height-heading-s:  var(--line-height-normal);
+
+  /* body */
+  --font-size-body-l:       var(--font-size-19);
+  --font-weight-body-l:     var(--font-weight-regular);
+  --line-height-body-l:     var(--line-height-normal);
+
+  --font-size-body-m:       var(--font-size-17);
+  --font-weight-body-m:     var(--font-weight-regular);
+  --line-height-body-m:     var(--line-height-normal);
+
+  --font-size-body-s:       var(--font-size-15);
+  --font-weight-body-s:     var(--font-weight-regular);
+  --line-height-body-s:     var(--line-height-normal);
+
+  --font-size-body-xs:      var(--font-size-13);
+  --font-weight-body-xs:    var(--font-weight-regular);
+  --line-height-body-xs:    var(--line-height-normal);
+
+  /* ── 4. 간격 시멘틱 ─────────────────────────────────────────────────────────── */
+
+  /* space 별칭 — xs·s 그룹 (고정값. m/l/xl 은 반응형 → responsive.css)        */
+  /* ─ KRDS --krds-number-* 대응 ─────────────────────────────────────────────── */
+  --space-xs-2:  var(--space-2);   /* 2px  */
+  --space-xs-4:  var(--space-4);   /* 4px  */
+  --space-xs-8:  var(--space-8);   /* 8px  */
+  --space-s-12:  var(--space-12);  /* 12px */
+  --space-s-16:  var(--space-16);  /* 16px */
+  --space-s-20:  var(--space-20);  /* 20px */
+
+  /* gap- : flex/grid 아이템 간 간격 (Figma: gap scope) */
+  --gap-xs: var(--space-4);   /* 아이콘↔레이블 등 인라인 소간격  ─ --krds-gap-2  */
+  --gap-s:  var(--space-8);   /* 입력 그룹 내부 간격             ─ --krds-gap-3  */
+  --gap-m:  var(--space-16);  /* 컴포넌트 간 기본 간격           ─ --krds-gap-5  */
+  --gap-l:  var(--space-24);  /* 섹션 내 블록 간격               ─ --krds-gap-7  */
+  --gap-xl: var(--space-40);  /* 섹션 간 여백                    ─ --krds-gap-9  */
+
+  /* padding- : 컴포넌트·컨테이너 내부 여백 (Figma: padding scope) */
+  --padding-xs: var(--space-4);   /* 뱃지·태그 소형 내부 여백    ─ --krds-padding-2  */
+  --padding-s:  var(--space-8);   /* 버튼 상하 패딩 기본          ─ --krds-padding-3  */
+  --padding-m:  var(--space-16);  /* 카드·입력 필드 내부 여백     ─ --krds-padding-6  */
+  --padding-l:  var(--space-24);  /* 섹션 헤더 내부 여백          ─ --krds-padding-8  */
+  --padding-xl: var(--space-40);  /* 페이지 상단 여백             ─ --krds-padding-10 */
+
+  /* margin- : 블록 간 외부 여백. gap보다 한 단계 큰 값 사용 (자체 추가) */
+  --margin-xs: var(--space-8);   /* 연관 블록 최소 외부 여백  */
+  --margin-s:  var(--space-16);  /* 소형 블록 외부 여백       */
+  --margin-m:  var(--space-24);  /* 중형 블록 외부 여백       */
+  --margin-l:  var(--space-40);  /* 대형 블록 외부 여백       */
+  --margin-xl: var(--space-64);  /* 섹션 간 최대 외부 여백    */
+
+  /* ── 5. 그림자 시멘틱 ───────────────────────────────────────────────────────── */
+  /* KRDS box-shadow 패턴 기준. 첫 레이어: 테두리 보정(2px), 둘째 레이어: 실제 그림자. */
+  /* 색상은 mode.css --color-shadow-subtle / --color-shadow-default 를 참조한다.      */
+  /* 카드는 기본 shadow-s, hover 시 shadow-m으로 전환한다.                             */
+
+  --shadow-focus-inset: inset 0 0 0 0.2rem var(--color-border-focus); /* 포커스 인셋 링 */
+  --shadow-none: none;
+  --shadow-s: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 0.4rem 0.8rem 0 var(--color-shadow-subtle);   /* 카드·슬라이드 박스 기본   ─ --krds-critical-alerts--banner-shadow 패턴 */
+  --shadow-m: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 0.8rem 1.6rem 0 var(--color-shadow-subtle);   /* 카드 hover·드롭다운·툴팁  ─ --krds-help-panel--shadow 패턴             */
+  --shadow-l: 0 0 0.2rem 0 var(--color-shadow-subtle), 0 1.6rem 2.4rem 0 var(--color-shadow-default);  /* 모달                      ─ --krds-modal--wrap-shadow 패턴             */
+
+  /* ── 5b. 아이콘 치수 시멘틱 ────────────────────────────────────────────────── */
+  /* 아이콘 크기. --size-* 프리미티브를 참조한다.
+  ─ KRDS --krds-icon--size-* 대응 ─────────────────────────────────────────── */
+  --icon-size-xs: var(--size-16);  /* 16px — xsmall (뱃지·태그 내부 등)   */
+  --icon-size-s:  var(--size-16);  /* 16px — small  (xsmall과 동일)        */
+  --icon-size-m:  var(--size-20);  /* 20px — medium (버튼·폼 아이콘)       */
+  --icon-size-l:  var(--size-24);  /* 24px — large  (단독 아이콘 기본)     */
+  --icon-size-xl: var(--size-24);  /* 24px — xlarge (large와 동일)         */
+
+  /* ── 5c. 레이아웃 컨테이너 시멘틱 ─────────────────────────────────────────── */
+  /* px 단위 유지 (KRDS 원본 값 그대로). rem 환산 불필요.
+  ─ KRDS --krds-contents-* 대응 ───────────────────────────────────────────── */
+  --container-max-width:  1200px;  /* --krds-contents-size       — 콘텐츠 최대 너비          */
+  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size  — 콘텐츠 + 좌우 패딩 합산   */
+  --container-padding-x:  24px;    /* --krds-contents-padding-x  — 콘텐츠 좌우 내부 여백(PC) */
+
+  /* ── 6. 모서리 시멘틱 ───────────────────────────────────────────────────────── */
+
+  --radius-xs:     var(--radius-2);   /* 아주 작은 요소 (뱃지 등)    ─ --krds-radius-xsmall1 */
+  --radius-s:      var(--radius-4);   /* 태그·칩                     ─ --krds-radius-small1  */
+  --radius-m:      var(--radius-8);   /* 버튼·입력 필드·카드         ─ --krds-radius-medium3 */
+  --radius-l:      var(--radius-12);  /* 모달·패널                   ─ --krds-radius-xlarge1 */
+  --radius-xl:     var(--radius-16);  /* 대형 카드                   ─ (자체 추가)            */
+  --radius-circle: var(--radius-999); /* 원형·알약형                 ─ --krds-radius-max      */
+
+}
+/* ── 모바일 container-padding-x 덮어쓰기 ──────────────────────────────────────── */
+/* KRDS 기준: max-width 1023px에서 16px. YDS는 1279px 기준 적용. */
+@include mobile {
+  :root {
+
+    --container-padding-x: 16px; /* --krds-contents-padding-x mobile */
+
+  }
+}

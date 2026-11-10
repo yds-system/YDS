@@ -1,0 +1,266 @@
+/* =============================================
+   KRDS Accordion Component
+   출처: reference/krds/resources/css/component/component.css
+   ============================================= */
+/* ----- CSS 변수 ----- */
+.yds-accordion {
+
+  --yds-accordion--list-margin-y: var(--space-4);
+  --yds-accordion--padding: var(--space-24);
+  --yds-accordion--button-icon-size: var(--icon-size-l);
+  --yds-accordion--button-padding-right: calc(var(--yds-accordion--padding) + var(--space-16) + var(--yds-accordion--button-icon-size));
+  --yds-accordion--line-padding: var(--space-20);
+  --yds-accordion--line-button-padding-right: calc(var(--space-16) + var(--yds-accordion--button-icon-size));
+  --yds-accordion--radius: var(--radius-10);
+  --yds-accordion--button-pc-font-size: var(--font-size-17);
+  --yds-accordion--button-mobile-font-size: var(--font-size-17);
+
+  --yds-accordion--color-action: transparent;
+  --yds-accordion--button-color-action: transparent;
+  --yds-accordion--button-color-action-hover: var(--color-bg-interactive-hover);
+  --yds-accordion--button-color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-accordion--color-action-open: var(--color-bg-interactive-hover);
+  --yds-accordion--color-divider: var(--color-border-subtle);
+  --yds-accordion--color-divider-open: var(--color-border-divider-dark);
+  --yds-accordion--button-color-text: var(--color-text-default);
+  --yds-accordion--button-color-text-open: var(--color-text-secondary-strong);
+  --yds-accordion--color-icon: var(--color-icon-default);
+
+}
+/* ----- 기본형 컨테이너 ----- */
+.yds-accordion {
+
+  padding: var(--yds-accordion--list-margin-y) 0;
+  border-top: 0.1rem solid var(--yds-accordion--color-divider);
+  border-bottom: 0.1rem solid var(--yds-accordion--color-divider);
+
+}
+/* ----- 항목 ----- */
+.yds-accordion {
+  .yds-accordion__item {
+
+    padding: var(--yds-accordion--list-margin-y) 0;
+    transition: var(--transition-base);
+
+  }
+}
+/* ----- 헤더 버튼 ----- */
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn {
+
+    position: relative;
+    width: 100%;
+    padding: var(--yds-accordion--padding)
+    var(--yds-accordion--button-padding-right)
+    var(--yds-accordion--padding)
+    var(--yds-accordion--padding);
+    background-color: var(--yds-accordion--button-color-action);
+    border-radius: var(--yds-accordion--radius);
+    font-size: var(--yds-accordion--button-pc-font-size);
+    color: var(--yds-accordion--button-color-text);
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-accordion {
+    .yds-accordion__item .yds-accordion__btn {
+
+      font-size: var(--yds-accordion--button-mobile-font-size);
+
+    }
+  }
+}
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn:hover {
+
+    background-color: var(--yds-accordion--button-color-action-hover);
+
+  }
+}
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn:active {
+
+    background-color: var(--yds-accordion--button-color-action-pressed);
+
+  }
+}
+/* 화살표 아이콘 (::after) */
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn::after {
+
+    position: absolute;
+    top: var(--yds-accordion--padding);
+    right: var(--yds-accordion--padding);
+    content: "";
+    display: inline-flex;
+    width: var(--yds-accordion--button-icon-size);
+    height: var(--yds-accordion--button-icon-size);
+    background-color: var(--yds-accordion--color-icon);
+    forced-color-adjust: none;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    transition: var(--transition-base);
+    transform: rotate(0deg);
+
+  }
+}
+/* 열린 상태 — 버튼 */
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn.yds-accordion__btn--open {
+
+    background-color: var(--yds-accordion--color-action-open);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: var(--yds-accordion--button-color-text-open);
+
+  }
+}
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn.yds-accordion__btn--open:focus {
+
+    border-radius: var(--yds-accordion--radius);
+
+  }
+}
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__btn.yds-accordion__btn--open::after {
+
+    transform: rotate(180deg);
+
+  }
+}
+/* ----- 패널 (닫힘 기본값) ----- */
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__collapse {
+
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    visibility: hidden;
+
+  }
+}
+/* ----- 패널 본문 ----- */
+.yds-accordion {
+  .yds-accordion__item .yds-accordion__body {
+
+    padding: 0 var(--yds-accordion--padding) var(--yds-accordion--padding);
+    background-color: var(--yds-accordion--color-action);
+    border-bottom-left-radius: var(--yds-accordion--radius);
+    border-bottom-right-radius: var(--yds-accordion--radius);
+
+  }
+}
+/* ----- 열린 상태 — 항목 ----- */
+.yds-accordion {
+  .yds-accordion__item.yds-accordion__item--open .yds-accordion__collapse {
+
+    height: auto;
+    max-height: 100vh;
+    transition: all 1.5s ease-in-out;
+    visibility: visible;
+
+  }
+}
+.yds-accordion {
+  .yds-accordion__item.yds-accordion__item--open .yds-accordion__body {
+
+    background-color: var(--yds-accordion--color-action-open);
+
+  }
+}
+/* ----- 라인형 (yds-accordion--line) ----- */
+.yds-accordion {
+  &--line {
+
+    padding: 0;
+    border-top: none;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item {
+
+    padding: 0;
+    border-top: 0.1rem solid var(--yds-accordion--color-divider);
+    border-radius: 0;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__btn {
+
+    padding: var(--yds-accordion--line-padding)
+    var(--yds-accordion--line-button-padding-right)
+    var(--yds-accordion--line-padding)
+    0;
+    background: none;
+    border-radius: 0;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__btn:hover,
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__btn:active {
+
+    background: none;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__btn::after {
+
+    top: var(--yds-accordion--line-padding);
+    right: 0;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__btn.yds-accordion__btn--open {
+
+    background: none;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item .yds-accordion__body {
+
+    padding: 0 0 var(--yds-accordion--padding);
+    background: none;
+    border-radius: 0;
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item.yds-accordion__item--open {
+
+    background: none;
+    border-top-color: var(--yds-accordion--color-divider-open);
+
+  }
+}
+.yds-accordion {
+  &.yds-accordion--line .yds-accordion__item.yds-accordion__item--open .yds-accordion__body {
+
+    background: none;
+
+  }
+}
+/* ----- 모바일 ----- */
+@media (max-width: 767px) {
+  .yds-accordion {
+
+    --yds-accordion--padding: var(--space-16);
+    --yds-accordion--line-padding: var(--space-12);
+    --yds-accordion--button-icon-size: var(--icon-size-m);
+
+  }
+}

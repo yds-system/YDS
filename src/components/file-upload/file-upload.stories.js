@@ -1,6 +1,6 @@
-import '../button/button.css';
-import './file-upload.css';
-import '../icon/icon.css';
+import '../button/button.scss';
+import './file-upload.scss';
+import '../icon/icon.scss';
 
 export default {
   title: 'Components/File Upload',

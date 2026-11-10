@@ -1,6 +1,6 @@
-import '../checkbox/checkbox.css';
-import '../form-group/form-group.css';
-import './table.css';
+import '../checkbox/checkbox.scss';
+import '../form-group/form-group.scss';
+import './table.scss';
 
 export default {
   title: 'Components/Table',

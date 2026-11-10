@@ -1,12 +1,12 @@
 // import '../reference/krds/resources/css/token/krds_tokens.css';  // ← --krds-* 의존 제거 완료
 // import '../reference/krds/resources/css/common/common.css';       // ← --krds-* 의존 제거 완료
-import '../src/tokens/base.css';
-import '../src/tokens/primitive.css';
-import '../src/tokens/responsive.css';
-import '../src/tokens/mode.css';
-import '../src/tokens/semantic.css';
-import '../src/tokens/theme-project-a.css';
-import '../src/components/common.css';
+import '../src/tokens/base.scss';
+import '../src/tokens/primitive.scss';
+import '../src/tokens/responsive.scss';
+import '../src/tokens/mode.scss';
+import '../src/tokens/semantic.scss';
+import '../src/tokens/theme-project-a.scss';
+import '../src/components/common.scss';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 
 /** @type { import('@storybook/html-vite').Preview } */

@@ -1,4 +1,4 @@
-import './logo.css';
+import './logo.scss';
 
 export default {
   title: 'Brand/Logo',

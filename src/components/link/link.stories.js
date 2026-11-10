@@ -1,4 +1,4 @@
-import './link.css';
+import './link.scss';
 
 export default {
   title: 'Components/Link',

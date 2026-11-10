@@ -1,6 +1,6 @@
-import '../form-group/form-group.css';
-import '../button/button.css';
-import '../text-input/text-input.css';
+import '../form-group/form-group.scss';
+import '../button/button.scss';
+import '../text-input/text-input.scss';
 
 export default {
   title: 'Components/Textarea',

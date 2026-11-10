@@ -62,12 +62,12 @@ function parseProps(block) {
   return map;
 }
 
-const primRoot   = parseProps(extractBlock(readCss('src/tokens/primitive.css'),  ':root'));
-const modeLight  = parseProps(extractBlock(readCss('src/tokens/mode.css'),        ':root'));
-const modeDark   = parseProps(extractBlock(readCss('src/tokens/mode.css'),        '[data-mode="dark"]'));
-const modeHC     = parseProps(extractBlock(readCss('src/tokens/mode.css'),        '[data-mode="high-contrast"]'));
-const respRoot   = parseProps(extractBlock(readCss('src/tokens/responsive.css'),  ':root'));
-const semantRoot = parseProps(extractBlock(readCss('src/tokens/semantic.css'),    ':root'));
+const primRoot   = parseProps(extractBlock(readCss('src/tokens/primitive.scss'),  ':root'));
+const modeLight  = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        ':root'));
+const modeDark   = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        '[data-mode="dark"]'));
+const modeHC     = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        '[data-mode="high-contrast"]'));
+const respRoot   = parseProps(extractBlock(readCss('src/tokens/responsive.scss'),  ':root'));
+const semantRoot = parseProps(extractBlock(readCss('src/tokens/semantic.scss'),    ':root'));
 
 // ── 비교 유틸 ─────────────────────────────────────────────────────────────────
 

@@ -1,4 +1,4 @@
-import './thumbnail.css';
+import './thumbnail.scss';
 
 export default {
   title: 'Components/Thumbnail',

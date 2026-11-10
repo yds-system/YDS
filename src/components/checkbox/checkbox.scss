@@ -1,0 +1,483 @@
+/* =============================================
+   KRDS Check — 체크박스 / 라디오 공통 스타일
+   출처: reference/krds/resources/css/component/component.css
+   의존: form-group.css (공유 폼 레이아웃)
+   라디오 컴포넌트도 이 파일을 함께 사용한다.
+   ============================================= */
+/* ----- fieldset 초기화 (form-group으로 사용 시) ----- */
+fieldset.yds-form-group {
+
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+
+}
+fieldset.yds-form-group > legend.yds-form-label {
+
+  float: left;
+  width: 100%;
+  padding: 0;
+  color: var(--color-text-subtle);
+
+}
+fieldset.yds-form-group > legend.yds-form-label > span {
+
+  font-size: var(--yds-form-group--label-pc-font-size);
+  font-weight: var(--font-weight-regular);
+
+}
+@media (max-width: 767px) {
+  fieldset.yds-form-group > legend.yds-form-label > span {
+
+    font-size: var(--yds-form-group--label-mobile-font-size);
+
+  }
+}
+fieldset.yds-form-group > legend.yds-form-label + * {
+
+  clear: left;
+
+}
+/* ----- 실제 input 시각적 숨김 (포커스·키보드는 유지) ----- */
+.yds-check-item {
+  input[type=radio],
+  input[type=checkbox] {
+
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+
+  }
+}
+/* ----- Check Area ----- */
+.yds-check-group {
+
+  display: flex;
+  gap: var(--space-20);
+
+}
+.yds-check-group {
+  &--column {
+
+    flex-direction: column;
+
+  }
+}
+/* ----- CSS 변수 ----- */
+.yds-check-item {
+
+  --yds-check--color-text: var(--color-text-stronger);
+  --yds-check--color-text-disabled: var(--color-text-disabled);
+  --yds-check--color-text-sub: var(--color-text-subtle);
+  --yds-check--color-text-sub-disabled: var(--color-text-disabled);
+  --yds-check--button-color-element: var(--color-icon-inverse);
+  --yds-check--button-color-element-disabled: var(--color-bg-disabled);
+  --yds-check--button-color-border: var(--color-bg-element-gray-dark);
+  --yds-check--button-color-border-checked: var(--color-icon-primary);
+  --yds-check--button-color-border-disabled: var(--color-icon-disabled);
+  --yds-check--checkbox-button-color-element-checked: var(--color-icon-primary);
+  --yds-check--radio-check-color-element: transparent;
+  --yds-check--radio-check-color-element-checked: var(--color-icon-primary);
+  --yds-check--radio-check-color-element-disabled: var(--color-icon-disabled);
+  --yds-check--checkbox-check-color-element: transparent;
+  --yds-check--checkbox-check-color-element-checked: var(--color-text-on-static);
+  --yds-check--checkbox-check-color-element-disabled: var(--color-icon-disabled);
+  --yds-check--additional-text-color-text: var(--color-text-subtle);
+  --yds-check--button-size-medium: var(--size-20);
+  --yds-check--radio-check-size-medium: 1rem;
+  --yds-check--checkbox-check-size-medium: 1.2rem;
+  --yds-check--radio-button-radius-medium: var(--radius-999);
+  --yds-check--checkbox-button-radius-medium: var(--radius-4);
+  --yds-check--pc-font-size-medium: var(--font-size-17);
+  --yds-check--mobile-font-size-medium: var(--font-size-17);
+  --yds-check--additional-text-pc-font-size-medium: var(--font-size-15);
+  --yds-check--additional-text-mobile-font-size-medium: var(--font-size-15);
+  --yds-check--button-size-large: var(--size-24);
+  --yds-check--radio-check-size-large: 1.2rem;
+  --yds-check--checkbox-check-size-large: var(--size-16);
+  --yds-check--radio-button-radius-large: var(--radius-999);
+  --yds-check--checkbox-button-radius-large: var(--radius-4);
+  --yds-check--pc-font-size-large: var(--font-size-19);
+  --yds-check--mobile-font-size-large: var(--font-size-19);
+  --yds-check--additional-text-pc-font-size-large: var(--font-size-17);
+  --yds-check--additional-text-mobile-font-size-large: var(--font-size-17);
+  --yds-check--gap: var(--space-8);
+  --yds-check--button-margin-top: 0.3rem;
+
+}
+/* ----- Label (기본 = medium 크기) ----- */
+.yds-check-item {
+  input[type=radio] ~ label,
+  input[type=checkbox] ~ label {
+
+    position: relative;
+    display: inline-flex;
+    gap: var(--yds-check--gap);
+    font-size: var(--yds-check--pc-font-size-medium);
+    color: var(--yds-check--color-text);
+    cursor: pointer;
+    align-items: flex-start;
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-check-item {
+    input[type=radio] ~ label,
+  input[type=checkbox] ~ label {
+
+      font-size: var(--yds-check--mobile-font-size-medium);
+
+    }
+  }
+}
+/* :before = 버튼 박스, :after = 체크마크 / 라디오 점 */
+.yds-check-item {
+  input[type=radio] ~ label:before,
+  input[type=radio] ~ label:after,
+  input[type=checkbox] ~ label:before,
+  input[type=checkbox] ~ label:after {
+
+    display: flex;
+    content: "";
+    transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
+
+  }
+}
+.yds-check-item {
+  input[type=radio] ~ label:before,
+  input[type=checkbox] ~ label:before {
+
+    flex-shrink: 0;
+    width: var(--yds-check--button-size-medium);
+    height: var(--yds-check--button-size-medium);
+    margin-top: var(--yds-check--button-margin-top);
+    z-index: 3;
+    background-color: var(--yds-check--button-color-element);
+    border: 0.1rem solid var(--yds-check--button-color-border);
+
+  }
+}
+.yds-check-item {
+  input[type=radio] ~ label:after,
+  input[type=checkbox] ~ label:after {
+
+    position: absolute;
+    z-index: 4;
+
+  }
+}
+/* ----- 비활성화 ----- */
+.yds-check-item {
+  input[type=radio]:disabled ~ label,
+  input[type=checkbox]:disabled ~ label {
+
+    color: var(--yds-check--color-text-sub-disabled);
+    cursor: default;
+
+  }
+}
+.yds-check-item {
+  input[type=radio]:disabled ~ label:before,
+  input[type=checkbox]:disabled ~ label:before {
+
+    background-color: var(--yds-check--button-color-element-disabled) !important;
+    border-color: var(--yds-check--button-color-border-disabled) !important;
+
+  }
+}
+/* ----- 포커스 ----- */
+.yds-check-item {
+  input[type=radio]:focus-visible ~ label:before,
+  input[type=checkbox]:focus-visible ~ label:before {
+
+    outline: 2px solid var(--color-icon-primary);
+    outline-offset: 0.2rem;
+
+  }
+}
+/* ----- 에러 상태 (.yds-form-content--error 하위) ----- */
+.yds-form-content {
+  &--error .yds-check-item input[type=checkbox] ~ label:before,
+  &--error .yds-check-item input[type=radio] ~ label:before {
+
+    border-color: var(--color-border-danger);
+    border-width: 0.2rem;
+
+  }
+}
+/* ─────────────────────────────────────────────
+   라디오 버튼
+   ───────────────────────────────────────────── */
+.yds-check-item {
+  input[type=radio] ~ label:before {
+
+    border-radius: var(--yds-check--radio-button-radius-medium);
+
+  }
+}
+.yds-check-item {
+  input[type=radio] ~ label:after {
+
+    top: calc((var(--yds-check--button-size-medium) - var(--yds-check--radio-check-size-medium)) / 2 + var(--yds-check--button-margin-top));
+    left: calc((var(--yds-check--button-size-medium) - var(--yds-check--radio-check-size-medium)) / 2);
+    width: var(--yds-check--radio-check-size-medium);
+    height: var(--yds-check--radio-check-size-medium);
+    background-color: var(--yds-check--radio-check-color-element);
+    border-radius: var(--radius-999);
+
+  }
+}
+.yds-check-item {
+  input[type=radio]:checked ~ label:before {
+
+    border-color: var(--yds-check--button-color-border-checked);
+
+  }
+}
+.yds-check-item {
+  input[type=radio]:checked ~ label:after {
+
+    background-color: var(--yds-check--radio-check-color-element-checked);
+
+  }
+}
+.yds-check-item {
+  input[type=radio]:checked:disabled ~ label:after {
+
+    background-color: var(--yds-check--radio-check-color-element-disabled);
+
+  }
+}
+/* Large 라디오 */
+.yds-check-item {
+  &--large > input[type=radio] ~ label:before {
+
+    border-radius: var(--yds-check--radio-button-radius-large);
+    width: var(--yds-check--button-size-large);
+    height: var(--yds-check--button-size-large);
+
+  }
+}
+.yds-check-item {
+  &--large > input[type=radio] ~ label:after {
+
+    top: calc((var(--yds-check--button-size-large) - var(--yds-check--radio-check-size-large)) / 2 + var(--yds-check--button-margin-top));
+    left: calc((var(--yds-check--button-size-large) - var(--yds-check--radio-check-size-large)) / 2);
+    width: var(--yds-check--radio-check-size-large);
+    height: var(--yds-check--radio-check-size-large);
+
+  }
+}
+/* ─────────────────────────────────────────────
+   체크박스
+   ───────────────────────────────────────────── */
+.yds-check-item {
+  input[type=checkbox] ~ label:before {
+
+    border-radius: var(--yds-check--checkbox-button-radius-medium);
+
+  }
+}
+.yds-check-item {
+  input[type=checkbox] ~ label:after {
+
+    top: calc((var(--yds-check--button-size-medium) - var(--yds-check--checkbox-check-size-medium)) / 2 + var(--yds-check--button-margin-top));
+    left: calc((var(--yds-check--button-size-medium) - var(--yds-check--checkbox-check-size-medium)) / 2);
+    display: inline-flex;
+    width: var(--yds-check--checkbox-check-size-medium);
+    height: var(--yds-check--checkbox-check-size-medium);
+    forced-color-adjust: none;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
+    background-color: var(--yds-check--checkbox-check-color-element);
+
+  }
+}
+.yds-check-item {
+  input[type=checkbox]:checked ~ label:before {
+
+    background-color: var(--yds-check--checkbox-button-color-element-checked);
+    border-color: var(--yds-check--button-color-border-checked);
+
+  }
+}
+.yds-check-item {
+  input[type=checkbox]:checked ~ label:after {
+
+    background-color: var(--yds-check--checkbox-check-color-element-checked);
+    transition-delay: 0.1s;
+
+  }
+}
+.yds-check-item {
+  input[type=checkbox]:checked:disabled ~ label:after {
+
+    background-color: var(--yds-check--checkbox-check-color-element-disabled);
+
+  }
+}
+/* indeterminate — CSS 가로 막대로 표현 */
+.yds-check-item {
+  input[type=checkbox]:indeterminate ~ label:before {
+
+    background-color: var(--yds-check--checkbox-button-color-element-checked);
+    border-color: var(--yds-check--button-color-border-checked);
+
+  }
+}
+.yds-check-item {
+  input[type=checkbox]:indeterminate ~ label:after {
+
+    -webkit-mask: none;
+    mask: none;
+    background-color: var(--yds-check--checkbox-check-color-element-checked);
+    top: calc(var(--yds-check--button-size-medium) / 2 - 0.1rem + var(--yds-check--button-margin-top));
+    left: calc((var(--yds-check--button-size-medium) - var(--yds-check--checkbox-check-size-medium)) / 2);
+    width: var(--yds-check--checkbox-check-size-medium);
+    height: 0.2rem;
+    border-radius: 0.1rem;
+
+  }
+}
+/* Large 체크박스 */
+.yds-check-item {
+  &--large > input[type=checkbox] ~ label:before {
+
+    border-radius: var(--yds-check--checkbox-button-radius-large);
+    width: var(--yds-check--button-size-large);
+    height: var(--yds-check--button-size-large);
+
+  }
+}
+.yds-check-item {
+  &--large > input[type=checkbox] ~ label:after {
+
+    top: calc((var(--yds-check--button-size-large) - var(--yds-check--checkbox-check-size-large)) / 2 + var(--yds-check--button-margin-top));
+    left: calc((var(--yds-check--button-size-large) - var(--yds-check--checkbox-check-size-large)) / 2);
+    width: var(--yds-check--checkbox-check-size-large);
+    height: var(--yds-check--checkbox-check-size-large);
+
+  }
+}
+.yds-check-item {
+  &--large > input[type=checkbox]:indeterminate ~ label:after {
+
+    -webkit-mask: none;
+    mask: none;
+    top: calc(var(--yds-check--button-size-large) / 2 - 0.1rem + var(--yds-check--button-margin-top));
+    width: var(--yds-check--checkbox-check-size-large);
+    height: 0.2rem;
+
+  }
+}
+/* ─────────────────────────────────────────────
+   크기 공통 (label 폰트·간격)
+   ───────────────────────────────────────────── */
+.yds-check-item {
+  &--medium > input[type=radio] ~ label,
+  &--medium > input[type=checkbox] ~ label {
+
+    font-size: var(--yds-check--pc-font-size-medium);
+    gap: var(--yds-check--gap);
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-check-item {
+    &--medium > input[type=radio] ~ label,
+  &--medium > input[type=checkbox] ~ label {
+
+      font-size: var(--yds-check--mobile-font-size-medium);
+
+    }
+  }
+}
+.yds-check-item {
+  &--large > input[type=radio] ~ label,
+  &--large > input[type=checkbox] ~ label {
+
+    font-size: var(--yds-check--pc-font-size-large);
+    gap: var(--yds-check--gap);
+
+  }
+}
+@media (max-width: 767px) {
+  .yds-check-item {
+    &--large > input[type=radio] ~ label,
+  &--large > input[type=checkbox] ~ label {
+
+      font-size: var(--yds-check--mobile-font-size-large);
+
+    }
+  }
+}
+/* 크기별 label:before 크기 */
+.yds-check-item {
+  &--medium > input[type=radio] ~ label:before,
+  &--medium > input[type=checkbox] ~ label:before {
+
+    width: var(--yds-check--button-size-medium);
+    height: var(--yds-check--button-size-medium);
+
+  }
+}
+.yds-check-item {
+  &--large > input[type=radio] ~ label:before,
+  &--large > input[type=checkbox] ~ label:before {
+
+    width: var(--yds-check--button-size-large);
+    height: var(--yds-check--button-size-large);
+
+  }
+}
+/* 크기별 check-item__desc 들여쓰기 */
+.yds-check-item {
+  &--medium > input ~ label + .yds-check-item__desc {
+
+    padding-left: calc(var(--yds-check--button-size-medium) + var(--yds-check--gap));
+
+  }
+}
+.yds-check-item {
+  &--large > input ~ label + .yds-check-item__desc {
+
+    padding-left: calc(var(--yds-check--button-size-large) + var(--yds-check--gap));
+
+  }
+}
+/* ----- 추가 텍스트 ----- */
+.yds-check-item {
+  .yds-check-item__desc {
+
+    margin-top: var(--space-4);
+
+  }
+}
+.yds-check-item {
+  .yds-check-item__desc .yds-check-item__text {
+
+    color: var(--yds-check--additional-text-color-text);
+    font-size: var(--yds-check--additional-text-pc-font-size-medium);
+
+  }
+}
+.yds-check-item {
+  &--large .yds-check-item__desc .yds-check-item__text {
+
+    font-size: var(--yds-check--additional-text-pc-font-size-large);
+
+  }
+}

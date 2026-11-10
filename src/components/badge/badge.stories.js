@@ -1,4 +1,4 @@
-import './badge.css';
+import './badge.scss';
 
 export default {
   title: 'Components/Badge',

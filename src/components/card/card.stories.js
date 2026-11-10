@@ -1,5 +1,5 @@
-import './card.css';
-import '../thumbnail/thumbnail.css';
+import './card.scss';
+import '../thumbnail/thumbnail.scss';
 
 export default {
   title: 'Components/Card',

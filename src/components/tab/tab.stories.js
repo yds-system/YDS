@@ -1,4 +1,4 @@
-import './tab.css';
+import './tab.scss';
 
 export default {
   title: 'Components/Tab',

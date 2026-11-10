@@ -1,0 +1,1690 @@
+/*
+ * layout.css
+ * 레이아웃 컴포넌트 (헤더, GNB, 모바일 GNB, 푸터)
+ *
+ * 출처: KRDS(범정부 UI/UX 디자인 시스템)
+ *   - reference/krds/_header.scss
+ *   - reference/krds/_main_menu.scss
+ *   - reference/krds/_footer.scss
+ *
+ * 순수 CSS로 재작성. .inner(common.css)는 .yds-container로 교체. 아래에 동일 규칙 정의.
+ */
+/* =========================================================
+   0. 공용 컨테이너
+   ========================================================= */
+/* 최대 너비 + 좌우 패딩을 갖는 가운데 정렬 컨테이너 (KRDS .inner 대체) */
+.yds-container {
+
+  max-width: var(--container-wrap-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+
+}
+/* =========================================================
+   1. 건너뛰기 링크
+   ========================================================= */
+#yds-skip-link {
+
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+}
+#yds-skip-link:focus {
+
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 9999;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+
+}
+/* =========================================================
+   2. 유틸리티 목록 (yds-utility-list) — 헤더·모바일 GNB 공용
+   ========================================================= */
+.yds-utility-list {
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+.yds-utility-list {
+  > li {
+
+    display: flex;
+    align-items: center;
+
+  }
+}
+.yds-utility-list {
+  > li:not(:first-child) {
+
+    margin-left: var(--space-12);
+    padding-left: var(--space-12);
+    border-left: 0.1rem solid var(--yds-header--utility-color-divider);
+
+  }
+}
+/* modifier: 왼쪽 정렬 (모바일 GNB 내부용) */
+.yds-utility-list {
+  &--start {
+
+    justify-content: flex-start;
+
+  }
+}
+.yds-utility-list {
+  &--start > li:not(:first-child) {
+
+    margin-left: var(--space-8);
+    padding-left: var(--space-8);
+
+  }
+}
+/* =========================================================
+   3. 헤더
+   ========================================================= */
+#yds-header {
+
+  --yds-header--color-surface: var(--color-bg-default);
+  --yds-header--utility-color-divider: var(--color-border-subtle);
+  --yds-header--navi-color-text: var(--color-text-default);
+  --yds-header--navi-color-hover: var(--color-bg-interactive-hover);
+  --yds-header--navi-color-pressed: var(--color-bg-interactive-pressed);
+  --yds-header--navi-min-height: var(--size-40);
+  --yds-header--navi-gap: var(--space-4) var(--space-8);
+  --yds-header--navi-padding: var(--space-4) var(--space-12) 0;
+  --yds-header--navi-border-radius: var(--radius-6);
+  --yds-header--navi-font-size-pc: var(--font-size-17);
+  --yds-header--navi-font-size-mobile: var(--font-size-15);
+
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  background-color: var(--yds-header--color-surface);
+
+}
+/* 헤더 내부 컨테이너 */
+.yds-header {
+  &__container .yds-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+
+  }
+}
+/* 유틸리티 영역 */
+.yds-header {
+  &__utility {
+
+    display: flex;
+    justify-content: flex-end;
+
+  }
+}
+/* 브랜딩(로고) 영역 */
+.yds-header {
+  &__branding {
+
+    display: flex;
+    align-items: center;
+
+  }
+}
+.yds-header {
+  &__logo a {
+
+    display: block;
+    width: 13.7rem;
+    height: var(--size-48);
+    background-image: url(../../../reference/krds/resources/img/component/icon/ico_logo_krds.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    overflow: hidden;
+
+  }
+}
+/* 헤더 액션 버튼 그룹 */
+.yds-header {
+  &__actions {
+
+    display: inline-flex;
+    gap: var(--space-8);
+    margin-left: auto;
+
+  }
+}
+/* 내비게이션 버튼 (yds-header__action-btn) */
+.yds-header {
+  &__action-btn {
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--yds-header--navi-gap);
+    min-height: var(--yds-header--navi-min-height);
+    padding: var(--yds-header--navi-padding);
+    border-radius: var(--yds-header--navi-border-radius);
+    font-size: var(--yds-header--navi-font-size-pc);
+    font-weight: var(--font-weight-bold);
+    color: var(--yds-header--navi-color-text);
+    transition: var(--transition-base);
+    cursor: pointer;
+    border: none;
+    background: none;
+    text-decoration: none;
+
+  }
+}
+.yds-header {
+  &__action-btn::before {
+
+    content: "";
+    display: inline-flex;
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+    background-color: var(--yds-header--navi-color-text);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    forced-color-adjust: none;
+
+  }
+}
+/* 아이콘 개별 지정 */
+.yds-header {
+  &__action-btn.yds-header__action-btn--search::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
+
+  }
+}
+.yds-header {
+  &__action-btn.yds-header__action-btn--login::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
+
+  }
+}
+.yds-header {
+  &__action-btn.yds-header__action-btn--join::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
+
+  }
+}
+.yds-header {
+  &__action-btn.yds-header__action-btn--mypage::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
+
+  }
+}
+.yds-header {
+  &__action-btn.yds-header__action-btn--all-menu::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
+
+  }
+}
+/* 상태 */
+.yds-header {
+  &__action-btn:hover {
+
+    background-color: var(--yds-header--navi-color-hover);
+
+  }
+}
+.yds-header {
+  &__action-btn:active,
+  &__action-btn:focus {
+
+    background-color: var(--yds-header--navi-color-pressed);
+    outline: none;
+
+  }
+}
+/* =========================================================
+   4. PC GNB (.yds-main-menu)
+   ========================================================= */
+.yds-main-menu {
+
+  --yds-main-menu--color-surface: var(--color-bg-default);
+  --yds-main-menu--color-border: var(--color-border-subtle);
+  --yds-main-menu--main-trigger-color-text: var(--color-text-subtle);
+  --yds-main-menu--main-trigger-color-text-active: var(--color-text-default);
+  --yds-main-menu--main-trigger-color-action-hover: var(--color-bg-interactive-hover);
+  --yds-main-menu--main-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-main-menu--main-trigger-color-border-selected: var(--color-bg-interactive-active);
+  --yds-main-menu--toggle-color-surface: var(--color-bg-default);
+  --yds-main-menu--main-menu-color-surface: var(--color-bg-secondary-subtle);
+  --yds-main-menu--sub-trigger-color-text: var(--color-text-default);
+  --yds-main-menu--sub-trigger-color-text-selected: var(--color-text-secondary-strong);
+  --yds-main-menu--sub-trigger-color-action: transparent;
+  --yds-main-menu--sub-trigger-color-action-selected: var(--color-text-on-interactive-active);
+  --yds-main-menu--sub-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-main-menu--sub-menu-color-action: transparent;
+  --yds-main-menu--sub-menu-color-action-hover: var(--color-bg-interactive-hover);
+  --yds-main-menu--sub-menu-color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-main-menu--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
+  --yds-main-menu--sub-menu-trigger-color-text-selected: var(--color-text-secondary-strong);
+  --yds-main-menu--banner-background: var(--color-bg-subtler);
+
+  --yds-main-menu--main-trigger-size-height: var(--size-56);
+  --yds-main-menu--main-trigger-padding-x: var(--space-16);
+  --yds-main-menu--main-trigger-font-size: var(--font-size-19);
+  --yds-main-menu--main-menu-width: 26.6rem;
+  --yds-main-menu--sub-trigger-padding-x: var(--space-24);
+  --yds-main-menu--sub-trigger-padding-y: var(--space-16);
+  --yds-main-menu--sub-trigger-font-size: var(--font-size-17);
+  --yds-main-menu--sub-trigger-font-size-active: var(--font-size-17);
+  --yds-main-menu--sub-menu-padding-x: var(--space-40);
+  --yds-main-menu--sub-menu-padding-y: var(--space-16);
+  --yds-main-menu--sub-menu-title-size-height: var(--size-56);
+  --yds-main-menu--sub-menu-title-font-size: var(--font-size-24);
+  --yds-main-menu--sub-menu-trigger-color-padding-x: var(--space-8);
+  --yds-main-menu--sub-menu-trigger-color-padding-y: var(--space-10);
+  --yds-main-menu--sub-menu-trigger-color-radius: var(--radius-6);
+  --yds-main-menu--sub-menu-trigger-color-font-size: var(--font-size-17);
+
+  /*
+  * z-index 쌓임 순서 (#yds-header 쌓임 맥락 기준)
+  *   딤(backdrop)  :  5
+  *   PC GNB 영역   : 10  ← yds-main-menu 에 position+z-index로 쌓임 맥락 생성
+  *   드롭다운      :      yds-main-menu 맥락 안에서 z-index 10 (딤 위에 보임)
+  *   모바일 GNB    : 100  (#yds-header 바깥에 fixed 배치)
+  */
+  position: relative;
+  z-index: 10;
+  background-color: var(--yds-main-menu--color-surface);
+  border-top: 0.1rem solid var(--yds-main-menu--color-border);
+  border-bottom: 0.1rem solid var(--yds-main-menu--color-border);
+
+}
+/* 1depth 메뉴 목록 */
+.yds-main-menu {
+  .yds-main-menu__list {
+
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--space-16);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+/* 1depth 트리거 버튼 */
+.yds-main-menu {
+  &__trigger {
+
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-8);
+    position: relative;
+    height: var(--yds-main-menu--main-trigger-size-height);
+    color: var(--yds-main-menu--main-trigger-color-text);
+    padding: 0 var(--yds-main-menu--main-trigger-padding-x);
+    font-size: var(--yds-main-menu--main-trigger-font-size);
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition-base);
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+
+  }
+}
+/* 하단 강조 바 (선택 시) */
+.yds-main-menu {
+  &__trigger::before {
+
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0.4rem;
+    background-color: var(--yds-main-menu--main-trigger-color-border-selected);
+    transition: var(--transition-base);
+
+  }
+}
+/* 각도 아이콘 */
+.yds-main-menu {
+  &__trigger::after {
+
+    content: "";
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+    background-color: currentColor;
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transform: rotate(0deg);
+    transition: var(--transition-base);
+
+  }
+}
+/* 링크형 트리거 (하위 메뉴 없음) — 아이콘 숨김 */
+.yds-main-menu {
+  &__trigger.yds-main-menu__trigger--link::after {
+
+    display: none;
+
+  }
+}
+/* 상태 */
+.yds-main-menu {
+  &__trigger:hover {
+
+    color: var(--yds-main-menu--main-trigger-color-text-active);
+    background-color: var(--yds-main-menu--main-trigger-color-action-hover);
+
+  }
+}
+.yds-main-menu {
+  &__trigger:active {
+
+    background-color: var(--yds-main-menu--main-trigger-color-action-pressed);
+
+  }
+}
+/* 활성 상태 */
+.yds-main-menu {
+  &__trigger.yds-main-menu__trigger--open {
+
+    color: var(--yds-main-menu--main-trigger-color-text-active);
+
+  }
+}
+.yds-main-menu {
+  &__trigger.yds-main-menu__trigger--open::before {
+
+    left: 0;
+    width: 100%;
+    transform: none;
+
+  }
+}
+.yds-main-menu {
+  &__trigger.yds-main-menu__trigger--open::after {
+
+    transform: rotate(-180deg);
+
+  }
+}
+/* 드롭다운 토글 래퍼 */
+.yds-main-menu {
+  &__dropdown {
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+    background-color: var(--yds-main-menu--toggle-color-surface);
+    z-index: 10;
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 0.1rem;
+
+  }
+}
+.yds-main-menu {
+  &__dropdown.yds-main-menu__dropdown--open {
+
+    display: block;
+
+  }
+}
+/* 2depth 메뉴 목록 래퍼 */
+.yds-main-menu {
+  &__panel {
+
+    position: relative;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding-x);
+
+  }
+}
+/* 왼쪽 사이드바 배경 (서브메뉴 있을 때) */
+.yds-main-menu {
+  &__panel[data-has-submenu="true"]::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--container-padding-x);
+    width: var(--yds-main-menu--main-menu-width);
+    height: 100%;
+    background-color: var(--yds-main-menu--main-menu-color-surface);
+    display: block;
+
+  }
+}
+.yds-main-menu {
+  &__panel > ul {
+
+    position: relative;
+    padding: var(--space-16) 0;
+    list-style: none;
+    margin: 0;
+
+  }
+}
+.yds-main-menu {
+  &__panel > ul > li {
+
+    width: var(--yds-main-menu--main-menu-width);
+
+  }
+}
+/* 2depth 트리거 버튼 */
+.yds-main-menu {
+  &__sub-trigger {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--space-24);
+    padding: var(--yds-main-menu--sub-trigger-padding-y) var(--yds-main-menu--sub-trigger-padding-x);
+    background-color: var(--yds-main-menu--sub-trigger-color-action);
+    font-size: var(--yds-main-menu--sub-trigger-font-size);
+    color: var(--yds-main-menu--sub-trigger-color-text);
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-decoration: none;
+
+  }
+}
+/* 2depth 트리거 아이콘 (오른쪽 화살표) */
+.yds-main-menu {
+  &__sub-trigger::after {
+
+    content: "";
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+    background-color: currentColor;
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transform: rotate(-90deg);
+    transition: var(--transition-base);
+
+  }
+}
+/* 링크형 2depth — more 아이콘으로 교체 */
+.yds-main-menu {
+  &__sub-trigger.yds-main-menu__sub-trigger--link::after {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
+    transform: rotate(0deg);
+
+  }
+}
+/* 2depth 상태 */
+.yds-main-menu {
+  &__sub-trigger:hover,
+  &__sub-trigger.yds-main-menu__sub-trigger--open {
+
+    font-size: var(--yds-main-menu--sub-trigger-font-size-active);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--yds-main-menu--sub-trigger-color-action-selected);
+    color: var(--yds-main-menu--sub-trigger-color-text-selected);
+
+  }
+}
+.yds-main-menu {
+  &__sub-trigger:active {
+
+    background-color: var(--yds-main-menu--sub-trigger-color-action-pressed);
+
+  }
+}
+/* 3depth 서브메뉴 목록 */
+.yds-main-menu {
+  &__sub-list {
+
+    flex-direction: column;
+    gap: var(--space-16);
+    position: absolute;
+    top: 0;
+    left: var(--yds-main-menu--main-menu-width);
+    right: 0;
+    display: none;
+    min-height: 100%;
+    padding: var(--yds-main-menu--sub-menu-padding-y) var(--yds-main-menu--sub-menu-padding-x);
+
+  }
+}
+.yds-main-menu {
+  &__sub-list.yds-main-menu__sub-list--open {
+
+    display: flex;
+
+  }
+}
+/* 서브메뉴 제목 */
+.yds-main-menu {
+  &__sub-list .yds-main-menu__sub-title {
+
+    display: flex;
+    align-items: center;
+    height: var(--yds-main-menu--sub-menu-title-size-height);
+    font-size: var(--yds-main-menu--sub-menu-title-font-size);
+    font-weight: var(--font-weight-bold);
+
+  }
+}
+/* 3depth 링크 그리드 */
+.yds-main-menu {
+  &__sub-list .yds-main-menu__sub-content > ul {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--space-24);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+/* 3depth 링크/버튼 */
+.yds-main-menu {
+  &__sub-content > ul a,
+  &__sub-content > ul button {
+
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    gap: var(--space-8);
+    padding: var(--yds-main-menu--sub-menu-trigger-color-padding-y) var(--yds-main-menu--sub-menu-trigger-color-padding-x);
+    background-color: var(--yds-main-menu--sub-menu-color-action);
+    border-radius: var(--yds-main-menu--sub-menu-trigger-color-radius);
+    font-size: var(--yds-main-menu--sub-menu-trigger-color-font-size);
+    color: var(--color-text-default);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition-base);
+
+  }
+}
+/* 불릿 점 */
+.yds-main-menu {
+  &__sub-content > ul a::before,
+  &__sub-content > ul button::before {
+
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: var(--space-10);
+    background-color: var(--color-text-default);
+    border-radius: 50%;
+
+  }
+}
+/* 3depth 상태 */
+.yds-main-menu {
+  &__sub-content > ul a:hover,
+  &__sub-content > ul button:hover {
+
+    background-color: var(--yds-main-menu--sub-menu-color-action-hover);
+
+  }
+}
+.yds-main-menu {
+  &__sub-content > ul a:active,
+  &__sub-content > ul button:active {
+
+    background-color: var(--yds-main-menu--sub-menu-color-action-pressed);
+
+  }
+}
+.yds-main-menu {
+  &__sub-content > ul a.yds-main-menu__sub-link--current,
+  &__sub-content > ul button.yds-main-menu__sub-link--current {
+
+    background-color: var(--yds-main-menu--sub-menu-trigger-color-action-selected);
+    color: var(--yds-main-menu--sub-menu-trigger-color-text-selected);
+    font-weight: var(--font-weight-bold);
+
+  }
+}
+/* 단일 목록형 (사이드바 없이 펼침) */
+.yds-main-menu {
+  &__sub-list.yds-main-menu__sub-list--single {
+
+    display: flex;
+    position: static;
+    padding: var(--space-16) 0;
+
+  }
+}
+.yds-main-menu {
+  &__sub-list.yds-main-menu__sub-list--single .yds-main-menu__sub-content > ul {
+
+    grid-template-columns: repeat(4, 1fr);
+
+  }
+}
+/* GNB 배너 영역 */
+.yds-main-menu {
+  &__sub-banner {
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-8);
+    background: var(--yds-main-menu--banner-background);
+
+  }
+}
+/* =========================================================
+   5. GNB 백드롭
+   ========================================================= */
+/* 딤: yds-main-menu(z-index 10)보다 낮게 유지 */
+.yds-main-menu {
+  &__backdrop {
+
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: var(--color-bg-overlay);
+
+  }
+}
+.yds-main-menu {
+  &__backdrop.yds-main-menu__backdrop--open {
+
+    display: block;
+
+  }
+}
+/* =========================================================
+   6. 모바일 GNB (.yds-main-menu-mobile)
+   ========================================================= */
+.yds-main-menu-mobile {
+
+  --yds-main-menu-mobile--color-surface: var(--color-bg-default);
+  --yds-main-menu-mobile--color-dim: var(--color-bg-overlay);
+  --yds-main-menu-mobile--header-gap: var(--space-16);
+  --yds-main-menu-mobile--header-padding-top: var(--space-12);
+  --yds-main-menu-mobile--header-padding-x: var(--space-12);
+  --yds-main-menu-mobile--header-padding-bottom: var(--space-12);
+  --yds-main-menu-mobile--header-color-border: var(--color-border-subtle);
+  --yds-main-menu-mobile--login-gap: var(--space-8);
+  --yds-main-menu-mobile--main-trigger-height: var(--size-56);
+  --yds-main-menu-mobile--main-trigger-padding-x: var(--space-12);
+  --yds-main-menu-mobile--main-trigger-font-size: var(--font-size-17);
+  --yds-main-menu-mobile--main-trigger-color-text-active: var(--color-text-secondary-strong);
+  --yds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-on-interactive-active);
+  --yds-main-menu-mobile--menu-color-surface: var(--color-bg-secondary-subtle);
+  --yds-main-menu-mobile--menu-left-width: 12rem;
+  --yds-main-menu-mobile--sub-menu-color-surface: var(--color-bg-default);
+  --yds-main-menu-mobile--sub-menu-padding: var(--space-12);
+  --yds-main-menu-mobile--sub-list-padding-y: var(--space-10);
+  --yds-main-menu-mobile--sub-title-font-size: var(--font-size-19);
+  --yds-main-menu-mobile--sub-title-padding-top: var(--space-8);
+  --yds-main-menu-mobile--sub-title-padding-x: 0;
+  --yds-main-menu-mobile--sub-title-padding-bottom: var(--space-10);
+  --yds-main-menu-mobile--sub-title-color-border: var(--color-border-subtle);
+  --yds-main-menu-mobile--sub-menu-trigger-padding-y: var(--space-8);
+  --yds-main-menu-mobile--sub-menu-trigger-padding-x: var(--space-8);
+  --yds-main-menu-mobile--sub-menu-trigger-font-size: var(--font-size-17);
+  --yds-main-menu-mobile--sub-menu-trigger-border-radius: var(--radius-6);
+  --yds-main-menu-mobile--sub-menu-trigger-color-action-hover: var(--color-bg-interactive-hover);
+  --yds-main-menu-mobile--sub-menu-trigger-color-action-selected: var(--color-bg-interactive-hover);
+  --yds-main-menu-mobile--sub-menu-trigger-color-text-selected: var(--color-text-secondary-strong);
+
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  transition: var(--transition-base);
+
+}
+.yds-main-menu-mobile {
+  &--open {
+
+    right: 0;
+    visibility: visible;
+
+  }
+}
+/* 딤 오버레이 */
+.yds-main-menu-mobile {
+  &::after {
+
+    content: "";
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--yds-main-menu-mobile--color-dim);
+    opacity: 0;
+    transition: opacity 0.5s 0.1s;
+
+  }
+}
+.yds-main-menu-mobile {
+  &.yds-main-menu-mobile--open.yds-main-menu-mobile--backdrop::after {
+
+    display: block;
+    opacity: 1;
+
+  }
+}
+/* 슬라이드 패널 */
+.yds-main-menu-mobile {
+  &__panel {
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    height: 100%;
+    background-color: var(--yds-main-menu-mobile--color-surface);
+    width: 100%;
+
+  }
+}
+/* GNB 헤더 */
+.yds-main-menu-mobile {
+  &__header {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--yds-main-menu-mobile--header-gap);
+    padding: var(--yds-main-menu-mobile--header-padding-top) var(--yds-main-menu-mobile--header-padding-x) var(--yds-main-menu-mobile--header-padding-bottom);
+    border-bottom: 0.1rem solid var(--yds-main-menu-mobile--header-color-border);
+    position: relative;
+
+  }
+}
+/* 유틸리티 목록 (모바일 GNB 내부) — yds-utility-list--start와 조합 */
+.yds-main-menu-mobile {
+  &__utils {
+
+    /* yds-utility-list--start 클래스로 정렬 제어 */
+
+  }
+}
+/* 로그인 링크 */
+.yds-main-menu-mobile {
+  &__login {
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--yds-main-menu-mobile--login-gap);
+
+  }
+}
+/* 서비스 메뉴 */
+.yds-main-menu-mobile {
+  &__service-menu {
+
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+.yds-main-menu-mobile {
+  &__service-link {
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--yds-main-menu-mobile--main-trigger-font-size);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-text-default);
+
+  }
+}
+/* GNB 본문 (스크롤 영역) */
+.yds-main-menu-mobile {
+  &__body {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+  }
+}
+/* 메뉴 래퍼 (좌측 1depth + 우측 2depth) */
+.yds-main-menu-mobile {
+  &__menu {
+
+    display: flex;
+    position: relative;
+    background-color: var(--yds-main-menu-mobile--menu-color-surface);
+
+  }
+}
+/* 1depth 사이드바 */
+.yds-main-menu-mobile {
+  &__nav-list {
+
+    display: flex;
+    flex-direction: column;
+    width: var(--yds-main-menu-mobile--menu-left-width);
+    flex-shrink: 0;
+
+  }
+}
+.yds-main-menu-mobile {
+  &__nav-list ul {
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+/* 1depth 트리거 (모바일) */
+.yds-main-menu-mobile {
+  &__nav-list .yds-main-menu-mobile__trigger {
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--yds-main-menu-mobile--main-trigger-height);
+    padding: 0 var(--yds-main-menu-mobile--main-trigger-padding-x);
+    font-size: var(--yds-main-menu-mobile--main-trigger-font-size);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-text-default);
+    position: static;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+
+  }
+}
+/* 1depth 활성 (모바일) */
+.yds-main-menu-mobile {
+  &__nav-list .yds-main-menu-mobile__trigger.yds-main-menu-mobile__trigger--open {
+
+    color: var(--yds-main-menu-mobile--main-trigger-color-text-active);
+    background-color: var(--yds-main-menu-mobile--main-trigger-color-action-active);
+    font-weight: bold;
+
+  }
+}
+/* 모바일에서 1depth 하단 바 숨김 */
+.yds-main-menu-mobile {
+  &__nav-list .yds-main-menu-mobile__trigger::before {
+
+    display: none;
+
+  }
+}
+/* 모바일에서 1depth 화살표 아이콘 숨김 */
+.yds-main-menu-mobile {
+  &__nav-list .yds-main-menu-mobile__trigger::after {
+
+    display: none;
+
+  }
+}
+/* 2depth 서브메뉴 패널 (모바일) */
+.yds-main-menu-mobile {
+  &__sub-panel {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--yds-main-menu-mobile--sub-menu-color-surface);
+
+  }
+}
+/* 2depth 목록 영역 (모바일) */
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-list {
+
+    position: static;
+    display: none;
+    padding: var(--yds-main-menu-mobile--sub-menu-padding);
+    flex-direction: column;
+    gap: 0;
+    min-height: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+
+  }
+}
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-list.yds-main-menu-mobile__sub-list--open {
+
+    display: flex;
+
+  }
+}
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-list > ul {
+
+    padding: var(--yds-main-menu-mobile--sub-list-padding-y) 0;
+    list-style: none;
+    margin: 0;
+
+  }
+}
+/* 서브 제목 (모바일) */
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-title {
+
+    font-size: var(--yds-main-menu-mobile--sub-title-font-size);
+    font-weight: bold;
+    padding: var(--yds-main-menu-mobile--sub-title-padding-top) var(--yds-main-menu-mobile--sub-title-padding-x) var(--yds-main-menu-mobile--sub-title-padding-bottom);
+    border-bottom: 0.1rem solid var(--yds-main-menu-mobile--sub-title-color-border);
+    height: auto;
+
+  }
+}
+/* 3depth 링크 (모바일) */
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-trigger {
+
+    display: flex;
+    align-items: center;
+    padding: var(--yds-main-menu-mobile--sub-menu-trigger-padding-y) var(--yds-main-menu-mobile--sub-menu-trigger-padding-x);
+    font-size: var(--yds-main-menu-mobile--sub-menu-trigger-font-size);
+    border-radius: var(--yds-main-menu-mobile--sub-menu-trigger-border-radius);
+    text-decoration: none;
+    color: var(--color-text-default);
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: var(--space-8);
+    justify-content: flex-start;
+    transition: var(--transition-base);
+
+  }
+}
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-trigger::after {
+
+    display: none;
+
+  }
+}
+/* 상태 (모바일 3depth) */
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-trigger:hover {
+
+    background-color: var(--yds-main-menu-mobile--sub-menu-trigger-color-action-hover);
+
+  }
+}
+.yds-main-menu-mobile {
+  .yds-main-menu-mobile__sub-trigger.yds-main-menu-mobile__sub-trigger--current,
+  .yds-main-menu-mobile__sub-trigger:focus {
+
+    background-color: var(--yds-main-menu-mobile--sub-menu-trigger-color-action-selected);
+    color: var(--yds-main-menu-mobile--sub-menu-trigger-color-text-selected);
+    font-weight: bold;
+    outline: none;
+
+  }
+}
+/* GNB 하단 영역 */
+.yds-main-menu-mobile {
+  &__bottom {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+    padding: var(--space-16);
+
+  }
+}
+/* 닫기 버튼 */
+#close-nav {
+
+  position: absolute;
+  top: var(--yds-main-menu-mobile--header-padding-top);
+  right: var(--yds-main-menu-mobile--header-padding-x);
+
+}
+/* =========================================================
+   7. 푸터 (#yds-footer)
+   ========================================================= */
+#yds-footer {
+
+  position: relative;
+  z-index: 50;
+  background-color: var(--color-bg-subtle);
+
+}
+/* 빠른 링크 */
+.yds-footer {
+  &__quick {
+
+    border-top: 0.1rem solid var(--color-border-subtle);
+    border-bottom: 0.1rem solid var(--color-border-subtle);
+    background-color: var(--color-bg-default);
+
+  }
+}
+.yds-footer {
+  &__quick .yds-container {
+
+    display: flex;
+    padding: 0;
+
+  }
+}
+.yds-footer {
+  &__quick-link {
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    gap: var(--space-8);
+    height: calc(var(--size-56) - 0.2rem);
+    padding: 0 var(--space-24);
+    background-color: transparent;
+    border: none;
+    border-right: 0.1rem solid var(--color-border-subtle);
+    transition: var(--transition-base);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text-default);
+    font-size: inherit;
+
+  }
+}
+.yds-footer {
+  &__quick-link:first-child {
+
+    border-left: 0.1rem solid var(--color-border-subtle);
+
+  }
+}
+/* + 아이콘 */
+.yds-footer {
+  &__quick-link::after {
+
+    content: "";
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+    background-color: var(--color-icon-default);
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    forced-color-adjust: none;
+
+  }
+}
+.yds-footer {
+  &__quick-link:hover {
+
+    background-color: var(--color-bg-interactive-hover);
+
+  }
+}
+.yds-footer {
+  &__quick-link:active {
+
+    background-color: var(--color-bg-interactive-pressed);
+
+  }
+}
+/* 푸터 본문 */
+#yds-footer > .yds-container {
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+  padding: var(--space-40) 0 var(--space-24);
+
+}
+/* 로고 */
+.yds-footer {
+  &__logo {
+
+    display: block;
+    width: 13.7rem;
+    height: var(--size-48);
+    background-image: url(../../../reference/krds/resources/img/component/icon/ico_logo_krds.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+    text-indent: -9999px;
+    overflow: hidden;
+
+  }
+}
+/* 푸터 콘텐츠 영역 */
+.yds-footer {
+  &__content {
+
+    display: flex;
+    gap: var(--space-24);
+    justify-content: space-between;
+    flex: 1;
+
+  }
+}
+/* 기관 정보 */
+.yds-footer {
+  &__info {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--space-16);
+
+  }
+}
+.yds-footer {
+  &__address {
+
+    color: var(--color-text-default);
+
+  }
+}
+.yds-footer {
+  &__contact {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  }
+}
+.yds-footer {
+  &__contact li {
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+
+  }
+}
+/* 관련 링크 / SNS */
+.yds-footer {
+  &__links {
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: var(--space-40);
+
+  }
+}
+.yds-footer {
+  &__shortcuts {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+
+  }
+}
+.yds-footer {
+  &__shortcuts a {
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    color: var(--color-text-default);
+    text-decoration: none;
+    transition: var(--transition-base);
+
+  }
+}
+.yds-footer {
+  &__shortcuts a::after {
+
+    content: "";
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--icon-size-s);
+    height: var(--icon-size-s);
+    background-color: currentColor;
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    forced-color-adjust: none;
+
+  }
+}
+.yds-footer {
+  &__sns {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+/* SNS 아이콘 버튼 */
+.yds-footer {
+  &__sns a {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size-48);
+    height: var(--size-48);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: var(--transition-base);
+    text-indent: -9999px;
+    overflow: hidden;
+    position: relative;
+
+  }
+}
+.yds-footer {
+  &__sns a::before {
+
+    content: "";
+    position: absolute;
+    width: var(--icon-size-m);
+    height: var(--icon-size-m);
+    background-color: var(--color-icon-default);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    forced-color-adjust: none;
+
+  }
+}
+.yds-footer {
+  &__sns a:hover {
+
+    background-color: var(--color-bg-interactive-hover);
+
+  }
+}
+.yds-footer {
+  &__sns-item--instagram a::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
+
+  }
+}
+.yds-footer {
+  &__sns-item--youtube a::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
+
+  }
+}
+.yds-footer {
+  &__sns-item--x a::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
+
+  }
+}
+.yds-footer {
+  &__sns-item--facebook a::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
+
+  }
+}
+.yds-footer {
+  &__sns-item--blog a::before {
+
+    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
+    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
+
+  }
+}
+/* 푸터 하단 */
+.yds-footer {
+  &__bottom {
+
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--space-16);
+    gap: var(--space-40);
+    border-top: 0.1rem solid var(--color-border-subtle);
+
+  }
+}
+.yds-footer {
+  &__bottom-text {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+  }
+}
+/* 하단 메뉴 링크 */
+.yds-footer {
+  &__menu {
+
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+}
+.yds-footer {
+  &__menu a {
+
+    color: var(--color-text-default);
+    text-decoration: none;
+    transition: var(--transition-base);
+
+  }
+}
+.yds-footer {
+  &__menu a:hover {
+
+    text-decoration: underline;
+
+  }
+}
+.yds-footer {
+  &__menu a.yds-footer__menu-link--emphasis {
+
+    font-weight: bold;
+
+  }
+}
+/* 저작권 */
+.yds-footer {
+  &__copyright {
+
+    font-size: var(--font-size-15);
+    color: var(--color-text-subtle);
+
+  }
+}
+/* =========================================================
+   8. 반응형
+   ========================================================= */
+/* PC (≥ 1280px) */
+@media (min-width: 1280px) {
+  .yds-header {
+    &__action-btn.yds-header__action-btn--all-menu {
+
+      display: none;
+
+    }
+  }
+  .yds-main-menu-mobile {
+
+    display: none;
+
+  }
+}
+/* 모바일/태블릿 (< 1280px) */
+@include mobile {
+  /* PC GNB 숨김 */
+  .yds-main-menu {
+
+    display: none;
+
+  }
+  /* 전체 메뉴 버튼 표시 */
+  .yds-header {
+    &__action-btn.yds-header__action-btn--all-menu {
+
+      display: inline-flex !important;
+
+    }
+  }
+  /* 가입/마이 버튼 숨김 */
+  .yds-header {
+    &__action-btn.yds-header__action-btn--join,
+  &__action-btn.yds-header__action-btn--mypage {
+
+      display: none;
+
+    }
+  }
+  /* 유틸리티 줄 숨김 */
+  .yds-header {
+    &__utility {
+
+      display: none;
+
+    }
+  }
+  /* 헤더 내부 컨테이너 가로 배치 */
+  #yds-header .yds-header__container .yds-container {
+
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 0.1rem solid var(--color-border-subtle);
+
+  }
+  /* 로고 크기 축소 */
+  .yds-header {
+    &__logo a {
+
+      width: 9.4rem;
+      height: 3.2rem;
+
+    }
+  }
+  /* 내비 버튼 폰트/간격 조정 */
+  .yds-header {
+    &__action-btn {
+
+      font-size: var(--yds-header--navi-font-size-mobile);
+      gap: 0;
+      min-height: auto;
+      padding: var(--space-4) var(--space-8);
+
+    }
+  }
+  /* 액션 버튼 그룹 간격 제거 */
+  .yds-header {
+    &__actions {
+
+      gap: 0;
+
+    }
+  }
+}
+/* 태블릿 (768px ~ 1279px) — 모바일 GNB 패널 너비 */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .yds-main-menu-mobile {
+    &__panel {
+
+      width: 40%;
+
+    }
+  }
+}
+/* 모바일 (≤ 767px) */
+@media (max-width: 767px) {
+  /* 모바일 GNB 전체 너비 */
+  .yds-main-menu-mobile {
+    &__panel {
+
+      width: 100%;
+
+    }
+  }
+  /* 빠른 링크 세로 배치 */
+  .yds-footer {
+    &__quick .yds-container {
+
+      flex-direction: column;
+
+    }
+  }
+  .yds-footer {
+    &__quick-link {
+
+      min-height: calc(var(--size-48) - 0.2rem);
+      padding: 0 var(--space-16);
+      border: 0;
+      border-top: 0.1rem solid var(--color-border-subtle);
+
+    }
+  }
+  .yds-footer {
+    &__quick-link:first-child {
+
+      border: 0;
+
+    }
+  }
+  /* 푸터 내부 패딩 */
+  #yds-footer > .yds-container {
+
+    padding: var(--space-24) var(--space-16);
+    gap: var(--space-24);
+
+  }
+  /* 로고 크기 축소 */
+  .yds-footer {
+    &__logo {
+
+      width: 9.9rem;
+      height: 3.2rem;
+
+    }
+  }
+  /* 푸터 콘텐츠 세로 배치 */
+  .yds-footer {
+    &__content {
+
+      flex-direction: column;
+
+    }
+  }
+  /* 하단 텍스트 세로 배치 */
+  .yds-footer {
+    &__bottom-text {
+
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-20);
+
+    }
+  }
+  /* 저작권 폰트 모바일 적용 */
+  .yds-footer {
+    &__copyright {
+
+      font-size: var(--font-size-15);
+
+    }
+  }
+}

@@ -1,0 +1,238 @@
+/* =============================================================================
+   디자인 토큰 — 프리미티브
+   원재료 토큰. 직접 컴포넌트에 쓰지 않고 semantic.css에서 참조한다.
+   (일러스트·차트 등 장식 요소는 프리미티브 직접 사용 가능)
+   필수 전제: html { font-size: 62.5% } (1rem = 10px)
+   ============================================================================= */
+:root {
+
+  /* ── 1. 색상 프리미티브 ─────────────────────────────────────────────────────── */
+
+  /* color-primary  ─  KRDS --krds-color-light-primary-* */
+  --color-primary-5:   #ecf2fe;
+  --color-primary-10:  #d8e5fd;
+  --color-primary-20:  #b1cefb;
+  --color-primary-30:  #86aff9;
+  --color-primary-40:  #4c87f6;
+  --color-primary-50:  #256ef4;
+  --color-primary-60:  #0b50d0;
+  --color-primary-70:  #083891;
+  --color-primary-80:  #052561;
+  --color-primary-90:  #03163a;
+  --color-primary-95:  #020f27;
+
+  /* color-secondary  ─  KRDS --krds-color-light-secondary-* */
+  --color-secondary-5:   #eef2f7;
+  --color-secondary-10:  #d6e0eb;
+  --color-secondary-20:  #bacbde;
+  --color-secondary-30:  #90b0d5;
+  --color-secondary-40:  #6b96c7;
+  --color-secondary-50:  #346fb2;
+  --color-secondary-60:  #1c589c;
+  --color-secondary-70:  #063a74;
+  --color-secondary-80:  #052b57;
+  --color-secondary-90:  #031f3f;
+  --color-secondary-95:  #02162c;
+
+  /* color-gray  ─  KRDS --krds-color-light-gray-* */
+  --color-gray-0:   #ffffff;
+  --color-gray-5:   #f4f5f6;
+  --color-gray-10:  #e6e8ea;
+  --color-gray-20:  #cdd1d5;
+  --color-gray-30:  #b1b8be;
+  --color-gray-40:  #8a949e;
+  --color-gray-50:  #6d7882;
+  --color-gray-60:  #58616a;
+  --color-gray-70:  #464c53;
+  --color-gray-80:  #33363d;
+  --color-gray-90:  #1e2124;
+  --color-gray-95:  #131416;
+  --color-gray-100: #000000;
+
+  /* color-danger  ─  KRDS --krds-color-light-danger-* */
+  --color-danger-5:    #fdefec;
+  --color-danger-10:   #fcdfd9;
+  --color-danger-20:   #f7afa1;
+  --color-danger-30:   #f48771;
+  --color-danger-40:   #f05f42;
+  --color-danger-50:   #de3412;
+  --color-danger-60:   #bd2c0f;
+  --color-danger-70:   #8a240f;
+  --color-danger-80:   #5c180a;
+  --color-danger-90:   #390d05;
+  --color-danger-95:   #260903;
+
+  /* color-warning  ─  KRDS --krds-color-light-warning-* */
+  --color-warning-5:   #fff3db;
+  --color-warning-10:  #ffe0a3;
+  --color-warning-20:  #ffc95c;
+  --color-warning-30:  #ffb114;
+  --color-warning-40:  #c78500;
+  --color-warning-50:  #9e6a00;
+  --color-warning-60:  #8a5c00;
+  --color-warning-70:  #614100;
+  --color-warning-80:  #422c00;
+  --color-warning-90:  #2e1f00;
+  --color-warning-95:  #241800;
+
+  /* color-success  ─  KRDS --krds-color-light-success-* */
+  --color-success-5:    #eaf6ec;
+  --color-success-10:   #d8eedd;
+  --color-success-20:   #a9dab4;
+  --color-success-30:   #7ec88e;
+  --color-success-40:   #3fa654;
+  --color-success-50:   #228738;
+  --color-success-60:   #267337;
+  --color-success-70:   #285d33;
+  --color-success-80:   #1f4727;
+  --color-success-90:   #122b18;
+  --color-success-95:   #0e2012;
+
+  /* color-information  ─  KRDS --krds-color-light-information-* */
+  --color-information-5:    #e7f4fe;
+  --color-information-10:   #d3ebfd;
+  --color-information-20:   #9ed2fa;
+  --color-information-30:   #5fb5f7;
+  --color-information-40:   #2098f3;
+  --color-information-50:   #0b78cb;
+  --color-information-60:   #096ab3;
+  --color-information-70:   #085691;
+  --color-information-80:   #053961;
+  --color-information-90:   #03253f;
+  --color-information-95:   #021a2c;
+
+  /* color-black-alpha  ─  KRDS --krds-color-light-alpha-black* */
+  --color-black-alpha-100: #000000;
+  --color-black-alpha-75:  #000000bf;
+  --color-black-alpha-50:  #00000080;
+  --color-black-alpha-25:  #00000040;
+  --color-black-alpha-10:  #0000001a;
+  --color-black-alpha-0:   #00000000;
+
+  /* color-teal  ─  KRDS --krds-color-high-contrast-secondary-* (고대비 모드 secondary 전용) */
+  --color-teal-5:  #edf6f8;
+  --color-teal-10: #d5ebf1;
+  --color-teal-20: #abd8e3;
+  --color-teal-30: #75c0d1;
+  --color-teal-60: #1f687a;
+  --color-teal-70: #17505e;
+  --color-teal-80: #113b45;
+  --color-teal-95: #091f25;
+
+  /* color-point  ─  KRDS --krds-color-light-point-* (강조 빨강) */
+  --color-point-5:   #fbeff0;
+  --color-point-20:  #ebadb2;
+  --color-point-40:  #d65c66;
+  --color-point-50:  #d63d4a;
+  --color-point-60:  #ab2b36;
+  --color-point-90:  #310c0f;
+  --color-point-95:  #21080a;
+
+  /* color-purple  ─  방문한 링크 전용 (자체 추가) */
+  --color-purple-30: #c49ff9;  /* 다크·고대비 link-visited */
+  --color-purple-60: #5917b8;  /* 라이트 link-visited      */
+
+  /* color-white-alpha  ─  KRDS --krds-color-light-alpha-white* */
+  --color-white-alpha-100: #ffffff;
+  --color-white-alpha-75:  #ffffffbf;
+  --color-white-alpha-50:  #ffffff80;
+  --color-white-alpha-25:  #ffffff40;
+  --color-white-alpha-10:  #ffffff1a;
+  --color-white-alpha-0:   #ffffff00;
+
+  /* ── 3. 타이포 프리미티브 ───────────────────────────────────────────────────── */
+
+  /* font-family */
+  --font-family-base: 'Pretendard GOV', 'Pretendard', sans-serif;
+  --font-family-code: 'D2Coding', 'Courier New', monospace; /* 자체 추가 */
+
+  /* font-size (px 단위 이름, 1rem = 10px 기준) ─ KRDS --krds-pc-font-size-* */
+  --font-size-13: 1.3rem; /* --krds-pc-font-size-body-xsmall */
+  --font-size-15: 1.5rem; /* --krds-pc-font-size-body-small  */
+  --font-size-17: 1.7rem; /* --krds-pc-font-size-body-medium */
+  --font-size-19: 1.9rem; /* --krds-pc-font-size-body-large  */
+  --font-size-22: 2.2rem; /* --krds-mobile-font-size-heading-medium */
+  --font-size-24: 2.4rem; /* --krds-pc-font-size-heading-medium */
+  --font-size-28: 2.8rem; /* --krds-mobile-font-size-heading-xlarge */
+  --font-size-32: 3.2rem; /* --krds-pc-font-size-heading-large  */
+  --font-size-40: 4rem;   /* --krds-pc-font-size-heading-xlarge */
+
+  /* font-weight ─ KRDS --krds-typo-font-weight-* */
+  --font-weight-regular: 400;
+  --font-weight-medium:  500; /* 자체 추가 */
+  --font-weight-bold:    700;
+
+  /* line-height ─ 자체 추가 */
+  --line-height-tight:   1.25;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.75;
+
+  /* letter-spacing ─ KRDS --krds-typo-letter-spacing-* */
+  --font-letter-spacing-tight:  -0.025em;
+  --font-letter-spacing-normal:  0em;
+
+  /* ── 4. 간격 프리미티브 ─────────────────────────────────────────────────────── */
+
+  /* space (px 단위 이름) ─ KRDS --krds-number-* */
+  --space-0:  0rem;    /* --krds-number-0  */
+  --space-2:  0.2rem;  /* --krds-number-2  */
+  --space-4:  0.4rem;  /* --krds-number-3  */
+  --space-8:  0.8rem;  /* --krds-number-5  */
+  --space-10: 1rem;    /* --krds-padding-4 ⚠️ KRDS 호환 예외 단계 (4px 배수 아님) */
+  --space-12: 1.2rem;  /* --krds-number-7  */
+  --space-16: 1.6rem;  /* --krds-number-8  */
+  --space-20: 2rem;    /* --krds-number-9  */
+  --space-24: 2.4rem;  /* --krds-number-10 */
+  --space-32: 3.2rem;  /* --krds-number-12 */
+  --space-40: 4rem;    /* --krds-number-14 */
+  --space-48: 4.8rem;  /* --krds-number-16 */
+  --space-56: 5.6rem;  /* --krds-size-height-8 ⚠️ KRDS 호환 예외 단계 (4px 배수 아님) */
+  --space-64: 6.4rem;  /* --krds-number-18 */
+  --space-80: 8rem;    /* --krds-number-20 */
+
+  /* ── 5. 치수 프리미티브 ─────────────────────────────────────────────────────── */
+
+  /* size (px 단위 이름) — 컴포넌트 높이·너비 등 치수(dimension) 전용.
+  spacing이 아닌 height/width/min-height 등에 사용한다.
+  ─ KRDS --krds-size-height-* 대응 ────────────────────────────────────────── */
+  --size-8:  0.8rem;  /* --krds-size-height-1 */
+  --size-16: 1.6rem;  /* --krds-size-height-2 */
+  --size-20: 2rem;    /* --krds-size-height-3 */
+  --size-24: 2.4rem;  /* --krds-size-height-4 */
+  --size-32: 3.2rem;  /* --krds-size-height-5 */
+  --size-40: 4rem;    /* --krds-size-height-6 */
+  --size-48: 4.8rem;  /* --krds-size-height-7 */
+  --size-56: 5.6rem;  /* --krds-size-height-8 */
+  --size-64: 6.4rem;  /* --krds-size-height-9 */
+
+  /* ── 6. 모서리 프리미티브 ───────────────────────────────────────────────────── */
+
+  /* radius (px 단위 이름) ─ KRDS --krds-radius-* */
+  --radius-0:   0rem;    /* (자체 추가)              */
+  --radius-2:   0.2rem;  /* --krds-radius-xsmall1   */
+  --radius-4:   0.4rem;  /* --krds-radius-small1    */
+  --radius-6:   0.6rem;  /* --krds-radius-medium1   */
+  --radius-8:   0.8rem;  /* --krds-radius-medium3   */
+  --radius-10:  1rem;    /* --krds-radius-large2    */
+  --radius-12:  1.2rem;  /* --krds-radius-xlarge1   */
+  --radius-16:  1.6rem;  /* (자체 추가)              */
+  --radius-24:  2.4rem;  /* (자체 추가)              */
+  --radius-999: 99.9rem; /* --krds-radius-max        */
+
+  /* ── 7. 타이포 보조 프리미티브 ─────────────────────────────────────────────── */
+
+  /* line-height-none: 1 (줄 높이 없음) ─ KRDS --krds-line-height-none 대응 */
+  --line-height-none: 1;
+
+  /* ── 8. 테두리 두께 프리미티브 ─────────────────────────────────────────────── */
+
+  /* border-width (px 단위) ─ KRDS --krds-light-border-width-variable-* 대응 */
+  --border-width-1: 1px;  /* --krds-light-border-width-variable-regular */
+  --border-width-2: 2px;  /* --krds-light-border-width-variable-medium  */
+
+  /* ── 9. 트랜지션 프리미티브 ────────────────────────────────────────────────── */
+
+  /* transition-base: 공통 인터랙티브 트랜지션 ─ KRDS --krds-transition-base 대응 */
+  --transition-base: 0.4s ease-in-out;
+
+}

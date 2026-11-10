@@ -1,0 +1,203 @@
+/* =============================================
+   yds-card — 카드 컴포넌트 (자체 추가)
+   ============================================= */
+.yds-card {
+
+  --yds-card--radius:       var(--radius-m);
+  --yds-card--shadow:       var(--shadow-s);
+  --yds-card--shadow-hover: var(--shadow-m);
+  --yds-card--padding:      var(--padding-m);
+  --yds-card--gap:          var(--gap-s);
+  --yds-card--bg:           var(--color-bg-default);
+  --yds-card--border-color: var(--color-border-subtle);
+  --yds-card--title-color:  var(--color-text-default);
+  --yds-card--meta-color:   var(--color-text-subtle);
+  --yds-card--desc-color:   var(--color-text-subtle);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--yds-card--radius);
+  background-color: var(--yds-card--bg);
+  box-shadow: var(--yds-card--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+}
+.yds-card {
+  &:hover {
+
+    box-shadow: var(--yds-card--shadow-hover);
+
+  }
+}
+/* ----- 요소 ----- */
+.yds-card {
+  &__media {
+
+    flex-shrink: 0;
+
+  }
+}
+.yds-card {
+  &__body {
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--yds-card--gap);
+    padding: var(--yds-card--padding);
+
+  }
+}
+.yds-card {
+  &__meta {
+
+    font-size: 1.3rem;
+    color: var(--yds-card--meta-color);
+    margin: 0;
+
+  }
+}
+.yds-card {
+  &__title {
+
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--yds-card--title-color);
+    margin: 0;
+    line-height: 1.4;
+
+  }
+}
+.yds-card {
+  &__title a {
+
+    color: inherit;
+    text-decoration: none;
+
+  }
+}
+.yds-card {
+  &__title a:hover {
+
+    text-decoration: underline;
+
+  }
+}
+.yds-card {
+  &__desc {
+
+    font-size: 1.5rem;
+    color: var(--yds-card--desc-color);
+    margin: 0;
+    line-height: 1.6;
+
+  }
+}
+.yds-card {
+  &__actions {
+
+    display: flex;
+    gap: var(--yds-card--gap);
+    margin-top: auto;
+    padding-top: var(--yds-card--gap);
+
+  }
+}
+/* ----- --border: 테두리형 (그림자 없음) ----- */
+.yds-card {
+  &--border {
+
+    box-shadow: none;
+    border: 1px solid var(--yds-card--border-color);
+
+  }
+}
+.yds-card {
+  &--border:hover {
+
+    box-shadow: none;
+    border-color: var(--color-border-default);
+
+  }
+}
+/* ----- --horizontal: 가로형 ----- */
+.yds-card {
+  &--horizontal {
+
+    flex-direction: row;
+
+  }
+}
+.yds-card {
+  &--horizontal .yds-card__media {
+
+    width: 22rem;
+
+  }
+}
+.yds-card {
+  &--horizontal .yds-card__media .yds-thumbnail {
+
+    height: 100%;
+    border-radius: 0;
+
+  }
+}
+/* ----- --link: 제목 링크를 카드 전체 영역으로 확장 ----- */
+.yds-card {
+  &--link .yds-card__title a::after {
+
+    content: '';
+    position: absolute;
+    inset: 0;
+
+  }
+}
+.yds-card {
+  &--link .yds-card__title a:hover {
+
+    text-decoration: none;
+
+  }
+}
+.yds-card {
+  &--link:hover .yds-card__title a {
+
+    text-decoration: underline;
+
+  }
+}
+/* ----- 카드 목록: 3열 → 모바일 1열 ----- */
+.yds-card-list {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+@include mobile {
+  .yds-card-list {
+
+    grid-template-columns: 1fr;
+
+  }
+  .yds-card {
+    &--horizontal {
+
+      flex-direction: column;
+
+    }
+  }
+  .yds-card {
+    &--horizontal .yds-card__media {
+
+      width: 100%;
+
+    }
+  }
+}

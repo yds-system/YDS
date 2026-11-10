@@ -1,5 +1,5 @@
-import '../form-group/form-group.css';
-import '../checkbox/checkbox.css'; /* yds-check-item 공유 CSS */
+import '../form-group/form-group.scss';
+import '../checkbox/checkbox.scss'; /* yds-check-item 공유 CSS */
 
 export default {
   title: 'Components/Radio Button',

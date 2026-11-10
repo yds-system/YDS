@@ -1,6 +1,6 @@
-import './layout.css';
-import '../button/button.css';
-import '../icon/icon.css';
+import './layout.scss';
+import '../button/button.scss';
+import '../icon/icon.scss';
 import { initPcGnb, initMobileGnb } from '../main-menu/gnb-init.js';
 
 export default {

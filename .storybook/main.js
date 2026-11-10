@@ -29,6 +29,14 @@ const config = {
       ...config.resolve.alias,
       "@storybook/blocks": new URL("../node_modules/@storybook/addon-docs/dist/blocks.js", import.meta.url).pathname,
     };
+
+    // SCSS: mobile 믹스인을 모든 .scss 파일에 주입
+    config.css ??= {};
+    config.css.preprocessorOptions ??= {};
+    config.css.preprocessorOptions.scss ??= {};
+    config.css.preprocessorOptions.scss.additionalData =
+      '@mixin mobile { @media (max-width: 1279px) { @content; } }\n';
+
     return config;
   },
 };
