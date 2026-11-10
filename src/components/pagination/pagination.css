@@ -5,69 +5,69 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-pagination {
-  --ds-pagination--color-text: var(--color-text-subtle);
-  --ds-pagination--color-text-active: var(--color-text-on-static);
-  --ds-pagination--color-text-disabled: var(--color-text-disabled);
-  --ds-pagination--color-action: transparent;
-  --ds-pagination--color-action-hover: var(--color-bg-interactive-hover);
-  --ds-pagination--color-action-pressed: var(--color-bg-interactive-pressed);
-  --ds-pagination--color-action-active: var(--color-bg-interactive-active);
-  --ds-pagination-gap: var(--krds-gap-3);
-  --ds-pagination-margin-top: var(--krds-pc-gap-layout-h2-h3);
-  --ds-pagination--size-height: var(--krds-size-height-6);
-  --ds-pagination--radius: var(--krds-radius-medium1);
-  --ds-pagination--navi-padding-inner: var(--krds-padding-2);
-  --ds-pagination--navi-padding-outer: var(--krds-padding-3);
+.yds-pagination {
+  --yds-pagination--color-text: var(--color-text-subtle);
+  --yds-pagination--color-text-active: var(--color-text-on-static);
+  --yds-pagination--color-text-disabled: var(--color-text-disabled);
+  --yds-pagination--color-action: transparent;
+  --yds-pagination--color-action-hover: var(--color-bg-interactive-hover);
+  --yds-pagination--color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-pagination--color-action-active: var(--color-bg-interactive-active);
+  --yds-pagination-gap: var(--krds-gap-3);
+  --yds-pagination-margin-top: var(--krds-pc-gap-layout-h2-h3);
+  --yds-pagination--size-height: var(--krds-size-height-6);
+  --yds-pagination--radius: var(--krds-radius-medium1);
+  --yds-pagination--navi-padding-inner: var(--krds-padding-2);
+  --yds-pagination--navi-padding-outer: var(--krds-padding-3);
 }
 @media (max-width: 767px) {
-  .ds-pagination {
-    --ds-pagination-gap: var(--krds-gap-7) var(--krds-gap-3);
-    --ds-pagination-margin-top: var(--krds-mobile-gap-layout-h2-h3);
+  .yds-pagination {
+    --yds-pagination-gap: var(--krds-gap-7) var(--krds-gap-3);
+    --yds-pagination-margin-top: var(--krds-mobile-gap-layout-h2-h3);
   }
 }
 
 /* ----- 레이아웃 ----- */
-.ds-pagination {
+.yds-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ds-pagination-gap);
+  gap: var(--yds-pagination-gap);
   width: 100%;
-  margin-top: var(--ds-pagination-margin-top);
-  color: var(--ds-pagination--color-text);
+  margin-top: var(--yds-pagination-margin-top);
+  color: var(--yds-pagination--color-text);
   font-size: var(--krds-pc-font-size-label-medium);
 }
 
 /* ----- 공통: 이동 버튼, 페이지 번호 ----- */
-.ds-pagination__move-btn,
-.ds-pagination__link {
+.yds-pagination__move-btn,
+.yds-pagination__link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--ds-pagination--size-height);
-  background-color: var(--ds-pagination--color-action);
-  border-radius: var(--ds-pagination--radius);
+  height: var(--yds-pagination--size-height);
+  background-color: var(--yds-pagination--color-action);
+  border-radius: var(--yds-pagination--radius);
   transition: var(--krds-transition-base);
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
-.ds-pagination__move-btn:hover,
-.ds-pagination__link:hover {
-  background-color: var(--ds-pagination--color-action-hover);
+.yds-pagination__move-btn:hover,
+.yds-pagination__link:hover {
+  background-color: var(--yds-pagination--color-action-hover);
 }
-.ds-pagination__move-btn:active,
-.ds-pagination__link:active {
-  background-color: var(--ds-pagination--color-action-pressed);
+.yds-pagination__move-btn:active,
+.yds-pagination__link:active {
+  background-color: var(--yds-pagination--color-action-pressed);
 }
 
 /* ----- 이전 버튼 ----- */
-.ds-pagination__move-btn--prev {
+.yds-pagination__move-btn--prev {
   order: 2;
-  padding: 0 var(--ds-pagination--navi-padding-outer) 0 var(--ds-pagination--navi-padding-inner);
+  padding: 0 var(--yds-pagination--navi-padding-outer) 0 var(--yds-pagination--navi-padding-inner);
 }
-.ds-pagination__move-btn--prev::before {
+.yds-pagination__move-btn--prev::before {
   content: "";
   display: inline-flex;
   width: var(--krds-icon--size-medium);
@@ -80,16 +80,16 @@
   mask-position: center center;
   -webkit-mask-size: contain;
   mask-size: contain;
-  background-color: var(--ds-pagination--color-text);
+  background-color: var(--yds-pagination--color-text);
   transform: rotate(90deg);
 }
 
 /* ----- 다음 버튼 ----- */
-.ds-pagination__move-btn--next {
+.yds-pagination__move-btn--next {
   order: 4;
-  padding: 0 var(--ds-pagination--navi-padding-inner) 0 var(--ds-pagination--navi-padding-outer);
+  padding: 0 var(--yds-pagination--navi-padding-inner) 0 var(--yds-pagination--navi-padding-outer);
 }
-.ds-pagination__move-btn--next::after {
+.yds-pagination__move-btn--next::after {
   content: "";
   display: inline-flex;
   width: var(--krds-icon--size-medium);
@@ -102,42 +102,42 @@
   mask-position: center center;
   -webkit-mask-size: contain;
   mask-size: contain;
-  background-color: var(--ds-pagination--color-text);
+  background-color: var(--yds-pagination--color-text);
   transform: rotate(-90deg);
 }
 
 /* ----- 비활성화 이동 버튼 ----- */
-.ds-pagination__move-btn--disabled {
-  color: var(--ds-pagination--color-text-disabled);
+.yds-pagination__move-btn--disabled {
+  color: var(--yds-pagination--color-text-disabled);
   pointer-events: none;
 }
-.ds-pagination__move-btn--disabled:hover,
-.ds-pagination__move-btn--disabled:active {
-  background-color: var(--ds-pagination--color-action);
+.yds-pagination__move-btn--disabled:hover,
+.yds-pagination__move-btn--disabled:active {
+  background-color: var(--yds-pagination--color-action);
 }
-.ds-pagination__move-btn--disabled::before,
-.ds-pagination__move-btn--disabled::after {
-  background-color: var(--ds-pagination--color-text-disabled);
+.yds-pagination__move-btn--disabled::before,
+.yds-pagination__move-btn--disabled::after {
+  background-color: var(--yds-pagination--color-text-disabled);
 }
 
 /* ----- 페이지 번호 그룹 ----- */
-.ds-pagination__list {
+.yds-pagination__list {
   display: flex;
   align-items: center;
   justify-content: center;
   order: 3;
   gap: var(--krds-gap-3);
 }
-.ds-pagination__list .ds-pagination__link {
-  width: var(--ds-pagination--size-height);
-  height: var(--ds-pagination--size-height);
+.yds-pagination__list .yds-pagination__link {
+  width: var(--yds-pagination--size-height);
+  height: var(--yds-pagination--size-height);
 }
 
 /* ----- 말줄임 (...) ----- */
-.ds-pagination__link--ellipsis {
+.yds-pagination__link--ellipsis {
   width: var(--krds-icon--size-large);
   height: var(--krds-icon--size-large);
-  background-color: var(--ds-pagination--color-text);
+  background-color: var(--yds-pagination--color-text);
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
   -webkit-mask-repeat: no-repeat;
@@ -148,26 +148,26 @@
   mask-size: contain;
   cursor: default;
 }
-.ds-pagination__link--ellipsis:hover,
-.ds-pagination__link--ellipsis:active {
-  background-color: var(--ds-pagination--color-text);
+.yds-pagination__link--ellipsis:hover,
+.yds-pagination__link--ellipsis:active {
+  background-color: var(--yds-pagination--color-text);
 }
 
 /* ----- 현재 페이지 ----- */
-.ds-pagination__link--current {
-  background-color: var(--ds-pagination--color-action-active);
+.yds-pagination__link--current {
+  background-color: var(--yds-pagination--color-action-active);
   font-weight: var(--krds-font-weight-bold);
-  color: var(--ds-pagination--color-text-active);
+  color: var(--yds-pagination--color-text-active);
   cursor: default;
 }
 
 /* ─── 처음 / 마지막 ----- */
-.ds-pagination__move-btn--first {
+.yds-pagination__move-btn--first {
   order: 1;
   padding: 0 var(--krds-padding-3);
   font-size: var(--krds-pc-font-size-label-small);
 }
-.ds-pagination__move-btn--last {
+.yds-pagination__move-btn--last {
   order: 5;
   padding: 0 var(--krds-padding-3);
   font-size: var(--krds-pc-font-size-label-small);
@@ -175,15 +175,15 @@
 
 /* ----- 모바일 ----- */
 @media (max-width: 767px) {
-  .ds-pagination {
+  .yds-pagination {
     flex-wrap: wrap;
   }
-  .ds-pagination__list {
+  .yds-pagination__list {
     width: 100%;
     order: 1;
   }
-  .ds-pagination__move-btn--first { order: 2; }
-  .ds-pagination__move-btn--prev  { order: 2; }
-  .ds-pagination__move-btn--next  { order: 2; }
-  .ds-pagination__move-btn--last  { order: 2; }
+  .yds-pagination__move-btn--first { order: 2; }
+  .yds-pagination__move-btn--prev  { order: 2; }
+  .yds-pagination__move-btn--next  { order: 2; }
+  .yds-pagination__move-btn--last  { order: 2; }
 }

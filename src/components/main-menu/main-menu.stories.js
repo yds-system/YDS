@@ -54,26 +54,26 @@ function renderPcGnb() {
   const items = MENU.map((m, mi) => {
     if (m.link) {
       return `<li>
-        <a href="#" class="ds-main-menu__trigger ds-main-menu__trigger--link" data-trigger="gnb">${m.label}</a>
+        <a href="#" class="yds-main-menu__trigger yds-main-menu__trigger--link" data-trigger="gnb">${m.label}</a>
       </li>`;
     }
 
     const subList = m.items.map((sub, si) => {
       if (sub.link) {
         return `<li>
-          <a href="#" class="ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link" data-trigger="gnb">${sub.label}</a>
+          <a href="#" class="yds-main-menu__sub-trigger yds-main-menu__sub-trigger--link" data-trigger="gnb">${sub.label}</a>
         </li>`;
       }
       return `<li>
-        <button type="button" class="ds-main-menu__sub-trigger" data-trigger="gnb"
-                aria-expanded="false" aria-controls="ds-gnb-sub-${mi}-${si}">
+        <button type="button" class="yds-main-menu__sub-trigger" data-trigger="gnb"
+                aria-expanded="false" aria-controls="yds-gnb-sub-${mi}-${si}">
           ${sub.label}
         </button>
-        <div class="ds-main-menu__sub-list" id="ds-gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
-          <div class="ds-main-menu__sub-content">
-            <h2 class="ds-main-menu__sub-title">${sub.label}</h2>
+        <div class="yds-main-menu__sub-list" id="yds-gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
+          <div class="yds-main-menu__sub-content">
+            <h2 class="yds-main-menu__sub-title">${sub.label}</h2>
             <ul>
-              ${sub.sub.map(s => `<li><a href="#" class="ds-main-menu__sub-link">${s}</a></li>`).join('')}
+              ${sub.sub.map(s => `<li><a href="#" class="yds-main-menu__sub-link">${s}</a></li>`).join('')}
             </ul>
           </div>
         </div>
@@ -81,82 +81,82 @@ function renderPcGnb() {
     }).join('');
 
     return `<li>
-      <button type="button" class="ds-main-menu__trigger" data-trigger="gnb"
+      <button type="button" class="yds-main-menu__trigger" data-trigger="gnb"
               aria-expanded="false" aria-haspopup="true"
-              aria-controls="ds-gnb-panel-${mi}">
+              aria-controls="yds-gnb-panel-${mi}">
         ${m.label}
       </button>
-      <div class="ds-main-menu__dropdown" id="ds-gnb-panel-${mi}" role="group" aria-label="${m.label}">
-        <div class="ds-main-menu__panel" data-has-submenu="true">
+      <div class="yds-main-menu__dropdown" id="yds-gnb-panel-${mi}" role="group" aria-label="${m.label}">
+        <div class="yds-main-menu__panel" data-has-submenu="true">
           <ul>${subList}</ul>
         </div>
       </div>
     </li>`;
   }).join('');
 
-  return `<nav class="ds-main-menu" aria-label="주요 메뉴">
-  <div class="ds-container">
-    <ul class="ds-main-menu__list" role="menubar">${items}</ul>
+  return `<nav class="yds-main-menu" aria-label="주요 메뉴">
+  <div class="yds-container">
+    <ul class="yds-main-menu__list" role="menubar">${items}</ul>
   </div>
 </nav>
-<div class="ds-main-menu__backdrop" aria-hidden="true"></div>`;
+<div class="yds-main-menu__backdrop" aria-hidden="true"></div>`;
 }
 
 function renderMobileGnb() {
   const mainItems = MENU.map((m, mi) =>
     `<li>
-      <a href="#mGnb-anchor${mi}" class="ds-main-menu-mobile__trigger"
+      <a href="#mGnb-anchor${mi}" class="yds-main-menu-mobile__trigger"
          data-index="${mi}">${m.label}</a>
     </li>`
   ).join('');
 
   const subItems = MENU.map((m, mi) => {
     const links = m.link
-      ? `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${m.label}</a></li>`
+      ? `<li><a href="#" class="yds-main-menu-mobile__sub-trigger">${m.label}</a></li>`
       : m.items.map(sub =>
-          `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${sub.label}</a></li>`
+          `<li><a href="#" class="yds-main-menu-mobile__sub-trigger">${sub.label}</a></li>`
         ).join('');
 
-    return `<div class="ds-main-menu-mobile__sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
-      <h2 class="ds-main-menu-mobile__sub-title" id="mGnb-hd${mi}">${m.label}</h2>
+    return `<div class="yds-main-menu-mobile__sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
+      <h2 class="yds-main-menu-mobile__sub-title" id="mGnb-hd${mi}">${m.label}</h2>
       <ul>${links}</ul>
     </div>`;
   }).join('');
 
   return `
-<div id="mobile-nav" class="ds-main-menu-mobile ds-main-menu-mobile--open"
+<div id="mobile-nav" class="yds-main-menu-mobile yds-main-menu-mobile--open"
      aria-modal="true" role="dialog" aria-label="전체 메뉴">
-    <div class="ds-main-menu-mobile__panel">
-      <div class="ds-main-menu-mobile__header">
-        <div class="ds-main-menu-mobile__utils">
-          <ul class="ds-utility-list ds-utility-list--start">
-            <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">로그인</button></li>
-            <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">회원가입</button></li>
+    <div class="yds-main-menu-mobile__panel">
+      <div class="yds-main-menu-mobile__header">
+        <div class="yds-main-menu-mobile__utils">
+          <ul class="yds-utility-list yds-utility-list--start">
+            <li><button type="button" class="yds-btn yds-btn--xsmall yds-btn--text">로그인</button></li>
+            <li><button type="button" class="yds-btn yds-btn--xsmall yds-btn--text">회원가입</button></li>
           </ul>
         </div>
-        <div class="ds-main-menu-mobile__login">
-          <button type="button" class="ds-btn ds-btn--large ds-btn--text">로그인을 해주세요</button>
+        <div class="yds-main-menu-mobile__login">
+          <button type="button" class="yds-btn yds-btn--large yds-btn--text">로그인을 해주세요</button>
         </div>
-        <div class="ds-main-menu-mobile__service-menu">
-          <a href="#" class="ds-main-menu-mobile__service-link">나의GOV</a>
-          <a href="#" class="ds-main-menu-mobile__service-link">공지사항</a>
-          <a href="#" class="ds-main-menu-mobile__service-link">자료실</a>
-          <a href="#" class="ds-main-menu-mobile__service-link">검색</a>
+        <div class="yds-main-menu-mobile__service-menu">
+          <a href="#" class="yds-main-menu-mobile__service-link">나의GOV</a>
+          <a href="#" class="yds-main-menu-mobile__service-link">공지사항</a>
+          <a href="#" class="yds-main-menu-mobile__service-link">자료실</a>
+          <a href="#" class="yds-main-menu-mobile__service-link">검색</a>
         </div>
-        <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
+        <button type="button" class="yds-btn yds-btn--medium yds-btn--icon" id="close-nav"
                 aria-label="전체 메뉴 닫기">
-          <i class="ds-icon ds-ico-modal-close" aria-hidden="true"></i>
+          <i class="yds-icon yds-ico-modal-close" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="ds-main-menu-mobile__body">
-        <div class="ds-main-menu-mobile__menu">
-          <div class="ds-main-menu-mobile__nav-list">
+      <div class="yds-main-menu-mobile__body">
+        <div class="yds-main-menu-mobile__menu">
+          <div class="yds-main-menu-mobile__nav-list">
             <ul role="tablist" aria-label="대메뉴">${mainItems}</ul>
           </div>
-          <div class="ds-main-menu-mobile__sub-panel" aria-live="polite">${subItems}</div>
+          <div class="yds-main-menu-mobile__sub-panel" aria-live="polite">${subItems}</div>
         </div>
-        <div class="ds-main-menu-mobile__bottom">
-          <a href="#" class="ds-btn ds-btn--medium ds-btn--text">사이트맵</a>
+        <div class="yds-main-menu-mobile__bottom">
+          <a href="#" class="yds-btn yds-btn--medium yds-btn--text">사이트맵</a>
         </div>
       </div>
     </div>
@@ -169,7 +169,7 @@ export const PC_GNB = {
   name: 'PC GNB',
   globals: { viewport: 'desktop' },
   render: () => `
-    <div id="ds-header">
+    <div id="yds-header">
       ${renderPcGnb()}
     </div>`,
   play: async ({ canvasElement }) => initPcGnb(canvasElement),
@@ -186,8 +186,8 @@ export const 모바일_GNB = {
     const mobileNav = canvasElement.querySelector('#mobile-nav');
     if (!mobileNav) return;
 
-    const mainTriggers = Array.from(mobileNav.querySelectorAll('.ds-main-menu-mobile__nav-list .ds-main-menu-mobile__trigger'));
-    const submenuWrap  = mobileNav.querySelector('.ds-main-menu-mobile__sub-panel');
+    const mainTriggers = Array.from(mobileNav.querySelectorAll('.yds-main-menu-mobile__nav-list .yds-main-menu-mobile__trigger'));
+    const submenuWrap  = mobileNav.querySelector('.yds-main-menu-mobile__sub-panel');
 
     mainTriggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
@@ -196,12 +196,12 @@ export const 모바일_GNB = {
         const target = mobileNav.querySelector(`#mGnb-anchor${idx}`);
         if (!target || !submenuWrap) return;
 
-        mainTriggers.forEach(t => t.classList.remove('ds-main-menu-mobile__trigger--open'));
-        trigger.classList.add('ds-main-menu-mobile__trigger--open');
+        mainTriggers.forEach(t => t.classList.remove('yds-main-menu-mobile__trigger--open'));
+        trigger.classList.add('yds-main-menu-mobile__trigger--open');
         submenuWrap.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
       });
     });
 
-    if (mainTriggers.length) mainTriggers[0].classList.add('ds-main-menu-mobile__trigger--open');
+    if (mainTriggers.length) mainTriggers[0].classList.add('yds-main-menu-mobile__trigger--open');
   },
 };

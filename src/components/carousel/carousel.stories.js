@@ -87,46 +87,46 @@ export default {
 function renderBullets({ count, active }) {
   return Array.from({ length: count }, (_, i) => {
     const isActive = i + 1 === active;
-    return `<span class="ds-carousel__bullet${isActive ? ' ds-carousel__bullet--current' : ''}"></span>`;
+    return `<span class="yds-carousel__bullet${isActive ? ' yds-carousel__bullet--current' : ''}"></span>`;
   }).join('');
 }
 
 function renderPagination({ type, bulletCount, activeBullet, currentPage, totalPages, inIndicator = false }) {
   if (type === 'fraction') {
-    const bgClass = inIndicator ? ' ds-carousel__pagination--bg' : '';
-    return `<div class="ds-carousel__pagination ds-carousel__pagination--fraction${bgClass}">
-  <span class="ds-carousel__pagination-current">${currentPage}</span>
+    const bgClass = inIndicator ? ' yds-carousel__pagination--bg' : '';
+    return `<div class="yds-carousel__pagination yds-carousel__pagination--fraction${bgClass}">
+  <span class="yds-carousel__pagination-current">${currentPage}</span>
   /
-  <span class="ds-carousel__pagination-total">${totalPages}</span>
+  <span class="yds-carousel__pagination-total">${totalPages}</span>
 </div>`;
   }
-  return `<div class="ds-carousel__pagination">
+  return `<div class="yds-carousel__pagination">
   ${renderBullets({ count: bulletCount, active: activeBullet })}
 </div>`;
 }
 
 function renderController({ isPlaying }) {
   if (isPlaying) {
-    return `<div class="ds-carousel__controller">
-  <button type="button" class="ds-carousel__stop-btn" title="슬라이드 멈춤">
+    return `<div class="yds-carousel__controller">
+  <button type="button" class="yds-carousel__stop-btn" title="슬라이드 멈춤">
     <span class="sr-only">슬라이드 멈춤</span>
   </button>
 </div>`;
   }
-  return `<div class="ds-carousel__controller">
-  <button type="button" class="ds-carousel__play-btn" title="슬라이드 재생">
+  return `<div class="yds-carousel__controller">
+  <button type="button" class="yds-carousel__play-btn" title="슬라이드 재생">
     <span class="sr-only">슬라이드 재생</span>
   </button>
 </div>`;
 }
 
 function renderNavigation({ prevDisabled, nextDisabled, showMore }) {
-  const prevClass = `ds-carousel__move-btn ds-carousel__move-btn--prev${prevDisabled ? ' ds-carousel__move-btn--disabled' : ''}`;
-  const nextClass = `ds-carousel__move-btn ds-carousel__move-btn--next${nextDisabled ? ' ds-carousel__move-btn--disabled' : ''}`;
+  const prevClass = `yds-carousel__move-btn yds-carousel__move-btn--prev${prevDisabled ? ' yds-carousel__move-btn--disabled' : ''}`;
+  const nextClass = `yds-carousel__move-btn yds-carousel__move-btn--next${nextDisabled ? ' yds-carousel__move-btn--disabled' : ''}`;
   const moreBtn = showMore
-    ? `<a href="#" class="ds-carousel__more-btn"><span class="sr-only">더 보기</span></a>`
+    ? `<a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>`
     : '';
-  return `<div class="ds-carousel__nav">
+  return `<div class="yds-carousel__nav">
   <button type="button" class="${prevClass}" ${prevDisabled ? 'aria-disabled="true"' : ''}><span class="sr-only">이전</span></button>
   <button type="button" class="${nextClass}" ${nextDisabled ? 'aria-disabled="true"' : ''}><span class="sr-only">다음</span></button>${moreBtn ? '\n  ' + moreBtn : ''}
 </div>`;
@@ -139,7 +139,7 @@ function renderIndicator(args) {
     prevDisabled, nextDisabled, centered,
   } = args;
 
-  const centerClass = centered ? ' ds-carousel__indicator--center' : '';
+  const centerClass = centered ? ' yds-carousel__indicator--center' : '';
   const parts = [];
 
   parts.push(renderPagination({
@@ -150,7 +150,7 @@ function renderIndicator(args) {
   if (showController) parts.push(renderController({ isPlaying }));
   if (showNavigation) parts.push(renderNavigation({ prevDisabled, nextDisabled, showMore }));
 
-  return `<div class="ds-carousel__indicator${centerClass}">
+  return `<div class="yds-carousel__indicator${centerClass}">
   ${parts.join('\n  ')}
 </div>`;
 }
@@ -180,21 +180,21 @@ export const 개별버튼 = {
   render: () => `<div style="padding:2.4rem;">
     ${section('이전 / 다음 (prev / next)', `
       <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
-        <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
-        <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
-        <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--prev ds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전 (비활성)</span></button>
-        <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--next ds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음 (비활성)</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전 (비활성)</span></button>
+        <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음 (비활성)</span></button>
       </div>
     `)}
     ${section('재생 / 멈춤 (play / stop)', `
       <div style="display:flex;gap:1.2rem;align-items:center;">
-        <button type="button" class="ds-carousel__play-btn"><span class="sr-only">슬라이드 재생</span></button>
-        <button type="button" class="ds-carousel__stop-btn"><span class="sr-only">슬라이드 멈춤</span></button>
+        <button type="button" class="yds-carousel__play-btn"><span class="sr-only">슬라이드 재생</span></button>
+        <button type="button" class="yds-carousel__stop-btn"><span class="sr-only">슬라이드 멈춤</span></button>
       </div>
     `)}
     ${section('더보기 (more)', `
       <div style="display:flex;gap:1.2rem;align-items:center;">
-        <a href="#" class="ds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
+        <a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
       </div>
     `)}
   </div>`,
@@ -210,19 +210,19 @@ export const 페이지네이션 = {
       <div style="display:flex;flex-direction:column;gap:1.6rem;">
         <div>
           <p style="font-size:1.2rem;color:var(--krds-light-color-text-subtle);margin-bottom:0.6rem;">3개 / 2번째 활성</p>
-          <div class="ds-carousel__pagination">
+          <div class="yds-carousel__pagination">
             ${renderBullets({ count: 3, active: 2 })}
           </div>
         </div>
         <div>
           <p style="font-size:1.2rem;color:var(--krds-light-color-text-subtle);margin-bottom:0.6rem;">5개 / 3번째 활성</p>
-          <div class="ds-carousel__pagination">
+          <div class="yds-carousel__pagination">
             ${renderBullets({ count: 5, active: 3 })}
           </div>
         </div>
         <div>
           <p style="font-size:1.2rem;color:var(--krds-light-color-text-subtle);margin-bottom:0.6rem;">8개 / 1번째 활성</p>
-          <div class="ds-carousel__pagination">
+          <div class="yds-carousel__pagination">
             ${renderBullets({ count: 8, active: 1 })}
           </div>
         </div>
@@ -232,10 +232,10 @@ export const 페이지네이션 = {
       <div style="display:flex;flex-direction:column;gap:1.6rem;">
         <div>
           <p style="font-size:1.2rem;color:var(--krds-light-color-text-subtle);margin-bottom:0.6rem;">현재 / 전체</p>
-          <div class="ds-carousel__pagination ds-carousel__pagination--fraction">
-            <span class="ds-carousel__pagination-current">2</span>
+          <div class="yds-carousel__pagination yds-carousel__pagination--fraction">
+            <span class="yds-carousel__pagination-current">2</span>
             /
-            <span class="ds-carousel__pagination-total">10</span>
+            <span class="yds-carousel__pagination-total">10</span>
           </div>
         </div>
       </div>
@@ -341,13 +341,13 @@ export const 전체변형 = {
     return `<div style="padding:2.4rem;">
       ${section('개별 버튼', `
         <div style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;">
-          <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
-          <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
-          <button type="button" class="ds-carousel__play-btn"><span class="sr-only">재생</span></button>
-          <button type="button" class="ds-carousel__stop-btn"><span class="sr-only">멈춤</span></button>
-          <a href="#" class="ds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
-          <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--prev ds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전(비활성)</span></button>
-          <button type="button" class="ds-carousel__move-btn ds-carousel__move-btn--next ds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음(비활성)</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev"><span class="sr-only">이전</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next"><span class="sr-only">다음</span></button>
+          <button type="button" class="yds-carousel__play-btn"><span class="sr-only">재생</span></button>
+          <button type="button" class="yds-carousel__stop-btn"><span class="sr-only">멈춤</span></button>
+          <a href="#" class="yds-carousel__more-btn"><span class="sr-only">더 보기</span></a>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--prev yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">이전(비활성)</span></button>
+          <button type="button" class="yds-carousel__move-btn yds-carousel__move-btn--next yds-carousel__move-btn--disabled" aria-disabled="true"><span class="sr-only">다음(비활성)</span></button>
         </div>
       `)}
       ${section('인디케이터 — 불릿 + 재생 + 이전/다음', renderIndicator({

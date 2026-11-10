@@ -187,39 +187,45 @@ const RefVal = (ref, val) =>
     GrayChip(val)
   );
 
-export const ColorSemanticTable = () =>
-  h(Fragment, null,
-    ...colorSemanticGroups.map(g =>
-      h('div', { key: g.name, style: sectionStyle },
-        h('h4', { style: subheadStyle }, g.name),
-        h('table', { style: tableStyle },
-          h('thead', null,
-            h('tr', null,
-              th('L · D · HC'),
-              th('토큰 이름'),
-              th('라이트 (참조 → 값)'),
-              th('다크 (참조 → 값)'),
-              th('고대비 (참조 → 값)'),
-              th('용도'),
-              th('CSS 변수')
-            )
-          ),
-          h('tbody', null,
-            ...g.tokens.map(t =>
-              h('tr', { key: t.name },
-                td(TripleSwatch(t.value, t.darkValue, t.hcValue)),
-                td(Chip(t.name)),
-                td(RefVal(t.ref, t.value)),
-                td(RefVal(t.darkRef, t.darkValue)),
-                td(RefVal(t.hcRef, t.hcValue)),
-                td(t.usage || ''),
-                td(CssChip(t.name))
-              )
-            )
+const renderSemanticGroup = (g) =>
+  h('div', { key: g.name, style: sectionStyle },
+    h('h4', { style: subheadStyle }, g.name),
+    h('table', { style: tableStyle },
+      h('thead', null,
+        h('tr', null,
+          th('L · D · HC'),
+          th('토큰 이름'),
+          th('라이트 (참조 → 값)'),
+          th('다크 (참조 → 값)'),
+          th('고대비 (참조 → 값)'),
+          th('용도'),
+          th('CSS 변수')
+        )
+      ),
+      h('tbody', null,
+        ...g.tokens.map(t =>
+          h('tr', { key: t.name },
+            td(TripleSwatch(t.value, t.darkValue, t.hcValue)),
+            td(Chip(t.name)),
+            td(RefVal(t.ref, t.value)),
+            td(RefVal(t.darkRef, t.darkValue)),
+            td(RefVal(t.hcRef, t.hcValue)),
+            td(t.usage || ''),
+            td(CssChip(t.name))
           )
         )
       )
     )
+  );
+
+export const ColorSemanticTable = () =>
+  h(Fragment, null, ...colorSemanticGroups.map(renderSemanticGroup));
+
+export const IconColorTable = () =>
+  h(Fragment, null,
+    ...colorSemanticGroups
+      .filter(g => g.name.startsWith('color-icon'))
+      .map(renderSemanticGroup)
   );
 
 // ─── 3. 타이포 프리미티브 ─────────────────────────────────────────────────────

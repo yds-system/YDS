@@ -19,7 +19,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 <ElementTable elements={fileUploadNaming.elements} baseClass={fileUploadNaming.baseClass} />
 
@@ -47,21 +47,21 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 기본 (드래그 앤 드롭 영역)
 
 ```html
-<div class="ds-file-upload ds-file-upload--line">
+<div class="yds-file-upload yds-file-upload--line">
   <!-- 헤드 (선택) -->
-  <div class="ds-file-upload__head">
-    <h3 class="ds-file-upload__title">첨부파일</h3>
+  <div class="yds-file-upload__head">
+    <h3 class="yds-file-upload__title">첨부파일</h3>
     <p>파일 형식: PDF, HWP, DOC, XLS (최대 20MB)</p>
   </div>
 
   <!-- 드래그 앤 드롭 영역 -->
-  <div class="ds-file-upload__dropzone" role="region" aria-label="파일 드래그 앤 드롭 영역">
-    <p class="ds-file-upload__desc">첨부할 파일을 여기에 끌어다 놓거나,<br>파일 선택 버튼을 눌러 파일을 직접 선택해주세요.</p>
-    <div class="ds-file-upload__btn-wrap">
+  <div class="yds-file-upload__dropzone" role="region" aria-label="파일 드래그 앤 드롭 영역">
+    <p class="yds-file-upload__desc">첨부할 파일을 여기에 끌어다 놓거나,<br>파일 선택 버튼을 눌러 파일을 직접 선택해주세요.</p>
+    <div class="yds-file-upload__btn-wrap">
       <input type="file" id="fu-id" multiple>
       <label for="fu-id">
-        <button type="button" class="ds-btn ds-btn--medium" tabindex="-1" aria-hidden="true">
-          <i class="ds-icon ds-ico-upload"></i>파일 선택
+        <button type="button" class="yds-btn yds-btn--medium" tabindex="-1" aria-hidden="true">
+          <i class="yds-icon yds-ico-upload"></i>파일 선택
         </button>
       </label>
     </div>
@@ -72,18 +72,18 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 첨부 목록
 
 ```html
-<div class="ds-file-upload__files">
-  <div class="ds-file-upload__total">
-    <span class="ds-file-upload__total-current">3개</span> / 10개
+<div class="yds-file-upload__files">
+  <div class="yds-file-upload__total">
+    <span class="yds-file-upload__total-current">3개</span> / 10개
   </div>
-  <ul class="ds-file-upload__list">
+  <ul class="yds-file-upload__list">
 
     <!-- 업로드 중 -->
-    <li class="ds-file-upload__item">
-      <div class="ds-file-upload__item-info">
-        <div class="ds-file-upload__item-name">파일명.hwp [HWP, 17KB]</div>
-        <div class="ds-file-upload__item-actions">
-          <span class="ds-spinner" role="status">
+    <li class="yds-file-upload__item">
+      <div class="yds-file-upload__item-info">
+        <div class="yds-file-upload__item-name">파일명.hwp [HWP, 17KB]</div>
+        <div class="yds-file-upload__item-actions">
+          <span class="yds-spinner" role="status">
             <span class="sr-only">업로드 중</span>
           </span>
         </div>
@@ -91,11 +91,11 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
     </li>
 
     <!-- 업로드 완료 -->
-    <li class="ds-file-upload__item">
-      <div class="ds-file-upload__item-info">
-        <div class="ds-file-upload__item-name">파일명.pdf [PDF, 1.2MB]</div>
-        <div class="ds-file-upload__item-actions">
-          <span class="ds-file-upload__item-icon ds-file-upload__item-icon--completed">
+    <li class="yds-file-upload__item">
+      <div class="yds-file-upload__item-info">
+        <div class="yds-file-upload__item-name">파일명.pdf [PDF, 1.2MB]</div>
+        <div class="yds-file-upload__item-actions">
+          <span class="yds-file-upload__item-icon yds-file-upload__item-icon--completed">
             <em class="sr-only">업로드 완료</em>
           </span>
         </div>
@@ -103,28 +103,28 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
     </li>
 
     <!-- 삭제 가능 -->
-    <li class="ds-file-upload__item">
-      <div class="ds-file-upload__item-info">
-        <div class="ds-file-upload__item-name">파일명.pdf [PDF, 820KB]</div>
-        <div class="ds-file-upload__item-actions">
-          <button type="button" class="ds-btn ds-btn--medium ds-btn--text ds-file-upload__item-delete-btn" aria-label="파일명.pdf 삭제">
-            삭제 <i class="ds-icon ds-ico-delete-fill"></i>
+    <li class="yds-file-upload__item">
+      <div class="yds-file-upload__item-info">
+        <div class="yds-file-upload__item-name">파일명.pdf [PDF, 820KB]</div>
+        <div class="yds-file-upload__item-actions">
+          <button type="button" class="yds-btn yds-btn--medium yds-btn--text yds-file-upload__item-delete-btn" aria-label="파일명.pdf 삭제">
+            삭제 <i class="yds-icon yds-ico-delete-fill"></i>
           </button>
         </div>
       </div>
     </li>
 
     <!-- 오류 -->
-    <li class="ds-file-upload__item ds-file-upload__item--error">
-      <div class="ds-file-upload__item-info">
-        <div class="ds-file-upload__item-name">용량초과파일.psd [PSD, 45MB]</div>
-        <div class="ds-file-upload__item-actions">
-          <button type="button" class="ds-btn ds-btn--medium ds-btn--text ds-file-upload__item-delete-btn" aria-label="용량초과파일.psd 삭제">
-            삭제 <i class="ds-icon ds-ico-delete-fill"></i>
+    <li class="yds-file-upload__item yds-file-upload__item--error">
+      <div class="yds-file-upload__item-info">
+        <div class="yds-file-upload__item-name">용량초과파일.psd [PSD, 45MB]</div>
+        <div class="yds-file-upload__item-actions">
+          <button type="button" class="yds-btn yds-btn--medium yds-btn--text yds-file-upload__item-delete-btn" aria-label="용량초과파일.psd 삭제">
+            삭제 <i class="yds-icon yds-ico-delete-fill"></i>
           </button>
         </div>
       </div>
-      <p class="ds-file-upload__item-hint">
+      <p class="yds-file-upload__item-hint">
         등록 가능한 파일 용량을 초과하였습니다.<br>
         20MB 미만의 파일만 등록할 수 있습니다.
       </p>
@@ -132,8 +132,8 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
   </ul>
 
   <!-- 전체 삭제 -->
-  <button type="button" class="ds-btn ds-btn--xsmall ds-btn--tertiary ds-file-upload__delete-all-btn">
-    전체 파일 삭제<i class="ds-icon ds-ico-angle ds-icon--right"></i>
+  <button type="button" class="yds-btn yds-btn--xsmall yds-btn--tertiary yds-file-upload__delete-all-btn">
+    전체 파일 삭제<i class="yds-icon yds-ico-angle yds-icon--right"></i>
   </button>
 </div>
 ```
@@ -147,7 +147,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 드래그 앤 드롭과 파일 삭제는 JS로 처리합니다.
 
 ```js
-const dropZone = document.querySelector('.ds-file-upload__dropzone');
+const dropZone = document.querySelector('.yds-file-upload__dropzone');
 const inputFile = document.querySelector('input[type="file"]');
 
 // 파일 선택 버튼 → input 연결
@@ -156,20 +156,20 @@ dropZone.querySelector('button').addEventListener('click', () => inputFile.click
 // 드래그 오버
 dropZone.addEventListener('dragover', (e) => {
   e.preventDefault();
-  dropZone.classList.add('ds-file-upload__dropzone--dragover');
+  dropZone.classList.add('yds-file-upload__dropzone--dragover');
 });
 
 // 드래그 이탈
 dropZone.addEventListener('dragleave', (e) => {
   if (!dropZone.contains(e.relatedTarget)) {
-    dropZone.classList.remove('ds-file-upload__dropzone--dragover');
+    dropZone.classList.remove('yds-file-upload__dropzone--dragover');
   }
 });
 
 // 드롭
 dropZone.addEventListener('drop', (e) => {
   e.preventDefault();
-  dropZone.classList.remove('ds-file-upload__dropzone--dragover');
+  dropZone.classList.remove('yds-file-upload__dropzone--dragover');
   const files = e.dataTransfer.files;
   // 파일 처리 로직 추가
 });
@@ -213,6 +213,6 @@ dropZone.addEventListener('drop', (e) => {
 - 파일 선택 버튼에 `tabindex="-1"`, `aria-hidden="true"`를 설정하고, 실제 포커스는 `<label>`이 받도록 한다.
 - 드래그 앤 드롭 영역에 `role="region"`, `aria-label`을 부여해 보조기기가 영역을 인식하도록 한다.
 - 업로드 중 스피너에 `role="status"`와 `.sr-only` 텍스트("업로드 중")를 제공한다.
-- 완료 아이콘(`.ds-file-upload__item-icon--completed`)은 `<em class="sr-only">업로드 완료</em>`로 상태를 전달한다.
+- 완료 아이콘(`.yds-file-upload__item-icon--completed`)은 `<em class="sr-only">업로드 완료</em>`로 상태를 전달한다.
 - 삭제 버튼에 `aria-label="파일명 삭제"` 형식으로 대상 파일을 명시한다.
-- 오류 메시지(`.ds-file-upload__item-hint`)는 해당 `<li>` 내부에 위치해 맥락을 유지한다.
+- 오류 메시지(`.yds-file-upload__item-hint`)는 해당 `<li>` 내부에 위치해 맥락을 유지한다.

@@ -3,8 +3,8 @@
    ─────────────────────────────────────────────────────────────────────────── */
 
 export function initPcGnb(root) {
-  const triggers  = Array.from(root.querySelectorAll('.ds-main-menu .ds-main-menu__trigger:not(.ds-main-menu__trigger--link)'));
-  const backdrop  = root.querySelector('.ds-main-menu__backdrop');
+  const triggers  = Array.from(root.querySelectorAll('.yds-main-menu .yds-main-menu__trigger:not(.yds-main-menu__trigger--link)'));
+  const backdrop  = root.querySelector('.yds-main-menu__backdrop');
   let currentOpen = null;
 
   function openMenu(trigger) {
@@ -13,13 +13,13 @@ export function initPcGnb(root) {
     const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
     if (!panel) return;
 
-    trigger.classList.add('ds-main-menu__trigger--open');
+    trigger.classList.add('yds-main-menu__trigger--open');
     trigger.setAttribute('aria-expanded', 'true');
-    panel.classList.add('ds-main-menu__dropdown--open');
-    if (backdrop) backdrop.classList.add('ds-main-menu__backdrop--open');
+    panel.classList.add('yds-main-menu__dropdown--open');
+    if (backdrop) backdrop.classList.add('yds-main-menu__backdrop--open');
 
     /* 첫 번째 sub-trigger 활성화 */
-    const firstSub = panel.querySelector('.ds-main-menu__sub-trigger');
+    const firstSub = panel.querySelector('.yds-main-menu__sub-trigger');
     if (firstSub) activateSub(panel, firstSub);
     currentOpen = trigger;
   }
@@ -28,42 +28,42 @@ export function initPcGnb(root) {
     if (!trigger) return;
     const panelId = trigger.getAttribute('aria-controls');
     const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
-    trigger.classList.remove('ds-main-menu__trigger--open');
+    trigger.classList.remove('yds-main-menu__trigger--open');
     trigger.setAttribute('aria-expanded', 'false');
     if (panel) {
-      panel.classList.remove('ds-main-menu__dropdown--open');
-      panel.querySelectorAll('.ds-main-menu__sub-trigger').forEach(s => deactivateSub(s));
-      panel.querySelectorAll('.ds-main-menu__sub-list').forEach(l => l.classList.remove('ds-main-menu__sub-list--open'));
+      panel.classList.remove('yds-main-menu__dropdown--open');
+      panel.querySelectorAll('.yds-main-menu__sub-trigger').forEach(s => deactivateSub(s));
+      panel.querySelectorAll('.yds-main-menu__sub-list').forEach(l => l.classList.remove('yds-main-menu__sub-list--open'));
     }
-    if (backdrop) backdrop.classList.remove('ds-main-menu__backdrop--open');
+    if (backdrop) backdrop.classList.remove('yds-main-menu__backdrop--open');
     currentOpen = null;
   }
 
   function activateSub(panel, subTrigger) {
-    panel.querySelectorAll('.ds-main-menu__sub-trigger').forEach(s => {
-      s.classList.remove('ds-main-menu__sub-trigger--open');
+    panel.querySelectorAll('.yds-main-menu__sub-trigger').forEach(s => {
+      s.classList.remove('yds-main-menu__sub-trigger--open');
       s.setAttribute('aria-expanded', 'false');
     });
-    panel.querySelectorAll('.ds-main-menu__sub-list').forEach(l => l.classList.remove('ds-main-menu__sub-list--open'));
+    panel.querySelectorAll('.yds-main-menu__sub-list').forEach(l => l.classList.remove('yds-main-menu__sub-list--open'));
 
-    subTrigger.classList.add('ds-main-menu__sub-trigger--open');
+    subTrigger.classList.add('yds-main-menu__sub-trigger--open');
     const subPanelId = subTrigger.getAttribute('aria-controls');
     const subPanel   = subPanelId ? root.querySelector(`#${subPanelId}`) : null;
     if (subPanel) {
-      subPanel.classList.add('ds-main-menu__sub-list--open');
+      subPanel.classList.add('yds-main-menu__sub-list--open');
       subTrigger.setAttribute('aria-expanded', 'true');
     }
   }
 
   function deactivateSub(subTrigger) {
-    subTrigger.classList.remove('ds-main-menu__sub-trigger--open');
+    subTrigger.classList.remove('yds-main-menu__sub-trigger--open');
     subTrigger.setAttribute('aria-expanded', 'false');
   }
 
   /* 클릭 이벤트 */
   triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
-      if (trigger.classList.contains('ds-main-menu__trigger--open')) {
+      if (trigger.classList.contains('yds-main-menu__trigger--open')) {
         closeMenu(trigger);
       } else {
         openMenu(trigger);
@@ -89,7 +89,7 @@ export function initPcGnb(root) {
         const panelId = trigger.getAttribute('aria-controls');
         const panel   = panelId ? root.querySelector(`#${panelId}`) : null;
         if (panel) {
-          const firstSub = panel.querySelector('.ds-main-menu__sub-trigger');
+          const firstSub = panel.querySelector('.yds-main-menu__sub-trigger');
           if (firstSub) firstSub.focus();
         }
       } else if (e.key === 'Escape') {
@@ -100,15 +100,15 @@ export function initPcGnb(root) {
   });
 
   /* 서브 트리거 키보드 */
-  root.querySelectorAll('.ds-main-menu .ds-main-menu__sub-trigger:not(.ds-main-menu__sub-trigger--link)').forEach(sub => {
+  root.querySelectorAll('.yds-main-menu .yds-main-menu__sub-trigger:not(.yds-main-menu__sub-trigger--link)').forEach(sub => {
     sub.addEventListener('mouseenter', () => {
-      const panel = sub.closest('.ds-main-menu__dropdown');
-      if (panel && panel.classList.contains('ds-main-menu__dropdown--open')) activateSub(panel, sub);
+      const panel = sub.closest('.yds-main-menu__dropdown');
+      if (panel && panel.classList.contains('yds-main-menu__dropdown--open')) activateSub(panel, sub);
     });
 
     sub.addEventListener('keydown', (e) => {
-      const panel    = sub.closest('.ds-main-menu__dropdown');
-      const allSubs  = panel ? Array.from(panel.querySelectorAll('.ds-main-menu__sub-trigger')) : [];
+      const panel    = sub.closest('.yds-main-menu__dropdown');
+      const allSubs  = panel ? Array.from(panel.querySelectorAll('.yds-main-menu__sub-trigger')) : [];
       const idx      = allSubs.indexOf(sub);
       const mainTrig = panel ? triggers.find(t => t.getAttribute('aria-controls') === panel.id) : null;
 
@@ -135,25 +135,25 @@ export function initPcGnb(root) {
 
   /* 외부 클릭 닫기 */
   document.addEventListener('click', (e) => {
-    if (currentOpen && !e.target.closest('#ds-header')) closeMenu(currentOpen);
+    if (currentOpen && !e.target.closest('#yds-header')) closeMenu(currentOpen);
   });
 }
 
 export function initMobileGnb(root) {
-  const allBtn    = root.querySelector('.ds-header__action-btn.ds-header__action-btn--all-menu');
+  const allBtn    = root.querySelector('.yds-header__action-btn.yds-header__action-btn--all-menu');
   const closeBtn  = root.querySelector('#close-nav');
   const mobileNav = root.querySelector('#mobile-nav');
   if (!mobileNav) return;
 
   function openNav() {
-    mobileNav.classList.add('ds-main-menu-mobile--open', 'ds-main-menu-mobile--backdrop');
+    mobileNav.classList.add('yds-main-menu-mobile--open', 'yds-main-menu-mobile--backdrop');
     if (allBtn) allBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
     closeBtn?.focus();
   }
 
   function closeNav() {
-    mobileNav.classList.remove('ds-main-menu-mobile--open', 'ds-main-menu-mobile--backdrop');
+    mobileNav.classList.remove('yds-main-menu-mobile--open', 'yds-main-menu-mobile--backdrop');
     if (allBtn) allBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
     allBtn?.focus();
@@ -173,8 +173,8 @@ export function initMobileGnb(root) {
   });
 
   /* 1depth 탭 클릭 → 해당 submenu 스크롤 */
-  const mainTriggers = Array.from(mobileNav.querySelectorAll('.ds-main-menu-mobile__nav-list .ds-main-menu-mobile__trigger'));
-  const submenuWrap  = mobileNav.querySelector('.ds-main-menu-mobile__sub-panel');
+  const mainTriggers = Array.from(mobileNav.querySelectorAll('.yds-main-menu-mobile__nav-list .yds-main-menu-mobile__trigger'));
+  const submenuWrap  = mobileNav.querySelector('.yds-main-menu-mobile__sub-panel');
 
   mainTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
@@ -184,10 +184,10 @@ export function initMobileGnb(root) {
       if (!target || !submenuWrap) return;
 
       /* active 클래스 갱신 */
-      mainTriggers.forEach(t => t.classList.remove('ds-main-menu-mobile__trigger--open'));
-      trigger.classList.add('ds-main-menu-mobile__trigger--open');
+      mainTriggers.forEach(t => t.classList.remove('yds-main-menu-mobile__trigger--open'));
+      trigger.classList.add('yds-main-menu-mobile__trigger--open');
 
-      /* ds-main-menu-mobile__sub-panel 기준 스크롤 */
+      /* yds-main-menu-mobile__sub-panel 기준 스크롤 */
       submenuWrap.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
     });
 
@@ -205,5 +205,5 @@ export function initMobileGnb(root) {
   });
 
   /* 첫 번째 탭 자동 활성화 */
-  if (mainTriggers.length) mainTriggers[0].classList.add('ds-main-menu-mobile__trigger--open');
+  if (mainTriggers.length) mainTriggers[0].classList.add('yds-main-menu-mobile__trigger--open');
 }

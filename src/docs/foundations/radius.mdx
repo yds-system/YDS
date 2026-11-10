@@ -52,18 +52,18 @@ import { RadiusPrimTable, RadiusSemanticTable } from '../token-components.js';
 ### 해야 할 것
 
 - 컴포넌트에서는 항상 **시멘틱 토큰**(`--radius-m`, `--radius-l` 등)을 사용한다.
-- 컴포넌트 내부 변수(`--ds-{component}--radius`)는 시멘틱 토큰을 참조해 선언한다.
+- 컴포넌트 내부 변수(`--yds-{component}--radius`)는 시멘틱 토큰을 참조해 선언한다.
 
 ```css
 /* 올바른 예 — 시멘틱 토큰 참조 */
-.ds-btn {
-  --ds-btn--radius: var(--radius-m);
-  border-radius: var(--ds-btn--radius);
+.yds-btn {
+  --yds-btn--radius: var(--radius-m);
+  border-radius: var(--yds-btn--radius);
 }
 
-.ds-card {
-  --ds-card--radius: var(--radius-m);
-  border-radius: var(--ds-card--radius);
+.yds-card {
+  --yds-card--radius: var(--radius-m);
+  border-radius: var(--yds-card--radius);
 }
 ```
 

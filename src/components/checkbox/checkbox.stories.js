@@ -50,12 +50,12 @@ export default {
 /* 단일 체크박스 아이템 HTML 생성 */
 function checkItem({ id, label, size = 'medium', checked = false, disabled = false, subText = '' }) {
   return `
-    <div class="ds-check-item ds-check-item--${size}">
+    <div class="yds-check-item yds-check-item--${size}">
       <input type="checkbox" id="${id}"
         ${checked ? 'checked' : ''}
         ${disabled ? 'disabled' : ''}>
       <label for="${id}">${label}</label>
-      ${subText ? `<div class="ds-check-item__desc"><p class="ds-check-item__text">${subText}</p></div>` : ''}
+      ${subText ? `<div class="yds-check-item__desc"><p class="yds-check-item__text">${subText}</p></div>` : ''}
     </div>
   `;
 }
@@ -63,17 +63,17 @@ function checkItem({ id, label, size = 'medium', checked = false, disabled = fal
 /* fieldset 그룹 래퍼 */
 function checkGroup({ legend, required = false, layout = 'row', hint = '', state = 'default', size = 'medium', items }) {
   const isError = state === 'error';
-  const stateClass = isError ? ' ds-form-content--error' : '';
-  const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
-  const layoutClass = layout === 'column' ? ' ds-check-group--column' : '';
+  const stateClass = isError ? ' yds-form-content--error' : '';
+  const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
+  const layoutClass = layout === 'column' ? ' yds-check-group--column' : '';
 
   return `
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label">
-        <span>${legend}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label">
+        <span>${legend}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
       </legend>
-      <div class="ds-form-content${stateClass}">
-        <div class="ds-check-group${layoutClass}">
+      <div class="yds-form-content${stateClass}">
+        <div class="yds-check-group${layoutClass}">
           ${items.map(item => checkItem({ ...item, size })).join('')}
         </div>
       </div>
@@ -83,7 +83,7 @@ function checkGroup({ legend, required = false, layout = 'row', hint = '', state
 }
 
 const wrap = (content) =>
-  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="yds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ───────────────────────────── */
 export const Playground = {
@@ -92,15 +92,15 @@ export const Playground = {
     const checked = state === 'checked';
     const isDisabled = state === 'disabled';
     const isError = state === 'error';
-    const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
+    const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
 
     return wrap(`
-      <fieldset class="ds-form-group">
-        <legend class="ds-form-label">
-          <span>${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
+      <fieldset class="yds-form-group">
+        <legend class="yds-form-label">
+          <span>${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
         </legend>
-        <div class="ds-form-content${isError ? ' ds-form-content--error' : ''}">
-          <div class="ds-check-group ds-check-group--column">
+        <div class="yds-form-content${isError ? ' yds-form-content--error' : ''}">
+          <div class="yds-check-group yds-check-group--column">
             ${checkItem({ id: 'pg-chk', label, size, checked, disabled: isDisabled, subText })}
           </div>
         </div>
@@ -121,10 +121,10 @@ export const 상태 = {
   name: '상태 (State)',
   parameters: { controls: { include: ['size'] } },
   render: ({ size }) => wrap(`
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label"><span>상태</span></legend>
-      <div class="ds-form-content">
-        <div class="ds-check-group ds-check-group--column">
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label"><span>상태</span></legend>
+      <div class="yds-form-content">
+        <div class="yds-check-group yds-check-group--column">
           ${checkItem({ id: 'st-default', label: '기본 (미선택)', size })}
           ${checkItem({ id: 'st-checked', label: '선택됨', size, checked: true })}
           ${checkItem({ id: 'st-indet',   label: '중간 선택 (Indeterminate)', size })}
@@ -133,14 +133,14 @@ export const 상태 = {
         </div>
       </div>
     </fieldset>
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label"><span>에러 상태</span></legend>
-      <div class="ds-form-content ds-form-content--error">
-        <div class="ds-check-group ds-check-group--column">
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label"><span>에러 상태</span></legend>
+      <div class="yds-form-content yds-form-content--error">
+        <div class="yds-check-group yds-check-group--column">
           ${checkItem({ id: 'st-err', label: '에러 상태', size })}
         </div>
       </div>
-      <p class="ds-form-hint ds-form-hint--error">하나 이상 선택해 주세요.</p>
+      <p class="yds-form-hint yds-form-hint--error">하나 이상 선택해 주세요.</p>
     </fieldset>
   `),
   play: async ({ canvasElement }) => {
@@ -193,23 +193,23 @@ export const 전체동의 = {
   name: '전체 동의 패턴',
   parameters: { controls: { disable: true } },
   render: () => wrap(`
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label"><span>이용 약관 동의</span></legend>
-      <div class="ds-form-content">
-        <div class="ds-check-group ds-check-group--column">
-          <div class="ds-check-item ds-check-item--medium">
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label"><span>이용 약관 동의</span></legend>
+      <div class="yds-form-content">
+        <div class="yds-check-group yds-check-group--column">
+          <div class="yds-check-item yds-check-item--medium">
             <input type="checkbox" id="agree-all">
             <label for="agree-all"><strong>전체 동의합니다</strong></label>
           </div>
-          <div class="ds-check-item ds-check-item--medium">
+          <div class="yds-check-item yds-check-item--medium">
             <input type="checkbox" id="agree-1" data-child>
             <label for="agree-1">서비스 이용약관 동의 <strong>(필수)</strong></label>
           </div>
-          <div class="ds-check-item ds-check-item--medium">
+          <div class="yds-check-item yds-check-item--medium">
             <input type="checkbox" id="agree-2" data-child>
             <label for="agree-2">개인정보 수집·이용 동의 <strong>(필수)</strong></label>
           </div>
-          <div class="ds-check-item ds-check-item--medium">
+          <div class="yds-check-item yds-check-item--medium">
             <input type="checkbox" id="agree-3" data-child>
             <label for="agree-3">마케팅 정보 수신 동의 (선택)</label>
           </div>

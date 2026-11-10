@@ -4,56 +4,56 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-tooltip-popover {
-  --ds-tooltip--popover-radius: var(--krds-radius-small3);
-  --ds-tooltip--popover-radius-box: var(--krds-radius-xlarge2);
-  --ds-tooltip--popover-contents-pc-font-size: var(--krds-pc-font-size-body-small);
-  --ds-tooltip--popover-contents-mobile-font-size: var(--krds-mobile-font-size-body-small);
-  --ds-tooltip--popover-margin-x: 2.4rem;
-  --ds-tooltip--popover-inline-color-text: var(--color-text-inverse);
-  --ds-tooltip--popover-box-color-text: var(--color-text-default);
-  --ds-tooltip--popover-color-border: var(--color-border-default);
-  --ds-tooltip--popover-color-surface: var(--color-bg-inverse);
-  --ds-tooltip--popover-box-color-surface: var(--color-bg-default);
+.yds-tooltip-popover {
+  --yds-tooltip--popover-radius: var(--krds-radius-small3);
+  --yds-tooltip--popover-radius-box: var(--krds-radius-xlarge2);
+  --yds-tooltip--popover-contents-pc-font-size: var(--krds-pc-font-size-body-small);
+  --yds-tooltip--popover-contents-mobile-font-size: var(--krds-mobile-font-size-body-small);
+  --yds-tooltip--popover-margin-x: 2.4rem;
+  --yds-tooltip--popover-inline-color-text: var(--color-text-inverse);
+  --yds-tooltip--popover-box-color-text: var(--color-text-default);
+  --yds-tooltip--popover-color-border: var(--color-border-default);
+  --yds-tooltip--popover-color-surface: var(--color-bg-inverse);
+  --yds-tooltip--popover-box-color-surface: var(--color-bg-default);
 }
 
 /* ----- 팝오버 기본 (인라인형 — 검은 배경) ----- */
-.ds-tooltip-popover {
+.yds-tooltip-popover {
   display: none;
   position: fixed;
   z-index: 200;
   white-space: nowrap;
-  font-size: var(--ds-tooltip--popover-contents-pc-font-size);
-  border-radius: var(--ds-tooltip--popover-radius);
+  font-size: var(--yds-tooltip--popover-contents-pc-font-size);
+  border-radius: var(--yds-tooltip--popover-radius);
   padding: var(--krds-padding-2) var(--krds-padding-5);
-  color: var(--ds-tooltip--popover-inline-color-text);
-  background-color: var(--ds-tooltip--popover-color-surface);
+  color: var(--yds-tooltip--popover-inline-color-text);
+  background-color: var(--yds-tooltip--popover-color-surface);
   top: 0;
   left: 0;
   pointer-events: none; /* 마우스 이벤트 통과 */
 }
-.ds-tooltip-popover.ds-tooltip-popover--open {
+.yds-tooltip-popover.yds-tooltip-popover--open {
   display: block;
 }
 @media (max-width: 767px) {
-  .ds-tooltip-popover {
-    font-size: var(--ds-tooltip--popover-contents-mobile-font-size);
+  .yds-tooltip-popover {
+    font-size: var(--yds-tooltip--popover-contents-mobile-font-size);
   }
 }
 
 /* ----- 박스형 ----- */
-.ds-tooltip-popover.ds-tooltip-popover--box {
+.yds-tooltip-popover.yds-tooltip-popover--box {
   white-space: normal;
   max-width: 36rem;
-  border: 0.1rem solid var(--ds-tooltip--popover-color-border);
-  border-radius: var(--ds-tooltip--popover-radius-box);
+  border: 0.1rem solid var(--yds-tooltip--popover-color-border);
+  border-radius: var(--yds-tooltip--popover-radius-box);
   padding: var(--krds-padding-8);
-  color: var(--ds-tooltip--popover-box-color-text);
-  background-color: var(--ds-tooltip--popover-box-color-surface);
+  color: var(--yds-tooltip--popover-box-color-text);
+  background-color: var(--yds-tooltip--popover-box-color-surface);
 }
 
 /* ----- 화살표 기본 (::before) ----- */
-.ds-tooltip-popover::before {
+.yds-tooltip-popover::before {
   --tooltip-arrow-size: 0.8rem;
   --tooltip-arrow-gap: calc((var(--tooltip-arrow-size) / 2) * -1);
   content: "";
@@ -61,14 +61,14 @@
   height: var(--tooltip-arrow-size);
   display: block;
   position: absolute;
-  background-color: var(--ds-tooltip--popover-color-surface);
+  background-color: var(--yds-tooltip--popover-color-surface);
 }
-.ds-tooltip-popover.ds-tooltip-popover--box::before {
+.yds-tooltip-popover.yds-tooltip-popover--box::before {
   --tooltip-arrow-size: 1.2rem;
-  border: 0.1rem solid var(--ds-tooltip--popover-color-border);
+  border: 0.1rem solid var(--yds-tooltip--popover-color-border);
   border-top-color: transparent;
   border-left-color: transparent;
-  background-color: var(--ds-tooltip--popover-box-color-surface);
+  background-color: var(--yds-tooltip--popover-box-color-surface);
 }
 
 /* ----- 위치별 화살표 -----
@@ -79,47 +79,47 @@
 ----- */
 
 /* --right (기본): 화살표 왼쪽 */
-.ds-tooltip-popover.ds-tooltip-popover--right::before {
+.yds-tooltip-popover.yds-tooltip-popover--right::before {
   left: var(--tooltip-arrow-gap);
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
 /* --left: 화살표 오른쪽 */
-.ds-tooltip-popover.ds-tooltip-popover--left::before {
+.yds-tooltip-popover.yds-tooltip-popover--left::before {
   left: calc(100% + var(--tooltip-arrow-gap));
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
 /* --top: 화살표 아래쪽 */
-.ds-tooltip-popover.ds-tooltip-popover--top::before {
+.yds-tooltip-popover.yds-tooltip-popover--top::before {
   top: calc(100% + var(--tooltip-arrow-gap));
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
-.ds-tooltip-popover.ds-tooltip-popover--top.ds-tooltip-popover--box::before {
+.yds-tooltip-popover.yds-tooltip-popover--top.yds-tooltip-popover--box::before {
   transform: translateX(-50%) rotate(135deg);
 }
 
 /* --bottom: 화살표 위쪽 */
-.ds-tooltip-popover.ds-tooltip-popover--bottom::before {
+.yds-tooltip-popover.yds-tooltip-popover--bottom::before {
   top: var(--tooltip-arrow-gap);
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
-.ds-tooltip-popover.ds-tooltip-popover--bottom.ds-tooltip-popover--box::before {
+.yds-tooltip-popover.yds-tooltip-popover--bottom.yds-tooltip-popover--box::before {
   transform: translateX(-50%) rotate(-135deg);
 }
 
 /* ----- 420px 이하: 화살표 숨김, 중앙 정렬 ----- */
 @media (max-width: 420px) {
-  .ds-tooltip-popover {
+  .yds-tooltip-popover {
     width: calc(100vw - 3.2rem);
     max-width: 100%;
     white-space: normal;
   }
-  .ds-tooltip-popover::before {
+  .yds-tooltip-popover::before {
     display: none;
   }
 }

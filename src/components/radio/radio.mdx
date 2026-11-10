@@ -13,13 +13,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 사용자가 여러 항목 중 <strong>반드시 하나만 선택</strong>하는 폼 요소입니다.  
-체크박스와 함께 `ds-check-item` 구조를 공유하며, `ds-form-group` 레이아웃 위에 구성됩니다.
+체크박스와 함께 `yds-check-item` 구조를 공유하며, `yds-form-group` 레이아웃 위에 구성됩니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -71,26 +71,26 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 그룹 (접근성: fieldset + legend) -->
-<fieldset class="ds-form-group">
-  <legend class="ds-form-label">
-    <span>그룹 제목 <span class="ds-form-label__required" aria-hidden="true">필수</span></span>
+<fieldset class="yds-form-group">
+  <legend class="yds-form-label">
+    <span>그룹 제목 <span class="yds-form-label__required" aria-hidden="true">필수</span></span>
   </legend>
-  <div class="ds-form-content [ds-form-content--error]">
-    <div class="ds-check-group [ds-check-group--column]">
+  <div class="yds-form-content [yds-form-content--error]">
+    <div class="yds-check-group [yds-check-group--column]">
 
       <!-- 단일 라디오 아이템 -->
-      <div class="ds-check-item [ds-check-item--medium|ds-check-item--large]">
+      <div class="yds-check-item [yds-check-item--medium|yds-check-item--large]">
         <input type="radio" id="id" name="group-name" [checked] [disabled]>
         <label for="id">레이블</label>
         <!-- 부가 설명 (선택) -->
-        <div class="ds-check-item__desc">
-          <p class="ds-check-item__text">부가 설명 텍스트</p>
+        <div class="yds-check-item__desc">
+          <p class="yds-check-item__text">부가 설명 텍스트</p>
         </div>
       </div>
 
     </div>
   </div>
-  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error]">메시지</p>
+  <p class="[yds-form-hint|yds-form-hint yds-form-hint--error]">메시지</p>
 </fieldset>
 ```
 
@@ -112,33 +112,33 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 기본 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="radio" id="rdo-1" name="rdo-group">
   <label for="rdo-1">기본</label>
 </div>
 
 <!-- 선택됨 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="radio" id="rdo-2" name="rdo-group" checked>
   <label for="rdo-2">선택됨</label>
 </div>
 
 <!-- 비활성화 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="radio" id="rdo-3" name="rdo-group" disabled>
   <label for="rdo-3">비활성화</label>
 </div>
 
 <!-- 에러 -->
-<div class="ds-form-content ds-form-content--error">
-  <div class="ds-check-group ds-check-group--column">
-    <div class="ds-check-item ds-check-item--medium">
+<div class="yds-form-content yds-form-content--error">
+  <div class="yds-check-group yds-check-group--column">
+    <div class="yds-check-item yds-check-item--medium">
       <input type="radio" id="rdo-4" name="rdo-err">
       <label for="rdo-4">항목 1</label>
     </div>
   </div>
 </div>
-<p class="ds-form-hint ds-form-hint--error">항목을 선택해 주세요.</p>
+<p class="yds-form-hint yds-form-hint--error">항목을 선택해 주세요.</p>
 ```
 
 ### 그룹
@@ -147,22 +147,22 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 세로 배치 + 부가 설명 -->
-<fieldset class="ds-form-group">
-  <legend class="ds-form-label"><span>배송 방법</span></legend>
-  <div class="ds-form-content">
-    <div class="ds-check-group ds-check-group--column">
-      <div class="ds-check-item ds-check-item--medium">
+<fieldset class="yds-form-group">
+  <legend class="yds-form-label"><span>배송 방법</span></legend>
+  <div class="yds-form-content">
+    <div class="yds-check-group yds-check-group--column">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="radio" id="ship-1" name="shipping" checked>
         <label for="ship-1">일반 배송</label>
-        <div class="ds-check-item__desc">
-          <p class="ds-check-item__text">무료 · 2~3일 소요</p>
+        <div class="yds-check-item__desc">
+          <p class="yds-check-item__text">무료 · 2~3일 소요</p>
         </div>
       </div>
-      <div class="ds-check-item ds-check-item--medium">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="radio" id="ship-2" name="shipping">
         <label for="ship-2">빠른 배송</label>
-        <div class="ds-check-item__desc">
-          <p class="ds-check-item__text">3,000원 · 익일 도착</p>
+        <div class="yds-check-item__desc">
+          <p class="yds-check-item__text">3,000원 · 익일 도착</p>
         </div>
       </div>
     </div>
@@ -187,6 +187,6 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 - 라디오 그룹은 반드시 `<fieldset>` + `<legend>`로 감싸 그룹의 목적을 스크린리더에 전달한다.
 - 각 `<input>`의 `id`와 `<label>`의 `for`를 반드시 연결한다.
 - 같은 그룹의 라디오는 동일한 `name` 속성으로 묶어야 키보드 탐색(화살표 키)이 정상 동작한다.
-- 에러 메시지(`.ds-form-hint--error`)는 `aria-describedby`로 연결하면 더욱 접근성이 높아진다.
+- 에러 메시지(`.yds-form-hint--error`)는 `aria-describedby`로 연결하면 더욱 접근성이 높아진다.
 - `disabled` 상태는 스크린리더에 "비활성화"로 읽히므로 별도 안내 문구 불필요.
 - 키보드: 그룹 진입 후 <strong>방향키(↑↓ / ←→)</strong>로 항목 간 이동, `Tab`으로 그룹 이탈.

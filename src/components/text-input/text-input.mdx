@@ -13,13 +13,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 사용자가 텍스트를 직접 입력하는 폼 요소입니다.  
-라벨·도움말·에러 메시지를 포함한 `ds-form-group` 구조는 체크박스·라디오·셀렉트 등 **모든 폼 요소에서 공통으로 재사용**합니다.
+라벨·도움말·에러 메시지를 포함한 `yds-form-group` 구조는 체크박스·라디오·셀렉트 등 **모든 폼 요소에서 공통으로 재사용**합니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -58,15 +58,15 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## HTML 구조
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
-    <label for="id">레이블 <span class="ds-form-label__required" aria-hidden="true">필수</span></label>
+<div class="yds-form-group">
+  <div class="yds-form-label">
+    <label for="id">레이블 <span class="yds-form-label__required" aria-hidden="true">필수</span></label>
   </div>
-  <div class="ds-form-content [ds-form-content--error|ds-form-content--success|ds-form-content--info]">
-    <input type="text" id="id" class="ds-input [ds-input--small|ds-input--medium]"
+  <div class="yds-form-content [yds-form-content--error|yds-form-content--success|yds-form-content--info]">
+    <input type="text" id="id" class="yds-input [yds-input--small|yds-input--medium]"
            placeholder="..." [disabled] [readonly]>
   </div>
-  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error|ds-form-hint ds-form-hint--success|ds-form-hint ds-form-hint--info]">메시지</p>
+  <p class="[yds-form-hint|yds-form-hint yds-form-hint--error|yds-form-hint yds-form-hint--success|yds-form-hint yds-form-hint--info]">메시지</p>
 </div>
 ```
 
@@ -87,14 +87,14 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TextInputStories.기본} />
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
+<div class="yds-form-group">
+  <div class="yds-form-label">
     <label for="name">이름</label>
   </div>
-  <div class="ds-form-content">
-    <input type="text" id="name" class="ds-input" placeholder="이름을 입력하세요">
+  <div class="yds-form-content">
+    <input type="text" id="name" class="yds-input" placeholder="이름을 입력하세요">
   </div>
-  <p class="ds-form-hint">실명으로 입력해 주세요.</p>
+  <p class="yds-form-hint">실명으로 입력해 주세요.</p>
 </div>
 ```
 
@@ -103,9 +103,9 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TextInputStories.크기} />
 
 ```html
-<input type="text" class="ds-input ds-input--small" placeholder="Small">
-<input type="text" class="ds-input ds-input--medium" placeholder="Medium">
-<input type="text" class="ds-input" placeholder="Large (기본)">
+<input type="text" class="yds-input yds-input--small" placeholder="Small">
+<input type="text" class="yds-input yds-input--medium" placeholder="Medium">
+<input type="text" class="yds-input" placeholder="Large (기본)">
 ```
 
 ### 상태
@@ -114,22 +114,22 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 비활성화 -->
-<input type="text" class="ds-input" disabled>
+<input type="text" class="yds-input" disabled>
 
 <!-- 읽기 전용 -->
-<input type="text" class="ds-input" readonly>
+<input type="text" class="yds-input" readonly>
 
 <!-- 에러 -->
-<div class="ds-form-content ds-form-content--error">
-  <input type="text" class="ds-input">
+<div class="yds-form-content yds-form-content--error">
+  <input type="text" class="yds-input">
 </div>
-<p class="ds-form-hint ds-form-hint--error">입력값을 확인해 주세요.</p>
+<p class="yds-form-hint yds-form-hint--error">입력값을 확인해 주세요.</p>
 
 <!-- 성공 -->
-<div class="ds-form-content ds-form-content--success">
-  <input type="text" class="ds-input">
+<div class="yds-form-content yds-form-content--success">
+  <input type="text" class="yds-input">
 </div>
-<p class="ds-form-hint ds-form-hint--success">사용 가능한 아이디입니다.</p>
+<p class="yds-form-hint yds-form-hint--success">사용 가능한 아이디입니다.</p>
 ```
 
 ### Password (보기/숨기기)
@@ -137,16 +137,16 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TextInputStories.Password} />
 
 ```html
-<div class="ds-form-content ds-form-content--with-btn" data-delete="true">
-  <input type="password" class="ds-input" placeholder="비밀번호 입력">
-  <div class="ds-form-content__actions">
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn">
+<div class="yds-form-content yds-form-content--with-btn" data-delete="true">
+  <input type="password" class="yds-input" placeholder="비밀번호 입력">
+  <div class="yds-form-content__actions">
+    <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn">
       <span class="sr-only">내용 삭제</span>
-      <i class="ds-icon ds-ico-delete-fill"></i>
+      <i class="yds-icon yds-ico-delete-fill"></i>
     </button>
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon">
+    <button type="button" class="yds-btn yds-btn--medium yds-btn--icon">
       <span class="sr-only">입력한 비밀번호 보기</span>
-      <i class="ds-icon ds-ico-pw-visible"></i>
+      <i class="yds-icon yds-ico-pw-visible"></i>
     </button>
   </div>
 </div>
@@ -160,16 +160,16 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TextInputStories.Search} />
 
 ```html
-<div class="ds-form-content ds-form-content--with-btn" data-delete="true">
-  <input type="search" class="ds-input" placeholder="검색어를 입력하세요">
-  <div class="ds-form-content__actions">
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn">
+<div class="yds-form-content yds-form-content--with-btn" data-delete="true">
+  <input type="search" class="yds-input" placeholder="검색어를 입력하세요">
+  <div class="yds-form-content__actions">
+    <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn">
       <span class="sr-only">내용 삭제</span>
-      <i class="ds-icon ds-ico-delete-fill"></i>
+      <i class="yds-icon yds-ico-delete-fill"></i>
     </button>
-    <button type="button" class="ds-btn ds-btn--medium ds-btn--icon">
+    <button type="button" class="yds-btn yds-btn--medium yds-btn--icon">
       <span class="sr-only">검색</span>
-      <i class="ds-icon ds-ico-sch"></i>
+      <i class="yds-icon yds-ico-sch"></i>
     </button>
   </div>
 </div>
@@ -180,12 +180,12 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TextInputStories.글자수표시} />
 
 ```html
-<div class="ds-form-content">
-  <input type="text" class="ds-input" maxlength="20"
+<div class="yds-form-content">
+  <input type="text" class="yds-input" maxlength="20"
          oninput="document.getElementById('count-current').textContent = this.value.length">
-  <p class="ds-count">
-    <span class="ds-count__current" id="count-current">0</span>
-    <span class="ds-count__max">/ 20</span>
+  <p class="yds-count">
+    <span class="yds-count__current" id="count-current">0</span>
+    <span class="yds-count__max">/ 20</span>
   </p>
 </div>
 ```
@@ -199,22 +199,22 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 접근성
 
 - `<label>`의 `for` 속성과 `<input>`의 `id`를 반드시 연결한다.
-- 필수 입력은 `<input required>`와 시각적 표시(`.ds-form-label__required`) 모두 제공한다.
+- 필수 입력은 `<input required>`와 시각적 표시(`.yds-form-label__required`) 모두 제공한다.
 - 에러 메시지는 `aria-describedby`로 연결하거나 포커스 이동으로 안내한다.
 - `disabled` 입력은 스크린리더에 "비활성화"로 읽히므로 안내 문구를 별도 제공하지 않아도 된다.
 - `readonly`는 `[readonly]` 속성으로, 포커스는 유지된다.
 
 ---
 
-## ds-form-group 공유 구조
+## yds-form-group 공유 구조
 
-`ds-form-group.css`는 텍스트 입력 외에도 아래 컴포넌트에서 동일하게 사용한다.
+`yds-form-group.css`는 텍스트 입력 외에도 아래 컴포넌트에서 동일하게 사용한다.
 
 | 컴포넌트 | 비고 |
 |---|---|
-| 체크박스 (Checkbox) | `ds-form-content` 내부 구조만 다름 |
-| 라디오 버튼 (Radio Button) | `ds-form-content` 내부 구조만 다름 |
-| 셀렉트 (Select) | `ds-form-content` 내부 구조만 다름 |
-| 텍스트 영역 (Textarea) | `ds-textarea` 블록 추가 |
+| 체크박스 (Checkbox) | `yds-form-content` 내부 구조만 다름 |
+| 라디오 버튼 (Radio Button) | `yds-form-content` 내부 구조만 다름 |
+| 셀렉트 (Select) | `yds-form-content` 내부 구조만 다름 |
+| 텍스트 영역 (Textarea) | `yds-textarea` 블록 추가 |
 | 날짜 입력 (Date Input) | `calendar-conts` 추가 |
 | 파일 업로드 (File Upload) | 별도 레이아웃 |

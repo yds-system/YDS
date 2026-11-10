@@ -5,21 +5,21 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-form-group {
-  --ds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
-  --ds-form-group--label-mobile-font-size: var(--krds-mobile-font-size-label-small);
-  --ds-form-group--gap: var(--krds-gap-3);
-  --ds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
-  --ds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
-  --ds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
-  --ds-form-group--message-text-color: var(--color-text-subtle);
-  --ds-form-group--message-success-text-color: var(--color-text-success);
-  --ds-form-group--message-information-text-color: var(--color-text-information);
-  --ds-form-group--message-error-text-color: var(--color-text-danger);
+.yds-form-group {
+  --yds-form-group--label-pc-font-size: var(--krds-pc-font-size-label-small);
+  --yds-form-group--label-mobile-font-size: var(--krds-mobile-font-size-label-small);
+  --yds-form-group--gap: var(--krds-gap-3);
+  --yds-form-group--icon-padding-right: calc(var(--krds-padding-7) * 2 + var(--krds-icon--size-large));
+  --yds-form-group--message-pc-font-size: var(--krds-pc-font-size-label-xsmall);
+  --yds-form-group--message-mobile-font-size: var(--krds-mobile-font-size-label-xsmall);
+  --yds-form-group--message-text-color: var(--color-text-subtle);
+  --yds-form-group--message-success-text-color: var(--color-text-success);
+  --yds-form-group--message-information-text-color: var(--color-text-information);
+  --yds-form-group--message-error-text-color: var(--color-text-danger);
 }
 
 /* ----- 폼 그룹 세로 묶음 ----- */
-.ds-fieldset {
+.yds-fieldset {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -28,49 +28,49 @@
 }
 
 /* ----- 폼 그룹 가로 배치 ----- */
-.ds-form-row {
+.yds-form-row {
   display: flex;
   gap: var(--krds-gap-5);
 }
-.ds-form-row .ds-form-group {
+.yds-form-row .yds-form-group {
   width: fit-content;
 }
 @media (max-width: 767px) {
-  .ds-form-row {
+  .yds-form-row {
     flex-direction: column;
   }
-  .ds-form-row .ds-form-group {
+  .yds-form-row .yds-form-group {
     width: 100%;
   }
 }
 
 /* ----- 폼 그룹 ----- */
-.ds-form-group {
+.yds-form-group {
   display: flex;
   align-items: normal;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--ds-form-group--gap);
+  gap: var(--yds-form-group--gap);
   width: 100%;
 }
 
 /* ----- 레이블 영역 ----- */
-.ds-form-group .ds-form-label {
+.yds-form-group .yds-form-label {
   width: 100%;
   color: var(--color-text-subtle);
 }
-.ds-form-group .ds-form-label label {
-  font-size: var(--ds-form-group--label-pc-font-size);
+.yds-form-group .yds-form-label label {
+  font-size: var(--yds-form-group--label-pc-font-size);
   font-weight: var(--krds-font-weight-regular);
 }
 @media (max-width: 767px) {
-  .ds-form-group .ds-form-label label {
-    font-size: var(--ds-form-group--label-mobile-font-size);
+  .yds-form-group .yds-form-label label {
+    font-size: var(--yds-form-group--label-mobile-font-size);
   }
 }
 
 /* 필수 표시 */
-.ds-form-label .ds-form-label__required {
+.yds-form-label .yds-form-label__required {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
 }
 
 /* ----- 입력 콘텐츠 영역 ----- */
-.ds-form-group .ds-form-content {
+.yds-form-group .yds-form-content {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -96,66 +96,66 @@
 }
 
 /* 아이콘 버튼 포함 (password, search, delete 등) */
-.ds-form-group .ds-form-content--with-btn {
+.yds-form-group .yds-form-content--with-btn {
   position: relative;
   flex-direction: row;
   align-items: center;
 }
-.ds-form-group .ds-form-content--with-btn .ds-input {
-  padding-right: var(--ds-form-group--icon-padding-right);
+.yds-form-group .yds-form-content--with-btn .yds-input {
+  padding-right: var(--yds-form-group--icon-padding-right);
 }
-.ds-form-group .ds-form-content--with-btn .ds-form-content__actions,
-.ds-form-group .ds-form-content--with-btn .ds-btn {
+.yds-form-group .yds-form-content--with-btn .yds-form-content__actions,
+.yds-form-group .yds-form-content--with-btn .yds-btn {
   position: absolute;
   top: 50%;
   right: var(--krds-padding-7);
   transform: translateY(-50%);
 }
-.ds-form-group .ds-form-content--with-btn .ds-form-content__actions {
+.yds-form-group .yds-form-content--with-btn .yds-form-content__actions {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   gap: var(--krds-gap-3);
 }
-.ds-form-group .ds-form-content--with-btn .ds-form-content__actions .ds-btn {
+.yds-form-group .yds-form-content--with-btn .yds-form-content__actions .yds-btn {
   position: static;
   transform: translateY(0);
 }
 
 /* 삭제 버튼: 값이 없으면 숨김 */
-.ds-form-group .ds-form-content--with-btn .ds-input__clear-btn {
+.yds-form-group .yds-form-content--with-btn .yds-input__clear-btn {
   display: none;
 }
-.ds-form-content--with-btn[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .ds-input__clear-btn {
+.yds-form-content--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-input__clear-btn {
   display: flex;
 }
-.ds-form-content--with-btn[data-delete="true"] .ds-input:not(:placeholder-shown) ~ .ds-form-content__actions .ds-input__clear-btn {
+.yds-form-content--with-btn[data-delete="true"] .yds-input:not(:placeholder-shown) ~ .yds-form-content__actions .yds-input__clear-btn {
   display: flex;
 }
 
 /* ----- 도움말·에러·성공·정보 메시지 ----- */
-.ds-form-group > p {
+.yds-form-group > p {
   width: 100%;
 }
-.ds-form-group [class^="ds-form-hint"] {
+.yds-form-group [class^="yds-form-hint"] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   gap: var(--krds-gap-2);
   width: 100%;
-  font-size: var(--ds-form-group--message-pc-font-size);
-  color: var(--ds-form-group--message-text-color);
+  font-size: var(--yds-form-group--message-pc-font-size);
+  color: var(--yds-form-group--message-text-color);
 }
 @media (max-width: 767px) {
-  .ds-form-group [class^="ds-form-hint"] {
-    font-size: var(--ds-form-group--message-mobile-font-size);
+  .yds-form-group [class^="yds-form-hint"] {
+    font-size: var(--yds-form-group--message-mobile-font-size);
   }
 }
 
 /* 기본 도움말 아이콘 */
-.ds-form-group [class^="ds-form-hint"]::before {
+.yds-form-group [class^="yds-form-hint"]::before {
   content: "";
   display: inline-flex;
   flex-shrink: 0;
@@ -174,17 +174,17 @@
 }
 
 /* 상태별(--error, --success, --info) 아이콘은 별도 SVG 사용 */
-.ds-form-group [class*="ds-form-hint--"]::before {
+.yds-form-group [class*="yds-form-hint--"]::before {
   background-color: transparent !important;
   -webkit-mask: none;
   mask: none;
 }
 
 /* 성공 */
-.ds-form-group .ds-form-hint--success {
-  color: var(--ds-form-group--message-success-text-color);
+.yds-form-group .yds-form-hint--success {
+  color: var(--yds-form-group--message-success-text-color);
 }
-.ds-form-group .ds-form-hint--success::before {
+.yds-form-group .yds-form-hint--success::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
@@ -193,10 +193,10 @@
 }
 
 /* 정보 */
-.ds-form-group .ds-form-hint--info {
-  color: var(--ds-form-group--message-information-text-color);
+.yds-form-group .yds-form-hint--info {
+  color: var(--yds-form-group--message-information-text-color);
 }
-.ds-form-group .ds-form-hint--info::before {
+.yds-form-group .yds-form-hint--info::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
@@ -205,10 +205,10 @@
 }
 
 /* 에러 */
-.ds-form-group .ds-form-hint--error {
-  color: var(--ds-form-group--message-error-text-color);
+.yds-form-group .yds-form-hint--error {
+  color: var(--yds-form-group--message-error-text-color);
 }
-.ds-form-group .ds-form-hint--error::before {
+.yds-form-group .yds-form-hint--error::before {
   width: var(--krds-icon--size-small);
   height: var(--krds-icon--size-small);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);

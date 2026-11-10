@@ -1,5 +1,5 @@
 import '../form-group/form-group.css';
-import '../checkbox/checkbox.css'; /* ds-check-item 공유 CSS */
+import '../checkbox/checkbox.css'; /* yds-check-item 공유 CSS */
 
 export default {
   title: 'Components/Radio Button',
@@ -50,12 +50,12 @@ export default {
 /* 단일 라디오 아이템 HTML 생성 */
 function radioItem({ id, name, label, size = 'medium', checked = false, disabled = false, subText = '' }) {
   return `
-    <div class="ds-check-item ds-check-item--${size}">
+    <div class="yds-check-item yds-check-item--${size}">
       <input type="radio" id="${id}" name="${name}"
         ${checked ? 'checked' : ''}
         ${disabled ? 'disabled' : ''}>
       <label for="${id}">${label}</label>
-      ${subText ? `<div class="ds-check-item__desc"><p class="ds-check-item__text">${subText}</p></div>` : ''}
+      ${subText ? `<div class="yds-check-item__desc"><p class="yds-check-item__text">${subText}</p></div>` : ''}
     </div>
   `;
 }
@@ -63,17 +63,17 @@ function radioItem({ id, name, label, size = 'medium', checked = false, disabled
 /* fieldset 그룹 래퍼 */
 function radioGroup({ legend, name, required = false, layout = 'row', hint = '', state = 'default', size = 'medium', items }) {
   const isError = state === 'error';
-  const stateClass = isError ? ' ds-form-content--error' : '';
-  const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
-  const layoutClass = layout === 'column' ? ' ds-check-group--column' : '';
+  const stateClass = isError ? ' yds-form-content--error' : '';
+  const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
+  const layoutClass = layout === 'column' ? ' yds-check-group--column' : '';
 
   return `
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label">
-        <span>${legend}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label">
+        <span>${legend}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
       </legend>
-      <div class="ds-form-content${stateClass}">
-        <div class="ds-check-group${layoutClass}">
+      <div class="yds-form-content${stateClass}">
+        <div class="yds-check-group${layoutClass}">
           ${items.map(item => radioItem({ ...item, name, size })).join('')}
         </div>
       </div>
@@ -83,7 +83,7 @@ function radioGroup({ legend, name, required = false, layout = 'row', hint = '',
 }
 
 const wrap = (content) =>
-  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="yds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ───────────────────────────── */
 export const Playground = {
@@ -92,15 +92,15 @@ export const Playground = {
     const checked = state === 'checked';
     const isDisabled = state === 'disabled';
     const isError = state === 'error';
-    const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
+    const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
 
     return wrap(`
-      <fieldset class="ds-form-group">
-        <legend class="ds-form-label">
-          <span>${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
+      <fieldset class="yds-form-group">
+        <legend class="yds-form-label">
+          <span>${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</span>
         </legend>
-        <div class="ds-form-content${isError ? ' ds-form-content--error' : ''}">
-          <div class="ds-check-group ds-check-group--column">
+        <div class="yds-form-content${isError ? ' yds-form-content--error' : ''}">
+          <div class="yds-check-group yds-check-group--column">
             ${radioItem({ id: 'rdo-pg-1', name: 'rdo-pg', label: '항목 1', size, checked, disabled: isDisabled, subText })}
             ${radioItem({ id: 'rdo-pg-2', name: 'rdo-pg', label: '항목 2', size })}
           </div>
@@ -116,10 +116,10 @@ export const 상태 = {
   name: '상태 (State)',
   parameters: { controls: { include: ['size'] } },
   render: ({ size }) => wrap(`
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label"><span>상태</span></legend>
-      <div class="ds-form-content">
-        <div class="ds-check-group ds-check-group--column">
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label"><span>상태</span></legend>
+      <div class="yds-form-content">
+        <div class="yds-check-group yds-check-group--column">
           ${radioItem({ id: 'st-r1', name: 'st-rdo', label: '기본 (미선택)', size })}
           ${radioItem({ id: 'st-r2', name: 'st-rdo', label: '선택됨', size, checked: true })}
           ${radioItem({ id: 'st-r3', name: 'st-dis', label: '비활성화', size, disabled: true })}
@@ -127,15 +127,15 @@ export const 상태 = {
         </div>
       </div>
     </fieldset>
-    <fieldset class="ds-form-group">
-      <legend class="ds-form-label"><span>에러 상태</span></legend>
-      <div class="ds-form-content ds-form-content--error">
-        <div class="ds-check-group ds-check-group--column">
+    <fieldset class="yds-form-group">
+      <legend class="yds-form-label"><span>에러 상태</span></legend>
+      <div class="yds-form-content yds-form-content--error">
+        <div class="yds-check-group yds-check-group--column">
           ${radioItem({ id: 'st-er1', name: 'st-err', label: '항목 1', size })}
           ${radioItem({ id: 'st-er2', name: 'st-err', label: '항목 2', size })}
         </div>
       </div>
-      <p class="ds-form-hint ds-form-hint--error">항목을 선택해 주세요.</p>
+      <p class="yds-form-hint yds-form-hint--error">항목을 선택해 주세요.</p>
     </fieldset>
   `),
 };

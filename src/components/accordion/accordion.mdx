@@ -17,7 +17,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 개요
 
-- **블록**: `ds-accordion`
+- **블록**: `yds-accordion`
 - **KRDS 원본**: `krds-accordion`
 
 ---
@@ -67,17 +67,17 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ```js
 function initAccordion(container) {
   const mode  = container.dataset.type || 'singleOpen';
-  const items = Array.from(container.querySelectorAll('.ds-accordion__item'));
+  const items = Array.from(container.querySelectorAll('.yds-accordion__item'));
 
   items.forEach((item, idx) => {
-    const btn   = item.querySelector('.ds-accordion__btn');
-    const panel = item.querySelector('.ds-accordion__collapse');
+    const btn   = item.querySelector('.yds-accordion__btn');
+    const panel = item.querySelector('.yds-accordion__collapse');
 
     // aria 속성 설정
     const uid = `${idx}-${crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)}`;
     btn.id = `accordion-hd-${uid}`;
     btn.setAttribute('aria-controls',  `accordion-pnl-${uid}`);
-    btn.setAttribute('aria-expanded',  item.classList.contains('ds-accordion__item--open') ? 'true' : 'false');
+    btn.setAttribute('aria-expanded',  item.classList.contains('yds-accordion__item--open') ? 'true' : 'false');
     panel.id = `accordion-pnl-${uid}`;
     panel.setAttribute('role', 'region');
     panel.setAttribute('aria-labelledby', btn.id);
@@ -89,23 +89,23 @@ function initAccordion(container) {
       if (mode !== 'multiOpen' && !isExpanded) {
         items.forEach(other => {
           if (other === item) return;
-          const otherBtn = other.querySelector('.ds-accordion__btn');
+          const otherBtn = other.querySelector('.yds-accordion__btn');
           otherBtn?.setAttribute('aria-expanded', 'false');
-          otherBtn?.classList.remove('ds-accordion__btn--open');
-          other.classList.remove('ds-accordion__item--open');
+          otherBtn?.classList.remove('yds-accordion__btn--open');
+          other.classList.remove('yds-accordion__item--open');
         });
       }
 
       // 현재 항목 토글
       const next = !isExpanded;
       btn.setAttribute('aria-expanded', String(next));
-      btn.classList.toggle('ds-accordion__btn--open', next);
-      item.classList.toggle('ds-accordion__item--open', next);
+      btn.classList.toggle('yds-accordion__btn--open', next);
+      item.classList.toggle('yds-accordion__item--open', next);
     });
   });
 }
 
-document.querySelectorAll('.ds-accordion').forEach(initAccordion);
+document.querySelectorAll('.yds-accordion').forEach(initAccordion);
 ```
 
 ---
@@ -146,5 +146,5 @@ document.querySelectorAll('.ds-accordion').forEach(initAccordion);
 - `aria-expanded="true|false"`로 스크린리더에 열림/닫힘 상태를 알린다.
 - `aria-controls="패널id"`로 버튼이 제어하는 패널을 연결한다.
 - 패널에 `role="region"` + `aria-labelledby="버튼id"`를 설정해 탐색 랜드마크로 인식되게 한다.
-- `ds-accordion__header`에 적절한 제목 계층(`<h2>`~`<h6>`)을 사용해 페이지 구조를 유지한다.
+- `yds-accordion__header`에 적절한 제목 계층(`<h2>`~`<h6>`)을 사용해 페이지 구조를 유지한다.
 - 패널 닫힘 시 `visibility: hidden`으로 숨겨 포커스 탐색에서 제외한다.

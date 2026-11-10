@@ -8,7 +8,7 @@ import { buttonNaming, linkNaming, tagNaming, textInputNaming, textareaNaming, s
 
 컴포넌트 네이밍 정의서
 
-범정부 UI/UX 디자인 시스템(KRDS) 기반 `ds-` BEM 규칙 클래스명 정의서입니다.
+범정부 UI/UX 디자인 시스템(KRDS) 기반 `yds-` BEM 규칙 클래스명 정의서입니다.
 KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
 
 ---
@@ -24,36 +24,36 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
   <tbody>
     <tr>
       <td><strong>Block</strong> (블록)</td>
-      <td><code>ds-&#123;컴포넌트&#125;</code></td>
-      <td><code>ds-btn</code>, <code>ds-input</code></td>
+      <td><code>yds-&#123;컴포넌트&#125;</code></td>
+      <td><code>yds-btn</code>, <code>yds-input</code></td>
       <td>독립적으로 의미를 갖는 컴포넌트 단위. 어디에서든 재사용 가능</td>
     </tr>
     <tr>
       <td><strong>Element</strong> (요소)</td>
-      <td><code>ds-&#123;컴포넌트&#125;&#95;&#95;&#123;요소&#125;</code></td>
-      <td><code>ds-breadcrumb__link</code>, <code>ds-tag__delete-btn</code></td>
+      <td><code>yds-&#123;컴포넌트&#125;&#95;&#95;&#123;요소&#125;</code></td>
+      <td><code>yds-breadcrumb__link</code>, <code>yds-tag__delete-btn</code></td>
       <td>블록을 구성하는 내부 요소. <code>&#95;&#95;</code>(언더스코어 2개)로 연결. 블록 없이 단독 사용 불가</td>
     </tr>
     <tr>
       <td><strong>Modifier</strong> (변형)</td>
-      <td><code>ds-&#123;컴포넌트&#125;--&#123;modifier&#125;</code></td>
-      <td><code>ds-btn--primary</code>, <code>ds-btn--small</code></td>
+      <td><code>yds-&#123;컴포넌트&#125;--&#123;modifier&#125;</code></td>
+      <td><code>yds-btn--primary</code>, <code>yds-btn--small</code></td>
       <td>블록·요소의 변형(종류·크기·상태). <code>--</code>(하이픈 2개)로 연결. 항상 기본 클래스와 함께 사용</td>
     </tr>
   </tbody>
 </table>
 
 ```html
-<!-- Block + Modifier: Primary 버튼 (ds-btn = Block, ds-btn--primary / ds-btn--small = Modifier) -->
-<button class="ds-btn ds-btn--primary ds-btn--small">확인</button>
+<!-- Block + Modifier: Primary 버튼 (yds-btn = Block, yds-btn--primary / yds-btn--small = Modifier) -->
+<button class="yds-btn yds-btn--primary yds-btn--small">확인</button>
 
 <!-- Block + Element + Modifier: 브레드크럼 현재 페이지
-     ds-breadcrumb = Block, ds-breadcrumb__link = Element, ds-breadcrumb__link--current = Modifier -->
-<nav class="ds-breadcrumb">
-  <ol class="ds-breadcrumb__list">
-    <li class="ds-breadcrumb__item"><a class="ds-breadcrumb__link" href="#">홈</a></li>
-    <li class="ds-breadcrumb__item">
-      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">현재 페이지</span>
+     yds-breadcrumb = Block, yds-breadcrumb__link = Element, yds-breadcrumb__link--current = Modifier -->
+<nav class="yds-breadcrumb">
+  <ol class="yds-breadcrumb__list">
+    <li class="yds-breadcrumb__item"><a class="yds-breadcrumb__link" href="#">홈</a></li>
+    <li class="yds-breadcrumb__item">
+      <span class="yds-breadcrumb__link yds-breadcrumb__link--current" aria-current="page">현재 페이지</span>
     </li>
   </ol>
 </nav>
@@ -70,7 +70,7 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
     <tr><th>항목</th><th>Storybook 경로</th><th>설명</th></tr>
   </thead>
   <tbody>
-    <tr><td>아이콘</td><td><code>기반/아이콘</code></td><td>CSS mask-image 기반 SVG 아이콘 (~65종). <code>ds-icon</code> + <code>ds-ico-&#42;</code> 클래스</td></tr>
+    <tr><td>아이콘</td><td><code>기반/아이콘</code></td><td>CSS mask-image 기반 SVG 아이콘 (~65종). <code>yds-icon</code> + <code>yds-ico-&#42;</code> 클래스</td></tr>
     <tr><td>색상 토큰</td><td><code>기반/색상</code> (예정)</td><td>KRDS 색상 토큰 (<code>--krds-light-color-&#42;</code>)</td></tr>
     <tr><td>타이포그래피</td><td><code>기반/타이포그래피</code> (예정)</td><td>서체·크기·행간 토큰</td></tr>
     <tr><td>간격</td><td><code>기반/간격</code> (예정)</td><td>여백·패딩 토큰 (<code>--krds-spacing-&#42;</code>)</td></tr>
@@ -187,11 +187,11 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
   <tbody>
     <CompRow
       comp={checkboxNaming}
-      elementFilter={e => e.class.startsWith('ds-check-')}
+      elementFilter={e => e.class.startsWith('yds-check-')}
     />
     <CompRow
       comp={radioNaming}
-      elementFilter={e => e.class.startsWith('ds-check-')}
+      elementFilter={e => e.class.startsWith('yds-check-')}
     />
     <CompRow comp={selectNaming} />
     <CompRow comp={tagNaming} />
@@ -255,7 +255,7 @@ KRDS 원본 클래스는 각 항목의 'KRDS 원본' 열을 참고하세요.
     <tr>
       <td>기본 레이아웃</td>
       <td>Basic Layout</td>
-      <td>헤더(ds-header) + GNB(ds-main-menu) + 푸터(ds-footer)</td>
+      <td>헤더(yds-header) + GNB(yds-main-menu) + 푸터(yds-footer)</td>
       <td>서비스 기본 페이지 레이아웃 조합</td>
     </tr>
   </tbody>

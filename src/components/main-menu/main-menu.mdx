@@ -13,15 +13,15 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 사이트의 주요 메뉴(GNB)를 담당하는 컴포넌트입니다.
-PC에서는 메가 메뉴(ds-main-menu), 모바일에서는 슬라이드 패널(ds-main-menu-mobile)로 표시됩니다.
+PC에서는 메가 메뉴(yds-main-menu), 모바일에서는 슬라이드 패널(yds-main-menu-mobile)로 표시됩니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
-### PC GNB (ds-main-menu)
+### PC GNB (yds-main-menu)
 
 <pre><code>{pcGnbNaming.structure}</code></pre>
 
@@ -29,7 +29,7 @@ PC에서는 메가 메뉴(ds-main-menu), 모바일에서는 슬라이드 패널(
 
 <ModifierTable modifiers={pcGnbNaming.modifiers} baseClass={pcGnbNaming.baseClass} showKrds />
 
-### 모바일 GNB (ds-main-menu-mobile)
+### 모바일 GNB (yds-main-menu-mobile)
 
 <pre><code>{mobileGnbNaming.structure}</code></pre>
 
@@ -41,8 +41,8 @@ PC에서는 메가 메뉴(ds-main-menu), 모바일에서는 슬라이드 패널(
 
 ## 언제 사용하는지
 
-- PC(≥1280px)에서는 헤더 하단에 `ds-main-menu`(메가 메뉴)를 표시합니다.
-- 모바일(1280px 미만)에서는 전체 메뉴 버튼 클릭 시 `ds-main-menu-mobile` 슬라이드 패널이 열립니다.
+- PC(≥1280px)에서는 헤더 하단에 `yds-main-menu`(메가 메뉴)를 표시합니다.
+- 모바일(1280px 미만)에서는 전체 메뉴 버튼 클릭 시 `yds-main-menu-mobile` 슬라이드 패널이 열립니다.
 - 1depth → 2depth → 3depth 메가 메뉴 구조를 지원합니다.
 
 ---

@@ -3,115 +3,115 @@
    출처: reference/krds/resources/css/component/component.css
    ============================================= */
 
-/* ds-spinner 임시 정의 (스피너 컴포넌트 구현 전까지 여기서 관리)
+/* yds-spinner 임시 정의 (스피너 컴포넌트 구현 전까지 여기서 관리)
    TODO: 스피너 컴포넌트 추가 시 spinner.css로 이동 */
-.ds-spinner {
+.yds-spinner {
   display: inline-block;
   width: 1.25em;
   height: 1.25em;
   border: 2px solid currentColor;
   border-top-color: transparent;
   border-radius: 50%;
-  animation: ds-spin 0.75s linear infinite;
+  animation: yds-spin 0.75s linear infinite;
   vertical-align: middle;
 }
 
-@keyframes ds-spin {
+@keyframes yds-spin {
   to { transform: rotate(360deg); }
 }
 
 /* ----- CSS 변수 ----- */
-.ds-file-upload {
-  --ds-file-upload--gap: var(--krds-gap-7);
-  --ds-file-upload--file-total-y: .3rem;
-  --ds-file-upload--file-padding-x: var(--krds-padding-10);
-  --ds-file-upload--file-padding-y: 6.4rem;
-  --ds-file-upload--file-radius: var(--krds-radius-xlarge1);
-  --ds-file-upload--file-pc-font-size: var(--krds-pc-font-size-body-large);
-  --ds-file-upload--file-mobile-font-size: var(--krds-mobile-font-size-body-large);
-  --ds-file-upload--list-padding: var(--krds-padding-6);
-  --ds-file-upload--list-radius: var(--krds-radius-medium4);
-  --ds-file-upload--mobile-list-padding-y: var(--krds-padding-5);
-  --ds-file-upload--line-radius: var(--krds-radius-xlarge1);
-  --ds-file-upload--line-pc-padding: var(--krds-pc-padding-card-large);
-  --ds-file-upload--line-mobile-padding: var(--krds-mobile-padding-card-large);
-  --ds-file-upload--head-pc-font-size: var(--krds-pc-font-size-heading-small);
-  --ds-file-upload--head-mobile-font-size: var(--krds-mobile-font-size-heading-small);
-  --ds-file-upload--head-pc-margin-bottom: var(--krds-pc-gap-layout-title-body-small);
-  --ds-file-upload--head-mobile-margin-bottom: var(--krds-mobile-gap-layout-title-body-small);
+.yds-file-upload {
+  --yds-file-upload--gap: var(--krds-gap-7);
+  --yds-file-upload--file-total-y: .3rem;
+  --yds-file-upload--file-padding-x: var(--krds-padding-10);
+  --yds-file-upload--file-padding-y: 6.4rem;
+  --yds-file-upload--file-radius: var(--krds-radius-xlarge1);
+  --yds-file-upload--file-pc-font-size: var(--krds-pc-font-size-body-large);
+  --yds-file-upload--file-mobile-font-size: var(--krds-mobile-font-size-body-large);
+  --yds-file-upload--list-padding: var(--krds-padding-6);
+  --yds-file-upload--list-radius: var(--krds-radius-medium4);
+  --yds-file-upload--mobile-list-padding-y: var(--krds-padding-5);
+  --yds-file-upload--line-radius: var(--krds-radius-xlarge1);
+  --yds-file-upload--line-pc-padding: var(--krds-pc-padding-card-large);
+  --yds-file-upload--line-mobile-padding: var(--krds-mobile-padding-card-large);
+  --yds-file-upload--head-pc-font-size: var(--krds-pc-font-size-heading-small);
+  --yds-file-upload--head-mobile-font-size: var(--krds-mobile-font-size-heading-small);
+  --yds-file-upload--head-pc-margin-bottom: var(--krds-pc-gap-layout-title-body-small);
+  --yds-file-upload--head-mobile-margin-bottom: var(--krds-mobile-gap-layout-title-body-small);
 
-  --ds-file-upload--border-width: var(--krds-light-border-width-variable-regular);
-  --ds-file-upload--border-medium: var(--krds-light-border-width-variable-medium);
-  --ds-file-upload--file-color-surface: var(--color-bg-subtler);
-  --ds-file-upload--file-color-border-active: var(--color-border-default);
-  --ds-file-upload--list-color-surface: var(--color-bg-danger-subtle);
-  --ds-file-upload--list-color-border: var(--color-border-subtle);
-  --ds-file-upload--list-color-border-error: var(--color-border-danger);
-  --ds-file-upload--list-color-text: var(--color-text-stronger);
-  --ds-file-upload--list-color-text-error: var(--color-text-danger);
-  --ds-file-upload--line-color-border: var(--color-border-default);
+  --yds-file-upload--border-width: var(--krds-light-border-width-variable-regular);
+  --yds-file-upload--border-medium: var(--krds-light-border-width-variable-medium);
+  --yds-file-upload--file-color-surface: var(--color-bg-subtler);
+  --yds-file-upload--file-color-border-active: var(--color-border-default);
+  --yds-file-upload--list-color-surface: var(--color-bg-danger-subtle);
+  --yds-file-upload--list-color-border: var(--color-border-subtle);
+  --yds-file-upload--list-color-border-error: var(--color-border-danger);
+  --yds-file-upload--list-color-text: var(--color-text-stronger);
+  --yds-file-upload--list-color-text-error: var(--color-text-danger);
+  --yds-file-upload--line-color-border: var(--color-border-default);
 }
 
 /* ----- 최상위 컨테이너 ----- */
-.ds-file-upload {
+.yds-file-upload {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--ds-file-upload--gap);
+  gap: var(--yds-file-upload--gap);
   width: 100%;
 }
 
 /* 테두리 변형 */
-.ds-file-upload--line {
-  padding: var(--ds-file-upload--line-pc-padding);
-  border: var(--ds-file-upload--border-width) solid var(--ds-file-upload--line-color-border);
-  border-radius: var(--ds-file-upload--line-radius);
+.yds-file-upload--line {
+  padding: var(--yds-file-upload--line-pc-padding);
+  border: var(--yds-file-upload--border-width) solid var(--yds-file-upload--line-color-border);
+  border-radius: var(--yds-file-upload--line-radius);
 }
 @media (max-width: 767px) {
-  .ds-file-upload--line {
-    padding: var(--ds-file-upload--line-mobile-padding);
+  .yds-file-upload--line {
+    padding: var(--yds-file-upload--line-mobile-padding);
   }
 }
 
 /* ----- 헤드 영역 ----- */
-.ds-file-upload__head .ds-file-upload__title {
-  margin-bottom: var(--ds-file-upload--head-pc-margin-bottom);
-  font-size: var(--ds-file-upload--head-pc-font-size);
+.yds-file-upload__head .yds-file-upload__title {
+  margin-bottom: var(--yds-file-upload--head-pc-margin-bottom);
+  font-size: var(--yds-file-upload--head-pc-font-size);
 }
 @media (max-width: 767px) {
-  .ds-file-upload__head .ds-file-upload__title {
-    margin-bottom: var(--ds-file-upload--head-mobile-margin-bottom);
-    font-size: var(--ds-file-upload--head-mobile-font-size);
+  .yds-file-upload__head .yds-file-upload__title {
+    margin-bottom: var(--yds-file-upload--head-mobile-margin-bottom);
+    font-size: var(--yds-file-upload--head-mobile-font-size);
   }
 }
 
 /* ----- 드래그 앤 드롭 영역 ----- */
-.ds-file-upload__dropzone {
+.yds-file-upload__dropzone {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: var(--krds-gap-9);
   width: 100%;
-  padding: var(--ds-file-upload--file-padding-y) var(--ds-file-upload--file-padding-x);
-  border-radius: var(--ds-file-upload--file-radius);
-  border: var(--ds-file-upload--border-width) dashed transparent;
-  background-color: var(--ds-file-upload--file-color-surface);
+  padding: var(--yds-file-upload--file-padding-y) var(--yds-file-upload--file-padding-x);
+  border-radius: var(--yds-file-upload--file-radius);
+  border: var(--yds-file-upload--border-width) dashed transparent;
+  background-color: var(--yds-file-upload--file-color-surface);
   transition: border-color var(--krds-transition-base);
 }
-.ds-file-upload__desc {
-  font-size: var(--ds-file-upload--file-pc-font-size);
+.yds-file-upload__desc {
+  font-size: var(--yds-file-upload--file-pc-font-size);
   text-align: center;
 }
 @media (max-width: 767px) {
-  .ds-file-upload__desc {
-    font-size: var(--ds-file-upload--file-mobile-font-size);
+  .yds-file-upload__desc {
+    font-size: var(--yds-file-upload--file-mobile-font-size);
   }
 }
 
 /* 파일 input: screen reader only */
-.ds-file-upload__dropzone [type=file] {
+.yds-file-upload__dropzone [type=file] {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -124,31 +124,31 @@
 }
 
 /* 드래그 중 상태 */
-.ds-file-upload__dropzone--dragover {
-  border-color: var(--ds-file-upload--file-color-border-active) !important;
+.yds-file-upload__dropzone--dragover {
+  border-color: var(--yds-file-upload--file-color-border-active) !important;
 }
 
 /* ----- 파일 목록 영역 ----- */
-.ds-file-upload__files {
+.yds-file-upload__files {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: var(--ds-file-upload--gap);
+  gap: var(--yds-file-upload--gap);
   position: relative;
   width: 100%;
 }
 
-.ds-file-upload__total {
-  padding: var(--ds-file-upload--file-total-y) 0;
+.yds-file-upload__total {
+  padding: var(--yds-file-upload--file-total-y) 0;
   font-weight: var(--krds-font-weight-bold);
 }
-.ds-file-upload__total-current {
+.yds-file-upload__total-current {
   color: var(--color-text-primary);
 }
 
 /* 목록 ul */
-.ds-file-upload__list {
+.yds-file-upload__list {
   display: flex;
   align-items: normal;
   justify-content: flex-start;
@@ -158,42 +158,42 @@
 }
 
 /* 개별 파일 항목 */
-.ds-file-upload__item {
-  padding: var(--ds-file-upload--list-padding);
-  border-radius: var(--ds-file-upload--list-radius);
-  border: var(--ds-file-upload--border-width) solid var(--ds-file-upload--list-color-border);
-  color: var(--ds-file-upload--list-color-text);
+.yds-file-upload__item {
+  padding: var(--yds-file-upload--list-padding);
+  border-radius: var(--yds-file-upload--list-radius);
+  border: var(--yds-file-upload--border-width) solid var(--yds-file-upload--list-color-border);
+  color: var(--yds-file-upload--list-color-text);
 }
 @media (max-width: 767px) {
-  .ds-file-upload__item {
-    padding-top: var(--ds-file-upload--mobile-list-padding-y);
-    padding-bottom: var(--ds-file-upload--mobile-list-padding-y);
+  .yds-file-upload__item {
+    padding-top: var(--yds-file-upload--mobile-list-padding-y);
+    padding-bottom: var(--yds-file-upload--mobile-list-padding-y);
   }
 }
 
 /* 오류 상태 */
-.ds-file-upload__item--error {
-  border: var(--ds-file-upload--border-medium) solid var(--ds-file-upload--list-color-border-error);
-  background-color: var(--ds-file-upload--list-color-surface);
+.yds-file-upload__item--error {
+  border: var(--yds-file-upload--border-medium) solid var(--yds-file-upload--list-color-border-error);
+  background-color: var(--yds-file-upload--list-color-surface);
 }
-.ds-file-upload__item--error .ds-file-upload__item-hint {
-  color: var(--ds-file-upload--list-color-text-error);
+.yds-file-upload__item--error .yds-file-upload__item-hint {
+  color: var(--yds-file-upload--list-color-text-error);
 }
 
 /* 파일 정보 행 */
-.ds-file-upload__item-info {
+.yds-file-upload__item-info {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   gap: var(--krds-gap-5);
 }
-.ds-file-upload__item-info > div {
+.yds-file-upload__item-info > div {
   display: inline-flex;
 }
 
 /* 파일명 (말줄임) */
-.ds-file-upload__item-name {
+.yds-file-upload__item-name {
   flex: 1;
   display: -webkit-box;
   overflow: hidden;
@@ -202,32 +202,32 @@
   -webkit-line-clamp: 1;
 }
 @media (max-width: 767px) {
-  .ds-file-upload__item-name {
+  .yds-file-upload__item-name {
     display: flex;
   }
 }
 
 /* 버튼 영역 */
-.ds-file-upload__item-actions {
+.yds-file-upload__item-actions {
   align-items: center;
   gap: var(--krds-gap-5);
   width: auto;
 }
 
 /* 상태 아이콘 (완료 / 오류) */
-.ds-file-upload__item-icon {
+.yds-file-upload__item-icon {
   display: inline-flex;
   width: var(--krds-icon--size-medium);
   height: var(--krds-icon--size-medium);
   forced-color-adjust: none;
 }
-.ds-file-upload__item-icon--error {
+.yds-file-upload__item-icon--error {
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.ds-file-upload__item-icon--completed {
+.yds-file-upload__item-icon--completed {
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_complete_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -236,11 +236,11 @@
 
 /* 모바일 열 레이아웃 (다운로드/바로보기 등) */
 @media (max-width: 767px) {
-  .ds-file-upload__item-info--column {
+  .yds-file-upload__item-info--column {
     flex-direction: column;
     gap: var(--krds-gap-3);
   }
-  .ds-file-upload__item-info--column .ds-file-upload__item-actions {
+  .yds-file-upload__item-info--column .yds-file-upload__item-actions {
     gap: var(--krds-gap-5);
     justify-content: flex-end;
     width: 100%;
@@ -248,7 +248,7 @@
 }
 
 /* 오류 메시지 (파일 항목 하단) */
-.ds-file-upload__item-hint {
+.yds-file-upload__item-hint {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -257,10 +257,10 @@
   width: 100%;
   padding-top: var(--krds-padding-5);
   margin-top: var(--krds-padding-5);
-  border-top: var(--ds-file-upload--border-width) solid var(--color-border-divider);
-  color: var(--ds-file-upload--list-color-text-error);
+  border-top: var(--yds-file-upload--border-width) solid var(--color-border-divider);
+  color: var(--yds-file-upload--list-color-text-error);
 }
-.ds-file-upload__item-hint::before {
+.yds-file-upload__item-hint::before {
   content: "";
   flex-shrink: 0;
   margin-top: var(--krds-padding-1);
@@ -274,7 +274,7 @@
 }
 
 /* 전체 파일 삭제 버튼 */
-.ds-file-upload__delete-all-btn {
+.yds-file-upload__delete-all-btn {
   position: absolute;
   top: 0;
   right: 0;

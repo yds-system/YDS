@@ -4,10 +4,10 @@
    ============================================= */
 
 /* ----- 공통: 모든 캐러셀 버튼 ----- */
-.ds-carousel__move-btn,
-.ds-carousel__play-btn,
-.ds-carousel__stop-btn,
-.ds-carousel__more-btn {
+.yds-carousel__move-btn,
+.yds-carousel__play-btn,
+.yds-carousel__stop-btn,
+.yds-carousel__more-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,10 +23,10 @@
 }
 
 /* 아이콘 (::after 공통) */
-.ds-carousel__move-btn::after,
-.ds-carousel__play-btn::after,
-.ds-carousel__stop-btn::after,
-.ds-carousel__more-btn::after {
+.yds-carousel__move-btn::after,
+.yds-carousel__play-btn::after,
+.yds-carousel__stop-btn::after,
+.yds-carousel__more-btn::after {
   content: "";
   display: inline-flex;
   width: var(--krds-icon--size-large);
@@ -42,77 +42,77 @@
   font-size: 0 !important;
 }
 
-.ds-carousel__move-btn:hover,
-.ds-carousel__play-btn:hover,
-.ds-carousel__stop-btn:hover,
-.ds-carousel__more-btn:hover {
+.yds-carousel__move-btn:hover,
+.yds-carousel__play-btn:hover,
+.yds-carousel__stop-btn:hover,
+.yds-carousel__more-btn:hover {
   background-color: var(--color-bg-interactive-hover);
 }
 
-/* ----- ds-carousel__move-btn--prev (이전) ----- */
-.ds-carousel__move-btn.ds-carousel__move-btn--prev::after {
+/* ----- yds-carousel__move-btn--prev (이전) ----- */
+.yds-carousel__move-btn.yds-carousel__move-btn--prev::after {
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(90deg);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--prev:hover {
+.yds-carousel__move-btn.yds-carousel__move-btn--prev:hover {
   background-color: var(--color-bg-interactive-hover);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--prev:active {
+.yds-carousel__move-btn.yds-carousel__move-btn--prev:active {
   background-color: var(--color-bg-interactive-pressed);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--prev.ds-carousel__move-btn--disabled {
+.yds-carousel__move-btn.yds-carousel__move-btn--prev.yds-carousel__move-btn--disabled {
   background-color: var(--color-bg-disabled);
   opacity: 1;
   cursor: default;
   pointer-events: none;
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--prev.ds-carousel__move-btn--disabled::after {
+.yds-carousel__move-btn.yds-carousel__move-btn--prev.yds-carousel__move-btn--disabled::after {
   background-color: var(--color-icon-on-disabled);
 }
 
-/* ----- ds-carousel__move-btn--next (다음) ----- */
-.ds-carousel__move-btn.ds-carousel__move-btn--next::after {
+/* ----- yds-carousel__move-btn--next (다음) ----- */
+.yds-carousel__move-btn.yds-carousel__move-btn--next::after {
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   transform: rotate(-90deg);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--next:hover {
+.yds-carousel__move-btn.yds-carousel__move-btn--next:hover {
   background-color: var(--color-bg-interactive-hover);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--next:active {
+.yds-carousel__move-btn.yds-carousel__move-btn--next:active {
   background-color: var(--color-bg-interactive-pressed);
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--next.ds-carousel__move-btn--disabled {
+.yds-carousel__move-btn.yds-carousel__move-btn--next.yds-carousel__move-btn--disabled {
   background-color: var(--color-bg-disabled);
   opacity: 1;
   cursor: default;
   pointer-events: none;
 }
-.ds-carousel__move-btn.ds-carousel__move-btn--next.ds-carousel__move-btn--disabled::after {
+.yds-carousel__move-btn.yds-carousel__move-btn--next.yds-carousel__move-btn--disabled::after {
   background-color: var(--color-icon-on-disabled);
 }
 
-/* ----- ds-carousel__play-btn (재생) ----- */
-.ds-carousel__play-btn::after {
+/* ----- yds-carousel__play-btn (재생) ----- */
+.yds-carousel__play-btn::after {
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
 }
 
-/* ----- ds-carousel__stop-btn (멈춤) ----- */
-.ds-carousel__stop-btn::after {
+/* ----- yds-carousel__stop-btn (멈춤) ----- */
+.yds-carousel__stop-btn::after {
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
 }
 
-/* ----- ds-carousel__more-btn (더보기) ----- */
-.ds-carousel__more-btn::after {
+/* ----- yds-carousel__more-btn (더보기) ----- */
+.yds-carousel__more-btn::after {
   -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
   mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
 }
 
-/* ----- ds-carousel__controller (재생/멈춤 그룹) ----- */
-.ds-carousel__controller {
+/* ----- yds-carousel__controller (재생/멈춤 그룹) ----- */
+.yds-carousel__controller {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,14 +120,14 @@
   gap: var(--krds-gap-3);
 }
 
-/* ----- ds-carousel__nav (이전/다음/더보기 그룹) ----- */
-.ds-carousel__nav {
+/* ----- yds-carousel__nav (이전/다음/더보기 그룹) ----- */
+.yds-carousel__nav {
   display: inline-flex;
   gap: var(--krds-gap-3);
 }
 
-/* ----- ds-carousel__pagination (불릿) ----- */
-.ds-carousel__pagination {
+/* ----- yds-carousel__pagination (불릿) ----- */
+.yds-carousel__pagination {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +136,7 @@
   height: var(--krds-size-height-6);
 }
 
-.ds-carousel__pagination .ds-carousel__bullet {
+.yds-carousel__pagination .yds-carousel__bullet {
   width: var(--krds-size-height-1);
   height: var(--krds-size-height-1);
   background-color: var(--color-bg-gray-element);
@@ -144,14 +144,14 @@
   opacity: 1;
   transition: var(--krds-transition-base);
 }
-.ds-carousel__pagination .ds-carousel__bullet.ds-carousel__bullet--current {
+.yds-carousel__pagination .yds-carousel__bullet.yds-carousel__bullet--current {
   width: 2rem;
   border-radius: var(--krds-radius-max);
   background-color: var(--color-icon-primary);
 }
 
-/* ----- ds-carousel__pagination (분수형) ----- */
-.ds-carousel__pagination.ds-carousel__pagination--fraction {
+/* ----- yds-carousel__pagination (분수형) ----- */
+.yds-carousel__pagination.yds-carousel__pagination--fraction {
   gap: var(--krds-gap-2);
   padding: 0 var(--krds-padding-6);
   color: var(--color-text-default);
@@ -160,12 +160,12 @@
   border-radius: var(--krds-radius-max);
   background-color: var(--color-bg-default);
 }
-.ds-carousel__pagination.ds-carousel__pagination--fraction .ds-carousel__pagination-current {
+.yds-carousel__pagination.yds-carousel__pagination--fraction .yds-carousel__pagination-current {
   color: var(--color-text-secondary-strong);
 }
 
-/* ----- ds-carousel__indicator (인디케이터 래퍼) ----- */
-.ds-carousel__indicator {
+/* ----- yds-carousel__indicator (인디케이터 래퍼) ----- */
+.yds-carousel__indicator {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -174,17 +174,17 @@
   flex-shrink: 0;
   position: relative;
 }
-.ds-carousel__indicator.ds-carousel__indicator--center {
+.yds-carousel__indicator.yds-carousel__indicator--center {
   justify-content: center;
 }
 
 /* 인디케이터 안의 pagination: 위치 리셋 */
-.ds-carousel__indicator .ds-carousel__pagination {
+.yds-carousel__indicator .yds-carousel__pagination {
   top: auto;
   bottom: auto;
   width: auto;
 }
-.ds-carousel__indicator .ds-carousel__pagination:not(.ds-carousel__pagination--fraction) {
+.yds-carousel__indicator .yds-carousel__pagination:not(.yds-carousel__pagination--fraction) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,17 +194,17 @@
   background-color: var(--color-icon-inverse);
 }
 /* 인디케이터 안 불릿의 색상은 배경 대비로 반전 처리 */
-.ds-carousel__indicator .ds-carousel__pagination:not(.ds-carousel__pagination--fraction) .ds-carousel__bullet {
+.yds-carousel__indicator .yds-carousel__pagination:not(.yds-carousel__pagination--fraction) .yds-carousel__bullet {
   background-color: var(--color-bg-default);
   opacity: 0.5;
 }
-.ds-carousel__indicator .ds-carousel__pagination:not(.ds-carousel__pagination--fraction) .ds-carousel__bullet.ds-carousel__bullet--current {
+.yds-carousel__indicator .yds-carousel__pagination:not(.yds-carousel__pagination--fraction) .yds-carousel__bullet.yds-carousel__bullet--current {
   background-color: var(--color-bg-default);
   opacity: 1;
 }
 
 /* 인디케이터 안의 fraction (배경 있는 타입) */
-.ds-carousel__indicator .ds-carousel__pagination.ds-carousel__pagination--fraction.ds-carousel__pagination--bg {
+.yds-carousel__indicator .yds-carousel__pagination.yds-carousel__pagination--fraction.yds-carousel__pagination--bg {
   font-weight: var(--krds-font-weight-bold);
   padding: var(--krds-padding-5);
   border-radius: var(--krds-radius-max);
@@ -212,7 +212,7 @@
 }
 
 /* 인디케이터 안 nav 버튼: position 리셋 */
-.ds-carousel__indicator .ds-carousel__move-btn {
+.yds-carousel__indicator .yds-carousel__move-btn {
   position: relative;
   top: auto;
   bottom: auto;
@@ -222,17 +222,17 @@
 }
 
 /* 인디케이터 안 navigation 그룹 */
-.ds-carousel__indicator .ds-carousel__nav {
+.yds-carousel__indicator .yds-carousel__nav {
   display: inline-flex;
   gap: var(--krds-gap-3);
 }
 
 /* ----- 모바일 ----- */
 @media (max-width: 767px) {
-  .ds-carousel__indicator.ds-carousel__indicator--hide-desktop {
+  .yds-carousel__indicator.yds-carousel__indicator--hide-desktop {
     display: flex !important;
   }
-  .ds-carousel__indicator .ds-carousel__nav.ds-carousel__nav--hide-desktop {
+  .yds-carousel__indicator .yds-carousel__nav.yds-carousel__nav--hide-desktop {
     display: flex !important;
   }
 }

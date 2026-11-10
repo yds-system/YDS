@@ -45,12 +45,12 @@ export default {
 /* ─── 헬퍼 ──────────────────────────────────── */
 
 function badge({ label, style, color, size, type }) {
-  const sizeClass = size === 'large' ? ' ds-badge--large' : '';
-  const typeClass = type === 'number' ? ' ds-badge--number' : type === 'dot' ? ' ds-badge--dot' : '';
-  const colorClass = `ds-badge--${style}-${color}`;
+  const sizeClass = size === 'large' ? ' yds-badge--large' : '';
+  const typeClass = type === 'number' ? ' yds-badge--number' : type === 'dot' ? ' yds-badge--dot' : '';
+  const colorClass = `yds-badge--${style}-${color}`;
   const text = type === 'dot' ? '' : label;
   const ariaLabel = type === 'dot' ? ` aria-label="${label}"` : '';
-  return `<span class="ds-badge ${colorClass}${sizeClass}${typeClass}"${ariaLabel}>${text}</span>`;
+  return `<span class="yds-badge ${colorClass}${sizeClass}${typeClass}"${ariaLabel}>${text}</span>`;
 }
 
 const wrap = (html) =>
@@ -60,7 +60,7 @@ const row = (label, html) => `
   <div>
     <p style="font-size:1.2rem; color:var(--krds-light-color-text-subtle);
               margin-bottom:0.8rem;">${label}</p>
-    <div class="ds-badge-group">${html}</div>
+    <div class="yds-badge-group">${html}</div>
   </div>`;
 
 /* ─── Playground ────────────────────────────── */
@@ -168,19 +168,19 @@ export const 상태표시 = {
     return wrap(`
       <div>
         <p style="font-size:1.2rem; color:var(--krds-light-color-text-subtle); margin-bottom:0.8rem;">밝은 배경 (bg-light) — 상태 표시 권장</p>
-        <div class="ds-badge-group">
+        <div class="yds-badge-group">
           ${statuses.map(s => badge({ ...s, size: 'default', type: 'label' })).join('')}
         </div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--krds-light-color-text-subtle); margin-bottom:0.8rem;">채우기 (bg) — 강조 표시</p>
-        <div class="ds-badge-group">
+        <div class="yds-badge-group">
           ${statuses.map(s => badge({ ...s, style: 'bg', size: 'default', type: 'label' })).join('')}
         </div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--krds-light-color-text-subtle); margin-bottom:0.8rem;">테두리 (outline)</p>
-        <div class="ds-badge-group">
+        <div class="yds-badge-group">
           ${statuses.map(s => badge({ ...s, style: 'outline', size: 'default', type: 'label' })).join('')}
         </div>
       </div>

@@ -36,29 +36,29 @@ const ph = (label = '', bg = '#cdd1d5') => {
 
 function card({ title, meta, desc, hasMedia, ratio = '16x9', hasActions, horizontal, border, link, imgBg, imgLabel }) {
   const mods = [
-    horizontal && 'ds-card--horizontal',
-    border     && 'ds-card--border',
-    link       && 'ds-card--link',
+    horizontal && 'yds-card--horizontal',
+    border     && 'yds-card--border',
+    link       && 'yds-card--link',
   ].filter(Boolean).join(' ');
-  const cls = mods ? `ds-card ${mods}` : 'ds-card';
+  const cls = mods ? `yds-card ${mods}` : 'yds-card';
   const titleEl = link
-    ? `<h3 class="ds-card__title"><a href="#">${title}</a></h3>`
-    : `<h3 class="ds-card__title">${title}</h3>`;
+    ? `<h3 class="yds-card__title"><a href="#">${title}</a></h3>`
+    : `<h3 class="yds-card__title">${title}</h3>`;
 
   return `
     <article class="${cls}">
       ${hasMedia ? `
-      <div class="ds-card__media">
-        <div class="ds-thumbnail ds-thumbnail--${ratio}">
-          <img class="ds-thumbnail__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${imgLabel || '카드 이미지'}">
+      <div class="yds-card__media">
+        <div class="yds-thumbnail yds-thumbnail--${ratio}">
+          <img class="yds-thumbnail__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${imgLabel || '카드 이미지'}">
         </div>
       </div>` : ''}
-      <div class="ds-card__body">
-        ${meta   ? `<p class="ds-card__meta">${meta}</p>` : ''}
+      <div class="yds-card__body">
+        ${meta   ? `<p class="yds-card__meta">${meta}</p>` : ''}
         ${titleEl}
-        ${desc   ? `<p class="ds-card__desc">${desc}</p>` : ''}
+        ${desc   ? `<p class="yds-card__desc">${desc}</p>` : ''}
         ${hasActions ? `
-        <div class="ds-card__actions">
+        <div class="yds-card__actions">
           <button type="button" style="padding:0.6rem 1.4rem; border-radius:0.6rem; border:1px solid #256ef4; color:#256ef4; background:transparent; font-size:1.4rem; cursor:pointer;">자세히 보기</button>
         </div>` : ''}
       </div>
@@ -138,7 +138,7 @@ export const 카드목록 = {
       { title: '행정 데이터 개방 현황', meta: '자료실 · 2026.09.10', desc: '각 부처별 행정 데이터 개방 현황과 활용 방법을 안내합니다.', imgBg: '#e6e8ea' },
     ];
     return wrap(`
-      <ul class="ds-card-list">
+      <ul class="yds-card-list">
         ${items.map(it => `<li>${card({ ...it, hasMedia: true, ratio: '16x9', link: true })}</li>`).join('')}
       </ul>
     `, '100%');

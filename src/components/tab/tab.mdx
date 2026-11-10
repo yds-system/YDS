@@ -19,7 +19,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -59,51 +59,51 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 | 클래스 조합 | 이름 | 설명 |
 |---|---|---|
-| `ds-tab ds-tab--line` | 라인형 | 활성 탭에 하단 밑줄 인디케이터 표시 |
-| `ds-tab ds-tab--line ds-tab--full` | 라인형 전체 너비 | 탭이 가로를 균등하게 채움 |
-| `ds-tab ds-tab--fill` | 박스형 | 활성 탭을 채워진 박스로 표현 |
-| `ds-tab ds-tab--fill ds-tab--full` | 박스형 전체 너비 | 탭이 가로를 채우는 분절 그룹 형태 |
+| `yds-tab yds-tab--line` | 라인형 | 활성 탭에 하단 밑줄 인디케이터 표시 |
+| `yds-tab yds-tab--line yds-tab--full` | 라인형 전체 너비 | 탭이 가로를 균등하게 채움 |
+| `yds-tab yds-tab--fill` | 박스형 | 활성 탭을 채워진 박스로 표현 |
+| `yds-tab yds-tab--fill yds-tab--full` | 박스형 전체 너비 | 탭이 가로를 채우는 분절 그룹 형태 |
 
 ---
 
 ## HTML 구조
 
 ```html
-<div class="ds-tab ds-tab--line">
+<div class="yds-tab yds-tab--line">
 
   <!-- 탭 리스트 -->
-  <div class="ds-tab__nav">
-    <ul class="ds-tab__list" role="tablist" aria-label="탭 이름">
-      <li class="ds-tab__item ds-tab__item--selected"
+  <div class="yds-tab__nav">
+    <ul class="yds-tab__list" role="tablist" aria-label="탭 이름">
+      <li class="yds-tab__item yds-tab__item--selected"
           id="tab-1" role="tab"
           aria-selected="true" aria-controls="panel-1">
-        <button type="button" class="ds-tab__btn">
-          탭 1 <i class="sr-only ds-tab__selected-text"> 선택됨</i>
+        <button type="button" class="yds-tab__btn">
+          탭 1 <i class="sr-only yds-tab__selected-text"> 선택됨</i>
         </button>
       </li>
-      <li class="ds-tab__item"
+      <li class="yds-tab__item"
           id="tab-2" role="tab"
           aria-selected="false" aria-controls="panel-2">
-        <button type="button" class="ds-tab__btn">탭 2</button>
+        <button type="button" class="yds-tab__btn">탭 2</button>
       </li>
       <!-- 비활성화 탭 -->
-      <li class="ds-tab__item"
+      <li class="yds-tab__item"
           id="tab-3" role="tab"
           aria-selected="false" aria-controls="panel-3" aria-disabled="true">
-        <button type="button" class="ds-tab__btn" disabled>탭 3</button>
+        <button type="button" class="yds-tab__btn" disabled>탭 3</button>
       </li>
     </ul>
   </div>
 
   <!-- 탭 패널 -->
-  <div class="ds-tab__panels">
+  <div class="yds-tab__panels">
     <section id="panel-1" role="tabpanel" aria-labelledby="tab-1"
-             class="ds-tab__panel ds-tab__panel--selected" tabindex="0">
+             class="yds-tab__panel yds-tab__panel--selected" tabindex="0">
       <h3 class="sr-only">탭 1 영역</h3>
       탭 1 콘텐츠
     </section>
     <section id="panel-2" role="tabpanel" aria-labelledby="tab-2"
-             class="ds-tab__panel" tabindex="0">
+             class="yds-tab__panel" tabindex="0">
       <h3 class="sr-only">탭 2 영역</h3>
       탭 2 콘텐츠
     </section>
@@ -143,10 +143,10 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={TabStories.비활성화탭} />
 
 ```html
-<li class="ds-tab__item"
+<li class="yds-tab__item"
     id="tab-2" role="tab"
     aria-selected="false" aria-controls="panel-2" aria-disabled="true">
-  <button type="button" class="ds-tab__btn" disabled>비활성화</button>
+  <button type="button" class="yds-tab__btn" disabled>비활성화</button>
 </li>
 ```
 
@@ -182,9 +182,9 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 구현 원칙
 
 - 활성 탭 `<li>`에 `aria-selected="true"`, 나머지는 `"false"`.
-- 활성 탭 항목에 `ds-tab__item--selected` 클래스를 추가한다.
-- 활성 탭 버튼 내부에 `<i class="sr-only ds-tab__selected-text"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
+- 활성 탭 항목에 `yds-tab__item--selected` 클래스를 추가한다.
+- 활성 탭 버튼 내부에 `<i class="sr-only yds-tab__selected-text"> 선택됨</i>`으로 상태를 스크린리더에 전달한다.
 - `<ul role="tablist">`에 `aria-label`로 탭 그룹의 목적을 설명한다.
 - `<section role="tabpanel">`에 `tabindex="0"`을 부여해 패널 자체가 포커스를 받을 수 있게 한다.
 - 비활성화 탭은 방향키 탐색에서 제외하고, `aria-disabled="true"` + `disabled` 속성을 함께 적용한다.
-- 탭 전환 시 `aria-selected`, `ds-tab__item--selected` 클래스, `ds-tab__panel--selected` 클래스를 JS로 동기화한다.
+- 탭 전환 시 `aria-selected`, `yds-tab__item--selected` 클래스, `yds-tab__panel--selected` 클래스를 JS로 동기화한다.

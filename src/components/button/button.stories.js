@@ -42,7 +42,7 @@ const row = (content) =>
 export const Playground = {
   name: 'Playground',
   render: ({ label, variant, size, disabled }) => {
-    const cls = ['ds-btn', `ds-btn--${variant}`, `ds-btn--${size}`].join(' ');
+    const cls = ['yds-btn', `yds-btn--${variant}`, `yds-btn--${size}`].join(' ');
     return `<button type="button" class="${cls}"${disabled ? ' disabled' : ''}>${label}</button>`;
   },
 };
@@ -53,9 +53,9 @@ export const 위계 = {
   args: { size: 'large', disabled: false },
   render: ({ size, disabled }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--primary ds-btn--${size}"${disabled ? ' disabled' : ''}>Primary</button>
-      <button type="button" class="ds-btn ds-btn--secondary ds-btn--${size}"${disabled ? ' disabled' : ''}>Secondary</button>
-      <button type="button" class="ds-btn ds-btn--tertiary ds-btn--${size}"${disabled ? ' disabled' : ''}>Tertiary</button>
+      <button type="button" class="yds-btn yds-btn--primary yds-btn--${size}"${disabled ? ' disabled' : ''}>Primary</button>
+      <button type="button" class="yds-btn yds-btn--secondary yds-btn--${size}"${disabled ? ' disabled' : ''}>Secondary</button>
+      <button type="button" class="yds-btn yds-btn--tertiary yds-btn--${size}"${disabled ? ' disabled' : ''}>Tertiary</button>
     `),
 };
 
@@ -65,11 +65,11 @@ export const 크기 = {
   args: { variant: 'primary', disabled: false },
   render: ({ variant, disabled }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--${variant} ds-btn--xsmall"${disabled ? ' disabled' : ''}>XSmall</button>
-      <button type="button" class="ds-btn ds-btn--${variant} ds-btn--small"${disabled ? ' disabled' : ''}>Small</button>
-      <button type="button" class="ds-btn ds-btn--${variant} ds-btn--medium"${disabled ? ' disabled' : ''}>Medium</button>
-      <button type="button" class="ds-btn ds-btn--${variant} ds-btn--large"${disabled ? ' disabled' : ''}>Large</button>
-      <button type="button" class="ds-btn ds-btn--${variant} ds-btn--xlarge"${disabled ? ' disabled' : ''}>XLarge</button>
+      <button type="button" class="yds-btn yds-btn--${variant} yds-btn--xsmall"${disabled ? ' disabled' : ''}>XSmall</button>
+      <button type="button" class="yds-btn yds-btn--${variant} yds-btn--small"${disabled ? ' disabled' : ''}>Small</button>
+      <button type="button" class="yds-btn yds-btn--${variant} yds-btn--medium"${disabled ? ' disabled' : ''}>Medium</button>
+      <button type="button" class="yds-btn yds-btn--${variant} yds-btn--large"${disabled ? ' disabled' : ''}>Large</button>
+      <button type="button" class="yds-btn yds-btn--${variant} yds-btn--xlarge"${disabled ? ' disabled' : ''}>XLarge</button>
     `),
 };
 
@@ -79,11 +79,11 @@ export const 텍스트버튼 = {
   args: { variant: 'text', disabled: false },
   render: ({ disabled }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--text ds-btn--xsmall"${disabled ? ' disabled' : ''}>XSmall</button>
-      <button type="button" class="ds-btn ds-btn--text ds-btn--small"${disabled ? ' disabled' : ''}>Small</button>
-      <button type="button" class="ds-btn ds-btn--text ds-btn--medium"${disabled ? ' disabled' : ''}>Medium</button>
-      <button type="button" class="ds-btn ds-btn--text ds-btn--large"${disabled ? ' disabled' : ''}>Large</button>
-      <button type="button" class="ds-btn ds-btn--text ds-btn--xlarge"${disabled ? ' disabled' : ''}>XLarge</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--xsmall"${disabled ? ' disabled' : ''}>XSmall</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--small"${disabled ? ' disabled' : ''}>Small</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--medium"${disabled ? ' disabled' : ''}>Medium</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--large"${disabled ? ' disabled' : ''}>Large</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--xlarge"${disabled ? ' disabled' : ''}>XLarge</button>
     `),
 };
 
@@ -93,17 +93,17 @@ export const 아이콘포함 = {
   args: { disabled: false },
   render: ({ disabled }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--primary ds-btn--small"${disabled ? ' disabled' : ''}>
-        검색 <i class="ds-icon ds-ico-sch"></i>
+      <button type="button" class="yds-btn yds-btn--primary yds-btn--small"${disabled ? ' disabled' : ''}>
+        검색 <i class="yds-icon yds-ico-sch"></i>
       </button>
-      <button type="button" class="ds-btn ds-btn--secondary ds-btn--medium"${disabled ? ' disabled' : ''}>
-        다운로드 <i class="ds-icon ds-ico-down"></i>
+      <button type="button" class="yds-btn yds-btn--secondary yds-btn--medium"${disabled ? ' disabled' : ''}>
+        다운로드 <i class="yds-icon yds-ico-down"></i>
       </button>
-      <button type="button" class="ds-btn ds-btn--tertiary ds-btn--large"${disabled ? ' disabled' : ''}>
-        더보기 <i class="ds-icon ds-ico-more"></i>
+      <button type="button" class="yds-btn yds-btn--tertiary yds-btn--large"${disabled ? ' disabled' : ''}>
+        더보기 <i class="yds-icon yds-ico-more"></i>
       </button>
-      <button type="button" class="ds-btn ds-btn--text"${disabled ? ' disabled' : ''}>
-        파일다운로드 <i class="ds-icon ds-ico-down"></i>
+      <button type="button" class="yds-btn yds-btn--text"${disabled ? ' disabled' : ''}>
+        파일다운로드 <i class="yds-icon yds-ico-down"></i>
       </button>
     `),
 };
@@ -114,17 +114,17 @@ export const 아이콘전용 = {
   args: { disabled: false },
   render: ({ disabled }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--icon"${disabled ? ' disabled' : ''}>
+      <button type="button" class="yds-btn yds-btn--icon"${disabled ? ' disabled' : ''}>
         <span class="sr-only">검색</span>
-        <i class="ds-icon ds-ico-sch"></i>
+        <i class="yds-icon yds-ico-sch"></i>
       </button>
-      <button type="button" class="ds-btn ds-btn--icon ds-btn--medium"${disabled ? ' disabled' : ''}>
+      <button type="button" class="yds-btn yds-btn--icon yds-btn--medium"${disabled ? ' disabled' : ''}>
         <span class="sr-only">도움말</span>
-        <i class="ds-icon ds-ico-help"></i>
+        <i class="yds-icon yds-ico-help"></i>
       </button>
-      <button type="button" class="ds-btn ds-btn--icon ds-btn--large ds-btn--border"${disabled ? ' disabled' : ''}>
+      <button type="button" class="yds-btn yds-btn--icon yds-btn--large yds-btn--border"${disabled ? ' disabled' : ''}>
         <span class="sr-only">새로고침</span>
-        <i class="ds-icon ds-ico-refresh"></i>
+        <i class="yds-icon yds-ico-refresh"></i>
       </button>
     `),
 };
@@ -136,10 +136,10 @@ export const 비활성화 = {
   parameters: { controls: { include: ['variant', 'size'] } },
   render: ({ size }) =>
     row(`
-      <button type="button" class="ds-btn ds-btn--primary ds-btn--${size}" disabled>Primary</button>
-      <button type="button" class="ds-btn ds-btn--secondary ds-btn--${size}" disabled>Secondary</button>
-      <button type="button" class="ds-btn ds-btn--tertiary ds-btn--${size}" disabled>Tertiary</button>
-      <button type="button" class="ds-btn ds-btn--text ds-btn--${size}" disabled>Text</button>
+      <button type="button" class="yds-btn yds-btn--primary yds-btn--${size}" disabled>Primary</button>
+      <button type="button" class="yds-btn yds-btn--secondary yds-btn--${size}" disabled>Secondary</button>
+      <button type="button" class="yds-btn yds-btn--tertiary yds-btn--${size}" disabled>Tertiary</button>
+      <button type="button" class="yds-btn yds-btn--text yds-btn--${size}" disabled>Text</button>
     `),
 };
 
@@ -155,8 +155,8 @@ export const 전체변형 = {
     const rows = variants.map((v) =>
       `<tr>
         ${td(`<code style="font-size:1.2rem;">${v}</code>`)}
-        ${sizes.map((s) => td(`<button type="button" class="ds-btn ds-btn--${v} ds-btn--${s}">${s}</button>`)).join('')}
-        ${td(`<button type="button" class="ds-btn ds-btn--${v} ds-btn--large" disabled>disabled</button>`)}
+        ${sizes.map((s) => td(`<button type="button" class="yds-btn yds-btn--${v} yds-btn--${s}">${s}</button>`)).join('')}
+        ${td(`<button type="button" class="yds-btn yds-btn--${v} yds-btn--large" disabled>disabled</button>`)}
       </tr>`
     ).join('');
     return `

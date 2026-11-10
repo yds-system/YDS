@@ -1,130 +1,130 @@
 /* =============================================
-   ds-card — 카드 컴포넌트 (자체 추가)
+   yds-card — 카드 컴포넌트 (자체 추가)
    ============================================= */
 
-.ds-card {
-  --ds-card--radius:       var(--radius-m);
-  --ds-card--shadow:       var(--shadow-s);
-  --ds-card--shadow-hover: var(--shadow-m);
-  --ds-card--padding:      var(--padding-m);
-  --ds-card--gap:          var(--gap-s);
-  --ds-card--bg:           var(--color-bg-default);
-  --ds-card--border-color: var(--color-border-subtle);
-  --ds-card--title-color:  var(--color-text-default);
-  --ds-card--meta-color:   var(--color-text-subtle);
-  --ds-card--desc-color:   var(--color-text-subtle);
+.yds-card {
+  --yds-card--radius:       var(--radius-m);
+  --yds-card--shadow:       var(--shadow-s);
+  --yds-card--shadow-hover: var(--shadow-m);
+  --yds-card--padding:      var(--padding-m);
+  --yds-card--gap:          var(--gap-s);
+  --yds-card--bg:           var(--color-bg-default);
+  --yds-card--border-color: var(--color-border-subtle);
+  --yds-card--title-color:  var(--color-text-default);
+  --yds-card--meta-color:   var(--color-text-subtle);
+  --yds-card--desc-color:   var(--color-text-subtle);
 
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: var(--ds-card--radius);
-  background-color: var(--ds-card--bg);
-  box-shadow: var(--ds-card--shadow);
+  border-radius: var(--yds-card--radius);
+  background-color: var(--yds-card--bg);
+  box-shadow: var(--yds-card--shadow);
   overflow: hidden;
   transition: box-shadow 0.2s ease;
 }
 
-.ds-card:hover {
-  box-shadow: var(--ds-card--shadow-hover);
+.yds-card:hover {
+  box-shadow: var(--yds-card--shadow-hover);
 }
 
 /* ----- 요소 ----- */
 
-.ds-card__media {
+.yds-card__media {
   flex-shrink: 0;
 }
 
-.ds-card__body {
+.yds-card__body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: var(--ds-card--gap);
-  padding: var(--ds-card--padding);
+  gap: var(--yds-card--gap);
+  padding: var(--yds-card--padding);
 }
 
-.ds-card__meta {
+.yds-card__meta {
   font-size: 1.3rem;
-  color: var(--ds-card--meta-color);
+  color: var(--yds-card--meta-color);
   margin: 0;
 }
 
-.ds-card__title {
+.yds-card__title {
   font-size: 1.9rem;
   font-weight: 700;
-  color: var(--ds-card--title-color);
+  color: var(--yds-card--title-color);
   margin: 0;
   line-height: 1.4;
 }
 
-.ds-card__title a {
+.yds-card__title a {
   color: inherit;
   text-decoration: none;
 }
 
-.ds-card__title a:hover {
+.yds-card__title a:hover {
   text-decoration: underline;
 }
 
-.ds-card__desc {
+.yds-card__desc {
   font-size: 1.5rem;
-  color: var(--ds-card--desc-color);
+  color: var(--yds-card--desc-color);
   margin: 0;
   line-height: 1.6;
 }
 
-.ds-card__actions {
+.yds-card__actions {
   display: flex;
-  gap: var(--ds-card--gap);
+  gap: var(--yds-card--gap);
   margin-top: auto;
-  padding-top: var(--ds-card--gap);
+  padding-top: var(--yds-card--gap);
 }
 
 /* ----- --border: 테두리형 (그림자 없음) ----- */
 
-.ds-card--border {
+.yds-card--border {
   box-shadow: none;
-  border: 1px solid var(--ds-card--border-color);
+  border: 1px solid var(--yds-card--border-color);
 }
 
-.ds-card--border:hover {
+.yds-card--border:hover {
   box-shadow: none;
   border-color: var(--color-border-default);
 }
 
 /* ----- --horizontal: 가로형 ----- */
 
-.ds-card--horizontal {
+.yds-card--horizontal {
   flex-direction: row;
 }
 
-.ds-card--horizontal .ds-card__media {
+.yds-card--horizontal .yds-card__media {
   width: 22rem;
 }
 
-.ds-card--horizontal .ds-card__media .ds-thumbnail {
+.yds-card--horizontal .yds-card__media .yds-thumbnail {
   height: 100%;
   border-radius: 0;
 }
 
 /* ----- --link: 제목 링크를 카드 전체 영역으로 확장 ----- */
 
-.ds-card--link .ds-card__title a::after {
+.yds-card--link .yds-card__title a::after {
   content: '';
   position: absolute;
   inset: 0;
 }
 
-.ds-card--link .ds-card__title a:hover {
+.yds-card--link .yds-card__title a:hover {
   text-decoration: none;
 }
 
-.ds-card--link:hover .ds-card__title a {
+.yds-card--link:hover .yds-card__title a {
   text-decoration: underline;
 }
 
 /* ----- 카드 목록: 3열 → 모바일 1열 ----- */
 
-.ds-card-list {
+.yds-card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gap-m);
@@ -134,15 +134,15 @@
 }
 
 @media (max-width: 1279px) {
-  .ds-card-list {
+  .yds-card-list {
     grid-template-columns: 1fr;
   }
 
-  .ds-card--horizontal {
+  .yds-card--horizontal {
     flex-direction: column;
   }
 
-  .ds-card--horizontal .ds-card__media {
+  .yds-card--horizontal .yds-card__media {
     width: 100%;
   }
 }

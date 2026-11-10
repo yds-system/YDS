@@ -17,7 +17,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 개요
 
-- **인디케이터 래퍼**: `ds-carousel__indicator`
+- **인디케이터 래퍼**: `yds-carousel__indicator`
 - **KRDS 원본**: `swiper-indicator`
 
 ---
@@ -58,7 +58,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## Swiper 연동 예시 (JavaScript)
 
 > Swiper는 기본적으로 자신의 클래스명(`swiper-button-disabled`, `swiper-pagination-bullet` 등)을 DOM에 추가합니다.  
-> 클래스명을 `ds-carousel__*`로 바꾼 경우, **아래 옵션을 반드시 지정**해야 Swiper가 올바른 클래스를 사용합니다.
+> 클래스명을 `yds-carousel__*`로 바꾼 경우, **아래 옵션을 반드시 지정**해야 Swiper가 올바른 클래스를 사용합니다.
 
 ```js
 const swiper = new Swiper('.swiper', {
@@ -69,9 +69,9 @@ const swiper = new Swiper('.swiper', {
   // disabledClass: Swiper가 첫/마지막 슬라이드에서 추가하는 비활성 클래스.
   // 기본값은 'swiper-button-disabled'이므로 반드시 덮어써야 한다.
   navigation: {
-    prevEl: '.ds-carousel__move-btn--prev',
-    nextEl: '.ds-carousel__move-btn--next',
-    disabledClass: 'ds-carousel__move-btn--disabled',
+    prevEl: '.yds-carousel__move-btn--prev',
+    nextEl: '.yds-carousel__move-btn--next',
+    disabledClass: 'yds-carousel__move-btn--disabled',
   },
 
   // ─── 불릿 페이지네이션 ───────────────────────────────────────────────────
@@ -79,10 +79,10 @@ const swiper = new Swiper('.swiper', {
   // 기본값은 'swiper-pagination-bullet' / 'swiper-pagination-bullet-active'이므로
   // 반드시 덮어써야 CSS가 적용된다.
   pagination: {
-    el: '.ds-carousel__pagination',
+    el: '.yds-carousel__pagination',
     clickable: true,
-    bulletClass: 'ds-carousel__bullet',
-    bulletActiveClass: 'ds-carousel__bullet--current',
+    bulletClass: 'yds-carousel__bullet',
+    bulletActiveClass: 'yds-carousel__bullet--current',
   },
 
   // ─── 분수형 페이지네이션 (type: 'fraction' 사용 시) ─────────────────────
@@ -90,16 +90,16 @@ const swiper = new Swiper('.swiper', {
   // 기본값은 'swiper-pagination-current' / 'swiper-pagination-total'.
   //
   // pagination: {
-  //   el: '.ds-carousel__pagination',
+  //   el: '.yds-carousel__pagination',
   //   type: 'fraction',
-  //   currentClass: 'ds-carousel__pagination-current',
-  //   totalClass:   'ds-carousel__pagination-total',
+  //   currentClass: 'yds-carousel__pagination-current',
+  //   totalClass:   'yds-carousel__pagination-total',
   // },
 });
 
 // ─── 재생/멈춤 버튼 토글 ─────────────────────────────────────────────────────
-const $play = document.querySelector('.ds-carousel__play-btn');
-const $stop = document.querySelector('.ds-carousel__stop-btn');
+const $play = document.querySelector('.yds-carousel__play-btn');
+const $stop = document.querySelector('.yds-carousel__stop-btn');
 
 $play.hidden = true; // 초기: 재생 중이므로 재생 버튼 숨김
 

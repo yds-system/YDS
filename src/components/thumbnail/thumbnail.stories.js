@@ -76,18 +76,18 @@ const BADGE_STYLE = 'background:#ff4b4b; color:#fff; padding:0.2rem 0.6rem; bord
 
 function thumbnail({ ratio, size, circle, hasLabel, labelText, hasBadge, badgeText, isEmpty, alt, imgBg, imgLabel } = {}) {
   const mods = [
-    ratio   && `ds-thumbnail--${ratio}`,
-    size    && `ds-thumbnail--${size}`,
-    circle  && 'ds-thumbnail--circle',
-    isEmpty && 'ds-thumbnail--empty',
+    ratio   && `yds-thumbnail--${ratio}`,
+    size    && `yds-thumbnail--${size}`,
+    circle  && 'yds-thumbnail--circle',
+    isEmpty && 'yds-thumbnail--empty',
   ].filter(Boolean).join(' ');
-  const cls = mods ? `ds-thumbnail ${mods}` : 'ds-thumbnail';
+  const cls = mods ? `yds-thumbnail ${mods}` : 'yds-thumbnail';
 
   return `
     <div class="${cls}">
-      ${!isEmpty ? `<img class="ds-thumbnail__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${alt || ''}">` : ''}
-      ${hasLabel ? `<span class="ds-thumbnail__label" style="${LABEL_STYLE}">${labelText || 'NEW'}</span>` : ''}
-      ${hasBadge ? `<span class="ds-thumbnail__badge" style="${BADGE_STYLE}">${badgeText || '3'}</span>` : ''}
+      ${!isEmpty ? `<img class="yds-thumbnail__img" src="${ph(imgLabel || '', imgBg || '#cdd1d5')}" alt="${alt || ''}">` : ''}
+      ${hasLabel ? `<span class="yds-thumbnail__label" style="${LABEL_STYLE}">${labelText || 'NEW'}</span>` : ''}
+      ${hasBadge ? `<span class="yds-thumbnail__badge" style="${BADGE_STYLE}">${badgeText || '3'}</span>` : ''}
     </div>`;
 }
 
@@ -124,8 +124,8 @@ export const 비율 = {
       ].map(r => `
         <div>
           <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">${r.label}</p>
-          <div class="ds-thumbnail ds-thumbnail--${r.mod}" style="width:40rem;">
-            <img class="ds-thumbnail__img" src="${ph(r.mod, r.bg)}" alt="${r.label} 예시">
+          <div class="yds-thumbnail yds-thumbnail--${r.mod}" style="width:40rem;">
+            <img class="yds-thumbnail__img" src="${ph(r.mod, r.bg)}" alt="${r.label} 예시">
           </div>
         </div>`).join('')}
     </div>
@@ -149,8 +149,8 @@ export const 크기 = {
         <div style="display:flex; gap:2.4rem; align-items:flex-end; flex-wrap:wrap;">
           ${sizes.map(s => `
             <div style="display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
-              <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--circle ds-thumbnail--${s.mod}">
-                <img class="ds-thumbnail__img" src="${ph('', s.bg)}" alt="크기 ${s.mod}">
+              <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--circle yds-thumbnail--${s.mod}">
+                <img class="yds-thumbnail__img" src="${ph('', s.bg)}" alt="크기 ${s.mod}">
               </div>
               <p style="font-size:1.2rem; color:var(--color-text-subtle); margin:0;">--${s.mod} (${s.px}px)</p>
             </div>`).join('')}
@@ -160,16 +160,16 @@ export const 크기 = {
         <div style="display:flex; gap:2.4rem; align-items:flex-end; flex-wrap:wrap;">
           ${sizes.map(s => `
             <div style="display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
-              <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--${s.mod}">
-                <img class="ds-thumbnail__img" src="${ph('', s.bg)}" alt="크기 ${s.mod}">
+              <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--${s.mod}">
+                <img class="yds-thumbnail__img" src="${ph('', s.bg)}" alt="크기 ${s.mod}">
               </div>
               <p style="font-size:1.2rem; color:var(--color-text-subtle); margin:0;">--${s.mod} (${s.px}px)</p>
             </div>`).join('')}
         </div>
       `)}
       ${section('전체 너비 (--xl)', `
-        <div class="ds-thumbnail ds-thumbnail--16x9 ds-thumbnail--xl">
-          <img class="ds-thumbnail__img" src="${ph('--xl · 16:9', '#e6e8ea')}" alt="전체 너비">
+        <div class="yds-thumbnail yds-thumbnail--16x9 yds-thumbnail--xl">
+          <img class="yds-thumbnail__img" src="${ph('--xl · 16:9', '#e6e8ea')}" alt="전체 너비">
         </div>
       `)}
     `);
@@ -185,24 +185,24 @@ export const 라벨과배지 = {
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2.4rem;">
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">라벨 (왼쪽 위)</p>
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#b1cefb')}" alt="라벨 예시">
-          <span class="ds-thumbnail__label" style="${LABEL_STYLE}">NEW</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#b1cefb')}" alt="라벨 예시">
+          <span class="yds-thumbnail__label" style="${LABEL_STYLE}">NEW</span>
         </div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">배지 (오른쪽 위)</p>
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#a9dab4')}" alt="배지 예시">
-          <span class="ds-thumbnail__badge" style="${BADGE_STYLE}">3</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#a9dab4')}" alt="배지 예시">
+          <span class="yds-thumbnail__badge" style="${BADGE_STYLE}">3</span>
         </div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">라벨 + 배지</p>
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#ffc95c')}" alt="라벨과 배지 예시">
-          <span class="ds-thumbnail__label" style="${LABEL_STYLE}">HOT</span>
-          <span class="ds-thumbnail__badge" style="${BADGE_STYLE}">5</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#ffc95c')}" alt="라벨과 배지 예시">
+          <span class="yds-thumbnail__label" style="${LABEL_STYLE}">HOT</span>
+          <span class="yds-thumbnail__badge" style="${BADGE_STYLE}">5</span>
         </div>
       </div>
     </div>
@@ -218,15 +218,15 @@ export const 로딩실패 = {
     <div style="display:flex; gap:2.4rem; align-items:center; flex-wrap:wrap;">
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">16:9</p>
-        <div class="ds-thumbnail ds-thumbnail--16x9 ds-thumbnail--empty" style="width:24rem;"></div>
+        <div class="yds-thumbnail yds-thumbnail--16x9 yds-thumbnail--empty" style="width:24rem;"></div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">1:1 사각형 --m</p>
-        <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--m ds-thumbnail--empty"></div>
+        <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--m yds-thumbnail--empty"></div>
       </div>
       <div>
         <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">1:1 원형 --m</p>
-        <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--m ds-thumbnail--circle ds-thumbnail--empty"></div>
+        <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--m yds-thumbnail--circle yds-thumbnail--empty"></div>
       </div>
     </div>
   `),
@@ -243,8 +243,8 @@ export const 전체변형 = {
         ${['1x1', '4x3', '16x9'].map((r, i) => {
           const colors = ['#b1cefb', '#a9dab4', '#ffc95c'];
           return `
-            <div class="ds-thumbnail ds-thumbnail--${r}" style="width:40rem;">
-              <img class="ds-thumbnail__img" src="${ph('--' + r, colors[i])}" alt="${r} 비율">
+            <div class="yds-thumbnail yds-thumbnail--${r}" style="width:40rem;">
+              <img class="yds-thumbnail__img" src="${ph('--' + r, colors[i])}" alt="${r} 비율">
             </div>`;
         }).join('')}
       </div>
@@ -258,8 +258,8 @@ export const 전체변형 = {
           { mod: 'l',  px: 160, bg: '#d3ebfd' },
         ].map(s => `
           <div style="text-align:center;">
-            <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--circle ds-thumbnail--${s.mod}">
-              <img class="ds-thumbnail__img" src="${ph('', s.bg)}" alt="${s.mod} 크기">
+            <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--circle yds-thumbnail--${s.mod}">
+              <img class="yds-thumbnail__img" src="${ph('', s.bg)}" alt="${s.mod} 크기">
             </div>
             <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-top:0.8rem;">--${s.mod} (${s.px}px)</p>
           </div>`).join('')}
@@ -267,25 +267,25 @@ export const 전체변형 = {
     `)}
     ${section('빈 상태 (--empty)', `
       <div style="display:flex; gap:2.4rem; align-items:center; flex-wrap:wrap;">
-        <div class="ds-thumbnail ds-thumbnail--16x9 ds-thumbnail--empty" style="width:24rem;"></div>
-        <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--m ds-thumbnail--empty"></div>
-        <div class="ds-thumbnail ds-thumbnail--1x1 ds-thumbnail--m ds-thumbnail--circle ds-thumbnail--empty"></div>
+        <div class="yds-thumbnail yds-thumbnail--16x9 yds-thumbnail--empty" style="width:24rem;"></div>
+        <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--m yds-thumbnail--empty"></div>
+        <div class="yds-thumbnail yds-thumbnail--1x1 yds-thumbnail--m yds-thumbnail--circle yds-thumbnail--empty"></div>
       </div>
     `)}
     ${section('라벨·배지 오버레이', `
       <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem;">
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#b1cefb')}" alt="라벨 예시">
-          <span class="ds-thumbnail__label" style="${LABEL_STYLE}">NEW</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#b1cefb')}" alt="라벨 예시">
+          <span class="yds-thumbnail__label" style="${LABEL_STYLE}">NEW</span>
         </div>
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#a9dab4')}" alt="배지 예시">
-          <span class="ds-thumbnail__badge" style="${BADGE_STYLE}">5</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#a9dab4')}" alt="배지 예시">
+          <span class="yds-thumbnail__badge" style="${BADGE_STYLE}">5</span>
         </div>
-        <div class="ds-thumbnail ds-thumbnail--16x9">
-          <img class="ds-thumbnail__img" src="${ph('', '#ffc95c')}" alt="라벨과 배지 예시">
-          <span class="ds-thumbnail__label" style="${LABEL_STYLE}">HOT</span>
-          <span class="ds-thumbnail__badge" style="${BADGE_STYLE}">3</span>
+        <div class="yds-thumbnail yds-thumbnail--16x9">
+          <img class="yds-thumbnail__img" src="${ph('', '#ffc95c')}" alt="라벨과 배지 예시">
+          <span class="yds-thumbnail__label" style="${LABEL_STYLE}">HOT</span>
+          <span class="yds-thumbnail__badge" style="${BADGE_STYLE}">3</span>
         </div>
       </div>
     `)}

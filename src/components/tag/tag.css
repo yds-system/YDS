@@ -4,155 +4,155 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-tag-group {
-  --ds-tag--color-text: var(--color-text-default);
-  --ds-tag--color-action: var(--color-bg-default);
-  --ds-tag--color-action-hover: var(--color-bg-interactive-hover);
-  --ds-tag--color-action-pressed: var(--color-bg-interactive-pressed);
-  --ds-tag--color-border: var(--color-border-subtle);
+.yds-tag-group {
+  --yds-tag--color-text: var(--color-text-default);
+  --yds-tag--color-action: var(--color-bg-default);
+  --yds-tag--color-action-hover: var(--color-bg-interactive-hover);
+  --yds-tag--color-action-pressed: var(--color-bg-interactive-pressed);
+  --yds-tag--color-border: var(--color-border-subtle);
 
   /* small */
-  --ds-tag--wrapper-gap-x-small: var(--krds-gap-2);
-  --ds-tag--wrapper-gap-y-small: var(--krds-gap-3);
-  --ds-tag--size-height-small: var(--krds-size-height-4);
-  --ds-tag--button-size-small: var(--krds-size-height-2);
-  --ds-tag--padding-x-small: var(--krds-padding-3);
-  --ds-tag--pc-font-size-small: var(--krds-pc-font-size-label-xsmall);
-  --ds-tag--mobile-font-size-small: var(--krds-mobile-font-size-label-xsmall);
+  --yds-tag--wrapper-gap-x-small: var(--krds-gap-2);
+  --yds-tag--wrapper-gap-y-small: var(--krds-gap-3);
+  --yds-tag--size-height-small: var(--krds-size-height-4);
+  --yds-tag--button-size-small: var(--krds-size-height-2);
+  --yds-tag--padding-x-small: var(--krds-padding-3);
+  --yds-tag--pc-font-size-small: var(--krds-pc-font-size-label-xsmall);
+  --yds-tag--mobile-font-size-small: var(--krds-mobile-font-size-label-xsmall);
 
   /* medium (기본값) */
-  --ds-tag--wrapper-gap-x-medium: var(--krds-gap-3);
-  --ds-tag--wrapper-gap-y-medium: var(--krds-gap-3);
-  --ds-tag--size-height-medium: var(--krds-size-height-5);
-  --ds-tag--button-size-medium: var(--krds-size-height-2);
-  --ds-tag--padding-x-medium: var(--krds-padding-4);
-  --ds-tag--pc-font-size-medium: var(--krds-pc-font-size-label-small);
-  --ds-tag--mobile-font-size-medium: var(--krds-mobile-font-size-label-small);
+  --yds-tag--wrapper-gap-x-medium: var(--krds-gap-3);
+  --yds-tag--wrapper-gap-y-medium: var(--krds-gap-3);
+  --yds-tag--size-height-medium: var(--krds-size-height-5);
+  --yds-tag--button-size-medium: var(--krds-size-height-2);
+  --yds-tag--padding-x-medium: var(--krds-padding-4);
+  --yds-tag--pc-font-size-medium: var(--krds-pc-font-size-label-small);
+  --yds-tag--mobile-font-size-medium: var(--krds-mobile-font-size-label-small);
 
   /* large */
-  --ds-tag--wrapper-gap-x-large: var(--krds-gap-3);
-  --ds-tag--wrapper-gap-y-large: var(--krds-gap-4);
-  --ds-tag--size-height-large: var(--krds-size-height-6);
-  --ds-tag--button-size-large: var(--krds-size-height-2);
-  --ds-tag--padding-x-large: var(--krds-padding-5);
-  --ds-tag--pc-font-size-large: var(--krds-pc-font-size-label-medium);
-  --ds-tag--mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
+  --yds-tag--wrapper-gap-x-large: var(--krds-gap-3);
+  --yds-tag--wrapper-gap-y-large: var(--krds-gap-4);
+  --yds-tag--size-height-large: var(--krds-size-height-6);
+  --yds-tag--button-size-large: var(--krds-size-height-2);
+  --yds-tag--padding-x-large: var(--krds-padding-5);
+  --yds-tag--pc-font-size-large: var(--krds-pc-font-size-label-medium);
+  --yds-tag--mobile-font-size-large: var(--krds-mobile-font-size-label-medium);
 }
 
 /* ----- Wrap (기본: medium) ----- */
-.ds-tag-group {
+.yds-tag-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--ds-tag--wrapper-gap-y-medium) var(--ds-tag--wrapper-gap-x-medium);
+  gap: var(--yds-tag--wrapper-gap-y-medium) var(--yds-tag--wrapper-gap-x-medium);
 }
 
 /* ----- 크기별 Wrap + 태그 ----- */
 
 /* small */
-.ds-tag-group.ds-tag-group--small {
-  gap: var(--ds-tag--wrapper-gap-y-small) var(--ds-tag--wrapper-gap-x-small);
+.yds-tag-group.yds-tag-group--small {
+  gap: var(--yds-tag--wrapper-gap-y-small) var(--yds-tag--wrapper-gap-x-small);
 }
-.ds-tag-group.ds-tag-group--small .ds-tag {
-  height: var(--ds-tag--size-height-small);
-  padding: 0 var(--ds-tag--padding-x-small);
-  border-radius: var(--ds-tag--size-height-small);
-  font-size: var(--ds-tag--pc-font-size-small);
+.yds-tag-group.yds-tag-group--small .yds-tag {
+  height: var(--yds-tag--size-height-small);
+  padding: 0 var(--yds-tag--padding-x-small);
+  border-radius: var(--yds-tag--size-height-small);
+  font-size: var(--yds-tag--pc-font-size-small);
 }
 @media (max-width: 767px) {
-  .ds-tag-group.ds-tag-group--small .ds-tag {
-    font-size: var(--ds-tag--mobile-font-size-small);
+  .yds-tag-group.yds-tag-group--small .yds-tag {
+    font-size: var(--yds-tag--mobile-font-size-small);
   }
 }
-.ds-tag-group.ds-tag-group--small .ds-tag .ds-tag__delete-btn {
-  width: var(--ds-tag--button-size-small);
-  height: var(--ds-tag--button-size-small);
+.yds-tag-group.yds-tag-group--small .yds-tag .yds-tag__delete-btn {
+  width: var(--yds-tag--button-size-small);
+  height: var(--yds-tag--button-size-small);
 }
 
 /* medium (기본) */
-.ds-tag-group.ds-tag-group--medium {
-  gap: var(--ds-tag--wrapper-gap-y-medium) var(--ds-tag--wrapper-gap-x-medium);
+.yds-tag-group.yds-tag-group--medium {
+  gap: var(--yds-tag--wrapper-gap-y-medium) var(--yds-tag--wrapper-gap-x-medium);
 }
-.ds-tag-group.ds-tag-group--medium .ds-tag {
-  height: var(--ds-tag--size-height-medium);
-  padding: 0 var(--ds-tag--padding-x-medium);
-  border-radius: var(--ds-tag--size-height-medium);
-  font-size: var(--ds-tag--pc-font-size-medium);
+.yds-tag-group.yds-tag-group--medium .yds-tag {
+  height: var(--yds-tag--size-height-medium);
+  padding: 0 var(--yds-tag--padding-x-medium);
+  border-radius: var(--yds-tag--size-height-medium);
+  font-size: var(--yds-tag--pc-font-size-medium);
 }
 @media (max-width: 767px) {
-  .ds-tag-group.ds-tag-group--medium .ds-tag {
-    font-size: var(--ds-tag--mobile-font-size-medium);
+  .yds-tag-group.yds-tag-group--medium .yds-tag {
+    font-size: var(--yds-tag--mobile-font-size-medium);
   }
 }
-.ds-tag-group.ds-tag-group--medium .ds-tag .ds-tag__delete-btn {
-  width: var(--ds-tag--button-size-medium);
-  height: var(--ds-tag--button-size-medium);
+.yds-tag-group.yds-tag-group--medium .yds-tag .yds-tag__delete-btn {
+  width: var(--yds-tag--button-size-medium);
+  height: var(--yds-tag--button-size-medium);
 }
 
 /* large */
-.ds-tag-group.ds-tag-group--large {
-  gap: var(--ds-tag--wrapper-gap-y-large) var(--ds-tag--wrapper-gap-x-large);
+.yds-tag-group.yds-tag-group--large {
+  gap: var(--yds-tag--wrapper-gap-y-large) var(--yds-tag--wrapper-gap-x-large);
 }
-.ds-tag-group.ds-tag-group--large .ds-tag {
-  height: var(--ds-tag--size-height-large);
-  padding: 0 var(--ds-tag--padding-x-large);
-  border-radius: var(--ds-tag--size-height-large);
-  font-size: var(--ds-tag--pc-font-size-large);
+.yds-tag-group.yds-tag-group--large .yds-tag {
+  height: var(--yds-tag--size-height-large);
+  padding: 0 var(--yds-tag--padding-x-large);
+  border-radius: var(--yds-tag--size-height-large);
+  font-size: var(--yds-tag--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-tag-group.ds-tag-group--large .ds-tag {
-    font-size: var(--ds-tag--mobile-font-size-large);
+  .yds-tag-group.yds-tag-group--large .yds-tag {
+    font-size: var(--yds-tag--mobile-font-size-large);
   }
 }
-.ds-tag-group.ds-tag-group--large .ds-tag .ds-tag__delete-btn {
-  width: var(--ds-tag--button-size-large);
-  height: var(--ds-tag--button-size-large);
+.yds-tag-group.yds-tag-group--large .yds-tag .yds-tag__delete-btn {
+  width: var(--yds-tag--button-size-large);
+  height: var(--yds-tag--button-size-large);
 }
 
 /* ----- 태그 기본 스타일 ----- */
-.ds-tag-group .ds-tag {
+.yds-tag-group .yds-tag {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   position: relative;
   gap: var(--krds-gap-1);
-  height: var(--ds-tag--size-height-medium);
-  padding: 0 var(--ds-tag--padding-x-medium);
-  border-radius: var(--ds-tag--size-height-medium);
-  font-size: var(--ds-tag--pc-font-size-medium);
+  height: var(--yds-tag--size-height-medium);
+  padding: 0 var(--yds-tag--padding-x-medium);
+  border-radius: var(--yds-tag--size-height-medium);
+  font-size: var(--yds-tag--pc-font-size-medium);
   line-height: var(--krds-line-height-none);
-  background-color: var(--ds-tag--color-action);
-  border: 0.1rem solid var(--ds-tag--color-border);
-  color: var(--ds-tag--color-text);
+  background-color: var(--yds-tag--color-action);
+  border: 0.1rem solid var(--yds-tag--color-border);
+  color: var(--yds-tag--color-text);
   transition: var(--krds-transition-base);
   white-space: nowrap;
 }
 @media (max-width: 767px) {
-  .ds-tag-group .ds-tag {
-    font-size: var(--ds-tag--mobile-font-size-medium);
+  .yds-tag-group .yds-tag {
+    font-size: var(--yds-tag--mobile-font-size-medium);
   }
 }
 
 /* 상태 */
-.ds-tag-group .ds-tag:hover {
-  background-color: var(--ds-tag--color-action-hover);
+.yds-tag-group .yds-tag:hover {
+  background-color: var(--yds-tag--color-action-hover);
 }
-.ds-tag-group .ds-tag:active {
-  background-color: var(--ds-tag--color-action-pressed);
+.yds-tag-group .yds-tag:active {
+  background-color: var(--yds-tag--color-action-pressed);
 }
 
 /* 링크 variant */
-.ds-tag-group .ds-tag.ds-tag--link:hover,
-.ds-tag-group .ds-tag.ds-tag--link:active {
+.yds-tag-group .yds-tag.yds-tag--link:hover,
+.yds-tag-group .yds-tag.yds-tag--link:active {
   text-decoration: underline;
   text-underline-offset: var(--krds-font-underline-offset);
 }
 
 /* ----- 삭제 버튼 ----- */
-.ds-tag-group .ds-tag .ds-tag__delete-btn {
+.yds-tag-group .yds-tag .yds-tag__delete-btn {
   display: inline-flex;
   flex-shrink: 0;
-  width: var(--ds-tag--button-size-medium);
-  height: var(--ds-tag--button-size-medium);
+  width: var(--yds-tag--button-size-medium);
+  height: var(--yds-tag--button-size-medium);
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_delete_fill.svg);
   background-size: contain;
   background-repeat: no-repeat;

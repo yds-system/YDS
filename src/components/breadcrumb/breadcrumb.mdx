@@ -19,7 +19,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -57,13 +57,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 2단계 (홈 > 현재)
 
 ```html
-<nav class="ds-breadcrumb" aria-label="현재 경로">
-  <ol class="ds-breadcrumb__list">
-    <li class="ds-breadcrumb__item ds-breadcrumb__item--home">
-      <a href="/home" class="ds-breadcrumb__link">홈</a>
+<nav class="yds-breadcrumb" aria-label="현재 경로">
+  <ol class="yds-breadcrumb__list">
+    <li class="yds-breadcrumb__item yds-breadcrumb__item--home">
+      <a href="/home" class="yds-breadcrumb__link">홈</a>
     </li>
-    <li class="ds-breadcrumb__item">
-      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">서비스 신청</span>
+    <li class="yds-breadcrumb__item">
+      <span class="yds-breadcrumb__link yds-breadcrumb__link--current" aria-current="page">서비스 신청</span>
     </li>
   </ol>
 </nav>
@@ -72,22 +72,22 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 3단계 이상 (홈 > 중간 > 현재)
 
 ```html
-<nav class="ds-breadcrumb" aria-label="현재 경로">
-  <ol class="ds-breadcrumb__list">
-    <li class="ds-breadcrumb__item ds-breadcrumb__item--home">
-      <a href="/home" class="ds-breadcrumb__link">홈</a>
+<nav class="yds-breadcrumb" aria-label="현재 경로">
+  <ol class="yds-breadcrumb__list">
+    <li class="yds-breadcrumb__item yds-breadcrumb__item--home">
+      <a href="/home" class="yds-breadcrumb__link">홈</a>
     </li>
-    <li class="ds-breadcrumb__item">
-      <a href="/service" class="ds-breadcrumb__link">서비스 신청</a>
+    <li class="yds-breadcrumb__item">
+      <a href="/service" class="yds-breadcrumb__link">서비스 신청</a>
     </li>
-    <li class="ds-breadcrumb__item">
-      <span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">세부 항목</span>
+    <li class="yds-breadcrumb__item">
+      <span class="yds-breadcrumb__link yds-breadcrumb__link--current" aria-current="page">세부 항목</span>
     </li>
   </ol>
 </nav>
 ```
 
-> **현재 페이지 처리**: 마지막 항목은 `<span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">`으로 작성합니다.  
+> **현재 페이지 처리**: 마지막 항목은 `<span class="yds-breadcrumb__link yds-breadcrumb__link--current" aria-current="page">`으로 작성합니다.  
 > 이미 현재 페이지이므로 링크로 탐색할 필요가 없어 `<span>`이 더 적합합니다.
 
 ---

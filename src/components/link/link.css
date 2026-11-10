@@ -4,8 +4,8 @@
    (버튼 컴포넌트와 독립된 별도 블록 — button.css 의존 없음)
    ============================================= */
 
-/* ----- ds-ico-go 아이콘 ----- */
-.ds-icon.ds-ico-go {
+/* ----- yds-ico-go 아이콘 ----- */
+.yds-icon.yds-ico-go {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center center;
   -webkit-mask-size: contain;
@@ -18,215 +18,215 @@
 }
 
 /* ----- CSS 변수 ----- */
-.ds-link {
+.yds-link {
   /* 색상 */
-  --ds-link--color-text:          var(--color-text-link);
-  --ds-link--color-text-hover:    var(--color-text-link-hover);
-  --ds-link--color-text-pressed:  var(--color-text-link-pressed);
-  --ds-link--color-text-visited:  var(--color-text-link-visited);
-  --ds-link--color-text-disabled: var(--color-text-disabled);
+  --yds-link--color-text:          var(--color-text-link);
+  --yds-link--color-text-hover:    var(--color-text-link-hover);
+  --yds-link--color-text-pressed:  var(--color-text-link-pressed);
+  --yds-link--color-text-visited:  var(--color-text-link-visited);
+  --yds-link--color-text-disabled: var(--color-text-disabled);
 
   /* 폰트 크기 · 패딩 */
-  --ds-link--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
-  --ds-link--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
-  --ds-link--padding-x-xsmall:        var(--krds-padding-1);
-  --ds-link--pc-font-size-small:      var(--krds-pc-font-size-label-small);
-  --ds-link--mobile-font-size-small:  var(--krds-mobile-font-size-label-small);
-  --ds-link--padding-x-small:         var(--krds-padding-1);
-  --ds-link--pc-font-size-medium:     var(--krds-pc-font-size-label-medium);
-  --ds-link--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
-  --ds-link--padding-x-medium:        var(--krds-padding-1);
-  --ds-link--pc-font-size-large:      var(--krds-pc-font-size-label-large);
-  --ds-link--mobile-font-size-large:  var(--krds-mobile-font-size-label-large);
-  --ds-link--padding-x-large:         var(--krds-padding-1);
-  --ds-link--pc-font-size-xlarge:     var(--krds-pc-font-size-label-large);
-  --ds-link--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
-  --ds-link--padding-x-xlarge:        var(--krds-padding-1);
+  --yds-link--pc-font-size-xsmall:     var(--krds-pc-font-size-label-small);
+  --yds-link--mobile-font-size-xsmall: var(--krds-mobile-font-size-label-small);
+  --yds-link--padding-x-xsmall:        var(--krds-padding-1);
+  --yds-link--pc-font-size-small:      var(--krds-pc-font-size-label-small);
+  --yds-link--mobile-font-size-small:  var(--krds-mobile-font-size-label-small);
+  --yds-link--padding-x-small:         var(--krds-padding-1);
+  --yds-link--pc-font-size-medium:     var(--krds-pc-font-size-label-medium);
+  --yds-link--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --yds-link--padding-x-medium:        var(--krds-padding-1);
+  --yds-link--pc-font-size-large:      var(--krds-pc-font-size-label-large);
+  --yds-link--mobile-font-size-large:  var(--krds-mobile-font-size-label-large);
+  --yds-link--padding-x-large:         var(--krds-padding-1);
+  --yds-link--pc-font-size-xlarge:     var(--krds-pc-font-size-label-large);
+  --yds-link--mobile-font-size-xlarge: var(--krds-mobile-font-size-label-large);
+  --yds-link--padding-x-xlarge:        var(--krds-padding-1);
 }
 
 /* ----- 기본 스타일 (large 기본값) ----- */
-.ds-link {
+.yds-link {
   display: inline-block;
-  padding: 0 var(--ds-link--padding-x-large);
-  font-size: var(--ds-link--pc-font-size-large);
-  color: var(--ds-link--color-text);
+  padding: 0 var(--yds-link--padding-x-large);
+  font-size: var(--yds-link--pc-font-size-large);
+  color: var(--yds-link--color-text);
   text-align: left;
   white-space: normal;
   cursor: pointer;
   transition: var(--krds-transition-base);
 }
 @media (max-width: 767px) {
-  .ds-link {
-    font-size: var(--ds-link--mobile-font-size-large);
+  .yds-link {
+    font-size: var(--yds-link--mobile-font-size-large);
   }
 }
 
 /* ----- 크기 변형 ----- */
-.ds-link.ds-link--xsmall {
-  padding: 0 var(--ds-link--padding-x-xsmall);
-  font-size: var(--ds-link--pc-font-size-xsmall);
+.yds-link.yds-link--xsmall {
+  padding: 0 var(--yds-link--padding-x-xsmall);
+  font-size: var(--yds-link--pc-font-size-xsmall);
 }
 @media (max-width: 767px) {
-  .ds-link.ds-link--xsmall {
-    font-size: var(--ds-link--mobile-font-size-xsmall);
+  .yds-link.yds-link--xsmall {
+    font-size: var(--yds-link--mobile-font-size-xsmall);
   }
 }
-.ds-link.ds-link--xsmall .ds-icon { margin-bottom: -0.3rem; }
+.yds-link.yds-link--xsmall .yds-icon { margin-bottom: -0.3rem; }
 
-.ds-link.ds-link--small {
-  padding: 0 var(--ds-link--padding-x-small);
-  font-size: var(--ds-link--pc-font-size-small);
+.yds-link.yds-link--small {
+  padding: 0 var(--yds-link--padding-x-small);
+  font-size: var(--yds-link--pc-font-size-small);
 }
 @media (max-width: 767px) {
-  .ds-link.ds-link--small {
-    font-size: var(--ds-link--mobile-font-size-small);
+  .yds-link.yds-link--small {
+    font-size: var(--yds-link--mobile-font-size-small);
   }
 }
-.ds-link.ds-link--small .ds-icon { margin-bottom: -0.3rem; }
+.yds-link.yds-link--small .yds-icon { margin-bottom: -0.3rem; }
 
-.ds-link.ds-link--medium {
-  padding: 0 var(--ds-link--padding-x-medium);
-  font-size: var(--ds-link--pc-font-size-medium);
+.yds-link.yds-link--medium {
+  padding: 0 var(--yds-link--padding-x-medium);
+  font-size: var(--yds-link--pc-font-size-medium);
 }
 @media (max-width: 767px) {
-  .ds-link.ds-link--medium {
-    font-size: var(--ds-link--mobile-font-size-medium);
+  .yds-link.yds-link--medium {
+    font-size: var(--yds-link--mobile-font-size-medium);
   }
 }
-.ds-link.ds-link--medium .ds-icon { margin-bottom: -0.4rem; }
+.yds-link.yds-link--medium .yds-icon { margin-bottom: -0.4rem; }
 
-.ds-link.ds-link--large {
-  padding: 0 var(--ds-link--padding-x-large);
-  font-size: var(--ds-link--pc-font-size-large);
+.yds-link.yds-link--large {
+  padding: 0 var(--yds-link--padding-x-large);
+  font-size: var(--yds-link--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-link.ds-link--large {
-    font-size: var(--ds-link--mobile-font-size-large);
+  .yds-link.yds-link--large {
+    font-size: var(--yds-link--mobile-font-size-large);
   }
 }
-.ds-link.ds-link--large .ds-icon { margin-bottom: -0.5rem; }
+.yds-link.yds-link--large .yds-icon { margin-bottom: -0.5rem; }
 
-.ds-link.ds-link--xlarge {
-  padding: 0 var(--ds-link--padding-x-xlarge);
-  font-size: var(--ds-link--pc-font-size-xlarge);
+.yds-link.yds-link--xlarge {
+  padding: 0 var(--yds-link--padding-x-xlarge);
+  font-size: var(--yds-link--pc-font-size-xlarge);
 }
 @media (max-width: 767px) {
-  .ds-link.ds-link--xlarge {
-    font-size: var(--ds-link--mobile-font-size-xlarge);
+  .yds-link.yds-link--xlarge {
+    font-size: var(--yds-link--mobile-font-size-xlarge);
   }
 }
-.ds-link.ds-link--xlarge .ds-icon { margin-bottom: -0.6rem; }
+.yds-link.yds-link--xlarge .yds-icon { margin-bottom: -0.6rem; }
 
-/* ----- .ds-link--basic (본문 텍스트 색상) ----- */
-.ds-link.ds-link--basic {
+/* ----- .yds-link--basic (본문 텍스트 색상) ----- */
+.yds-link.yds-link--basic {
   color: var(--color-text-default);
 }
-.ds-link.ds-link--basic .ds-icon {
+.yds-link.yds-link--basic .yds-icon {
   background-color: var(--color-text-default);
 }
 
 /* ----- 상호작용 상태 색상 ----- */
-.ds-link:hover {
-  color: var(--ds-link--color-text-hover);
+.yds-link:hover {
+  color: var(--yds-link--color-text-hover);
 }
-.ds-link:hover .ds-icon {
-  background-color: var(--ds-link--color-text-hover);
-}
-
-.ds-link:active,
-.ds-link:focus {
-  color: var(--ds-link--color-text-pressed);
-}
-.ds-link:active .ds-icon,
-.ds-link:focus .ds-icon {
-  background-color: var(--ds-link--color-text-pressed);
+.yds-link:hover .yds-icon {
+  background-color: var(--yds-link--color-text-hover);
 }
 
-.ds-link:visited {
-  color: var(--ds-link--color-text-visited);
+.yds-link:active,
+.yds-link:focus {
+  color: var(--yds-link--color-text-pressed);
+}
+.yds-link:active .yds-icon,
+.yds-link:focus .yds-icon {
+  background-color: var(--yds-link--color-text-pressed);
+}
+
+.yds-link:visited {
+  color: var(--yds-link--color-text-visited);
   text-decoration: none;
 }
-.ds-link:visited .ds-icon {
-  background-color: var(--ds-link--color-text-visited);
+.yds-link:visited .yds-icon {
+  background-color: var(--yds-link--color-text-visited);
 }
 
 /* basic 상호작용 */
-.ds-link.ds-link--basic:hover,
-.ds-link.ds-link--basic:active,
-.ds-link.ds-link--basic:focus {
-  color: var(--ds-link--color-text-hover);
+.yds-link.yds-link--basic:hover,
+.yds-link.yds-link--basic:active,
+.yds-link.yds-link--basic:focus {
+  color: var(--yds-link--color-text-hover);
 }
-.ds-link.ds-link--basic:hover .ds-icon,
-.ds-link.ds-link--basic:active .ds-icon,
-.ds-link.ds-link--basic:focus .ds-icon {
-  background-color: var(--ds-link--color-text-hover);
-}
-
-/* ----- .ds-link--pure: 상호작용 시 기본 링크 색상 유지 ----- */
-.ds-link.ds-link--pure:hover,
-.ds-link.ds-link--pure:active,
-.ds-link.ds-link--pure:focus,
-.ds-link.ds-link--pure:visited {
-  color: var(--ds-link--color-text);
-}
-.ds-link.ds-link--pure:hover .ds-icon,
-.ds-link.ds-link--pure:active .ds-icon,
-.ds-link.ds-link--pure:focus .ds-icon,
-.ds-link.ds-link--pure:visited .ds-icon {
-  background-color: var(--ds-link--color-text);
+.yds-link.yds-link--basic:hover .yds-icon,
+.yds-link.yds-link--basic:active .yds-icon,
+.yds-link.yds-link--basic:focus .yds-icon {
+  background-color: var(--yds-link--color-text-hover);
 }
 
-/* .ds-link--basic.ds-link--pure: 상호작용 시 본문 텍스트 색상 유지 */
-.ds-link.ds-link--basic.ds-link--pure:hover,
-.ds-link.ds-link--basic.ds-link--pure:active,
-.ds-link.ds-link--basic.ds-link--pure:focus,
-.ds-link.ds-link--basic.ds-link--pure:visited {
+/* ----- .yds-link--pure: 상호작용 시 기본 링크 색상 유지 ----- */
+.yds-link.yds-link--pure:hover,
+.yds-link.yds-link--pure:active,
+.yds-link.yds-link--pure:focus,
+.yds-link.yds-link--pure:visited {
+  color: var(--yds-link--color-text);
+}
+.yds-link.yds-link--pure:hover .yds-icon,
+.yds-link.yds-link--pure:active .yds-icon,
+.yds-link.yds-link--pure:focus .yds-icon,
+.yds-link.yds-link--pure:visited .yds-icon {
+  background-color: var(--yds-link--color-text);
+}
+
+/* .yds-link--basic.yds-link--pure: 상호작용 시 본문 텍스트 색상 유지 */
+.yds-link.yds-link--basic.yds-link--pure:hover,
+.yds-link.yds-link--basic.yds-link--pure:active,
+.yds-link.yds-link--basic.yds-link--pure:focus,
+.yds-link.yds-link--basic.yds-link--pure:visited {
   color: var(--color-text-default);
 }
-.ds-link.ds-link--basic.ds-link--pure:hover .ds-icon,
-.ds-link.ds-link--basic.ds-link--pure:active .ds-icon,
-.ds-link.ds-link--basic.ds-link--pure:focus .ds-icon,
-.ds-link.ds-link--basic.ds-link--pure:visited .ds-icon {
+.yds-link.yds-link--basic.yds-link--pure:hover .yds-icon,
+.yds-link.yds-link--basic.yds-link--pure:active .yds-icon,
+.yds-link.yds-link--basic.yds-link--pure:focus .yds-icon,
+.yds-link.yds-link--basic.yds-link--pure:visited .yds-icon {
   background-color: var(--color-text-default);
 }
 
 /* ----- 비활성화 ----- */
-.ds-link.ds-link--disabled {
-  color: var(--ds-link--color-text-disabled);
+.yds-link.yds-link--disabled {
+  color: var(--yds-link--color-text-disabled);
   cursor: default;
   pointer-events: none;
 }
-.ds-link.ds-link--disabled .ds-icon {
-  background-color: var(--ds-link--color-text-disabled);
+.yds-link.yds-link--disabled .yds-icon {
+  background-color: var(--yds-link--color-text-disabled);
 }
-.ds-link.ds-link--disabled:hover {
-  color: var(--ds-link--color-text-disabled);
+.yds-link.yds-link--disabled:hover {
+  color: var(--yds-link--color-text-disabled);
 }
-.ds-link.ds-link--disabled:hover .ds-icon {
-  background-color: var(--ds-link--color-text-disabled);
+.yds-link.yds-link--disabled:hover .yds-icon {
+  background-color: var(--yds-link--color-text-disabled);
 }
 
 /* ----- 밑줄 ----- */
-.ds-link .ds-link__text {
+.yds-link .yds-link__text {
   text-decoration: underline;
 }
 
-/* ds-link__text--underline-hover: 기본은 투명, 상호작용 시 표시 */
-.ds-link .ds-link__text.ds-link__text--underline-hover {
+/* yds-link__text--underline-hover: 기본은 투명, 상호작용 시 표시 */
+.yds-link .yds-link__text.yds-link__text--underline-hover {
   text-decoration-color: transparent;
   transition: var(--krds-transition-base);
 }
-.ds-link:hover .ds-link__text.ds-link__text--underline-hover,
-.ds-link:active .ds-link__text.ds-link__text--underline-hover,
-.ds-link:focus .ds-link__text.ds-link__text--underline-hover,
-.ds-link:visited .ds-link__text.ds-link__text--underline-hover {
+.yds-link:hover .yds-link__text.yds-link__text--underline-hover,
+.yds-link:active .yds-link__text.yds-link__text--underline-hover,
+.yds-link:focus .yds-link__text.yds-link__text--underline-hover,
+.yds-link:visited .yds-link__text.yds-link__text--underline-hover {
   text-decoration-color: inherit;
 }
 
-/* ----- ds-icon (공통) ----- */
-.ds-link .ds-icon {
+/* ----- yds-icon (공통) ----- */
+.yds-link .yds-icon {
   display: inline-block;
-  background-color: var(--ds-link--color-text);
+  background-color: var(--yds-link--color-text);
   margin-bottom: -0.5rem;
   transition: var(--krds-transition-base);
 }

@@ -13,13 +13,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 사용자가 여러 항목 중 **하나 이상을 자유롭게 선택**할 수 있는 폼 요소입니다.  
-라디오 버튼과 함께 `ds-check-item` 구조를 공유하며, `ds-form-group` 레이아웃 위에 구성됩니다.
+라디오 버튼과 함께 `yds-check-item` 구조를 공유하며, `yds-form-group` 레이아웃 위에 구성됩니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -68,26 +68,26 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 그룹 (접근성: fieldset + legend) -->
-<fieldset class="ds-form-group">
-  <legend class="ds-form-label">
-    <span>그룹 제목 <span class="ds-form-label__required" aria-hidden="true">필수</span></span>
+<fieldset class="yds-form-group">
+  <legend class="yds-form-label">
+    <span>그룹 제목 <span class="yds-form-label__required" aria-hidden="true">필수</span></span>
   </legend>
-  <div class="ds-form-content [ds-form-content--error]">
-    <div class="ds-check-group [ds-check-group--column]">
+  <div class="yds-form-content [yds-form-content--error]">
+    <div class="yds-check-group [yds-check-group--column]">
 
       <!-- 단일 체크박스 아이템 -->
-      <div class="ds-check-item [ds-check-item--medium|ds-check-item--large]">
+      <div class="yds-check-item [yds-check-item--medium|yds-check-item--large]">
         <input type="checkbox" id="id" [checked] [disabled]>
         <label for="id">레이블</label>
         <!-- 부가 설명 (선택) -->
-        <div class="ds-check-item__desc">
-          <p class="ds-check-item__text">부가 설명 텍스트</p>
+        <div class="yds-check-item__desc">
+          <p class="yds-check-item__text">부가 설명 텍스트</p>
         </div>
       </div>
 
     </div>
   </div>
-  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error]">메시지</p>
+  <p class="[yds-form-hint|yds-form-hint yds-form-hint--error]">메시지</p>
 </fieldset>
 ```
 
@@ -109,40 +109,40 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 기본 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="checkbox" id="chk-1">
   <label for="chk-1">기본</label>
 </div>
 
 <!-- 선택됨 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="checkbox" id="chk-2" checked>
   <label for="chk-2">선택됨</label>
 </div>
 
 <!-- 중간 선택 (JS로 설정) -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="checkbox" id="chk-3">
   <label for="chk-3">중간 선택</label>
 </div>
 <script>document.getElementById('chk-3').indeterminate = true;</script>
 
 <!-- 비활성화 -->
-<div class="ds-check-item ds-check-item--medium">
+<div class="yds-check-item yds-check-item--medium">
   <input type="checkbox" id="chk-4" disabled>
   <label for="chk-4">비활성화</label>
 </div>
 
 <!-- 에러 -->
-<div class="ds-form-content ds-form-content--error">
-  <div class="ds-check-group ds-check-group--column">
-    <div class="ds-check-item ds-check-item--medium">
+<div class="yds-form-content yds-form-content--error">
+  <div class="yds-check-group yds-check-group--column">
+    <div class="yds-check-item yds-check-item--medium">
       <input type="checkbox" id="chk-5">
       <label for="chk-5">에러 상태</label>
     </div>
   </div>
 </div>
-<p class="ds-form-hint ds-form-hint--error">하나 이상 선택해 주세요.</p>
+<p class="yds-form-hint yds-form-hint--error">하나 이상 선택해 주세요.</p>
 ```
 
 > `indeterminate` 상태는 HTML 속성이 없으며 **반드시 JS**로 설정해야 합니다.  
@@ -154,15 +154,15 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 세로 배치 그룹 -->
-<fieldset class="ds-form-group">
-  <legend class="ds-form-label"><span>관심사</span></legend>
-  <div class="ds-form-content">
-    <div class="ds-check-group ds-check-group--column">
-      <div class="ds-check-item ds-check-item--medium">
+<fieldset class="yds-form-group">
+  <legend class="yds-form-label"><span>관심사</span></legend>
+  <div class="yds-form-content">
+    <div class="yds-check-group yds-check-group--column">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="checkbox" id="topic-1">
         <label for="topic-1">뉴스</label>
       </div>
-      <div class="ds-check-item ds-check-item--medium">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="checkbox" id="topic-2" checked>
         <label for="topic-2">스포츠</label>
       </div>
@@ -176,21 +176,21 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={CheckboxStories.전체동의} />
 
 ```html
-<fieldset class="ds-form-group">
-  <legend class="ds-form-label"><span>이용 약관 동의</span></legend>
-  <div class="ds-form-content">
-    <div class="ds-check-group ds-check-group--column">
+<fieldset class="yds-form-group">
+  <legend class="yds-form-label"><span>이용 약관 동의</span></legend>
+  <div class="yds-form-content">
+    <div class="yds-check-group yds-check-group--column">
       <!-- 전체 선택 -->
-      <div class="ds-check-item ds-check-item--medium">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="checkbox" id="agree-all">
         <label for="agree-all"><strong>전체 동의합니다</strong></label>
       </div>
       <!-- 개별 항목 -->
-      <div class="ds-check-item ds-check-item--medium">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="checkbox" id="agree-1">
         <label for="agree-1">서비스 이용약관 동의 <strong>(필수)</strong></label>
       </div>
-      <div class="ds-check-item ds-check-item--medium">
+      <div class="yds-check-item yds-check-item--medium">
         <input type="checkbox" id="agree-2">
         <label for="agree-2">마케팅 정보 수신 동의 (선택)</label>
       </div>
@@ -216,6 +216,6 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 - 체크박스 그룹은 `<fieldset>` + `<legend>`로 감싸 그룹의 목적을 스크린리더에 전달한다.
 - 각 `<input>`의 `id`와 `<label>`의 `for`를 반드시 연결한다.
 - `disabled` 상태는 스크린리더에 "비활성화"로 읽히므로 별도 안내 문구 불필요.
-- 에러 메시지(`.ds-form-hint--error`)는 `aria-describedby`로 입력 요소와 연결하면 더욱 접근성이 높아진다.
+- 에러 메시지(`.yds-form-hint--error`)는 `aria-describedby`로 입력 요소와 연결하면 더욱 접근성이 높아진다.
 - `indeterminate` 상태는 `aria-checked="mixed"` 속성을 함께 제공하는 것을 권장한다.
 - 키보드: `Space`로 선택/해제, `Tab`으로 항목 간 이동.

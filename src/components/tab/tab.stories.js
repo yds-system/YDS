@@ -34,14 +34,14 @@ export default {
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function renderTab({ prefix, variant, full, tabs }) {
-  const cls = `ds-tab ds-tab--${variant}${full ? ' ds-tab--full' : ''}`;
+  const cls = `yds-tab yds-tab--${variant}${full ? ' yds-tab--full' : ''}`;
 
   const liItems = tabs.map((tab, i) => {
     const isActive = i === 0 && !tab.disabled;
     const tabId = `${prefix}-tab-${i}`;
     const panelId = `${prefix}-panel-${i}`;
     const disabledAttr = tab.disabled ? 'aria-disabled="true"' : '';
-    const itemClass = isActive ? 'ds-tab__item ds-tab__item--selected' : 'ds-tab__item';
+    const itemClass = isActive ? 'yds-tab__item yds-tab__item--selected' : 'yds-tab__item';
     return `
       <li
         class="${itemClass}"
@@ -51,8 +51,8 @@ function renderTab({ prefix, variant, full, tabs }) {
         aria-controls="${panelId}"
         ${disabledAttr}
       >
-        <button type="button" class="ds-tab__btn" ${tab.disabled ? 'disabled' : ''}>
-          ${tab.label}${isActive ? '<i class="sr-only ds-tab__selected-text"> 선택됨</i>' : ''}
+        <button type="button" class="yds-tab__btn" ${tab.disabled ? 'disabled' : ''}>
+          ${tab.label}${isActive ? '<i class="sr-only yds-tab__selected-text"> 선택됨</i>' : ''}
         </button>
       </li>`;
   }).join('');
@@ -66,7 +66,7 @@ function renderTab({ prefix, variant, full, tabs }) {
         id="${panelId}"
         role="tabpanel"
         aria-labelledby="${tabId}"
-        class="ds-tab__panel${isActive ? ' ds-tab__panel--selected' : ''}"
+        class="yds-tab__panel${isActive ? ' yds-tab__panel--selected' : ''}"
         tabindex="0"
       >
         <h3 class="sr-only">${tab.label} 영역</h3>
@@ -76,12 +76,12 @@ function renderTab({ prefix, variant, full, tabs }) {
 
   return `
     <div class="${cls}">
-      <div class="ds-tab__nav">
-        <ul class="ds-tab__list" role="tablist" aria-label="${prefix} 탭">
+      <div class="yds-tab__nav">
+        <ul class="yds-tab__list" role="tablist" aria-label="${prefix} 탭">
           ${liItems}
         </ul>
       </div>
-      <div class="ds-tab__panels">
+      <div class="yds-tab__panels">
         ${panels}
       </div>
     </div>`;
@@ -95,14 +95,14 @@ function activateTab(tabList, targetLi) {
   allTabs.forEach(li => {
     const isActive = li === targetLi;
     li.setAttribute('aria-selected', String(isActive));
-    li.classList.toggle('ds-tab__item--selected', isActive);
+    li.classList.toggle('yds-tab__item--selected', isActive);
 
-    const btn = li.querySelector('.ds-tab__btn');
+    const btn = li.querySelector('.yds-tab__btn');
     const srOnly = btn?.querySelector('.sr-only.created');
     if (isActive) {
       if (btn && !srOnly) {
         const el = document.createElement('i');
-        el.className = 'sr-only ds-tab__selected-text';
+        el.className = 'sr-only yds-tab__selected-text';
         el.textContent = ' 선택됨';
         btn.appendChild(el);
       }
@@ -113,7 +113,7 @@ function activateTab(tabList, targetLi) {
     const panelId = li.getAttribute('aria-controls');
     if (panelId) {
       const panel = li.ownerDocument.getElementById(panelId);
-      if (panel) panel.classList.toggle('ds-tab__panel--selected', isActive);
+      if (panel) panel.classList.toggle('yds-tab__panel--selected', isActive);
     }
   });
 }
@@ -121,7 +121,7 @@ function activateTab(tabList, targetLi) {
 function initTabs(canvasElement) {
   canvasElement.querySelectorAll('[role="tablist"]').forEach(tabList => {
     /* 클릭으로 탭 전환 */
-    tabList.querySelectorAll('[role="tab"] .ds-tab__btn').forEach(btn => {
+    tabList.querySelectorAll('[role="tab"] .yds-tab__btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.disabled) return;
         activateTab(tabList, btn.closest('[role="tab"]'));
@@ -145,15 +145,15 @@ function initTabs(canvasElement) {
         e.preventDefault();
         idx = (idx + moves[e.key] + enabled.length) % enabled.length;
         activateTab(tabList, enabled[idx]);
-        enabled[idx].querySelector('.ds-tab__btn')?.focus();
+        enabled[idx].querySelector('.yds-tab__btn')?.focus();
       } else if (e.key === 'Home') {
         e.preventDefault();
         activateTab(tabList, enabled[0]);
-        enabled[0].querySelector('.ds-tab__btn')?.focus();
+        enabled[0].querySelector('.yds-tab__btn')?.focus();
       } else if (e.key === 'End') {
         e.preventDefault();
         activateTab(tabList, enabled[enabled.length - 1]);
-        enabled[enabled.length - 1].querySelector('.ds-tab__btn')?.focus();
+        enabled[enabled.length - 1].querySelector('.yds-tab__btn')?.focus();
       }
     });
   });

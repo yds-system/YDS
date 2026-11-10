@@ -70,26 +70,26 @@ export default {
 /* 폼 그룹 생성 헬퍼 */
 function formGroup({ label, required, size, state, type, placeholder, disabled, readonly, hint, message, extra = '' }) {
   const stateClass = state && state !== 'default'
-    ? ` ds-form-content--${state === 'error' ? 'error' : state === 'success' ? 'success' : 'info'}`
+    ? ` yds-form-content--${state === 'error' ? 'error' : state === 'success' ? 'success' : 'info'}`
     : '';
-  const hintClass = state === 'error' ? 'ds-form-hint ds-form-hint--error'
-    : state === 'success' ? 'ds-form-hint ds-form-hint--success'
-    : state === 'information' ? 'ds-form-hint ds-form-hint--info'
-    : 'ds-form-hint';
+  const hintClass = state === 'error' ? 'yds-form-hint yds-form-hint--error'
+    : state === 'success' ? 'yds-form-hint yds-form-hint--success'
+    : state === 'information' ? 'yds-form-hint yds-form-hint--info'
+    : 'yds-form-hint';
   const hintText = message || hint || '';
   const inputId = `input-${Math.random().toString(36).slice(2, 7)}`;
-  const sizeClass = size !== 'large' ? ` ds-input--${size}` : '';
+  const sizeClass = size !== 'large' ? ` yds-input--${size}` : '';
 
   return `
-    <div class="ds-form-group">
-      <div class="ds-form-label">
-        <label for="${inputId}">${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
+    <div class="yds-form-group">
+      <div class="yds-form-label">
+        <label for="${inputId}">${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
       </div>
-      <div class="ds-form-content${stateClass}${extra}">
+      <div class="yds-form-content${stateClass}${extra}">
         <input
           type="${type}"
           id="${inputId}"
-          class="ds-input${sizeClass}"
+          class="yds-input${sizeClass}"
           placeholder="${placeholder}"
           ${disabled ? 'disabled' : ''}
           ${readonly ? 'readonly' : ''}
@@ -101,7 +101,7 @@ function formGroup({ label, required, size, state, type, placeholder, disabled, 
 }
 
 const wrap = (content) =>
-  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="yds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ──────────────────────────── */
 export const Playground = {
@@ -151,31 +151,31 @@ export const Password = {
   render: ({ size, disabled }) => {
     const id = 'pw-input';
     const disabledAttr = disabled ? 'disabled' : '';
-    const sizeClass = size !== 'large' ? ` ds-input--${size}` : '';
+    const sizeClass = size !== 'large' ? ` yds-input--${size}` : '';
     return wrap(`
-      <div class="ds-form-group">
-        <div class="ds-form-label">
+      <div class="yds-form-group">
+        <div class="yds-form-label">
           <label for="${id}">비밀번호</label>
         </div>
-        <div class="ds-form-content ds-form-content--with-btn" data-delete="true">
-          <input type="password" id="${id}" class="ds-input${sizeClass}"
+        <div class="yds-form-content yds-form-content--with-btn" data-delete="true">
+          <input type="password" id="${id}" class="yds-input${sizeClass}"
             placeholder="8~12자의 영문자, 숫자, 특수문자 조합" value="password123" ${disabledAttr}>
-          <div class="ds-form-content__actions">
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn"
+          <div class="yds-form-content__actions">
+            <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn"
               aria-label="내용 삭제"
-              onclick="(function(btn){var inp=btn.closest('.ds-form-content').querySelector('.ds-input');inp.value='';inp.focus();})(this)">
+              onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');inp.value='';inp.focus();})(this)">
               <span class="sr-only">내용 삭제</span>
-              <i class="ds-icon ds-ico-delete-fill"></i>
+              <i class="yds-icon yds-ico-delete-fill"></i>
             </button>
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon"
+            <button type="button" class="yds-btn yds-btn--medium yds-btn--icon"
               aria-label="입력한 비밀번호 보기"
-              onclick="(function(btn){var inp=btn.closest('.ds-form-content').querySelector('.ds-input');var isHidden=inp.type==='password';inp.type=isHidden?'text':'password';btn.querySelector('.sr-only').textContent=isHidden?'입력한 비밀번호 가리기':'입력한 비밀번호 보기';})(this)">
+              onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');var isHidden=inp.type==='password';inp.type=isHidden?'text':'password';btn.querySelector('.sr-only').textContent=isHidden?'입력한 비밀번호 가리기':'입력한 비밀번호 보기';})(this)">
               <span class="sr-only">입력한 비밀번호 보기</span>
-              <i class="ds-icon ds-ico-pw-visible"></i>
+              <i class="yds-icon yds-ico-pw-visible"></i>
             </button>
           </div>
         </div>
-        <p class="ds-form-hint">8~12자의 영문자, 숫자, 특수문자 조합으로 입력해 주세요.</p>
+        <p class="yds-form-hint">8~12자의 영문자, 숫자, 특수문자 조합으로 입력해 주세요.</p>
       </div>
     `);
   },
@@ -187,24 +187,24 @@ export const Search = {
   parameters: { controls: { include: ['size', 'placeholder'] } },
   render: ({ size, placeholder }) => {
     const id = 'search-input';
-    const sizeClass = size !== 'large' ? ` ds-input--${size}` : '';
+    const sizeClass = size !== 'large' ? ` yds-input--${size}` : '';
     return wrap(`
-      <div class="ds-form-group">
-        <div class="ds-form-label">
+      <div class="yds-form-group">
+        <div class="yds-form-label">
           <label for="${id}">검색어</label>
         </div>
-        <div class="ds-form-content ds-form-content--with-btn" data-delete="true">
-          <input type="search" id="${id}" class="ds-input${sizeClass}"
+        <div class="yds-form-content yds-form-content--with-btn" data-delete="true">
+          <input type="search" id="${id}" class="yds-input${sizeClass}"
             placeholder="${placeholder}">
-          <div class="ds-form-content__actions">
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-btn--pure ds-input__clear-btn"
-              onclick="(function(btn){var inp=btn.closest('.ds-form-content').querySelector('.ds-input');inp.value='';inp.focus();})(this)">
+          <div class="yds-form-content__actions">
+            <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-btn--pure yds-input__clear-btn"
+              onclick="(function(btn){var inp=btn.closest('.yds-form-content').querySelector('.yds-input');inp.value='';inp.focus();})(this)">
               <span class="sr-only">내용 삭제</span>
-              <i class="ds-icon ds-ico-delete-fill"></i>
+              <i class="yds-icon yds-ico-delete-fill"></i>
             </button>
-            <button type="button" class="ds-btn ds-btn--medium ds-btn--icon">
+            <button type="button" class="yds-btn yds-btn--medium yds-btn--icon">
               <span class="sr-only">검색</span>
-              <i class="ds-icon ds-ico-sch"></i>
+              <i class="yds-icon yds-ico-sch"></i>
             </button>
           </div>
         </div>
@@ -219,19 +219,19 @@ export const 글자수표시 = {
   parameters: { controls: { include: ['size'] } },
   render: ({ size }) => {
     const max = 20;
-    const sizeClass = size !== 'large' ? ` ds-input--${size}` : '';
+    const sizeClass = size !== 'large' ? ` yds-input--${size}` : '';
     return wrap(`
-      <div class="ds-form-group">
-        <div class="ds-form-label">
+      <div class="yds-form-group">
+        <div class="yds-form-label">
           <label for="count-input">제목</label>
         </div>
-        <div class="ds-form-content">
-          <input type="text" id="count-input" class="ds-input${sizeClass}"
+        <div class="yds-form-content">
+          <input type="text" id="count-input" class="yds-input${sizeClass}"
             placeholder="제목을 입력하세요" maxlength="${max}"
             oninput="(function(inp){document.getElementById('count-current').textContent=inp.value.length;})(this)">
-          <p class="ds-count">
-            <span class="ds-count__current" id="count-current">0</span>
-            <span class="ds-count__max">/ ${max}</span>
+          <p class="yds-count">
+            <span class="yds-count__current" id="count-current">0</span>
+            <span class="yds-count__max">/ ${max}</span>
           </p>
         </div>
       </div>

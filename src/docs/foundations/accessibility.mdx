@@ -51,7 +51,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ```css
 /* 올바른 예 — 포커스 링 */
-.ds-btn:focus-visible {
+.yds-btn:focus-visible {
   outline: 0.2rem solid var(--color-border-focus);
   outline-offset: 0.2rem;
 }
@@ -76,7 +76,7 @@ KWCAG 2.2 — 6.4.1 반복 영역 건너뛰기
 
 ```html
 <!-- 페이지 최상단 — 첫 번째 인터랙티브 요소 앞에 위치 -->
-<a id="ds-skip-link" href="#main-content">본문으로 건너뛰기</a>
+<a id="yds-skip-link" href="#main-content">본문으로 건너뛰기</a>
 
 <header>...</header>
 
@@ -112,7 +112,7 @@ ARIA는 HTML 시맨틱으로 표현할 수 없는 경우에만 보완적으로 �
 
 <!-- aria-label: 아이콘만 있는 버튼 -->
 <button aria-label="닫기">
-  <span class="ds-icon ds-ico-close" aria-hidden="true"></span>
+  <span class="yds-icon yds-ico-close" aria-hidden="true"></span>
 </button>
 
 <!-- aria-describedby: 에러 메시지 연결 -->
@@ -120,7 +120,7 @@ ARIA는 HTML 시맨틱으로 표현할 수 없는 경우에만 보완적으로 �
 <p id="email-error" role="alert">올바른 이메일 형식이 아닙니다.</p>
 
 <!-- aria-hidden: 장식용 아이콘 -->
-<span class="ds-icon ds-ico-check" aria-hidden="true"></span>
+<span class="yds-icon yds-ico-check" aria-hidden="true"></span>
 ```
 
 - 아이콘만 있는 버튼에는 반드시 `aria-label`을 제공한다.
@@ -140,7 +140,7 @@ KWCAG 2.2 — 7.3.2 레이블 제공
 <!-- 올바른 예 — 필수 입력 표시 -->
 <label for="email">
   이메일
-  <span class="ds-form-label__required" aria-label="필수">*</span>
+  <span class="yds-form-label__required" aria-label="필수">*</span>
 </label>
 
 <!-- 잘못된 예 — placeholder만으로 레이블 대체 -->

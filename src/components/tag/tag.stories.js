@@ -36,15 +36,15 @@ export default {
 /* ─── 헬퍼 ──────────────────────────────────── */
 
 function tag({ label, deletable = false, link = false }) {
-  const linkClass = link ? ' ds-tag--link' : '';
+  const linkClass = link ? ' yds-tag--link' : '';
   const deleteBtn = deletable
-    ? `<button type="button" class="ds-tag__delete-btn"><span class="sr-only">${label} 삭제</span></button>`
+    ? `<button type="button" class="yds-tag__delete-btn"><span class="sr-only">${label} 삭제</span></button>`
     : '';
-  return `<span class="ds-tag${linkClass}">${label}${deleteBtn}</span>`;
+  return `<span class="yds-tag${linkClass}">${label}${deleteBtn}</span>`;
 }
 
 function tagGroup(size, tags) {
-  return `<div class="ds-tag-group ds-tag-group--${size}">${tags}</div>`;
+  return `<div class="yds-tag-group yds-tag-group--${size}">${tags}</div>`;
 }
 
 const wrap = (html) =>
@@ -60,9 +60,9 @@ const section = (label, html) => `
 
 function initTags(canvasElement) {
   canvasElement.addEventListener('click', (e) => {
-    const btn = e.target.closest('.ds-tag__delete-btn');
+    const btn = e.target.closest('.yds-tag__delete-btn');
     if (btn) {
-      btn.closest('.ds-tag')?.remove();
+      btn.closest('.yds-tag')?.remove();
     }
   });
 }
@@ -105,7 +105,7 @@ export const 필터태그 = {
     return wrap(`
       <div style="margin-bottom:0.8rem; font-size:1.4rem; font-weight:bold;
                   color:var(--krds-light-color-text-bolder);">선택된 필터</div>
-      <div class="ds-tag-group ds-tag-group--medium">
+      <div class="yds-tag-group yds-tag-group--medium">
         ${filters.map(l => tag({ label: l, deletable: true })).join('')}
       </div>
       <p style="margin-top:1.2rem; font-size:1.2rem; color:var(--krds-light-color-text-subtle);">
@@ -124,12 +124,12 @@ export const 링크태그 = {
   render: () => {
     const labels = ['디자인 시스템', '접근성', 'KRDS', 'UI 컴포넌트', '퍼블리싱'];
     const linkTags = labels.map(l =>
-      `<a href="#" class="ds-tag ds-tag--link">${l}</a>`
+      `<a href="#" class="yds-tag yds-tag--link">${l}</a>`
     ).join('');
     return wrap(`
-      ${section('Small', `<div class="ds-tag-group ds-tag-group--small">${linkTags}</div>`)}
-      ${section('Medium', `<div class="ds-tag-group ds-tag-group--medium">${linkTags}</div>`)}
-      ${section('Large', `<div class="ds-tag-group ds-tag-group--large">${linkTags}</div>`)}
+      ${section('Small', `<div class="yds-tag-group yds-tag-group--small">${linkTags}</div>`)}
+      ${section('Medium', `<div class="yds-tag-group yds-tag-group--medium">${linkTags}</div>`)}
+      ${section('Large', `<div class="yds-tag-group yds-tag-group--large">${linkTags}</div>`)}
     `);
   },
 };
@@ -155,9 +155,9 @@ export const 전체변형 = {
       </section>
       <section>
         ${hd('링크 태그')}
-        ${section('Small',  `<div class="ds-tag-group ds-tag-group--small">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
-        ${section('Medium', `<div class="ds-tag-group ds-tag-group--medium">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
-        ${section('Large',  `<div class="ds-tag-group ds-tag-group--large">${sampleLabels.map(l => `<a href="#" class="ds-tag ds-tag--link">${l}</a>`).join('')}</div>`)}
+        ${section('Small',  `<div class="yds-tag-group yds-tag-group--small">${sampleLabels.map(l => `<a href="#" class="yds-tag yds-tag--link">${l}</a>`).join('')}</div>`)}
+        ${section('Medium', `<div class="yds-tag-group yds-tag-group--medium">${sampleLabels.map(l => `<a href="#" class="yds-tag yds-tag--link">${l}</a>`).join('')}</div>`)}
+        ${section('Large',  `<div class="yds-tag-group yds-tag-group--large">${sampleLabels.map(l => `<a href="#" class="yds-tag yds-tag--link">${l}</a>`).join('')}</div>`)}
       </section>
     `);
   },

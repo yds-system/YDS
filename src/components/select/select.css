@@ -5,133 +5,133 @@
    ============================================= */
 
 /* ----- CSS 변수 ----- */
-.ds-select {
-  --ds-select--color-background: var(--color-bg-default);
-  --ds-select--color-background-disabled: var(--color-bg-disabled);
-  --ds-select--color-border: var(--color-border-strong);
-  --ds-select--color-border-active: var(--color-border-focus);
-  --ds-select--color-border-disabled: var(--color-border-disabled);
-  --ds-select--color-border-error: var(--color-text-point);
-  --ds-select--color-text: var(--color-text-disabled);
-  --ds-select--color-text-active: var(--color-text-default);
-  --ds-select--color-text-completed: var(--color-text-subtle);
-  --ds-select--color-text-disabled: var(--color-text-subtler);
-  --ds-select--padding-default: var(--krds-padding-6);
+.yds-select {
+  --yds-select--color-background: var(--color-bg-default);
+  --yds-select--color-background-disabled: var(--color-bg-disabled);
+  --yds-select--color-border: var(--color-border-strong);
+  --yds-select--color-border-active: var(--color-border-focus);
+  --yds-select--color-border-disabled: var(--color-border-disabled);
+  --yds-select--color-border-error: var(--color-text-point);
+  --yds-select--color-text: var(--color-text-disabled);
+  --yds-select--color-text-active: var(--color-text-default);
+  --yds-select--color-text-completed: var(--color-text-subtle);
+  --yds-select--color-text-disabled: var(--color-text-subtler);
+  --yds-select--padding-default: var(--krds-padding-6);
 
-  --ds-select--size-height-small: var(--krds-size-height-6);
-  --ds-select--icon-size-small: var(--krds-icon--size-small);
-  --ds-select--radius-small: var(--krds-radius-medium3);
-  --ds-select--padding-right-small: calc(var(--ds-select--padding-default) + var(--krds-gap-3) + var(--ds-select--icon-size-small));
-  --ds-select--pc-font-size-small: var(--krds-pc-font-size-label-small);
-  --ds-select--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
+  --yds-select--size-height-small: var(--krds-size-height-6);
+  --yds-select--icon-size-small: var(--krds-icon--size-small);
+  --yds-select--radius-small: var(--krds-radius-medium3);
+  --yds-select--padding-right-small: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-small));
+  --yds-select--pc-font-size-small: var(--krds-pc-font-size-label-small);
+  --yds-select--mobile-font-size-small: var(--krds-mobile-font-size-label-small);
 
-  --ds-select--size-height-medium: var(--krds-size-height-7);
-  --ds-select--icon-size-medium: var(--krds-icon--size-medium);
-  --ds-select--padding-right-medium: calc(var(--ds-select--padding-default) + var(--krds-gap-3) + var(--ds-select--icon-size-medium));
-  --ds-select--radius-medium: var(--krds-radius-medium2);
-  --ds-select--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
-  --ds-select--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
+  --yds-select--size-height-medium: var(--krds-size-height-7);
+  --yds-select--icon-size-medium: var(--krds-icon--size-medium);
+  --yds-select--padding-right-medium: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-medium));
+  --yds-select--radius-medium: var(--krds-radius-medium2);
+  --yds-select--pc-font-size-medium: var(--krds-pc-font-size-label-medium);
+  --yds-select--mobile-font-size-medium: var(--krds-mobile-font-size-label-medium);
 
-  --ds-select--size-height-large: var(--krds-size-height-8);
-  --ds-select--icon-size-large: var(--krds-icon--size-large);
-  --ds-select--padding-right-large: calc(var(--ds-select--padding-default) + var(--krds-gap-3) + var(--ds-select--icon-size-large));
-  --ds-select--radius-large: var(--krds-radius-medium1);
-  --ds-select--pc-font-size-large: var(--krds-pc-font-size-label-large);
-  --ds-select--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
+  --yds-select--size-height-large: var(--krds-size-height-8);
+  --yds-select--icon-size-large: var(--krds-icon--size-large);
+  --yds-select--padding-right-large: calc(var(--yds-select--padding-default) + var(--krds-gap-3) + var(--yds-select--icon-size-large));
+  --yds-select--radius-large: var(--krds-radius-medium1);
+  --yds-select--pc-font-size-large: var(--krds-pc-font-size-label-large);
+  --yds-select--mobile-font-size-large: var(--krds-mobile-font-size-label-large);
 }
 
 /* ----- 기본 스타일 (Large 기본값) ----- */
-.ds-select {
+.yds-select {
   position: relative;
   width: 100%;
-  height: var(--ds-select--size-height-large);
-  padding: 0 var(--ds-select--padding-right-large) 0 var(--ds-select--padding-default);
-  background-color: var(--ds-select--color-background) !important;
+  height: var(--yds-select--size-height-large);
+  padding: 0 var(--yds-select--padding-right-large) 0 var(--yds-select--padding-default);
+  background-color: var(--yds-select--color-background) !important;
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
   background-repeat: no-repeat;
-  background-position: center right var(--ds-select--padding-default);
-  background-size: var(--ds-select--icon-size-large);
+  background-position: center right var(--yds-select--padding-default);
+  background-size: var(--yds-select--icon-size-large);
   border-width: var(--krds-light-border-width-variable-regular);
   border-style: solid;
-  border-color: var(--ds-select--color-border);
-  border-radius: var(--ds-select--radius-large);
+  border-color: var(--yds-select--color-border);
+  border-radius: var(--yds-select--radius-large);
   font-family: inherit;
-  font-size: var(--ds-select--pc-font-size-large);
-  color: var(--ds-select--color-text);
+  font-size: var(--yds-select--pc-font-size-large);
+  color: var(--yds-select--color-text);
   transition: var(--krds-transition-base);
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  .ds-select {
-    font-size: var(--ds-select--mobile-font-size-large);
+  .yds-select {
+    font-size: var(--yds-select--mobile-font-size-large);
   }
 }
 
 /* ----- 크기 ----- */
-.ds-select--small {
-  height: var(--ds-select--size-height-small);
-  padding: 0 var(--ds-select--padding-right-small) 0 var(--ds-select--padding-default);
-  background-size: var(--ds-select--icon-size-small);
-  border-radius: var(--ds-select--radius-small);
-  font-size: var(--ds-select--pc-font-size-small);
+.yds-select--small {
+  height: var(--yds-select--size-height-small);
+  padding: 0 var(--yds-select--padding-right-small) 0 var(--yds-select--padding-default);
+  background-size: var(--yds-select--icon-size-small);
+  border-radius: var(--yds-select--radius-small);
+  font-size: var(--yds-select--pc-font-size-small);
 }
 @media (max-width: 767px) {
-  .ds-select--small { font-size: var(--ds-select--mobile-font-size-small); }
+  .yds-select--small { font-size: var(--yds-select--mobile-font-size-small); }
 }
 
-.ds-select--medium {
-  height: var(--ds-select--size-height-medium);
-  padding: 0 var(--ds-select--padding-right-medium) 0 var(--ds-select--padding-default);
-  background-size: var(--ds-select--icon-size-medium);
-  border-radius: var(--ds-select--radius-medium);
-  font-size: var(--ds-select--pc-font-size-medium);
+.yds-select--medium {
+  height: var(--yds-select--size-height-medium);
+  padding: 0 var(--yds-select--padding-right-medium) 0 var(--yds-select--padding-default);
+  background-size: var(--yds-select--icon-size-medium);
+  border-radius: var(--yds-select--radius-medium);
+  font-size: var(--yds-select--pc-font-size-medium);
 }
 @media (max-width: 767px) {
-  .ds-select--medium { font-size: var(--ds-select--mobile-font-size-medium); }
+  .yds-select--medium { font-size: var(--yds-select--mobile-font-size-medium); }
 }
 
-.ds-select--large {
-  height: var(--ds-select--size-height-large);
-  padding: 0 var(--ds-select--padding-right-large) 0 var(--ds-select--padding-default);
-  background-size: var(--ds-select--icon-size-large);
-  border-radius: var(--ds-select--radius-large);
-  font-size: var(--ds-select--pc-font-size-large);
+.yds-select--large {
+  height: var(--yds-select--size-height-large);
+  padding: 0 var(--yds-select--padding-right-large) 0 var(--yds-select--padding-default);
+  background-size: var(--yds-select--icon-size-large);
+  border-radius: var(--yds-select--radius-large);
+  font-size: var(--yds-select--pc-font-size-large);
 }
 @media (max-width: 767px) {
-  .ds-select--large { font-size: var(--ds-select--mobile-font-size-large); }
+  .yds-select--large { font-size: var(--yds-select--mobile-font-size-large); }
 }
 
 /* ----- 상태 ----- */
-.ds-select:focus {
-  border-color: var(--ds-select--color-border-active);
+.yds-select:focus {
+  border-color: var(--yds-select--color-border-active);
   border-width: 2px;
   outline: none;
   box-shadow: none;
-  color: var(--ds-select--color-text-active);
+  color: var(--yds-select--color-text-active);
 }
 
 /* 선택 완료 (빈 값이 아닌 option 선택 시) */
-.ds-select--completed {
-  color: var(--ds-select--color-text-completed);
+.yds-select--completed {
+  color: var(--yds-select--color-text-completed);
 }
-.ds-select--completed:focus {
-  color: var(--ds-select--color-text-active);
+.yds-select--completed:focus {
+  color: var(--yds-select--color-text-active);
 }
 
 /* 에러 */
-.ds-select--error,
-.ds-form-content--error .ds-select {
-  border-color: var(--ds-select--color-border-error);
+.yds-select--error,
+.yds-form-content--error .yds-select {
+  border-color: var(--yds-select--color-border-error);
   border-width: 2px;
 }
 
 /* 비활성화 */
-.ds-select[disabled] {
-  background-color: var(--ds-select--color-background-disabled) !important;
+.yds-select[disabled] {
+  background-color: var(--yds-select--color-background-disabled) !important;
   background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
-  border-color: var(--ds-select--color-border-disabled);
-  color: var(--ds-select--color-text-disabled);
+  border-color: var(--yds-select--color-border-disabled);
+  color: var(--yds-select--color-text-disabled);
   cursor: not-allowed;
 }

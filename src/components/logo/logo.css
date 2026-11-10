@@ -1,9 +1,9 @@
 /* =============================================
-   ds-logo — 로고 컴포넌트 (자체 추가)
+   yds-logo — 로고 컴포넌트 (자체 추가)
    ============================================= */
 
-.ds-logo {
-  --ds-logo--transition: 0.25s ease;
+.yds-logo {
+  --yds-logo--transition: 0.25s ease;
 
   display: inline-flex;
   align-items: center;
@@ -11,32 +11,32 @@
   overflow: hidden;
 }
 
-.ds-logo__img {
+.yds-logo__img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transition: filter var(--ds-logo--transition);
+  transition: filter var(--yds-logo--transition);
 }
 
 /* ----- 비율 modifier ----- */
-.ds-logo--1x1 { aspect-ratio: 1 / 1; }
-.ds-logo--2x1 { aspect-ratio: 2 / 1; }
-.ds-logo--3x1 { aspect-ratio: 3 / 1; }
+.yds-logo--1x1 { aspect-ratio: 1 / 1; }
+.yds-logo--2x1 { aspect-ratio: 2 / 1; }
+.yds-logo--3x1 { aspect-ratio: 3 / 1; }
 
 /* ----- 흑백 modifier ----- */
-.ds-logo--grayscale .ds-logo__img {
+.yds-logo--grayscale .yds-logo__img {
   filter: grayscale(100%);
 }
 
-.ds-logo--grayscale:hover .ds-logo__img,
-.ds-logo--grayscale:focus-within .ds-logo__img {
+.yds-logo--grayscale:hover .yds-logo__img,
+.yds-logo--grayscale:focus-within .yds-logo__img {
   filter: grayscale(0%);
 }
 
 /* ----- 로고 목록 ----- */
-.ds-logo-list {
+.yds-logo-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

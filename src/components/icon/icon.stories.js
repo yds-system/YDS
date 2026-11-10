@@ -6,23 +6,23 @@ export default {
     name: {
       control: { type: 'select' },
       options: [
-        'ds-ico-angle','ds-ico-go','ds-ico-go-top','ds-ico-link','ds-ico-page-next','ds-ico-bread-home',
-        'ds-ico-all','ds-ico-global','ds-ico-func','ds-ico-fold','ds-ico-toggle',
-        'ds-ico-sch','ds-ico-sch-plus','ds-ico-plus','ds-ico-del','ds-ico-delete-fill',
-        'ds-ico-popup-close','ds-ico-modal-close','ds-ico-more','ds-ico-ellipsis',
-        'ds-ico-filter','ds-ico-reset','ds-ico-refresh','ds-ico-upload','ds-ico-down',
-        'ds-ico-print','ds-ico-scrap','ds-ico-share','ds-ico-like','ds-ico-setting',
-        'ds-ico-view-mode','ds-ico-file',
-        'ds-ico-help','ds-ico-tooltip','ds-ico-success-fill','ds-ico-information-fill',
-        'ds-ico-error-fill','ds-ico-complete-fill','ds-ico-flag','ds-ico-urgent-danger',
-        'ds-ico-pw-visible','ds-ico-pw-visible-on','ds-ico-checkbox',
-        'ds-ico-calendar','ds-ico-cal-move',
-        'ds-ico-log','ds-ico-logout','ds-ico-join','ds-ico-my','ds-ico-login-go',
-        'ds-ico-login-type01','ds-ico-login-type02','ds-ico-login-type03',
-        'ds-ico-login-type04','ds-ico-login-type05','ds-ico-login-type06',
-        'ds-ico-call','ds-ico-email','ds-ico-faq',
-        'ds-ico-blog','ds-ico-facebook','ds-ico-instagram','ds-ico-sns-x','ds-ico-youtube',
-        'ds-ico-swiper-play','ds-ico-swiper-stop',
+        'yds-ico-angle','yds-ico-go','yds-ico-go-top','yds-ico-link','yds-ico-page-next','yds-ico-bread-home',
+        'yds-ico-all','yds-ico-global','yds-ico-func','yds-ico-fold','yds-ico-toggle',
+        'yds-ico-sch','yds-ico-sch-plus','yds-ico-plus','yds-ico-del','yds-ico-delete-fill',
+        'yds-ico-popup-close','yds-ico-modal-close','yds-ico-more','yds-ico-ellipsis',
+        'yds-ico-filter','yds-ico-reset','yds-ico-refresh','yds-ico-upload','yds-ico-down',
+        'yds-ico-print','yds-ico-scrap','yds-ico-share','yds-ico-like','yds-ico-setting',
+        'yds-ico-view-mode','yds-ico-file',
+        'yds-ico-help','yds-ico-tooltip','yds-ico-success-fill','yds-ico-information-fill',
+        'yds-ico-error-fill','yds-ico-complete-fill','yds-ico-flag','yds-ico-urgent-danger',
+        'yds-ico-pw-visible','yds-ico-pw-visible-on','yds-ico-checkbox',
+        'yds-ico-calendar','yds-ico-cal-move',
+        'yds-ico-log','yds-ico-logout','yds-ico-join','yds-ico-my','yds-ico-login-go',
+        'yds-ico-login-type01','yds-ico-login-type02','yds-ico-login-type03',
+        'yds-ico-login-type04','yds-ico-login-type05','yds-ico-login-type06',
+        'yds-ico-call','yds-ico-email','yds-ico-faq',
+        'yds-ico-blog','yds-ico-facebook','yds-ico-instagram','yds-ico-sns-x','yds-ico-youtube',
+        'yds-ico-swiper-play','yds-ico-swiper-stop',
       ],
       description: '아이콘 이름',
       table: { category: '아이콘' },
@@ -45,7 +45,7 @@ export default {
     },
   },
   args: {
-    name: 'ds-ico-angle',
+    name: 'yds-ico-angle',
     size: 'large',
     decorative: true,
     label: '꺽쇠 화살표',
@@ -56,90 +56,90 @@ export default {
 
 const ICONS = [
   // 내비게이션
-  { name: 'ds-ico-angle',       label: '꺽쇠',           category: '내비게이션' },
-  { name: 'ds-ico-go',          label: '이동',           category: '내비게이션' },
-  { name: 'ds-ico-go-top',      label: '맨 위로',        category: '내비게이션' },
-  { name: 'ds-ico-link',        label: '링크',           category: '내비게이션' },
-  { name: 'ds-ico-page-next',   label: '페이지 다음',    category: '내비게이션' },
-  { name: 'ds-ico-bread-home',  label: '홈(브레드크럼)', category: '내비게이션' },
-  { name: 'ds-ico-all',         label: '전체 메뉴',      category: '내비게이션' },
-  { name: 'ds-ico-global',      label: '글로벌/언어',    category: '내비게이션' },
-  { name: 'ds-ico-func',        label: '펼치기',         category: '내비게이션' },
-  { name: 'ds-ico-fold',        label: '접기/펼치기',    category: '내비게이션' },
-  { name: 'ds-ico-toggle',      label: '토글',           category: '내비게이션' },
+  { name: 'yds-ico-angle',       label: '꺽쇠',           category: '내비게이션' },
+  { name: 'yds-ico-go',          label: '이동',           category: '내비게이션' },
+  { name: 'yds-ico-go-top',      label: '맨 위로',        category: '내비게이션' },
+  { name: 'yds-ico-link',        label: '링크',           category: '내비게이션' },
+  { name: 'yds-ico-page-next',   label: '페이지 다음',    category: '내비게이션' },
+  { name: 'yds-ico-bread-home',  label: '홈(브레드크럼)', category: '내비게이션' },
+  { name: 'yds-ico-all',         label: '전체 메뉴',      category: '내비게이션' },
+  { name: 'yds-ico-global',      label: '글로벌/언어',    category: '내비게이션' },
+  { name: 'yds-ico-func',        label: '펼치기',         category: '내비게이션' },
+  { name: 'yds-ico-fold',        label: '접기/펼치기',    category: '내비게이션' },
+  { name: 'yds-ico-toggle',      label: '토글',           category: '내비게이션' },
   // 액션
-  { name: 'ds-ico-sch',         label: '검색',           category: '액션' },
-  { name: 'ds-ico-sch-plus',    label: '검색+',          category: '액션' },
-  { name: 'ds-ico-plus',        label: '추가',           category: '액션' },
-  { name: 'ds-ico-del',         label: '삭제',           category: '액션' },
-  { name: 'ds-ico-delete-fill', label: '삭제(채움)',     category: '액션', pure: true },
-  { name: 'ds-ico-popup-close', label: '닫기(팝업)',     category: '액션' },
-  { name: 'ds-ico-modal-close', label: '닫기(모달)',     category: '액션' },
-  { name: 'ds-ico-more',        label: '더보기',         category: '액션' },
-  { name: 'ds-ico-ellipsis',    label: '말줄임',         category: '액션' },
-  { name: 'ds-ico-filter',      label: '필터',           category: '액션' },
-  { name: 'ds-ico-reset',       label: '초기화',         category: '액션' },
-  { name: 'ds-ico-refresh',     label: '새로고침',       category: '액션' },
-  { name: 'ds-ico-upload',      label: '업로드',         category: '액션' },
-  { name: 'ds-ico-down',        label: '다운로드',       category: '액션' },
-  { name: 'ds-ico-print',       label: '인쇄',           category: '액션' },
-  { name: 'ds-ico-scrap',       label: '스크랩',         category: '액션' },
-  { name: 'ds-ico-share',       label: '공유',           category: '액션' },
-  { name: 'ds-ico-like',        label: '좋아요',         category: '액션' },
-  { name: 'ds-ico-setting',     label: '설정',           category: '액션' },
-  { name: 'ds-ico-view-mode',   label: '보기 모드',      category: '액션' },
-  { name: 'ds-ico-file',        label: '파일',           category: '액션' },
+  { name: 'yds-ico-sch',         label: '검색',           category: '액션' },
+  { name: 'yds-ico-sch-plus',    label: '검색+',          category: '액션' },
+  { name: 'yds-ico-plus',        label: '추가',           category: '액션' },
+  { name: 'yds-ico-del',         label: '삭제',           category: '액션' },
+  { name: 'yds-ico-delete-fill', label: '삭제(채움)',     category: '액션', pure: true },
+  { name: 'yds-ico-popup-close', label: '닫기(팝업)',     category: '액션' },
+  { name: 'yds-ico-modal-close', label: '닫기(모달)',     category: '액션' },
+  { name: 'yds-ico-more',        label: '더보기',         category: '액션' },
+  { name: 'yds-ico-ellipsis',    label: '말줄임',         category: '액션' },
+  { name: 'yds-ico-filter',      label: '필터',           category: '액션' },
+  { name: 'yds-ico-reset',       label: '초기화',         category: '액션' },
+  { name: 'yds-ico-refresh',     label: '새로고침',       category: '액션' },
+  { name: 'yds-ico-upload',      label: '업로드',         category: '액션' },
+  { name: 'yds-ico-down',        label: '다운로드',       category: '액션' },
+  { name: 'yds-ico-print',       label: '인쇄',           category: '액션' },
+  { name: 'yds-ico-scrap',       label: '스크랩',         category: '액션' },
+  { name: 'yds-ico-share',       label: '공유',           category: '액션' },
+  { name: 'yds-ico-like',        label: '좋아요',         category: '액션' },
+  { name: 'yds-ico-setting',     label: '설정',           category: '액션' },
+  { name: 'yds-ico-view-mode',   label: '보기 모드',      category: '액션' },
+  { name: 'yds-ico-file',        label: '파일',           category: '액션' },
   // 상태·정보
-  { name: 'ds-ico-help',            label: '도움말',    category: '상태·정보', pure: true },
-  { name: 'ds-ico-tooltip',         label: '툴팁',      category: '상태·정보' },
-  { name: 'ds-ico-success-fill',    label: '성공',      category: '상태·정보', pure: true },
-  { name: 'ds-ico-information-fill',label: '정보',      category: '상태·정보', pure: true },
-  { name: 'ds-ico-error-fill',      label: '오류',      category: '상태·정보', pure: true },
-  { name: 'ds-ico-complete-fill',   label: '완료',      category: '상태·정보', pure: true },
-  { name: 'ds-ico-flag',            label: '깃발',      category: '상태·정보', pure: true },
-  { name: 'ds-ico-urgent-danger',   label: '긴급(위험)',category: '상태·정보' },
+  { name: 'yds-ico-help',            label: '도움말',    category: '상태·정보', pure: true },
+  { name: 'yds-ico-tooltip',         label: '툴팁',      category: '상태·정보' },
+  { name: 'yds-ico-success-fill',    label: '성공',      category: '상태·정보', pure: true },
+  { name: 'yds-ico-information-fill',label: '정보',      category: '상태·정보', pure: true },
+  { name: 'yds-ico-error-fill',      label: '오류',      category: '상태·정보', pure: true },
+  { name: 'yds-ico-complete-fill',   label: '완료',      category: '상태·정보', pure: true },
+  { name: 'yds-ico-flag',            label: '깃발',      category: '상태·정보', pure: true },
+  { name: 'yds-ico-urgent-danger',   label: '긴급(위험)',category: '상태·정보' },
   // 폼
-  { name: 'ds-ico-pw-visible',    label: '비밀번호 숨김', category: '폼' },
-  { name: 'ds-ico-pw-visible-on', label: '비밀번호 표시', category: '폼' },
-  { name: 'ds-ico-checkbox',      label: '체크박스',       category: '폼' },
+  { name: 'yds-ico-pw-visible',    label: '비밀번호 숨김', category: '폼' },
+  { name: 'yds-ico-pw-visible-on', label: '비밀번호 표시', category: '폼' },
+  { name: 'yds-ico-checkbox',      label: '체크박스',       category: '폼' },
   // 달력
-  { name: 'ds-ico-calendar', label: '달력',      category: '달력' },
-  { name: 'ds-ico-cal-move', label: '달력 이동', category: '달력' },
+  { name: 'yds-ico-calendar', label: '달력',      category: '달력' },
+  { name: 'yds-ico-cal-move', label: '달력 이동', category: '달력' },
   // 계정
-  { name: 'ds-ico-log',           label: '로그인',        category: '계정' },
-  { name: 'ds-ico-logout',        label: '로그아웃',      category: '계정' },
-  { name: 'ds-ico-join',          label: '회원가입',      category: '계정' },
-  { name: 'ds-ico-my',            label: '나의 정보',     category: '계정' },
-  { name: 'ds-ico-login-go',      label: '인증 이동',     category: '계정' },
-  { name: 'ds-ico-login-type01',  label: '로그인 방식 1', category: '계정' },
-  { name: 'ds-ico-login-type02',  label: '로그인 방식 2', category: '계정' },
-  { name: 'ds-ico-login-type03',  label: '로그인 방식 3', category: '계정' },
-  { name: 'ds-ico-login-type04',  label: '로그인 방식 4', category: '계정' },
-  { name: 'ds-ico-login-type05',  label: '로그인 방식 5', category: '계정' },
-  { name: 'ds-ico-login-type06',  label: '로그인 방식 6', category: '계정' },
+  { name: 'yds-ico-log',           label: '로그인',        category: '계정' },
+  { name: 'yds-ico-logout',        label: '로그아웃',      category: '계정' },
+  { name: 'yds-ico-join',          label: '회원가입',      category: '계정' },
+  { name: 'yds-ico-my',            label: '나의 정보',     category: '계정' },
+  { name: 'yds-ico-login-go',      label: '인증 이동',     category: '계정' },
+  { name: 'yds-ico-login-type01',  label: '로그인 방식 1', category: '계정' },
+  { name: 'yds-ico-login-type02',  label: '로그인 방식 2', category: '계정' },
+  { name: 'yds-ico-login-type03',  label: '로그인 방식 3', category: '계정' },
+  { name: 'yds-ico-login-type04',  label: '로그인 방식 4', category: '계정' },
+  { name: 'yds-ico-login-type05',  label: '로그인 방식 5', category: '계정' },
+  { name: 'yds-ico-login-type06',  label: '로그인 방식 6', category: '계정' },
   // 연락처
-  { name: 'ds-ico-call',  label: '전화',    category: '연락처' },
-  { name: 'ds-ico-email', label: '이메일',  category: '연락처' },
-  { name: 'ds-ico-faq',   label: 'FAQ',    category: '연락처' },
+  { name: 'yds-ico-call',  label: '전화',    category: '연락처' },
+  { name: 'yds-ico-email', label: '이메일',  category: '연락처' },
+  { name: 'yds-ico-faq',   label: 'FAQ',    category: '연락처' },
   // SNS
-  { name: 'ds-ico-blog',      label: '블로그',        category: 'SNS' },
-  { name: 'ds-ico-facebook',  label: '페이스북',      category: 'SNS' },
-  { name: 'ds-ico-instagram', label: '인스타그램',    category: 'SNS' },
-  { name: 'ds-ico-sns-x',     label: 'X (트위터)',    category: 'SNS' },
-  { name: 'ds-ico-youtube',   label: '유튜브',        category: 'SNS' },
+  { name: 'yds-ico-blog',      label: '블로그',        category: 'SNS' },
+  { name: 'yds-ico-facebook',  label: '페이스북',      category: 'SNS' },
+  { name: 'yds-ico-instagram', label: '인스타그램',    category: 'SNS' },
+  { name: 'yds-ico-sns-x',     label: 'X (트위터)',    category: 'SNS' },
+  { name: 'yds-ico-youtube',   label: '유튜브',        category: 'SNS' },
   // 캐러셀
-  { name: 'ds-ico-swiper-play', label: '슬라이드 재생', category: '캐러셀' },
-  { name: 'ds-ico-swiper-stop', label: '슬라이드 멈춤', category: '캐러셀' },
+  { name: 'yds-ico-swiper-play', label: '슬라이드 재생', category: '캐러셀' },
+  { name: 'yds-ico-swiper-stop', label: '슬라이드 멈춤', category: '캐러셀' },
 ];
 
 /* ─── 렌더 헬퍼 ─────────────────────────────── */
 
 function renderIcon({ name, size = 'large', decorative = true, label = '' }) {
-  const sizeClass = size !== 'large' ? ` ds-icon--${size}` : '';
+  const sizeClass = size !== 'large' ? ` yds-icon--${size}` : '';
   const a11y = decorative
     ? 'aria-hidden="true"'
     : `role="img" aria-label="${label}"`;
-  return `<i class="ds-icon ${name}${sizeClass}" ${a11y}></i>`;
+  return `<i class="yds-icon ${name}${sizeClass}" ${a11y}></i>`;
 }
 
 /* ─── Playground ────────────────────────────── */
@@ -185,12 +185,12 @@ export const 전체그리드 = {
         data-name="${ic.name}"
         data-label="${ic.label}"
         data-category="${ic.category}"
-        data-code='&lt;i class=&quot;ds-icon ${ic.name}&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;'
-        data-rawcode='<i class="ds-icon ${ic.name}" aria-hidden="true"></i>'
+        data-code='&lt;i class=&quot;yds-icon ${ic.name}&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;'
+        data-rawcode='<i class="yds-icon ${ic.name}" aria-hidden="true"></i>'
         style="${cardStyle}"
         title="${ic.label} — 클릭하여 HTML 복사"
       >
-        <i class="ds-icon ${ic.name}" aria-hidden="true" style="width:2.4rem;height:2.4rem;flex-shrink:0;"></i>
+        <i class="yds-icon ${ic.name}" aria-hidden="true" style="width:2.4rem;height:2.4rem;flex-shrink:0;"></i>
         <span style="${nameStyle}">${ic.name}</span>
         <span style="font-size:0.9rem;color:var(--krds-light-color-text-disabled);">${ic.label}</span>
       </button>`).join('');
@@ -202,11 +202,11 @@ export const 전체그리드 = {
           data-name="${ic.name}"
           data-label="${ic.label}"
           data-category="${ic.category}"
-          data-rawcode='<i class="ds-icon ${ic.name}" aria-hidden="true"></i>'
+          data-rawcode='<i class="yds-icon ${ic.name}" aria-hidden="true"></i>'
           style="${cardStyle}"
           title="${ic.label} — 클릭하여 HTML 복사"
         >
-          <i class="ds-icon ${ic.name}" aria-hidden="true" style="width:2.4rem;height:2.4rem;flex-shrink:0;"></i>
+          <i class="yds-icon ${ic.name}" aria-hidden="true" style="width:2.4rem;height:2.4rem;flex-shrink:0;"></i>
           <span style="${nameStyle}">${ic.name}</span>
           <span style="font-size:0.9rem;color:var(--krds-light-color-text-disabled);">${ic.label}</span>
         </button>`).join('');
@@ -231,7 +231,7 @@ export const 전체그리드 = {
                      border:1px solid var(--krds-light-color-border-gray); border-radius:0.8rem;
                      font-size:1.4rem; outline:none; box-sizing:border-box;"
               aria-label="아이콘 검색" />
-            <i class="ds-icon ds-ico-sch" aria-hidden="true"
+            <i class="yds-icon yds-ico-sch" aria-hidden="true"
                style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);
                       width:1.8rem;height:1.8rem;pointer-events:none;"></i>
           </div>
@@ -355,13 +355,13 @@ export const 크기 = {
       <tr>
         <td style="padding:1rem 1.6rem;font-size:1.2rem;color:var(--krds-light-color-text-subtle);">${size}</td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-sch${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
+          <i class="yds-icon yds-ico-sch${size !== 'large' ? ` yds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-go${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
+          <i class="yds-icon yds-ico-go${size !== 'large' ? ` yds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;">
-          <i class="ds-icon ds-ico-success-fill${size !== 'large' ? ` ds-icon--${size}` : ''}" aria-hidden="true"></i>
+          <i class="yds-icon yds-ico-success-fill${size !== 'large' ? ` yds-icon--${size}` : ''}" aria-hidden="true"></i>
         </td>
         <td style="padding:1rem 1.6rem;font-family:monospace;font-size:1.1rem;color:var(--krds-light-color-text-subtle);">
           var(--krds-icon--size-${size})
@@ -372,9 +372,9 @@ export const 크기 = {
         <thead>
           <tr style="background:var(--krds-light-color-surface-gray);">
             <th style="padding:0.8rem 1.6rem;text-align:left;font-weight:bold;">크기</th>
-            <th style="padding:0.8rem 1.6rem;text-align:left;">ds-ico-sch</th>
-            <th style="padding:0.8rem 1.6rem;text-align:left;">ds-ico-go</th>
-            <th style="padding:0.8rem 1.6rem;text-align:left;">ds-ico-success-fill (pure)</th>
+            <th style="padding:0.8rem 1.6rem;text-align:left;">yds-ico-sch</th>
+            <th style="padding:0.8rem 1.6rem;text-align:left;">yds-ico-go</th>
+            <th style="padding:0.8rem 1.6rem;text-align:left;">yds-ico-success-fill (pure)</th>
             <th style="padding:0.8rem 1.6rem;text-align:left;">CSS 변수</th>
           </tr>
         </thead>
@@ -390,12 +390,12 @@ export const 렌더방식 = {
   name: '렌더 방식 (Mask vs Pure)',
   parameters: { controls: { disable: true } },
   render: () => {
-    const maskIcons  = ['ds-ico-sch', 'ds-ico-go', 'ds-ico-del', 'ds-ico-angle', 'ds-ico-setting'];
-    const pureIcons  = ['ds-ico-help', 'ds-ico-success-fill', 'ds-ico-information-fill', 'ds-ico-error-fill', 'ds-ico-complete-fill', 'ds-ico-flag'];
+    const maskIcons  = ['yds-ico-sch', 'yds-ico-go', 'yds-ico-del', 'yds-ico-angle', 'yds-ico-setting'];
+    const pureIcons  = ['yds-ico-help', 'yds-ico-success-fill', 'yds-ico-information-fill', 'yds-ico-error-fill', 'yds-ico-complete-fill', 'yds-ico-flag'];
 
     const iconRow = (names) => names.map(n =>
       `<div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
-        <i class="ds-icon ${n}" aria-hidden="true" style="width:2.4rem;height:2.4rem;"></i>
+        <i class="yds-icon ${n}" aria-hidden="true" style="width:2.4rem;height:2.4rem;"></i>
         <span style="font-size:1rem;color:var(--krds-light-color-text-subtle);">${n}</span>
        </div>`).join('');
 
@@ -413,7 +413,7 @@ export const 렌더방식 = {
         <div style="display:flex;gap:2.4rem;flex-wrap:wrap;align-items:flex-end;background:#1a73e8;padding:1rem;border-radius:0.6rem;">
           ${maskIcons.map(n =>
             `<div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
-              <i class="ds-icon ${n}" aria-hidden="true" style="width:2.4rem;height:2.4rem;background-color:#fff;"></i>
+              <i class="yds-icon ${n}" aria-hidden="true" style="width:2.4rem;height:2.4rem;background-color:#fff;"></i>
               <span style="font-size:1rem;color:#fff;">${n}</span>
              </div>`).join('')}
         </div>
@@ -452,11 +452,11 @@ export const 접근성 = {
           주변 텍스트로 의미가 충분히 전달될 때. 스크린리더가 아이콘을 읽지 않습니다.
         </p>
         <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1.2rem;">
-          <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+          <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
           <span style="font-size:1.4rem;">검색</span>
         </div>
         <pre style="background:var(--krds-light-color-surface-gray);padding:1.2rem;border-radius:0.6rem;font-size:1.2rem;overflow:auto;">&lt;button type="button"&gt;
-  &lt;i class="ds-icon ds-ico-sch" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;i class="yds-icon yds-ico-sch" aria-hidden="true"&gt;&lt;/i&gt;
   &lt;span&gt;검색&lt;/span&gt;
 &lt;/button&gt;</pre>
       </section>
@@ -470,11 +470,11 @@ export const 접근성 = {
         </p>
         <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1.2rem;">
           <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border:1px solid var(--krds-light-color-border-gray);border-radius:0.4rem;background:none;cursor:pointer;">
-            <i class="ds-icon ds-ico-sch" role="img" aria-label="검색"></i>
+            <i class="yds-icon yds-ico-sch" role="img" aria-label="검색"></i>
           </button>
         </div>
         <pre style="background:var(--krds-light-color-surface-gray);padding:1.2rem;border-radius:0.6rem;font-size:1.2rem;overflow:auto;">&lt;button type="button"&gt;
-  &lt;i class="ds-icon ds-ico-sch" role="img" aria-label="검색"&gt;&lt;/i&gt;
+  &lt;i class="yds-icon yds-ico-sch" role="img" aria-label="검색"&gt;&lt;/i&gt;
 &lt;/button&gt;</pre>
       </section>
 
@@ -487,12 +487,12 @@ export const 접근성 = {
         </p>
         <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1.2rem;">
           <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:4rem;height:4rem;border:1px solid var(--krds-light-color-border-gray);border-radius:0.4rem;background:none;cursor:pointer;">
-            <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+            <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
             <span class="sr-only">검색</span>
           </button>
         </div>
         <pre style="background:var(--krds-light-color-surface-gray);padding:1.2rem;border-radius:0.6rem;font-size:1.2rem;overflow:auto;">&lt;button type="button"&gt;
-  &lt;i class="ds-icon ds-ico-sch" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;i class="yds-icon yds-ico-sch" aria-hidden="true"&gt;&lt;/i&gt;
   &lt;span class="sr-only"&gt;검색&lt;/span&gt;
 &lt;/button&gt;</pre>
       </section>

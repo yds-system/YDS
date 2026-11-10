@@ -68,31 +68,31 @@ function renderOptions(placeholder, options) {
 
 /* 크기 클래스 */
 function sizeClass(size) {
-  return size === 'large' ? '' : ` ds-select--${size}`;
+  return size === 'large' ? '' : ` yds-select--${size}`;
 }
 
 /* onchange 핸들러: 값이 있으면 completed 클래스 추가 */
 function onchangeHandler(size, extraClass = '') {
-  const base = `ds-select${sizeClass(size)}${extraClass ? ` ${extraClass}` : ''}`;
-  return `this.className='${base}'+(this.value?' ds-select--completed':'')`;
+  const base = `yds-select${sizeClass(size)}${extraClass ? ` ${extraClass}` : ''}`;
+  return `this.className='${base}'+(this.value?' yds-select--completed':'')`;
 }
 
-/* ds-form-group 생성 헬퍼 */
+/* yds-form-group 생성 헬퍼 */
 function formGroup({ id, label, required, size, state, placeholder, options, hint }) {
   const isError = state === 'error';
   const isDisabled = state === 'disabled';
-  const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
-  const errorClass = isError ? ' ds-select--error' : '';
+  const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
+  const errorClass = isError ? ' yds-select--error' : '';
 
   return `
-    <div class="ds-form-group">
-      <div class="ds-form-label">
-        <label for="${id}">${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
+    <div class="yds-form-group">
+      <div class="yds-form-label">
+        <label for="${id}">${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
       </div>
-      <div class="ds-form-content">
+      <div class="yds-form-content">
         <select
           id="${id}"
-          class="ds-select${sizeClass(size)}${errorClass}"
+          class="yds-select${sizeClass(size)}${errorClass}"
           title="${placeholder}"
           ${isDisabled ? 'disabled' : ''}
           onchange="${onchangeHandler(size, errorClass.trim())}"
@@ -106,7 +106,7 @@ function formGroup({ id, label, required, size, state, placeholder, options, hin
 }
 
 const wrap = (content) =>
-  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="yds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ───────────────────────────── */
 export const Playground = {
@@ -145,10 +145,10 @@ export const 상태 = {
     /* 선택 완료 상태는 completed 클래스를 직접 렌더링 */
     const completedId = 'sel-st-cmp';
     const completedHtml = `
-      <div class="ds-form-group">
-        <div class="ds-form-label"><label for="${completedId}">선택 완료</label></div>
-        <div class="ds-form-content">
-          <select id="${completedId}" class="ds-select${sizeClass(size)} ds-select--completed"
+      <div class="yds-form-group">
+        <div class="yds-form-label"><label for="${completedId}">선택 완료</label></div>
+        <div class="yds-form-content">
+          <select id="${completedId}" class="yds-select${sizeClass(size)} yds-select--completed"
             title="${placeholder}"
             onchange="${onchangeHandler(size)}">
             <option value="">선택하세요</option>
@@ -156,7 +156,7 @@ export const 상태 = {
             <option value="2">항목 2</option>
           </select>
         </div>
-        <p class="ds-form-hint">항목이 선택된 상태입니다.</p>
+        <p class="yds-form-hint">항목이 선택된 상태입니다.</p>
       </div>
     `;
 

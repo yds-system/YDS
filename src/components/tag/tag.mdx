@@ -17,8 +17,8 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 개요
 
-- **블록**: `ds-tag-group`
-- **태그 항목**: `ds-tag`
+- **블록**: `yds-tag-group`
+- **태그 항목**: `yds-tag`
 - **KRDS 원본**: `krds-tag-wrap` / `krds-btn-tag`
 
 ---
@@ -84,7 +84,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 접근성
 
-- 삭제 버튼(`.ds-tag__delete-btn`)에는 `<span class="sr-only">태그명 삭제</span>`를 반드시 포함해 스크린리더가 어떤 태그를 삭제하는지 알 수 있도록 한다.
-- 링크 태그(`<a class="ds-tag ds-tag--link">`)는 실제 이동 경로(`href`)를 제공한다.
+- 삭제 버튼(`.yds-tag__delete-btn`)에는 `<span class="sr-only">태그명 삭제</span>`를 반드시 포함해 스크린리더가 어떤 태그를 삭제하는지 알 수 있도록 한다.
+- 링크 태그(`<a class="yds-tag yds-tag--link">`)는 실제 이동 경로(`href`)를 제공한다.
 - 태그 삭제 후 포커스가 자연스럽게 다음 태그 또는 컨테이너로 이동하도록 JS에서 관리한다.
-- `.ds-tag-group`에 `aria-label="선택된 필터"` 등을 추가하면 보조기기 사용자가 맥락을 파악하기 쉽다.
+- `.yds-tag-group`에 `aria-label="선택된 필터"` 등을 추가하면 보조기기 사용자가 맥락을 파악하기 쉽다.

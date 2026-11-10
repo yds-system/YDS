@@ -51,28 +51,28 @@ function uid() {
 
 function renderSingle({ label, hint, required, state, disabled }) {
   const id = `cal-${uid()}`;
-  const stateClass = state === 'error' ? ' ds-form-content--error' : '';
-  const hintClass = state === 'error' ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
+  const stateClass = state === 'error' ? ' yds-form-content--error' : '';
+  const hintClass = state === 'error' ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
   const dis = disabled ? ' disabled' : '';
 
   return `
-    <div class="ds-form-group">
-      <div class="ds-form-label">
-        <label for="${id}">${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
+    <div class="yds-form-group">
+      <div class="yds-form-label">
+        <label for="${id}">${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
       </div>
-      <div class="ds-form-content ds-date-input${stateClass}">
-        <div class="ds-date-input__input-wrap">
-          <input type="text" id="${id}" class="ds-input ds-date-input__input ds-date-input__input--single"
+      <div class="yds-form-content yds-date-input${stateClass}">
+        <div class="yds-date-input__input-wrap">
+          <input type="text" id="${id}" class="yds-input yds-date-input__input yds-date-input__input--single"
                  placeholder="YYYY.MM.DD" readonly${dis}
                  aria-haspopup="dialog" aria-expanded="false">
-          <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-date-input__open-btn"${dis}
+          <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"${dis}
                   aria-label="달력 열기" aria-expanded="false" aria-controls="${id}-cal">
             <span class="sr-only">달력 열기</span>
-            <i class="ds-icon ds-ico-calendar"></i>
+            <i class="yds-icon yds-ico-calendar"></i>
           </button>
         </div>
-        <div class="ds-calendar" id="${id}-cal">
-          <div class="ds-calendar__panel ds-calendar__panel--single" role="dialog" aria-label="날짜 선택"></div>
+        <div class="yds-calendar" id="${id}-cal">
+          <div class="yds-calendar__panel yds-calendar__panel--single" role="dialog" aria-label="날짜 선택"></div>
         </div>
       </div>
       ${hint ? `<p class="${hintClass}">${hint}</p>` : ''}
@@ -83,34 +83,34 @@ function renderRange({ label, hint, required }) {
   const id = `calr-${uid()}`;
 
   return `
-    <div class="ds-form-group">
-      <div class="ds-form-label">
-        <label>${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
+    <div class="yds-form-group">
+      <div class="yds-form-label">
+        <label>${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
       </div>
-      <div class="ds-form-content ds-date-input">
-        <div class="ds-date-input__input-wrap">
-          <ul class="ds-date-input__range-list">
-            <li class="ds-date-input__range-item">
-              <input type="text" id="${id}-start" class="ds-input ds-date-input__input"
+      <div class="yds-form-content yds-date-input">
+        <div class="yds-date-input__input-wrap">
+          <ul class="yds-date-input__range-list">
+            <li class="yds-date-input__range-item">
+              <input type="text" id="${id}-start" class="yds-input yds-date-input__input"
                      placeholder="시작날짜" title="시작날짜 입력" readonly aria-expanded="false">
             </li>
-            <li class="ds-date-input__separator">–</li>
-            <li class="ds-date-input__range-item">
-              <input type="text" id="${id}-end" class="ds-input ds-date-input__input"
+            <li class="yds-date-input__separator">–</li>
+            <li class="yds-date-input__range-item">
+              <input type="text" id="${id}-end" class="yds-input yds-date-input__input"
                      placeholder="종료날짜" title="종료날짜 입력" readonly aria-expanded="false">
             </li>
           </ul>
-          <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-date-input__open-btn"
+          <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"
                   aria-label="달력 열기" aria-expanded="false" aria-controls="${id}-cal">
             <span class="sr-only">달력 열기</span>
-            <i class="ds-icon ds-ico-calendar"></i>
+            <i class="yds-icon yds-ico-calendar"></i>
           </button>
         </div>
-        <div class="ds-calendar" id="${id}-cal">
-          <div class="ds-calendar__panel" role="dialog" aria-label="기간 선택"></div>
+        <div class="yds-calendar" id="${id}-cal">
+          <div class="yds-calendar__panel" role="dialog" aria-label="기간 선택"></div>
         </div>
       </div>
-      ${hint ? `<p class="ds-form-hint">${hint}</p>` : ''}
+      ${hint ? `<p class="yds-form-hint">${hint}</p>` : ''}
     </div>`;
 }
 
@@ -132,12 +132,12 @@ class DatePicker {
     this.pickingEnd = false;  // 기간: 종료 선택 중
 
     /* DOM */
-    this.area = root.querySelector('.ds-calendar');
-    this.wrap = root.querySelector('.ds-calendar__panel');
-    this.toggleBtn = root.querySelector('.ds-date-input__open-btn');
-    this.singleInput = root.querySelector('input.ds-date-input__input--single');
-    this.startInput = root.querySelector('input.ds-date-input__input:not(.ds-date-input__input--single)');
-    this.endInput = root.querySelectorAll('input.ds-date-input__input:not(.ds-date-input__input--single)')[1] || null;
+    this.area = root.querySelector('.yds-calendar');
+    this.wrap = root.querySelector('.yds-calendar__panel');
+    this.toggleBtn = root.querySelector('.yds-date-input__open-btn');
+    this.singleInput = root.querySelector('input.yds-date-input__input--single');
+    this.startInput = root.querySelector('input.yds-date-input__input:not(.yds-date-input__input--single)');
+    this.endInput = root.querySelectorAll('input.yds-date-input__input:not(.yds-date-input__input--single)')[1] || null;
 
     this._render();
     this._bindToggle();
@@ -158,37 +158,37 @@ class DatePicker {
 
     const yearRange = Array.from({ length: 41 }, (_, i) => y - 20 + i);
     const yearItems = yearRange.map(yr =>
-      `<li><button type="button" class="ds-calendar__dropdown-item${yr === y ? ' ds-calendar__dropdown-item--current' : ''}">${yr}년</button></li>`
+      `<li><button type="button" class="yds-calendar__dropdown-item${yr === y ? ' yds-calendar__dropdown-item--current' : ''}">${yr}년</button></li>`
     ).join('');
 
     const monItems = Array.from({ length: 12 }, (_, i) =>
-      `<li><button type="button" class="ds-calendar__dropdown-item${i === m ? ' ds-calendar__dropdown-item--current' : ''}">${String(i + 1).padStart(2, '0')}월</button></li>`
+      `<li><button type="button" class="yds-calendar__dropdown-item${i === m ? ' yds-calendar__dropdown-item--current' : ''}">${String(i + 1).padStart(2, '0')}월</button></li>`
     ).join('');
 
     return `
-      <div class="ds-calendar__head">
-        <button type="button" class="ds-calendar__move-btn ds-calendar__move-btn--prev" aria-label="이전 달">
+      <div class="yds-calendar__head">
+        <button type="button" class="yds-calendar__move-btn yds-calendar__move-btn--prev" aria-label="이전 달">
           <span class="sr-only">이전 달</span>
         </button>
-        <div class="ds-calendar__switch-group">
-          <div class="ds-calendar__dropdown">
-            <button type="button" class="ds-calendar__switch-btn" aria-label="연도 선택" aria-expanded="false">
+        <div class="yds-calendar__switch-group">
+          <div class="yds-calendar__dropdown">
+            <button type="button" class="yds-calendar__switch-btn" aria-label="연도 선택" aria-expanded="false">
               ${y}년
             </button>
-            <div class="ds-calendar__dropdown-panel ds-calendar__dropdown-panel--year">
-              <ul class="ds-calendar__dropdown-list">${yearItems}</ul>
+            <div class="yds-calendar__dropdown-panel yds-calendar__dropdown-panel--year">
+              <ul class="yds-calendar__dropdown-list">${yearItems}</ul>
             </div>
           </div>
-          <div class="ds-calendar__dropdown">
-            <button type="button" class="ds-calendar__switch-btn" aria-label="월 선택" aria-expanded="false">
+          <div class="yds-calendar__dropdown">
+            <button type="button" class="yds-calendar__switch-btn" aria-label="월 선택" aria-expanded="false">
               ${String(m + 1).padStart(2, '0')}월
             </button>
-            <div class="ds-calendar__dropdown-panel ds-calendar__dropdown-panel--month">
-              <ul class="ds-calendar__dropdown-list">${monItems}</ul>
+            <div class="yds-calendar__dropdown-panel yds-calendar__dropdown-panel--month">
+              <ul class="yds-calendar__dropdown-list">${monItems}</ul>
             </div>
           </div>
         </div>
-        <button type="button" class="ds-calendar__move-btn ds-calendar__move-btn--next" aria-label="다음 달">
+        <button type="button" class="yds-calendar__move-btn yds-calendar__move-btn--next" aria-label="다음 달">
           <span class="sr-only">다음 달</span>
         </button>
       </div>`;
@@ -228,19 +228,19 @@ class DatePicker {
     for (let r = 0; r < cells.length; r += 7) {
       const tds = cells.slice(r, r + 7).map((cell, col) => {
         const mods = this._cellModifiers(cell, col);
-        const allCls = ['ds-calendar__cell', ...mods];
+        const allCls = ['yds-calendar__cell', ...mods];
         const clsAttr = ` class="${allCls.join(' ')}"`;
         const dateStr = this._fmt(cell.date);
         const btnDis = cell.type !== 'current' ? ' disabled tabindex="-1"' : '';
-        return `<td${clsAttr}><button type="button" class="ds-calendar__date-btn"${btnDis} data-date="${dateStr}" aria-label="${this._ariaLabel(cell.date, mods)}"><span>${cell.date.getDate()}</span></button></td>`;
+        return `<td${clsAttr}><button type="button" class="yds-calendar__date-btn"${btnDis} data-date="${dateStr}" aria-label="${this._ariaLabel(cell.date, mods)}"><span>${cell.date.getDate()}</span></button></td>`;
       });
       rows.push(`<tr>${tds.join('')}</tr>`);
     }
 
     return `
-      <div class="ds-calendar__body">
-        <div class="ds-calendar__table-wrap">
-          <table class="ds-calendar__table">
+      <div class="yds-calendar__body">
+        <div class="yds-calendar__table-wrap">
+          <table class="yds-calendar__table">
             <caption>${y}년 ${String(m + 1).padStart(2, '0')}월</caption>
             <thead>
               <tr>
@@ -256,11 +256,11 @@ class DatePicker {
 
   _buildFooter() {
     return `
-      <div class="ds-calendar__footer">
-        <div class="ds-calendar__actions">
-          <button type="button" class="ds-btn ds-btn--small ds-btn--text ds-calendar__today-btn">오늘</button>
-          <button type="button" class="ds-btn ds-btn--small ds-btn--tertiary ds-calendar__cancel-btn">취소</button>
-          <button type="button" class="ds-btn ds-btn--small ds-btn--primary ds-calendar__confirm-btn">확인</button>
+      <div class="yds-calendar__footer">
+        <div class="yds-calendar__actions">
+          <button type="button" class="yds-btn yds-btn--small yds-btn--text yds-calendar__today-btn">오늘</button>
+          <button type="button" class="yds-btn yds-btn--small yds-btn--tertiary yds-calendar__cancel-btn">취소</button>
+          <button type="button" class="yds-btn yds-btn--small yds-btn--primary yds-calendar__confirm-btn">확인</button>
         </div>
       </div>`;
   }
@@ -269,10 +269,10 @@ class DatePicker {
 
   _cellModifiers(cell, col) {
     const mods = [];
-    if (cell.type === 'prev') mods.push('ds-calendar__cell--prev');
-    else if (cell.type === 'next') mods.push('ds-calendar__cell--next');
-    if (col === 0) mods.push('ds-calendar__cell--holiday'); // 일요일
-    if (cell.type === 'current' && this._isToday(cell.date)) mods.push('ds-calendar__cell--today');
+    if (cell.type === 'prev') mods.push('yds-calendar__cell--prev');
+    else if (cell.type === 'next') mods.push('yds-calendar__cell--next');
+    if (col === 0) mods.push('yds-calendar__cell--holiday'); // 일요일
+    if (cell.type === 'current' && this._isToday(cell.date)) mods.push('yds-calendar__cell--today');
 
     if (cell.type === 'current') {
       const d = this._strip(cell.date);
@@ -282,15 +282,15 @@ class DatePicker {
         const e = this.endDate ? this._strip(this.endDate) : null;
         if (s && e) {
           const inRange = d >= s && d <= e;
-          if (inRange) mods.push('ds-calendar__cell--period');
-          if (d.getTime() === s.getTime()) mods.push('ds-calendar__cell--start');
-          if (d.getTime() === e.getTime()) mods.push('ds-calendar__cell--end');
+          if (inRange) mods.push('yds-calendar__cell--period');
+          if (d.getTime() === s.getTime()) mods.push('yds-calendar__cell--start');
+          if (d.getTime() === e.getTime()) mods.push('yds-calendar__cell--end');
         } else if (s && d.getTime() === s.getTime()) {
-          mods.push('ds-calendar__cell--period', 'ds-calendar__cell--start', 'ds-calendar__cell--end');
+          mods.push('yds-calendar__cell--period', 'yds-calendar__cell--start', 'yds-calendar__cell--end');
         }
       } else {
         if (this.selectedDate && d.getTime() === this._strip(this.selectedDate).getTime()) {
-          mods.push('ds-calendar__cell--period', 'ds-calendar__cell--start', 'ds-calendar__cell--end');
+          mods.push('yds-calendar__cell--period', 'yds-calendar__cell--start', 'yds-calendar__cell--end');
         }
       }
     }
@@ -299,10 +299,10 @@ class DatePicker {
 
   _ariaLabel(date, mods) {
     const base = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
-    if (mods.includes('ds-calendar__cell--start') && mods.includes('ds-calendar__cell--end') && this.isRange) return `${base}, 시작일 종료일`;
-    if (mods.includes('ds-calendar__cell--start')) return `${base}, 시작일`;
-    if (mods.includes('ds-calendar__cell--end')) return `${base}, 종료일`;
-    if (this.isRange && mods.includes('ds-calendar__cell--period')) return `${base}, 기간 내`;
+    if (mods.includes('yds-calendar__cell--start') && mods.includes('yds-calendar__cell--end') && this.isRange) return `${base}, 시작일 종료일`;
+    if (mods.includes('yds-calendar__cell--start')) return `${base}, 시작일`;
+    if (mods.includes('yds-calendar__cell--end')) return `${base}, 종료일`;
+    if (this.isRange && mods.includes('yds-calendar__cell--period')) return `${base}, 기간 내`;
     return base;
   }
 
@@ -329,30 +329,30 @@ class DatePicker {
     const w = this.wrap;
 
     /* 이전/다음 달 */
-    w.querySelector('.ds-calendar__move-btn--prev')?.addEventListener('click', () => this._changeMonth(-1));
-    w.querySelector('.ds-calendar__move-btn--next')?.addEventListener('click', () => this._changeMonth(1));
+    w.querySelector('.yds-calendar__move-btn--prev')?.addEventListener('click', () => this._changeMonth(-1));
+    w.querySelector('.yds-calendar__move-btn--next')?.addEventListener('click', () => this._changeMonth(1));
 
     /* 연도/월 드롭다운 토글 */
-    w.querySelectorAll('.ds-calendar__switch-btn').forEach(btn => {
+    w.querySelectorAll('.yds-calendar__switch-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const dropdown = btn.closest('.ds-calendar__dropdown');
-        const panel = dropdown.querySelector('.ds-calendar__dropdown-panel');
-        const isOpen = panel.classList.contains('ds-calendar__dropdown-panel--open');
+        const dropdown = btn.closest('.yds-calendar__dropdown');
+        const panel = dropdown.querySelector('.yds-calendar__dropdown-panel');
+        const isOpen = panel.classList.contains('yds-calendar__dropdown-panel--open');
         /* 다른 드롭다운 닫기 */
-        w.querySelectorAll('.ds-calendar__dropdown-panel--open').forEach(p => {
-          p.classList.remove('ds-calendar__dropdown-panel--open');
+        w.querySelectorAll('.yds-calendar__dropdown-panel--open').forEach(p => {
+          p.classList.remove('yds-calendar__dropdown-panel--open');
           p.previousElementSibling?.setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
-          panel.classList.add('ds-calendar__dropdown-panel--open');
+          panel.classList.add('yds-calendar__dropdown-panel--open');
           btn.setAttribute('aria-expanded', 'true');
         }
       });
     });
 
     /* 연도 선택 */
-    w.querySelectorAll('.ds-calendar__dropdown-panel--year .ds-calendar__dropdown-item').forEach(btn => {
+    w.querySelectorAll('.yds-calendar__dropdown-panel--year .yds-calendar__dropdown-item').forEach(btn => {
       btn.addEventListener('click', () => {
         this.viewYear = parseInt(btn.textContent);
         this._render();
@@ -360,7 +360,7 @@ class DatePicker {
     });
 
     /* 월 선택 */
-    w.querySelectorAll('.ds-calendar__dropdown-panel--month .ds-calendar__dropdown-item').forEach((btn, i) => {
+    w.querySelectorAll('.yds-calendar__dropdown-panel--month .yds-calendar__dropdown-item').forEach((btn, i) => {
       btn.addEventListener('click', () => {
         this.viewMonth = i;
         this._render();
@@ -368,7 +368,7 @@ class DatePicker {
     });
 
     /* 날짜 셀 클릭 */
-    w.querySelectorAll('.ds-calendar__date-btn:not([disabled])').forEach(btn => {
+    w.querySelectorAll('.yds-calendar__date-btn:not([disabled])').forEach(btn => {
       btn.addEventListener('click', () => {
         const date = this._parse(btn.dataset.date);
         this._selectDate(date);
@@ -376,15 +376,15 @@ class DatePicker {
     });
 
     /* 오늘 버튼 */
-    w.querySelector('.ds-calendar__today-btn')?.addEventListener('click', () => {
+    w.querySelector('.yds-calendar__today-btn')?.addEventListener('click', () => {
       this._selectDate(new Date(this.today));
     });
 
     /* 취소 */
-    w.querySelector('.ds-calendar__cancel-btn')?.addEventListener('click', () => this.close());
+    w.querySelector('.yds-calendar__cancel-btn')?.addEventListener('click', () => this.close());
 
     /* 확인 */
-    w.querySelector('.ds-calendar__confirm-btn')?.addEventListener('click', () => {
+    w.querySelector('.yds-calendar__confirm-btn')?.addEventListener('click', () => {
       this._applyToInput();
       this.close();
     });
@@ -443,12 +443,12 @@ class DatePicker {
   /* ── 열기 / 닫기 ────────────────────────── */
 
   isOpen() {
-    return this.area.classList.contains('ds-calendar--open');
+    return this.area.classList.contains('yds-calendar--open');
   }
 
   open() {
     if (this.toggleBtn?.disabled || this.singleInput?.disabled) return;
-    this.area.classList.add('ds-calendar--open');
+    this.area.classList.add('yds-calendar--open');
     this.toggleBtn?.setAttribute('aria-expanded', 'true');
     /* 현재 선택 월로 이동 */
     const ref = this.isRange
@@ -459,13 +459,13 @@ class DatePicker {
     this._render();
     /* 첫 활성 날짜에 포커스 */
     const active = this.wrap.querySelector(
-      '.ds-calendar__cell--start .ds-calendar__date-btn, .ds-calendar__cell--period .ds-calendar__date-btn, .ds-calendar__cell--today .ds-calendar__date-btn, .ds-calendar__date-btn:not([disabled])'
+      '.yds-calendar__cell--start .yds-calendar__date-btn, .yds-calendar__cell--period .yds-calendar__date-btn, .yds-calendar__cell--today .yds-calendar__date-btn, .yds-calendar__date-btn:not([disabled])'
     );
     active?.focus();
   }
 
   close() {
-    this.area.classList.remove('ds-calendar--open');
+    this.area.classList.remove('yds-calendar--open');
     this.toggleBtn?.setAttribute('aria-expanded', 'false');
     this.toggleBtn?.focus();
   }
@@ -477,11 +477,11 @@ class DatePicker {
     if (key === 'Escape') { e.preventDefault(); this.close(); return; }
 
     const focused = document.activeElement;
-    const isDateBtn = focused?.classList.contains('ds-calendar__date-btn');
+    const isDateBtn = focused?.classList.contains('yds-calendar__date-btn');
     if (!isDateBtn) return;
 
     const allBtns = Array.from(
-      this.wrap.querySelectorAll('.ds-calendar__date-btn:not([disabled])')
+      this.wrap.querySelectorAll('.yds-calendar__date-btn:not([disabled])')
     );
     const idx = allBtns.indexOf(focused);
     if (idx === -1) return;
@@ -496,7 +496,7 @@ class DatePicker {
       } else {
         if (key === 'ArrowLeft' || key === 'ArrowUp') this._changeMonth(-1);
         else this._changeMonth(1);
-        const newBtns = Array.from(this.wrap.querySelectorAll('.ds-calendar__date-btn:not([disabled])'));
+        const newBtns = Array.from(this.wrap.querySelectorAll('.yds-calendar__date-btn:not([disabled])'));
         (key === 'ArrowLeft' || key === 'ArrowUp'
           ? newBtns[newBtns.length - 1]
           : newBtns[0]
@@ -511,11 +511,11 @@ class DatePicker {
     } else if (key === 'PageUp') {
       e.preventDefault();
       this._changeMonth(-1);
-      this.wrap.querySelector('.ds-calendar__date-btn:not([disabled])')?.focus();
+      this.wrap.querySelector('.yds-calendar__date-btn:not([disabled])')?.focus();
     } else if (key === 'PageDown') {
       e.preventDefault();
       this._changeMonth(1);
-      this.wrap.querySelector('.ds-calendar__date-btn:not([disabled])')?.focus();
+      this.wrap.querySelector('.yds-calendar__date-btn:not([disabled])')?.focus();
     } else if (key === 'Enter' || key === ' ') {
       e.preventDefault();
       focused.click();
@@ -545,7 +545,7 @@ class DatePicker {
   }
 
   _scrollYearIntoView() {
-    const active = this.wrap.querySelector('.ds-calendar__dropdown-panel--year .ds-calendar__dropdown-item--current');
+    const active = this.wrap.querySelector('.yds-calendar__dropdown-panel--year .yds-calendar__dropdown-item--current');
     active?.scrollIntoView({ block: 'nearest' });
   }
 }
@@ -553,8 +553,8 @@ class DatePicker {
 /* ─── play 초기화 ──────────────────────────── */
 
 function initAll(canvasElement) {
-  canvasElement.querySelectorAll('.ds-form-group').forEach(root => {
-    const isRange = root.querySelector('.ds-date-input__range-list') !== null;
+  canvasElement.querySelectorAll('.yds-form-group').forEach(root => {
+    const isRange = root.querySelector('.yds-date-input__range-list') !== null;
     new DatePicker(root, isRange);
   });
 }

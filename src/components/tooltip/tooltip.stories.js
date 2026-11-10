@@ -38,7 +38,7 @@ export default {
 /* ─── 트리거 HTML ──────────────────────────── */
 
 function trigger({ label, tooltip, position, style }) {
-  return `<button type="button" class="ds-btn ds-btn--medium ds-tooltip"
+  return `<button type="button" class="yds-btn yds-btn--medium yds-tooltip"
             data-tooltip="${tooltip}"
             data-position="${position}"
             data-style="${style}">
@@ -54,10 +54,10 @@ const wrap = (html) =>
 
 function initTooltip(canvasElement) {
   /* 팝오버 1개를 공유해서 사용 */
-  let popover = canvasElement.querySelector('.ds-tooltip-popover');
+  let popover = canvasElement.querySelector('.yds-tooltip-popover');
   if (!popover) {
     popover = document.createElement('div');
-    popover.className = 'ds-tooltip-popover';
+    popover.className = 'yds-tooltip-popover';
     popover.setAttribute('role', 'tooltip');
     canvasElement.appendChild(popover);
   }
@@ -73,9 +73,9 @@ function initTooltip(canvasElement) {
 
     /* 내용 & 클래스 갱신 */
     popover.textContent = text;
-    popover.className = 'ds-tooltip-popover';
-    if (style === 'box')   popover.classList.add('ds-tooltip-popover--box');
-    popover.classList.add(`ds-tooltip-popover--${position}`);
+    popover.className = 'yds-tooltip-popover';
+    if (style === 'box')   popover.classList.add('yds-tooltip-popover--box');
+    popover.classList.add(`yds-tooltip-popover--${position}`);
 
     /* aria 연결 */
     if (!trigger.id) {
@@ -86,7 +86,7 @@ function initTooltip(canvasElement) {
     trigger.setAttribute('aria-describedby', popId);
 
     /* 먼저 보여야 크기를 잴 수 있음 */
-    popover.classList.add('ds-tooltip-popover--open');
+    popover.classList.add('yds-tooltip-popover--open');
 
     /* 위치 계산 */
     const gap = 12;
@@ -120,7 +120,7 @@ function initTooltip(canvasElement) {
 
   function hideTooltip(trigger) {
     hideTimer = setTimeout(() => {
-      popover.classList.remove('ds-tooltip-popover--open');
+      popover.classList.remove('yds-tooltip-popover--open');
       if (trigger) trigger.removeAttribute('aria-describedby');
     }, 100);
   }
@@ -128,12 +128,12 @@ function initTooltip(canvasElement) {
   /* Escape 키 닫기 */
   function onKeydown(e) {
     if (e.key === 'Escape') {
-      popover.classList.remove('ds-tooltip-popover--open');
+      popover.classList.remove('yds-tooltip-popover--open');
       document.removeEventListener('keydown', onKeydown);
     }
   }
 
-  canvasElement.querySelectorAll('.ds-tooltip').forEach(el => {
+  canvasElement.querySelectorAll('.yds-tooltip').forEach(el => {
     el.addEventListener('mouseenter', () => {
       showTooltip(el);
       document.addEventListener('keydown', onKeydown);
@@ -223,7 +223,7 @@ export const 트리거유형 = {
         position: 'top',
         style:    'inline',
       })}
-      <span class="ds-tooltip"
+      <span class="yds-tooltip"
             tabindex="0"
             data-tooltip="span 요소에 연결된 툴팁입니다."
             data-position="top"
@@ -236,7 +236,7 @@ export const 트리거유형 = {
                    font-size:1.4rem; color:var(--krds-light-color-text-basic);">
         도움말
         <button type="button"
-                class="ds-tooltip"
+                class="yds-tooltip"
                 aria-label="자세한 도움말 보기"
                 data-tooltip="도움말 아이콘 버튼에 연결된 툴팁입니다."
                 data-position="right"

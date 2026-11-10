@@ -51,15 +51,15 @@ import { ShadowTable, ShadowColorTable } from '../token-components.js';
 ### 해야 할 것
 
 - 항상 **시멘틱 토큰**(`--shadow-s`, `--shadow-m`, `--shadow-l`)을 사용한다.
-- 카드(`ds-card`)는 기본 상태에서 `shadow-s`, hover 시 `shadow-m`으로 전환한다. 현재 이 패턴이 유일한 그림자 사용 사례다.
+- 카드(`yds-card`)는 기본 상태에서 `shadow-s`, hover 시 `shadow-m`으로 전환한다. 현재 이 패턴이 유일한 그림자 사용 사례다.
 
 ```css
 /* 올바른 예 — 토큰 참조 + hover 전환 */
-.ds-card {
+.yds-card {
   box-shadow: var(--shadow-s);
   transition: box-shadow 0.15s ease;
 }
-.ds-card:hover {
+.yds-card:hover {
   box-shadow: var(--shadow-m);
 }
 ```

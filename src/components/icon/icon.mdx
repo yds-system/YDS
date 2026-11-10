@@ -17,7 +17,7 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -59,8 +59,8 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ```html
 <!-- 주변 텍스트가 의미를 설명하는 경우 -->
-<button type="button" class="ds-btn ds-btn--primary ds-btn--medium">
-  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+<button type="button" class="yds-btn yds-btn--primary yds-btn--medium">
+  <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
   검색
 </button>
 ```
@@ -69,8 +69,8 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ```html
 <!-- 아이콘 단독 버튼 — sr-only 패턴 권장 -->
-<button type="button" class="ds-btn ds-btn--medium ds-btn--icon" aria-label="검색">
-  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+<button type="button" class="yds-btn yds-btn--medium yds-btn--icon" aria-label="검색">
+  <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
   <span class="sr-only">검색</span>
 </button>
 ```
@@ -78,10 +78,10 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 ### 크기 조절
 
 ```html
-<i class="ds-icon ds-ico-sch ds-icon--small" aria-hidden="true"></i>
-<i class="ds-icon ds-ico-sch ds-icon--medium" aria-hidden="true"></i>
-<i class="ds-icon ds-ico-sch" aria-hidden="true"></i><!-- 기본(large) -->
-<i class="ds-icon ds-ico-sch ds-icon--xlarge" aria-hidden="true"></i>
+<i class="yds-icon yds-ico-sch yds-icon--small" aria-hidden="true"></i>
+<i class="yds-icon yds-ico-sch yds-icon--medium" aria-hidden="true"></i>
+<i class="yds-icon yds-ico-sch" aria-hidden="true"></i><!-- 기본(large) -->
+<i class="yds-icon yds-ico-sch yds-icon--xlarge" aria-hidden="true"></i>
 ```
 
 ---
@@ -99,7 +99,7 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 주변 텍스트로 의미가 전달될 때. 스크린리더가 읽지 않습니다.
 
 ```html
-<i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+<i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
 ```
 
 ### 의미 있는 아이콘 (semantic)
@@ -108,11 +108,11 @@ KRDS 디자인 시스템의 SVG 아이콘 컴포넌트입니다.
 
 ```html
 <!-- 방법 1: role + aria-label -->
-<i class="ds-icon ds-ico-sch" role="img" aria-label="검색"></i>
+<i class="yds-icon yds-ico-sch" role="img" aria-label="검색"></i>
 
 <!-- 방법 2: sr-only (버튼 내부에서 권장) -->
 <button type="button">
-  <i class="ds-icon ds-ico-sch" aria-hidden="true"></i>
+  <i class="yds-icon yds-ico-sch" aria-hidden="true"></i>
   <span class="sr-only">검색</span>
 </button>
 ```

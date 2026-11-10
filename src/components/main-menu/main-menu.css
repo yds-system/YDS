@@ -3,6 +3,6 @@
  * 메인 메뉴 컴포넌트 (PC GNB, 모바일 GNB)
  *
  * layout.css에서 분리.
- * ds-main-menu, ds-main-menu-mobile 관련 스타일 포함.
+ * yds-main-menu, yds-main-menu-mobile 관련 스타일 포함.
  */
 @import '../layout/layout.css';

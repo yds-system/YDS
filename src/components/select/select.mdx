@@ -13,13 +13,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 미리 정의된 선택지 중 **하나를 드롭다운으로 선택**하는 폼 요소입니다.  
-`ds-form-group` 공유 구조(라벨·도움말·에러 메시지)를 그대로 사용합니다.
+`yds-form-group` 공유 구조(라벨·도움말·에러 메시지)를 그대로 사용합니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -58,19 +58,19 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## HTML 구조
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
-    <label for="id">레이블 <span class="ds-form-label__required" aria-hidden="true">필수</span></label>
+<div class="yds-form-group">
+  <div class="yds-form-label">
+    <label for="id">레이블 <span class="yds-form-label__required" aria-hidden="true">필수</span></label>
   </div>
-  <div class="ds-form-content">
-    <select id="id" class="ds-select [ds-select--small|ds-select--medium] [ds-select--error]"
+  <div class="yds-form-content">
+    <select id="id" class="yds-select [yds-select--small|yds-select--medium] [yds-select--error]"
             title="선택하세요" [disabled]>
       <option value="">선택하세요</option>
       <option value="1">항목 1</option>
       <option value="2">항목 2</option>
     </select>
   </div>
-  <p class="[ds-form-hint|ds-form-hint ds-form-hint--error]">메시지</p>
+  <p class="[yds-form-hint|yds-form-hint yds-form-hint--error]">메시지</p>
 </div>
 ```
 
@@ -91,19 +91,19 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 <Canvas of={SelectStories.기본} />
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
+<div class="yds-form-group">
+  <div class="yds-form-label">
     <label for="sel-1">지역</label>
   </div>
-  <div class="ds-form-content">
-    <select id="sel-1" class="ds-select" title="선택하세요">
+  <div class="yds-form-content">
+    <select id="sel-1" class="yds-select" title="선택하세요">
       <option value="">선택하세요</option>
       <option value="1">서울</option>
       <option value="2">경기</option>
       <option value="3">인천</option>
     </select>
   </div>
-  <p class="ds-form-hint">거주 지역을 선택하세요.</p>
+  <p class="yds-form-hint">거주 지역을 선택하세요.</p>
 </div>
 ```
 
@@ -113,35 +113,35 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 선택 완료 (JS로 completed 클래스 토글) -->
-<select class="ds-select ds-select--completed" title="선택하세요"
-  onchange="this.classList.toggle('ds-select--completed', !!this.value)">
+<select class="yds-select yds-select--completed" title="선택하세요"
+  onchange="this.classList.toggle('yds-select--completed', !!this.value)">
   <option value="">선택하세요</option>
   <option value="1" selected>항목 1</option>
 </select>
 
 <!-- 에러 -->
-<select class="ds-select ds-select--error" title="선택하세요">
+<select class="yds-select yds-select--error" title="선택하세요">
   <option value="">선택하세요</option>
 </select>
-<p class="ds-form-hint ds-form-hint--error">항목을 선택해 주세요.</p>
+<p class="yds-form-hint yds-form-hint--error">항목을 선택해 주세요.</p>
 
 <!-- 비활성화 -->
-<select class="ds-select" title="선택하세요" disabled>
+<select class="yds-select" title="선택하세요" disabled>
   <option value="">선택하세요</option>
 </select>
 ```
 
 > 선택 전에는 플레이스홀더처럼 흐린 색으로 표시되고,  
-> 값이 선택되면 JS로 `.ds-select--completed` 클래스를 추가해 텍스트 색상을 바꿉니다.
+> 값이 선택되면 JS로 `.yds-select--completed` 클래스를 추가해 텍스트 색상을 바꿉니다.
 
 ### 크기
 
 <Canvas of={SelectStories.크기} />
 
 ```html
-<select class="ds-select ds-select--small" title="선택하세요">...</select>
-<select class="ds-select ds-select--medium" title="선택하세요">...</select>
-<select class="ds-select" title="선택하세요">...</select>
+<select class="yds-select yds-select--small" title="선택하세요">...</select>
+<select class="yds-select yds-select--medium" title="선택하세요">...</select>
+<select class="yds-select" title="선택하세요">...</select>
 ```
 
 ### 전체 변형
@@ -154,6 +154,6 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 - `<label>`의 `for`와 `<select>`의 `id`를 반드시 연결한다.
 - `title` 속성으로 셀렉트의 접근성 이름을 제공한다 (placeholder 역할).
-- 필수 입력은 `<select required>`와 시각적 표시(`.ds-form-label__required`)를 모두 제공한다.
+- 필수 입력은 `<select required>`와 시각적 표시(`.yds-form-label__required`)를 모두 제공한다.
 - 에러 메시지는 `aria-describedby`로 셀렉트와 연결하면 스크린리더가 자동으로 읽는다.
 - `disabled` 상태의 셀렉트는 키보드 포커스에서 제외되므로, 필요 시 `aria-disabled="true"`를 사용한다.

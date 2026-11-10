@@ -13,13 +13,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 여러 페이지로 나뉜 콘텐츠를 탐색하는 컴포넌트입니다.  
-기본 클래스: `ds-pagination`
+기본 클래스: `yds-pagination`
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
 ### 구조도
 
@@ -66,37 +66,37 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <nav aria-label="페이지 탐색">
-  <div class="ds-pagination">
+  <div class="yds-pagination">
 
     <!-- 처음 버튼 (비활성: span, 활성: a) -->
-    <a class="ds-pagination__move-btn ds-pagination__move-btn--first" href="#">처음</a>
+    <a class="yds-pagination__move-btn yds-pagination__move-btn--first" href="#">처음</a>
 
     <!-- 이전 버튼 (아이콘만) -->
-    <a class="ds-pagination__move-btn ds-pagination__move-btn--prev" href="#">
+    <a class="yds-pagination__move-btn yds-pagination__move-btn--prev" href="#">
       <span class="sr-only">이전 페이지</span>
     </a>
 
     <!-- 페이지 번호 목록 -->
-    <div class="ds-pagination__list">
-      <a class="ds-pagination__link" href="#" data-page="1">1</a>
-      <span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>
-      <a class="ds-pagination__link" href="#" data-page="3">3</a>
+    <div class="yds-pagination__list">
+      <a class="yds-pagination__link" href="#" data-page="1">1</a>
+      <span class="yds-pagination__link yds-pagination__link--ellipsis" aria-hidden="true"></span>
+      <a class="yds-pagination__link" href="#" data-page="3">3</a>
       <!-- 현재 페이지 -->
-      <span class="ds-pagination__link ds-pagination__link--current" aria-current="page">
+      <span class="yds-pagination__link yds-pagination__link--current" aria-current="page">
         <span class="sr-only">현재페이지 </span>4
       </span>
-      <a class="ds-pagination__link" href="#" data-page="5">5</a>
-      <span class="ds-pagination__link ds-pagination__link--ellipsis" aria-hidden="true"></span>
-      <a class="ds-pagination__link" href="#" data-page="10">10</a>
+      <a class="yds-pagination__link" href="#" data-page="5">5</a>
+      <span class="yds-pagination__link yds-pagination__link--ellipsis" aria-hidden="true"></span>
+      <a class="yds-pagination__link" href="#" data-page="10">10</a>
     </div>
 
     <!-- 다음 버튼 (아이콘만) -->
-    <a class="ds-pagination__move-btn ds-pagination__move-btn--next" href="#">
+    <a class="yds-pagination__move-btn yds-pagination__move-btn--next" href="#">
       <span class="sr-only">다음 페이지</span>
     </a>
 
     <!-- 마지막 버튼 -->
-    <a class="ds-pagination__move-btn ds-pagination__move-btn--last" href="#">마지막</a>
+    <a class="yds-pagination__move-btn yds-pagination__move-btn--last" href="#">마지막</a>
 
   </div>
 </nav>
@@ -106,13 +106,13 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```html
 <!-- 비활성: <a> 대신 <span> + aria-disabled -->
-<span class="ds-pagination__move-btn ds-pagination__move-btn--first ds-pagination__move-btn--disabled" aria-disabled="true">처음</span>
-<span class="ds-pagination__move-btn ds-pagination__move-btn--prev ds-pagination__move-btn--disabled" aria-disabled="true">
+<span class="yds-pagination__move-btn yds-pagination__move-btn--first yds-pagination__move-btn--disabled" aria-disabled="true">처음</span>
+<span class="yds-pagination__move-btn yds-pagination__move-btn--prev yds-pagination__move-btn--disabled" aria-disabled="true">
   <span class="sr-only">이전 페이지</span>
 </span>
 ```
 
-> `ds-pagination__move-btn--first` / `ds-pagination__move-btn--last`는 KRDS 기본 패턴에 없는 **디자인 시스템 확장 클래스**입니다.
+> `yds-pagination__move-btn--first` / `yds-pagination__move-btn--last`는 KRDS 기본 패턴에 없는 **디자인 시스템 확장 클래스**입니다.
 
 ---
 
@@ -182,4 +182,4 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ### 말줄임 구분자
 
-- `ds-pagination__link--ellipsis` 요소는 장식용 `<span>`이므로 `aria-hidden="true"`를 적용한다.
+- `yds-pagination__link--ellipsis` 요소는 장식용 `<span>`이므로 `aria-hidden="true"`를 적용한다.

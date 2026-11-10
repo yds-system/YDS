@@ -59,29 +59,29 @@ const ITEMS = [
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function renderAccordion({ type, mode, initialOpen, items = ITEMS }) {
-  const typeClass = type === 'line' ? ' ds-accordion--line' : '';
+  const typeClass = type === 'line' ? ' yds-accordion--line' : '';
   const dataType  = mode === 'multi' ? ' data-type="multiOpen"' : '';
 
   const itemsHtml = items.map((item, i) => {
     const isOpen       = initialOpen === i;
-    const itemOpenClass = isOpen ? ' ds-accordion__item--open' : '';
-    const btnOpenClass  = isOpen ? ' ds-accordion__btn--open' : '';
+    const itemOpenClass = isOpen ? ' yds-accordion__item--open' : '';
+    const btnOpenClass  = isOpen ? ' yds-accordion__btn--open' : '';
     return `
-      <div class="ds-accordion__item${itemOpenClass}">
-        <h2 class="ds-accordion__header">
-          <button type="button" class="ds-accordion__btn${btnOpenClass}">
+      <div class="yds-accordion__item${itemOpenClass}">
+        <h2 class="yds-accordion__header">
+          <button type="button" class="yds-accordion__btn${btnOpenClass}">
             ${item.title}
           </button>
         </h2>
-        <div class="ds-accordion__collapse">
-          <div class="ds-accordion__body">
+        <div class="yds-accordion__collapse">
+          <div class="yds-accordion__body">
             ${item.content}
           </div>
         </div>
       </div>`;
   }).join('');
 
-  return `<div class="ds-accordion${typeClass}"${dataType}>${itemsHtml}</div>`;
+  return `<div class="yds-accordion${typeClass}"${dataType}>${itemsHtml}</div>`;
 }
 
 const wrap = (html) =>
@@ -90,13 +90,13 @@ const wrap = (html) =>
 /* ─── JS 초기화 ─────────────────────────────── */
 
 function initAccordion(canvasElement) {
-  canvasElement.querySelectorAll('.ds-accordion').forEach(container => {
+  canvasElement.querySelectorAll('.yds-accordion').forEach(container => {
     const mode  = container.dataset.type || 'singleOpen';
-    const items = Array.from(container.querySelectorAll('.ds-accordion__item'));
+    const items = Array.from(container.querySelectorAll('.yds-accordion__item'));
 
     items.forEach((item, idx) => {
-      const btn   = item.querySelector('.ds-accordion__btn');
-      const panel = item.querySelector('.ds-accordion__collapse');
+      const btn   = item.querySelector('.yds-accordion__btn');
+      const panel = item.querySelector('.yds-accordion__collapse');
       if (!btn || !panel) return;
 
       /* aria 속성 설정 */
@@ -106,7 +106,7 @@ function initAccordion(canvasElement) {
 
       btn.id = headId;
       btn.setAttribute('aria-controls', panelId);
-      btn.setAttribute('aria-expanded', item.classList.contains('ds-accordion__item--open') ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', item.classList.contains('yds-accordion__item--open') ? 'true' : 'false');
 
       panel.id = panelId;
       panel.setAttribute('role', 'region');
@@ -120,18 +120,18 @@ function initAccordion(canvasElement) {
         if (mode !== 'multiOpen' && !isExpanded) {
           items.forEach(otherItem => {
             if (otherItem === item) return;
-            const otherBtn = otherItem.querySelector('.ds-accordion__btn');
+            const otherBtn = otherItem.querySelector('.yds-accordion__btn');
             otherBtn?.setAttribute('aria-expanded', 'false');
-            otherBtn?.classList.remove('ds-accordion__btn--open');
-            otherItem.classList.remove('ds-accordion__item--open');
+            otherBtn?.classList.remove('yds-accordion__btn--open');
+            otherItem.classList.remove('yds-accordion__item--open');
           });
         }
 
         /* 현재 항목 토글 */
         const next = !isExpanded;
         btn.setAttribute('aria-expanded', String(next));
-        btn.classList.toggle('ds-accordion__btn--open', next);
-        item.classList.toggle('ds-accordion__item--open', next);
+        btn.classList.toggle('yds-accordion__btn--open', next);
+        item.classList.toggle('yds-accordion__item--open', next);
       });
     });
   });

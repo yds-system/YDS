@@ -59,13 +59,13 @@ const checkboxRows = [
 /* ─── HTML 생성 헬퍼 ────────────────────────── */
 
 function wrapClass(mobileType) {
-  return `ds-table-wrap${mobileType === 'card' ? ' ds-table-wrap--mobile-card' : ''}`;
+  return `yds-table-wrap${mobileType === 'card' ? ' yds-table-wrap--mobile-card' : ''}`;
 }
 
 function captionEl(text, visible) {
   const cls = visible
-    ? ' class="ds-table__caption ds-table__caption--visible"'
-    : ' class="ds-table__caption"';
+    ? ' class="yds-table__caption yds-table__caption--visible"'
+    : ' class="yds-table__caption"';
   return `<caption${cls}>${text}</caption>`;
 }
 
@@ -81,7 +81,7 @@ function renderListTable({ caption, showCaption, mobileType, headers = listHeade
 
   return `
     <div class="${wrapClass(mobileType)}">
-      <table class="ds-table ds-table--data">
+      <table class="yds-table yds-table--data">
         ${captionEl(caption, showCaption)}
         <colgroup>${colgroup}</colgroup>
         <thead><tr>${headCells}</tr></thead>
@@ -101,7 +101,7 @@ function renderColTable({ caption, showCaption, mobileType, colHeaders = ['항�
 
   return `
     <div class="${wrapClass(mobileType)}">
-      <table class="ds-table ds-table--data ds-table--row-header">
+      <table class="yds-table yds-table--data yds-table--row-header">
         ${captionEl(caption, showCaption)}
         <colgroup>
           <col style="width:25%;">
@@ -120,7 +120,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
 
   const headRow = `<tr>
     <th scope="col" style="width:4rem;">
-      <div class="ds-check-item ds-check-item--medium" style="justify-content:center;">
+      <div class="yds-check-item yds-check-item--medium" style="justify-content:center;">
         <input type="checkbox" id="${allId}">
         <label for="${allId}"><span class="sr-only">전체 선택</span></label>
       </div>
@@ -132,7 +132,7 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
     const chkId = `${prefix}-row-${i}`;
     return `<tr>
       <th scope="row" style="text-align:center;">
-        <div class="ds-check-item ds-check-item--medium" style="justify-content:center;">
+        <div class="yds-check-item yds-check-item--medium" style="justify-content:center;">
           <input type="checkbox" id="${chkId}" data-row>
           <label for="${chkId}"><span class="sr-only">${row.title} 선택</span></label>
         </div>
@@ -145,8 +145,8 @@ function renderCheckboxTable({ caption, showCaption, prefix, rows = checkboxRows
   }).join('');
 
   return `
-    <div class="ds-table-wrap">
-      <table class="ds-table ds-table--data ds-table--row-header">
+    <div class="yds-table-wrap">
+      <table class="yds-table yds-table--data yds-table--row-header">
         ${captionEl(caption, showCaption)}
         <colgroup>
           <col style="width:5%;">

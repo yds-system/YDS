@@ -13,21 +13,21 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ## 개요
 
 달력 팝업을 통해 날짜 또는 기간을 선택하는 폼 요소입니다.  
-텍스트 입력 필드 구조(`ds-form-group`)를 그대로 재사용하고, 달력은 키보드로도 완전하게 조작할 수 있습니다.
+텍스트 입력 필드 구조(`yds-form-group`)를 그대로 재사용하고, 달력은 키보드로도 완전하게 조작할 수 있습니다.
 
 ---
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
-### 날짜 입력 영역 (`ds-date-input`)
+### 날짜 입력 영역 (`yds-date-input`)
 
 <ElementTable elements={dateInputNaming.elements} baseClass={dateInputNaming.baseClass} />
 
 <ModifierTable modifiers={dateInputNaming.modifiers} baseClass={dateInputNaming.baseClass} />
 
-### 달력 팝업 (`ds-calendar`)
+### 달력 팝업 (`yds-calendar`)
 
 <ElementTable elements={calendarNaming.elements} baseClass={calendarNaming.baseClass} />
 
@@ -55,68 +55,68 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 단일 날짜
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
+<div class="yds-form-group">
+  <div class="yds-form-label">
     <label for="cal-id">날짜</label>
   </div>
-  <div class="ds-form-content ds-date-input">
-    <div class="ds-date-input__input-wrap">
-      <input type="text" id="cal-id" class="ds-input ds-date-input__input ds-date-input__input--single"
+  <div class="yds-form-content yds-date-input">
+    <div class="yds-date-input__input-wrap">
+      <input type="text" id="cal-id" class="yds-input yds-date-input__input yds-date-input__input--single"
              placeholder="YYYY.MM.DD" readonly
              aria-haspopup="dialog" aria-expanded="false">
-      <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-date-input__open-btn"
+      <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"
               aria-label="달력 열기" aria-expanded="false" aria-controls="cal-id-cal">
         <span class="sr-only">달력 열기</span>
-        <i class="ds-icon ds-ico-calendar"></i>
+        <i class="yds-icon yds-ico-calendar"></i>
       </button>
     </div>
-    <div class="ds-calendar" id="cal-id-cal">
-      <div class="ds-calendar__panel ds-calendar__panel--single" role="dialog" aria-label="날짜 선택">
+    <div class="yds-calendar" id="cal-id-cal">
+      <div class="yds-calendar__panel yds-calendar__panel--single" role="dialog" aria-label="날짜 선택">
         <!-- JS로 달력 내용 생성 -->
       </div>
     </div>
   </div>
-  <p class="ds-form-hint">날짜를 선택하세요.</p>
+  <p class="yds-form-hint">날짜를 선택하세요.</p>
 </div>
 ```
 
 ### 기간 선택
 
 ```html
-<div class="ds-form-group">
-  <div class="ds-form-label">
+<div class="yds-form-group">
+  <div class="yds-form-label">
     <label>신청 기간</label>
   </div>
-  <div class="ds-form-content ds-date-input">
-    <div class="ds-date-input__input-wrap">
-      <ul class="ds-date-input__range-list">
+  <div class="yds-form-content yds-date-input">
+    <div class="yds-date-input__input-wrap">
+      <ul class="yds-date-input__range-list">
         <li>
-          <input type="text" id="calr-start" class="ds-input ds-date-input__input"
+          <input type="text" id="calr-start" class="yds-input yds-date-input__input"
                  placeholder="시작날짜" title="시작날짜 입력" readonly aria-expanded="false">
         </li>
-        <li class="ds-date-input__separator">–</li>
+        <li class="yds-date-input__separator">–</li>
         <li>
-          <input type="text" id="calr-end" class="ds-input ds-date-input__input"
+          <input type="text" id="calr-end" class="yds-input yds-date-input__input"
                  placeholder="종료날짜" title="종료날짜 입력" readonly aria-expanded="false">
         </li>
       </ul>
-      <button type="button" class="ds-btn ds-btn--medium ds-btn--icon ds-date-input__open-btn"
+      <button type="button" class="yds-btn yds-btn--medium yds-btn--icon yds-date-input__open-btn"
               aria-label="달력 열기" aria-expanded="false" aria-controls="calr-cal">
         <span class="sr-only">달력 열기</span>
-        <i class="ds-icon ds-ico-calendar"></i>
+        <i class="yds-icon yds-ico-calendar"></i>
       </button>
     </div>
-    <div class="ds-calendar" id="calr-cal">
-      <div class="ds-calendar__panel" role="dialog" aria-label="기간 선택">
+    <div class="yds-calendar" id="calr-cal">
+      <div class="yds-calendar__panel" role="dialog" aria-label="기간 선택">
         <!-- JS로 달력 내용 생성 -->
       </div>
     </div>
   </div>
-  <p class="ds-form-hint">시작일과 종료일을 선택하세요.</p>
+  <p class="yds-form-hint">시작일과 종료일을 선택하세요.</p>
 </div>
 ```
 
-> 클래스명 목록은 위 **네이밍** 섹션을 참고한다. `ds-calendar__panel`에 `role="dialog"`, `aria-label`을 반드시 부여한다.
+> 클래스명 목록은 위 **네이밍** 섹션을 참고한다. `yds-calendar__panel`에 `role="dialog"`, `aria-label`을 반드시 부여한다.
 
 ---
 
@@ -165,7 +165,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 - 달력 토글 버튼에 `aria-expanded`를 달아 열림/닫힘 상태를 알린다.
 - 입력 필드에 `aria-haspopup="dialog"` 속성으로 팝업이 열림을 예고한다.
-- `ds-calendar__panel`에 `role="dialog"`, `aria-label="날짜 선택"` 또는 `aria-label="기간 선택"`을 부여한다.
+- `yds-calendar__panel`에 `role="dialog"`, `aria-label="날짜 선택"` 또는 `aria-label="기간 선택"`을 부여한다.
 - 각 날짜 버튼에는 `aria-label`로 전체 날짜(예: `2024년 3월 15일`)와 시작일·종료일 여부를 설명한다.
 - 달력이 열리면 첫 번째 활성 날짜(선택된 날짜 또는 오늘)에 자동 포커스한다.
 - 달력을 닫으면 포커스가 달력 토글 버튼으로 돌아온다.

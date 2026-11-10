@@ -33,7 +33,7 @@ export default {
     },
     showIcon: {
       control: { type: 'boolean' },
-      description: '외부 링크 아이콘 표시 (ds-ico-go)',
+      description: '외부 링크 아이콘 표시 (yds-ico-go)',
       table: { category: '종류' },
     },
     newTab: {
@@ -62,21 +62,21 @@ export default {
 /* ─── 헬퍼 ─────────────────────────────────── */
 
 function renderLink({ label, size, color, pure, underline, showIcon, newTab, disabled }) {
-  const classes = ['ds-link'];
-  if (size !== 'large') classes.push(`ds-link--${size}`);   // large가 기본값
-  if (color === 'basic') classes.push('ds-link--basic');
-  if (pure) classes.push('ds-link--pure');
-  if (disabled) classes.push('ds-link--disabled');
+  const classes = ['yds-link'];
+  if (size !== 'large') classes.push(`yds-link--${size}`);   // large가 기본값
+  if (color === 'basic') classes.push('yds-link--basic');
+  if (pure) classes.push('yds-link--pure');
+  if (disabled) classes.push('yds-link--disabled');
 
   let spanClass = '';
-  if (underline === 'always') spanClass = 'ds-link__text';
-  else if (underline === 'hover') spanClass = 'ds-link__text ds-link__text--underline-hover';
+  if (underline === 'always') spanClass = 'yds-link__text';
+  else if (underline === 'hover') spanClass = 'yds-link__text yds-link__text--underline-hover';
 
   const spanHtml = spanClass
     ? `<span class="${spanClass}">${label}</span>`
     : `<span>${label}</span>`;
 
-  const iconHtml = showIcon ? ' <i class="ds-icon ds-ico-go" aria-hidden="true"></i>' : '';
+  const iconHtml = showIcon ? ' <i class="yds-icon yds-ico-go" aria-hidden="true"></i>' : '';
   const targetAttr = newTab ? ' target="_blank"' : '';
   const titleAttr = newTab ? ' title="새 창 열림"' : '';
   const href = disabled ? '#!' : '#';
@@ -203,7 +203,7 @@ export const 아이콘 = {
         ${renderLink({ label: '기본 링크', size: 'medium', color: 'default', pure: false, underline: 'always', showIcon: false, newTab: false, disabled: false })}
         ${renderLink({ label: '기본 링크', size: 'medium', color: 'basic', pure: false, underline: 'always', showIcon: false, newTab: false, disabled: false })}
       `)}
-      ${section('외부 링크 아이콘 (ds-ico-go)', `
+      ${section('외부 링크 아이콘 (yds-ico-go)', `
         ${renderLink({ label: '새 창 링크', size: 'medium', color: 'default', pure: false, underline: 'always', showIcon: true, newTab: true, disabled: false })}
         ${renderLink({ label: '새 창 링크', size: 'medium', color: 'basic', pure: false, underline: 'always', showIcon: true, newTab: true, disabled: false })}
       `)}

@@ -69,31 +69,31 @@ function fileItem({ name, size, status, errorMsg }) {
   let actionHtml = '';
   if (status === 'uploading') {
     actionHtml = `
-      <span class="ds-spinner" role="status">
+      <span class="yds-spinner" role="status">
         <span class="sr-only">업로드 중</span>
       </span>`;
   } else if (status === 'done') {
     actionHtml = `
-      <span class="ds-file-upload__item-icon ds-file-upload__item-icon--completed">
+      <span class="yds-file-upload__item-icon yds-file-upload__item-icon--completed">
         <em class="sr-only">업로드 완료</em>
       </span>`;
   } else {
     /* error 또는 기본 — 삭제 버튼 */
     actionHtml = `
-      <button type="button" class="ds-btn ds-btn--medium ds-btn--text ds-file-upload__item-delete-btn" aria-label="${name} 삭제">
-        삭제 <i class="ds-icon ds-ico-delete-fill"></i>
+      <button type="button" class="yds-btn yds-btn--medium yds-btn--text yds-file-upload__item-delete-btn" aria-label="${name} 삭제">
+        삭제 <i class="yds-icon yds-ico-delete-fill"></i>
       </button>`;
   }
 
   const hint = isError && errorMsg
-    ? `<p class="ds-file-upload__item-hint">${errorMsg}</p>`
+    ? `<p class="yds-file-upload__item-hint">${errorMsg}</p>`
     : '';
 
   return `
-    <li class="ds-file-upload__item${isError ? ' ds-file-upload__item--error' : ''}">
-      <div class="ds-file-upload__item-info">
-        <div class="ds-file-upload__item-name">${label}</div>
-        <div class="ds-file-upload__item-actions">${actionHtml}</div>
+    <li class="yds-file-upload__item${isError ? ' yds-file-upload__item--error' : ''}">
+      <div class="yds-file-upload__item-info">
+        <div class="yds-file-upload__item-name">${label}</div>
+        <div class="yds-file-upload__item-actions">${actionHtml}</div>
       </div>
       ${hint}
     </li>`;
@@ -108,11 +108,11 @@ function renderFileUpload({
   showDeleteAll = false,
 }) {
   const id = `fu-${uid()}`;
-  const lineClass = line ? ' ds-file-upload--line' : '';
+  const lineClass = line ? ' yds-file-upload--line' : '';
 
   const headSection = (title || description) ? `
-    <div class="ds-file-upload__head">
-      ${title ? `<h3 class="ds-file-upload__title">${title}</h3>` : ''}
+    <div class="yds-file-upload__head">
+      ${title ? `<h3 class="yds-file-upload__title">${title}</h3>` : ''}
       ${description ? `<p>${description}</p>` : ''}
     </div>` : '';
 
@@ -120,33 +120,33 @@ function renderFileUpload({
   const multipleAttr = multiple ? ' multiple' : '';
 
   const dropSection = `
-    <div class="ds-file-upload__dropzone" role="region" aria-label="파일 드래그 앤 드롭 영역">
-      <p class="ds-file-upload__desc">${dropText.replace(/\n/g, '<br>')}</p>
-      <div class="ds-file-upload__btn-wrap">
+    <div class="yds-file-upload__dropzone" role="region" aria-label="파일 드래그 앤 드롭 영역">
+      <p class="yds-file-upload__desc">${dropText.replace(/\n/g, '<br>')}</p>
+      <div class="yds-file-upload__btn-wrap">
         <input type="file" id="${id}"${acceptAttr}${multipleAttr}>
         <label for="${id}">
-          <button type="button" class="ds-btn ds-btn--medium" tabindex="-1" aria-hidden="true">
-            <i class="ds-icon ds-ico-upload"></i>파일 선택
+          <button type="button" class="yds-btn yds-btn--medium" tabindex="-1" aria-hidden="true">
+            <i class="yds-icon yds-ico-upload"></i>파일 선택
           </button>
         </label>
       </div>
     </div>`;
 
   const listSection = files.length > 0 ? `
-    <div class="ds-file-upload__files">
-      <div class="ds-file-upload__total">
-        <span class="ds-file-upload__total-current">${files.length}개</span> / ${maxCount}개
+    <div class="yds-file-upload__files">
+      <div class="yds-file-upload__total">
+        <span class="yds-file-upload__total-current">${files.length}개</span> / ${maxCount}개
       </div>
-      <ul class="ds-file-upload__list">
+      <ul class="yds-file-upload__list">
         ${files.map(fileItem).join('')}
       </ul>
       ${showDeleteAll ? `
-      <button type="button" class="ds-btn ds-btn--xsmall ds-btn--tertiary ds-file-upload__delete-all-btn">
-        전체 파일 삭제<i class="ds-icon ds-ico-angle ds-icon--right"></i>
+      <button type="button" class="yds-btn yds-btn--xsmall yds-btn--tertiary yds-file-upload__delete-all-btn">
+        전체 파일 삭제<i class="yds-icon yds-ico-angle yds-icon--right"></i>
       </button>` : ''}
     </div>` : '';
 
-  return `<div class="ds-file-upload${lineClass}">${headSection}${dropSection}${listSection}</div>`;
+  return `<div class="yds-file-upload${lineClass}">${headSection}${dropSection}${listSection}</div>`;
 }
 
 const wrap = (html) =>
@@ -155,8 +155,8 @@ const wrap = (html) =>
 /* ─── play: 드래그·드롭·선택 동작 연결 ─────── */
 
 function initFileUpload(canvasElement) {
-  canvasElement.querySelectorAll('.ds-file-upload').forEach(root => {
-    const dropZone = root.querySelector('.ds-file-upload__dropzone');
+  canvasElement.querySelectorAll('.yds-file-upload').forEach(root => {
+    const dropZone = root.querySelector('.yds-file-upload__dropzone');
     const inputFile = root.querySelector('input[type="file"]');
     if (!dropZone || !inputFile) return;
 
@@ -167,32 +167,32 @@ function initFileUpload(canvasElement) {
     /* 드래그 오버 */
     dropZone.addEventListener('dragover', (e) => {
       e.preventDefault();
-      dropZone.classList.add('ds-file-upload__dropzone--dragover');
+      dropZone.classList.add('yds-file-upload__dropzone--dragover');
     });
 
     /* 드래그 이탈 */
     dropZone.addEventListener('dragleave', (e) => {
       if (!dropZone.contains(e.relatedTarget)) {
-        dropZone.classList.remove('ds-file-upload__dropzone--dragover');
+        dropZone.classList.remove('yds-file-upload__dropzone--dragover');
       }
     });
 
     /* 드롭 */
     dropZone.addEventListener('drop', (e) => {
       e.preventDefault();
-      dropZone.classList.remove('ds-file-upload__dropzone--dragover');
+      dropZone.classList.remove('yds-file-upload__dropzone--dragover');
       /* 실제 구현 시 e.dataTransfer.files 처리 */
     });
 
     /* 개별 삭제 버튼 */
     root.addEventListener('click', (e) => {
-      const delBtn = e.target.closest('.ds-file-upload__item-delete-btn');
+      const delBtn = e.target.closest('.yds-file-upload__item-delete-btn');
       if (delBtn) {
-        delBtn.closest('.ds-file-upload__item')?.remove();
+        delBtn.closest('.yds-file-upload__item')?.remove();
       }
-      const delAll = e.target.closest('.ds-file-upload__delete-all-btn');
+      const delAll = e.target.closest('.yds-file-upload__delete-all-btn');
       if (delAll) {
-        root.querySelector('.ds-file-upload__list')?.querySelectorAll('.ds-file-upload__item').forEach(item => item.remove());
+        root.querySelector('.yds-file-upload__list')?.querySelectorAll('.yds-file-upload__item').forEach(item => item.remove());
       }
     });
   });

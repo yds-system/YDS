@@ -94,7 +94,7 @@ const preview = {
             'Accordion', 'Badge', 'Breadcrumb', 'Button',
             'Card', 'Carousel', 'Checkbox',
             'Date Input', 'File Upload', 'Footer', 'Header',
-            'Link', 'Main Menu', 'Pagination', 'Radio Button',
+            'Icon', 'Link', 'Main Menu', 'Pagination', 'Radio Button',
             'Select', 'Tab', 'Table', 'Tag',
             'Text Input', 'Textarea', 'Thumbnail', 'Tooltip', '*',
           ],

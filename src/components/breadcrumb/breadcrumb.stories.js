@@ -44,20 +44,20 @@ function renderBreadcrumb({ items, mobile = false }) {
     const isHome    = i === 0;
     const isCurrent = !item.href;
     const itemClass = isHome
-      ? 'ds-breadcrumb__item ds-breadcrumb__item--home'
-      : 'ds-breadcrumb__item';
+      ? 'yds-breadcrumb__item yds-breadcrumb__item--home'
+      : 'yds-breadcrumb__item';
 
     /* 현재 페이지: span + aria-current, 그 외: <a> */
     const content = isCurrent
-      ? `<span class="ds-breadcrumb__link ds-breadcrumb__link--current" aria-current="page">${item.label}</span>`
-      : `<a href="${item.href}" class="ds-breadcrumb__link">${item.label}</a>`;
+      ? `<span class="yds-breadcrumb__link yds-breadcrumb__link--current" aria-current="page">${item.label}</span>`
+      : `<a href="${item.href}" class="yds-breadcrumb__link">${item.label}</a>`;
 
     return `<li class="${itemClass}">${content}</li>`;
   }).join('\n      ');
 
-  const mobileClass = mobile ? ' ds-breadcrumb--mobile' : '';
-  return `<nav class="ds-breadcrumb${mobileClass}" aria-label="현재 경로">
-  <ol class="ds-breadcrumb__list">
+  const mobileClass = mobile ? ' yds-breadcrumb--mobile' : '';
+  return `<nav class="yds-breadcrumb${mobileClass}" aria-label="현재 경로">
+  <ol class="yds-breadcrumb__list">
       ${liHtml}
   </ol>
 </nav>`;

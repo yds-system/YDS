@@ -69,7 +69,7 @@ const MENU = [
 /* ─── HTML 생성 헬퍼 ─────────────────────────── */
 
 function renderSkipLink() {
-  return `<div id="ds-skip-link">
+  return `<div id="yds-skip-link">
   <a href="#main-content">본문 바로가기</a>
 </div>`;
 }
@@ -78,26 +78,26 @@ function renderPcGnb() {
   const items = MENU.map((m, mi) => {
     if (m.link) {
       return `<li>
-        <a href="#" class="ds-main-menu__trigger ds-main-menu__trigger--link" data-trigger="gnb">${m.label}</a>
+        <a href="#" class="yds-main-menu__trigger yds-main-menu__trigger--link" data-trigger="gnb">${m.label}</a>
       </li>`;
     }
 
     const subList = m.items.map((sub, si) => {
       if (sub.link) {
         return `<li>
-          <a href="#" class="ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link" data-trigger="gnb">${sub.label}</a>
+          <a href="#" class="yds-main-menu__sub-trigger yds-main-menu__sub-trigger--link" data-trigger="gnb">${sub.label}</a>
         </li>`;
       }
       return `<li>
-        <button type="button" class="ds-main-menu__sub-trigger" data-trigger="gnb"
-                aria-expanded="false" aria-controls="ds-gnb-sub-${mi}-${si}">
+        <button type="button" class="yds-main-menu__sub-trigger" data-trigger="gnb"
+                aria-expanded="false" aria-controls="yds-gnb-sub-${mi}-${si}">
           ${sub.label}
         </button>
-        <div class="ds-main-menu__sub-list" id="ds-gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
-          <div class="ds-main-menu__sub-content">
-            <h2 class="ds-main-menu__sub-title">${sub.label}</h2>
+        <div class="yds-main-menu__sub-list" id="yds-gnb-sub-${mi}-${si}" role="region" aria-label="${sub.label}">
+          <div class="yds-main-menu__sub-content">
+            <h2 class="yds-main-menu__sub-title">${sub.label}</h2>
             <ul>
-              ${sub.sub.map(s => `<li><a href="#" class="ds-main-menu__sub-link">${s}</a></li>`).join('')}
+              ${sub.sub.map(s => `<li><a href="#" class="yds-main-menu__sub-link">${s}</a></li>`).join('')}
             </ul>
           </div>
         </div>
@@ -105,81 +105,81 @@ function renderPcGnb() {
     }).join('');
 
     return `<li>
-      <button type="button" class="ds-main-menu__trigger" data-trigger="gnb"
+      <button type="button" class="yds-main-menu__trigger" data-trigger="gnb"
               aria-expanded="false" aria-haspopup="true"
-              aria-controls="ds-gnb-panel-${mi}">
+              aria-controls="yds-gnb-panel-${mi}">
         ${m.label}
       </button>
-      <div class="ds-main-menu__dropdown" id="ds-gnb-panel-${mi}" role="group" aria-label="${m.label}">
-        <div class="ds-main-menu__panel" data-has-submenu="true">
+      <div class="yds-main-menu__dropdown" id="yds-gnb-panel-${mi}" role="group" aria-label="${m.label}">
+        <div class="yds-main-menu__panel" data-has-submenu="true">
           <ul>${subList}</ul>
         </div>
       </div>
     </li>`;
   }).join('');
 
-  return `<nav class="ds-main-menu" aria-label="주요 메뉴">
-  <div class="ds-container">
-    <ul class="ds-main-menu__list" role="menubar">${items}</ul>
+  return `<nav class="yds-main-menu" aria-label="주요 메뉴">
+  <div class="yds-container">
+    <ul class="yds-main-menu__list" role="menubar">${items}</ul>
   </div>
 </nav>
-<div class="ds-main-menu__backdrop" aria-hidden="true"></div>`;
+<div class="yds-main-menu__backdrop" aria-hidden="true"></div>`;
 }
 
 function renderMobileGnb() {
   const mainItems = MENU.map((m, mi) =>
     `<li>
-      <a href="#mGnb-anchor${mi}" class="ds-main-menu-mobile__trigger"
+      <a href="#mGnb-anchor${mi}" class="yds-main-menu-mobile__trigger"
          data-index="${mi}">${m.label}</a>
     </li>`
   ).join('');
 
   const subItems = MENU.map((m, mi) => {
     const links = m.link
-      ? `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${m.label}</a></li>`
+      ? `<li><a href="#" class="yds-main-menu-mobile__sub-trigger">${m.label}</a></li>`
       : m.items.map(sub =>
-          `<li><a href="#" class="ds-main-menu-mobile__sub-trigger">${sub.label}</a></li>`
+          `<li><a href="#" class="yds-main-menu-mobile__sub-trigger">${sub.label}</a></li>`
         ).join('');
 
-    return `<div class="ds-main-menu-mobile__sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
-      <h2 class="ds-main-menu-mobile__sub-title" id="mGnb-hd${mi}">${m.label}</h2>
+    return `<div class="yds-main-menu-mobile__sub-list" id="mGnb-anchor${mi}" aria-labelledby="mGnb-hd${mi}">
+      <h2 class="yds-main-menu-mobile__sub-title" id="mGnb-hd${mi}">${m.label}</h2>
       <ul>${links}</ul>
     </div>`;
   }).join('');
 
-  return `<div id="mobile-nav" class="ds-main-menu-mobile"
+  return `<div id="mobile-nav" class="yds-main-menu-mobile"
      aria-modal="true" role="dialog" aria-label="전체 메뉴">
-  <div class="ds-main-menu-mobile__panel">
-    <div class="ds-main-menu-mobile__header">
-      <div class="ds-main-menu-mobile__utils">
-        <ul class="ds-utility-list ds-utility-list--start">
-          <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">로그인</button></li>
-          <li><button type="button" class="ds-btn ds-btn--xsmall ds-btn--text">회원가입</button></li>
+  <div class="yds-main-menu-mobile__panel">
+    <div class="yds-main-menu-mobile__header">
+      <div class="yds-main-menu-mobile__utils">
+        <ul class="yds-utility-list yds-utility-list--start">
+          <li><button type="button" class="yds-btn yds-btn--xsmall yds-btn--text">로그인</button></li>
+          <li><button type="button" class="yds-btn yds-btn--xsmall yds-btn--text">회원가입</button></li>
         </ul>
       </div>
-      <div class="ds-main-menu-mobile__login">
-        <button type="button" class="ds-btn ds-btn--large ds-btn--text">로그인을 해주세요</button>
+      <div class="yds-main-menu-mobile__login">
+        <button type="button" class="yds-btn yds-btn--large yds-btn--text">로그인을 해주세요</button>
       </div>
-      <div class="ds-main-menu-mobile__service-menu">
-        <a href="#" class="ds-main-menu-mobile__service-link">나의GOV</a>
-        <a href="#" class="ds-main-menu-mobile__service-link">공지사항</a>
-        <a href="#" class="ds-main-menu-mobile__service-link">자료실</a>
-        <a href="#" class="ds-main-menu-mobile__service-link">검색</a>
+      <div class="yds-main-menu-mobile__service-menu">
+        <a href="#" class="yds-main-menu-mobile__service-link">나의GOV</a>
+        <a href="#" class="yds-main-menu-mobile__service-link">공지사항</a>
+        <a href="#" class="yds-main-menu-mobile__service-link">자료실</a>
+        <a href="#" class="yds-main-menu-mobile__service-link">검색</a>
       </div>
-      <button type="button" class="ds-btn ds-btn--medium ds-btn--icon" id="close-nav"
+      <button type="button" class="yds-btn yds-btn--medium yds-btn--icon" id="close-nav"
               aria-label="전체 메뉴 닫기">
-        <i class="ds-icon ds-ico-modal-close" aria-hidden="true"></i>
+        <i class="yds-icon yds-ico-modal-close" aria-hidden="true"></i>
       </button>
     </div>
-    <div class="ds-main-menu-mobile__body">
-      <div class="ds-main-menu-mobile__menu">
-        <div class="ds-main-menu-mobile__nav-list">
+    <div class="yds-main-menu-mobile__body">
+      <div class="yds-main-menu-mobile__menu">
+        <div class="yds-main-menu-mobile__nav-list">
           <ul role="tablist" aria-label="대메뉴">${mainItems}</ul>
         </div>
-        <div class="ds-main-menu-mobile__sub-panel" aria-live="polite">${subItems}</div>
+        <div class="yds-main-menu-mobile__sub-panel" aria-live="polite">${subItems}</div>
       </div>
-      <div class="ds-main-menu-mobile__bottom">
-        <a href="#" class="ds-btn ds-btn--medium ds-btn--text">사이트맵</a>
+      <div class="yds-main-menu-mobile__bottom">
+        <a href="#" class="yds-btn yds-btn--medium yds-btn--text">사이트맵</a>
       </div>
     </div>
   </div>
@@ -188,31 +188,31 @@ function renderMobileGnb() {
 
 function renderHeader({ siteName = 'KRDS', showLogin = true }) {
   const loginBtn = showLogin
-    ? `<a href="#" class="ds-header__action-btn ds-header__action-btn--login">로그인</a>`
-    : `<button type="button" class="ds-header__action-btn ds-header__action-btn--mypage">나의GOV</button>`;
+    ? `<a href="#" class="yds-header__action-btn yds-header__action-btn--login">로그인</a>`
+    : `<button type="button" class="yds-header__action-btn yds-header__action-btn--mypage">나의GOV</button>`;
 
-  return `<header id="ds-header">
-  <div class="ds-header__inner">
-    <div class="ds-header__container">
-      <div class="ds-container">
-        <div class="ds-header__utility" aria-label="부가 메뉴">
-          <ul class="ds-utility-list">
-            <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
-            <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">자료실</a></li>
-            <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">사이트맵</a></li>
+  return `<header id="yds-header">
+  <div class="yds-header__inner">
+    <div class="yds-header__container">
+      <div class="yds-container">
+        <div class="yds-header__utility" aria-label="부가 메뉴">
+          <ul class="yds-utility-list">
+            <li><a href="#" class="yds-btn yds-btn--small yds-btn--text">공지사항</a></li>
+            <li><a href="#" class="yds-btn yds-btn--small yds-btn--text">자료실</a></li>
+            <li><a href="#" class="yds-btn yds-btn--small yds-btn--text">사이트맵</a></li>
           </ul>
         </div>
-        <div class="ds-header__branding">
-          <h1 class="ds-header__logo">
+        <div class="yds-header__branding">
+          <h1 class="yds-header__logo">
             <a href="#">
               <span class="sr-only">${siteName}</span>
             </a>
           </h1>
-          <div class="ds-header__actions">
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--search" title="통합검색">통합검색</button>
+          <div class="yds-header__actions">
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--search" title="통합검색">통합검색</button>
             ${loginBtn}
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--join">회원가입</button>
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--all-menu"
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--join">회원가입</button>
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--all-menu"
                     aria-controls="mobile-nav"
                     aria-expanded="false"
                     aria-label="전체 메뉴 열기">전체메뉴</button>
@@ -227,55 +227,55 @@ function renderHeader({ siteName = 'KRDS', showLogin = true }) {
 }
 
 function renderFooter() {
-  return `<footer id="ds-footer">
-  <div class="ds-footer__quick">
-    <div class="ds-container">
-      <button type="button" class="ds-footer__quick-link">관련 사이트 1</button>
-      <button type="button" class="ds-footer__quick-link">관련 사이트 2</button>
-      <button type="button" class="ds-footer__quick-link">관련 사이트 3</button>
-      <button type="button" class="ds-footer__quick-link">관련 사이트 4</button>
+  return `<footer id="yds-footer">
+  <div class="yds-footer__quick">
+    <div class="yds-container">
+      <button type="button" class="yds-footer__quick-link">관련 사이트 1</button>
+      <button type="button" class="yds-footer__quick-link">관련 사이트 2</button>
+      <button type="button" class="yds-footer__quick-link">관련 사이트 3</button>
+      <button type="button" class="yds-footer__quick-link">관련 사이트 4</button>
     </div>
   </div>
-  <div class="ds-container">
-    <div class="ds-footer__logo">
+  <div class="yds-container">
+    <div class="yds-footer__logo">
       <span class="sr-only">KRDS - Korea Design System</span>
     </div>
-    <div class="ds-footer__content">
-      <div class="ds-footer__info">
-        <p class="ds-footer__address">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
-        <ul class="ds-footer__contact">
+    <div class="yds-footer__content">
+      <div class="yds-footer__info">
+        <p class="yds-footer__address">(00000) 서울특별시 종로구 세종대로 209 정부서울청사</p>
+        <ul class="yds-footer__contact">
           <li>
             <strong>대표전화 1234-5678</strong>
             <span>(평일 09:00 ~ 18:00)</span>
           </li>
         </ul>
       </div>
-      <div class="ds-footer__links">
-        <div class="ds-footer__shortcuts">
-          <a href="#" class="ds-btn ds-btn--medium ds-btn--text">찾아오시는 길</a>
-          <a href="#" class="ds-btn ds-btn--medium ds-btn--text">이용안내</a>
+      <div class="yds-footer__links">
+        <div class="yds-footer__shortcuts">
+          <a href="#" class="yds-btn yds-btn--medium yds-btn--text">찾아오시는 길</a>
+          <a href="#" class="yds-btn yds-btn--medium yds-btn--text">이용안내</a>
         </div>
-        <div class="ds-footer__sns">
-          <a href="#" class="ds-btn ds-btn--xlarge ds-btn--icon ds-btn--border" target="_blank" title="새 창 열기">
+        <div class="yds-footer__sns">
+          <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
             <span class="sr-only">인스타그램</span>
           </a>
-          <a href="#" class="ds-btn ds-btn--xlarge ds-btn--icon ds-btn--border" target="_blank" title="새 창 열기">
+          <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
             <span class="sr-only">유튜브</span>
           </a>
-          <a href="#" class="ds-btn ds-btn--xlarge ds-btn--icon ds-btn--border" target="_blank" title="새 창 열기">
+          <a href="#" class="yds-btn yds-btn--xlarge yds-btn--icon yds-btn--border" target="_blank" title="새 창 열기">
             <span class="sr-only">X</span>
           </a>
         </div>
       </div>
     </div>
-    <div class="ds-footer__bottom">
-      <div class="ds-footer__bottom-text">
-        <div class="ds-footer__menu">
-          <a href="#" class="ds-footer__menu-link ds-footer__menu-link--emphasis">개인정보처리방침</a>
-          <a href="#" class="ds-footer__menu-link">저작권 정책</a>
-          <a href="#" class="ds-footer__menu-link">웹 접근성 안내</a>
+    <div class="yds-footer__bottom">
+      <div class="yds-footer__bottom-text">
+        <div class="yds-footer__menu">
+          <a href="#" class="yds-footer__menu-link yds-footer__menu-link--emphasis">개인정보처리방침</a>
+          <a href="#" class="yds-footer__menu-link">저작권 정책</a>
+          <a href="#" class="yds-footer__menu-link">웹 접근성 안내</a>
         </div>
-        <p class="ds-footer__copyright">© 2025 KRDS. All rights reserved.</p>
+        <p class="yds-footer__copyright">© 2025 KRDS. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -300,7 +300,7 @@ function renderLayout(args) {
 ${renderSkipLink()}
 ${renderHeader(args)}
 <main id="main-content" tabindex="-1">
-  <div class="ds-container" style="padding-top: 4rem; padding-bottom: 8rem; min-height: 40rem;">
+  <div class="yds-container" style="padding-top: 4rem; padding-bottom: 8rem; min-height: 40rem;">
     <h1 style="font-size: var(--krds-pc-font-size-heading-large);
                font-weight: var(--krds-font-weight-bold);
                color: var(--krds-light-color-text-basic);

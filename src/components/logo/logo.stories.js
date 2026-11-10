@@ -49,12 +49,12 @@ const LOGOS = [
 ];
 
 function logoEl({ ratio, grayscale, size, alt, src }) {
-  const gsClass = grayscale ? ' ds-logo--grayscale' : '';
+  const gsClass = grayscale ? ' yds-logo--grayscale' : '';
   const imgSrc = src || logoSvg(alt, '#256ef4', '#fff');
   const heightStyle = size ? `height:${size}` : '';
   return `
-    <div class="ds-logo ds-logo--${ratio}${gsClass}" style="${heightStyle}">
-      <img class="ds-logo__img" src="${imgSrc}" alt="${alt}">
+    <div class="yds-logo yds-logo--${ratio}${gsClass}" style="${heightStyle}">
+      <img class="yds-logo__img" src="${imgSrc}" alt="${alt}">
     </div>`;
 }
 
@@ -111,15 +111,15 @@ export const 로고목록 = {
   render: () => `
     <div style="padding:1.6rem; max-width:72rem;">
       <p style="font-size:1.3rem; color:var(--color-text-subtle); margin-bottom:1.6rem;">
-        협력 기관 로고 목록 예시 — <code>ds-logo-list</code> 컨테이너 사용
+        협력 기관 로고 목록 예시 — <code>yds-logo-list</code> 컨테이너 사용
       </p>
       <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">컬러</p>
-      <div class="ds-logo-list">
+      <div class="yds-logo-list">
         ${LOGOS.map(l => logoEl({ ratio: '3x1', grayscale: false, size: '4rem', alt: l.label, src: logoSvg(l.label, l.bg, l.fg) })).join('')}
       </div>
       <br>
       <p style="font-size:1.2rem; color:var(--color-text-subtle); margin-bottom:0.8rem;">흑백 (hover 시 컬러)</p>
-      <div class="ds-logo-list">
+      <div class="yds-logo-list">
         ${LOGOS.map(l => logoEl({ ratio: '3x1', grayscale: true, size: '4rem', alt: l.label, src: logoSvg(l.label, l.bg, l.fg) })).join('')}
       </div>
     </div>`,
@@ -145,7 +145,7 @@ export const 전체변형 = {
       </div>
       <div>
         <p style="font-size:1.3rem; font-weight:bold; color:var(--color-text-default); margin-bottom:1.2rem;">흑백 (--grayscale)</p>
-        <div class="ds-logo-list">
+        <div class="yds-logo-list">
           ${LOGOS.map(l => logoEl({ ratio: '3x1', grayscale: true, size: '4rem', alt: l.label, src: logoSvg(l.label, l.bg, l.fg) })).join('')}
         </div>
       </div>

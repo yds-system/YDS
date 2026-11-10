@@ -33,20 +33,20 @@ export default {
 function textareaGroup({ label, required, state, placeholder, disabled, readonly, hint, maxLength, showCount }) {
   const taId = `ta-${Math.random().toString(36).slice(2, 7)}`;
   const isError = state === 'error';
-  const stateClass = isError ? ' ds-form-content--error' : '';
-  const hintClass = isError ? 'ds-form-hint ds-form-hint--error' : 'ds-form-hint';
+  const stateClass = isError ? ' yds-form-content--error' : '';
+  const hintClass = isError ? 'yds-form-hint yds-form-hint--error' : 'yds-form-hint';
   const hintText = hint || '';
 
   const maxAttr = maxLength ? `maxlength="${maxLength}"` : '';
   /* closest 사용: ID 충돌 없이 카운트 갱신 */
   const onInput = showCount && maxLength
-    ? `oninput="this.closest('.ds-textarea').querySelector('.ds-count__current').textContent=this.value.length"`
+    ? `oninput="this.closest('.yds-textarea').querySelector('.yds-count__current').textContent=this.value.length"`
     : '';
 
   const countEl = showCount && maxLength ? `
-    <p class="ds-count">
-      <span class="ds-count__current" aria-live="polite">0</span>
-      <span class="ds-count__max">/ ${maxLength}</span>
+    <p class="yds-count">
+      <span class="yds-count__current" aria-live="polite">0</span>
+      <span class="yds-count__max">/ ${maxLength}</span>
     </p>` : '';
 
   let innerBottom = '';
@@ -56,8 +56,8 @@ function textareaGroup({ label, required, state, placeholder, disabled, readonly
     if (isError && hintText) {
       /* 에러 + 글자 수 나란히 */
       innerBottom = `
-        <div class="ds-textarea__bottom">
-          <p class="ds-form-hint ds-form-hint--error">${hintText}</p>
+        <div class="yds-textarea__bottom">
+          <p class="yds-form-hint yds-form-hint--error">${hintText}</p>
           ${countEl}
         </div>`;
     } else {
@@ -69,15 +69,15 @@ function textareaGroup({ label, required, state, placeholder, disabled, readonly
   }
 
   return `
-    <div class="ds-form-group">
-      <div class="ds-form-label">
-        <label for="${taId}">${label}${required ? '<span class="ds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
+    <div class="yds-form-group">
+      <div class="yds-form-label">
+        <label for="${taId}">${label}${required ? '<span class="yds-form-label__required" aria-hidden="true">필수</span>' : ''}</label>
       </div>
-      <div class="ds-form-content${stateClass}">
-        <div class="ds-textarea">
+      <div class="yds-form-content${stateClass}">
+        <div class="yds-textarea">
           <textarea
             id="${taId}"
-            class="ds-input"
+            class="yds-input"
             placeholder="${placeholder}"
             ${maxAttr}
             ${onInput}
@@ -92,7 +92,7 @@ function textareaGroup({ label, required, state, placeholder, disabled, readonly
 }
 
 const wrap = (content) =>
-  `<div class="ds-fieldset" style="max-width:48rem;">${content}</div>`;
+  `<div class="yds-fieldset" style="max-width:48rem;">${content}</div>`;
 
 /* ── Playground ──────────────────────────── */
 export const Playground = {

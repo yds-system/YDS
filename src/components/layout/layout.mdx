@@ -19,9 +19,9 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 네이밍
 
-> KRDS 구성을 기준으로 ds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
+> KRDS 구성을 기준으로 yds- BEM 규칙에 따라 이름을 붙였습니다. KRDS 원본 클래스는 표의 'KRDS 원본' 열을 참고하세요.
 
-### 헤더 (ds-header)
+### 헤더 (yds-header)
 
 <pre><code>{headerNaming.structure}</code></pre>
 
@@ -29,7 +29,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 <ModifierTable modifiers={headerNaming.modifiers} baseClass={headerNaming.baseClass} />
 
-### PC GNB (ds-main-menu)
+### PC GNB (yds-main-menu)
 
 <pre><code>{pcGnbNaming.structure}</code></pre>
 
@@ -37,7 +37,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 <ModifierTable modifiers={pcGnbNaming.modifiers} baseClass={pcGnbNaming.baseClass} />
 
-### 모바일 GNB (ds-main-menu-mobile)
+### 모바일 GNB (yds-main-menu-mobile)
 
 <pre><code>{mobileGnbNaming.structure}</code></pre>
 
@@ -45,7 +45,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 <ModifierTable modifiers={mobileGnbNaming.modifiers} baseClass={mobileGnbNaming.baseClass} />
 
-### 푸터 (ds-footer)
+### 푸터 (yds-footer)
 
 <pre><code>{footerNaming.structure}</code></pre>
 
@@ -74,7 +74,7 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 건너뛰기 링크
 
 ```html
-<div id="ds-skip-link">
+<div id="yds-skip-link">
   <a href="#main-content">본문 바로가기</a>
 </div>
 ```
@@ -82,24 +82,24 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 헤더
 
 ```html
-<header id="ds-header">
-  <div class="ds-header__inner">
-    <div class="ds-header__container">
-      <div class="ds-container">
-        <div class="ds-header__utility" aria-label="부가 메뉴">
-          <ul class="ds-utility-list">
-            <li><a href="#" class="ds-btn ds-btn--small ds-btn--text">공지사항</a></li>
+<header id="yds-header">
+  <div class="yds-header__inner">
+    <div class="yds-header__container">
+      <div class="yds-container">
+        <div class="yds-header__utility" aria-label="부가 메뉴">
+          <ul class="yds-utility-list">
+            <li><a href="#" class="yds-btn yds-btn--small yds-btn--text">공지사항</a></li>
           </ul>
         </div>
-        <div class="ds-header__branding">
-          <h1 class="ds-header__logo">
+        <div class="yds-header__branding">
+          <h1 class="yds-header__logo">
             <a href="#"><span class="sr-only">사이트명</span></a>
           </h1>
-          <div class="ds-header__actions">
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--search" title="통합검색">통합검색</button>
-            <a href="#" class="ds-header__action-btn ds-header__action-btn--login">로그인</a>
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--join">회원가입</button>
-            <button type="button" class="ds-header__action-btn ds-header__action-btn--all-menu"
+          <div class="yds-header__actions">
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--search" title="통합검색">통합검색</button>
+            <a href="#" class="yds-header__action-btn yds-header__action-btn--login">로그인</a>
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--join">회원가입</button>
+            <button type="button" class="yds-header__action-btn yds-header__action-btn--all-menu"
                     aria-controls="mobile-nav" aria-expanded="false"
                     aria-label="전체 메뉴 열기">전체메뉴</button>
           </div>
@@ -107,11 +107,11 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
       </div>
     </div>
     <!-- PC GNB -->
-    <nav class="ds-main-menu" aria-label="주요 메뉴">...</nav>
-    <div class="ds-main-menu__backdrop" aria-hidden="true"></div>
+    <nav class="yds-main-menu" aria-label="주요 메뉴">...</nav>
+    <div class="yds-main-menu__backdrop" aria-hidden="true"></div>
   </div>
   <!-- 모바일 GNB -->
-  <div id="mobile-nav" class="ds-main-menu-mobile"
+  <div id="mobile-nav" class="yds-main-menu-mobile"
        role="dialog" aria-modal="true" aria-label="전체 메뉴">...</div>
 </header>
 ```
@@ -119,36 +119,36 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### PC GNB — 1depth + 2depth + 3depth
 
 ```html
-<nav class="ds-main-menu" aria-label="주요 메뉴">
+<nav class="yds-main-menu" aria-label="주요 메뉴">
   <div class="inner">
-    <ul class="ds-main-menu__list" role="menubar">
+    <ul class="yds-main-menu__list" role="menubar">
       <li>
-        <button type="button" class="ds-main-menu__trigger"
+        <button type="button" class="yds-main-menu__trigger"
                 aria-expanded="false" aria-haspopup="true"
-                aria-controls="ds-gnb-panel-0">
+                aria-controls="yds-gnb-panel-0">
           서비스 소개
         </button>
-        <div class="ds-main-menu__dropdown" id="ds-gnb-panel-0">
-          <div class="ds-main-menu__panel" data-has-submenu="true">
+        <div class="yds-main-menu__dropdown" id="yds-gnb-panel-0">
+          <div class="yds-main-menu__panel" data-has-submenu="true">
             <ul>
               <li>
-                <button type="button" class="ds-main-menu__sub-trigger"
-                        aria-expanded="false" aria-controls="ds-gnb-sub-0-0">
+                <button type="button" class="yds-main-menu__sub-trigger"
+                        aria-expanded="false" aria-controls="yds-gnb-sub-0-0">
                   기관 소개
                 </button>
-                <div class="ds-main-menu__sub-list" id="ds-gnb-sub-0-0">
-                  <div class="ds-main-menu__sub-content">
-                    <h2 class="ds-main-menu__sub-title">기관 소개</h2>
+                <div class="yds-main-menu__sub-list" id="yds-gnb-sub-0-0">
+                  <div class="yds-main-menu__sub-content">
+                    <h2 class="yds-main-menu__sub-title">기관 소개</h2>
                     <ul>
-                      <li><a href="#" class="ds-main-menu__sub-link">개요</a></li>
-                      <li><a href="#" class="ds-main-menu__sub-link ds-main-menu__sub-link--current" aria-current="page">비전 및 목표</a></li>
+                      <li><a href="#" class="yds-main-menu__sub-link">개요</a></li>
+                      <li><a href="#" class="yds-main-menu__sub-link yds-main-menu__sub-link--current" aria-current="page">비전 및 목표</a></li>
                     </ul>
                   </div>
                 </div>
               </li>
               <!-- 링크 직접 이동 -->
               <li>
-                <a href="#" class="ds-main-menu__sub-trigger ds-main-menu__sub-trigger--link">바로가기</a>
+                <a href="#" class="yds-main-menu__sub-trigger yds-main-menu__sub-trigger--link">바로가기</a>
               </li>
             </ul>
           </div>
@@ -156,52 +156,52 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
       </li>
       <!-- 링크형 1depth -->
       <li>
-        <a href="#" class="ds-main-menu__trigger ds-main-menu__trigger--link">사이트맵</a>
+        <a href="#" class="yds-main-menu__trigger yds-main-menu__trigger--link">사이트맵</a>
       </li>
     </ul>
   </div>
 </nav>
-<div class="ds-main-menu__backdrop" aria-hidden="true"></div>
+<div class="yds-main-menu__backdrop" aria-hidden="true"></div>
 ```
 
 ### 모바일 GNB
 
 ```html
-<div id="mobile-nav" class="ds-main-menu-mobile"
+<div id="mobile-nav" class="yds-main-menu-mobile"
      role="dialog" aria-modal="true" aria-label="전체 메뉴">
-  <div class="ds-main-menu-mobile__panel">
-    <div class="ds-main-menu-mobile__header">
-      <div class="ds-main-menu-mobile__utils">
-        <ul class="ds-utility-list ds-utility-list--start">
+  <div class="yds-main-menu-mobile__panel">
+    <div class="yds-main-menu-mobile__header">
+      <div class="yds-main-menu-mobile__utils">
+        <ul class="yds-utility-list yds-utility-list--start">
           <li><a href="#">로그인</a></li>
           <li><a href="#">회원가입</a></li>
         </ul>
       </div>
-      <div class="ds-main-menu-mobile__login">...</div>
-      <div class="ds-main-menu-mobile__service-menu">
-        <a href="#" class="ds-main-menu-mobile__service-link">나의GOV</a>
+      <div class="yds-main-menu-mobile__login">...</div>
+      <div class="yds-main-menu-mobile__service-menu">
+        <a href="#" class="yds-main-menu-mobile__service-link">나의GOV</a>
       </div>
       <button type="button" id="close-nav" aria-label="전체 메뉴 닫기">...</button>
     </div>
-    <div class="ds-main-menu-mobile__body">
-      <div class="ds-main-menu-mobile__menu">
-        <div class="ds-main-menu-mobile__nav-list">
+    <div class="yds-main-menu-mobile__body">
+      <div class="yds-main-menu-mobile__menu">
+        <div class="yds-main-menu-mobile__nav-list">
           <ul role="tablist" aria-label="대메뉴">
-            <li><a href="#mGnb-anchor0" class="ds-main-menu-mobile__trigger" data-index="0">서비스 소개</a></li>
+            <li><a href="#mGnb-anchor0" class="yds-main-menu-mobile__trigger" data-index="0">서비스 소개</a></li>
           </ul>
         </div>
-        <div class="ds-main-menu-mobile__sub-panel">
-          <div class="ds-main-menu-mobile__sub-list" id="mGnb-anchor0">
-            <h2 class="ds-main-menu-mobile__sub-title">서비스 소개</h2>
+        <div class="yds-main-menu-mobile__sub-panel">
+          <div class="yds-main-menu-mobile__sub-list" id="mGnb-anchor0">
+            <h2 class="yds-main-menu-mobile__sub-title">서비스 소개</h2>
             <ul>
-              <li><a href="#" class="ds-main-menu-mobile__sub-trigger">기관 소개</a></li>
-              <li><a href="#" class="ds-main-menu-mobile__sub-trigger ds-main-menu-mobile__sub-trigger--current" aria-current="page">정책 안내</a></li>
+              <li><a href="#" class="yds-main-menu-mobile__sub-trigger">기관 소개</a></li>
+              <li><a href="#" class="yds-main-menu-mobile__sub-trigger yds-main-menu-mobile__sub-trigger--current" aria-current="page">정책 안내</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="ds-main-menu-mobile__bottom">
-        <a href="#" class="ds-btn ds-btn--medium ds-btn--text">사이트맵</a>
+      <div class="yds-main-menu-mobile__bottom">
+        <a href="#" class="yds-btn yds-btn--medium yds-btn--text">사이트맵</a>
       </div>
     </div>
   </div>
@@ -211,42 +211,42 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 ### 푸터
 
 ```html
-<footer id="ds-footer">
-  <div class="ds-footer__quick">
+<footer id="yds-footer">
+  <div class="yds-footer__quick">
     <div class="inner">
-      <button type="button" class="ds-footer__quick-link">관련 사이트 1</button>
+      <button type="button" class="yds-footer__quick-link">관련 사이트 1</button>
     </div>
   </div>
   <div class="inner">
-    <div class="ds-footer__logo"><span class="sr-only">사이트명</span></div>
-    <div class="ds-footer__content">
-      <div class="ds-footer__info">
-        <p class="ds-footer__address">주소</p>
-        <ul class="ds-footer__contact">
+    <div class="yds-footer__logo"><span class="sr-only">사이트명</span></div>
+    <div class="yds-footer__content">
+      <div class="yds-footer__info">
+        <p class="yds-footer__address">주소</p>
+        <ul class="yds-footer__contact">
           <li><strong>대표전화 1234-5678</strong></li>
         </ul>
       </div>
-      <div class="ds-footer__links">
-        <div class="ds-footer__shortcuts">
-          <a href="#" class="ds-btn ds-btn--medium ds-btn--text">찾아오시는 길</a>
+      <div class="yds-footer__links">
+        <div class="yds-footer__shortcuts">
+          <a href="#" class="yds-btn yds-btn--medium yds-btn--text">찾아오시는 길</a>
         </div>
-        <ul class="ds-footer__sns">
-          <li class="ds-footer__sns-item ds-footer__sns-item--instagram">
+        <ul class="yds-footer__sns">
+          <li class="yds-footer__sns-item yds-footer__sns-item--instagram">
             <a href="#" target="_blank"><span class="sr-only">인스타그램</span></a>
           </li>
-          <li class="ds-footer__sns-item ds-footer__sns-item--youtube">
+          <li class="yds-footer__sns-item yds-footer__sns-item--youtube">
             <a href="#" target="_blank"><span class="sr-only">유튜브</span></a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="ds-footer__bottom">
-      <div class="ds-footer__bottom-text">
-        <div class="ds-footer__menu">
-          <a href="#" class="ds-footer__menu-link ds-footer__menu-link--emphasis">개인정보처리방침</a>
-          <a href="#" class="ds-footer__menu-link">저작권 정책</a>
+    <div class="yds-footer__bottom">
+      <div class="yds-footer__bottom-text">
+        <div class="yds-footer__menu">
+          <a href="#" class="yds-footer__menu-link yds-footer__menu-link--emphasis">개인정보처리방침</a>
+          <a href="#" class="yds-footer__menu-link">저작권 정책</a>
         </div>
-        <p class="ds-footer__copyright">© 2025 KRDS. All rights reserved.</p>
+        <p class="yds-footer__copyright">© 2025 KRDS. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -277,12 +277,12 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 접근성
 
-- `#ds-skip-link a`는 평소에 화면 밖으로 숨겨져 있다가 Tab 포커스 시 화면 상단에 표시되어 본문으로 바로 이동할 수 있도록 한다.
+- `#yds-skip-link a`는 평소에 화면 밖으로 숨겨져 있다가 Tab 포커스 시 화면 상단에 표시되어 본문으로 바로 이동할 수 있도록 한다.
 - `<main id="main-content" tabindex="-1">`을 설정해 건너뛰기 링크 클릭 시 포커스가 본문으로 이동한다.
 - PC GNB: `aria-expanded`, `aria-haspopup`, `aria-controls`로 열림/닫힘 상태와 연관 패널을 연결한다.
 - PC GNB 키보드: `←` `→` 1depth 이동, `↓` 또는 `Enter` 서브메뉴 열기, `↑` `↓` 서브 트리거 이동, `Escape` 닫기.
-- 현재 페이지 링크에 `aria-current="page"`와 `ds-main-menu__sub-link--current` 또는 `ds-main-menu-mobile__sub-trigger--current`를 함께 사용한다.
+- 현재 페이지 링크에 `aria-current="page"`와 `yds-main-menu__sub-link--current` 또는 `yds-main-menu-mobile__sub-trigger--current`를 함께 사용한다.
 - 모바일 GNB: `role="dialog" aria-modal="true" aria-label="전체 메뉴"`로 다이얼로그 패턴을 적용한다.
 - 모바일 GNB 열림 시 포커스를 닫기 버튼으로 이동하고, `Escape` 키로 닫으면 포커스가 트리거 버튼으로 돌아간다.
-- `ds-header__action-btn--all-menu`에 `aria-expanded="true|false"`와 `aria-controls="mobile-nav"`를 설정한다.
+- `yds-header__action-btn--all-menu`에 `aria-expanded="true|false"`와 `aria-controls="mobile-nav"`를 설정한다.
 - 로고 `<a>` 안에 `<span class="sr-only">사이트명</span>`으로 스크린리더에 대체 텍스트를 제공한다.

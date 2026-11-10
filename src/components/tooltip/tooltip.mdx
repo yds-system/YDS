@@ -17,8 +17,8 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ## 개요
 
-- **트리거**: `ds-tooltip` (마커 클래스)
-- **팝오버**: `ds-tooltip-popover` (JS 동적 생성, 별도 블록)
+- **트리거**: `yds-tooltip` (마커 클래스)
+- **팝오버**: `yds-tooltip-popover` (JS 동적 생성, 별도 블록)
 - **KRDS 원본**: `krds-tooltip` / `tooltip-box`
 
 ---
@@ -76,10 +76,10 @@ import { ElementTable, ModifierTable } from '../../docs/naming-components.js';
 
 ```js
 function initTooltip(root = document) {
-  let popover = root.querySelector('.ds-tooltip-popover');
+  let popover = root.querySelector('.yds-tooltip-popover');
   if (!popover) {
     popover = document.createElement('div');
-    popover.className = 'ds-tooltip-popover';
+    popover.className = 'yds-tooltip-popover';
     popover.setAttribute('role', 'tooltip');
     root.appendChild(popover);
   }
@@ -94,9 +94,9 @@ function initTooltip(root = document) {
     const style    = trigger.dataset.style    || 'inline';
 
     popover.textContent = text;
-    popover.className = 'ds-tooltip-popover';
-    if (style === 'box') popover.classList.add('ds-tooltip-popover--box');
-    popover.classList.add(`ds-tooltip-popover--${position}`);
+    popover.className = 'yds-tooltip-popover';
+    if (style === 'box') popover.classList.add('yds-tooltip-popover--box');
+    popover.classList.add(`yds-tooltip-popover--${position}`);
 
     // aria 연결
     if (!trigger.id) {
@@ -105,7 +105,7 @@ function initTooltip(root = document) {
     popover.id = `${trigger.id}-popover`;
     trigger.setAttribute('aria-describedby', popover.id);
 
-    popover.classList.add('ds-tooltip-popover--open');
+    popover.classList.add('yds-tooltip-popover--open');
 
     // 위치 계산
     const gap = 12;
@@ -138,12 +138,12 @@ function initTooltip(root = document) {
 
   function hideTooltip(trigger) {
     hideTimer = setTimeout(() => {
-      popover.classList.remove('ds-tooltip-popover--open');
+      popover.classList.remove('yds-tooltip-popover--open');
       if (trigger) trigger.removeAttribute('aria-describedby');
     }, 100);
   }
 
-  root.querySelectorAll('.ds-tooltip').forEach(el => {
+  root.querySelectorAll('.yds-tooltip').forEach(el => {
     el.addEventListener('mouseenter', () => showTooltip(el));
     el.addEventListener('mouseleave', () => hideTooltip(el));
     el.addEventListener('focus',      () => showTooltip(el));
@@ -151,7 +151,7 @@ function initTooltip(root = document) {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') popover.classList.remove('ds-tooltip-popover--open');
+    if (e.key === 'Escape') popover.classList.remove('yds-tooltip-popover--open');
   });
 }
 
