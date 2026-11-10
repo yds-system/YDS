@@ -1,7 +1,7 @@
 /* =============================================
    KRDS Form Group — 공유 폼 레이아웃
    체크박스·라디오·셀렉트 등 모든 폼 요소가 공통으로 사용한다.
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    ============================================= */
 /* ----- CSS 변수 ----- */
 .yds-form-group {
@@ -242,8 +242,8 @@
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_information.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_information.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_information.svg);
+    mask-image: url(../../assets/images/icons/ico_information.svg);
 
   }
 }
@@ -270,7 +270,7 @@
 
     width: var(--icon-size-s);
     height: var(--icon-size-s);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
+    background-image: url(../../assets/images/icons/ico_success_fill.svg);
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -289,7 +289,7 @@
 
     width: var(--icon-size-s);
     height: var(--icon-size-s);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
+    background-image: url(../../assets/images/icons/ico_information_fill.svg);
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -308,7 +308,7 @@
 
     width: var(--icon-size-s);
     height: var(--icon-size-s);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
+    background-image: url(../../assets/images/icons/ico_error_fill.svg);
     background-size: contain;
     background-repeat: no-repeat;
 

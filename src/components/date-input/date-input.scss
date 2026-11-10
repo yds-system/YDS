@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Date Input & Calendar Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    의존: form-group.css, button.css, text-input.css
    ============================================= */
 /* ----- 날짜 입력 폼 컨테이너 ----- */
@@ -241,8 +241,8 @@
     width: var(--size-20);
     height: var(--size-20);
     background-color: var(--color-text-default);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -295,8 +295,8 @@
     width: var(--icon-size-s);
     height: var(--icon-size-s);
     background-color: var(--color-text-default);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_arrow_dropdown.svg);
+    mask-image: url(../../assets/images/icons/ico_arrow_dropdown.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;

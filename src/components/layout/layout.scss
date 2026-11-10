@@ -3,9 +3,9 @@
  * 레이아웃 컴포넌트 (헤더, GNB, 모바일 GNB, 푸터)
  *
  * 출처: KRDS(범정부 UI/UX 디자인 시스템)
- *   - reference/krds/_header.scss
- *   - reference/krds/_main_menu.scss
- *   - reference/krds/_footer.scss
+ *   - KRDS _header.scss
+ *   - KRDS _main_menu.scss
+ *   - KRDS _footer.scss
  *
  * 순수 CSS로 재작성. .inner(common.css)는 .yds-container로 교체. 아래에 동일 규칙 정의.
  */
@@ -154,7 +154,7 @@
     display: block;
     width: 13.7rem;
     height: var(--size-48);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_logo_krds.svg);
+    background-image: url(../../assets/images/icons/ico_logo_krds.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -218,40 +218,40 @@
 .yds-header {
   &__action-btn.yds-header__action-btn--search::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_sch.svg);
+    mask-image: url(../../assets/images/icons/ico_sch.svg);
 
   }
 }
 .yds-header {
   &__action-btn.yds-header__action-btn--login::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login.svg);
+    mask-image: url(../../assets/images/icons/ico_login.svg);
 
   }
 }
 .yds-header {
   &__action-btn.yds-header__action-btn--join::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_join.svg);
+    mask-image: url(../../assets/images/icons/ico_join.svg);
 
   }
 }
 .yds-header {
   &__action-btn.yds-header__action-btn--mypage::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_my.svg);
+    mask-image: url(../../assets/images/icons/ico_my.svg);
 
   }
 }
 .yds-header {
   &__action-btn.yds-header__action-btn--all-menu::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_all.svg);
+    mask-image: url(../../assets/images/icons/ico_all.svg);
 
   }
 }
@@ -391,8 +391,8 @@
     width: var(--icon-size-m);
     height: var(--icon-size-m);
     background-color: currentColor;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
@@ -550,8 +550,8 @@
     width: var(--icon-size-m);
     height: var(--icon-size-m);
     background-color: currentColor;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
@@ -567,8 +567,8 @@
 .yds-main-menu {
   &__sub-trigger.yds-main-menu__sub-trigger--link::after {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_more.svg);
+    mask-image: url(../../assets/images/icons/ico_more.svg);
     transform: rotate(0deg);
 
   }
@@ -1193,8 +1193,8 @@
     width: var(--icon-size-m);
     height: var(--icon-size-m);
     background-color: var(--color-icon-default);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_plus.svg);
+    mask-image: url(../../assets/images/icons/ico_plus.svg);
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -1235,7 +1235,7 @@
     display: block;
     width: 13.7rem;
     height: var(--size-48);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_logo_krds.svg);
+    background-image: url(../../assets/images/icons/ico_logo_krds.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center left;
@@ -1336,8 +1336,8 @@
     width: var(--icon-size-s);
     height: var(--icon-size-s);
     background-color: currentColor;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_go.svg);
+    mask-image: url(../../assets/images/icons/ico_go.svg);
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -1406,40 +1406,40 @@
 .yds-footer {
   &__sns-item--instagram a::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_instagram.svg);
+    mask-image: url(../../assets/images/icons/ico_instagram.svg);
 
   }
 }
 .yds-footer {
   &__sns-item--youtube a::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_youtube.svg);
+    mask-image: url(../../assets/images/icons/ico_youtube.svg);
 
   }
 }
 .yds-footer {
   &__sns-item--x a::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_sns_x.svg);
+    mask-image: url(../../assets/images/icons/ico_sns_x.svg);
 
   }
 }
 .yds-footer {
   &__sns-item--facebook a::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_facebook.svg);
+    mask-image: url(../../assets/images/icons/ico_facebook.svg);
 
   }
 }
 .yds-footer {
   &__sns-item--blog a::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_blog.svg);
+    mask-image: url(../../assets/images/icons/ico_blog.svg);
 
   }
 }

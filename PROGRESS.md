@@ -304,6 +304,34 @@
 
 ---
 
+## 2026-11-10 src → reference/krds 의존 제거
+
+- `src/assets/images/icons/` 신규: KRDS SVG 아이콘 91개 복사 (reference/krds/resources/img/component/icon/ → src 안으로 이동)
+- 컴포넌트 SCSS 아이콘 url() 경로 교체 (205곳):
+  `url(../../../reference/krds/resources/img/component/icon/` → `url(../../assets/images/icons/`
+- SCSS 주석의 출처 경로 교체 (21곳):
+  `reference/krds/resources/...` → `KRDS ...` (짧게 정리)
+- `scripts/build-dist.mjs`: 아이콘 복사 소스 `reference/krds/...` → `src/assets/images/icons/`
+- 검증: src 내 `reference/krds` 참조 0건 ✓ / build:dist 아이콘 91개 ✓
+
+---
+
+## 2026-11-10 build:dist 추가
+
+- `scripts/build-dist.mjs` 신규: SCSS → CSS 컴파일 후 `dist/yds/assets/` 출력
+  - `css/yds-base.css` (5.4 KB): `src/tokens/base.scss` 단독 컴파일, `./fonts/` → `../fonts/` 경로 교체
+  - `css/yds-tokens.css` (50.0 KB): primitive + mode + responsive + semantic 순서로 연결
+  - `css/yds-components.css` (201.0 KB): common + 컴포넌트 전체 연결, 아이콘 URL `../images/icons/` 교체
+  - `fonts/` (6개): `src/tokens/fonts/` 복사
+  - `images/icons/` (91개 SVG): `reference/krds/resources/img/component/icon/` 복사
+  - `@import` 중복 방지: stub 파일(footer/header/main-menu/textarea)의 @import 행 제거 후 연결
+  - mobile 믹스인은 각 번들 상단에 직접 주입 (Vite additionalData 대체)
+- `package.json`: `build:dist` 스크립트 추가
+- `dist/`는 `.gitignore`에 이미 포함
+- 태그 선택자 없음 ✓
+
+---
+
 ## 2026-11-10 CSS → SCSS 전환
 
 - `src/tokens/*.css` + `src/components/**/*.css` → `.scss` (33개 파일)

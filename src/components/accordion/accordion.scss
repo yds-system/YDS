@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Accordion Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    ============================================= */
 /* ----- CSS 변수 ----- */
 .yds-accordion {
@@ -105,8 +105,8 @@
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     transition: var(--transition-base);
     transform: rotate(0deg);
 

@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Icon Component
-   출처: reference/krds/resources/css/common/common.css
+   출처: KRDS common.css
 
    [렌더 방식]
    ① mask (기본): mask-image + background-color → 단색, 부모 색상 상속 가능
@@ -63,19 +63,19 @@
 .yds-icon {
   &.yds-ico-angle {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-angle.yds-icon--disabled {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle_disabled.svg);
+    mask-image: url(../../assets/images/icons/ico_angle_disabled.svg);
     -webkit-mask-image: none;
     mask-image: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
+    background-image: url(../../assets/images/icons/ico_angle_disabled.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -103,8 +103,8 @@
 .yds-icon {
   &.yds-ico-go {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_go.svg);
+    mask-image: url(../../assets/images/icons/ico_go.svg);
 
   }
 }
@@ -112,8 +112,8 @@
 .yds-icon {
   &.yds-ico-go-top {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go_top.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go_top.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_go_top.svg);
+    mask-image: url(../../assets/images/icons/ico_go_top.svg);
 
   }
 }
@@ -121,8 +121,8 @@
 .yds-icon {
   &.yds-ico-link {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_go.svg);
+    mask-image: url(../../assets/images/icons/ico_go.svg);
 
   }
 }
@@ -130,8 +130,8 @@
 .yds-icon {
   &.yds-ico-page-next {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     transform: rotate(-90deg);
 
   }
@@ -140,8 +140,8 @@
 .yds-icon {
   &.yds-ico-bread-home {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_bread_home.svg);
+    mask-image: url(../../assets/images/icons/ico_bread_home.svg);
 
   }
 }
@@ -149,8 +149,8 @@
 .yds-icon {
   &.yds-ico-all {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_all.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_all.svg);
+    mask-image: url(../../assets/images/icons/ico_all.svg);
 
   }
 }
@@ -158,8 +158,8 @@
 .yds-icon {
   &.yds-ico-global {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_global.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_global.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_global.svg);
+    mask-image: url(../../assets/images/icons/ico_global.svg);
 
   }
 }
@@ -167,8 +167,8 @@
 .yds-icon {
   &.yds-ico-func {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_expand.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_expand.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_expand.svg);
+    mask-image: url(../../assets/images/icons/ico_expand.svg);
 
   }
 }
@@ -181,8 +181,8 @@
 .yds-icon {
   &.yds-ico-fold {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_foldable.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_foldable.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_foldable.svg);
+    mask-image: url(../../assets/images/icons/ico_foldable.svg);
 
   }
 }
@@ -195,8 +195,8 @@
 .yds-icon {
   &.yds-ico-toggle {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
 
   }
 }
@@ -207,8 +207,8 @@
 .yds-icon {
   &.yds-ico-sch {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_sch.svg);
+    mask-image: url(../../assets/images/icons/ico_sch.svg);
 
   }
 }
@@ -216,8 +216,8 @@
 .yds-icon {
   &.yds-ico-sch-plus {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch_plus.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sch_plus.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_sch_plus.svg);
+    mask-image: url(../../assets/images/icons/ico_sch_plus.svg);
 
   }
 }
@@ -225,8 +225,8 @@
 .yds-icon {
   &.yds-ico-plus {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_plus.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_plus.svg);
+    mask-image: url(../../assets/images/icons/ico_plus.svg);
 
   }
 }
@@ -234,8 +234,8 @@
 .yds-icon {
   &.yds-ico-del {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_delete.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_delete.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_delete.svg);
+    mask-image: url(../../assets/images/icons/ico_delete.svg);
 
   }
 }
@@ -245,7 +245,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_delete_fill.svg);
+    background-image: url(../../assets/images/icons/ico_delete_fill.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -257,8 +257,8 @@
   &.yds-ico-popup-close,
   &.yds-ico-modal-close {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_close.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_close.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_close.svg);
+    mask-image: url(../../assets/images/icons/ico_close.svg);
 
   }
 }
@@ -266,8 +266,8 @@
 .yds-icon {
   &.yds-ico-more {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_more.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_more.svg);
+    mask-image: url(../../assets/images/icons/ico_more.svg);
 
   }
 }
@@ -275,8 +275,8 @@
 .yds-icon {
   &.yds-ico-ellipsis {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
+    mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
 
   }
 }
@@ -284,8 +284,8 @@
 .yds-icon {
   &.yds-ico-filter {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_filter.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_filter.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_filter.svg);
+    mask-image: url(../../assets/images/icons/ico_filter.svg);
 
   }
 }
@@ -294,8 +294,8 @@
   &.yds-ico-reset,
   &.yds-ico-refresh {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_reset.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_reset.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_reset.svg);
+    mask-image: url(../../assets/images/icons/ico_reset.svg);
 
   }
 }
@@ -303,8 +303,8 @@
 .yds-icon {
   &.yds-ico-upload {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_upload.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_upload.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_upload.svg);
+    mask-image: url(../../assets/images/icons/ico_upload.svg);
 
   }
 }
@@ -312,8 +312,8 @@
 .yds-icon {
   &.yds-ico-down {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_download.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_download.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_download.svg);
+    mask-image: url(../../assets/images/icons/ico_download.svg);
 
   }
 }
@@ -321,8 +321,8 @@
 .yds-icon {
   &.yds-ico-print {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_print.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_print.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_print.svg);
+    mask-image: url(../../assets/images/icons/ico_print.svg);
 
   }
 }
@@ -330,8 +330,8 @@
 .yds-icon {
   &.yds-ico-scrap {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_scrap.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_scrap.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_scrap.svg);
+    mask-image: url(../../assets/images/icons/ico_scrap.svg);
 
   }
 }
@@ -339,8 +339,8 @@
 .yds-icon {
   &.yds-ico-share {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_share.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_share.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_share.svg);
+    mask-image: url(../../assets/images/icons/ico_share.svg);
 
   }
 }
@@ -348,8 +348,8 @@
 .yds-icon {
   &.yds-ico-like {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_like.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_like.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_like.svg);
+    mask-image: url(../../assets/images/icons/ico_like.svg);
 
   }
 }
@@ -357,8 +357,8 @@
 .yds-icon {
   &.yds-ico-setting {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_setting.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_setting.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_setting.svg);
+    mask-image: url(../../assets/images/icons/ico_setting.svg);
 
   }
 }
@@ -366,8 +366,8 @@
 .yds-icon {
   &.yds-ico-view-mode {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_view_mode.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_view_mode.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_view_mode.svg);
+    mask-image: url(../../assets/images/icons/ico_view_mode.svg);
 
   }
 }
@@ -375,8 +375,8 @@
 .yds-icon {
   &.yds-ico-file {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_file.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_file.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_file.svg);
+    mask-image: url(../../assets/images/icons/ico_file.svg);
 
   }
 }
@@ -389,7 +389,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_help.svg);
+    background-image: url(../../assets/images/icons/ico_help.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -400,8 +400,8 @@
 .yds-icon {
   &.yds-ico-tooltip {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_tooltip.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_tooltip.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_tooltip.svg);
+    mask-image: url(../../assets/images/icons/ico_tooltip.svg);
 
   }
 }
@@ -411,7 +411,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_success_fill.svg);
+    background-image: url(../../assets/images/icons/ico_success_fill.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -424,7 +424,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_information_fill.svg);
+    background-image: url(../../assets/images/icons/ico_information_fill.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -437,7 +437,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_error_fill.svg);
+    background-image: url(../../assets/images/icons/ico_error_fill.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -450,7 +450,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_complete_fill.svg);
+    background-image: url(../../assets/images/icons/ico_complete_fill.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -463,7 +463,7 @@
 
     -webkit-mask: none;
     mask: none;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_flag.svg);
+    background-image: url(../../assets/images/icons/ico_flag.svg);
     background-color: transparent !important;
     background-size: contain;
     background-repeat: no-repeat;
@@ -474,8 +474,8 @@
 .yds-icon {
   &.yds-ico-urgent-danger {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_urgent_badge_danger.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_urgent_badge_danger.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_urgent_badge_danger.svg);
+    mask-image: url(../../assets/images/icons/ico_urgent_badge_danger.svg);
 
   }
 }
@@ -486,16 +486,16 @@
 .yds-icon {
   &.yds-ico-pw-visible {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_off.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_off.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_pw_visible_off.svg);
+    mask-image: url(../../assets/images/icons/ico_pw_visible_off.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-pw-visible-on {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_on.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_pw_visible_on.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_pw_visible_on.svg);
+    mask-image: url(../../assets/images/icons/ico_pw_visible_on.svg);
 
   }
 }
@@ -503,8 +503,8 @@
 .yds-icon {
   &.yds-ico-checkbox {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_checkbox_checked.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_checkbox_checked.svg);
+    mask-image: url(../../assets/images/icons/ico_checkbox_checked.svg);
 
   }
 }
@@ -515,8 +515,8 @@
 .yds-icon {
   &.yds-ico-calendar {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_calendar.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_calendar.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_calendar.svg);
+    mask-image: url(../../assets/images/icons/ico_calendar.svg);
 
   }
 }
@@ -524,8 +524,8 @@
 .yds-icon {
   &.yds-ico-cal-move {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_arrow_dropdown.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_arrow_dropdown.svg);
+    mask-image: url(../../assets/images/icons/ico_arrow_dropdown.svg);
 
   }
 }
@@ -536,8 +536,8 @@
 .yds-icon {
   &.yds-ico-log {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login.svg);
+    mask-image: url(../../assets/images/icons/ico_login.svg);
 
   }
 }
@@ -545,8 +545,8 @@
 .yds-icon {
   &.yds-ico-logout {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_logout.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_logout.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_logout.svg);
+    mask-image: url(../../assets/images/icons/ico_logout.svg);
 
   }
 }
@@ -554,8 +554,8 @@
 .yds-icon {
   &.yds-ico-join {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_join.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_join.svg);
+    mask-image: url(../../assets/images/icons/ico_join.svg);
 
   }
 }
@@ -563,8 +563,8 @@
 .yds-icon {
   &.yds-ico-my {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_my.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_my.svg);
+    mask-image: url(../../assets/images/icons/ico_my.svg);
 
   }
 }
@@ -572,8 +572,8 @@
 .yds-icon {
   &.yds-ico-login-go {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_go.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_go.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_go.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_go.svg);
 
   }
 }
@@ -581,48 +581,48 @@
 .yds-icon {
   &.yds-ico-login-type01 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_01.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_01.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_01.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_01.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-login-type02 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_02.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_02.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_02.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_02.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-login-type03 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_03.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_03.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_03.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_03.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-login-type04 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_04.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_04.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_04.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_04.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-login-type05 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_05.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_05.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_05.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_05.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-login-type06 {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_06.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_login_certify_type_06.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_login_certify_type_06.svg);
+    mask-image: url(../../assets/images/icons/ico_login_certify_type_06.svg);
 
   }
 }
@@ -633,8 +633,8 @@
 .yds-icon {
   &.yds-ico-call {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_call.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_call.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_call.svg);
+    mask-image: url(../../assets/images/icons/ico_call.svg);
 
   }
 }
@@ -642,8 +642,8 @@
 .yds-icon {
   &.yds-ico-email {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_email.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_email.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_email.svg);
+    mask-image: url(../../assets/images/icons/ico_email.svg);
 
   }
 }
@@ -651,8 +651,8 @@
 .yds-icon {
   &.yds-ico-faq {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_faq.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_faq.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_faq.svg);
+    mask-image: url(../../assets/images/icons/ico_faq.svg);
 
   }
 }
@@ -662,40 +662,40 @@
 .yds-icon {
   &.yds-ico-blog {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_blog.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_blog.svg);
+    mask-image: url(../../assets/images/icons/ico_blog.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-facebook {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_facebook.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_facebook.svg);
+    mask-image: url(../../assets/images/icons/ico_facebook.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-instagram {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_instagram.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_instagram.svg);
+    mask-image: url(../../assets/images/icons/ico_instagram.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-sns-x {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_sns_x.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_sns_x.svg);
+    mask-image: url(../../assets/images/icons/ico_sns_x.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-youtube {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_youtube.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_youtube.svg);
+    mask-image: url(../../assets/images/icons/ico_youtube.svg);
 
   }
 }
@@ -705,16 +705,16 @@
 .yds-icon {
   &.yds-ico-swiper-play {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_play.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_swiper_play.svg);
+    mask-image: url(../../assets/images/icons/ico_swiper_play.svg);
 
   }
 }
 .yds-icon {
   &.yds-ico-swiper-stop {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_swiper_stop.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_swiper_stop.svg);
+    mask-image: url(../../assets/images/icons/ico_swiper_stop.svg);
 
   }
 }

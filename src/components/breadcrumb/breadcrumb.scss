@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Breadcrumb Component
-   출처: reference/krds/resources/scss/component/_breadcrumb.scss
+   출처: KRDS _breadcrumb.scss
    ============================================= */
 /* ----- CSS 변수 + 래퍼 ----- */
 .yds-breadcrumb {
@@ -115,8 +115,8 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
     height: var(--icon-size-s);
     margin-left: var(--space-4);
     background-color: var(--yds-breadcrumb--color-icon);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -139,8 +139,8 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
     width: var(--icon-size-s);
     height: var(--icon-size-s);
     background-color: var(--yds-breadcrumb--color-icon);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_bread_home.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_bread_home.svg);
+    mask-image: url(../../assets/images/icons/ico_bread_home.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -208,16 +208,16 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
   .yds-breadcrumb {
     &__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
 
-      -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
-      mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+      -webkit-mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
+      mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
 
     }
   }
   .yds-breadcrumb {
     &__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
 
-      -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-      mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+      -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+      mask-image: url(../../assets/images/icons/ico_angle.svg);
       transform: rotate(-90deg);
 
     }
@@ -284,16 +284,16 @@ a.yds-breadcrumb__link:not(.yds-breadcrumb__link--disabled):focus-visible {
 .yds-breadcrumb {
   &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::before {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
+    mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
 
   }
 }
 .yds-breadcrumb {
   &.yds-breadcrumb--mobile .yds-breadcrumb__item:not(.yds-breadcrumb__item--home):not(:nth-child(2)):last-child::after {
 
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     transform: rotate(-90deg);
 
   }

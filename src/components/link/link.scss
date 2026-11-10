@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Link Text Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    (버튼 컴포넌트와 독립된 별도 블록 — button.css 의존 없음)
    ============================================= */
 /* ----- yds-ico-go 아이콘 ----- */
@@ -13,8 +13,8 @@
     mask-repeat: no-repeat;
     mask-position: center center;
     mask-size: contain;
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_go.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_go.svg);
+    mask-image: url(../../assets/images/icons/ico_go.svg);
     forced-color-adjust: none;
 
   }

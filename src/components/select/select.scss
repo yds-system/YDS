@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Select Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    의존: form-group.css (공유 폼 레이아웃)
    ============================================= */
 /* ----- CSS 변수 ----- */
@@ -48,7 +48,7 @@
   height: var(--yds-select--size-height-large);
   padding: 0 var(--yds-select--padding-right-large) 0 var(--yds-select--padding-default);
   background-color: var(--yds-select--color-background) !important;
-  background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+  background-image: url(../../assets/images/icons/ico_angle.svg);
   background-repeat: no-repeat;
   background-position: center right var(--yds-select--padding-default);
   background-size: var(--yds-select--icon-size-large);
@@ -167,7 +167,7 @@
   &[disabled] {
 
     background-color: var(--yds-select--color-background-disabled) !important;
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_angle_disabled.svg);
+    background-image: url(../../assets/images/icons/ico_angle_disabled.svg);
     border-color: var(--yds-select--color-border-disabled);
     color: var(--yds-select--color-text-disabled);
     cursor: not-allowed;

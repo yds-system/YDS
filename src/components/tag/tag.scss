@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Tag Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    ============================================= */
 /* ----- CSS 변수 ----- */
 .yds-tag-group {
@@ -217,7 +217,7 @@
     flex-shrink: 0;
     width: var(--yds-tag--button-size-medium);
     height: var(--yds-tag--button-size-medium);
-    background-image: url(../../../reference/krds/resources/img/component/icon/ico_delete_fill.svg);
+    background-image: url(../../assets/images/icons/ico_delete_fill.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

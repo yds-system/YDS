@@ -1,6 +1,6 @@
 /* =============================================
    KRDS Pagination Component
-   출처: reference/krds/resources/css/component/component.css
+   출처: KRDS component.css
    의존: common.css
    ============================================= */
 /* ----- CSS 변수 ----- */
@@ -92,8 +92,8 @@
     display: inline-flex;
     width: var(--icon-size-m);
     height: var(--icon-size-m);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -121,8 +121,8 @@
     display: inline-flex;
     width: var(--icon-size-m);
     height: var(--icon-size-m);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_angle.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_angle.svg);
+    mask-image: url(../../assets/images/icons/ico_angle.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -186,8 +186,8 @@
     width: var(--icon-size-l);
     height: var(--icon-size-l);
     background-color: var(--yds-pagination--color-text);
-    -webkit-mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
-    mask-image: url(../../../reference/krds/resources/img/component/icon/ico_ellipsis.svg);
+    -webkit-mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
+    mask-image: url(../../assets/images/icons/ico_ellipsis.svg);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
