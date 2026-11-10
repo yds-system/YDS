@@ -316,6 +316,21 @@
 
 ---
 
+## 2026-11-10 --krds-* 의존 제거 (비색상 토큰)
+
+- **scripts/krds-map.json 생성**: 87개 `--krds-*` 변수 → YDS 토큰 대응 매핑 (existing 63 / new 7 / ambiguous 17)
+- **primitive.css**: `--space-10/56` (KRDS 호환 예외), `--size-8~64` (치수 프리미티브), `--radius-10`, `--line-height-none`, `--border-width-1/2`, `--transition-base` 추가
+- **semantic.css**: `--icon-size-xs/s/m/l/xl`, `--container-max-width/wrap-width/padding-x` 추가 (컨테이너 반응형 미디어 쿼리 포함)
+- **19개 컴포넌트 CSS 일괄 교체**: 모든 `--krds-*` 참조를 YDS 토큰으로 교체 (perl 스크립트 사용)
+- **tag.css**: `text-underline-offset: var(--krds-font-underline-offset)` → `0.3rem` 하드코딩 (tag 전용)
+- **token-data.js**: `sizePrimTokens`, `iconSizeTokens`, `containerTokens` export 추가; `spacingPrimTokens`에 space-10/56, `radiusPrimTokens`에 radius-10 추가
+- **spacing.mdx**: KRDS 호환 예외 단계 주의 박스 추가 (space-10, space-56)
+- **iconography.mdx**: 아이콘 크기 표에 `--icon-size-*` 토큰 열 추가
+- **preview.js**: KRDS CSS import 2개 주석 처리 (`--krds-* 의존 제거 완료`)
+- check:tokens ✓, check:contrast ✓ (1건 순간 상태 예외), build-storybook ✓
+
+---
+
 ## 2026-11-10 KRDS 색상 토큰 마이그레이션
 
 - **scripts/krds-color-map.json 생성**: KRDS `--krds-light-color-*` / `--krds-box-shadow-outline-inset` / `--krds-light-alpha-black0` → YDS 토큰 대응 매핑 (100개 항목)
