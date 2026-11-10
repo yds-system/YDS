@@ -20,15 +20,17 @@ YDS(윤컴 디자인 시스템)는 회사 공통(글로벌) 디자인 시스템�
 
 ```
 /humanframe/
-├─ yds/                         ← 글로벌 디자인 시스템 (모든 프로젝트 공통)
-│  ├─ css/
-│  │  ├─ yds-tokens.css         ← 토큰(변수)
-│  │  ├─ yds-components.css     ← 컴포넌트 (yds- 클래스)
-│  │  └─ yds-base.css           ← 리셋·전역 스타일 (선택)
-│  ├─ js/
-│  ├─ fonts/
-│  └─ icons/
-└─ {프로젝트명}/assets/          ← 각 프로젝트 (기존 파일 유지)
+├─ yds/                              ← 글로벌 디자인 시스템 (모든 프로젝트 공통)
+│  └─ assets/
+│     ├─ css/
+│     │  ├─ yds-tokens.css           ← 토큰(변수)
+│     │  ├─ yds-components.css       ← 컴포넌트 (yds- 클래스)
+│     │  └─ yds-base.css             ← 리셋·전역 스타일 (선택)
+│     ├─ js/
+│     ├─ fonts/
+│     └─ images/
+│        └─ icons/
+└─ {프로젝트명}/assets/               ← 각 프로젝트 (기존 파일 유지)
 ```
 
 ---
@@ -42,10 +44,10 @@ YDS(윤컴 디자인 시스템)는 회사 공통(글로벌) 디자인 시스템�
 <link rel="stylesheet" href="/humanframe/{프로젝트명}/assets/css/style.css">
 
 <!-- YDS 토큰 (변수 정의) -->
-<link rel="stylesheet" href="/humanframe/yds/css/yds-tokens.css">
+<link rel="stylesheet" href="/humanframe/yds/assets/css/yds-tokens.css">
 
 <!-- YDS 컴포넌트 -->
-<link rel="stylesheet" href="/humanframe/yds/css/yds-components.css">
+<link rel="stylesheet" href="/humanframe/yds/assets/css/yds-components.css">
 
 <!-- yds-base.css는 기존 CSS가 없는 신규 프로젝트에만 추가 -->
 ```
