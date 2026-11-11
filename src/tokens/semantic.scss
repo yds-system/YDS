@@ -51,13 +51,6 @@
   --padding-l:  var(--space-24);  /* 섹션 헤더 내부 여백          ─ --krds-padding-8  */
   --padding-xl: var(--space-40);  /* 페이지 상단 여백             ─ --krds-padding-10 */
 
-  /* margin- : 블록 간 외부 여백. gap보다 한 단계 큰 값 사용 (자체 추가) */
-  --margin-xs: var(--space-8);   /* 연관 블록 최소 외부 여백  */
-  --margin-s:  var(--space-16);  /* 소형 블록 외부 여백       */
-  --margin-m:  var(--space-24);  /* 중형 블록 외부 여백       */
-  --margin-l:  var(--space-40);  /* 대형 블록 외부 여백       */
-  --margin-xl: var(--space-64);  /* 섹션 간 최대 외부 여백    */
-
   /* ── 5. 그림자 시멘틱 ───────────────────────────────────────────────────────── */
   /* KRDS box-shadow 패턴 기준. 첫 레이어: 테두리 보정(2px), 둘째 레이어: 실제 그림자. */
   /* 색상은 mode.css --color-shadow-subtle / --color-shadow-default 를 참조한다.      */

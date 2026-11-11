@@ -439,51 +439,25 @@ export const AllSpacingSizeTable    = () => SpacingSizeSection(spacingSizeGroups
 
 // ─── 4. 간격 시멘틱 ───────────────────────────────────────────────────────────
 
-const deprecatedWrapStyle = {
-  opacity: 0.45,
-  pointerEvents: 'none',
-  userSelect: 'none',
-  marginTop: '12px',
-};
-
-const deprecatedSummaryStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '6px',
-  padding: '5px 12px',
-  background: '#fff3cd',
-  border: '1px solid #ffc107',
-  borderRadius: '4px',
-  fontSize: '12px',
-  color: '#856404',
-  fontWeight: 600,
-  cursor: 'pointer',
-  listStyle: 'none',
-  userSelect: 'none',
-};
-
 export const SpacingSemanticTable = () =>
-  h('details', { style: { marginBottom: '8px' } },
-    h('summary', { style: deprecatedSummaryStyle },
-      h('span', null, '⚠'),
-      h('span', null, '미사용 — gap / padding / margin 시멘틱 토큰 (클릭하여 펼치기)')
+  h(Fragment, null,
+    h('p', { style: { marginBottom: '12px', color: '#464c53' } },
+      '프로젝트에 맞게 조정 가능한 용도별 간격'
     ),
-    h('div', { style: deprecatedWrapStyle },
-      h('table', { style: tableStyle },
-        h('thead', null,
-          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
-        ),
-        h('tbody', null,
-          ...spacingSemanticTokens.map(t =>
-            h('tr', { key: t.name },
-              td(SpacingBar(t.value, '#256ef4')),
-              td(Chip(t.name)),
-              td(Chip(t.ref)),
-              td(GrayChip(t.value)),
-              td(t.usage || ''),
-              td(KrdsChip(t.krds)),
-              td(CssChip(t.name))
-            )
+    h('table', { style: tableStyle },
+      h('thead', null,
+        h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      ),
+      h('tbody', null,
+        ...spacingSemanticTokens.map(t =>
+          h('tr', { key: t.name },
+            td(SpacingBar(t.value, '#256ef4')),
+            td(Chip(t.name)),
+            td(Chip(t.ref)),
+            td(GrayChip(t.value)),
+            td(t.usage || ''),
+            td(KrdsChip(t.krds)),
+            td(CssChip(t.name))
           )
         )
       )
