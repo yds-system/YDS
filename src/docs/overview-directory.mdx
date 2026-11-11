@@ -68,3 +68,122 @@ YDS(윤컴 디자인 시스템)는 회사 공통(글로벌) 디자인 시스템�
 
 1. **`--krds-*` 의존 제거** — 현재 컴포넌트 CSS가 참조하는 `--krds-*` 변수를 YDS 토큰(`--space-*`, `--radius-*` 등)으로 교체한다. 대상 목록은 `docs/krds-dependencies.md` 참고.
 2. **배포 파일 생성** — `npm run build:dist` 스크립트를 추가하고 `yds-tokens.css`, `yds-components.css`를 번들링한다.
+
+---
+
+## 프로젝트 디렉토리
+
+> **구상 단계** — 아직 확정되지 않은 구조입니다. 실제 운영 전에 변경될 수 있습니다.
+
+YDS 글로벌 디렉토리와 프로젝트 디렉토리를 나란히 비교합니다.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'start' }}>
+<div>
+
+**YDS (글로벌)**
+
+```
+/humanframe/yds/assets/
+├─ css/
+│  ├─ yds-tokens.css
+│  ├─ yds-components.css
+│  └─ yds-base.css
+├─ js/
+├─ fonts/
+└─ images/
+   └─ icons/
+```
+
+</div>
+<div>
+
+**프로젝트**
+
+```
+/humanframe/{프로젝트명}/assets/
+├─ scss/
+│  ├─ _theme.scss          ← YDS 토큰 덮어쓰기
+│  ├─ components/          ← 프로젝트 전용 컴포넌트
+│  └─ pages/               ← 페이지별 스타일
+├─ css/
+│  ├─ {프로젝트명}-theme.css
+│  ├─ {프로젝트명}-components.css
+│  └─ {프로젝트명}.css
+├─ js/
+├─ images/
+└─ fonts/                  ← 필요 시
+```
+
+</div>
+</div>
+
+---
+
+## 불러오는 순서 (어드민 기준)
+
+토큰 → YDS 컴포넌트 → 프로젝트 테마 → 프로젝트 컴포넌트 → 페이지 스타일 순으로 로드한다.
+
+```html
+<!-- 1. YDS 토큰 (변수 정의 — 반드시 가장 먼저) -->
+<link rel="stylesheet" href="/humanframe/yds/assets/css/yds-tokens.css">
+
+<!-- 2. YDS 컴포넌트 (yds- 클래스) -->
+<link rel="stylesheet" href="/humanframe/yds/assets/css/yds-components.css">
+
+<!-- 3. 프로젝트 테마 (YDS 시멘틱·모드 토큰 덮어쓰기) -->
+<link rel="stylesheet" href="/humanframe/admin/assets/css/admin-theme.css">
+
+<!-- 4. 프로젝트 전용 컴포넌트 (adm- 클래스) -->
+<link rel="stylesheet" href="/humanframe/admin/assets/css/admin-components.css">
+
+<!-- 5. 페이지별 스타일 -->
+<link rel="stylesheet" href="/humanframe/admin/assets/css/admin.css">
+```
+
+---
+
+## 프로젝트 커스터마이즈 규칙
+
+- **시멘틱·모드 토큰만 덮어쓰기** — `[data-theme]`에서 `mode.scss`의 색상 토큰(`--color-bg-primary` 등)을 교체한다. 프리미티브(`--color-primary-50` 등)와 반응형(`--font-size-*`, `--space-*`) 수정 금지.
+- **YDS 파일 직접 수정 금지** — 바꾸려면 프로젝트 `_theme.scss`의 토큰 덮어쓰기 또는 프로젝트 전용 컴포넌트로 처리한다.
+- **프로젝트 컴포넌트 클래스는 프로젝트 접두사 사용** — `adm-`, `prj-` 등 프로젝트별 접두사를 붙인다. `yds-` 클래스 추가·수정 금지.
+- **두 개 이상 프로젝트에서 쓰는 컴포넌트는 YDS로 이동 검토** — 반복 구현을 막기 위해 공통화를 협의한다.
+
+---
+
+## `_theme.scss` 예시
+
+`src/tokens/theme-project-a.scss` 기준. `[data-theme="project-a"]`를 `[data-theme="프로젝트명"]`으로 바꿔 사용한다.
+
+```scss
+/* _theme.scss 예시 — 프로젝트 A
+   덮어쓸 수 있는 토큰 : mode.scss :root 에 정의된 시멘틱 색상 토큰
+   덮어쓰기 금지       : primitive(--color-primary-50 등), responsive(--font-size-*, --space-*)
+   사용 방법           : <html data-theme="project-a"> */
+[data-theme="project-a"] {
+
+  /* ── 텍스트 */
+  --color-text-primary:       #267337;  /* 기본값: var(--color-primary-60) */
+  --color-text-link:          #228738;  /* 기본값: var(--color-primary-50) */
+
+  /* ── 배경 */
+  --color-bg-primary:          #228738;  /* 주요 버튼·CTA */
+  --color-bg-primary-hover:    #267337;
+  --color-bg-primary-pressed:  #285d33;
+  --color-bg-primary-subtle:   #eaf6ec;  /* 연한 강조 배경 */
+  --color-bg-selected:         #eaf6ec;  /* 선택 상태 행 */
+
+  /* ── 테두리 */
+  --color-border-primary:  #228738;
+  --color-border-focus:    #228738;  /* 포커스 링 */
+
+  /* ── 아이콘 */
+  --color-icon-primary:    #228738;
+
+  /* ── 필요 시 추가 가능 (주석 해제 후 사용) */
+  /* --color-text-secondary:   ...;  */
+  /* --color-bg-secondary:     ...;  */
+  /* --color-border-secondary: ...;  */
+
+}
+```

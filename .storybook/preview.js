@@ -5,7 +5,6 @@ import '../src/tokens/primitive.scss';
 import '../src/tokens/responsive.scss';
 import '../src/tokens/mode.scss';
 import '../src/tokens/semantic.scss';
-import '../src/tokens/theme-project-a.scss';
 import '../src/components/common.scss';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 

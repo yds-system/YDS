@@ -1,21 +1,33 @@
 /* =============================================================================
-   프로젝트 A 테마
-   color-primary-* 프리미티브 값 자체를 초록 계열로 덮어쓴다.
-   이 프리미티브를 var()로 참조하는 모든 시멘틱 토큰이 자동으로 바뀐다.
-   사용: <html data-theme="project-a">
+   _theme.scss 예시 — 프로젝트 A
+   ─────────────────────────────────────────────────────────────────────────────
+   덮어쓸 수 있는 토큰 : mode.scss :root 에 정의된 시멘틱 색상 토큰
+   덮어쓰기 금지       : primitive(--color-primary-50 등), responsive(--font-size-*, --space-*)
+   사용 방법           : <html data-theme="project-a">
    ============================================================================= */
 [data-theme="project-a"] {
 
-  --color-primary-5:  #eaf6ec;
-  --color-primary-10: #d8eedd;
-  --color-primary-20: #a9dab4;
-  --color-primary-30: #7ec88e;
-  --color-primary-40: #3fa654;
-  --color-primary-50: #228738;
-  --color-primary-60: #267337;
-  --color-primary-70: #285d33;
-  --color-primary-80: #1f4727;
-  --color-primary-90: #122b18;
-  --color-primary-95: #0e2012;
+  /* ── 텍스트 ─────────────────────────────────────────────────────────────────── */
+  --color-text-primary:       #267337;  /* 기본값: var(--color-primary-60) */
+  --color-text-link:          #228738;  /* 기본값: var(--color-primary-50) */
+
+  /* ── 배경 ───────────────────────────────────────────────────────────────────── */
+  --color-bg-primary:          #228738;  /* 기본값: var(--color-primary-50) — 주요 버튼·CTA */
+  --color-bg-primary-hover:    #267337;  /* 기본값: var(--color-primary-60) */
+  --color-bg-primary-pressed:  #285d33;  /* 기본값: var(--color-primary-70) */
+  --color-bg-primary-subtle:   #eaf6ec;  /* 기본값: var(--color-primary-5)  — 연한 강조 배경 */
+  --color-bg-selected:         #eaf6ec;  /* 기본값: var(--color-primary-5)  — 선택 상태 행 */
+
+  /* ── 테두리 ─────────────────────────────────────────────────────────────────── */
+  --color-border-primary:  #228738;  /* 기본값: var(--color-primary-50) */
+  --color-border-focus:    #228738;  /* 기본값: var(--color-primary-50) — 포커스 링 */
+
+  /* ── 아이콘 ─────────────────────────────────────────────────────────────────── */
+  --color-icon-primary:    #228738;  /* 기본값: var(--color-primary-50) */
+
+  /* ── 필요 시 추가 가능한 토큰 (주석 해제 후 사용) ────────────────────────────── */
+  /* --color-text-secondary:   ...;  */
+  /* --color-bg-secondary:     ...;  */
+  /* --color-border-secondary: ...;  */
 
 }
