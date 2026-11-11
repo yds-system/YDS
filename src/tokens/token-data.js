@@ -487,9 +487,10 @@ export const spacingSemanticTokens = [
 /* ── 5. 그림자 ────────────────────────────────────────────────────────────── */
 
 export const shadowSemanticTokens = [
-  { name: 'shadow-s',    figma: 'shadow/s',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 4px 8px 0 rgba(0,0,0,.10)',                                    usage: '카드·슬라이드 박스 기본',    ref: 'color-black-alpha-10 × 2',                     krds: '--krds-critical-alerts--banner-shadow'  },
-  { name: 'shadow-m',    figma: 'shadow/m',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 8px 16px 0 rgba(0,0,0,.10)',                                   usage: '카드 hover·드롭다운·툴팁',   ref: 'color-black-alpha-10 × 2',                     krds: '--krds-help-panel--shadow'              },
-  { name: 'shadow-l',    figma: 'shadow/l',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 16px 24px 0 rgba(0,0,0,.25)',                                  usage: '모달',                       ref: 'color-black-alpha-10 + color-black-alpha-25',        krds: '--krds-modal--wrap-shadow'              },
+  { name: 'shadow-none', figma: 'shadow/none', value: 'none',                                                                                        usage: '현재 사용처 없음',           ref: null,                                           krds: '(자체 추가)'                            },
+  { name: 'shadow-s',    figma: 'shadow/s',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 4px 8px 0 rgba(0,0,0,.10)',                                    usage: '카드 기본 상태',             ref: 'color-black-alpha-10 × 2',                     krds: '--krds-critical-alerts--banner-shadow'  },
+  { name: 'shadow-m',    figma: 'shadow/m',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 8px 16px 0 rgba(0,0,0,.10)',                                   usage: '카드 hover 상태',            ref: 'color-black-alpha-10 × 2',                     krds: '--krds-help-panel--shadow'              },
+  { name: 'shadow-l',    figma: 'shadow/l',    value: '0 0 2px 0 rgba(0,0,0,.10), 0 16px 24px 0 rgba(0,0,0,.25)',                                  usage: '현재 사용처 없음',           ref: 'color-black-alpha-10 + color-black-alpha-25',  krds: '--krds-modal--wrap-shadow'              },
 ];
 
 
@@ -552,10 +553,13 @@ export const responsiveTypoTokens = [
   { name: 'font-size-nav-title-m', pcRef: 'font-size-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'font-size-22', mobileValue: '2.2rem', mobilePx: '22px', usage: '내비게이션 제목',         krds: '--krds-pc-font-size-navigation-title-medium'  },
 ];
 
-/** space m/l/xl 그룹: 모바일에서 한 단계 축소 */
-export const responsiveSpacingGroups = spacingSizeGroups.slice(2); // m, l, xl
+/** space xs/s/m/l/xl 전체: responsive.scss (같은 종류는 한 컬렉션에) */
+export const responsiveSpacingGroups = spacingSizeGroups; // 전체 (xs, s, m, l, xl)
 
-/** space xs/s 그룹: 고정 (반응형 아님) */
+/** space m/l/xl 그룹: 모바일에서 값이 달라지는 토큰 */
+export const responsiveSpacingChangingGroups = spacingSizeGroups.slice(2); // m, l, xl
+
+/** space xs/s 그룹: 고정 (PC = 모바일) */
 export const fixedSpacingSizeGroups = spacingSizeGroups.slice(0, 2); // xs, s
 
 /** heading-s, body-l/m/s/xs: PC = 모바일 (responsive.scss에 정의, semantic에서 이동) */

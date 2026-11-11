@@ -46,7 +46,18 @@
   --line-height-body-s:     var(--line-height-normal);  /* 1.5  */
   --line-height-body-xs:    var(--line-height-normal);  /* 1.5  */
 
-  /* ── 간격: space alias (반응형 — 모바일에서 한 단계 축소) ─────────────────── */
+  /* ── 간격: space alias 전체 (같은 종류는 한 컬렉션에) ──────────────────────── */
+  /* xs·s 그룹은 PC = 모바일 (고정값). m/l/xl 그룹만 @include mobile에서 덮어쓴다. */
+
+  /* xs 그룹 (2–8px) — PC = mobile  — KRDS --krds-number-* */
+  --space-xs-2: var(--space-2);  /* PC = mobile  — --krds-number-2 */
+  --space-xs-4: var(--space-4);  /* PC = mobile  — --krds-number-3 */
+  --space-xs-8: var(--space-8);  /* PC = mobile  — --krds-number-5 */
+
+  /* s 그룹 (12–20px) — PC = mobile */
+  --space-s-12: var(--space-12); /* PC = mobile  — --krds-number-7 */
+  --space-s-16: var(--space-16); /* PC = mobile  — --krds-number-8 */
+  --space-s-20: var(--space-20); /* PC = mobile  — --krds-number-9 */
 
   /* m 그룹 (24–32px) */
   --space-m-24: var(--space-24); /* mobile: 20px */

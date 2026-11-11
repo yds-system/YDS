@@ -386,7 +386,7 @@ const sizeGroupLabelStyle = {
   paddingLeft: '8px',
 };
 
-const SpacingSizeSection = (groups) =>
+const SpacingSizeSection = (groups, { showMobile = false } = {}) =>
   h(Fragment, null,
     ...groups.map(g =>
       h('div', { key: g.size, style: sectionStyle },
@@ -395,6 +395,7 @@ const SpacingSizeSection = (groups) =>
           h('colgroup', null,
             h('col', { style: { width: '200px' } }),
             h('col', null), h('col', null), h('col', null), h('col', null),
+            showMobile ? h('col', null) : null,
             h('col', null), h('col', null)
           ),
           h('thead', null,
@@ -402,8 +403,9 @@ const SpacingSizeSection = (groups) =>
               th('견본'),
               th('토큰 이름'),
               th('참조 프리미티브'),
-              th('값'),
+              th('값 (PC)'),
               th('px'),
+              showMobile ? th('모바일') : null,
               th('용도'),
               th('CSS 변수')
             )
@@ -416,6 +418,10 @@ const SpacingSizeSection = (groups) =>
                 td(Chip(t.ref)),
                 td(GrayChip(t.value)),
                 td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
+                showMobile ? td(t.mobile
+                  ? h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.mobile)
+                  : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
+                ) : null,
                 td(t.usage || ''),
                 td(CssChip(t.name))
               )
@@ -429,6 +435,7 @@ const SpacingSizeSection = (groups) =>
 export const SpacingSizeTable       = () => SpacingSizeSection(spacingSizeGroups);
 export const FixedSpacingSizeTable  = () => SpacingSizeSection(fixedSpacingSizeGroups);
 export const ResponsiveSpacingTable = () => SpacingSizeSection(responsiveSpacingGroups);
+export const AllSpacingSizeTable    = () => SpacingSizeSection(spacingSizeGroups, { showMobile: true });
 
 // ─── 4. 간격 시멘틱 ───────────────────────────────────────────────────────────
 
@@ -559,7 +566,7 @@ const shadowCssValues = {
 export const ShadowTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('참조'), th('값 (px 기준)'), th('다크'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조'), th('값 (px 기준)'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...shadowSemanticTokens.map(t =>
@@ -568,7 +575,6 @@ export const ShadowTable = () =>
           td(Chip(t.name)),
           td(t.ref ? GrayChip(t.ref) : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '—')),
           td(GrayChip(t.value)),
-          td(h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')),
           td(t.usage || ''),
           td(KrdsChip(t.krds)),
           td(CssChip(t.name))
@@ -837,9 +843,10 @@ export const ResponsiveGapLayoutTable = () =>
   );
 
 export const PageTocResponsive = () => PageToc([
-  { label: '타이포그래피',     anchor: '타이포그래피'     },
-  { label: '레이아웃',         anchor: '레이아웃'         },
-  { label: '카드 패딩',        anchor: '카드-패딩'        },
+  { label: '타이포그래피',       anchor: '타이포그래피'       },
+  { label: '간격 그룹',          anchor: '간격-그룹'          },
+  { label: '레이아웃',           anchor: '레이아웃'           },
+  { label: '카드 패딩',          anchor: '카드-패딩'          },
   { label: '레이아웃 조합 간격', anchor: '레이아웃-조합-간격' },
 ]);
 

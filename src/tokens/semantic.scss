@@ -35,14 +35,7 @@
 
   /* ── 4. 간격 시멘틱 ─────────────────────────────────────────────────────────── */
 
-  /* space 별칭 — xs·s 그룹 (고정값. m/l/xl·카드패딩·gap-layout 은 반응형 → responsive.scss) */
-  /* ─ KRDS --krds-number-* 대응 ─────────────────────────────────────────────── */
-  --space-xs-2:  var(--space-2);   /* 2px  */
-  --space-xs-4:  var(--space-4);   /* 4px  */
-  --space-xs-8:  var(--space-8);   /* 8px  */
-  --space-s-12:  var(--space-12);  /* 12px */
-  --space-s-16:  var(--space-16);  /* 16px */
-  --space-s-20:  var(--space-20);  /* 20px */
+  /* space alias xs~xl 그룹 → responsive.scss (같은 종류는 한 컬렉션에) */
 
   /* gap- : flex/grid 아이템 간 간격 (Figma: gap scope) */
   --gap-xs: var(--space-4);   /* 아이콘↔레이블 등 인라인 소간격  ─ --krds-gap-2  */

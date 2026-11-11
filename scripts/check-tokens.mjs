@@ -24,6 +24,8 @@ import {
   responsiveTypoTokens,
   responsiveLayoutTokens,
   responsiveSpacingGroups,
+  responsivePaddingCardTokens,
+  responsiveGapLayoutTokens,
   semanticStaticColorTokens,
   shadowColorTokens,
 } from '../src/tokens/token-data.js';
@@ -154,27 +156,19 @@ for (const t of semanticStaticColorTokens) {
   check('시멘틱 고정색상', t.name, `var(--${t.ref})`, semantRoot.get(t.name));
 }
 
-// ── 8. 시멘틱: 간격 별칭 (xs·s 그룹) ────────────────────────────────────────
-
-for (const group of spacingSizeGroups.slice(0, 2)) {
-  for (const t of group.tokens) {
-    check('시멘틱 간격', t.name, `var(--${t.ref})`, semantRoot.get(t.name));
-  }
-}
-
-// ── 9. 시멘틱: 모서리 별칭 ───────────────────────────────────────────────────
+// ── 8. 시멘틱: 모서리 별칭 ───────────────────────────────────────────────────
 
 for (const t of radiusSemanticTokens) {
   check('시멘틱 모서리', t.name, `var(--${t.ref})`, semantRoot.get(t.name));
 }
 
-// ── 10. 반응형: 타이포 ───────────────────────────────────────────────────────
+// ── 9. 반응형: 타이포 ────────────────────────────────────────────────────────
 
 for (const t of responsiveTypoTokens) {
   check('반응형 타이포', t.name, `var(--${t.pcRef})`, respRoot.get(t.name));
 }
 
-// ── 11. 반응형: 간격 (m·l·xl 그룹) ──────────────────────────────────────────
+// ── 10. 반응형: 간격 그룹 xs~xl 전체 ─────────────────────────────────────────
 
 for (const group of responsiveSpacingGroups) {
   for (const t of group.tokens) {
@@ -182,13 +176,50 @@ for (const group of responsiveSpacingGroups) {
   }
 }
 
-// ── 12. 반응형: 레이아웃 ─────────────────────────────────────────────────────
+// ── 11. 반응형: 레이아웃 ─────────────────────────────────────────────────────
 
 for (const t of responsiveLayoutTokens) {
   check('반응형 레이아웃', t.name, `var(--${t.pcRef})`, respRoot.get(t.name));
 }
 
-// ── 13. SCSS var() 미정의 참조 검사 ──────────────────────────────────────────
+// ── 12. 반응형: 카드 패딩 ────────────────────────────────────────────────────
+
+for (const t of responsivePaddingCardTokens) {
+  check('반응형 카드패딩', t.name, `var(--${t.pcRef})`, respRoot.get(t.name));
+}
+
+// ── 13. 반응형: 레이아웃 조합 간격 ──────────────────────────────────────────
+
+for (const t of responsiveGapLayoutTokens) {
+  check('반응형 갭레이아웃', t.name, `var(--${t.pcRef})`, respRoot.get(t.name));
+}
+
+// ── 14. responsive.scss 문서 커버리지 경고 ───────────────────────────────────
+// responsive.scss에 정의된 간격(space-*, section-*, container-*, padding-card-*, gap-layout-*)
+// 토큰이 token-data.js 어디에도 없으면 경고 (오류 아님).
+
+{
+  const warnings = [];
+  const documented = new Set([
+    ...spacingSizeGroups.flatMap(g => g.tokens.map(t => `--${t.name}`)),
+    ...responsiveLayoutTokens.map(t => `--${t.name}`),
+    ...responsivePaddingCardTokens.map(t => `--${t.name}`),
+    ...responsiveGapLayoutTokens.map(t => `--${t.name}`),
+  ]);
+  const coverageCheck = /^--(space-|section-padding-|container-padding|padding-card-|gap-layout-)/;
+  for (const name of respRoot.keys()) {
+    if (coverageCheck.test(`--${name}`) && !documented.has(`--${name}`)) {
+      warnings.push(`[문서 누락] responsive.scss --${name} 가 Tokens 문서에 없음`);
+    }
+  }
+  if (warnings.length > 0) {
+    console.warn(`\n⚠ 경고 ${warnings.length}건 (문서 누락):\n`);
+    for (const w of warnings) console.warn(' ', w);
+    console.warn('');
+  }
+}
+
+// ── 15. SCSS var() 미정의 참조 검사 ──────────────────────────────────────────
 // 토큰 파일에 정의된 변수 목록 (전체 src/tokens/*.scss)
 
 function collectFiles(dir) {
@@ -244,7 +275,7 @@ for (const f of compScssFiles) {
   }
 }
 
-// ── 14. semantic.scss에 @media/@include mobile 금지 ──────────────────────────
+// ── 16. semantic.scss에 @media/@include mobile 금지 ──────────────────────────
 // semantic.scss에는 미디어 쿼리가 없어야 한다. 반응형 값은 responsive.scss에서만 정의.
 
 {
@@ -254,7 +285,7 @@ for (const f of compScssFiles) {
   }
 }
 
-// ── 15. responsive.scss에서 semantic 토큰 역참조 금지 ─────────────────────────
+// ── 17. responsive.scss에서 semantic 토큰 역참조 금지 ─────────────────────────
 // responsive.scss는 primitive만 참조해야 한다. semantic 토큰(semantRoot 정의)을 var()로 쓰면 안 된다.
 
 {
