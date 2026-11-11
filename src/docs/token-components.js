@@ -420,7 +420,7 @@ const SpacingSizeSection = (groups, { showMobile = false } = {}) =>
                 td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
                 showMobile ? td(t.mobile
                   ? h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.mobile)
-                  : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
+                  : h('code', { style: { ...chipStyle, background: '#f0f0f0', color: '#888' } }, t.value)
                 ) : null,
                 td(t.usage || ''),
                 td(CssChip(t.name))
