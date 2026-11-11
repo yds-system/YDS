@@ -102,6 +102,9 @@ npm run export:figma
 참조 방향(`semantic → mode → responsive → primitive`)에 따라 아래 순서로 가져온다.  
 순서가 틀리면 참조 변수를 찾지 못할 수 있다.
 
+> **중요**: Primitive 컬렉션 이름은 정확히 `Primitive`로 지정해야 한다.  
+> aliasData의 `targetVariableSetName: "Primitive"`와 일치해야 Figma가 참조를 연결한다.
+
 ```
 1. Primitive          ← primitive.json
 2. Responsive         ← responsive.pc.json (PC 모드)

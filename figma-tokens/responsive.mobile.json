@@ -1,61 +1,172 @@
 {
+  "$extensions": {
+    "com.figma.modeName": "Mobile"
+  },
   "font": {
     "size": {
       "display": {
         "l": {
-          "$value": "{font.size.44}",
-          "$type": "dimension"
+          "$value": {
+            "value": 44,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/44",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "m": {
-          "$value": "{font.size.32}",
-          "$type": "dimension"
+          "$value": {
+            "value": 32,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/32",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "s": {
-          "$value": "{font.size.28}",
-          "$type": "dimension"
+          "$value": {
+            "value": 28,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/28",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "heading": {
         "xl": {
-          "$value": "{font.size.28}",
-          "$type": "dimension"
+          "$value": {
+            "value": 28,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/28",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "l": {
-          "$value": "{font.size.24}",
-          "$type": "dimension"
+          "$value": {
+            "value": 24,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/24",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "m": {
-          "$value": "{font.size.22}",
-          "$type": "dimension"
+          "$value": {
+            "value": 22,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/22",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "s": {
-          "$value": "{font.size.19}",
-          "$type": "dimension"
+          "$value": {
+            "value": 19,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/19",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "body": {
         "l": {
-          "$value": "{font.size.19}",
-          "$type": "dimension"
+          "$value": {
+            "value": 19,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/19",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "m": {
-          "$value": "{font.size.17}",
-          "$type": "dimension"
+          "$value": {
+            "value": 17,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/17",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "s": {
-          "$value": "{font.size.15}",
-          "$type": "dimension"
+          "$value": {
+            "value": 15,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/15",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "xs": {
-          "$value": "{font.size.13}",
-          "$type": "dimension"
+          "$value": {
+            "value": 13,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "font/size/13",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "nav": {
         "title": {
           "m": {
-            "$value": "{font.size.22}",
-            "$type": "dimension"
+            "$value": {
+              "value": 22,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "font/size/22",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           }
         }
       }
@@ -65,38 +176,86 @@
     "height": {
       "heading": {
         "xl": {
-          "$value": "{line.height.tight}",
-          "$type": "number"
+          "$value": 1.25,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/tight",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "l": {
-          "$value": "{line.height.tight}",
-          "$type": "number"
+          "$value": 1.25,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/tight",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "m": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "s": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "body": {
         "l": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "m": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "s": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "xs": {
-          "$value": "{line.height.normal}",
-          "$type": "number"
+          "$value": 1.5,
+          "$type": "number",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "line/height/normal",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       }
     }
@@ -104,104 +263,284 @@
   "space": {
     "xs": {
       "2": {
-        "$value": "{space.2}",
-        "$type": "dimension"
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/2",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "4": {
-        "$value": "{space.4}",
-        "$type": "dimension"
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/4",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "8": {
-        "$value": "{space.8}",
-        "$type": "dimension"
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/8",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     },
     "s": {
       "12": {
-        "$value": "{space.12}",
-        "$type": "dimension"
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/12",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "16": {
-        "$value": "{space.16}",
-        "$type": "dimension"
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/16",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "20": {
-        "$value": "{space.20}",
-        "$type": "dimension"
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/20",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     },
     "m": {
       "24": {
-        "$value": "{space.20}",
-        "$type": "dimension"
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/20",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "32": {
-        "$value": "{space.24}",
-        "$type": "dimension"
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/24",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     },
     "l": {
       "40": {
-        "$value": "{space.32}",
-        "$type": "dimension"
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/32",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "48": {
-        "$value": "{space.40}",
-        "$type": "dimension"
+        "$value": {
+          "value": 40,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/40",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     },
     "xl": {
       "64": {
-        "$value": "{space.48}",
-        "$type": "dimension"
+        "$value": {
+          "value": 48,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/48",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "80": {
-        "$value": "{space.64}",
-        "$type": "dimension"
+        "$value": {
+          "value": 64,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/64",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     }
   },
   "section": {
     "padding": {
       "s": {
-        "$value": "{space.12}",
-        "$type": "dimension"
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/12",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "m": {
-        "$value": "{space.20}",
-        "$type": "dimension"
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/20",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "l": {
-        "$value": "{space.32}",
-        "$type": "dimension"
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/32",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     }
   },
   "container": {
     "padding": {
       "x": {
-        "$value": "{space.16}",
-        "$type": "dimension"
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/16",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     }
   },
   "padding": {
     "card": {
       "l": {
-        "$value": "{space.24}",
-        "$type": "dimension"
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/24",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "m": {
-        "$value": "{space.24}",
-        "$type": "dimension"
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/24",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "s": {
-        "$value": "{space.20}",
-        "$type": "dimension"
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/20",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       },
       "xs": {
-        "$value": "{space.12}",
-        "$type": "dimension"
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        },
+        "$type": "dimension",
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "space/12",
+            "targetVariableSetName": "Primitive"
+          }
+        }
       }
     }
   },
@@ -210,119 +549,317 @@
       "title": {
         "body": {
           "s": {
-            "$value": "{space.8}",
-            "$type": "dimension"
+            "$value": {
+              "value": 8,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/8",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "m": {
-            "$value": "{space.12}",
-            "$type": "dimension"
+            "$value": {
+              "value": 12,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/12",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "l": {
-            "$value": "{space.20}",
-            "$type": "dimension"
+            "$value": {
+              "value": 20,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/20",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           }
         }
       },
       "text": {
         "text": {
           "s": {
-            "$value": "{space.10}",
-            "$type": "dimension"
+            "$value": {
+              "value": 10,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/10",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "m": {
-            "$value": "{space.12}",
-            "$type": "dimension"
+            "$value": {
+              "value": 12,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/12",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "l": {
-            "$value": "{space.16}",
-            "$type": "dimension"
+            "$value": {
+              "value": 16,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/16",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           }
         }
       },
       "image": {
         "text": {
           "s": {
-            "$value": "{space.16}",
-            "$type": "dimension"
+            "$value": {
+              "value": 16,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/16",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "m": {
-            "$value": "{space.20}",
-            "$type": "dimension"
+            "$value": {
+              "value": 20,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/20",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           },
           "l": {
-            "$value": "{space.24}",
-            "$type": "dimension"
+            "$value": {
+              "value": 24,
+              "unit": "px"
+            },
+            "$type": "dimension",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "space/24",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           }
         }
       },
       "header": {
         "breadcrumb": {
-          "$value": "{space.16}",
-          "$type": "dimension"
+          "$value": {
+            "value": 16,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/16",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "breadcrumb": {
         "h1": {
-          "$value": "{space.32}",
-          "$type": "dimension"
+          "$value": {
+            "value": 32,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/32",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "h1": {
         "h2": {
-          "$value": "{space.32}",
-          "$type": "dimension"
+          "$value": {
+            "value": 32,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/32",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "h2": {
         "h2": {
-          "$value": "{space.40}",
-          "$type": "dimension"
+          "$value": {
+            "value": 40,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/40",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "h3": {
-          "$value": "{space.24}",
-          "$type": "dimension"
+          "$value": {
+            "value": 24,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/24",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "h3": {
         "h3": {
-          "$value": "{space.32}",
-          "$type": "dimension"
+          "$value": {
+            "value": 32,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/32",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "h4": {
-          "$value": "{space.16}",
-          "$type": "dimension"
+          "$value": {
+            "value": 16,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/16",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "h4": {
         "h4": {
-          "$value": "{space.24}",
-          "$type": "dimension"
+          "$value": {
+            "value": 24,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/24",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "h5": {
-          "$value": "{space.12}",
-          "$type": "dimension"
+          "$value": {
+            "value": 12,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/12",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "h5": {
         "h5": {
-          "$value": "{space.16}",
-          "$type": "dimension"
+          "$value": {
+            "value": 16,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/16",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "left": {
         "contents": {
-          "$value": "{space.0}",
-          "$type": "dimension"
+          "$value": {
+            "value": 0,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/0",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       },
       "contents": {
         "right": {
-          "$value": "{space.0}",
-          "$type": "dimension"
+          "$value": {
+            "value": 0,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/0",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         },
         "footer": {
-          "$value": "{space.40}",
-          "$type": "dimension"
+          "$value": {
+            "value": 40,
+            "unit": "px"
+          },
+          "$type": "dimension",
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "space/40",
+              "targetVariableSetName": "Primitive"
+            }
+          }
         }
       }
     }
