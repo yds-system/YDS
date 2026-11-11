@@ -473,9 +473,6 @@ export const spacingSemanticTokens = [
   { name: 'padding-m',         figma: 'padding/m',         value: '1.6rem (16px)',  ref: 'space-16', usage: '카드·입력 필드 내부 여백',     krds: '--krds-padding-6' },
   { name: 'padding-l',         figma: 'padding/l',         value: '2.4rem (24px)',  ref: 'space-24', usage: '섹션 헤더 내부 여백',          krds: '--krds-padding-8' },
   { name: 'padding-xl',        figma: 'padding/xl',        value: '4rem (40px)',    ref: 'space-40', usage: '페이지 상단 여백',             krds: '--krds-padding-10'},
-  { name: 'section-padding-s', figma: 'section-padding/s', value: '1.6rem (16px)', mobile: '1.2rem (12px)', ref: 'space-16', usage: '소형 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
-  { name: 'section-padding-m', figma: 'section-padding/m', value: '3.2rem (32px)', mobile: '2rem (20px)',   ref: 'space-32', usage: '일반 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
-  { name: 'section-padding-l', figma: 'section-padding/l', value: '4.8rem (48px)', mobile: '3.2rem (32px)', ref: 'space-48', usage: '대형 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
 ];
 
 
