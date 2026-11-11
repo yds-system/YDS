@@ -6,4 +6,15 @@
     max-width: none !important;
     object-fit: contain !important;
   }
+
+  /* 1뎁스(기반·컴포넌트·패턴) 폰트 크기 */
+  .sidebar-item[data-nodetype="root"] a,
+  .sidebar-item[data-nodetype="root"] button {
+    font-size: 14px !important;
+  }
+
+  /* component 항목 아이콘 숨기기 */
+  .sidebar-item[data-nodetype="component"] a > svg {
+    display: none !important;
+  }
 </style>

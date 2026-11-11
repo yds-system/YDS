@@ -67,7 +67,6 @@ function parseProps(block) {
 const primRoot   = parseProps(extractBlock(readCss('src/tokens/primitive.scss'),  ':root'));
 const modeLight  = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        ':root'));
 const modeDark   = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        '[data-mode="dark"]'));
-const modeHC     = parseProps(extractBlock(readCss('src/tokens/mode.scss'),        '[data-mode="high-contrast"]'));
 const respRoot   = parseProps(extractBlock(readCss('src/tokens/responsive.scss'),  ':root'));
 const semantRoot = parseProps(extractBlock(readCss('src/tokens/semantic.scss'),    ':root'));
 
@@ -134,13 +133,12 @@ for (const t of radiusPrimTokens) {
   check('프리미티브 모서리', t.name, t.value, primRoot.get(t.name));
 }
 
-// ── 5. 모드 색상: 라이트·다크·고대비 ─────────────────────────────────────────
+// ── 5. 모드 색상: 라이트·다크 ────────────────────────────────────────────────
 
 for (const group of colorSemanticGroups) {
   for (const t of group.tokens) {
     if (t.ref)     check('모드 라이트', t.name, `var(--${t.ref})`,     modeLight.get(t.name));
     if (t.darkRef) check('모드 다크',   t.name, `var(--${t.darkRef})`, modeDark.get(t.name));
-    if (t.hcRef)   check('모드 고대비', t.name, `var(--${t.hcRef})`,   modeHC.get(t.name));
   }
 }
 

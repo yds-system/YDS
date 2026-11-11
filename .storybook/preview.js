@@ -14,15 +14,14 @@ import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 export const globalTypes = {
   colorMode: {
     name: '화면 모드',
-    description: '라이트 / 다크 / 고대비(KRDS 선명한 화면) / 시스템',
+    description: '라이트 / 다크 / 시스템',
     defaultValue: 'light',
     toolbar: {
       icon: 'circlehollow',
       items: [
-        { value: 'light',         title: '라이트',  right: '☀️' },
-        { value: 'dark',          title: '다크',    right: '🌙' },
-        { value: 'high-contrast', title: '고대비',  right: '◑'  },
-        { value: 'system',        title: '시스템',  right: '💻' },
+        { value: 'light',  title: '라이트', right: '☀️' },
+        { value: 'dark',   title: '다크',   right: '🌙' },
+        { value: 'system', title: '시스템', right: '💻' },
       ],
       showName: true,
       dynamicTitle: true,
@@ -39,8 +38,6 @@ export const decorators = [
 
     if (mode === 'light') {
       html.removeAttribute('data-mode');
-    } else if (mode === 'high-contrast') {
-      html.setAttribute('data-mode', 'high-contrast');
     } else {
       html.setAttribute('data-mode', mode); // 'dark' | 'system'
     }

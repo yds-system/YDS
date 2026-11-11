@@ -18,7 +18,6 @@ import {
   shadowSemanticTokens,
   radiusPrimTokens,
   radiusSemanticTokens,
-  themeProjectAOverrides,
   responsiveTypoTokens,
   responsiveSpacingGroups,
   responsiveLayoutTokens,
@@ -101,44 +100,6 @@ export const ConnectionTable = () =>
     )
   );
 
-// ─── 테마 비교 표 ──────────────────────────────────────────────────────────────
-// color-primary-* 프리미티브 토큰별로 기본값 vs project-a 값 자동 생성
-
-const _primaryTokens = colorPrimGroups.find(g => g.name === 'primary').tokens;
-const themeRows = _primaryTokens.map(t => ({
-  token:    t.name,
-  baseVal:  t.value,
-  themeVal: themeProjectAOverrides[t.name] || t.value,
-}));
-
-const SwatchVal = (val) =>
-  h(Fragment, null,
-    h('div', {
-      style: {
-        width: '18px', height: '18px', background: val, borderRadius: '3px',
-        border: '1px solid rgba(0,0,0,0.12)', display: 'inline-block',
-        verticalAlign: 'middle', marginRight: '6px',
-      }
-    }),
-    h('code', { style: { fontSize: '12px' } }, val)
-  );
-
-export const ThemeTable = () =>
-  h('table', { style: tableStyle },
-    h('thead', null,
-      h('tr', null, th('프리미티브 토큰'), th('기본값'), th('project-a 값'))
-    ),
-    h('tbody', null,
-      ...themeRows.map(r =>
-        h('tr', { key: r.token },
-          td(Chip(r.token)),
-          td(SwatchVal(r.baseVal)),
-          td(SwatchVal(r.themeVal))
-        )
-      )
-    )
-  );
-
 // ─── 1. 색상 프리미티브 ────────────────────────────────────────────────────────
 
 export const ColorPrimTable = () =>
@@ -176,11 +137,10 @@ const swatchSlice = (bg, radius) => h('div', {
   }
 });
 
-const TripleSwatch = (lightVal, darkVal, hcVal) =>
+const DualSwatch = (lightVal, darkVal) =>
   h('div', { style: { display: 'flex', gap: '1px', flexShrink: 0 } },
     swatchSlice(lightVal, '4px 0 0 4px'),
-    swatchSlice(darkVal,  '0 0 0 0'),
-    swatchSlice(hcVal,    '0 4px 4px 0')
+    swatchSlice(darkVal,  '0 4px 4px 0')
   );
 
 const RefVal = (ref, val) =>
@@ -196,11 +156,10 @@ const renderSemanticGroup = (g) => {
     h('table', { style: tableStyle },
       h('thead', null,
         h('tr', null,
-          th('L · D · HC'),
+          th('L · D'),
           th('토큰 이름'),
           th('라이트 (참조 → 값)'),
           th('다크 (참조 → 값)'),
-          th('고대비 (참조 → 값)'),
           th('용도'),
           th('CSS 변수')
         )
@@ -208,11 +167,10 @@ const renderSemanticGroup = (g) => {
       h('tbody', null,
         ...g.tokens.map(t =>
           h('tr', { key: t.name },
-            td(TripleSwatch(t.value, t.darkValue, t.hcValue)),
+            td(DualSwatch(t.value, t.darkValue)),
             td(Chip(t.name)),
             td(RefVal(t.ref, t.value)),
             td(RefVal(t.darkRef, t.darkValue)),
-            td(RefVal(t.hcRef, t.hcValue)),
             td(t.usage || ''),
             td(CssChip(t.name))
           )
@@ -643,17 +601,9 @@ export const ModeInfoBox = () =>
         '<!-- 다크 모드 -->',
         '<html data-mode="dark">',
         '',
-        '<!-- 고대비 (KRDS 선명한 화면) -->',
-        '<html data-mode="high-contrast">',
-        '',
         '<!-- 시스템 (OS 다크 설정 연동) -->',
         '<html data-mode="system">',
       ].join('\n')
-    ),
-    h('p', { style: { margin: '8px 0 0', color: '#555', fontSize: '12px' } },
-      '고대비 모드는 WCAG AAA(7:1) 기준. 공공기관 필수 항목. ',
-      h('code', null, 'data-krds-mode="high-contrast"'),
-      ' 도 자동 동기화됩니다.'
     )
   );
 

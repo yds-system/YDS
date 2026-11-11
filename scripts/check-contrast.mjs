@@ -2,7 +2,7 @@
 /**
  * check-contrast.mjs
  *
- * contrast-pairs.json에 정의된 토큰 쌍을 3개 모드(light/dark/HC)에서
+ * contrast-pairs.json에 정의된 토큰 쌍을 2개 모드(light/dark)에서
  * WCAG 2.1 공식으로 대비를 계산하고 미달 항목만 출력한다.
  *
  * 임계값: type="text" → 4.5:1 / type="ui" → 3:1
@@ -97,13 +97,11 @@ const semCss  = readCss('src/tokens/semantic.scss');
 const primRoot  = parseProps(extractBlock(primCss, ':root'));
 const modeLight = parseProps(extractBlock(modeCss, ':root'));
 const modeDark  = parseProps(extractBlock(modeCss, '[data-mode="dark"]'));
-const modeHC    = parseProps(extractBlock(modeCss, '[data-mode="high-contrast"]'));
 const semRoot   = parseProps(extractBlock(semCss,  ':root'));
 
 // 우선순위: 모드 오버라이드 > semantic > mode light > primitive
 const lightMap = mergeMap(primRoot, modeLight, semRoot);
 const darkMap  = mergeMap(primRoot, modeLight, semRoot, modeDark);
-const hcMap    = mergeMap(primRoot, modeLight, semRoot, modeHC);
 
 // ── 대비 검사 ───────────────────────────────────────────────────────────────────
 
@@ -114,7 +112,6 @@ const excepts    = [];
 const MODES = [
   { key: 'light', map: lightMap },
   { key: 'dark',  map: darkMap  },
-  { key: 'HC',    map: hcMap    },
 ];
 
 const THRESHOLD = { text: 4.5, ui: 3.0 };

@@ -3,7 +3,7 @@
    용도 기반 토큰. 항상 프리미티브를 var()로 참조한다.
 
    참조 방향: semantic → primitive (역방향 금지)
-   색상 토큰  → mode.css (라이트·다크·고대비·시스템)
+   색상 토큰  → mode.css (라이트·다크·시스템)
    반응형 토큰 → responsive.css (font-size-heading-xl/l/m, space-m/l/xl, section/container)
 
    컴포넌트는 mode.css · responsive.css · semantic.css 세 파일의 토큰만 참조한다.
