@@ -66,8 +66,7 @@
   --section-padding-m: var(--space-32); /* mobile: 20px */
   --section-padding-l: var(--space-48); /* mobile: 32px */
 
-  --container-padding:   var(--space-32); /* mobile: 20px */
-  --container-padding-x: 24px;           /* mobile: 16px — --krds-contents-padding-x */
+  --container-padding-x: var(--space-24); /* mobile: var(--space-16) — --krds-contents-padding-x */
 
   /* ── 간격: 카드 패딩 (반응형) ────────────────────────────────────────────── */
 
@@ -142,8 +141,7 @@
     --section-padding-s:   var(--space-12); /* 16px → 12px */
     --section-padding-m:   var(--space-20); /* 32px → 20px */
     --section-padding-l:   var(--space-32); /* 48px → 32px */
-    --container-padding:   var(--space-20); /* 32px → 20px */
-    --container-padding-x: 16px;            /* 24px → 16px */
+    --container-padding-x: var(--space-16); /* 24px → 16px */
 
     /* 카드 패딩 */
     --padding-card-l:  var(--space-24); /* 40px → 24px */

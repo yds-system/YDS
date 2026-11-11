@@ -481,7 +481,6 @@ export const spacingSemanticTokens = [
   { name: 'section-padding-s', figma: 'section-padding/s', value: '1.6rem (16px)', mobile: '1.2rem (12px)', ref: 'space-16', usage: '소형 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
   { name: 'section-padding-m', figma: 'section-padding/m', value: '3.2rem (32px)', mobile: '2rem (20px)',   ref: 'space-32', usage: '일반 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
   { name: 'section-padding-l', figma: 'section-padding/l', value: '4.8rem (48px)', mobile: '3.2rem (32px)', ref: 'space-48', usage: '대형 섹션 여백 (모바일 축소)', krds: '(자체 추가)' },
-  { name: 'container-padding', figma: 'container-padding/default', value: '3.2rem (32px)', mobile: '2rem (20px)', ref: 'space-32', usage: '페이지 좌우 여백 (모바일 축소)', krds: '(자체 추가)' },
 ];
 
 
@@ -562,12 +561,12 @@ export const fixedSpacingSizeGroups = spacingSizeGroups.slice(0, 2); // xs, s
 /** heading-s, body-l/m/s/xs: PC = 모바일 (responsive.scss에 정의, semantic에서 이동) */
 export const semanticTypoStyleTokens = typoStyleTokens.slice(3);
 
-/** section-padding-s/m/l, container-padding: 레이아웃 반응형 간격 */
+/** section-padding-s/m/l, container-padding-x: 레이아웃 반응형 간격 */
 export const responsiveLayoutTokens = [
-  { name: 'section-padding-s', pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '소형 섹션 여백'   },
-  { name: 'section-padding-m', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '일반 섹션 여백'   },
-  { name: 'section-padding-l', pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '대형 섹션 여백'   },
-  { name: 'container-padding', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '페이지 좌우 여백' },
+  { name: 'section-padding-s',   pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '소형 섹션 여백'          },
+  { name: 'section-padding-m',   pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '일반 섹션 여백'          },
+  { name: 'section-padding-l',   pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '대형 섹션 여백'          },
+  { name: 'container-padding-x', pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: '콘텐츠 좌우 내부 여백 (--krds-contents-padding-x)' },
 ];
 
 /** 카드 패딩: PC/모바일 반응형 (KRDS padding-card-* 대응) */
@@ -650,5 +649,4 @@ export const iconSizeTokens = [
 export const containerTokens = [
   { name: 'container-max-width',  figma: 'container/max-width',  value: '1200px', ref: null, usage: '콘텐츠 최대 너비 (--krds-contents-size)',                krds: '--krds-contents-size'      },
   { name: 'container-wrap-width', figma: 'container/wrap-width', value: '1248px', ref: null, usage: '콘텐츠 + 좌우 패딩 합산 최대 너비 (--krds-contents-wrap-size)', krds: '--krds-contents-wrap-size' },
-  { name: 'container-padding-x',  figma: 'container/padding-x',  value: '24px (pc) / 16px (mobile)', ref: null, usage: '콘텐츠 좌우 내부 여백 (--krds-contents-padding-x)', krds: '--krds-contents-padding-x' },
 ];

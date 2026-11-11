@@ -44,7 +44,7 @@ import { ResponsiveLayoutTable } from '../token-components.js';
 | **section-padding-s** | 16px | 12px | 카드 그룹 내부 여백, 폼 패딩 |
 | **section-padding-m** | 32px | 20px | 일반 섹션 상하 여백, 콘텐츠 블록 패딩 |
 | **section-padding-l** | 48px | 32px | 주요 섹션 상하 여백, 히어로·배너 패딩 |
-| **container-padding** | 32px | 20px | 컨테이너 좌우 패딩 (자동 적용) |
+| **container-padding-x** | 24px | 16px | 콘텐츠 좌우 내부 여백 (`.yds-container`에 자동 적용) |
 
 ---
 
@@ -64,7 +64,7 @@ import { ResponsiveLayoutTable } from '../token-components.js';
 ```
 
 - 브레이크포인트가 필요한 경우 `@media (max-width: 1279px)`를 사용한다. 1280px 이상은 PC로 취급한다.
-- 반응형 토큰(`--section-padding-s/m/l`, `--container-padding`)을 사용하면 미디어 쿼리 없이 뷰포트에 맞는 값이 자동 적용된다.
+- 반응형 토큰(`--section-padding-s/m/l`, `--container-padding-x`)을 사용하면 미디어 쿼리 없이 뷰포트에 맞는 값이 자동 적용된다.
 
 ### 하지 말 것
 

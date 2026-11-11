@@ -320,10 +320,10 @@ const TypoStyleTableData = (tokens) =>
   h('table', { style: tableStyle },
     h('colgroup', null,
       h('col', { style: { width: '200px' } }),
-      h('col', null), h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
+      h('col', null), h('col', null), h('col', null), h('col', null), h('col', null)
     ),
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('PC (크기/굵기/행간)'), th('모바일'), th('참조 프리미티브'), th('용도'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('크기/굵기/행간'), th('참조 프리미티브'), th('용도'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...tokens.map(t =>
@@ -331,19 +331,7 @@ const TypoStyleTableData = (tokens) =>
           td(TypoSample(t.valuePC)),
           td(Chip(t.name)),
           td(GrayChip(t.valuePC)),
-          td(t.valuePC === t.valueMobile
-            ? h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
-            : h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.valueMobile)
-          ),
-          td(h('span', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } },
-            RefPrimChips(t.refsPC),
-            t.refsMobile
-              ? h('span', { style: { display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '4px', paddingTop: '4px', borderTop: '1px solid #eee' } },
-                  h('span', { style: { fontSize: '10px', color: '#aaa', marginBottom: '2px' } }, '모바일'),
-                  ...t.refsMobile.map((r, i) => h('code', { key: i, style: { ...chipStyle, background: '#fff8e0', color: '#8a5c00', fontSize: '11px' } }, r))
-                )
-              : null
-          )),
+          td(RefPrimChips(t.refsPC)),
           td(t.usage || ''),
           td(CssChip(t.name))
         )
@@ -476,7 +464,7 @@ export const SpacingSemanticTable = () =>
     h('div', { style: deprecatedWrapStyle },
       h('table', { style: tableStyle },
         h('thead', null,
-          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('PC 값'), th('모바일'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+          h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
         ),
         h('tbody', null,
           ...spacingSemanticTokens.map(t =>
@@ -485,10 +473,6 @@ export const SpacingSemanticTable = () =>
               td(Chip(t.name)),
               td(Chip(t.ref)),
               td(GrayChip(t.value)),
-              td(t.mobile
-                ? h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.mobile)
-                : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
-              ),
               td(t.usage || ''),
               td(KrdsChip(t.krds)),
               td(CssChip(t.name))
@@ -533,7 +517,7 @@ export const RadiusPrimTable = () =>
 export const RadiusSemanticTable = () =>
   h('table', { style: tableStyle },
     h('thead', null,
-      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('모바일'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
+      h('tr', null, th('견본'), th('토큰 이름'), th('참조 프리미티브'), th('값'), th('용도'), th('KRDS 원본'), th('CSS 변수'))
     ),
     h('tbody', null,
       ...radiusSemanticTokens.map(t =>
@@ -542,7 +526,6 @@ export const RadiusSemanticTable = () =>
           td(Chip(t.name)),
           td(Chip(t.ref)),
           td(GrayChip(t.value)),
-          td(h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')),
           td(t.usage || ''),
           td(KrdsChip(t.krds)),
           td(CssChip(t.name))

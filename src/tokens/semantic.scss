@@ -88,9 +88,9 @@
   /* ── 5c. 레이아웃 컨테이너 시멘틱 ─────────────────────────────────────────── */
   /* px 단위 유지 (KRDS 원본 값 그대로). rem 환산 불필요.
   ─ KRDS --krds-contents-* 대응 ───────────────────────────────────────────── */
-  /* container-padding-x (PC 24px / 모바일 16px) 는 반응형 → responsive.scss 에 정의. */
-  --container-max-width:  1200px;  /* --krds-contents-size       — 콘텐츠 최대 너비        */
-  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size  — 콘텐츠 + 좌우 패딩 합산 */
+  /* container-padding-x (PC 24px / 모바일 16px) → responsive.scss 에 정의. */
+  --container-max-width:  1200px;  /* --krds-contents-size      — 콘텐츠 최대 너비        */
+  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size — 콘텐츠 + 좌우 패딩 합산 */
 
   /* ── 6. 모서리 시멘틱 ───────────────────────────────────────────────────────── */
 
