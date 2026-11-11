@@ -66,7 +66,8 @@
   --section-padding-m: var(--space-32); /* mobile: 20px */
   --section-padding-l: var(--space-48); /* mobile: 32px */
 
-  --container-padding: var(--space-32); /* mobile: 20px */
+  --container-padding:   var(--space-32); /* mobile: 20px */
+  --container-padding-x: 24px;           /* mobile: 16px — --krds-contents-padding-x */
 
   /* ── 간격: 카드 패딩 (반응형) ────────────────────────────────────────────── */
 
@@ -138,10 +139,11 @@
     --space-xl-80: var(--space-64); /* 80px → 64px */
 
     /* 레이아웃 여백 */
-    --section-padding-s: var(--space-12); /* 16px → 12px */
-    --section-padding-m: var(--space-20); /* 32px → 20px */
-    --section-padding-l: var(--space-32); /* 48px → 32px */
-    --container-padding: var(--space-20); /* 32px → 20px */
+    --section-padding-s:   var(--space-12); /* 16px → 12px */
+    --section-padding-m:   var(--space-20); /* 32px → 20px */
+    --section-padding-l:   var(--space-32); /* 48px → 32px */
+    --container-padding:   var(--space-20); /* 32px → 20px */
+    --container-padding-x: 16px;            /* 24px → 16px */
 
     /* 카드 패딩 */
     --padding-card-l:  var(--space-24); /* 40px → 24px */
@@ -178,16 +180,6 @@
     --gap-layout-left-contents:     var(--space-0);  /* 64px → 0    */
     --gap-layout-contents-right:    var(--space-0);  /* 40px → 0    */
     --gap-layout-contents-footer:   var(--space-40); /* 64px → 40px */
-
-  }
-}
-
-/* ── 모바일 container-padding-x 덮어쓰기 ──────────────────────────────────────── */
-/* KRDS 기준: max-width 1023px에서 16px. YDS는 1279px 기준 적용. */
-@include mobile {
-  :root {
-
-    --container-padding-x: 16px; /* --krds-contents-padding-x mobile */
 
   }
 }

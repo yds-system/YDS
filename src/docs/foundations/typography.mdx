@@ -24,11 +24,43 @@ html { font-size: 62.5%; }
 
 ## 타입 스케일
 
-### 텍스트 스타일 (고정)
+### 텍스트 스타일
 
-Heading과 Body 각 단계의 PC·모바일 크기·굵기·행간을 한 표에서 비교한다. 모바일 열이 "동일"이면 뷰포트와 무관하게 같은 값을 사용한다.
+Heading과 Body 각 단계의 크기·굵기·행간 조합. 크기 토큰은 반응형이므로 PC/모바일 미디어 쿼리 없이도 자동 전환된다.
 
 <SemanticTypoStyleTable />
+
+### SCSS 텍스트 스타일 믹스인
+
+`src/styles/_typography.scss`에 위 스타일 조합을 믹스인으로 제공한다. 세 토큰을 개별로 작성하는 대신 믹스인 하나로 적용할 수 있다.
+
+| 믹스인 | 크기 토큰 | 굵기 토큰 | 행간 토큰 |
+|---|---|---|---|
+| `text-display-l` | `font-size-display-l` | `font-weight-bold` | `line-height-heading-xl` |
+| `text-display-m` | `font-size-display-m` | `font-weight-bold` | `line-height-heading-xl` |
+| `text-display-s` | `font-size-display-s` | `font-weight-bold` | `line-height-heading-xl` |
+| `text-heading-xl` | `font-size-heading-xl` | `font-weight-heading-xl` | `line-height-heading-xl` |
+| `text-heading-l` | `font-size-heading-l` | `font-weight-heading-l` | `line-height-heading-l` |
+| `text-heading-m` | `font-size-heading-m` | `font-weight-heading-m` | `line-height-heading-m` |
+| `text-heading-s` | `font-size-heading-s` | `font-weight-heading-s` | `line-height-heading-s` |
+| `text-body-l` | `font-size-body-l` | `font-weight-body-l` | `line-height-body-l` |
+| `text-body-m` | `font-size-body-m` | `font-weight-body-m` | `line-height-body-m` |
+| `text-body-s` | `font-size-body-s` | `font-weight-body-s` | `line-height-body-s` |
+| `text-body-xs` | `font-size-body-xs` | `font-weight-body-xs` | `line-height-body-xs` |
+
+```scss
+/* 올바른 예 — 믹스인 사용 */
+.yds-hero__title   { @include text-display-l; }
+.yds-section__heading { @include text-heading-m; }
+.yds-card__desc    { @include text-body-s; }
+
+/* 잘못된 예 — 토큰을 개별로 반복 작성 */
+.yds-hero__title {
+  font-size:   var(--font-size-display-l); /* 반복 작성은 오류 발생 위험 */
+  font-weight: 700;                        /* 하드코딩 금지 */
+  line-height: 1.25;
+}
+```
 
 ### 반응형 제목 크기 (PC / 모바일)
 

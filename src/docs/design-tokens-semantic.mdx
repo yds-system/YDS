@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { SemanticStaticColorTable, SemanticTypoStyleTable, SpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic } from './token-components.js';
+import { SemanticStaticColorTable, FixedSpacingSizeTable, SpacingSemanticTable, RadiusSemanticTable, ShadowTable, PageTocSemantic } from './token-components.js';
 
 <Meta title="Tokens/Semantic" />
 
@@ -27,21 +27,26 @@ import { SemanticStaticColorTable, SemanticTypoStyleTable, SpacingSizeTable, Spa
 
 ## 타이포그래피
 
-PC·모바일 값이 동일한 고정 타이포 토큰입니다.
+`font-size` · `line-height`는 **반응형** 페이지에서 확인하세요. 여기에는 `font-weight` 시멘틱 토큰만 정의합니다.
 
-반응형 제목(`heading-xl / heading-l / heading-m`)은 **반응형** 페이지에서 확인하세요.
-
-<SemanticTypoStyleTable />
+| 토큰 이름 | 참조 | 값 | 용도 |
+|---|---|---|---|
+| `--font-weight-heading-xl` | `font-weight-bold` | 700 | XL 제목 |
+| `--font-weight-heading-l` | `font-weight-bold` | 700 | L 제목 |
+| `--font-weight-heading-m` | `font-weight-bold` | 700 | M 제목 |
+| `--font-weight-heading-s` | `font-weight-bold` | 700 | S 제목 |
+| `--font-weight-body-l` | `font-weight-regular` | 400 | L 본문 |
+| `--font-weight-body-m` | `font-weight-regular` | 400 | M 본문 |
+| `--font-weight-body-s` | `font-weight-regular` | 400 | S 본문 |
+| `--font-weight-body-xs` | `font-weight-regular` | 400 | XS 본문 |
 
 ---
 
 ## 간격
 
-크기 그룹 별칭 토큰입니다. `m / l / xl` 그룹은 모바일에서 한 단계 작은 값으로 전환됩니다.
+xs · s 그룹 크기 별칭 토큰입니다 (고정값). `m / l / xl` 그룹과 레이아웃 토큰(`section-padding-*`, `container-padding`, `padding-card-*`, `gap-layout-*`)은 **반응형** 페이지에서 확인하세요.
 
-레이아웃 토큰(`section-padding-*`, `container-padding`)은 **반응형** 페이지에서 확인하세요.
-
-<SpacingSizeTable />
+<FixedSpacingSizeTable />
 
 ---
 

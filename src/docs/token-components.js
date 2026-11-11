@@ -407,7 +407,7 @@ const SpacingSizeSection = (groups) =>
           h('colgroup', null,
             h('col', { style: { width: '200px' } }),
             h('col', null), h('col', null), h('col', null), h('col', null),
-            h('col', null), h('col', null), h('col', null)
+            h('col', null), h('col', null)
           ),
           h('thead', null,
             h('tr', null,
@@ -416,7 +416,6 @@ const SpacingSizeSection = (groups) =>
               th('참조 프리미티브'),
               th('값'),
               th('px'),
-              th('모바일'),
               th('용도'),
               th('CSS 변수')
             )
@@ -429,10 +428,6 @@ const SpacingSizeSection = (groups) =>
                 td(Chip(t.ref)),
                 td(GrayChip(t.value)),
                 td(h('span', { style: { color: '#888', fontSize: '11px' } }, parseFloat(t.value) * 10 + 'px')),
-                td(t.mobile
-                  ? h('code', { style: { ...chipStyle, background: '#fff8e0' } }, t.mobile)
-                  : h('span', { style: { color: '#aaa', fontSize: '11px' } }, '동일')
-                ),
                 td(t.usage || ''),
                 td(CssChip(t.name))
               )

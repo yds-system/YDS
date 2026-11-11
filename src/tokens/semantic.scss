@@ -88,9 +88,9 @@
   /* ── 5c. 레이아웃 컨테이너 시멘틱 ─────────────────────────────────────────── */
   /* px 단위 유지 (KRDS 원본 값 그대로). rem 환산 불필요.
   ─ KRDS --krds-contents-* 대응 ───────────────────────────────────────────── */
-  --container-max-width:  1200px;  /* --krds-contents-size       — 콘텐츠 최대 너비          */
-  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size  — 콘텐츠 + 좌우 패딩 합산   */
-  --container-padding-x:  24px;    /* --krds-contents-padding-x  — 콘텐츠 좌우 내부 여백(PC) */
+  /* container-padding-x (PC 24px / 모바일 16px) 는 반응형 → responsive.scss 에 정의. */
+  --container-max-width:  1200px;  /* --krds-contents-size       — 콘텐츠 최대 너비        */
+  --container-wrap-width: 1248px;  /* --krds-contents-wrap-size  — 콘텐츠 + 좌우 패딩 합산 */
 
   /* ── 6. 모서리 시멘틱 ───────────────────────────────────────────────────────── */
 
@@ -101,13 +101,4 @@
   --radius-xl:     var(--radius-16);  /* 대형 카드                   ─ (자체 추가)            */
   --radius-circle: var(--radius-999); /* 원형·알약형                 ─ --krds-radius-max      */
 
-}
-/* ── 모바일 container-padding-x 덮어쓰기 ──────────────────────────────────────── */
-/* KRDS 기준: max-width 1023px에서 16px. YDS는 1279px 기준 적용. */
-@include mobile {
-  :root {
-
-    --container-padding-x: 16px; /* --krds-contents-padding-x mobile */
-
-  }
 }

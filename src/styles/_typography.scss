@@ -1,0 +1,85 @@
+/* =============================================================================
+   텍스트 스타일 믹스인 (Typography Mixins)
+   반응형 토큰을 참조하므로, 미디어 쿼리 없이도 PC/모바일 값이 자동 전환된다.
+
+   사용법:
+     @use 'src/styles/typography' as *;
+     .element { @include text-heading-m; }
+
+   참조 토큰:
+     font-size-*       → responsive.scss
+     font-weight-*     → semantic.scss
+     line-height-*     → responsive.scss
+   ============================================================================= */
+
+/* ── Display ───────────────────────────────────────────────────────────────── */
+
+@mixin text-display-l {
+  font-size:   var(--font-size-display-l);    /* PC: 60px / 모바일: 44px */
+  font-weight: var(--font-weight-bold);       /* 700 */
+  line-height: var(--line-height-heading-xl); /* 1.25 */
+}
+
+@mixin text-display-m {
+  font-size:   var(--font-size-display-m);    /* PC: 44px / 모바일: 32px */
+  font-weight: var(--font-weight-bold);       /* 700 */
+  line-height: var(--line-height-heading-xl); /* 1.25 */
+}
+
+@mixin text-display-s {
+  font-size:   var(--font-size-display-s);    /* PC: 36px / 모바일: 28px */
+  font-weight: var(--font-weight-bold);       /* 700 */
+  line-height: var(--line-height-heading-xl); /* 1.25 */
+}
+
+/* ── Heading ───────────────────────────────────────────────────────────────── */
+
+@mixin text-heading-xl {
+  font-size:   var(--font-size-heading-xl);   /* PC: 40px / 모바일: 28px */
+  font-weight: var(--font-weight-heading-xl); /* 700 */
+  line-height: var(--line-height-heading-xl); /* 1.25 */
+}
+
+@mixin text-heading-l {
+  font-size:   var(--font-size-heading-l);    /* PC: 32px / 모바일: 24px */
+  font-weight: var(--font-weight-heading-l);  /* 700 */
+  line-height: var(--line-height-heading-l);  /* 1.25 */
+}
+
+@mixin text-heading-m {
+  font-size:   var(--font-size-heading-m);    /* PC: 24px / 모바일: 22px */
+  font-weight: var(--font-weight-heading-m);  /* 700 */
+  line-height: var(--line-height-heading-m);  /* 1.5 */
+}
+
+@mixin text-heading-s {
+  font-size:   var(--font-size-heading-s);    /* 19px (PC = 모바일) */
+  font-weight: var(--font-weight-heading-s);  /* 700 */
+  line-height: var(--line-height-heading-s);  /* 1.5 */
+}
+
+/* ── Body ──────────────────────────────────────────────────────────────────── */
+
+@mixin text-body-l {
+  font-size:   var(--font-size-body-l);    /* 19px (PC = 모바일) */
+  font-weight: var(--font-weight-body-l);  /* 400 */
+  line-height: var(--line-height-body-l);  /* 1.5 */
+}
+
+@mixin text-body-m {
+  font-size:   var(--font-size-body-m);    /* 17px (PC = 모바일) */
+  font-weight: var(--font-weight-body-m);  /* 400 */
+  line-height: var(--line-height-body-m);  /* 1.5 */
+}
+
+@mixin text-body-s {
+  font-size:   var(--font-size-body-s);    /* 15px (PC = 모바일) */
+  font-weight: var(--font-weight-body-s);  /* 400 */
+  line-height: var(--line-height-body-s);  /* 1.5 */
+}
+
+@mixin text-body-xs {
+  font-size:   var(--font-size-body-xs);   /* 13px (PC = 모바일) */
+  font-weight: var(--font-weight-body-xs); /* 400 */
+  line-height: var(--line-height-body-xs); /* 1.5 */
+}

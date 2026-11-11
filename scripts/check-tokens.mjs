@@ -244,6 +244,29 @@ for (const f of compScssFiles) {
   }
 }
 
+// ── 14. semantic.scss에 @media/@include mobile 금지 ──────────────────────────
+// semantic.scss에는 미디어 쿼리가 없어야 한다. 반응형 값은 responsive.scss에서만 정의.
+
+{
+  const semanticSrc = readCss('src/tokens/semantic.scss');
+  if (/@media\b/.test(semanticSrc) || /@include\s+mobile\b/.test(semanticSrc)) {
+    errors.push('[구조] semantic.scss에 @media 또는 @include mobile 블록이 있습니다. 반응형 값은 responsive.scss에서만 정의하세요.');
+  }
+}
+
+// ── 15. responsive.scss에서 semantic 토큰 역참조 금지 ─────────────────────────
+// responsive.scss는 primitive만 참조해야 한다. semantic 토큰(semantRoot 정의)을 var()로 쓰면 안 된다.
+
+{
+  const responsiveSrc = readCss('src/tokens/responsive.scss');
+  for (const m of responsiveSrc.matchAll(/var\((--[a-z][a-z0-9-]+)/g)) {
+    const name = m[1].slice(2); // '--' 제거
+    if (semantRoot.has(name)) {
+      errors.push(`[구조] responsive.scss가 semantic 토큰 --${name} 을 참조합니다. primitive만 참조하세요.`);
+    }
+  }
+}
+
 // ── 결과 출력 ─────────────────────────────────────────────────────────────────
 
 if (errors.length === 0) {
