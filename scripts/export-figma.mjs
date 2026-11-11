@@ -15,6 +15,10 @@
  * 참조 처리 (Primitive 외 파일)
  *   var(--X) → $value에 Primitive 실제 값, $extensions에 aliasData
  *   참조 대상이 Primitive에 없으면 스크립트 실패
+ * 충돌 해소
+ *   변수와 그룹이 같은 이름인 경우(예: color/bg/primary vs color/bg/primary/hover)
+ *   충돌 지점 이후 세그먼트를 "-"로 이어 같은 그룹에 배치
+ *   예: color.bg.primary.hover → color.bg.primary-hover
  * 제외
  *   --font-letter-spacing-* (em 단위)
  *   --transition-*          (duration 복합 값)
@@ -72,7 +76,7 @@ function hexToColor(hex) {
   };
 }
 
-/** 직접 값(hex/rem/px/number/font-family) → { $value, $type } or null */
+/** 직접 값 → { $value, $type } or null */
 function convertDirect(name, raw) {
   if (/^#[0-9a-fA-F]{3,8}$/.test(raw))
     return { $value: hexToColor(raw), $type: 'color' };
@@ -107,11 +111,46 @@ function parseProps(text) {
   return map;
 }
 
+// ── 충돌 해소 ─────────────────────────────────────────────────────────────────
+/**
+ * props에서 "변수와 그룹이 같은 이름" 충돌을 찾고 rename Map 반환.
+ * 충돌 지점 이후 세그먼트를 "-"로 이어 같은 그룹에 배치한다.
+ * 예: color.bg.primary.hover → color.bg.primary-hover
+ *     color.text.link.visited → color.text.link-visited
+ */
+function computeRenames(props, exclude = []) {
+  const paths = [];
+  for (const [name] of props) {
+    if (!exclude.some(p => name.startsWith(p)))
+      paths.push(toDotPath(name));
+  }
+
+  const pathSet = new Set(paths);
+  const renames = new Map(); // original dotPath → renamed dotPath
+
+  for (const path of paths) {
+    const segs = path.split('.');
+    for (let i = 1; i < segs.length; i++) {
+      const prefix = segs.slice(0, i).join('.');
+      if (pathSet.has(prefix)) {
+        // 충돌 지점: segs[i-1]이 변수이자 그룹
+        // 그룹:  segs[0..i-2]
+        // 이름:  segs[i-1..end] 를 "-" 로 연결
+        const group = segs.slice(0, i - 1).join('.');
+        const leaf  = segs.slice(i - 1).join('-');
+        renames.set(path, group ? `${group}.${leaf}` : leaf);
+        break; // 첫 번째 충돌 지점에서만 처리
+      }
+    }
+  }
+
+  return renames;
+}
+
 // ── Primitive 조회 ─────────────────────────────────────────────────────────────
 
-let primObj = null;  // 1번 파일 완성 후 세팅
+let primObj = null;
 
-/** dot 경로로 Primitive $value 조회. 없으면 undefined. */
 function resolvePrim(dotPath) {
   const keys = dotPath.split('.');
   let cur = primObj;
@@ -122,7 +161,7 @@ function resolvePrim(dotPath) {
   return cur?.$value;
 }
 
-// ── 빌더: Primitive (직접 값만) ───────────────────────────────────────────────
+// ── 빌더: Primitive ───────────────────────────────────────────────────────────
 
 const skipped = [];
 
@@ -142,9 +181,9 @@ function buildPrimObj(props, exclude = []) {
   return { obj, count };
 }
 
-// ── 빌더: 참조 파일 (var() → Primitive 실제 값 + aliasData) ───────────────────
+// ── 빌더: 참조 파일 ───────────────────────────────────────────────────────────
 
-function buildRefObj(props, exclude = [], label = '') {
+function buildRefObj(props, exclude = [], label = '', renames = new Map()) {
   const obj = {};
   let count = 0;
   const errors = [];
@@ -155,20 +194,24 @@ function buildRefObj(props, exclude = [], label = '') {
       continue;
     }
 
+    const origPath  = toDotPath(name);
+    const outPath   = renames.get(origPath) ?? origPath;
+    const shortName = name.replace(/^--/, '');
+
     const vm = raw.match(/^var\((--.+?)\)$/);
     if (vm) {
-      const dotPath = toDotPath(vm[1]);
-      const primVal = resolvePrim(dotPath);
+      const refPath = toDotPath(vm[1]);
+      const primVal = resolvePrim(refPath);
       if (primVal === undefined) {
-        errors.push({ label, name, ref: dotPath });
+        errors.push({ label, name, ref: refPath });
         continue;
       }
-      setNested(obj, toDotPath(name), {
+      setNested(obj, outPath, {
         $value: primVal,
-        $type: inferType(name.replace(/^--/, '')),
+        $type: inferType(shortName),
         $extensions: {
           'com.figma.aliasData': {
-            targetVariableName: toSlashPath(dotPath),
+            targetVariableName: toSlashPath(refPath),
             targetVariableSetName: 'Primitive',
           },
         },
@@ -177,10 +220,10 @@ function buildRefObj(props, exclude = [], label = '') {
       continue;
     }
 
-    // 직접 값 (참조 아님 — semantic의 container-max-width 등)
-    const token = convertDirect(name.replace(/^--/, ''), raw);
+    // 직접 값 (semantic의 container-max-width 등)
+    const token = convertDirect(shortName, raw);
     if (!token) { skipped.push({ label, name, raw }); continue; }
-    setNested(obj, toDotPath(name), token);
+    setNested(obj, outPath, token);
     count++;
   }
 
@@ -189,15 +232,9 @@ function buildRefObj(props, exclude = [], label = '') {
 
 // ── 파일 저장 ─────────────────────────────────────────────────────────────────
 
-/**
- * @param {string}      filename
- * @param {object}      tokenObj
- * @param {string|null} modeName  null이면 $extensions 없음
- */
 function save(filename, tokenObj, modeName = null) {
   let final;
   if (modeName) {
-    // $extensions 를 최상단 첫 번째 키로
     final = { $extensions: { 'com.figma.modeName': modeName } };
     for (const [k, v] of Object.entries(tokenObj)) final[k] = v;
   } else {
@@ -232,50 +269,55 @@ const respScss = readScss('responsive.scss');
 const modeScss = readScss('mode.scss');
 const semScss  = readScss('semantic.scss');
 
-// ── 1. primitive.json — 직접 값, 모드 이름 없음 ──────────────────────────────
+// ── 1. primitive.json — 직접 값, 충돌 없음 ───────────────────────────────────
 
 const primProps = parseProps(extractRoot(primScss));
 const { obj, count: primCount } = buildPrimObj(primProps, [
   '--font-letter-spacing-',
   '--transition-',
 ]);
-primObj = obj;                     // 이후 참조 조회용
-save('primitive.json', primObj);   // modeName 없음
+primObj = obj;
+save('primitive.json', primObj);
 
 // ── 2. responsive.pc.json ─────────────────────────────────────────────────────
 
-const respPcProps = parseProps(extractRoot(respScss));
+const respPcProps   = parseProps(extractRoot(respScss));
+const respPcRenames = computeRenames(respPcProps);
 const { obj: respPcObj, count: respPcCount, errors: e1 } =
-  buildRefObj(respPcProps, [], 'responsive.pc');
+  buildRefObj(respPcProps, [], 'responsive.pc', respPcRenames);
 save('responsive.pc.json', respPcObj, 'PC');
 
 // ── 3. responsive.mobile.json ─────────────────────────────────────────────────
 
-const mobileProps  = parseProps(extractMobile(respScss));
-const respMobMap   = new Map([...respPcProps, ...mobileProps]);
+const mobileProps    = parseProps(extractMobile(respScss));
+const respMobMap     = new Map([...respPcProps, ...mobileProps]);
+const respMobRenames = computeRenames(respMobMap);
 const { obj: respMobObj, count: respMobCount, errors: e2 } =
-  buildRefObj(respMobMap, [], 'responsive.mobile');
+  buildRefObj(respMobMap, [], 'responsive.mobile', respMobRenames);
 save('responsive.mobile.json', respMobObj, 'Mobile');
 
 // ── 4. mode.light.json ────────────────────────────────────────────────────────
 
-const lightProps = parseProps(extractRoot(modeScss));
+const lightProps   = parseProps(extractRoot(modeScss));
+const lightRenames = computeRenames(lightProps);
 const { obj: lightObj, count: lightCount, errors: e3 } =
-  buildRefObj(lightProps, [], 'mode.light');
+  buildRefObj(lightProps, [], 'mode.light', lightRenames);
 save('mode.light.json', lightObj, 'Light');
 
 // ── 5. mode.dark.json ─────────────────────────────────────────────────────────
 
-const darkProps = parseProps(extractSelector(modeScss, '[data-mode="dark"]'));
+const darkProps   = parseProps(extractSelector(modeScss, '[data-mode="dark"]'));
+const darkRenames = computeRenames(darkProps);
 const { obj: darkObj, count: darkCount, errors: e4 } =
-  buildRefObj(darkProps, [], 'mode.dark');
+  buildRefObj(darkProps, [], 'mode.dark', darkRenames);
 save('mode.dark.json', darkObj, 'Dark');
 
 // ── 6. semantic.json ──────────────────────────────────────────────────────────
 
-const semProps = parseProps(extractRoot(semScss));
+const semProps   = parseProps(extractRoot(semScss));
+const semRenames = computeRenames(semProps, ['--shadow-']);
 const { obj: semObj, count: semCount, errors: e5 } =
-  buildRefObj(semProps, ['--shadow-'], 'semantic');
+  buildRefObj(semProps, ['--shadow-'], 'semantic', semRenames);
 save('semantic.json', semObj, 'Mode 1');
 
 // ── 참조 오류 확인 ────────────────────────────────────────────────────────────
@@ -308,6 +350,14 @@ for (const [f, c] of files)
   console.log(`${f.padEnd(27)} ${String(c).padStart(4)}개`);
 console.log('─'.repeat(36));
 console.log(`${'합계'.padEnd(27)} ${String(total).padStart(4)}개`);
+
+// 충돌 해소 고유 경로 수 (light + dark에 같은 경로가 있으므로 Set으로 중복 제거)
+const uniqueRenamed = new Set([
+  ...respPcRenames.keys(), ...respMobRenames.keys(),
+  ...lightRenames.keys(),  ...darkRenames.keys(),
+  ...semRenames.keys(),
+]);
+console.log(`\n── 충돌 해소: ${uniqueRenamed.size}개 토큰 경로 조정 (그룹·변수 이름 충돌 방지) ──`);
 
 if (skipped.length > 0) {
   console.log(`\n── 제외된 토큰 (${skipped.length}개) ──`);
