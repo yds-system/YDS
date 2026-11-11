@@ -66,11 +66,11 @@
 .yds-tooltip-popover {
   &::before {
 
-    --tooltip-arrow-size: 0.8rem;
-    --tooltip-arrow-gap: calc((var(--tooltip-arrow-size) / 2) * -1);
+    --yds-tooltip--arrow-size: 0.8rem;
+    --yds-tooltip--arrow-gap: calc((var(--yds-tooltip--arrow-size) / 2) * -1);
     content: "";
-    width: var(--tooltip-arrow-size);
-    height: var(--tooltip-arrow-size);
+    width: var(--yds-tooltip--arrow-size);
+    height: var(--yds-tooltip--arrow-size);
     display: block;
     position: absolute;
     background-color: var(--yds-tooltip--popover-color-surface);
@@ -80,7 +80,7 @@
 .yds-tooltip-popover {
   &.yds-tooltip-popover--box::before {
 
-    --tooltip-arrow-size: 1.2rem;
+    --yds-tooltip--arrow-size: 1.2rem;
     border: 0.1rem solid var(--yds-tooltip--popover-color-border);
     border-top-color: transparent;
     border-left-color: transparent;
@@ -98,7 +98,7 @@
 .yds-tooltip-popover {
   &.yds-tooltip-popover--right::before {
 
-    left: var(--tooltip-arrow-gap);
+    left: var(--yds-tooltip--arrow-gap);
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
 
@@ -108,7 +108,7 @@
 .yds-tooltip-popover {
   &.yds-tooltip-popover--left::before {
 
-    left: calc(100% + var(--tooltip-arrow-gap));
+    left: calc(100% + var(--yds-tooltip--arrow-gap));
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
 
@@ -118,7 +118,7 @@
 .yds-tooltip-popover {
   &.yds-tooltip-popover--top::before {
 
-    top: calc(100% + var(--tooltip-arrow-gap));
+    top: calc(100% + var(--yds-tooltip--arrow-gap));
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 
@@ -135,7 +135,7 @@
 .yds-tooltip-popover {
   &.yds-tooltip-popover--bottom::before {
 
-    top: var(--tooltip-arrow-gap);
+    top: var(--yds-tooltip--arrow-gap);
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 
