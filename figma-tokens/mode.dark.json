@@ -213,191 +213,6 @@
           }
         }
       },
-      "on": {
-        "primary": {
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.1176,
-              0.1294,
-              0.1412
-            ],
-            "alpha": 1,
-            "hex": "#1e2124"
-          },
-          "$type": "color",
-          "$extensions": {
-            "com.figma.aliasData": {
-              "targetVariableName": "color/gray/90",
-              "targetVariableSetName": "Primitive"
-            }
-          }
-        },
-        "secondary": {
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.1176,
-              0.1294,
-              0.1412
-            ],
-            "alpha": 1,
-            "hex": "#1e2124"
-          },
-          "$type": "color",
-          "$extensions": {
-            "com.figma.aliasData": {
-              "targetVariableName": "color/gray/90",
-              "targetVariableSetName": "Primitive"
-            }
-          }
-        },
-        "warning": {
-          "element": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0.1176,
-                0.1294,
-                0.1412
-              ],
-              "alpha": 1,
-              "hex": "#1e2124"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/90",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        },
-        "interactive": {
-          "active": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0.1176,
-                0.1294,
-                0.1412
-              ],
-              "alpha": 1,
-              "hex": "#1e2124"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/90",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        },
-        "success": {
-          "element": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0.1176,
-                0.1294,
-                0.1412
-              ],
-              "alpha": 1,
-              "hex": "#1e2124"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/90",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        },
-        "information": {
-          "element": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0.1176,
-                0.1294,
-                0.1412
-              ],
-              "alpha": 1,
-              "hex": "#1e2124"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/90",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        },
-        "point": {
-          "element": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 1,
-              "hex": "#000000"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/100",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        },
-        "gray": {
-          "element": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                1,
-                1,
-                1
-              ],
-              "alpha": 1,
-              "hex": "#ffffff"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/0",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          },
-          "element-strong": {
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0.1176,
-                0.1294,
-                0.1412
-              ],
-              "alpha": 1,
-              "hex": "#1e2124"
-            },
-            "$type": "color",
-            "$extensions": {
-              "com.figma.aliasData": {
-                "targetVariableName": "color/gray/90",
-                "targetVariableSetName": "Primitive"
-              }
-            }
-          }
-        }
-      },
       "link": {
         "$value": {
           "colorSpace": "srgb",
@@ -528,6 +343,50 @@
           "com.figma.aliasData": {
             "targetVariableName": "color/secondary/20",
             "targetVariableSetName": "Primitive"
+          }
+        }
+      },
+      "on": {
+        "warning": {
+          "element": {
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0.1176,
+                0.1294,
+                0.1412
+              ],
+              "alpha": 1,
+              "hex": "#1e2124"
+            },
+            "$type": "color",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "color/gray/90",
+                "targetVariableSetName": "Primitive"
+              }
+            }
+          }
+        },
+        "point": {
+          "element": {
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 1,
+              "hex": "#000000"
+            },
+            "$type": "color",
+            "$extensions": {
+              "com.figma.aliasData": {
+                "targetVariableName": "color/gray/100",
+                "targetVariableSetName": "Primitive"
+              }
+            }
           }
         }
       },

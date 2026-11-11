@@ -3,6 +3,8 @@
 > **수정 규칙**: CSS 토큰을 수정할 때 `src/docs/token-data.js`도 함께 수정하고, `npm run check:tokens`으로 일치 여부를 확인한다.
 >
 > 추후 JSON + Style Dictionary 체계로 전환되면 `token-data.js`는 자동 생성 파일로 대체될 예정이다.
+>
+> **중복 방지**: 이름만 다르고 값이 같은 토큰은 만들지 않는다. 값이 동일하면 기존 토큰 하나로 통일한다.
 
 ---
 

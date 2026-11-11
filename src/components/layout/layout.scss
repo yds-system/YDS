@@ -289,7 +289,7 @@
   --yds-main-menu--sub-trigger-color-text: var(--color-text-default);
   --yds-main-menu--sub-trigger-color-text-selected: var(--color-text-secondary-strong);
   --yds-main-menu--sub-trigger-color-action: transparent;
-  --yds-main-menu--sub-trigger-color-action-selected: var(--color-text-on-interactive-active);
+  --yds-main-menu--sub-trigger-color-action-selected: var(--color-text-inverse);
   --yds-main-menu--sub-trigger-color-action-pressed: var(--color-bg-interactive-pressed);
   --yds-main-menu--sub-menu-color-action: transparent;
   --yds-main-menu--sub-menu-color-action-hover: var(--color-bg-interactive-hover);
@@ -777,7 +777,7 @@
   --yds-main-menu-mobile--main-trigger-padding-x: var(--space-12);
   --yds-main-menu-mobile--main-trigger-font-size: var(--font-size-17);
   --yds-main-menu-mobile--main-trigger-color-text-active: var(--color-text-secondary-strong);
-  --yds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-on-interactive-active);
+  --yds-main-menu-mobile--main-trigger-color-action-active: var(--color-text-inverse);
   --yds-main-menu-mobile--menu-color-surface: var(--color-bg-secondary-subtle);
   --yds-main-menu-mobile--menu-left-width: 12rem;
   --yds-main-menu-mobile--sub-menu-color-surface: var(--color-bg-default);

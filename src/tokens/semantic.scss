@@ -13,8 +13,8 @@
   /* ── 2. 색상 시멘틱 (모드 불변) ──────────────────────────────────────────── */
 
   /* 채움(dark fill) 배경 위 텍스트 — 모든 모드에서 항상 흰색.
-  primary 이외 배경(secondary, gray, danger, success, info 등)에서 사용.
-  mode.css의 --color-text-on-primary/secondary (모드별 가변)와 구별된다.    */
+  warning·gray 등 배경색이 모드와 무관하게 고정된 경우에 사용.
+  --color-text-inverse(모드별 가변)와 달리 항상 고정값이다.              */
   --color-text-on-static: var(--color-gray-0);
 
   /* ── 3. 타이포 시멘틱 ─────────────────────────────────────────────────────── */
