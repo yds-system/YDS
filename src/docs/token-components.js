@@ -22,6 +22,8 @@ import {
   responsiveTypoTokens,
   responsiveSpacingGroups,
   responsiveLayoutTokens,
+  responsivePaddingCardTokens,
+  responsiveGapLayoutTokens,
   fixedSpacingSizeGroups,
   semanticTypoStyleTokens,
   shadowColorTokens,
@@ -802,9 +804,65 @@ export const SemanticStaticColorTable = () =>
 
 // ─── 추가 TOC ─────────────────────────────────────────────────────────────────
 
+export const ResponsivePaddingCardTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null,
+        th('토큰 이름'),
+        th('PC 참조'), th('PC 값'), th('PC px'),
+        th('모바일 참조'), th('모바일 값'), th('모바일 px'),
+        th('용도'), th('CSS 변수')
+      )
+    ),
+    h('tbody', null,
+      ...responsivePaddingCardTokens.map(t =>
+        h('tr', { key: t.name },
+          td(Chip(t.name)),
+          td(PcChip(t.pcRef)),
+          td(GrayChip(t.pcValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.pcPx)),
+          td(MobileChip(t.mobileRef)),
+          td(GrayChip(t.mobileValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.mobilePx)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
+export const ResponsiveGapLayoutTable = () =>
+  h('table', { style: tableStyle },
+    h('thead', null,
+      h('tr', null,
+        th('토큰 이름'),
+        th('PC 참조'), th('PC 값'), th('PC px'),
+        th('모바일 참조'), th('모바일 값'), th('모바일 px'),
+        th('용도'), th('CSS 변수')
+      )
+    ),
+    h('tbody', null,
+      ...responsiveGapLayoutTokens.map(t =>
+        h('tr', { key: t.name },
+          td(Chip(t.name)),
+          td(PcChip(t.pcRef)),
+          td(GrayChip(t.pcValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.pcPx)),
+          td(MobileChip(t.mobileRef)),
+          td(GrayChip(t.mobileValue)),
+          td(h('span', { style: { color: '#888', fontSize: '11px' } }, t.mobilePx)),
+          td(t.usage || ''),
+          td(CssChip(t.name))
+        )
+      )
+    )
+  );
+
 export const PageTocResponsive = () => PageToc([
-  { label: '타이포그래피', anchor: '타이포그래피' },
-  { label: '레이아웃',     anchor: '레이아웃'     },
+  { label: '타이포그래피',     anchor: '타이포그래피'     },
+  { label: '레이아웃',         anchor: '레이아웃'         },
+  { label: '카드 패딩',        anchor: '카드-패딩'        },
+  { label: '레이아웃 조합 간격', anchor: '레이아웃-조합-간격' },
 ]);
 
 export const PageTocMode = () => PageToc([

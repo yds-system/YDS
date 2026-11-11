@@ -1,39 +1,66 @@
 /* =============================================================================
    디자인 토큰 — 반응형 (Responsive)
-   화면 크기별로 값이 달라지는 토큰.
-   PC 기본값을 :root에 정의하고 @media로 모바일을 덮어쓴다.
+   화면 크기별로 값이 달라질 수 있는 토큰.
+   KRDS 원칙: "같은 종류는 한 컬렉션에" — 글자 크기·행간은 PC=모바일이어도 여기에 정의.
+   PC 기본값을 :root에 정의하고, @include mobile로 모바일 값을 덮어쓴다.
 
    참조 방향: responsive → primitive (역방향 금지)
    브레이크포인트: max-width: 1279px (모바일)
 
-   ⚠️ 토큰 이름의 숫자는 PC 기준값(px)이다.
-      --space-m-24 → PC: 24px, mobile: 20px
-      Figma responsive 컬렉션의 mobile 모드에서 실제값 확인 가능.
+   ⚠️ PC/모바일 값이 같은 토큰은 @include mobile 블록에 다시 쓰지 않는다.
    ============================================================================= */
 :root {
 
-  /* ── 타이포: PC 기본 (반응형 토큰만 — font-weight/line-height는 semantic에 고정) ── */
+  /* ── 타이포: Display (신규 — heading보다 큰 계층) ─────────────────────────── */
 
-  --font-size-heading-xl: var(--font-size-40);  /* mobile: 28px */
-  --font-size-heading-l:  var(--font-size-32);  /* mobile: 24px */
-  --font-size-heading-m:  var(--font-size-24);  /* mobile: 22px */
-  /* heading-s / body-*: PC = 모바일 → semantic에 고정 */
+  --font-size-display-l: var(--font-size-60); /* mobile: 4.4rem — --krds-pc-font-size-display-large  */
+  --font-size-display-m: var(--font-size-44); /* mobile: 3.2rem — --krds-pc-font-size-display-medium */
+  --font-size-display-s: var(--font-size-36); /* mobile: 2.8rem — --krds-pc-font-size-display-small  */
 
-  /* ── 간격: space alias (반응형 — 모바일에서 한 단계 축소) ─────────────────────── */
+  /* ── 타이포: Heading 전체 (PC=mobile이어도 responsive에 집중) ────────────── */
+
+  --font-size-heading-xl: var(--font-size-40); /* mobile: 2.8rem — --krds-pc-font-size-heading-xlarge */
+  --font-size-heading-l:  var(--font-size-32); /* mobile: 2.4rem — --krds-pc-font-size-heading-large  */
+  --font-size-heading-m:  var(--font-size-24); /* mobile: 2.2rem — --krds-pc-font-size-heading-medium */
+  --font-size-heading-s:  var(--font-size-19); /* PC = mobile    — --krds-pc-font-size-heading-small  */
+
+  /* ── 타이포: Body 전체 (PC = mobile) ─────────────────────────────────────── */
+
+  --font-size-body-l:  var(--font-size-19); /* PC = mobile — --krds-pc-font-size-body-large  */
+  --font-size-body-m:  var(--font-size-17); /* PC = mobile — --krds-pc-font-size-body-medium */
+  --font-size-body-s:  var(--font-size-15); /* PC = mobile — --krds-pc-font-size-body-small  */
+  --font-size-body-xs: var(--font-size-13); /* PC = mobile — --krds-pc-font-size-body-xsmall */
+
+  /* ── 타이포: 내비게이션 제목 ─────────────────────────────────────────────── */
+
+  --font-size-nav-title-m: var(--font-size-24); /* mobile: 2.2rem — --krds-pc-font-size-navigation-title-medium */
+
+  /* ── 행간 — Heading/Body 전체 (PC = mobile) ─────────────────────────────── */
+
+  --line-height-heading-xl: var(--line-height-tight);   /* 1.25 */
+  --line-height-heading-l:  var(--line-height-tight);   /* 1.25 */
+  --line-height-heading-m:  var(--line-height-normal);  /* 1.5  */
+  --line-height-heading-s:  var(--line-height-normal);  /* 1.5  */
+  --line-height-body-l:     var(--line-height-normal);  /* 1.5  */
+  --line-height-body-m:     var(--line-height-normal);  /* 1.5  */
+  --line-height-body-s:     var(--line-height-normal);  /* 1.5  */
+  --line-height-body-xs:    var(--line-height-normal);  /* 1.5  */
+
+  /* ── 간격: space alias (반응형 — 모바일에서 한 단계 축소) ─────────────────── */
 
   /* m 그룹 (24–32px) */
-  --space-m-24: var(--space-24);  /* mobile: 20px */
-  --space-m-32: var(--space-32);  /* mobile: 24px */
+  --space-m-24: var(--space-24); /* mobile: 20px */
+  --space-m-32: var(--space-32); /* mobile: 24px */
 
   /* l 그룹 (40–48px) */
-  --space-l-40: var(--space-40);  /* mobile: 32px */
-  --space-l-48: var(--space-48);  /* mobile: 40px */
+  --space-l-40: var(--space-40); /* mobile: 32px */
+  --space-l-48: var(--space-48); /* mobile: 40px */
 
   /* xl 그룹 (64–80px) */
   --space-xl-64: var(--space-64); /* mobile: 48px */
   --space-xl-80: var(--space-80); /* mobile: 64px */
 
-  /* ── 간격: 레이아웃 (반응형) ───────────────────────────────────────────────────── */
+  /* ── 간격: 레이아웃 여백 (반응형) ───────────────────────────────────────── */
 
   --section-padding-s: var(--space-16); /* mobile: 12px */
   --section-padding-m: var(--space-32); /* mobile: 20px */
@@ -41,15 +68,66 @@
 
   --container-padding: var(--space-32); /* mobile: 20px */
 
+  /* ── 간격: 카드 패딩 (반응형) ────────────────────────────────────────────── */
+
+  --padding-card-l:  var(--space-40); /* mobile: 24px — --krds-pc-padding-card-large  */
+  --padding-card-m:  var(--space-32); /* mobile: 24px — --krds-pc-padding-card-medium */
+  --padding-card-s:  var(--space-24); /* mobile: 20px — --krds-pc-padding-card-small  */
+  --padding-card-xs: var(--space-16); /* mobile: 12px — --krds-pc-padding-card-xsmall */
+
+  /* ── 간격: 레이아웃 조합 — 타이틀↔본문 (반응형) ───────────────────────── */
+
+  --gap-layout-title-body-s: var(--space-16); /* mobile: 8px  — --krds-pc-gap-layout-title-body-small  */
+  --gap-layout-title-body-m: var(--space-20); /* mobile: 12px — --krds-pc-gap-layout-title-body-medium */
+  --gap-layout-title-body-l: var(--space-24); /* mobile: 20px — --krds-pc-gap-layout-title-body-large  */
+
+  /* ── 간격: 레이아웃 조합 — 텍스트↔텍스트 (반응형) ─────────────────────── */
+
+  --gap-layout-text-text-s: var(--space-12); /* mobile: 10px — --krds-pc-gap-layout-text-text-small  */
+  --gap-layout-text-text-m: var(--space-16); /* mobile: 12px — --krds-pc-gap-layout-text-text-medium */
+  --gap-layout-text-text-l: var(--space-20); /* mobile: 16px — --krds-pc-gap-layout-text-text-large  */
+
+  /* ── 간격: 레이아웃 조합 — 이미지↔텍스트 (반응형) ─────────────────────── */
+
+  --gap-layout-image-text-s: var(--space-20); /* mobile: 16px — --krds-pc-gap-layout-image-text-small  */
+  --gap-layout-image-text-m: var(--space-24); /* mobile: 20px — --krds-pc-gap-layout-image-text-medium */
+  --gap-layout-image-text-l: var(--space-32); /* mobile: 24px — --krds-pc-gap-layout-image-text-large  */
+
+  /* ── 간격: 페이지 구조 (반응형) ─────────────────────────────────────────── */
+
+  --gap-layout-header-breadcrumb: var(--space-24); /* mobile: 16px — --krds-pc-gap-layout-header-breadcrumb */
+  --gap-layout-breadcrumb-h1:     var(--space-40); /* mobile: 32px — --krds-pc-gap-layout-breadcrumb-h1     */
+  --gap-layout-h1-h2:             var(--space-48); /* mobile: 32px — --krds-pc-gap-layout-h1-h2             */
+  --gap-layout-h2-h2:             var(--space-80); /* mobile: 40px — --krds-pc-gap-layout-h2-h2             */
+  --gap-layout-h2-h3:             var(--space-40); /* mobile: 24px — --krds-pc-gap-layout-h2-h3             */
+  --gap-layout-h3-h3:             var(--space-64); /* mobile: 32px — --krds-pc-gap-layout-h3-h3             */
+  --gap-layout-h3-h4:             var(--space-24); /* mobile: 16px — --krds-pc-gap-layout-h3-h4             */
+  --gap-layout-h4-h4:             var(--space-40); /* mobile: 24px — --krds-pc-gap-layout-h4-h4             */
+  --gap-layout-h4-h5:             var(--space-16); /* mobile: 12px — --krds-pc-gap-layout-h4-h5             */
+  --gap-layout-h5-h5:             var(--space-32); /* mobile: 16px — --krds-pc-gap-layout-h5-h5             */
+  --gap-layout-left-contents:     var(--space-64); /* mobile: 0    — --krds-pc-gap-layout-left-contents     */
+  --gap-layout-contents-right:    var(--space-40); /* mobile: 0    — --krds-pc-gap-layout-contents-right    */
+  --gap-layout-contents-footer:   var(--space-64); /* mobile: 40px — --krds-pc-gap-layout-contents-footer   */
+
 }
+
 /* ── 모바일 덮어쓰기 (max-width: 1279px) ──────────────────────────────────────── */
+/* PC=mobile 토큰(heading-s, body-*, 행간 전체)은 이 블록에 쓰지 않는다. */
 @include mobile {
   :root {
 
-    /* 타이포 */
+    /* 타이포: display */
+    --font-size-display-l: var(--font-size-44); /* 60px → 44px */
+    --font-size-display-m: var(--font-size-32); /* 44px → 32px */
+    --font-size-display-s: var(--font-size-28); /* 36px → 28px */
+
+    /* 타이포: heading */
     --font-size-heading-xl: var(--font-size-28); /* 40px → 28px */
     --font-size-heading-l:  var(--font-size-24); /* 32px → 24px */
     --font-size-heading-m:  var(--font-size-22); /* 24px → 22px */
+
+    /* 타이포: 내비게이션 제목 */
+    --font-size-nav-title-m: var(--font-size-22); /* 24px → 22px */
 
     /* space alias */
     --space-m-24:  var(--space-20); /* 24px → 20px */
@@ -59,11 +137,57 @@
     --space-xl-64: var(--space-48); /* 64px → 48px */
     --space-xl-80: var(--space-64); /* 80px → 64px */
 
-    /* 레이아웃 */
+    /* 레이아웃 여백 */
     --section-padding-s: var(--space-12); /* 16px → 12px */
     --section-padding-m: var(--space-20); /* 32px → 20px */
     --section-padding-l: var(--space-32); /* 48px → 32px */
     --container-padding: var(--space-20); /* 32px → 20px */
+
+    /* 카드 패딩 */
+    --padding-card-l:  var(--space-24); /* 40px → 24px */
+    --padding-card-m:  var(--space-24); /* 32px → 24px */
+    --padding-card-s:  var(--space-20); /* 24px → 20px */
+    --padding-card-xs: var(--space-12); /* 16px → 12px */
+
+    /* 레이아웃 조합 — 타이틀↔본문 */
+    --gap-layout-title-body-s: var(--space-8);  /* 16px → 8px  */
+    --gap-layout-title-body-m: var(--space-12); /* 20px → 12px */
+    --gap-layout-title-body-l: var(--space-20); /* 24px → 20px */
+
+    /* 레이아웃 조합 — 텍스트↔텍스트 */
+    --gap-layout-text-text-s: var(--space-10); /* 12px → 10px */
+    --gap-layout-text-text-m: var(--space-12); /* 16px → 12px */
+    --gap-layout-text-text-l: var(--space-16); /* 20px → 16px */
+
+    /* 레이아웃 조합 — 이미지↔텍스트 */
+    --gap-layout-image-text-s: var(--space-16); /* 20px → 16px */
+    --gap-layout-image-text-m: var(--space-20); /* 24px → 20px */
+    --gap-layout-image-text-l: var(--space-24); /* 32px → 24px */
+
+    /* 페이지 구조 */
+    --gap-layout-header-breadcrumb: var(--space-16); /* 24px → 16px */
+    --gap-layout-breadcrumb-h1:     var(--space-32); /* 40px → 32px */
+    --gap-layout-h1-h2:             var(--space-32); /* 48px → 32px */
+    --gap-layout-h2-h2:             var(--space-40); /* 80px → 40px */
+    --gap-layout-h2-h3:             var(--space-24); /* 40px → 24px */
+    --gap-layout-h3-h3:             var(--space-32); /* 64px → 32px */
+    --gap-layout-h3-h4:             var(--space-16); /* 24px → 16px */
+    --gap-layout-h4-h4:             var(--space-24); /* 40px → 24px */
+    --gap-layout-h4-h5:             var(--space-12); /* 16px → 12px */
+    --gap-layout-h5-h5:             var(--space-16); /* 32px → 16px */
+    --gap-layout-left-contents:     var(--space-0);  /* 64px → 0    */
+    --gap-layout-contents-right:    var(--space-0);  /* 40px → 0    */
+    --gap-layout-contents-footer:   var(--space-40); /* 64px → 40px */
+
+  }
+}
+
+/* ── 모바일 container-padding-x 덮어쓰기 ──────────────────────────────────────── */
+/* KRDS 기준: max-width 1023px에서 16px. YDS는 1279px 기준 적용. */
+@include mobile {
+  :root {
+
+    --container-padding-x: 16px; /* --krds-contents-padding-x mobile */
 
   }
 }

@@ -542,11 +542,15 @@ export const radiusSemanticTokens = [
 
 /* ── 반응형 페이지용 exports ──────────────────────────────────────────────────── */
 
-/** font-size-heading-xl / l / m: PC/모바일 별도 행으로 표시 */
+/** display / heading / nav-title 반응형 font-size 토큰 (PC ≠ 모바일인 것만) */
 export const responsiveTypoTokens = [
-  { name: 'font-size-heading-xl', pcRef: 'font-size-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'font-size-28', mobileValue: '2.8rem', mobilePx: '28px', usage: '최대 섹션 제목', krds: '--krds-pc-font-size-heading-xlarge'  },
-  { name: 'font-size-heading-l',  pcRef: 'font-size-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'font-size-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '대형 섹션 제목', krds: '--krds-pc-font-size-heading-large'   },
-  { name: 'font-size-heading-m',  pcRef: 'font-size-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'font-size-22', mobileValue: '2.2rem', mobilePx: '22px', usage: '중형 섹션 제목', krds: '--krds-pc-font-size-heading-medium'  },
+  { name: 'font-size-display-l',   pcRef: 'font-size-60', pcValue: '6rem',   pcPx: '60px', mobileRef: 'font-size-44', mobileValue: '4.4rem', mobilePx: '44px', usage: '최대 디스플레이 텍스트', krds: '--krds-pc-font-size-display-large'            },
+  { name: 'font-size-display-m',   pcRef: 'font-size-44', pcValue: '4.4rem', pcPx: '44px', mobileRef: 'font-size-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '중형 디스플레이 텍스트', krds: '--krds-pc-font-size-display-medium'           },
+  { name: 'font-size-display-s',   pcRef: 'font-size-36', pcValue: '3.6rem', pcPx: '36px', mobileRef: 'font-size-28', mobileValue: '2.8rem', mobilePx: '28px', usage: '소형 디스플레이 텍스트', krds: '--krds-pc-font-size-display-small'            },
+  { name: 'font-size-heading-xl',  pcRef: 'font-size-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'font-size-28', mobileValue: '2.8rem', mobilePx: '28px', usage: '최대 섹션 제목',         krds: '--krds-pc-font-size-heading-xlarge'           },
+  { name: 'font-size-heading-l',   pcRef: 'font-size-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'font-size-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '대형 섹션 제목',         krds: '--krds-pc-font-size-heading-large'            },
+  { name: 'font-size-heading-m',   pcRef: 'font-size-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'font-size-22', mobileValue: '2.2rem', mobilePx: '22px', usage: '중형 섹션 제목',         krds: '--krds-pc-font-size-heading-medium'           },
+  { name: 'font-size-nav-title-m', pcRef: 'font-size-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'font-size-22', mobileValue: '2.2rem', mobilePx: '22px', usage: '내비게이션 제목',         krds: '--krds-pc-font-size-navigation-title-medium'  },
 ];
 
 /** space m/l/xl 그룹: 모바일에서 한 단계 축소 */
@@ -555,15 +559,49 @@ export const responsiveSpacingGroups = spacingSizeGroups.slice(2); // m, l, xl
 /** space xs/s 그룹: 고정 (반응형 아님) */
 export const fixedSpacingSizeGroups = spacingSizeGroups.slice(0, 2); // xs, s
 
-/** heading-s, body-l/m/s/xs: PC = 모바일 (고정) */
+/** heading-s, body-l/m/s/xs: PC = 모바일 (responsive.scss에 정의, semantic에서 이동) */
 export const semanticTypoStyleTokens = typoStyleTokens.slice(3);
 
 /** section-padding-s/m/l, container-padding: 레이아웃 반응형 간격 */
 export const responsiveLayoutTokens = [
-  { name: 'section-padding-s', pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '소형 섹션 여백' },
-  { name: 'section-padding-m', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '일반 섹션 여백' },
-  { name: 'section-padding-l', pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '대형 섹션 여백' },
+  { name: 'section-padding-s', pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '소형 섹션 여백'   },
+  { name: 'section-padding-m', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '일반 섹션 여백'   },
+  { name: 'section-padding-l', pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '대형 섹션 여백'   },
   { name: 'container-padding', pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '페이지 좌우 여백' },
+];
+
+/** 카드 패딩: PC/모바일 반응형 (KRDS padding-card-* 대응) */
+export const responsivePaddingCardTokens = [
+  { name: 'padding-card-l',  pcRef: 'space-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'space-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '대형 카드 내부 여백', krds: '--krds-pc-padding-card-large'  },
+  { name: 'padding-card-m',  pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '중형 카드 내부 여백', krds: '--krds-pc-padding-card-medium' },
+  { name: 'padding-card-s',  pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '소형 카드 내부 여백', krds: '--krds-pc-padding-card-small'  },
+  { name: 'padding-card-xs', pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '최소 카드 내부 여백', krds: '--krds-pc-padding-card-xsmall' },
+];
+
+/** 레이아웃 조합 간격 (gap-layout-*): title-body / text-text / image-text / 페이지 구조 */
+export const responsiveGapLayoutTokens = [
+  { name: 'gap-layout-title-body-s',      pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-8',  mobileValue: '0.8rem', mobilePx: '8px',  usage: '타이틀↔본문 소',         krds: '--krds-pc-gap-layout-title-body-small'       },
+  { name: 'gap-layout-title-body-m',      pcRef: 'space-20', pcValue: '2rem',   pcPx: '20px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '타이틀↔본문 중',         krds: '--krds-pc-gap-layout-title-body-medium'      },
+  { name: 'gap-layout-title-body-l',      pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '타이틀↔본문 대',         krds: '--krds-pc-gap-layout-title-body-large'       },
+  { name: 'gap-layout-text-text-s',       pcRef: 'space-12', pcValue: '1.2rem', pcPx: '12px', mobileRef: 'space-10', mobileValue: '1rem',   mobilePx: '10px', usage: '텍스트↔텍스트 소',       krds: '--krds-pc-gap-layout-text-text-small'        },
+  { name: 'gap-layout-text-text-m',       pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: '텍스트↔텍스트 중',       krds: '--krds-pc-gap-layout-text-text-medium'       },
+  { name: 'gap-layout-text-text-l',       pcRef: 'space-20', pcValue: '2rem',   pcPx: '20px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: '텍스트↔텍스트 대',       krds: '--krds-pc-gap-layout-text-text-large'        },
+  { name: 'gap-layout-image-text-s',      pcRef: 'space-20', pcValue: '2rem',   pcPx: '20px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: '이미지↔텍스트 소',       krds: '--krds-pc-gap-layout-image-text-small'       },
+  { name: 'gap-layout-image-text-m',      pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-20', mobileValue: '2rem',   mobilePx: '20px', usage: '이미지↔텍스트 중',       krds: '--krds-pc-gap-layout-image-text-medium'      },
+  { name: 'gap-layout-image-text-l',      pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-24', mobileValue: '2.4rem', mobilePx: '24px', usage: '이미지↔텍스트 대',       krds: '--krds-pc-gap-layout-image-text-large'       },
+  { name: 'gap-layout-header-breadcrumb', pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: '헤더↔브레드크럼',        krds: '--krds-pc-gap-layout-header-breadcrumb'      },
+  { name: 'gap-layout-breadcrumb-h1',     pcRef: 'space-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: '브레드크럼↔H1',          krds: '--krds-pc-gap-layout-breadcrumb-h1'          },
+  { name: 'gap-layout-h1-h2',             pcRef: 'space-48', pcValue: '4.8rem', pcPx: '48px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: 'H1↔H2 간격',            krds: '--krds-pc-gap-layout-h1-h2'                 },
+  { name: 'gap-layout-h2-h2',             pcRef: 'space-80', pcValue: '8rem',   pcPx: '80px', mobileRef: 'space-40', mobileValue: '4rem',   mobilePx: '40px', usage: 'H2↔H2 섹션 간격',       krds: '--krds-pc-gap-layout-h2-h2'                 },
+  { name: 'gap-layout-h2-h3',             pcRef: 'space-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'space-24', mobileValue: '2.4rem', mobilePx: '24px', usage: 'H2↔H3 간격',            krds: '--krds-pc-gap-layout-h2-h3'                 },
+  { name: 'gap-layout-h3-h3',             pcRef: 'space-64', pcValue: '6.4rem', pcPx: '64px', mobileRef: 'space-32', mobileValue: '3.2rem', mobilePx: '32px', usage: 'H3↔H3 섹션 간격',       krds: '--krds-pc-gap-layout-h3-h3'                 },
+  { name: 'gap-layout-h3-h4',             pcRef: 'space-24', pcValue: '2.4rem', pcPx: '24px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: 'H3↔H4 간격',            krds: '--krds-pc-gap-layout-h3-h4'                 },
+  { name: 'gap-layout-h4-h4',             pcRef: 'space-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'space-24', mobileValue: '2.4rem', mobilePx: '24px', usage: 'H4↔H4 간격',            krds: '--krds-pc-gap-layout-h4-h4'                 },
+  { name: 'gap-layout-h4-h5',             pcRef: 'space-16', pcValue: '1.6rem', pcPx: '16px', mobileRef: 'space-12', mobileValue: '1.2rem', mobilePx: '12px', usage: 'H4↔H5 간격',            krds: '--krds-pc-gap-layout-h4-h5'                 },
+  { name: 'gap-layout-h5-h5',             pcRef: 'space-32', pcValue: '3.2rem', pcPx: '32px', mobileRef: 'space-16', mobileValue: '1.6rem', mobilePx: '16px', usage: 'H5↔H5 간격',            krds: '--krds-pc-gap-layout-h5-h5'                 },
+  { name: 'gap-layout-left-contents',     pcRef: 'space-64', pcValue: '6.4rem', pcPx: '64px', mobileRef: 'space-0',  mobileValue: '0rem',   mobilePx: '0px',  usage: '좌측 패널↔본문 (모바일 0)', krds: '--krds-pc-gap-layout-left-contents'       },
+  { name: 'gap-layout-contents-right',    pcRef: 'space-40', pcValue: '4rem',   pcPx: '40px', mobileRef: 'space-0',  mobileValue: '0rem',   mobilePx: '0px',  usage: '본문↔우측 패널 (모바일 0)', krds: '--krds-pc-gap-layout-contents-right'      },
+  { name: 'gap-layout-contents-footer',   pcRef: 'space-64', pcValue: '6.4rem', pcPx: '64px', mobileRef: 'space-40', mobileValue: '4rem',   mobilePx: '40px', usage: '본문↔푸터',              krds: '--krds-pc-gap-layout-contents-footer'        },
 ];
 
 /** 그림자 색상: mode.css에 정의, 모든 모드에서 동일 */

@@ -18,42 +18,24 @@
   --color-text-on-static: var(--color-gray-0);
 
   /* ── 3. 타이포 시멘틱 ─────────────────────────────────────────────────────── */
-  /* font-size-heading-xl / l / m 는 반응형 → responsive.css 에 정의            */
+  /* font-size-* / line-height-* 는 모두 반응형 → responsive.scss 에 정의.
+     여기에는 font-weight(굵기)만 남긴다.                                        */
 
   /* heading */
   --font-weight-heading-xl: var(--font-weight-bold);
-  --line-height-heading-xl: var(--line-height-tight);
-
   --font-weight-heading-l:  var(--font-weight-bold);
-  --line-height-heading-l:  var(--line-height-tight);
-
   --font-weight-heading-m:  var(--font-weight-bold);
-  --line-height-heading-m:  var(--line-height-normal);
-
-  --font-size-heading-s:    var(--font-size-19);       /* PC = 모바일, 반응형 불필요 */
   --font-weight-heading-s:  var(--font-weight-bold);
-  --line-height-heading-s:  var(--line-height-normal);
 
   /* body */
-  --font-size-body-l:       var(--font-size-19);
   --font-weight-body-l:     var(--font-weight-regular);
-  --line-height-body-l:     var(--line-height-normal);
-
-  --font-size-body-m:       var(--font-size-17);
   --font-weight-body-m:     var(--font-weight-regular);
-  --line-height-body-m:     var(--line-height-normal);
-
-  --font-size-body-s:       var(--font-size-15);
   --font-weight-body-s:     var(--font-weight-regular);
-  --line-height-body-s:     var(--line-height-normal);
-
-  --font-size-body-xs:      var(--font-size-13);
   --font-weight-body-xs:    var(--font-weight-regular);
-  --line-height-body-xs:    var(--line-height-normal);
 
   /* ── 4. 간격 시멘틱 ─────────────────────────────────────────────────────────── */
 
-  /* space 별칭 — xs·s 그룹 (고정값. m/l/xl 은 반응형 → responsive.css)        */
+  /* space 별칭 — xs·s 그룹 (고정값. m/l/xl·카드패딩·gap-layout 은 반응형 → responsive.scss) */
   /* ─ KRDS --krds-number-* 대응 ─────────────────────────────────────────────── */
   --space-xs-2:  var(--space-2);   /* 2px  */
   --space-xs-4:  var(--space-4);   /* 4px  */

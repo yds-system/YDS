@@ -147,15 +147,18 @@
   --font-family-code: 'D2Coding', 'Courier New', monospace; /* 자체 추가 */
 
   /* font-size (px 단위 이름, 1rem = 10px 기준) ─ KRDS --krds-pc-font-size-* */
-  --font-size-13: 1.3rem; /* --krds-pc-font-size-body-xsmall */
-  --font-size-15: 1.5rem; /* --krds-pc-font-size-body-small  */
-  --font-size-17: 1.7rem; /* --krds-pc-font-size-body-medium */
-  --font-size-19: 1.9rem; /* --krds-pc-font-size-body-large  */
-  --font-size-22: 2.2rem; /* --krds-mobile-font-size-heading-medium */
-  --font-size-24: 2.4rem; /* --krds-pc-font-size-heading-medium */
-  --font-size-28: 2.8rem; /* --krds-mobile-font-size-heading-xlarge */
-  --font-size-32: 3.2rem; /* --krds-pc-font-size-heading-large  */
-  --font-size-40: 4rem;   /* --krds-pc-font-size-heading-xlarge */
+  --font-size-13: 1.3rem; /* --krds-pc-font-size-body-xsmall        */
+  --font-size-15: 1.5rem; /* --krds-pc-font-size-body-small          */
+  --font-size-17: 1.7rem; /* --krds-pc-font-size-body-medium         */
+  --font-size-19: 1.9rem; /* --krds-pc-font-size-body-large          */
+  --font-size-22: 2.2rem; /* --krds-mobile-font-size-heading-medium  */
+  --font-size-24: 2.4rem; /* --krds-pc-font-size-heading-medium      */
+  --font-size-28: 2.8rem; /* --krds-mobile-font-size-heading-xlarge  */
+  --font-size-32: 3.2rem; /* --krds-pc-font-size-heading-large       */
+  --font-size-36: 3.6rem; /* --krds-pc-font-size-display-small       */
+  --font-size-40: 4rem;   /* --krds-pc-font-size-heading-xlarge      */
+  --font-size-44: 4.4rem; /* --krds-pc-font-size-display-medium / --krds-mobile-font-size-display-large */
+  --font-size-60: 6rem;   /* --krds-pc-font-size-display-large       */
 
   /* font-weight ─ KRDS --krds-typo-font-weight-* */
   --font-weight-regular: 400;
