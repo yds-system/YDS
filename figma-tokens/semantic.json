@@ -120,13 +120,19 @@
   "container": {
     "max": {
       "width": {
-        "$value": 1200,
+        "$value": {
+          "value": 1200,
+          "unit": "px"
+        },
         "$type": "dimension"
       }
     },
     "wrap": {
       "width": {
-        "$value": 1248,
+        "$value": {
+          "value": 1248,
+          "unit": "px"
+        },
         "$type": "dimension"
       }
     }

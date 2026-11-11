@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * scripts/export-figma.mjs
- * YDS 토큰 → Figma Variables JSON (W3C DTCG 형식)
+ * YDS 토큰 → Figma Variables JSON (W3C DTCG 2025.10 형식)
  *
  * 사용:  npm run export:figma
  * 출력:  figma-tokens/
@@ -13,13 +13,15 @@
  *          semantic.json
  *
  * 변환 규칙
- *   rem  → px 숫자 (1rem = 10px)
- *   px   → 숫자
- *   var(--X) → {X.with.dots} 참조
+ *   color     → { colorSpace:"srgb", components:[r,g,b], alpha:a, hex:"#..." }
+ *   dimension → { value: 16, unit: "px" }  (rem×10, px 그대로)
+ *   number    → 숫자 (font-weight, line-height 비율)
+ *   string    → 문자열 (font-family 첫 번째 항목)
+ *   참조      → "{dot.path}" 그대로
  * 제외
- *   --font-letter-spacing-* (em 단위 — Figma 미지원)
- *   --transition-*          (복합 값)
- *   --shadow-*              (semantic — Figma shadow 토큰은 별도 처리)
+ *   --font-letter-spacing-* (em 단위)
+ *   --transition-*          (duration 복합 값)
+ *   --shadow-*              (box-shadow 복합 값)
  */
 
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
@@ -57,9 +59,28 @@ function inferType(name) {
   return 'dimension';
 }
 
+/** hex → DTCG 2025.10 color object */
+function hexToColor(hex) {
+  let h = hex.replace('#', '');
+  if (h.length === 3) h = h.split('').map(c => c + c).join('') + 'ff';
+  if (h.length === 6) h += 'ff';
+
+  const round4 = n => Math.round(n * 10000) / 10000;
+  return {
+    colorSpace: 'srgb',
+    components: [
+      round4(parseInt(h.slice(0, 2), 16) / 255),
+      round4(parseInt(h.slice(2, 4), 16) / 255),
+      round4(parseInt(h.slice(4, 6), 16) / 255),
+    ],
+    alpha: round4(parseInt(h.slice(6, 8), 16) / 255),
+    hex,
+  };
+}
+
 /**
  * CSS 값 → { $value, $type }
- * 변환 불가 값(em, 복합 값 등)은 null 반환 → 호출부에서 제외
+ * 변환 불가 값(em, 복합 값 등)은 null 반환
  */
 function convertToken(name, raw) {
   // var() 참조
@@ -67,21 +88,27 @@ function convertToken(name, raw) {
   if (vm) return { $value: `{${toDotPath(vm[1])}}`, $type: inferType(name) };
 
   // hex 색상 (#rgb / #rrggbb / #rrggbbaa)
-  if (/^#[0-9a-fA-F]{3,8}$/.test(raw)) return { $value: raw, $type: 'color' };
+  if (/^#[0-9a-fA-F]{3,8}$/.test(raw)) {
+    return { $value: hexToColor(raw), $type: 'color' };
+  }
 
-  // rem → px 숫자 (1rem = 10px)
+  // rem → dimension (1rem = 10px)
   const rm = raw.match(/^(-?[\d.]+)rem$/);
   if (rm) {
     const px = Number((parseFloat(rm[1]) * 10).toFixed(1));
-    return { $value: px, $type: 'dimension' };
+    return { $value: { value: px, unit: 'px' }, $type: 'dimension' };
   }
 
-  // px → 숫자
+  // px → dimension
   const pm = raw.match(/^(-?[\d.]+)px$/);
-  if (pm) return { $value: parseFloat(pm[1]), $type: 'dimension' };
+  if (pm) {
+    return { $value: { value: parseFloat(pm[1]), unit: 'px' }, $type: 'dimension' };
+  }
 
   // 순수 숫자 (font-weight, line-height 비율 등)
-  if (/^-?[\d.]+$/.test(raw)) return { $value: parseFloat(raw), $type: 'number' };
+  if (/^-?[\d.]+$/.test(raw)) {
+    return { $value: parseFloat(raw), $type: 'number' };
+  }
 
   // font-family 문자열 — 첫 번째 family 이름 추출
   if (name.startsWith('font-family-')) {
@@ -89,7 +116,7 @@ function convertToken(name, raw) {
     return { $value: first, $type: 'string' };
   }
 
-  // em 단위(letter-spacing), 복합 값(transition, shadow) 등 → 제외
+  // 그 외 (em, 복합 값 등) → 제외
   return null;
 }
 
@@ -102,18 +129,27 @@ function parseProps(text) {
   return map;
 }
 
+const skipped = [];
+
 /**
  * props Map → W3C DTCG 중첩 JSON 객체
- * @param {Map} props
+ * @param {Map}      props
  * @param {string[]} exclude - 접두사 목록 (--포함)
+ * @param {string}   label  - 보고용 파일 이름
  */
-function buildObj(props, exclude = []) {
+function buildObj(props, exclude = [], label = '') {
   const obj = {};
   let count = 0;
   for (const [name, raw] of props) {
-    if (exclude.some(p => name.startsWith(p))) continue;
+    if (exclude.some(p => name.startsWith(p))) {
+      skipped.push({ label, name, raw });
+      continue;
+    }
     const token = convertToken(name.replace(/^--/, ''), raw);
-    if (!token) continue;
+    if (!token) {
+      skipped.push({ label, name, raw });
+      continue;
+    }
     setNested(obj, toDotPath(name), token);
     count++;
   }
@@ -127,23 +163,17 @@ function save(filename, data) {
 
 // ── 블록 추출 ─────────────────────────────────────────────────────────────────
 
-/** SCSS 텍스트에서 첫 번째 :root { ... } 내용 */
 function extractRoot(scss) {
   const m = scss.match(/:root\s*\{([\s\S]*?)\}/);
   return m ? m[1] : '';
 }
 
-/**
- * 특정 선택자 블록 내용 추출
- * 중첩 없는 선택자 전용 (내부에 {} 없음)
- */
 function extractSelector(scss, selector) {
   const esc = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const m = scss.match(new RegExp(esc + '\\s*\\{([\\s\\S]*?)\\}'));
   return m ? m[1] : '';
 }
 
-/** @include mobile { :root { ... } } 내부 :root 내용 */
 function extractMobile(scss) {
   const m = scss.match(/@include\s+mobile\s*\{[\s\S]*?:root\s*\{([\s\S]*?)\}/);
   return m ? m[1] : '';
@@ -161,43 +191,42 @@ const semScss  = readScss('semantic.scss');
 
 const primProps = parseProps(extractRoot(primScss));
 const { obj: primObj, count: primCount } = buildObj(primProps, [
-  '--font-letter-spacing-',  // em 단위 — Figma 미지원
-  '--transition-',           // 복합 값
-]);
+  '--font-letter-spacing-',
+  '--transition-',
+], 'primitive');
 save('primitive.json', primObj);
 
 // ── 2. responsive.pc.json ─────────────────────────────────────────────────────
 
 const respPcProps = parseProps(extractRoot(respScss));
-const { obj: respPcObj, count: respPcCount } = buildObj(respPcProps);
+const { obj: respPcObj, count: respPcCount } = buildObj(respPcProps, [], 'responsive');
 save('responsive.pc.json', respPcObj);
 
 // ── 3. responsive.mobile.json ─────────────────────────────────────────────────
 
 const mobileProps = parseProps(extractMobile(respScss));
-// PC 기본값에 mobile 덮어쓰기 적용
 const respMobMap = new Map([...respPcProps, ...mobileProps]);
-const { obj: respMobObj, count: respMobCount } = buildObj(respMobMap);
+const { obj: respMobObj, count: respMobCount } = buildObj(respMobMap, [], 'responsive.mobile');
 save('responsive.mobile.json', respMobObj);
 
 // ── 4. mode.light.json ────────────────────────────────────────────────────────
 
 const lightProps = parseProps(extractRoot(modeScss));
-const { obj: lightObj, count: lightCount } = buildObj(lightProps);
+const { obj: lightObj, count: lightCount } = buildObj(lightProps, [], 'mode.light');
 save('mode.light.json', lightObj);
 
 // ── 5. mode.dark.json ─────────────────────────────────────────────────────────
 
 const darkProps = parseProps(extractSelector(modeScss, '[data-mode="dark"]'));
-const { obj: darkObj, count: darkCount } = buildObj(darkProps);
+const { obj: darkObj, count: darkCount } = buildObj(darkProps, [], 'mode.dark');
 save('mode.dark.json', darkObj);
 
 // ── 6. semantic.json ──────────────────────────────────────────────────────────
 
 const semProps = parseProps(extractRoot(semScss));
 const { obj: semObj, count: semCount } = buildObj(semProps, [
-  '--shadow-',  // 복합 값 — Figma shadow 토큰은 별도 처리 필요
-]);
+  '--shadow-',
+], 'semantic');
 save('semantic.json', semObj);
 
 // ── 보고 ──────────────────────────────────────────────────────────────────────
@@ -213,11 +242,18 @@ const files = [
 
 const total = files.reduce((s, [, c]) => s + c, 0);
 
-console.log(`\nfigma-tokens/ 생성 완료\n`);
+console.log('\nfigma-tokens/ 생성 완료\n');
 console.log('파일                       변수');
 console.log('─'.repeat(36));
 for (const [f, c] of files) {
   console.log(`${f.padEnd(27)} ${String(c).padStart(4)}개`);
 }
 console.log('─'.repeat(36));
-console.log(`${'합계'.padEnd(27)} ${String(total).padStart(4)}개\n`);
+console.log(`${'합계'.padEnd(27)} ${String(total).padStart(4)}개`);
+
+if (skipped.length > 0) {
+  console.log(`\n── 제외된 토큰 (${skipped.length}개) ──`);
+  for (const { label, name, raw } of skipped) {
+    console.log(`  [${label}] ${name}: ${raw}`);
+  }
+}
