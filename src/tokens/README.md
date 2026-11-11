@@ -74,3 +74,54 @@ Figma에서는 **responsive** 컬렉션의 **mobile** 모드에서 확인할 수
 
 - `data-mode="system"` 설정 후 OS가 **라이트**이면 `:root` 기본값이 그대로 유지된다.
 - KRDS 선명한 화면(고대비)이 필요한 프로젝트는 프로젝트 테마에서 별도 추가한다.
+
+---
+
+## Figma 변수(Variables) 가져오기
+
+```
+npm run export:figma
+```
+
+`figma-tokens/` 디렉터리에 W3C DTCG 형식의 JSON 파일을 생성한다.  
+토큰이 바뀔 때마다 재실행해서 Figma에 다시 가져온다.
+
+### 출력 파일
+
+| 파일 | Figma 컬렉션 | 변수 수 |
+|---|---|---|
+| `primitive.json` | Primitive | 157 |
+| `responsive.pc.json` | Responsive / PC 모드 | 62 |
+| `responsive.mobile.json` | Responsive / Mobile 모드 | 62 |
+| `mode.light.json` | Mode / Light 모드 | 88 |
+| `mode.dark.json` | Mode / Dark 모드 | 88 |
+| `semantic.json` | Semantic | 32 |
+
+### Figma 가져오기 순서
+
+참조 방향(`semantic → mode → responsive → primitive`)에 따라 아래 순서로 가져온다.  
+순서가 틀리면 참조 변수를 찾지 못할 수 있다.
+
+```
+1. Primitive          ← primitive.json
+2. Responsive         ← responsive.pc.json (PC 모드)
+                      ← responsive.mobile.json (Mobile 모드)
+3. Mode               ← mode.light.json (Light 모드)
+                      ← mode.dark.json (Dark 모드)
+4. Semantic           ← semantic.json
+```
+
+### 변환 규칙
+
+| CSS 값 | Figma $value | $type |
+|---|---|---|
+| `#1e2124` | `"#1e2124"` | color |
+| `#000000bf` | `"#000000bf"` | color |
+| `1.6rem` | `16` (px 숫자) | dimension |
+| `2px` | `2` (숫자) | dimension |
+| `700` | `700` | number |
+| `1.5` | `1.5` | number |
+| `'Pretendard GOV', …` | `"Pretendard GOV"` | string |
+| `var(--color-gray-90)` | `{color.gray.90}` | (참조 대상 타입) |
+
+**제외 토큰**: `--font-letter-spacing-*` (em 단위), `--transition-*` (복합 값), `--shadow-*` (복합 값 — Figma shadow 토큰은 별도 처리)

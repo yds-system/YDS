@@ -8,7 +8,8 @@
     "build-storybook": "storybook build",
     "check:tokens": "node scripts/check-tokens.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
-    "build:dist": "node scripts/build-dist.mjs"
+    "build:dist": "node scripts/build-dist.mjs",
+    "export:figma": "node scripts/export-figma.mjs"
   },
   "keywords": [],
   "author": "",
