@@ -4,6 +4,9 @@ storybook-static/
 .env
 .env.*
 
+# 빌드 타임스탬프 (자동 생성)
+public/yds-build-info.json
+
 # Debug files
 *.log
 
