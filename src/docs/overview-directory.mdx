@@ -141,6 +141,12 @@ YDS 글로벌 디렉토리와 프로젝트 디렉토리를 나란히 비교합�
 - **YDS 파일 직접 수정 금지** — 바꾸려면 프로젝트 `_theme.scss`의 토큰 덮어쓰기 또는 프로젝트 전용 컴포넌트로 처리한다.
 - **프로젝트 컴포넌트 클래스는 프로젝트 접두사 사용** — `adm-`, `prj-` 등 프로젝트별 접두사를 붙인다. `yds-` 클래스 추가·수정 금지.
 - **두 개 이상 프로젝트에서 쓰는 컴포넌트는 YDS로 이동 검토** — 반복 구현을 막기 위해 공통화를 협의한다.
+- **토큰 이름 규칙**
+  - *YDS 토큰 값 덮어쓰기*: 이름을 바꾸지 않고 그대로 사용한다 (예: `--color-bg-primary`). 이름이 달라지면 YDS 컴포넌트가 새 값을 참조하지 못한다.
+  - *프로젝트 전용 새 토큰*: 프로젝트 접두사 필수 (예: `--adm-color-bg-banner`). `--color-*` 형식의 이름은 YDS 예약어이므로 사용 금지.
+- **테마는 라이트·다크를 한 쌍으로 덮어쓴다** — `[data-theme]`(라이트)와 `[data-theme][data-mode="dark"]`(다크)를 항상 함께 작성한다. 라이트만 덮어쓰면 다크 모드에서 YDS 기본값이 그대로 노출된다. `_theme.scss` 예시 참고.
+- **`/humanframe/yds/` 수정은 전 프로젝트 즉시 반영** — 단일 경로 운영이므로 파일을 수정하면 모든 프로젝트에 바로 적용된다. 배포 전 Storybook 화면 확인, `check:tokens`, `check:contrast` 필수.
+- **납품 프로젝트는 YDS 동봉** — 발주처 서버에 납품하는 프로젝트는 납품 시점의 `/humanframe/yds/` 를 복사해서 함께 납품한다. 단일 경로 운영 원칙의 예외로, 납품 이후 YDS 업데이트는 별도 계약으로 처리한다.
 
 ---
 
@@ -152,7 +158,10 @@ YDS 글로벌 디렉토리와 프로젝트 디렉토리를 나란히 비교합�
 /* _theme.scss 예시 — 프로젝트 A
    덮어쓸 수 있는 토큰 : mode.scss :root 에 정의된 시멘틱 색상 토큰
    덮어쓰기 금지       : primitive(--color-primary-50 등), responsive(--font-size-*, --space-*)
-   사용 방법           : <html data-theme="project-a"> */
+   사용 방법           : <html data-theme="project-a">
+   주의                : 라이트·다크를 반드시 한 쌍으로 작성한다 */
+
+/* ── 라이트 모드 ── */
 [data-theme="project-a"] {
 
   /* ── 텍스트 */
@@ -177,6 +186,32 @@ YDS 글로벌 디렉토리와 프로젝트 디렉토리를 나란히 비교합�
   /* --color-text-secondary:   ...;  */
   /* --color-bg-secondary:     ...;  */
   /* --color-border-secondary: ...;  */
+
+}
+
+/* ── 다크 모드 (라이트와 반드시 한 쌍으로 작성) ── */
+[data-theme="project-a"][data-mode="dark"] {
+
+  /* 다크 배경 위에서도 대비(WCAG AA 4.5:1)를 유지할 수 있도록
+     라이트보다 밝은(채도 높은) 색을 사용한다 */
+
+  /* ── 텍스트 */
+  --color-text-primary:       #57c56e;
+  --color-text-link:          #4bbf65;
+
+  /* ── 배경 */
+  --color-bg-primary:          #3aa855;
+  --color-bg-primary-hover:    #3daf5a;
+  --color-bg-primary-pressed:  #31904a;
+  --color-bg-primary-subtle:   #0f2b14;
+  --color-bg-selected:         #0f2b14;
+
+  /* ── 테두리 */
+  --color-border-primary:  #3aa855;
+  --color-border-focus:    #3aa855;
+
+  /* ── 아이콘 */
+  --color-icon-primary:    #3aa855;
 
 }
 ```
