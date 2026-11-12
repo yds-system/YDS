@@ -408,6 +408,25 @@
 
 ---
 
+## 2026-11-12 on-* 토큰 6개 이름 변경 및 정리
+
+- **이름 변경 (값 유지)**:
+  - `color-text-on-static` → `color-text-static-light` (semantic.scss)
+  - `color-text-on-warning-element` → `color-text-static-dark`
+  - `color-text-on-point-element` → `color-text-inverse-strong`
+  - `color-icon-on-disabled` → `color-icon-disabled-strong`
+  - `color-text-primary-on-subtle-hover` → `color-text-primary-subtle-hover`
+  - `color-text-primary-on-subtle-pressed` → `color-text-primary-subtle-pressed`
+- **반영 파일**: mode.scss / semantic.scss / token-data.js / badge.scss / checkbox.scss / carousel.scss / date-input.scss / pagination.scss / tab.scss / contrast-pairs.json / krds-color-map.json
+- **token-data.js**: `color-bg/text/icon/border (추가)` 4개 그룹을 각 주 그룹에 병합 (그룹 완전 제거)
+- **문서**: color.mdx에 `static-light/static-dark` 사용 규칙 추가, HC 흔적 제거 (accessibility.mdx·color.mdx)
+- **radius.mdx + token-data.js**: radius-l 용도 `모달·패널` → `달력 팝업·파일 업로드·툴팁(box)` (실사용 컴포넌트로 교체)
+- **export:figma 재실행**: 475개 변수 갱신
+- **검증**: check:tokens ✓ / check:contrast ✓ (예외 1건: light pressed 4.26:1 KRDS 허용)
+- **남은 -on- 개수**: src 내 **0개** ✓
+
+---
+
 ## 2026-11-10 KRDS 색상 토큰 마이그레이션
 
 - **scripts/krds-color-map.json 생성**: KRDS `--krds-light-color-*` / `--krds-box-shadow-outline-inset` / `--krds-light-alpha-black0` → YDS 토큰 대응 매핑 (100개 항목)
