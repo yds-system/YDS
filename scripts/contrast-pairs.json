@@ -1,74 +1,19 @@
-[
-  {
-    "name": "inverse / bg-primary",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-primary",
-    "type": "text"
-  },
-  {
-    "name": "inverse / bg-secondary",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-secondary",
-    "type": "text"
-  },
-  {
-    "name": "static-dark / bg-warning-element",
-    "fg": "color-text-static-dark",
-    "bg": "color-bg-warning-element",
-    "type": "text"
-  },
-  {
-    "name": "inverse / bg-interactive-active",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-interactive-active",
-    "type": "text"
-  },
-  {
-    "name": "inverse / bg-success-element",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-success-element",
-    "type": "text"
-  },
-  {
-    "name": "inverse / bg-information-element",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-information-element",
-    "type": "text"
-  },
-  {
-    "name": "inverse-strong / bg-point-element",
-    "fg": "color-text-inverse-strong",
-    "bg": "color-bg-point-element",
-    "type": "text"
-  },
-  {
-    "name": "static-light / bg-gray-element",
-    "fg": "color-text-static-light",
-    "bg": "color-bg-gray-element",
-    "type": "text"
-  },
-  {
-    "name": "inverse / bg-gray-element-strong",
-    "fg": "color-text-inverse",
-    "bg": "color-bg-gray-element-strong",
-    "type": "text"
-  },
-  {
-    "name": "text-primary-subtle-hover / bg-primary-subtle-hover",
-    "fg": "color-text-primary-subtle-hover",
-    "bg": "color-bg-primary-subtle-hover",
-    "type": "text"
-  },
-  {
-    "name": "text-primary-subtle-pressed / bg-primary-subtle-pressed",
-    "fg": "color-text-primary-subtle-pressed",
-    "bg": "color-bg-primary-subtle-pressed",
-    "type": "text",
-    "exceptions": [
-      {
-        "mode": "light",
-        "reason": "KRDS 원본, 순간 상태 (4.26:1)"
-      }
-    ]
-  }
-]
+{
+  "extra": [
+    {
+      "name": "checkbox 체크마크 / icon-primary",
+      "fg": "color-icon-inverse",
+      "bg": "color-icon-primary",
+      "type": "ui",
+      "note": "자동 탐지 불가 — :before/:after 별개 의사 요소 (checked 상태)"
+    }
+  ],
+  "exceptions": [
+    {
+      "fg": "color-text-primary-subtle-pressed",
+      "bg": "color-bg-primary-subtle-pressed",
+      "mode": "light",
+      "reason": "KRDS 원본, 순간 상태 (4.26:1)"
+    }
+  ]
+}

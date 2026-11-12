@@ -408,6 +408,31 @@
 
 ---
 
+## 2026-11-12 다크 모드 대비 미달 수정 + check:contrast 자동화
+
+### 1. color-text-static-light → color-text-inverse 교체 (5곳)
+
+| 컴포넌트 | 변수 | 배경 토큰 | 변경 |
+|---|---|---|---|
+| Badge (bg-primary/secondary/danger/disabled) | `--yds-badge--color-text-basic` | `color-icon-primary` 등 (모드별 가변) | static-light → **inverse** |
+| Pagination 현재 페이지 | `--yds-pagination--color-text-active` | `color-bg-interactive-active` | static-light → **inverse** |
+| Tab fill 선택 | `--yds-tab--fill-button-color-text` | `color-bg-interactive-active` | static-light → **inverse** |
+| Calendar 선택 날짜 | `--yds-calendar--date-set-color-text` | `color-bg-interactive-active` | static-light → **inverse** |
+| Checkbox 체크마크 | `--yds-check--checkbox-check-color-element-checked` | `color-icon-primary` (모드별 가변) | static-light → **icon-inverse** |
+
+- Badge gray(`--color-text-gray`)는 배경 `color-bg-gray-element = gray-50`이 양 모드 고정 → static-light 유지
+
+### 2. check:contrast 자동화
+
+- `check-contrast.mjs` 재작성: 모든 컴포넌트 SCSS에서 `color:` + `background-color:`가 함께 쓰인 블록을 자동 탐색
+  - `--yds-*` 변수 → 시멘틱 토큰 이름으로 역추적, 중복 제거, disabled 토큰 자동 제외
+- `contrast-pairs.json` 재구성: `{ extra: [자동 탐지 불가 짝], exceptions: [예외] }`
+  - extra 1개: checkbox 체크마크 / icon-primary (ui, :before/:after 별개 블록)
+  - 기존 11개 수기 목록 제거 (전부 auto-detect로 커버)
+- **결과**: 자동 탐지 **26쌍** + extra 1쌍 / 미달 0건 ✓
+
+---
+
 ## 2026-11-12 on-* 토큰 6개 이름 변경 및 정리
 
 - **이름 변경 (값 유지)**:
