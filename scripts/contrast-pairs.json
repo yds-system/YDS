@@ -12,8 +12,8 @@
     "type": "text"
   },
   {
-    "name": "on-warning-element / bg-warning-element",
-    "fg": "color-text-on-warning-element",
+    "name": "static-dark / bg-warning-element",
+    "fg": "color-text-static-dark",
     "bg": "color-bg-warning-element",
     "type": "text"
   },
@@ -36,14 +36,14 @@
     "type": "text"
   },
   {
-    "name": "on-point-element / bg-point-element",
-    "fg": "color-text-on-point-element",
+    "name": "inverse-strong / bg-point-element",
+    "fg": "color-text-inverse-strong",
     "bg": "color-bg-point-element",
     "type": "text"
   },
   {
-    "name": "on-static / bg-gray-element",
-    "fg": "color-text-on-static",
+    "name": "static-light / bg-gray-element",
+    "fg": "color-text-static-light",
     "bg": "color-bg-gray-element",
     "type": "text"
   },
@@ -54,14 +54,14 @@
     "type": "text"
   },
   {
-    "name": "text-primary-on-subtle-hover / bg-primary-subtle-hover",
-    "fg": "color-text-primary-on-subtle-hover",
+    "name": "text-primary-subtle-hover / bg-primary-subtle-hover",
+    "fg": "color-text-primary-subtle-hover",
     "bg": "color-bg-primary-subtle-hover",
     "type": "text"
   },
   {
-    "name": "text-primary-on-subtle-pressed / bg-primary-subtle-pressed",
-    "fg": "color-text-primary-on-subtle-pressed",
+    "name": "text-primary-subtle-pressed / bg-primary-subtle-pressed",
+    "fg": "color-text-primary-subtle-pressed",
     "bg": "color-bg-primary-subtle-pressed",
     "type": "text",
     "exceptions": [

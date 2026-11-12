@@ -94,7 +94,7 @@
 .yds-carousel {
   &__move-btn.yds-carousel__move-btn--prev.yds-carousel__move-btn--disabled::after {
 
-    background-color: var(--color-icon-on-disabled);
+    background-color: var(--color-icon-disabled-strong);
 
   }
 }
@@ -135,7 +135,7 @@
 .yds-carousel {
   &__move-btn.yds-carousel__move-btn--next.yds-carousel__move-btn--disabled::after {
 
-    background-color: var(--color-icon-on-disabled);
+    background-color: var(--color-icon-disabled-strong);
 
   }
 }

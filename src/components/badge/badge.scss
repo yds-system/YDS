@@ -46,12 +46,12 @@
   --yds-badge--color-disabled-element: var(--color-icon-disabled);
   --yds-badge--color-disabled-element-lighter: var(--color-bg-disabled);
   --yds-badge--color-disabled-text: var(--color-text-subtler);
-  --yds-badge--color-text-basic:       var(--color-text-on-static);
-  --yds-badge--color-text-warning:     var(--color-text-on-warning-element);
+  --yds-badge--color-text-basic:       var(--color-text-static-light);
+  --yds-badge--color-text-warning:     var(--color-text-static-dark);
   --yds-badge--color-text-success:     var(--color-text-inverse);
   --yds-badge--color-text-information: var(--color-text-inverse);
-  --yds-badge--color-text-point:       var(--color-text-on-point-element);
-  --yds-badge--color-text-gray:        var(--color-text-on-static);
+  --yds-badge--color-text-point:       var(--color-text-inverse-strong);
+  --yds-badge--color-text-gray:        var(--color-text-static-light);
 
 }
 /* ----- 기본 스타일 ----- */

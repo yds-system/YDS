@@ -12,10 +12,10 @@
 
   /* ── 2. 색상 시멘틱 (모드 불변) ──────────────────────────────────────────── */
 
-  /* 채움(dark fill) 배경 위 텍스트 — 모든 모드에서 항상 흰색.
-  warning·gray 등 배경색이 모드와 무관하게 고정된 경우에 사용.
-  --color-text-inverse(모드별 가변)와 달리 항상 고정값이다.              */
-  --color-text-on-static: var(--color-gray-0);
+  /* 모드와 무관하게 항상 밝은(흰) 텍스트 — 진한 채움 배경 위.
+  Checkbox 체크, Badge 채움형, Pagination 활성 등 배경이 항상 어두운 경우에 사용.
+  --color-text-inverse(모드별 가변)와 달리 항상 고정 흰색이다.         */
+  --color-text-static-light: var(--color-gray-0);
 
   /* ── 3. 타이포 시멘틱 ─────────────────────────────────────────────────────── */
   /* font-size-* / line-height-* 는 모두 반응형 → responsive.scss 에 정의.
@@ -83,7 +83,7 @@
   --radius-xs:     var(--radius-2);   /* 아주 작은 요소 (뱃지 등)    ─ --krds-radius-xsmall1 */
   --radius-s:      var(--radius-4);   /* 태그·칩                     ─ --krds-radius-small1  */
   --radius-m:      var(--radius-8);   /* 버튼·입력 필드·카드         ─ --krds-radius-medium3 */
-  --radius-l:      var(--radius-12);  /* 모달·패널                   ─ --krds-radius-xlarge1 */
+  --radius-l:      var(--radius-12);  /* 달력 팝업·파일 업로드·툴팁(box) ─ --krds-radius-xlarge1 */
   --radius-xl:     var(--radius-16);  /* 대형 카드                   ─ (자체 추가)            */
   --radius-circle: var(--radius-999); /* 원형·알약형                 ─ --krds-radius-max      */
 

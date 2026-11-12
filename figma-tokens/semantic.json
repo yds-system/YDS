@@ -4,8 +4,8 @@
   },
   "color": {
     "text": {
-      "on": {
-        "static": {
+      "static": {
+        "light": {
           "$value": {
             "colorSpace": "srgb",
             "components": [

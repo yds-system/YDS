@@ -60,7 +60,7 @@ import { ColorPrimTable, ColorSemanticTable } from '../token-components.js';
 주의·경고. 오류는 아니지만 사용자 주의가 필요한 경우.
 
 - **사용**: 경고 알림 배너, 경고 뱃지(`--color-bg-warning-element`), 만료 임박 안내
-- **참고**: warning-element 배경(`#ffb114`)은 반드시 `--color-text-on-warning-element`(어두운 텍스트)와 짝을 맞춰야 한다.
+- **참고**: warning-element 배경(`#ffb114`)은 반드시 `--color-text-static-dark`(어두운 텍스트)와 짝을 맞춰야 한다.
 
 ### Success
 
@@ -113,13 +113,16 @@ document.documentElement.removeAttribute('data-mode');
 ### 해야 할 것
 
 - 컴포넌트에서는 항상 **시멘틱 토큰**(`--color-bg-*`, `--color-text-*` 등)을 사용한다.
-- 채움(fill) 배경 위 텍스트는 **짝 맞는 on-\* 토큰**을 사용한다. (예: `--color-bg-warning-element` → `--color-text-on-warning-element`)
-- **`color-text-on-static`**: 채움 배경 위 텍스트·아이콘이 모든 모드에서 항상 흰색이어야 하는 경우에 사용한다. 현재 사용 컴포넌트: Badge(채움형 변형), Checkbox(체크 마크), Date Input(선택된 날짜 텍스트), Pagination(활성 페이지 번호), Tab(채움형 탭 텍스트). 새 컴포넌트를 추가할 때 같은 조건이면 on-static을 사용한다.
+- **진한 채움(fill) 배경 위 글자**는 기본적으로 `--color-text-inverse`를 사용한다. 이 토큰은 모드별로 자동 전환된다.
+- **모드와 관계없이 색상을 고정해야 할 때**는 static 토큰을 사용한다.
+  - `--color-text-static-light` (항상 흰색): Badge 채움형, Checkbox 체크 마크, Pagination 활성, Tab 채움형 등 배경이 항상 어두운 경우.
+  - `--color-text-static-dark` (항상 어두운 색): warning-element 배경처럼 모든 모드에서 밝은 배경인 경우. (예: `--color-bg-warning-element` → `--color-text-static-dark`)
+- **이름만 다르고 값이 같은 토큰을 만들지 않는다.** 채움 배경 위 텍스트가 단순히 `--color-text-inverse`와 같은 값이면 별도 static 토큰 없이 inverse를 사용한다.
 - 그레이 계열 텍스트는 `--color-text-default` → `--color-text-subtle` → `--color-text-subtler` 순서로 위계를 지킨다.
 
 ### 하지 말 것
 
-- **이름만 다르고 값이 같은 토큰은 만들지 않는다.** 값이 동일하면 기존 토큰 하나로 통일한다. 예: 채움(fill) 배경 위 텍스트가 단순히 `--color-text-inverse`와 같은 값이면 별도 on-\* 토큰 없이 inverse를 사용한다.
+- **이름만 다르고 값이 같은 토큰은 만들지 않는다.** 값이 동일하면 기존 토큰 하나로 통일한다.
 - `--color-primary-50`, `--color-gray-90` 같은 **프리미티브 토큰을 컴포넌트에서 직접 사용**하지 않는다. 모드 전환 시 색상이 바뀌지 않는다.
 - CSS 클래스(`.dark`, `.light`)나 미디어 쿼리(`prefers-color-scheme`)로 모드를 제어하지 않는다. `data-mode` 속성만 사용한다.
 - `--color-text-disabled`를 활성 텍스트에 사용하지 않는다. 대비 기준 미달 상태이므로 비활성 UI에만 쓴다.
@@ -144,12 +147,12 @@ document.documentElement.removeAttribute('data-mode');
 npm run check:contrast
 ```
 
-`scripts/contrast-pairs.json`에 등록된 색상 쌍을 Light·Dark·High Contrast 세 모드에서 자동 계산한다.
+`scripts/contrast-pairs.json`에 등록된 색상 쌍을 Light·Dark 두 모드에서 자동 계산한다.
 
 ### 알려진 예외
 
 | 색상 쌍 | 모드 | 비율 | 사유 |
 |---|---|---|---|
-| `color-text-primary-on-subtle-pressed` / `color-bg-primary-subtle-pressed` | Light | 4.26:1 | KRDS 원본 값. 순간 상태(pressed)이므로 허용 |
+| `color-text-primary-subtle-pressed` / `color-bg-primary-subtle-pressed` | Light | 4.26:1 | KRDS 원본 값. 순간 상태(pressed)이므로 허용 |
 
 예외를 추가하려면 `scripts/contrast-pairs.json`의 해당 쌍에 `exceptions` 배열을 추가한다.
