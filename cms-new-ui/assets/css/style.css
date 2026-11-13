@@ -177,7 +177,7 @@ svg { display: block; flex: none; }
 .nav-link:hover { background: var(--sunken); }
 .nav-link.is-active { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
 .nav-link svg { color: currentColor; opacity: .85; }
-a.nav-link::after { content: '•'; font-size: 11px; color: #e53535; flex-shrink: 0; line-height: 1; }
+a.nav-link::after { content: '•'; font-size: 16px; color: #e53535; flex-shrink: 0; line-height: 1; }
 a.nav-link[href="bbs-setting-form.html"]::after,
 a.nav-link[href="media-list.html"]::after,
 a.nav-link[href="cm-list.html"]::after { color: #22c55e; }
