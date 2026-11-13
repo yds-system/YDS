@@ -41,6 +41,9 @@
   --color-bg-secondary-hover:    var(--color-secondary-60);
   --color-bg-secondary-pressed:  var(--color-secondary-70);
   --color-bg-secondary-subtle:   var(--color-secondary-5);
+  --color-bg-danger:          var(--color-danger-50);  /* #de3412, 4.56:1 ✓ with #fff */
+  --color-bg-danger-hover:    var(--color-danger-60);  /* #bd2c0f, 5.94:1 ✓ */
+  --color-bg-danger-pressed:  var(--color-danger-70);  /* #8a240f, 8.98:1 ✓ */
   --color-bg-danger-subtle:      var(--color-danger-5);
   --color-bg-warning-subtle:     var(--color-warning-5);
   --color-bg-success-subtle:     var(--color-success-5);
@@ -113,6 +116,9 @@
   --color-border-secondary-strong:      var(--color-secondary-70);   /* secondary 강조 테두리 (KRDS border-secondary 원래 값) */
   --color-border-divider-dark:          var(--color-gray-50);        /* 진한 구분선 */
 
+  /* ── color-bg (추가) ───────────────────────────────────────────────────────── */
+  --color-bg-static-white:              var(--color-gray-0);         /* 항상 흰색 (모드 불변) — 스위치 손잡이 등 */
+
 }
 /* ═══════════════════════════════════════════════════════════════════════════════
    다크 모드 (data-mode="dark")
@@ -146,6 +152,9 @@
   --color-bg-secondary-hover:    var(--color-secondary-30);
   --color-bg-secondary-pressed:  var(--color-secondary-20);
   --color-bg-secondary-subtle:   var(--color-secondary-90);
+  --color-bg-danger:          var(--color-danger-40);  /* #f05f42, 4.95:1 ✓ with #1e2124 */
+  --color-bg-danger-hover:    var(--color-danger-30);  /* #f48771, 6.59:1 ✓ */
+  --color-bg-danger-pressed:  var(--color-danger-20);  /* #f7afa1, 8.94:1 ✓ */
   --color-bg-danger-subtle:      var(--color-danger-90);
   --color-bg-warning-subtle:     var(--color-warning-90);
   --color-bg-success-subtle:     var(--color-success-90);
@@ -244,6 +253,9 @@
     --color-bg-secondary-hover:    var(--color-secondary-30);
     --color-bg-secondary-pressed:  var(--color-secondary-20);
     --color-bg-secondary-subtle:   var(--color-secondary-90);
+    --color-bg-danger:          var(--color-danger-40);  /* #f05f42, 4.95:1 ✓ with #1e2124 */
+    --color-bg-danger-hover:    var(--color-danger-30);  /* #f48771, 6.59:1 ✓ */
+    --color-bg-danger-pressed:  var(--color-danger-20);  /* #f7afa1, 8.94:1 ✓ */
     --color-bg-danger-subtle:      var(--color-danger-90);
     --color-bg-warning-subtle:     var(--color-warning-90);
     --color-bg-success-subtle:     var(--color-success-90);

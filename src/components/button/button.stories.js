@@ -143,6 +143,17 @@ export const 비활성화 = {
     `),
 };
 
+/* ── 위험 버튼 ──────────────────────────── */
+export const 위험버튼 = {
+  name: '위험 버튼 (Danger)',
+  parameters: { controls: { include: ['size', 'disabled'] } },
+  render: ({ size, disabled }) =>
+    row(`
+      <button type="button" class="yds-btn yds-btn--danger yds-btn--${size}"${disabled ? ' disabled' : ''}>삭제</button>
+      <button type="button" class="yds-btn yds-btn--danger yds-btn--${size}" disabled>삭제 (비활성)</button>
+    `),
+};
+
 /* ── 전체 변형 ──────────────────────────── */
 export const 전체변형 = {
   name: '전체 변형 (All Variants)',

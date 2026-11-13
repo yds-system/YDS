@@ -476,6 +476,53 @@
 
 ---
 
+## 2026-11-13 어드민 예제 개선 (examples/admin)
+
+### 1. Danger 버튼 YDS 공통화
+- `src/tokens/mode.scss`: `--color-bg-danger/-hover/-pressed` 3개 토큰 추가 (라이트·다크·system 3개 모드)
+- `src/tokens/token-data.js`: danger 버튼 토큰 3개 추가
+- `src/components/button/button.scss`: `yds-btn--danger` variant 추가 (채우기 위계)
+- `src/components/button/button.stories.js`: `위험버튼` 스토리 추가
+- `examples/admin/assets/scss/ds/components/_btn-danger.scss`: 채우기 Danger 블록 제거 (YDS 공통으로 올림), ghost-danger만 유지
+- `examples/admin/assets/css/admin-ds.css`: 채우기 Danger 블록 제거
+
+### 2. build:dist URL 따옴표 짝 수정
+- `scripts/build-dist.mjs`: 경로 치환 정규식에 캡처 그룹 `(['"]?)` 사용 → 원본 따옴표 유지
+- `scripts/build-dist.mjs`: 스텝 8로 URL 따옴표 짝 검사 추가 (불일치 시 빌드 실패)
+
+### 3. examples/admin/index.html 전면 개선 (reference/admin-mockup 기준)
+- **로고**: "H" / "홍익인간" → "Y" / "yooncoms"
+- **사이드바**: 11개 nav 그룹 (홈/사이트/콘텐츠/게시판/프로그램/회원/배포/개인정보/메타데이터/통계/CMS설정) + 각 그룹 inline SVG 아이콘 (reference common.js PATHS 기준)
+- **상단바**: 햄버거 메뉴 버튼 추가, 검색 텍스트 "메뉴·게시글·설정 검색" + "Ctrl K", AI 버튼 (spark SVG), 사용자 "홍길동" + 하단 화살표
+- **필터**: 모든 select/input → `yds-select--small` / `yds-input--small`
+- **일괄 처리 바**: → `yds-btn--secondary yds-btn--small`; 삭제 → `adm-btn--ghost-danger`
+- **표 10행**: reference contents.js 데이터 그대로 (349~340번)
+  - 유형 배지: 페이지=outline-gray, 프로그램=bg-light-primary, 게시판=bg-light-success, 외부링크=bg-light-information
+  - 승인 배지: 승인 완료=bg-light-success, 승인 대기=bg-light-warning, 반려=bg-light-danger, 임시저장=bg-light-gray
+  - 노출 열: `yds-switch` (승인 완료만 활성화, 나머지 disabled)
+  - 담당자 열: `adm-avatar` 이니셜 + `adm-owner` 이름
+  - 관리 열: edit + trash 아이콘 버튼 (aria-label 포함), 3점 메뉴 제거
+  - 선택된 행 (349·348·347): `style="background-color: var(--color-bg-selected);"`
+  - 수정일 열: `adm-td-nowrap`
+- **범위/페이지**: 1–10 / 349건, 35페이지, 3개 선택됨
+- **admin-ds.css**: 신규 CSS 클래스 추가 — `adm-topbar__menu-btn`, `adm-topbar__ai-btn`, `adm-topbar__search > span`, `adm-td-nowrap`, `adm-owner`, `adm-avatar`, `adm-manage-cell`
+
+## 2026-11-13 스위치(Switch) 컴포넌트 신규 추가
+
+- `src/components/switch/switch.scss` 신규: 토글 스위치 컴포넌트
+  - CSS 변수: track-width/height, thumb-size, padding, 색상 7종
+  - 상태: off(기본) / checked / focus-visible / disabled
+  - `has()` 셀렉터로 disabled 시 `cursor: not-allowed` 적용
+- `src/components/switch/switch.stories.js` 신규: Storybook 스토리
+  - 스토리 4종: Playground / 상태(States) / 레이블 없음 / 전체 변형(All Variants)
+  - `role="switch"` + `aria-checked` 접근성 적용
+- `src/components/switch/switch.mdx` 신규: 컴포넌트 문서
+  - 개요 / 네이밍 / 언제 사용하는지 / 사용하지 말아야 할 때 / 코드 예시
+- 사이드바 경로: `컴포넌트/선택/스위치`
+- **검증**: check:contrast ✓ (27쌍+extra 1쌍, 미달 0건) / check:tokens ✓ / build:dist ✓ (yds-components.css 204.7 KB)
+
+---
+
 ## 추후 검토
 
 - 필터 태그 선택 상태 (`ds-tag--selected`): KRDS 원본에 없음. 필요 시 신규 추가 협의 후 결정.

@@ -1,0 +1,68 @@
+/* =============================================================================
+   어드민 페이지 레이아웃 — 컴파일 CSS
+   SCSS 소스: assets/scss/pages/admin.scss
+
+   로드 순서 (index.html):
+   1. ../../dist/yds/assets/css/yds-tokens.css     (YDS 토큰)
+   2. ../../dist/yds/assets/css/yds-components.css  (YDS 컴포넌트)
+   3. assets/css/admin-ds.css                       (테마 + 어드민 컴포넌트)
+   4. assets/css/admin.css                          (이 파일 — 페이지 레이아웃)
+   ============================================================================= */
+
+/* ── _contents.scss ──────────────────────────────────────────────────────────── */
+
+.adm-app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--adm-color-bg-page);
+  color: var(--color-text-default);
+}
+
+.adm-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.adm-content {
+  padding: var(--padding-xl) var(--padding-xl) 6.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  max-width: calc(1800px + 8.8rem);
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* ── 페이지 헤더 ─────────────────────────────────────────────────────────────── */
+
+.adm-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-m);
+  flex-wrap: wrap;
+}
+
+.adm-page-title {
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -.02em;
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+.adm-page-desc {
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  color: var(--color-text-subtler);
+}
+
+.adm-page-actions {
+  display: flex;
+  gap: var(--gap-s);
+  flex-wrap: wrap;
+  flex: none;
+}

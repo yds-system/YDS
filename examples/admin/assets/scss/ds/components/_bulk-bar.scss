@@ -1,0 +1,35 @@
+/* =============================================================================
+   일괄 처리 바 (adm-bulk-bar / adm-bulk-bar__*)
+   ============================================================================= */
+
+.adm-bulk-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+  padding: var(--space-16) var(--padding-l);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.adm-bulk-bar__total {
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-default);
+}
+
+.adm-bulk-bar__total-count {
+  color: var(--color-text-primary);
+}
+
+.adm-bulk-bar__sel-count {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+}
+
+/* 정렬·개수 셀렉트를 오른쪽으로 밀기 */
+.adm-bulk-bar__end {
+  margin-left: auto;
+  display: flex;
+  gap: var(--gap-s);
+}

@@ -90,6 +90,15 @@
   --yds-btn--color-text-text: var(--color-text-default);
   --yds-btn--color-text-text-disabled: var(--color-text-disabled);
 
+  --yds-btn--color-danger-fill: var(--color-bg-danger);
+  --yds-btn--color-danger-fill-hover: var(--color-bg-danger-hover);
+  --yds-btn--color-danger-fill-pressed: var(--color-bg-danger-pressed);
+  --yds-btn--color-danger-fill-disabled: var(--color-bg-disabled);
+  --yds-btn--color-danger-border: var(--color-bg-danger);
+  --yds-btn--color-danger-border-disabled: var(--color-border-disabled);
+  --yds-btn--color-danger-text: var(--color-text-inverse);
+  --yds-btn--color-danger-text-disabled: var(--color-text-subtler);
+
 }
 /* ----- 기본 스타일 (Large, Primary 기본값) ----- */
 .yds-btn {
@@ -812,6 +821,66 @@
   &.yds-btn--icon.yds-btn--border.yds-btn--disabled {
 
     background-color: var(--color-bg-disabled);
+
+  }
+}
+/* ----- 위계: Danger ----- */
+.yds-btn {
+  &.yds-btn--danger {
+
+    background-color: var(--yds-btn--color-danger-fill);
+    border-color: var(--yds-btn--color-danger-border);
+    color: var(--yds-btn--color-danger-text);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger:not(.yds-btn--icon) .yds-icon {
+
+    background-color: var(--yds-btn--color-danger-text);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger:hover {
+
+    background-color: var(--yds-btn--color-danger-fill-hover);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger:active,
+  &.yds-btn--danger:focus {
+
+    background-color: var(--yds-btn--color-danger-fill-pressed);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger[disabled],
+  &.yds-btn--danger.yds-btn--disabled {
+
+    background-color: var(--yds-btn--color-danger-fill-disabled);
+    border-color: var(--yds-btn--color-danger-border-disabled);
+    color: var(--yds-btn--color-danger-text-disabled);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger[disabled]:not(.yds-btn--icon) .yds-icon,
+  &.yds-btn--danger.yds-btn--disabled:not(.yds-btn--icon) .yds-icon {
+
+    background-color: var(--yds-btn--color-danger-text-disabled);
+
+  }
+}
+.yds-btn {
+  &.yds-btn--danger[disabled]:hover,
+  &.yds-btn--danger.yds-btn--disabled:hover {
+
+    background-color: var(--yds-btn--color-danger-fill-disabled);
+    border-color: var(--yds-btn--color-danger-border-disabled);
+    color: var(--yds-btn--color-danger-text-disabled);
 
   }
 }

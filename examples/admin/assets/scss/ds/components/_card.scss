@@ -1,0 +1,34 @@
+/* =============================================================================
+   어드민 카드 섹션
+   yds-card에 adm-section modifier를 붙여 사용
+   <section class="yds-card adm-section">
+   ============================================================================= */
+
+/* yds-card의 overflow: hidden을 visible로 오버라이드 → 행 메뉴 드롭다운 클리핑 방지 */
+.yds-card.adm-section {
+  overflow: visible;
+  border-radius: var(--radius-l);    /* yds-card 기본 radius-m(8px) → radius-l(12px) */
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-s);
+  --yds-card--bg: var(--color-bg-elevated);
+
+  &:hover {
+    box-shadow: var(--shadow-s);     /* hover 그림자 변화 억제 (yds-card 기본: shadow-m으로 올라감) */
+  }
+}
+
+/* 카드 하단 — 범위 정보 + 페이지네이션 */
+.adm-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-m);
+  padding: var(--space-16) var(--padding-l);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* 표시 범위 텍스트 (1–10 / 48건) */
+.adm-range-info {
+  font-size: 1.5rem;
+  color: var(--color-text-subtler);
+}

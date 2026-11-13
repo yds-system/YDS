@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>게시판 등록 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="bbs" data-crumb="홈 / 게시판 / 게시판 관리 / 게시판 등록">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">게시판 등록</h1>
+            <p class="page-desc">게시판 이름과 유형을 정하고, 필요하면 권한과 추가 옵션을 설정하세요.</p>
+          </div>
+        </div>
+
+        <form class="form-stack" id="bbs-form" novalidate>
+          <section class="card reveal" style="--i:1" aria-label="기본정보">
+            <button type="button" class="fold-btn" data-fold aria-expanded="true" aria-controls="fold-basic">
+              <span class="fold-ic"><span data-icon="list" data-size="19" data-w="2" aria-hidden="true"></span></span>
+              <span class="fold-title"><span class="card-title">기본정보</span><span class="card-sub">이름, 유형, 목록 표시 방식</span></span>
+              <span class="fold-caret"><span data-icon="down" data-size="18" data-w="2" aria-hidden="true"></span></span>
+            </button>
+            <div id="fold-basic">
+              <div class="form-rows">
+                <div class="form-row">
+                  <label class="form-label" for="bbsNm">게시판명<i class="req" aria-hidden="true">*</i></label>
+                  <div class="form-ctrl"><input class="input" id="bbsNm" name="bbsNm" placeholder="게시판명을 입력하세요" required autocomplete="off"></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="bbsSkin">게시판 스킨 경로<i class="req" aria-hidden="true">*</i></label>
+                  <div class="form-ctrl"><select class="select" id="bbsSkin" name="bbsSkin" style="width:220px" required><option>기본 스킨</option></select></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">게시판 유형<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="bbsType" value="일반형" checked><span>일반형</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="답글형"><span>답글형</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="이미지"><span>이미지</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="동영상"><span>동영상</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="Q&amp;A"><span>Q&amp;A</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="FAQ"><span>FAQ</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="일정형"><span>일정형</span></label><label class="radio-pill"><input type="radio" name="bbsType" value="링크형"><span>링크형</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">게시판 상단 이미지</span>
+                  <div class="form-ctrl"><div class="file-field"><label class="btn btn--secondary btn--sm" for="bbsTopImg">파일 선택</label><input type="file" id="bbsTopImg" name="bbsTopImg" accept="image/*"><span class="file-name" id="bbsTopImgName">선택된 파일 없음</span></div></div>
+                </div>
+                <div class="form-row form-row--top">
+                  <label class="form-label" for="bbsTopText">게시판 상단 글</label>
+                  <div class="form-ctrl"><textarea class="textarea" id="bbsTopText" name="bbsTopText" placeholder="게시판 목록 위에 보여 줄 안내 문구를 입력하세요"></textarea></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="bbsListCnt">목록 출력 건수<i class="req" aria-hidden="true">*</i></label>
+                  <div class="form-ctrl"><div class="inline-row" style="gap:11px"><select class="select" id="bbsListCnt" name="bbsListCnt" style="width:121px" required><option selected>10</option><option>20</option><option>30</option><option>50</option></select><span class="unit-text">개씩</span></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">첨부파일 사용<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="fileUseYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="fileUseYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">사용 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="useYn" value="Y" checked><span>사용</span></label><label class="radio-pill"><input type="radio" name="useYn" value="N"><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">메뉴 연결</span>
+                  <div class="form-ctrl"><div class="inline-row" style="gap:13px"><button type="button" class="btn btn--secondary btn--sm" data-soon="메뉴 연결">메뉴 설정</button><span class="empty-text">연결된 메뉴 없음</span></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="card reveal" style="--i:2" aria-label="권한/보안 설정">
+            <button type="button" class="fold-btn" data-fold aria-expanded="false" aria-controls="fold-auth">
+              <span class="fold-ic"><span data-icon="shield" data-size="19" data-w="2" aria-hidden="true"></span></span>
+              <span class="fold-title"><span class="card-title">권한/보안 설정</span><span class="card-sub">글쓰기·읽기 권한과 보안 옵션</span></span>
+              <span class="fold-caret"><span data-icon="down" data-size="18" data-w="2" aria-hidden="true"></span></span>
+            </button>
+            <div id="fold-auth" hidden>
+              <div class="form-rows">
+                <div class="form-row form-row--top">
+                  <span class="form-label">권한</span>
+                  <div class="form-ctrl"><div class="table-wrap perm-wrap">
+                    <table class="table perm-table">
+                      <caption class="sr-only">사용자 구분별 게시판 권한</caption>
+                      <colgroup><col style="width:200px"><col span="6"></colgroup>
+                      <thead>
+                        <tr><th scope="col" rowspan="2" class="is-left">구분</th><th scope="colgroup" colspan="2">읽기 권한</th><th scope="colgroup" colspan="2">쓰기 권한</th><th scope="colgroup" colspan="2">파일 권한</th></tr>
+                        <tr><th scope="col">목록</th><th scope="col">상세</th><th scope="col">원글</th><th scope="col">답글</th><th scope="col">업로드</th><th scope="col">다운로드</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><th scope="row">관리자</th><td><label class="check"><input type="checkbox" name="auth_admin_list" value="Y" checked><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 읽기 권한 목록</span></label></td><td><label class="check"><input type="checkbox" name="auth_admin_view" value="Y" checked><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 읽기 권한 상세</span></label></td><td><label class="check"><input type="checkbox" name="auth_admin_post" value="Y" checked><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 쓰기 권한 원글</span></label></td><td><label class="check"><input type="checkbox" name="auth_admin_reply" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 쓰기 권한 답글</span></label></td><td><label class="check"><input type="checkbox" name="auth_admin_up" value="Y" checked><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 파일 권한 업로드</span></label></td><td><label class="check"><input type="checkbox" name="auth_admin_down" value="Y" checked><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">관리자 파일 권한 다운로드</span></label></td></tr>
+                        <tr><th scope="row">로그인<span class="t-sub">비회원 로그인 포함</span></th><td><label class="check"><input type="checkbox" name="auth_login_list" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 읽기 권한 목록</span></label></td><td><label class="check"><input type="checkbox" name="auth_login_view" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 읽기 권한 상세</span></label></td><td><label class="check"><input type="checkbox" name="auth_login_post" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 쓰기 권한 원글</span></label></td><td><label class="check"><input type="checkbox" name="auth_login_reply" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 쓰기 권한 답글</span></label></td><td><label class="check"><input type="checkbox" name="auth_login_up" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 파일 권한 업로드</span></label></td><td><label class="check"><input type="checkbox" name="auth_login_down" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">로그인 파일 권한 다운로드</span></label></td></tr>
+                        <tr><th scope="row">비로그인<span class="t-sub">로그인하지 않은 사용자</span></th><td><label class="check"><input type="checkbox" name="auth_guest_list" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 읽기 권한 목록</span></label></td><td><label class="check"><input type="checkbox" name="auth_guest_view" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 읽기 권한 상세</span></label></td><td><label class="check"><input type="checkbox" name="auth_guest_post" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 쓰기 권한 원글</span></label></td><td><label class="check"><input type="checkbox" name="auth_guest_reply" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 쓰기 권한 답글</span></label></td><td><label class="check"><input type="checkbox" name="auth_guest_up" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 파일 권한 업로드</span></label></td><td><label class="check"><input type="checkbox" name="auth_guest_down" value="Y"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">비로그인 파일 권한 다운로드</span></label></td></tr>
+                      </tbody>
+                    </table>
+                  </div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">사용자 인증 필요 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="certYn" value="Y" checked><span>인증 (회원, 비회원 본인인증)</span></label><label class="radio-pill"><input type="radio" name="certYn" value="N"><span>비인증 (비회원)</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">게시물 공개 설정 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="openYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="openYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="banNick">별명 금지어</label>
+                  <div class="form-ctrl"><input class="input" id="banNick" name="banNick" placeholder="금지어를 입력하세요" autocomplete="off"></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="banWord">본문 금지어</label>
+                  <div class="form-ctrl"><input class="input" id="banWord" name="banWord" placeholder="금지어를 입력하세요" autocomplete="off"></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="denyIp">접근 차단 IP</label>
+                  <div class="form-ctrl"><input class="input" id="denyIp" name="denyIp" placeholder="아이피를 입력하세요" autocomplete="off"></div>
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="allowIp">접근 허용 IP</label>
+                  <div class="form-ctrl"><input class="input" id="allowIp" name="allowIp" placeholder="아이피를 입력하세요" autocomplete="off"></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">반복 게시 제한 시간</span>
+                  <div class="form-ctrl"><div class="inline-row" style="gap:11px"><label class="unit-text" for="repeatSec">적용 기간<i class="req" aria-hidden="true">*</i></label><input class="input" type="number" id="repeatSec" name="repeatSec" value="60" min="0" style="width:121px" required><span class="unit-text">초</span></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">개인정보 관리</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="privacyYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="privacyYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="card reveal" style="--i:3" aria-label="추가 옵션">
+            <button type="button" class="fold-btn" data-fold aria-expanded="false" aria-controls="fold-extra">
+              <span class="fold-ic"><span data-icon="plus" data-size="19" data-w="2" aria-hidden="true"></span></span>
+              <span class="fold-title"><span class="card-title">추가 옵션</span><span class="card-sub">필요할 때만 설정하는 옵션</span></span>
+              <span class="fold-caret"><span data-icon="down" data-size="18" data-w="2" aria-hidden="true"></span></span>
+            </button>
+            <div id="fold-extra" hidden>
+              <div class="form-rows">
+                <div class="form-row">
+                  <span class="form-label">신규 게시물 표시 사용 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="newIconYn" value="Y"><span>기본 이미지</span></label><label class="radio-pill"><input type="radio" name="newIconYn" value="N" checked><span>미사용</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">인기 게시물 사용 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="hotYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="hotYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">카테고리 사용</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="cateYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="cateYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">개인정보 수집 이용 동의 사용<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="agreeYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="agreeYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">썸네일 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="thumbYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="thumbYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">기타 항목 사용</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="etcYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="etcYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+              </div>
+              <div class="form-rows form-rows--2col">
+                <div class="form-row">
+                  <span class="form-label">검색 수집 허용 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="searchYn" value="Y" checked><span>사용</span></label><label class="radio-pill"><input type="radio" name="searchYn" value="N"><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">이메일<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="emailYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="emailYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">담당자 사용 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="chargeYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="chargeYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">담당기관<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="orgYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="orgYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">전화번호<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="telYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="telYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">CCL 사용</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="cclYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="cclYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">RSS 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="rssYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="rssYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">관련글 등록<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="relYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="relYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">해시태그 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="tagYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="tagYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">이전글 다음글 여부<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="prevNextYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="prevNextYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">에디터 사용<i class="req" aria-hidden="true">*</i></span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="editorYn" value="Y" checked><span>사용</span></label><label class="radio-pill"><input type="radio" name="editorYn" value="N"><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">게시 기간 사용 여부</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="periodYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="periodYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+                <div class="form-row">
+                  <span class="form-label">게시글 복사</span>
+                  <div class="form-ctrl"><div class="radio-row"><label class="radio-pill"><input type="radio" name="copyYn" value="Y"><span>사용</span></label><label class="radio-pill"><input type="radio" name="copyYn" value="N" checked><span>사용 안 함</span></label></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="form-actions">
+            <button type="button" class="btn btn--secondary" data-soon="게시판 목록">목록</button>
+            <div class="end"><button type="submit" class="btn btn--primary">저장</button></div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/bbs-setting-form.js"></script>
+</body>
+</html>

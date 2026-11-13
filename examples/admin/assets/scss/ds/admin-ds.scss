@@ -1,0 +1,20 @@
+/* =============================================================================
+   어드민 디자인 시스템 레이어 — 진입점
+   컴파일 출력: assets/css/admin-ds.css
+
+   로드 순서 (index.html):
+   1. dist/yds/assets/css/yds-tokens.css     (YDS 토큰)
+   2. dist/yds/assets/css/yds-components.css  (YDS 컴포넌트)
+   3. assets/css/admin-ds.css  ← 이 파일 컴파일 결과 (테마 + 어드민 컴포넌트)
+   4. assets/css/admin.css      (페이지 레이아웃)
+   ============================================================================= */
+
+@use 'theme';
+@use 'components/sidebar';
+@use 'components/topbar';
+@use 'components/filter-grid';
+@use 'components/bulk-bar';
+@use 'components/row-menu';
+@use 'components/btn-danger';
+@use 'components/table-helpers';
+@use 'components/card';

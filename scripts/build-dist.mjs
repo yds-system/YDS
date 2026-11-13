@@ -79,7 +79,8 @@ for (const f of readdirSync(iconsDir)) {
 let baseScss = readFileSync(join(ROOT, 'src/tokens/base.scss'), 'utf8');
 let baseCss = compileSCSS(baseScss);
 // @font-face src 경로 수정: ./fonts/ → ../fonts/ (css/ 하위 배포 기준)
-baseCss = baseCss.replace(/url\(['"]?\.\/fonts\//g, "url('../fonts/");
+// 원본 따옴표 문자를 그대로 유지해 짝이 맞도록 캡처 그룹 사용
+baseCss = baseCss.replace(/url\((['"]?)\.\/fonts\//g, (_, q) => `url(${q}../fonts/`);
 writeFileSync(join(DIST, 'css/yds-base.css'), baseCss, 'utf8');
 
 // ── 5. yds-tokens.css ───────────────────────────────────────────────────────
@@ -104,8 +105,8 @@ let compCss = compileSCSS(compScss);
 // 아이콘 경로 교체: ../../assets/images/icons/ → ../images/icons/
 // (src/components/{name}/ 기준 상대경로 → dist/yds/assets/css/ 기준 상대경로)
 compCss = compCss.replace(
-  /url\(['"]?\.\.\/\.\.\/assets\/images\/icons\//g,
-  'url(../images/icons/',
+  /url\((['"]?)\.\.\/\.\.\/assets\/images\/icons\//g,
+  (_, q) => `url(${q}../images/icons/`,
 );
 
 writeFileSync(join(DIST, 'css/yds-components.css'), compCss, 'utf8');
@@ -145,3 +146,21 @@ if (tagLines.length === 0) {
   console.warn(`\n⚠ yds-components.css 태그 선택자 ${tagLines.length}건:`);
   tagLines.slice(0, 20).forEach(l => console.warn('  ' + l.trim().slice(0, 100)));
 }
+
+// ── 8. url() 따옴표 짝 검사 ─────────────────────────────────────────────────
+const urlMismatches = [];
+for (const f of readdirSync(cssDir).filter(f => f.endsWith('.css'))) {
+  const content = readFileSync(join(cssDir, f), 'utf8');
+  // 여는 따옴표와 닫는 따옴표가 다른 url() 탐지
+  const re = /url\('[^)]*"\)|url\("[^)]*'\)/g;
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    urlMismatches.push(`  ${f}: ${m[0].slice(0, 100)}`);
+  }
+}
+if (urlMismatches.length > 0) {
+  console.error('\n✗ url() 따옴표 짝 불일치 — 빌드 실패:');
+  urlMismatches.forEach(l => console.error(l));
+  process.exit(1);
+}
+console.log('url() 따옴표 짝 ✓');

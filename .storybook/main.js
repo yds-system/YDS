@@ -42,7 +42,11 @@ const config = {
     },
   ],
   "framework": "@storybook/html-vite",
-  "staticDirs": ["../reference/krds/resources", "../public"],
+  "staticDirs": [
+    "../reference/krds/resources",
+    "../public",
+    { from: "../cms-new-ui", to: "/cms-new-ui" },
+  ],
   async viteFinal(config) {
     config.resolve = config.resolve ?? {};
     config.resolve.alias = {

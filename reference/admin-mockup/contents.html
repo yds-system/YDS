@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>콘텐츠 목록 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="contents" data-crumb="홈 / 콘텐츠 / 콘텐츠 목록">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">콘텐츠 목록</h1>
+            <p class="page-desc">메뉴에 연결된 콘텐츠를 검색하고 노출·승인 상태를 한 번에 관리하세요.</p>
+          </div>
+          <div class="page-actions">
+            <button type="button" class="btn btn--secondary" id="btn-excel">엑셀 다운로드</button>
+            <a class="btn btn--primary" href="content-write.html">+ 콘텐츠 등록</a>
+          </div>
+        </div>
+
+        <form class="card filter-grid reveal" style="--i:1" id="filters" role="search" aria-label="콘텐츠 검색">
+          <label for="f-menu">메뉴 위치</label>
+          <select class="select" id="f-menu" name="menu"><option value="">전체 메뉴</option><option>1. 중구소개</option><option>2. 소통과 참여</option><option>3. 문화강좌</option><option>4. 향토사료</option><option>푸터</option></select>
+          <label for="f-type">유형</label>
+          <select class="select" id="f-type" name="type"><option value="">전체</option><option>페이지</option><option>프로그램</option><option>게시판</option><option>외부링크</option></select>
+          <label for="f-appr">승인 상태</label>
+          <select class="select" id="f-appr" name="appr"><option value="">전체</option><option>승인 완료</option><option>승인 대기</option><option>반려</option><option>임시저장</option></select>
+          <label for="f-owner">담당자</label>
+          <select class="select" id="f-owner" name="owner"><option value="">전체</option><option>김민지</option><option>박서준</option><option>이하늘</option><option>관리자</option></select>
+          <label for="f-from">기간</label>
+          <div class="wide">
+            <select class="select" name="dateKey" style="width:121px" aria-label="기간 기준"><option value="mod">수정일</option><option value="reg">등록일</option></select>
+            <input class="input" type="date" id="f-from" name="from" value="2026-10-01" aria-label="시작일">
+            <span>~</span>
+            <input class="input" type="date" name="to" value="2026-10-31" aria-label="종료일">
+          </div>
+          <label for="f-q">검색어</label>
+          <input class="input" id="f-q" name="q" type="search" placeholder="콘텐츠명, 경로로 검색">
+          <div class="actions">
+            <button type="reset" class="btn btn--secondary">초기화</button>
+            <button type="submit" class="btn btn--primary">검색</button>
+          </div>
+        </form>
+
+        <section class="card reveal" style="--i:2" aria-label="콘텐츠 목록">
+          <div class="bulk-bar">
+            <b>전체 <span class="total num" id="total">0</span></b>
+            <span class="sel" id="sel-count" aria-live="polite"></span>
+            <button type="button" class="btn btn--secondary btn--sm" data-bulk="on" disabled>노출 켜기</button>
+            <button type="button" class="btn btn--secondary btn--sm" data-bulk="off" disabled>노출 끄기</button>
+            <button type="button" class="btn btn--secondary btn--sm" data-bulk="owner" disabled>담당자 변경</button>
+            <button type="button" class="btn btn--ghost-danger btn--sm" data-bulk="del" disabled>삭제</button>
+            <div class="end">
+              <select class="select" id="sort" style="width:165px" aria-label="정렬">
+                <option value="mod:-1">수정일 최신순</option><option value="mod:1">수정일 오래된순</option><option value="views:-1">조회수 많은순</option><option value="title:1">이름순</option>
+              </select>
+              <select class="select" id="per" style="width:114px" aria-label="페이지당 개수"><option value="10" selected>10개씩</option><option value="20">20개씩</option><option value="50">50개씩</option></select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="sr-only">콘텐츠 목록</caption>
+              <colgroup><col style="width:57px"><col style="width:70px"><col><col style="width:110px"><col style="width:132px"><col style="width:121px"><col style="width:88px"><col style="width:99px"><col style="width:121px"><col style="width:99px"></colgroup>
+              <thead>
+                <tr>
+                  <th scope="col" id="th-all"></th><th scope="col">No</th><th scope="col" class="is-left">콘텐츠명 / 메뉴 위치</th><th scope="col">유형</th>
+                  <th scope="col">담당자</th><th scope="col">승인 상태</th><th scope="col">노출</th><th scope="col" class="is-right">조회수</th><th scope="col">수정일</th><th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <div class="card-foot">
+            <span class="page-desc num" style="margin:0" id="range"></span>
+            <nav class="pagination" id="pager" aria-label="페이지 이동"></nav>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/contents.js"></script>
+</body>
+</html>

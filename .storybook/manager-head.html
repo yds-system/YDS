@@ -17,4 +17,61 @@
   .sidebar-item[data-nodetype="component"] a > svg {
     display: none !important;
   }
+
+  /* ── CMS DEMO 링크 ── */
+  #yds-cms-demo-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    margin: 0 0 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    transition: color 0.15s;
+  }
+  #yds-cms-demo-link:hover {
+    color: #1ea7fd;
+  }
+  #yds-cms-demo-link svg {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+  #yds-cms-demo-link:hover svg {
+    opacity: 1;
+  }
 </style>
+
+<script>
+(function () {
+  var LINK_ID = 'yds-cms-demo-link';
+
+  function inject() {
+    if (document.getElementById(LINK_ID)) return;
+    var target = document.getElementById('sidebar-bottom-wrapper');
+    if (!target) return;
+
+    var a = document.createElement('a');
+    a.id = LINK_ID;
+    a.href = '/cms-new-ui/bbs-setting-form.html';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.title = '새 창으로 열기';
+    a.innerHTML =
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
+      'CMS DEMO';
+
+    target.appendChild(a);
+  }
+
+  var observer = new MutationObserver(function () {
+    if (document.getElementById('sidebar-bottom-wrapper')) {
+      inject();
+    }
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>

@@ -1,0 +1,98 @@
+/* =============================================================================
+   어드민 테마 — data-theme="admin"
+   ─────────────────────────────────────────────────────────────────────────────
+   덮어쓴 토큰:
+   1. primary(interactive) 계열 → 보라 계열
+   2. --adm-color-bg-page (어드민 전용 신규 토큰) → 페이지 바탕색
+      · YDS 공통 토큰(--color-bg-default 등)은 input·select 배경에도 쓰이므로
+        덮어쓰면 폼 요소 배경이 회색이 되는 부작용 발생
+      · 페이지 바탕처럼 특정 영역에만 쓰이는 값은 프로젝트 접두사 신규 토큰으로 추가
+
+   대비 기준 텍스트:
+     라이트: --color-text-inverse = #fff  → primary 배경 위 흰 글자
+     다크  : --color-text-inverse = #1e2124 (YDS 기본값 그대로 사용)
+              → primary 배경 위 어두운 글자 (밝은 보라 사용 이유)
+
+   라이트 대비:
+     --color-bg-primary #635bff + #fff → 4.70:1 ✓
+   다크 대비:
+     --color-bg-primary #8f89ff + #1e2124 → 5.55:1 ✓
+
+   사용법: <html data-theme="admin">
+   ============================================================================= */
+
+/* ── 라이트 ──────────────────────────────────────────────────────────────────── */
+[data-theme="admin"] {
+
+  /* 어드민 전용 페이지 바탕 (input·select 배경에 영향 없는 별도 토큰) */
+  --adm-color-bg-page: #f6f9fc;  /* 시안 --bg */
+
+  /* primary 버튼·CTA */
+  --color-bg-primary:          #635bff;  /* 대비 4.70:1 ✓ */
+  --color-bg-primary-hover:    #5147e6;
+  --color-bg-primary-pressed:  #3f38c9;
+  --color-bg-primary-subtle:   #f0efff;  /* 시안 --primary-tint */
+  --color-bg-selected:         #f0efff;
+
+  /* primary 텍스트·링크 */
+  --color-text-primary:              #3f38c9;  /* 시안 --primary-ink */
+  --color-text-link:                 #635bff;
+  --color-text-link-hover:           #5147e6;
+  --color-text-link-pressed:         #3f38c9;
+  --color-text-primary-subtle-hover:    #3f38c9;
+  --color-text-primary-subtle-pressed:  #3f38c9;
+
+  /* primary 테두리·포커스 */
+  --color-border-primary: #635bff;
+  --color-border-focus:   #635bff;
+
+  /* primary 아이콘 */
+  --color-icon-primary: #635bff;
+
+  /* 외곽선 버튼 hover/pressed 배경 */
+  --color-bg-primary-subtle-hover:    #e3e1ff;  /* 시안 --primary-soft */
+  --color-bg-primary-subtle-pressed:  #cbc8ff;
+
+  /* 현재 선택 nav 항목 배경 */
+  --color-bg-interactive-active: #3f38c9;
+
+}
+
+/* ── 다크 ───────────────────────────────────────────────────────────────────── */
+[data-theme="admin"][data-mode="dark"] {
+
+  /* YDS 다크 기본값 --color-text-inverse = var(--color-gray-90) = #1e2124 그대로 사용.
+     primary 배경을 밝은 보라로 설정해 어두운 글자와 대비를 충족시킨다. */
+
+  /* 어드민 전용 페이지 바탕 (다크) */
+  --adm-color-bg-page: #0d1420;
+
+  /* primary 버튼·CTA — dark text-inverse(#1e2124) 위 대비 검증
+     기본 5.55:1 / hover 6.45:1 / pressed 7.40:1 — 모두 ✓ */
+  --color-bg-primary:          #8f89ff;
+  --color-bg-primary-hover:    #9d98ff;
+  --color-bg-primary-pressed:  #aaa6ff;
+  --color-bg-primary-subtle:   rgba(143, 137, 255, .16);
+  --color-bg-selected:         rgba(143, 137, 255, .10);
+
+  /* primary 텍스트·링크 */
+  --color-text-primary:              #c9c6ff;
+  --color-text-link:                 #8f89ff;
+  --color-text-link-hover:           #9d98ff;
+  --color-text-link-pressed:         #c9c6ff;
+  --color-text-primary-subtle-hover:    #c9c6ff;
+  --color-text-primary-subtle-pressed:  #c9c6ff;
+
+  /* primary 테두리·포커스·아이콘 */
+  --color-border-primary: #8f89ff;
+  --color-border-focus:   #8f89ff;
+  --color-icon-primary:   #8f89ff;  /* badge--bg-primary bg: #8f89ff + #1e2124 = 5.55:1 ✓ */
+
+  /* 외곽선 버튼 hover/pressed 배경 */
+  --color-bg-primary-subtle-hover:    rgba(143, 137, 255, .24);
+  --color-bg-primary-subtle-pressed:  rgba(143, 137, 255, .32);
+
+  /* nav 활성 항목 배경: #9d98ff + #1e2124 = 6.45:1 ✓ */
+  --color-bg-interactive-active: #9d98ff;
+
+}

@@ -1,0 +1,61 @@
+/* =============================================================================
+   콘텐츠 목록 페이지 — 레이아웃
+   어드민 공통 레이아웃(adm-app / adm-main / adm-content)과
+   이 페이지 전용 헤더(adm-page-*)를 정의
+   ============================================================================= */
+
+/* ── 앱 루트 ───────────────────────────────────────────────────────────────── */
+.adm-app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--adm-color-bg-page);
+  color: var(--color-text-default);
+}
+
+.adm-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.adm-content {
+  padding: var(--padding-xl) var(--padding-xl) 6.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  max-width: calc(1800px + 8.8rem);
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* ── 페이지 헤더 ────────────────────────────────────────────────────────────── */
+.adm-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-m);
+  flex-wrap: wrap;
+}
+
+.adm-page-title {
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -.02em;
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+.adm-page-desc {
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  color: var(--color-text-subtler);
+}
+
+.adm-page-actions {
+  display: flex;
+  gap: var(--gap-s);
+  flex-wrap: wrap;
+  flex: none;
+}

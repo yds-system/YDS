@@ -1,0 +1,65 @@
+/* =============================================================================
+   행 메뉴 (adm-more-btn / adm-row-menu / adm-row-wrap)
+   ============================================================================= */
+
+/* 행 내 더보기 버튼 wrapper — position:relative 기준 */
+.adm-row-wrap {
+  position: relative;
+}
+
+/* ⋮ 버튼 */
+.adm-more-btn {
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: var(--radius-s);
+  color: var(--color-text-subtler);
+  display: inline-grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+    color: var(--color-text-default);
+  }
+
+  &[aria-expanded="true"] {
+    background: var(--color-bg-subtle);
+  }
+}
+
+/* 드롭다운 목록 */
+.adm-row-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-4));
+  z-index: 30;
+  min-width: 15.4rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-l);
+  padding: var(--space-8);
+}
+
+.adm-row-menu__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-s);
+  font-size: 1.5rem;
+  color: var(--color-text-default);
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+  }
+
+  &.adm-row-menu__item--danger {
+    color: var(--color-text-danger);
+  }
+}

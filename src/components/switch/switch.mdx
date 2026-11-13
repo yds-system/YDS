@@ -1,0 +1,93 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as SwitchStories from './switch.stories';
+
+<Meta of={SwitchStories} />
+
+# 스위치 (Switch)
+
+## 개요
+
+두 가지 상태(켜짐/꺼짐) 사이를 즉시 전환하는 토글 컴포넌트입니다.
+KRDS `.krds-form-toggle-switch`를 YDS BEM 방식으로 이식했습니다.
+
+## 네이밍
+
+| 요소 | 클래스 | KRDS 대응 | 설명 |
+|---|---|---|---|
+| 루트 | `yds-switch` | `.krds-form-toggle-switch` | 래퍼 `<div>` |
+| 크기 — 기본 | `yds-switch--large` | `.large` (KRDS 기본) | 트랙 4.0×2.4rem |
+| 크기 | `yds-switch--medium` | `.medium` | 트랙 3.2×2.0rem |
+| 입력 | `yds-switch__input` | `[type="checkbox"]` | 시각적으로 숨긴 실제 input |
+| 레이블 | `yds-switch__label` | `label` | 트랙 + 텍스트 컨테이너 |
+| 트랙 | `yds-switch__track` | `.switch-toggle` | pill 형태 배경 |
+| 손잡이 | `yds-switch__thumb` | `.switch-toggle > i` | 이동하는 원형 |
+
+## 언제 사용하는지
+
+- 즉시 적용되는 설정(노출 여부, 알림, 기능 켜고 끄기)
+- 단일 항목의 켜짐/꺼짐 전환
+
+## 사용하지 말아야 할 때
+
+- 선택지가 셋 이상 → 라디오 버튼 사용
+- 양식 제출 후 적용되는 옵션 → 체크박스 사용
+
+## KRDS 원본과 다른 점
+
+| 항목 | KRDS 원본 | YDS |
+|---|---|---|
+| 꺼짐 트랙 테두리 | 없음 | `--color-border-strong` inset box-shadow 0.2rem — 흰 배경과 3:1↑ (WCAG 1.4.11 Non-text Contrast) |
+| 손잡이 색상 | `color-element-inverse` (라이트 흰·다크 블랙) | `--color-bg-static-white` (모드 불변 흰색) |
+
+## 코드 예시
+
+```html
+<!-- Large (기본) — 꺼짐 -->
+<div class="yds-switch yds-switch--large">
+  <input class="yds-switch__input" type="checkbox" id="sw-1" aria-label="노출">
+  <label class="yds-switch__label" for="sw-1">
+    <span class="yds-switch__track" aria-hidden="true">
+      <span class="yds-switch__thumb"></span>
+    </span>
+    노출
+  </label>
+</div>
+
+<!-- Large — 켜짐 -->
+<div class="yds-switch yds-switch--large">
+  <input class="yds-switch__input" type="checkbox" id="sw-2" checked aria-label="노출">
+  <label class="yds-switch__label" for="sw-2">
+    <span class="yds-switch__track" aria-hidden="true">
+      <span class="yds-switch__thumb"></span>
+    </span>
+    노출
+  </label>
+</div>
+
+<!-- Large — 비활성 -->
+<div class="yds-switch yds-switch--large">
+  <input class="yds-switch__input" type="checkbox" id="sw-3" disabled aria-label="노출">
+  <label class="yds-switch__label" for="sw-3">
+    <span class="yds-switch__track" aria-hidden="true">
+      <span class="yds-switch__thumb"></span>
+    </span>
+    노출
+  </label>
+</div>
+
+<!-- Medium -->
+<div class="yds-switch yds-switch--medium">
+  <input class="yds-switch__input" type="checkbox" id="sw-4" aria-label="노출">
+  <label class="yds-switch__label" for="sw-4">
+    <span class="yds-switch__track" aria-hidden="true">
+      <span class="yds-switch__thumb"></span>
+    </span>
+    노출
+  </label>
+</div>
+```
+
+<Canvas of={SwitchStories.Playground} />
+<Canvas of={SwitchStories.크기} />
+<Canvas of={SwitchStories.상태} />
+<Canvas of={SwitchStories.전체변형} />

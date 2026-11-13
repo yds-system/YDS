@@ -1,0 +1,160 @@
+/* =============================================================================
+   어드민 상단바 (adm-topbar / adm-topbar__*)
+   ============================================================================= */
+
+.adm-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  height: 7.2rem;
+  background: color-mix(in srgb, var(--color-bg-elevated) 92%, transparent);
+  backdrop-filter: blur(9px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-l);
+  padding: 0 var(--padding-xl);
+}
+
+/* 브레드크럼 */
+.adm-topbar__crumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-text-subtler);
+  font-size: 1.5rem;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+
+  b {
+    color: var(--color-text-default);
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+/* 전역 검색 (버튼형) */
+.adm-topbar__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: 28rem;
+  height: 4.4rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-l);
+  background: var(--color-bg-elevated);
+  padding: 0 var(--space-16);
+  color: var(--color-text-disabled);
+  font-size: 1.5rem;
+  text-align: left;
+  cursor: text;
+
+  &:hover {
+    border-color: var(--color-border-strong);
+  }
+
+  kbd {
+    margin-left: auto;
+    font-size: 1.3rem;
+    color: var(--color-text-disabled);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-s);
+    padding: .3rem .6rem;
+  }
+}
+
+/* 아이콘 버튼 (테마 토글 등) */
+.adm-topbar__icon-btn {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-m);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-subtler);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: none;
+
+  &:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-border-primary);
+  }
+}
+
+/* 사용자 버튼 */
+.adm-topbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: 4.4rem;
+  padding: 0 var(--space-4) 0 0;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--color-text-default);
+}
+
+/* 햄버거 메뉴 버튼 */
+.adm-topbar__menu-btn {
+  width: 4rem;
+  height: 4rem;
+  border: 0;
+  background: none;
+  color: var(--color-text-subtler);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: var(--radius-m);
+  flex: none;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+    color: var(--color-text-default);
+  }
+}
+
+/* AI 버튼 */
+.adm-topbar__ai-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 3.6rem;
+  padding: 0 var(--space-12);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--color-border-primary);
+  background: var(--color-bg-primary-subtle);
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  flex: none;
+
+  &:hover {
+    background: var(--color-bg-primary-subtle-hover);
+  }
+}
+
+/* 검색 텍스트 (말줄임) */
+.adm-topbar__search > span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 아바타 */
+.adm-topbar__avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-circle);
+  background: var(--color-bg-primary);
+  color: var(--color-text-inverse);
+  display: grid;
+  place-items: center;
+  flex: none;
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+}

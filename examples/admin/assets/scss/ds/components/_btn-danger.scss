@@ -1,0 +1,28 @@
+/* =============================================================================
+   Danger 버튼 — 어드민 전용 추가 variant
+   yds-btn에 adm-btn--ghost-danger modifier 조합
+   채우기 Danger(yds-btn--danger)는 YDS 공통으로 올려 button.scss에서 제공
+   ============================================================================= */
+
+/* 고스트 Danger (테두리·배경 없음, 텍스트만 danger 색) */
+.yds-btn.adm-btn--ghost-danger {
+  background: transparent;
+  border: 0;
+  color: var(--color-text-danger);
+  padding-inline: var(--space-8);
+
+  &:hover:not(:disabled) {
+    background: var(--color-bg-danger-subtle);
+  }
+
+  &:active:not(:disabled) {
+    background: var(--color-bg-danger-subtle);
+    color: var(--color-text-danger);
+  }
+
+  &:disabled {
+    color: var(--color-text-disabled);
+    background: transparent;
+    cursor: not-allowed;
+  }
+}

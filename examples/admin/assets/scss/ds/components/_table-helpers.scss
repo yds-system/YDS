@@ -1,0 +1,78 @@
+/* =============================================================================
+   테이블 보조 — 어드민 전용
+   ============================================================================= */
+
+/* 어드민 테이블 — 머리글 배경 (secondary-subtle 남색 튐 방지)
+   라이트: color-bg-subtle = gray-5 (#f4f5f6)
+   다크  : color-bg-subtle = gray-80 (#33363d) */
+.adm-app .yds-table-wrap {
+  --yds-table--data-thead-surface: var(--color-bg-subtle);
+  --yds-table--data-thead-border:  var(--color-border-subtle);
+}
+
+/* 콘텐츠명 링크 */
+.adm-t-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-default);
+  text-decoration: none;
+  text-align: left;
+
+  &:hover { color: var(--color-text-primary); }
+
+  &.adm-t-title--muted { color: var(--color-text-subtler); }
+}
+
+/* 메뉴 위치 부제목 */
+.adm-t-sub {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--color-text-subtler);
+  margin-top: var(--space-2);
+}
+
+/* 열 정렬 — YDS 테이블 기본: left */
+.yds-table.yds-table--data thead th.adm-th-center,
+.yds-table.yds-table--data tbody td.adm-td-center {
+  text-align: center;
+}
+
+.yds-table.yds-table--data tbody td.adm-td-right {
+  text-align: right;
+}
+
+.adm-td-nowrap {
+  white-space: nowrap;
+}
+
+/* 담당자 셀 */
+.adm-owner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.adm-avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-circle);
+  background: var(--color-bg-primary);
+  color: var(--color-text-inverse);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  flex: none;
+}
+
+/* 관리 열 아이콘 버튼 그룹 */
+.adm-manage-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
