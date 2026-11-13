@@ -18,30 +18,38 @@
     display: none !important;
   }
 
+  /* ── CMS DEMO: 사이드바 하단 겹침 방지 ── */
+  #sidebar-bottom-wrapper {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+  }
+
   /* ── CMS DEMO 링크 ── */
   #yds-cms-demo-link {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 7px 14px;
-    margin: 0 0 2px;
+    padding: 8px 14px;
     font-size: 13px;
-    font-weight: 600;
-    color: #666;
+    font-weight: 700;
+    color: #1a1a1a;
+    background: #fff;
     text-decoration: none;
-    letter-spacing: 0.03em;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    transition: color 0.15s;
+    letter-spacing: 0.04em;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    transition: background 0.15s, color 0.15s;
   }
   #yds-cms-demo-link:hover {
-    color: #1ea7fd;
+    background: #f0f0f0;
+    color: #000;
   }
   #yds-cms-demo-link svg {
     flex-shrink: 0;
-    opacity: 0.5;
+    opacity: 0.4;
   }
   #yds-cms-demo-link:hover svg {
-    opacity: 1;
+    opacity: 0.8;
   }
 </style>
 
