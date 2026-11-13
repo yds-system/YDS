@@ -35,6 +35,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Copy CMS Demo into build
+        run: cp -r cms-new-ui storybook-static/cms-new-ui
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
