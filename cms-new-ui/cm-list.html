@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>댓글 관리 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="comment" data-crumb="홈 / 사이트 / 댓글 관리">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">댓글 관리</h1>
+            <p class="page-desc">왼쪽에서 메뉴를 고르면 그 메뉴에 달린 댓글만 볼 수 있어요.</p>
+          </div>
+          <div class="page-actions"><div class="use-state"><button type="button" class="use-state__icon" aria-label="목록 보기" data-soon="목록 보기"><span data-icon="list" data-size="18" data-w="1.8" aria-hidden="true"></span></button><span class="use-state__label">사용중</span></div></div>
+        </div>
+
+        <div class="menu-grid menu-grid--comment">
+          <section class="card menu-panel reveal" style="--i:1" aria-label="메뉴 목록">
+            <div class="card-head"><h2 class="card-title">메뉴 목록 <span class="card-sub">demo.yooncoms.com/test1</span></h2></div>
+            <div class="toolbar">
+              <button type="button" class="btn btn--secondary btn--sm" id="btn-open">전체 열기</button>
+              <button type="button" class="btn btn--secondary btn--sm" id="btn-close">전체 닫기</button>
+            </div>
+            <div class="tree" id="tree" role="tree" aria-label="메뉴 구조">
+              <ul>
+              <li><div class="tree-row is-selected" role="treeitem" tabindex="0" style="--depth:0" aria-selected="true" aria-expanded="true"><button type="button" class="tree-toggle is-open" data-toggle tabindex="-1" aria-hidden="true"><span data-icon="right" data-size="14" data-w="2" aria-hidden="true"></span></button><span class="tree-icon" data-icon="folder" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">전체</span> <span class="tree-count">(36)</span></div>
+                <div class="tree-kids is-open"><ul role="group">
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false" aria-expanded="false"><button type="button" class="tree-toggle" data-toggle tabindex="-1" aria-hidden="true"><span data-icon="right" data-size="14" data-w="2" aria-hidden="true"></span></button><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">데모사이트</span></div>
+                    <div class="tree-kids"><ul role="group">
+                      <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:2" aria-selected="false" aria-expanded="false"><button type="button" class="tree-toggle" data-toggle tabindex="-1" aria-hidden="true"><span data-icon="right" data-size="14" data-w="2" aria-hidden="true"></span></button><span class="tree-icon" data-icon="folder" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">테스트메뉴</span></div>
+                        <div class="tree-kids"><ul role="group">
+                          <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:3" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="file" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">전체 Q&amp;A 게시판</span></div></li>
+                          <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:3" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="file" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">전체 일반형 게시판</span></div></li>
+                        </ul></div>
+                      </li>
+                      <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:2" aria-selected="false" aria-expanded="false"><button type="button" class="tree-toggle" data-toggle tabindex="-1" aria-hidden="true"><span data-icon="right" data-size="14" data-w="2" aria-hidden="true"></span></button><span class="tree-icon" data-icon="folder" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">1 Depth</span></div>
+                        <div class="tree-kids"><ul role="group">
+                          <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:3" aria-selected="false" aria-expanded="false"><button type="button" class="tree-toggle" data-toggle tabindex="-1" aria-hidden="true"><span data-icon="right" data-size="14" data-w="2" aria-hidden="true"></span></button><span class="tree-icon" data-icon="folder" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">2 Depth(2)</span></div>
+                            <div class="tree-kids"><ul role="group">
+                              <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:4" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="file" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">답글형 게시판</span></div></li>
+                              <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:4" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="file" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">일반형 게시판</span></div></li>
+                            </ul></div>
+                          </li>
+                        </ul></div>
+                      </li>
+                      <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:2" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="file" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">콘텐츠</span></div></li>
+                    </ul></div>
+                  </li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">영업사이트</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">비즈플레이</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">NH</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">디비비전 데모</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">세림티에스지</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">경기도교육청</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">씨에이티아이</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">대표홈페이지 메뉴 관리</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">솔루션사업부 대숲</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">뉴스룸</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">솔루션테스트</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">솔트케이크</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">매출채권 메뉴 관리</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">컨텐츠/게시판 권한 관리</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">대나무숲</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">웨이브피아</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">게티이미지</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">윤커뮤니케이션즈 영업 포털</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">팀인터페이스</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">국립암센터 데모</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">신용회복위원회</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">윤커뮤니케이션즈 dx 플랫폼</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">통합테스트용 사이트</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">테스트용 웹사이트 제작</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">정원엔시스</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">와이어링크</span></div></li>
+                  <li><div class="tree-row" role="treeitem" tabindex="-1" style="--depth:1" aria-selected="false"><span class="tree-spacer"></span><span class="tree-icon" data-icon="home" data-size="15" data-w="1.8" aria-hidden="true"></span><span class="tree-label">제이시스</span></div></li>
+                </ul></div>
+              </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card reveal" style="--i:2" aria-label="댓글 목록">
+            <div class="card-head">
+              <h2 class="card-title">댓글 <span class="chip chip--primary" id="sel-menu">전체</span></h2>
+              <p class="count-text">총 <b class="num" id="count">36</b>건</p>
+            </div>
+            <form class="filter-row" id="filters" role="search" aria-label="댓글 검색">
+              <input class="input grow" type="search" name="searchCn" placeholder="댓글 내용으로 검색" aria-label="댓글 내용" style="max-width:320px">
+              <input class="input" type="search" name="searchWriter" placeholder="작성자" aria-label="작성자" style="width:176px">
+              <button type="submit" class="btn btn--secondary">검색</button>
+            </form>
+            <div class="table-wrap">
+              <table class="table" style="min-width:820px">
+                <caption class="sr-only">댓글 목록</caption>
+                <colgroup><col style="width:64px"><col style="width:210px"><col><col style="width:118px"><col style="width:121px"><col style="width:92px"></colgroup>
+                <thead>
+                  <tr><th scope="col">순번</th><th scope="col" class="is-left">메뉴 경로</th><th scope="col" class="is-left">댓글 내용</th><th scope="col">작성자</th><th scope="col">작성일</th><th scope="col">관리</th></tr>
+                </thead>
+                <tbody id="rows">
+                  <tr>
+                    <td class="num">16</td>
+                    <td><div class="path"><span>데모사이트</span><span>테스트메뉴</span><span>전체 Q&amp;A 게시판</span></div></td>
+                    <td class="is-left"><p class="t-text">제품사용법 댓글1 입니다.</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">김</span>김나영</span></td>
+                    <td class="t-date num">2025-09-18<small>10:40:15</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="16번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="16번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">15</td>
+                    <td><div class="path"><span>데모사이트</span><span>1 Depth</span><span>2 Depth(2)</span><span>답글형 게시판</span></div></td>
+                    <td class="is-left"><p class="t-text">내용 감사합니다 ^^</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                    <td class="t-date num">2025-09-18<small>10:26:59</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="15번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="15번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">14</td>
+                    <td><div class="path"><span>비즈위즈</span><span>회사소개</span><span>게시판</span></div></td>
+                    <td class="is-left"><p class="t-text">test test test</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">t</span>test</span></td>
+                    <td class="t-date num">2025-09-04<small>06:15:21</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="14번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="14번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">13</td>
+                    <td><div class="path"><span>데모사이트</span><span>콘텐츠</span></div></td>
+                    <td class="is-left"><p class="t-text">안녕하세요^^ 홍길동입니다.</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                    <td class="t-date num">2025-07-29<small>02:28:51</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="13번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="13번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">12</td>
+                    <td><div class="path"><span>데모사이트</span><span>콘텐츠</span></div></td>
+                    <td class="is-left"><p class="t-text">좋은 컨텐츠네요!!</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                    <td class="t-date num">2025-03-10<small>10:23:56</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="12번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="12번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">11</td>
+                    <td><div class="path"><span>데모사이트</span><span>콘텐츠</span></div></td>
+                    <td class="is-left"><p class="t-text">콘텐츠 잘 보고 갑니다 ^^</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">a</span>aaa123</span></td>
+                    <td class="t-date num">2025-03-10<small>10:23:36</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="11번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="11번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">10</td>
+                    <td><div class="path"><span>데모사이트</span><span>콘텐츠</span></div></td>
+                    <td class="is-left"><p class="t-text"><span class="chip chip--amber">이미지</span>좋은 컨텐츠네요!!좋은 컨텐츠네요!!좋은 컨텐츠네요!!좋은 컨텐츠네요!!좋은 컨텐츠네요!!</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">a</span>aaa123</span></td>
+                    <td class="t-date num">2025-03-10<small>10:22:44</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="10번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="10번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">9</td>
+                    <td><div class="path"><span>데모사이트</span><span>콘텐츠</span></div></td>
+                    <td class="is-left"><p class="t-text">좋은 컨텐츠네요!!</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                    <td class="t-date num">2025-03-07<small>05:13:21</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="9번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="9번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">8</td>
+                    <td><div class="path"><span>데모사이트</span><span>테스트메뉴</span><span>전체 일반형 게시판</span></div></td>
+                    <td class="is-left"><p class="t-text">11111111111</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">1</span>1111</span></td>
+                    <td class="t-date num">2025-02-28<small>11:14:57</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="8번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="8번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                  <tr>
+                    <td class="num">7</td>
+                    <td><div class="path"><span>데모사이트</span><span>1 Depth</span><span>2 Depth(2)</span><span>일반형 게시판</span></div></td>
+                    <td class="is-left"><p class="t-text">좋은 글 감사합니다. 다음 소식들도 기대하겠습니다.</p></td>
+                    <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                    <td class="t-date num">2025-02-20<small>05:00:15</small></td>
+                    <td><span class="row-actions"><button type="button" class="icon-btn" data-view aria-label="7번 댓글 보기"><span data-icon="eye" data-size="17" data-w="1.8" aria-hidden="true"></span></button><button type="button" class="icon-btn icon-btn--danger" data-del aria-label="7번 댓글 삭제"><span data-icon="trash" data-size="17" data-w="1.8" aria-hidden="true"></span></button></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-foot">
+              <span class="page-desc num" style="margin:0">1-10 / 36건</span>
+              <nav class="pagination" aria-label="페이지 이동"><button type="button" class="page-btn page-btn--edge" aria-label="이전 페이지" disabled><span data-icon="left" data-size="15" data-w="2" aria-hidden="true"></span></button><button type="button" class="page-btn is-active" aria-current="page">1</button><button type="button" class="page-btn">2</button><button type="button" class="page-btn page-btn--edge" aria-label="다음 페이지"><span data-icon="right" data-size="15" data-w="2" aria-hidden="true"></span></button></nav>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/cm-list.js"></script>
+</body>
+</html>

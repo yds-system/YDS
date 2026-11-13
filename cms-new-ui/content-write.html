@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>콘텐츠 등록 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="write" data-crumb="홈 / 콘텐츠 / 콘텐츠 목록 / 콘텐츠 등록">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title" id="page-title">콘텐츠 등록</h1>
+            <p class="page-desc">제목과 본문을 입력하고, 미디어 관리에서 이미지나 파일을 골라 넣으세요.</p>
+          </div>
+          <div class="page-actions">
+            <span class="save-state" id="save-state" aria-live="polite"></span>
+            <a class="btn btn--secondary" href="contents.html">취소</a>
+            <button type="button" class="btn btn--secondary" id="btn-draft">임시저장</button>
+            <button type="submit" form="write-form" class="btn btn--primary">등록</button>
+          </div>
+        </div>
+
+        <form class="write-grid" id="write-form" novalidate>
+          <section class="card reveal" style="--i:1" aria-label="콘텐츠 내용">
+            <div class="card-body" style="display:flex;flex-direction:column;gap:22px">
+              <div>
+                <label class="field-label" for="w-title">콘텐츠명 <i aria-hidden="true">*</i></label>
+                <input class="input" id="w-title" name="title" placeholder="콘텐츠명을 입력하세요" maxlength="80" required autocomplete="off">
+              </div>
+              <div>
+                <label class="field-label" for="w-menu">메뉴 위치 <i aria-hidden="true">*</i></label>
+                <select class="select" id="w-menu" name="menu" required>
+                  <option value="">메뉴를 선택하세요</option>
+                  <option>1. 중구소개 › 연혁</option><option>1. 중구소개 › 오시는 길</option><option>2. 소통과 참여 › 행사참여</option>
+                  <option>2. 소통과 참여 › 제안/의견</option><option>3. 문화강좌 › 강좌안내</option><option>4. 향토사료 › 아카이브</option>
+                </select>
+              </div>
+              <div>
+                <span class="field-label" id="lbl-body">본문</span>
+                <div class="editor">
+                  <div class="editor-bar" role="toolbar" aria-label="본문 서식">
+                    <button type="button" class="ed-btn" data-cmd="bold" aria-label="굵게"></button>
+                    <button type="button" class="ed-btn" data-cmd="italic" aria-label="기울임"></button>
+                    <button type="button" class="ed-btn" data-cmd="underline" aria-label="밑줄"></button>
+                    <span class="ed-sep"></span>
+                    <button type="button" class="ed-btn" data-cmd="formatBlock" data-arg="H2" aria-label="제목"></button>
+                    <button type="button" class="ed-btn" data-cmd="insertUnorderedList" aria-label="목록"></button>
+                    <button type="button" class="ed-btn" data-cmd="formatBlock" data-arg="BLOCKQUOTE" aria-label="인용"></button>
+                    <button type="button" class="ed-btn" data-cmd="createLink" aria-label="링크"></button>
+                    <button type="button" class="btn btn--primary btn--sm" id="btn-media">미디어 삽입</button>
+                  </div>
+                  <div class="editor-area" id="editor" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="lbl-body" data-placeholder="본문을 입력하세요. 이미지·영상은 ‘미디어 삽입’으로 넣을 수 있어요."></div>
+                  <div class="editor-foot"><span id="media-count">미디어 0개</span><span class="num" id="char-count">0자</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="card side-card reveal" style="--i:2" aria-label="게시 설정">
+            <div class="card-head"><h2 class="card-title">게시 설정</h2></div>
+            <div class="card-body">
+              <div>
+                <span class="field-label">유형</span>
+                <div class="radio-row">
+                  <label class="radio-pill"><input type="radio" name="type" value="페이지" checked><span>페이지</span></label>
+                  <label class="radio-pill"><input type="radio" name="type" value="프로그램"><span>프로그램</span></label>
+                  <label class="radio-pill"><input type="radio" name="type" value="게시판"><span>게시판</span></label>
+                  <label class="radio-pill"><input type="radio" name="type" value="외부링크"><span>외부링크</span></label>
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="w-owner">담당자</label>
+                <select class="select" id="w-owner" name="owner"><option>홍길동</option><option>김민지</option><option>박서준</option><option>이하늘</option></select>
+              </div>
+              <label class="toggle-row">등록 후 바로 노출 <span class="switch"><input type="checkbox" name="on" checked><span class="switch-track"></span></span></label>
+              <label class="toggle-row">승인 요청 <span class="switch"><input type="checkbox" name="approve" checked><span class="switch-track"></span></span></label>
+              <div>
+                <span class="field-label">게시 기간</span>
+                <div style="display:flex;flex-direction:column;gap:9px">
+                  <input class="input" type="date" name="from" aria-label="게시 시작일">
+                  <input class="input" type="date" name="to" aria-label="게시 종료일">
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="w-tag">태그</label>
+                <input class="input" id="w-tag" placeholder="입력 후 Enter" autocomplete="off">
+                <div class="perm-list" id="tags" style="margin-top:9px"></div>
+              </div>
+            </div>
+          </aside>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/content-write.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미디어 관리 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="media" data-crumb="홈 / 콘텐츠 / 미디어 관리">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">미디어 관리</h1>
+            <p class="page-desc">이미지·영상·파일을 올려 두면 콘텐츠를 작성할 때 골라 넣을 수 있어요.</p>
+          </div>
+          <div class="page-actions"><div class="use-state"><button type="button" class="use-state__icon" aria-label="목록 보기" data-soon="목록 보기"><span data-icon="list" data-size="18" data-w="1.8" aria-hidden="true"></span></button><span class="use-state__label">사용중</span></div><button type="button" class="btn btn--primary" data-soon="미디어 등록">+ 미디어 등록</button></div>
+        </div>
+
+        <section class="card reveal" style="--i:1" aria-label="미디어 목록">
+          <div class="tabs" role="tablist" id="tabs" aria-label="미디어 분류"><button type="button" class="tab is-active" role="tab" aria-selected="true" data-tab="all">전체</button><button type="button" class="tab" role="tab" aria-selected="false" data-tab="image">이미지</button><button type="button" class="tab" role="tab" aria-selected="false" data-tab="video">동영상</button><button type="button" class="tab" role="tab" aria-selected="false" data-tab="audio">음악</button><button type="button" class="tab" role="tab" aria-selected="false" data-tab="etc">ETC</button></div>
+          <div class="filter-row">
+            <div class="bulk">
+              <p class="count-text">총 <b class="num" id="count">23</b>건</p>
+              <span class="sel" id="sel-count" aria-live="polite"></span>
+              <button type="button" class="btn btn--ghost-danger btn--sm" id="bulk-del" disabled>선택 삭제</button>
+            </div>
+            <form class="search-group end" id="filters" role="search" aria-label="미디어 검색">
+              <select class="select" name="searchCnd" style="width:132px" aria-label="검색 항목"><option value="nm">미디어명</option><option value="writer">등록자</option></select>
+              <input class="input" type="search" name="searchWrd" placeholder="검색어를 입력하세요" aria-label="검색어" style="width:242px">
+              <button type="submit" class="btn btn--secondary">검색</button>
+            </form>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="sr-only">미디어 목록</caption>
+              <colgroup><col style="width:57px"><col style="width:70px"><col style="width:136px"><col style="width:110px"><col><col style="width:121px"><col style="width:121px"></colgroup>
+              <thead>
+                <tr><th scope="col"><label class="check"><input type="checkbox" id="check-all"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">전체 선택</span></label></th><th scope="col">순번</th><th scope="col">썸네일</th><th scope="col">분류</th><th scope="col" class="is-left">미디어명</th><th scope="col">등록일</th><th scope="col">등록자</th></tr>
+              </thead>
+              <tbody id="rows">
+                <tr data-type="etc">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="23"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">신청서 선택</span></label></td>
+                  <td class="num">23</td>
+                  <td><span class="thumb"><span data-icon="file" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--gray">ETC</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">신청서</a></td>
+                  <td class="t-date num">2026-02-09</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">김</span>김나영</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="22"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">회사로고 선택</span></label></td>
+                  <td class="num">22</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">회사로고</a></td>
+                  <td class="t-date num">2026-02-03</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이효섭</span></td>
+                </tr>
+                <tr data-type="etc">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="21"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">압축파일 선택</span></label></td>
+                  <td class="num">21</td>
+                  <td><span class="thumb"><span data-icon="file" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--gray">ETC</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">압축파일</a></td>
+                  <td class="t-date num">2025-12-02</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">관</span>관리자</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="20"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">쇼핑몰 선택</span></label></td>
+                  <td class="num">20</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">쇼핑몰</a></td>
+                  <td class="t-date num">2025-07-29</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이성제</span></td>
+                </tr>
+                <tr data-type="video">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="19"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">sjlee 선택</span></label></td>
+                  <td class="num">19</td>
+                  <td><span class="thumb thumb--video"><span data-icon="play" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--amber">동영상</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">sjlee</a></td>
+                  <td class="t-date num">2025-07-22</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이성제</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="18"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">이미지 99 선택</span></label></td>
+                  <td class="num">18</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">이미지 99</a></td>
+                  <td class="t-date num">2025-07-15</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">홍</span>홍길동</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="17"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">테스트 이미지 선택</span></label></td>
+                  <td class="num">17</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">테스트 이미지</a></td>
+                  <td class="t-date num">2025-05-20</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이효섭</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="16"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">회사로고 선택</span></label></td>
+                  <td class="num">16</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">회사로고</a></td>
+                  <td class="t-date num">2025-03-19</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이효섭</span></td>
+                </tr>
+                <tr data-type="video">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="15"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">지구 선택</span></label></td>
+                  <td class="num">15</td>
+                  <td><span class="thumb thumb--video"><span data-icon="play" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--amber">동영상</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">지구</a></td>
+                  <td class="t-date num">2025-02-21</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">관</span>관리자</span></td>
+                </tr>
+                <tr data-type="image">
+                  <td><label class="check"><input type="checkbox" data-row name="mediaId" value="14"><span class="check-box"><span data-icon="check" data-size="12" data-w="3"></span></span><span class="sr-only">회사로고 선택</span></label></td>
+                  <td class="num">14</td>
+                  <td><span class="thumb thumb--image"><span data-icon="image" data-size="22" data-w="1.8" aria-hidden="true"></span></span><!-- 썸네일이 있으면: <span class="thumb"><img src="..." alt=""></span> --></td>
+                  <td><span class="chip chip--blue">이미지</span><span class="t-sub">FILE</span></td>
+                  <td class="is-left"><a class="t-title" href="#" data-soon="미디어 상세">회사로고</a></td>
+                  <td class="t-date num">2024-11-20</td>
+                  <td><span class="who"><span class="mono" aria-hidden="true">이</span>이효섭</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-foot">
+            <span class="page-desc num" style="margin:0">1-10 / 23건</span>
+            <nav class="pagination" aria-label="페이지 이동"><button type="button" class="page-btn page-btn--edge" aria-label="처음 페이지" disabled><span data-icon="collapse" data-size="15" data-w="2" aria-hidden="true"></span></button><button type="button" class="page-btn page-btn--edge" aria-label="이전 페이지" disabled><span data-icon="left" data-size="15" data-w="2" aria-hidden="true"></span></button><button type="button" class="page-btn is-active" aria-current="page">1</button><button type="button" class="page-btn">2</button><button type="button" class="page-btn">3</button><button type="button" class="page-btn page-btn--edge" aria-label="다음 페이지"><span data-icon="right" data-size="15" data-w="2" aria-hidden="true"></span></button><button type="button" class="page-btn page-btn--edge page-btn--last" aria-label="마지막 페이지"><span data-icon="collapse" data-size="15" data-w="2" aria-hidden="true"></span></button></nav>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/media-list.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메타데이터 상세 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="metadata" data-crumb="홈 / 메타데이터 / 메타데이터 목록 / 상세">
+    <div class="main">
+      <main class="content" id="meta-root">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">메타데이터 상세</h1>
+            <p class="page-desc" id="meta-desc">콘텐츠에 붙은 메타데이터를 항목별로 확인합니다. 값을 바꾸려면 수정을 누르세요.</p>
+          </div>
+          <div class="page-actions" id="actions-view">
+            <button type="button" class="btn btn--secondary" data-soon="메타데이터 목록">목록</button>
+            <button type="button" class="btn btn--primary" id="btn-edit">수정</button>
+          </div>
+          <div class="page-actions" id="actions-edit" hidden>
+            <button type="button" class="btn btn--secondary" id="btn-cancel">취소</button>
+            <button type="button" class="btn btn--primary" id="btn-save">저장</button>
+          </div>
+        </div>
+        <div class="detail-grid reveal" style="--i:1">
+          <section class="card card-body" id="col-left" aria-label="기본 정보와 범위"></section>
+          <section class="card card-body" id="col-right" aria-label="권한·발행, 날짜, 관련 자원"></section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/metadata.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>대시보드 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="dashboard" data-crumb="홈 / 대시보드">
+    <div class="main">
+      <main class="content">
+        <div class="section-head reveal">
+          <h1 class="section-title">주요 서비스 현황 개요</h1>
+          <p class="page-desc" id="today-label"></p>
+        </div>
+
+        <section class="card notice-bar reveal" style="--i:1" aria-label="알림소식">
+          <span class="chip chip--primary notice-chip"><span data-icon="megaphone" data-size="15" data-w="2.2"></span>알림소식</span>
+          <span class="notice-sep" aria-hidden="true"></span>
+          <p class="notice-text" id="notice-text" aria-live="polite"></p>
+          <div class="notice-nav">
+            <button type="button" class="notice-arrow" id="notice-prev" aria-label="이전 알림" data-icon="left" data-size="15" data-w="2"></button>
+            <button type="button" class="notice-arrow" id="notice-next" aria-label="다음 알림" data-icon="right" data-size="15" data-w="2"></button>
+          </div>
+          <a class="link" href="notice.html">더보기 ›</a>
+        </section>
+
+        <div class="row-3 reveal" style="--i:2">
+          <section class="card profile" aria-label="내 정보">
+            <div class="profile-who">
+              <span class="profile-avatar" data-icon="user" data-size="33" data-w="2"></span>
+              <div>
+                <span class="chip chip--primary">CMS 전체 관리</span>
+                <p class="profile-name">홍길동</p>
+                <p class="profile-meta">가입일자 2025-03-25</p>
+              </div>
+            </div>
+            <div class="profile-actions">
+              <button type="button" class="btn btn--secondary" data-soon="정보수정">정보수정</button>
+              <button type="button" class="btn btn--secondary" data-soon="로그아웃">로그아웃</button>
+            </div>
+          </section>
+
+          <section class="card" aria-label="운영정보">
+            <div class="card-head"><h2 class="card-title">운영정보</h2><span class="card-sub">누적 기준</span></div>
+            <div class="stat-tiles" id="stat-tiles"></div>
+          </section>
+
+          <section class="card" aria-label="오늘 접속자">
+            <div class="card-head"><h2 class="card-title">오늘 접속자 <span class="chip chip--green" id="visitor-count">1명</span></h2></div>
+            <ul id="visitors"></ul>
+          </section>
+        </div>
+
+        <div class="section-head reveal" style="--i:3; margin-top: 16px">
+          <h2 class="section-title">주요 접속 정보</h2>
+          <label class="inline-row" style="gap:11px">
+            <span class="page-desc" style="margin:0">페이지 뷰 현황</span>
+            <select class="select" id="pv-filter" style="width:220px">
+              <option value="all">전체</option>
+              <option value="board">게시판</option>
+              <option value="content">콘텐츠</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="charts reveal" style="--i:4">
+          <article class="card">
+            <div class="card-head"><h3 class="card-title">금일 접속 정보</h3></div>
+            <div class="card-body">
+              <div class="chart-box" id="chart-donut"></div>
+              <div class="chart-legend" id="donut-legend"></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3 class="card-title">주간 접속 정보</h3><span class="chart-legend" style="margin:0"><span><i style="background:var(--primary-soft)"></i>방문자수</span></span></div>
+            <div class="card-body"><div class="chart-box" id="chart-line"></div></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3 class="card-title">월간 접속 정보</h3></div>
+            <div class="card-body"><div class="chart-box" id="chart-bar"></div></div>
+          </article>
+        </div>
+
+        <div class="row-2 reveal" style="--i:5; margin-top: 13px">
+          <section>
+            <div class="section-head" style="margin-bottom:15px"><h2 class="section-title">관리 이력 조회</h2></div>
+            <div class="card">
+              <div class="tabs" role="tablist" id="history-tabs">
+                <button type="button" class="tab is-active" role="tab" aria-selected="true" data-tab="post">신규 게시글</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab="content">콘텐츠</button>
+                <a class="link tabs-end" href="notice.html">더보기 ›</a>
+              </div>
+              <ul class="history" id="history"></ul>
+            </div>
+          </section>
+          <section>
+            <div class="section-head" style="margin-bottom:15px"><h2 class="section-title">게시판별 등록글 현황 <span class="total" id="board-total"></span></h2></div>
+            <div class="card"><div class="board-grid" id="board-grid"></div></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

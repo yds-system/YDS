@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메뉴 설정 · 홍익인간 CMS</title>
+  <script>try{var t=JSON.parse(localStorage.getItem("cmsA.theme"));if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app" data-page="menu" data-crumb="홈 / 사이트 / 사이트 관리">
+    <div class="main">
+      <main class="content">
+        <div class="page-head reveal">
+          <div>
+            <h1 class="page-title">메뉴 설정</h1>
+            <p class="page-desc">왼쪽 목록에서 메뉴를 고르고 오른쪽에서 하위 메뉴를 추가해요.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <section class="card menu-panel reveal" style="--i:1" aria-label="메뉴 목록">
+            <div class="card-head"><h2 class="card-title">메뉴 목록 <span class="card-sub">중구문화원</span></h2></div>
+            <div class="toolbar">
+              <button type="button" class="btn btn--secondary btn--sm" id="btn-open">전체 열기</button>
+              <button type="button" class="btn btn--secondary btn--sm" id="btn-close">전체 닫기</button>
+              <button type="button" class="btn btn--secondary btn--sm" id="btn-add">+ 메뉴 추가</button>
+              <button type="button" class="btn btn--ghost-danger btn--sm" id="btn-delete">메뉴 삭제</button>
+            </div>
+            <div class="tree" id="tree" role="tree" aria-label="메뉴 구조"></div>
+            <div class="card-foot">
+              <label class="check"><input type="checkbox" id="show-icons" checked><span class="check-box" data-icon="check" data-size="13" data-w="3"></span>메뉴명 앞에 아이콘 표시</label>
+            </div>
+          </section>
+
+          <section class="card menu-panel reveal" style="--i:2" aria-label="하위 메뉴 추가">
+            <div class="card-head"><h2 class="card-title" id="form-title"></h2></div>
+            <form class="form-grid" id="menu-form" novalidate>
+              <div>
+                <label class="field-label" for="f-name">메뉴명 <i aria-hidden="true">*</i></label>
+                <input class="input" id="f-name" name="name" placeholder="메뉴명을 입력하세요" required autocomplete="off">
+              </div>
+              <div>
+                <label class="field-label" for="f-id">메뉴 ID <i aria-hidden="true">*</i></label>
+                <div class="input-group">
+                  <input class="input" id="f-id" name="id" required autocomplete="off">
+                  <button type="button" class="btn btn--secondary" id="btn-dup">중복 확인</button>
+                </div>
+                <p class="helper" id="id-helper" aria-live="polite"></p>
+              </div>
+              <div class="span-2">
+                <span class="field-label" id="lbl-type">유형</span>
+                <div class="seg" style="display:flex" role="radiogroup" aria-labelledby="lbl-type" id="seg-type">
+                  <button type="button" class="seg-btn is-active" data-v="서브메인">서브메인</button>
+                  <button type="button" class="seg-btn" data-v="콘텐츠">콘텐츠</button>
+                  <button type="button" class="seg-btn" data-v="게시판">게시판</button>
+                  <button type="button" class="seg-btn" data-v="외부 프로그램">외부 프로그램</button>
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="f-link">링크 정보</label>
+                <input class="input" id="f-link" name="link" placeholder="/경로 또는 https://" autocomplete="off">
+              </div>
+              <div>
+                <span class="field-label" id="lbl-target">링크 타겟</span>
+                <div class="seg" style="display:flex" role="radiogroup" aria-labelledby="lbl-target" id="seg-target">
+                  <button type="button" class="seg-btn" data-v="현재 창">현재 창</button>
+                  <button type="button" class="seg-btn is-active" data-v="새 창">새 창</button>
+                </div>
+              </div>
+              <div class="inline-row" style="gap:22px">
+                <div style="width:154px">
+                  <label class="field-label" for="f-order">메뉴 순서</label>
+                  <input class="input" id="f-order" name="order" type="number" min="1">
+                </div>
+                <div style="width:154px">
+                  <label class="field-label" for="f-lnb-pos">LNB 위치</label>
+                  <select class="select" id="f-lnb-pos"><option>좌측</option><option>우측</option></select>
+                </div>
+              </div>
+              <div></div>
+              <div class="span-2 toggles">
+                <label class="toggle-row">사용 여부 <span class="switch"><input type="checkbox" id="t-use"><span class="switch-track"></span></span></label>
+                <label class="toggle-row">GNB 노출 <span class="switch"><input type="checkbox" id="t-gnb" checked><span class="switch-track"></span></span></label>
+                <label class="toggle-row">LNB 노출 <span class="switch"><input type="checkbox" id="t-lnb" checked><span class="switch-track"></span></span></label>
+              </div>
+              <div class="span-2 inline-row" style="gap:31px">
+                <div class="inline-row"><span class="field-label" style="margin:0">부가정보</span><button type="button" class="btn btn--secondary" data-soon="부가정보 설정">설정 등록</button></div>
+                <div class="inline-row"><span class="field-label" style="margin:0">권한 설정</span><span id="perm-view" class="perm-list"><span class="perm-text">등록된 관리자가 없어요.</span></span><button type="button" class="btn btn--secondary" id="btn-perm">선택</button></div>
+              </div>
+            </form>
+            <div class="card-foot card-foot--end" style="margin-top:auto">
+              <button type="button" class="btn btn--secondary" id="btn-cancel">취소</button>
+              <button type="submit" form="menu-form" class="btn btn--primary">저장</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
